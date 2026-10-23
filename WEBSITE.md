@@ -284,6 +284,7 @@ f1composite.com
 - **证书**：ISO 9001、CE、ASTM E84、BS 476、运营商认可等一律写"按需提供"（附持证方、编号、范围）；PHI 2491wi03 是 PHI 证书，不是 PHIUS。
 - **寿命与维护**：不写"50+/75+/100 年设计寿命""免维护"之类的通用承诺；有产品目录依据的具体数值（如管材系列）可以写。
 - **文案检查**：`npm run check:copy`（CI 中运行）会拦截已撤回的说法，并提示破折号密度和"不是 X——而是 Y"句式。
+- **竞品对标长尾页（2026-10-23）**：`/resources/gfrp-rebar-size-chart`（GFRP 筋材尺寸与单重表，单重按名义面积和 1.9 g/cm³ 计算，标为 Calculated，数据在 `lib/gfrpRebar.ts`）；博客新增筋材每英尺成本、切割、玄武岩对比、格栅规范（附可下载的 `public/downloads/f1-frp-grating-guide-specification.txt`）；弯折文章、树脂页、圆棒页、What is FRP、紧固件页按竞品词补强。调研见 vault `05-市场/SEO/2026-10-23-对标frpzs与Income-可学可赢关键词清单.md`。
 - **内链归属**：`content/data/seoQueryTargets.ts` 为每个核心搜索词指定一个主页面，列在 `supportingUrls` 里的辅助页必须在正文里链回主页面。`npm run check:owner-links`（CI 在构建后运行）检查这一点；新增辅助页或改动相关链接时同步更新这个文件。
 - **页头日期**：`PageHeader` 的 `updated` 显示 "Last updated"，必须和该页 JSON-LD 的 `dateModified` 用同一个常量（`scripts/geo-citability.test.mjs` 检查）。只有改写文案、增删内容区块时才更新日期；只加链接不算。
 - **标准版次**：页面写的标准版次以发布机构或标准商店的当前记录为准。审核时先检索核实，不得凭记忆把较新的版次改回旧版；2026-10-03 审核中 IEC 60112:2025、ASTM B987-25、F711-26、F2503-26、ISO 10993-1:2025 等都被审核代理误判为不存在。已撤销的标准不得引用（如 ASTM D4435、D4436，2022 年撤销）。审核记录见 `docs/audits/2026-10-03-applications-products-review.md`。
@@ -453,7 +454,10 @@ Tailwind 遇到主题里不存在的类名不会报错，只是不生成样式�
 | 高 | 光伏页（`/products/frp-solar-mounting-systems`）摘录了 TÜV 报告 CN24KZ3A 002/003 的强度和保持率数值，下载页也写了 Intertek 窗报告的部分结果；TÜV 报告封面写明未经检测机构许可不得摘录复制，Intertek 报告也只允许整份复制。请向两家机构确认许可，或删去这些摘录。2026-09-25 业主决定暂时保留 | 暂时保留 |
 | 中 | 化学耐腐蚀选型页：需要树脂供应商授权的耐腐蚀数据或自测浸泡数据 | 待提供数据 |
 | 中 | 格栅载荷/挠度表页面：需要各格栅系列的载荷表（目前只有尺寸、重量和开孔率） | 待提供数据 |
-| 中 | 尺寸页收录试点（`lib/datasheetContent.ts` 中 24 个尺寸）上线 4–8 周后在 Search Console 复盘，再决定是否扩大 | 待复盘 |
+| 中 | 尺寸页收录：首批 24 个（2026-09-24）之后，2026-10-23 按对标竞品的尺寸长尾词放开第二批 20 个有跨度表和 DXF 的尺寸（共 44 个，`lib/datasheetContent.ts`），未先做 GSC 复盘。角钢、圆棒、扁条没有跨度表，仍 noindex。两批一起在 Search Console 复盘收录和展示后，再决定是否继续扩大 | 待复盘 |
+| 中 | 格栅价格页（fiberglass grating cost per square foot）：站内没有格栅报价数据，也找不到可核实的公开价格，暂未上线。需要业主提供各格栅系列的预算价（美元/平方米或平方英尺）后再做 | 待提供数据 |
+| 中 | 价格展示规则（2026-10-23 业主确认）：B2B 页面可以写价格区间，不写具体单价，实际价格以询价（RFQ）为准。筋材成本文章（`/resources/blog/fiberglass-rebar-cost-per-foot`）已按此改为美国零售标价的区间（约 $0.30–0.50/ft，3/8–1/2 in，2026-10），来源链接保留 | 已决定 |
+| 低 | 支撑杆 8/10/12 ft 长度矩阵、碳纤维标准管/棒尺寸页：竞品有这类页面，但站内数据只到 72 in 支撑杆、没有标准 CFRP 管目录。确认能否供货后再做 | 待确认 |
 | 中 | 视觉系统阶段 1 的两个默认选择待业主确认：信号色用标志渐变末端的 lime #BBDF35（备选：安全黄）；产品线沿用站内已有的 F1-STRUX / F1-GRID / F1-THERM / F1-FORM，未新起线名。改色只需改 `app/globals.css` 的 `--color-lime` | 待确认 |
 | 高 | 工具中标为 B/C 级的规范数值（ASCE/SEI 74-23 的 φ 和 λ、CEN/TS 19101 的 γ_M、EN ISO 14122 尺寸、英国/加拿大/澳新护栏荷载、AS 1657、新西兰窗户 R 值、ACI 440.11 的 C_E）需用正版标准复核，清单见 `docs/audits/2026-09-26-tools-standards-audit.md` 第四节 | 待复核 |
 | 高 | 采购 ASCE/SEI 74-23 和 CEN/TS 19101（或其开放获取的官方注释本），核实受压 φ、λ 表和螺栓连接条款，再决定是否做螺栓连接校核工具、是否把柱屈曲的 φ 提高到规范值。清单见 `docs/audits/2026-09-28-tools-round-2.md` | 待采购 |

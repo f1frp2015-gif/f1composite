@@ -5341,13 +5341,13 @@ F1 supplies GFRP straight bars, factory-formed stirrups and reinforcement mesh f
   {
     slug: "gfrp-bent-bars-stirrups-mesh-ordering-guide",
     title: "GFRP Bent Bars, Stirrups and Mesh: How to Detail, Schedule and Order Them",
-    seoTitle: "GFRP Stirrups and Bent Bars: Detailing and Ordering",
-    answerBox: "Cured GFRP bars cannot be bent, heated or welded on site, so every stirrup, hook and bend is formed in the factory from an approved drawing before shipment. Schedule each shape with a bar mark, diameter, leg dimensions, inside bend radius and quantity, and request test data for the bent portion, which carries less tensile force than the straight bar. Pre-manufactured mesh is outside ASTM D7957, so it needs its own drawing and test scope.",
+    seoTitle: "Can You Bend Fiberglass Rebar? GFRP Bends & Stirrups",
+    answerBox: "No: cured fiberglass (GFRP) bars cannot be bent, heated or welded on site, so every stirrup, hook and bend is formed in the factory from an approved drawing before shipment. Schedule each shape with a bar mark, diameter, leg dimensions, inside bend radius and quantity, and request test data for the bent portion, which carries less tensile force than the straight bar. Pre-manufactured mesh is outside ASTM D7957, so it needs its own drawing and test scope.",
     category: "Concrete Reinforcement",
     date: "2026-09-24",
-    updatedAt: "2026-09-24",
+    updatedAt: "2026-10-23",
     readTime: "8 min",
-    excerpt: "Why GFRP bends are made in the factory, what a bar bending schedule must contain, how bent-bar capacity and mesh are specified, and when to order them.",
+    excerpt: "Can you bend fiberglass rebar? Why GFRP bends are made in the factory, what a bar bending schedule must contain, how bent-bar capacity and mesh are specified, and when to order them.",
     authorName: "F1 Composite Editorial Team",
     authorType: "Organization",
     authorRole: "Technical content and sourcing guidance",
@@ -5372,7 +5372,7 @@ F1 supplies GFRP straight bars, factory-formed stirrups and reinforcement mesh f
       "The bent portion carries less tensile force than the straight bar, so request bent-bar data for each diameter and radius.",
       "Mesh sits outside ASTM D7957 and needs its own drawing, intersection detail and test scope.",
     ],
-    ogDescription: "GFRP bends are made in the factory. What a GFRP bar bending schedule needs, how bent-bar capacity and mesh are specified, and when to order them.",
+    ogDescription: "Can you bend fiberglass rebar? No: GFRP bends are made in the factory. What a bending schedule needs, how bent-bar capacity and mesh are specified.",
     ogChips: [
       "Factory bends only",
       "Bend schedule",
@@ -5396,6 +5396,10 @@ F1 supplies GFRP straight bars, factory-formed stirrups and reinforcement mesh f
       title: "GFRP bends and mesh questions",
       items: [
         {
+          question: "Can you bend fiberglass rebar with heat?",
+          answer: "No. Heating a cured GFRP bar softens and degrades the resin that holds the fibers, so the bent section loses strength even if it looks intact. Bends are formed in the factory before the resin cures; order every hook and stirrup from the approved schedule.",
+        },
+        {
           question: "Can GFRP stirrups be made in any shape?",
           answer: "Common shapes such as closed rectangular stirrups, L-bars and U-bars are routine. Other shapes depend on the forming tools available for the diameter and radius. Send the drawing with dimensions, inside radii and tolerances, and the shape is confirmed before production.",
         },
@@ -5415,9 +5419,9 @@ F1 supplies GFRP straight bars, factory-formed stirrups and reinforcement mesh f
     },
     content: `On a steel-reinforced job, a bar bender shapes stirrups on site from straight stock. With glass-fiber reinforced polymer (GFRP) the shape is fixed when the resin cures in the factory, and after that it cannot change. That single fact moves bends from the site to the drawing office: every hook, stirrup and bend has to be scheduled, approved and made before the bars ship.
 
-## Why GFRP cannot be bent on site
+## Can you bend fiberglass rebar on site?
 
-A GFRP bar is glass fibers locked in a cured thermoset resin, typically vinyl ester for concrete reinforcement. Bending a cured bar breaks fibers and cracks the matrix; heating it degrades the resin. Construction specifications and product instructions therefore prohibit field bending, heating and welding, and owner rules such as UFC 3-301-01 state the same prohibition for Department of Defense work. The only way to get a bent GFRP bar is to form it before the resin cures, which is what the manufacturer's bending line does.
+No. A GFRP bar is glass fibers locked in a cured thermoset resin, typically vinyl ester for concrete reinforcement. Bending a cured bar by hand or in a bender breaks fibers and cracks the matrix, and bending it with heat degrades the resin, even when the bar looks intact afterwards. Construction specifications and product instructions therefore prohibit field bending, heating and welding, and owner rules such as UFC 3-301-01 state the same prohibition for Department of Defense work. The only way to get a bent GFRP bar is to form it before the resin cures, which is what the manufacturer's bending line does.
 
 ## What a bend schedule must contain
 
@@ -6062,7 +6066,7 @@ Store them on level dunnage, off the ground, with supports close enough to stop 
 
 ## Cutting, and why bending stays in the factory
 
-Straight bars can be cut on site. Use a fine-toothed saw or a diamond or abrasive blade, support the bar on both sides of the cut, and give the crew dust extraction or respiratory protection, eye protection and gloves. Do not shear or flame-cut GFRP bars: shearing crushes and splits the fibers at the cut.
+Straight bars can be cut on site. Use a fine-toothed saw or a diamond or abrasive blade, support the bar on both sides of the cut, and give the crew dust extraction or respiratory protection, eye protection and gloves. Do not shear or flame-cut GFRP bars: shearing crushes and splits the fibers at the cut. Our guide on [how to cut fiberglass rebar](/resources/blog/how-to-cut-fiberglass-rebar) covers tools, dust control and cut ends in detail.
 
 Cured bars are never bent, heated or welded on site. UFC 3-301-01 permits field cutting but not field bending, because a bend can only be formed in the factory before the resin cures. Order every hook, stirrup and bent bar from the approved schedule, with a small agreed allowance of spare shapes for site damage. Our [GFRP bent bars and stirrups guide](/resources/blog/gfrp-bent-bars-stirrups-mesh-ordering-guide) covers the schedule.
 
@@ -6089,6 +6093,462 @@ ASTM D7957/D7957M requires a mean glass transition temperature of at least 100 �
 Before the pour, walk the mats and cages. Check bar marks and diameters against the schedule, bar spacing, cover, lap positions and lengths, bent shapes and their orientation, ties at the required intersections, supports and their hold-downs, and any damaged bars that need replacing. Record the lot numbers placed in each element, so the certificates follow the concrete.
 
 For the specification side, see our [GFRP rebar specification guide](/resources/blog/gfrp-rebar-specification-guide-aci-440-astm-d7957). F1 supplies [GFRP straight bars, factory-formed stirrups and mesh](/products/frp-rebar) against a project schedule; handling and storage instructions are confirmed with the bars offered.`,
+  },
+  {
+    slug: "fiberglass-rebar-cost-per-foot",
+    title: "Fiberglass Rebar Cost per Foot: How to Compare GFRP Prices on the Same Basis",
+    seoTitle: "Fiberglass Rebar Cost per Foot: GFRP Price Guide",
+    answerBox: "Fiberglass (GFRP) rebar is priced by the foot or meter for each bar size, and published US retail listings for 3/8 in to 1/2 in bars fell in a range of roughly $0.30 to $0.50 per foot in October 2026; project prices are confirmed by quotation (RFQ). A price per foot only compares when the size basis matches: divide it by the certified area or the guaranteed tensile load, and add bends, certification, cutting and freight before comparing GFRP with steel.",
+    category: "Concrete Reinforcement",
+    date: "2026-10-23",
+    updatedAt: "2026-10-23",
+    readTime: "7 min",
+    excerpt: "What fiberglass rebar costs per foot, why two bars sold as the same size can differ in price per unit of strength, and how to build a project price comparison with steel.",
+    authorName: "F1 Composite Editorial Team",
+    authorType: "Organization",
+    authorRole: "Technical content and sourcing guidance",
+    reviewedBy: "Editorial source check",
+    standards: [
+      "ASTM D7957/D7957M-26",
+      "ACI CODE-440.11-22",
+    ],
+    coverImage: "/images/covers/blog/gfrp-rebar-cost-basis.webp",
+    coverAlt: "Two GFRP bar cross-sections, a nominal half-inch bar and a bar with a 7/16 in core, with price per foot divided by area",
+    coverNote: "Schematic",
+    supportingImage: "/images/products/frp-rebar/gfrp-straight-bars.webp",
+    supportingAlt: "Bundle of straight GFRP reinforcing bars with a sand-coated surface",
+    supportingImageFit: "contain",
+    supportingCaption: "Supplier photo of straight GFRP bars. Product illustration only: the certified area, tensile load and surface are confirmed for the bars actually quoted.",
+    highlights: [
+      "US retail listings for 3/8 in to 1/2 in bars ran roughly $0.30–$0.50 per foot in October 2026; the project price is confirmed by RFQ.",
+      "A bar named by outside diameter can have a smaller load-bearing core than the nominal size, so compare price per certified area or per guaranteed tensile load.",
+      "Bends, certification, cut lists, packing and freight change the delivered price more than the base price per foot.",
+      "Compare GFRP and steel on the redesigned reinforcement and the installed, maintained structure, not on bar price alone.",
+    ],
+    ogDescription: "What fiberglass rebar costs per foot, how to compare GFRP prices by certified area and tensile load, and what to include before comparing it with steel.",
+    ogChips: [
+      "Price per foot",
+      "Same size basis",
+      "GFRP vs steel",
+    ],
+    relatedLinks: [
+      { label: "FRP Rebar: GFRP Bars, Stirrups & Mesh", href: "/products/frp-rebar" },
+      { label: "GFRP Rebar Size Chart", href: "/resources/gfrp-rebar-size-chart" },
+      { label: "Fiberglass Rebar vs Steel: Evidence Review", href: "/technology/fiberglass-rebar-vs-steel" },
+      { label: "GFRP Rebar Specification Guide", href: "/resources/blog/gfrp-rebar-specification-guide-aci-440-astm-d7957" },
+      { label: "Life-Cycle Cost Calculator", href: "/tools/frp-life-cycle-cost-calculator" },
+    ],
+    sourceLinks: [
+      { label: "Ernest Maier: 1/2 in fiberglass rebar listing, priced per foot (accessed 2026-10-23)", href: "https://ernestmaier.com/product/4max/" },
+      { label: "Ernest Maier: 3/8 in fiberglass rebar listing, priced per foot (accessed 2026-10-23)", href: "https://ernestmaier.com/product/3max/" },
+      { label: "ASTM D7957/D7957M-26: solid round GFRP bars for concrete reinforcement", href: "https://store.astm.org/d7957_d7957m-26.html" },
+      { label: "ACI CODE-440.11-22: building code for GFRP-reinforced concrete", href: "https://www.concrete.org/store/productdetail.aspx?ItemID=44011U22&Language=English&Units=US_Units" },
+    ],
+    faq: {
+      title: "Fiberglass rebar price questions",
+      items: [
+        {
+          question: "How much does fiberglass rebar cost per foot?",
+          answer: "US retail listings for 3/8 in to 1/2 in bars fell roughly between $0.30 and $0.50 per foot in October 2026, and larger bars cost more in proportion to their area. Project prices depend on the size mix, certification, bends, quantity and delivery, so the actual price is confirmed by quotation against your bar schedule.",
+        },
+        {
+          question: "Is fiberglass rebar more expensive than steel?",
+          answer: "Often per foot of bar, but the bar price is not the whole comparison. The GFRP reinforcement is designed for its own stiffness and bond, so bar sizes and spacing can change, and the decision also includes coating or alloy choices for steel, handling, cover, maintenance and replacement. Compare the two designs at the same date and on the same scope.",
+        },
+        {
+          question: "Why do two 1/2 in fiberglass bars have different prices?",
+          answer: "They may not carry the same load. One published 1/2 in listing states a 7/16 in load-bearing core, which has about 25% less area than the nominal 0.20 in² of an ASTM D7957 No. 4 bar. Grade, surface, certification and lot testing also differ. Compare price per certified area or per guaranteed tensile load.",
+        },
+        {
+          question: "Do bends cost more than straight bars?",
+          answer: "Yes, in most quotations. GFRP bends and stirrups are formed in the factory before the resin cures, so each shape is priced from the bending schedule with its own tooling and handling. Keep bends and straight bars on separate lines when you compare offers.",
+        },
+      ],
+    },
+    content: `Fiberglass rebar, or glass fiber reinforced polymer (GFRP) rebar, is sold by the foot or meter for each bar size. The price per foot is the number buyers see first, and it is useful once two offers describe the same bar. This guide shows where published prices sit, why the same nominal size can mean different amounts of reinforcement, and what to add before a GFRP price is compared with steel.
+
+## What fiberglass rebar costs per foot
+
+Public retail listings give a reference range. In October 2026, US building-supply listings for 3/8 in and 1/2 in fiberglass rebar, priced by the foot and sold in 20 ft lengths, fell between roughly $0.30 and $0.50 per foot. Larger bars cost more per foot, roughly in proportion to their cross-sectional area.
+
+| What sets the figure | Range or basis |
+| --- | --- |
+| Reference range, 3/8 in to 1/2 in bars, US retail, October 2026 | About $0.30–$0.50 per foot |
+| Larger bar sizes | Scales roughly with cross-sectional area |
+| Project price | Confirmed by quotation against your bar schedule (RFQ) |
+
+The range is a public retail reference on one date, not a quotation. A project order adds certification, cut lengths, bends, packing and freight, and the quantity and size mix move the price in both directions. Use the range to sanity-check a quotation; the actual price is the one in the RFQ response.
+
+## Why the same size can mean different bars
+
+Retail listings also show the main trap in comparing per-foot prices. One published 1/2 in listing states a 7/16 in load-bearing core: a bar sold as 1/2 in by its outside diameter can have a smaller core once the ribs, wrap or sand coating are excluded. A 7/16 in core has an area of about 0.150 in², while an ASTM D7957 No. 4 bar has a nominal area of 0.20 in². The design strength of a bar is tied to the area and guaranteed tensile load that its certificate states, so a cheaper bar per foot can be the more expensive one per unit of reinforcement.
+
+Put each offer on the same basis before comparing:
+
+- **Price per certified area:** divide the price per foot by the certified cross-sectional area. A bar with a 0.150 in² core has 25% less area than a 0.20 in² No. 4 bar, so it needs to cost about 25% less per foot just to break even per unit of reinforcement.
+- **Price per guaranteed tensile load:** divide the price per foot by the guaranteed tensile force on the certificate, which reflects both area and strength.
+- **Same standard and edition:** check that both bars are offered against ASTM D7957 (or the standard your project names) and that the reports state the edition they were run against.
+
+Our [GFRP rebar size chart](/resources/gfrp-rebar-size-chart) lists the nominal diameter and area of every ASTM and metric size, with calculated weights.
+
+## What moves the price of a GFRP bar
+
+**Bar size.** Glass and resin content scale with the cross-sectional area, roughly with the square of the diameter, so a No. 8 bar costs several times a No. 4 bar per foot.
+
+**Grade and resin.** Bars for structural concrete are typically made with vinyl ester resin, and the guaranteed tensile strength and modulus differ between products. A higher guaranteed load can justify a higher price per foot.
+
+**Certification and testing.** Lot-specific certificates, third-party qualification reports and project tests such as bond or bent-bar capacity add cost and time. A price without them is not comparable with one that includes them.
+
+**Bends, stirrups and mesh.** Every bend is formed in the factory before the resin cures, as our [bent bars and stirrups guide](/resources/blog/gfrp-bent-bars-stirrups-mesh-ordering-guide) explains, so shapes are priced from the bending schedule.
+
+**Lengths, packing and freight.** Cut-to-length bars reduce site waste but add handling. GFRP weighs about a quarter as much as steel of the same size, which lowers the weight-based part of freight; long flexible bundles still need proper support and packing.
+
+## Comparing GFRP with steel
+
+A per-foot comparison of a GFRP bar with a steel bar of the same number is the least useful comparison. GFRP has roughly a quarter of the stiffness of steel, so the engineer of record designs the GFRP reinforcement to ACI CODE-440.11-22 or the code adopted for the project, and the bar sizes and spacing can change. Compare the two designs instead:
+
+1. Price the GFRP bar schedule and the steel bar schedule for the same element.
+2. Include the steel protection the exposure needs, such as epoxy coating, galvanizing or stainless steel.
+3. Add handling, placing and any change in concrete cover that each design requires.
+4. Add inspection, repair and replacement over the period the owner uses for decisions.
+
+Our [fiberglass rebar vs steel review](/technology/fiberglass-rebar-vs-steel) covers the technical tradeoffs, and the [life-cycle cost calculator](/tools/frp-life-cycle-cost-calculator) organizes a scenario with your own quoted costs.
+
+## Getting a comparable quotation
+
+Send the bar schedule with diameters or bar numbers, cut lengths, quantities, bent shapes, the standard and edition required, the certification you need and the delivery destination. The [bar schedule template](/downloads/f1-rebar-schedule-template.csv) has columns for straight bars and shapes. F1 quotes [GFRP straight bars, factory-formed stirrups and mesh](/products/frp-rebar) against the schedule, with the certified area and tensile data of the offered grade, so the price can be compared per foot and per unit of reinforcement. The quoted price, not a reference range, is the basis for the order.`,
+  },
+  {
+    slug: "how-to-cut-fiberglass-rebar",
+    title: "How to Cut Fiberglass Rebar: Tools, Blades, Dust Control and Cut Ends",
+    seoTitle: "How to Cut Fiberglass Rebar: Tools, Blades & Safety",
+    answerBox: "Cut fiberglass (GFRP) rebar with a diamond or abrasive blade on an angle grinder, circular saw or chop saw, or with a fine-toothed saw for small bars. Support the bar on both sides of the cut, use dust extraction and eye, skin and respiratory protection, and never shear, flame-cut, heat or bend the bar. Follow the supplier's instructions on sealing cut ends, and order bends and long cut lists from the factory.",
+    category: "Concrete Reinforcement",
+    date: "2026-10-23",
+    updatedAt: "2026-10-23",
+    readTime: "5 min",
+    excerpt: "A site guide to cutting fiberglass rebar: which saws and blades work, why shears and bolt cutters do not, dust and PPE, cut ends, and when to order cut lengths from the factory.",
+    authorName: "F1 Composite Editorial Team",
+    authorType: "Organization",
+    authorRole: "Technical content and sourcing guidance",
+    reviewedBy: "Editorial source check",
+    standards: [
+      "ACI SPEC-440.5-22",
+      "UFC 3-301-01 Appendix G (Change 5, 2026)",
+    ],
+    coverImage: "/images/covers/blog/gfrp-rebar-cutting-tools.webp",
+    coverAlt: "Diagram of a GFRP bar supported on both sides of a diamond blade cut, with shears and bolt cutters crossed out",
+    coverNote: "Schematic",
+    supportingImage: "/images/products/frp-rebar/f1-frp-rebar-sand-coated-helical.webp",
+    supportingAlt: "Sand-coated GFRP rebar with a helical wrap",
+    supportingImageFit: "contain",
+    supportingCaption: "Sand-coated GFRP bar with a helical wrap. Product illustration only: cutting and end treatment follow the instructions supplied with the bars actually delivered.",
+    highlights: [
+      "Use a diamond or abrasive blade, or a fine-toothed saw for small bars; shears and bolt cutters crush and split the fibers.",
+      "Support the bar on both sides of the cut so the end does not snap or splinter as the blade breaks through.",
+      "Cutting makes glass and resin dust: use extraction and eye, skin and respiratory protection.",
+      "Cutting is the only field operation: never bend, heat or weld a cured GFRP bar on site.",
+    ],
+    ogDescription: "How to cut fiberglass rebar: saws and blades that work, why shears crush the fibers, dust control and PPE, cut ends, and ordering cut lengths from the factory.",
+    ogChips: [
+      "Diamond blade",
+      "No shearing",
+      "Dust control",
+    ],
+    relatedLinks: [
+      { label: "FRP Rebar: GFRP Bars, Stirrups & Mesh", href: "/products/frp-rebar" },
+      { label: "How to Install GFRP Rebar", href: "/resources/blog/how-to-install-gfrp-rebar" },
+      { label: "GFRP Stirrups and Bent Bars: Detailing and Ordering", href: "/resources/blog/gfrp-bent-bars-stirrups-mesh-ordering-guide" },
+      { label: "GFRP Rebar Size Chart", href: "/resources/gfrp-rebar-size-chart" },
+      { label: "GFRP Bar Schedule Template (CSV)", href: "/downloads/f1-rebar-schedule-template.csv" },
+    ],
+    sourceLinks: [
+      { label: "UFC 3-301-01 Structural Engineering, Change 5 (2026), Appendix G", href: "https://www.wbdg.org/FFC/DOD/UFC/ufc_3_301_01_2023_c5.pdf" },
+      { label: "ACI SPEC-440.5-22: construction with GFRP reinforcing bars", href: "https://www.concrete.org/store/productdetail.aspx?ItemID=4405U22&Format=PROTECTED_PDF&Language=English&Units=US_Units" },
+      { label: "ACI SPEC-440.5-22 preview", href: "https://www.concrete.org/Portals/0/Files/PDF/Previews/440.5-22_preview.pdf" },
+    ],
+    faq: {
+      title: "Cutting fiberglass rebar",
+      items: [
+        {
+          question: "What is the best tool to cut fiberglass rebar?",
+          answer: "An angle grinder or circular saw with a diamond blade gives the cleanest, fastest cut on most bar sizes, and a chop saw with a diamond or abrasive wheel suits repeated cuts to length. For small bars, a fine-toothed hacksaw works. Use the blade type the bar supplier recommends.",
+        },
+        {
+          question: "Can you cut fiberglass rebar with bolt cutters or rebar shears?",
+          answer: "No. Shears and bolt cutters crush the bar instead of cutting it, splitting the fibers back from the end. UFC 3-301-01 permits field cutting of GFRP bars but not shearing. Use a saw.",
+        },
+        {
+          question: "Do you need to seal the cut ends of fiberglass rebar?",
+          answer: "Follow the instructions supplied with the bars. Some suppliers ask for cut ends to be sealed or kept away from particular exposures, others do not. Check the project specification as well, and record the requirement in the method statement before cutting starts.",
+        },
+        {
+          question: "Is fiberglass rebar dust dangerous?",
+          answer: "Cutting produces fine glass fiber and resin dust that irritates the eyes, skin and airways. Use dust extraction or the suppression method the site allows, and wear eye protection, gloves, long sleeves and the respiratory protection required by the site's risk assessment.",
+        },
+      ],
+    },
+    content: `Glass fiber reinforced polymer (GFRP) rebar can be cut on site, and cutting is the only field operation it allows. A cured bar cannot be bent, heated or welded, so a good cut and a good cut list matter more than with steel. This guide covers the tools that work, the ones that damage the bar, dust control and cut ends. It draws on ACI SPEC-440.5-22, the construction specification for GFRP reinforcing bars, and on Appendix G of UFC 3-301-01; the project specification and the supplier's instructions govern.
+
+## Tools that cut GFRP cleanly
+
+| Tool | Blade or wheel | Best for |
+| --- | --- | --- |
+| Angle grinder | Diamond blade | Single cuts on site, most bar sizes |
+| Circular saw | Diamond blade | Straight cuts on supported bars |
+| Chop saw | Diamond or abrasive wheel | Repeated cuts to length at a cutting station |
+| Fine-toothed hacksaw | Fine-tooth blade | Small bars and occasional cuts |
+
+Diamond blades last longer in glass fiber than toothed steel-cutting blades, which dull quickly. Let the blade do the work: forcing it heats the cut and frays the surface.
+
+## Tools that damage the bar
+
+Rebar shears, bolt cutters and hydraulic cutters crush a GFRP bar instead of cutting it. The fibers split back from the end and the damaged length can no longer be counted on. UFC 3-301-01 permits field cutting but prohibits shearing, and flame cutting is out of the question for a resin-based bar. Keep shears off the GFRP part of the site.
+
+## How to make the cut
+
+1. Measure and mark the bar from the cut list, allowing for the blade width.
+2. Support the bar on both sides of the cut, close to the blade, so the offcut does not drop and snap the end as the blade breaks through.
+3. Clamp or hold the bar so it cannot roll.
+4. Cut at a steady feed with the dust extraction running.
+5. Check the end: it should be square and free of splitting. Cut back past any damaged length.
+6. Treat the end as the supplier's instructions require, then return the bar to its marked bundle.
+
+## Dust control and protection
+
+Cutting GFRP makes fine glass fiber and resin dust. Use on-tool extraction or the dust-suppression method the site allows, cut in a ventilated area away from other trades, and give the crew eye protection, gloves, long sleeves and the respiratory protection the site's risk assessment calls for. Clean up with a vacuum rather than compressed air.
+
+## Cut ends
+
+Whether cut ends need sealing depends on the product. Some suppliers ask for a resin coat on cut ends, especially for ends that stay exposed or sit near the concrete surface, while others do not require it. Read the instructions supplied with the delivered bars and the project specification, and write the requirement into the method statement before the first cut.
+
+## Order cuts and bends from the factory where you can
+
+Every bend, hook and stirrup is formed in the factory before the resin cures; a cut bar cannot be turned into a bend on site. Our [GFRP bent bars and stirrups guide](/resources/blog/gfrp-bent-bars-stirrups-mesh-ordering-guide) covers the bending schedule. Straight bars can also arrive cut to length, which reduces site dust, waste and handling. Put cut lengths on the [bar schedule template](/downloads/f1-rebar-schedule-template.csv), and keep a small agreed allowance of spare bars for site adjustments.
+
+For the rest of the site process, from lifting and storage to ties and flotation, see [how to install GFRP rebar](/resources/blog/how-to-install-gfrp-rebar). F1 supplies [GFRP straight bars, factory-formed stirrups and mesh](/products/frp-rebar) cut to your schedule.`,
+  },
+  {
+    slug: "basalt-rebar-vs-fiberglass-rebar",
+    title: "Basalt Rebar vs Fiberglass Rebar: Standards, Properties, Cost and When to Use Each",
+    seoTitle: "Basalt Rebar vs Fiberglass Rebar: Standards & Selection",
+    answerBox: "Basalt (BFRP) and fiberglass (GFRP) rebar are both fiber reinforced polymer bars that do not corrode like steel. The practical difference is the code path: ASTM D7957 and ACI CODE-440.11-22 cover glass fiber bars only, while CSA S807:19 in Canada also covers basalt. Basalt fiber costs more than E-glass, so choose basalt where the governing standard accepts it and certified bar data justify it, and GFRP where the project is designed to ACI 440.11.",
+    category: "Concrete Reinforcement",
+    date: "2026-10-23",
+    updatedAt: "2026-10-23",
+    readTime: "6 min",
+    excerpt: "How basalt and fiberglass rebar compare on standards and code acceptance, bar properties, durability evidence, cost and availability, and how to choose between them.",
+    authorName: "F1 Composite Editorial Team",
+    authorType: "Organization",
+    authorRole: "Technical content and sourcing guidance",
+    reviewedBy: "Editorial source check",
+    standards: [
+      "ASTM D7957/D7957M-26",
+      "ACI CODE-440.11-22",
+      "CSA S807:19",
+    ],
+    coverImage: "/images/covers/blog/basalt-vs-glass-rebar-standards.webp",
+    coverAlt: "Table comparing the standards that cover basalt and glass fiber reinforced polymer bars in the US and Canada",
+    coverNote: "",
+    supportingImage: "/images/products/frp-rebar/gfrp-helical-surface.webp",
+    supportingAlt: "Close-up of GFRP reinforcing bars with a helical surface wrap",
+    supportingImageFit: "contain",
+    supportingCaption: "Supplier photo of GFRP bars. Basalt and glass bars can look alike once coated, so identify the fiber from the certificate rather than the color or surface.",
+    highlights: [
+      "ASTM D7957 and ACI CODE-440.11-22 are written for glass fiber bars; a basalt bar sits outside that US code path.",
+      "CSA S807:19 covers bars made with E-CR glass, carbon, aramid or basalt fibers, so Canadian projects can specify either.",
+      "Fiber-level differences do not transfer to the bar: compare the certified tensile load, modulus and durability data of the offered bars.",
+      "Basalt fiber costs more than E-glass, and GFRP has the longer code and supply record.",
+    ],
+    ogDescription: "Basalt vs fiberglass rebar: which standards cover each, how to compare certified bar properties, durability and cost, and when to choose basalt or GFRP.",
+    ogChips: [
+      "BFRP vs GFRP",
+      "Code path",
+      "Certified data",
+    ],
+    relatedLinks: [
+      { label: "FRP Rebar: GFRP Bars, Stirrups & Mesh", href: "/products/frp-rebar" },
+      { label: "Fiberglass Rebar vs Steel: Evidence Review", href: "/technology/fiberglass-rebar-vs-steel" },
+      { label: "GFRP Rebar Specification Guide", href: "/resources/blog/gfrp-rebar-specification-guide-aci-440-astm-d7957" },
+      { label: "GFRP Rebar Calculator", href: "/tools/gfrp-rebar-calculator" },
+      { label: "GFRP Rebar Size Chart", href: "/resources/gfrp-rebar-size-chart" },
+    ],
+    sourceLinks: [
+      { label: "ASTM D7957/D7957M-26: solid round glass fiber reinforced polymer bars", href: "https://store.astm.org/d7957_d7957m-26.html" },
+      { label: "ACI CODE-440.11-22: structural concrete reinforced with GFRP bars", href: "https://www.concrete.org/store/productdetail.aspx?ItemID=44011U22&Language=English&Units=US_Units" },
+      { label: "CSA S807:19: specification for fibre-reinforced polymers", href: "https://www.csagroup.org/store/product/2426853/" },
+      { label: "SINTEF: basalt fiber reinforced polymer rebar compared with steel (2017)", href: "https://sintef.brage.unit.no/sintef-xmlui/handle/11250/2447643" },
+      { label: "Green Building Advisor: basalt rebar", href: "https://www.greenbuildingadvisor.com/article/basalt-rebar" },
+    ],
+    faq: {
+      title: "Basalt and fiberglass rebar",
+      items: [
+        {
+          question: "Is basalt rebar stronger than fiberglass rebar?",
+          answer: "Basalt fibers are generally reported to be stiffer and stronger than E-glass fibers, but a bar's properties depend on fiber content, resin, diameter and manufacture. Compare the guaranteed tensile load and modulus on the certificates of the bars you are offered, tested to the method your standard names.",
+        },
+        {
+          question: "Can basalt rebar be used under ACI 440.11?",
+          answer: "ACI CODE-440.11-22 is written for structural concrete reinforced with glass fiber reinforced polymer bars, and it relies on ASTM D7957, which covers glass fiber bars. Using basalt bars on a project governed by ACI 440.11 needs the engineer of record and the authority having jurisdiction to accept them outside that scope.",
+        },
+        {
+          question: "Which standard covers basalt rebar in Canada?",
+          answer: "CSA S807:19 covers fiber reinforced polymer bars made with E-CR glass, carbon, aramid or basalt fibers, with isophthalic polyester, vinyl ester or epoxy resins. It excludes hybrid bars made with more than one type of fiber. Design is to CSA S806 for buildings or CSA S6 for bridges.",
+        },
+        {
+          question: "Is basalt rebar cheaper than fiberglass rebar?",
+          answer: "Usually not. Basalt fiber costs more than E-glass fiber, and glass fiber bars have the larger production base. Compare delivered quotations for certified bars of equivalent design capacity, since the bar schedule can differ between the two materials.",
+        },
+      ],
+    },
+    content: `Basalt fiber reinforced polymer (BFRP) and glass fiber reinforced polymer (GFRP) bars are built the same way: continuous fibers locked in a thermoset resin, pultruded into a round bar with a bonded surface. Both resist the corrosion that limits steel in chlorides and both are non-magnetic. The choice between them is decided less by fiber chemistry than by which standard governs the project and what the offered bars can prove.
+
+## Standards decide most projects
+
+| Market | Glass fiber (GFRP) bars | Basalt fiber (BFRP) bars |
+| --- | --- | --- |
+| United States, buildings | ASTM D7957 bars, designed to ACI CODE-440.11-22 | Outside the D7957 and ACI 440.11 scope; needs engineer and authority acceptance |
+| Canada | CSA S807:19, designed to CSA S806 or CSA S6 | CSA S807:19, designed to CSA S806 or CSA S6 |
+| Europe | ETA route; EN 1992-1-1:2023 Annex R where adopted | ETA route; EN 1992-1-1:2023 Annex R where adopted |
+
+ASTM D7957 is the specification for solid round glass fiber reinforced polymer bars, and ACI CODE-440.11-22 is the building code for concrete reinforced with GFRP bars. A basalt bar can be well made and still fall outside that US code path. In Canada, CSA S807:19 covers bars made with E-CR glass, carbon, aramid or basalt fibers, so either material can be specified by grade. Our [GFRP rebar calculator](/tools/gfrp-rebar-calculator) lists the GFRP standards for each market.
+
+## Bar properties: compare certificates, not fibers
+
+Published fiber data generally show basalt fibers as stiffer and stronger than E-glass fibers. That difference does not carry straight into the bar: fiber volume, resin, diameter, surface and process set the bar's guaranteed tensile load and modulus. Two practical rules follow:
+
+- Compare the guaranteed tensile force, tensile modulus, bond and transverse shear on the certificates of the offered bars, measured to the methods your standard names.
+- Design with the certified values. A basalt bar with a higher modulus can reduce deflection and crack width, but only the certified value of the bar actually supplied can be used.
+
+## Durability evidence
+
+Both materials are used because they do not rust. For concrete, the questions are alkaline exposure, moisture and sustained load, and the answers depend on the fiber, its sizing, the resin and the bar's manufacture. Ask for durability data to the test methods in the governing standard: the alkali resistance and creep rupture tests referenced by ASTM D7957 for GFRP, or the durability grading in CSA S807 for either fiber. A SINTEF study comparing basalt FRP bars with steel is useful background on strength and embodied emissions, but it did not test glass fiber bars, so it does not settle basalt against GFRP.
+
+## Cost and availability
+
+Basalt fiber costs more than E-glass fiber, and glass fiber bars have the larger production base and the longer supply record in codified projects. For most buyers this makes GFRP the lower-cost and easier-to-approve option. A basalt bar earns its premium where the governing standard accepts it and its certified properties reduce the reinforcement needed. Compare delivered quotations for the full bar schedule, not price per foot of different sizes; our [fiberglass rebar cost guide](/resources/blog/fiberglass-rebar-cost-per-foot) explains how to put offers on the same basis.
+
+## Which one to choose
+
+**Choose GFRP** when the project is designed to ACI CODE-440.11-22 or AASHTO GFRP guidance, when the specification names ASTM D7957, or when cost and approval time drive the decision.
+
+**Consider BFRP** when the governing standard covers it (for example CSA S807 in Canada), the owner wants it, and the certified bar data show a benefit for the design.
+
+**In both cases,** keep bends to factory-formed shapes, specify the standard and edition, and request lot certificates. The [GFRP rebar specification guide](/resources/blog/gfrp-rebar-specification-guide-aci-440-astm-d7957) lists the submittal documents, and the [fiberglass rebar vs steel review](/technology/fiberglass-rebar-vs-steel) covers the comparison with steel. F1 supplies [GFRP straight bars, stirrups and mesh](/products/frp-rebar) against a project schedule.`,
+  },
+  {
+    slug: "frp-grating-specification-guide",
+    title: "FRP Grating Specification: What to Write in Each Part, With a Downloadable Guide Spec",
+    seoTitle: "FRP Grating Specification: Guide Spec & Checklist",
+    answerBox: "An FRP grating specification names the grating type (molded or pultruded), the design loads and deflection limit for the span, the resin system for the exposure, fire and slip performance, the walking surface, clips and fabrication rules, and the submittals that prove each requirement. Manufacturers usually file it under MasterFormat 06 74 13; US Department of Defense projects use UFGS 06 73 01. Download the editable F1 guide specification and fill in the project values.",
+    category: "Industrial Systems",
+    date: "2026-10-23",
+    updatedAt: "2026-10-23",
+    readTime: "7 min",
+    excerpt: "How to write an FRP grating specification: section numbers, design loads and deflection, resin and fire requirements, surfaces, clips, fabrication, submittals and installation, with an editable template.",
+    authorName: "F1 Composite Editorial Team",
+    authorType: "Organization",
+    authorRole: "Technical content and sourcing guidance",
+    reviewedBy: "Editorial source check",
+    standards: [
+      "MasterFormat 06 74 13",
+      "UFGS 06 73 01 (August 2023)",
+      "ANSI/ACMA/FGMC FRP Composites Grating Manual",
+      "ASTM E84",
+    ],
+    coverImage: "/images/covers/blog/frp-grating-guide-spec-outline.webp",
+    coverAlt: "Outline of a three-part FRP grating specification: general requirements, products and execution",
+    coverNote: "",
+    supportingImage: "/images/products/molded-frp-grating/molded-grating-grit-mesh-closeup.webp",
+    supportingAlt: "Close-up of molded FRP grating with a grit walking surface",
+    supportingCaption: "Molded FRP grating with a grit surface. The walking surface, resin and mesh are specified, then proven by the submittals for the offered panel.",
+    highlights: [
+      "Use the section number your project manual requires: 06 74 13 in most manufacturer specifications, UFGS 06 73 01 on DoD work.",
+      "Write loads and deflection for the actual span and load type; the load table must name the offered panel series.",
+      "Fire, slip and chemical requirements need test reports for the offered resin system, not for FRP in general.",
+      "Put cutting, cut-edge sealing, bearing and clip layout in Part 3 so the installer works to the same rules as the designer.",
+    ],
+    ogDescription: "How to write an FRP grating specification: section number, loads, resin, fire and slip, clips, fabrication, submittals and installation, with a template.",
+    ogChips: [
+      "06 74 13",
+      "Guide spec",
+      "Submittals",
+    ],
+    relatedLinks: [
+      { label: "Fiberglass Grating & FRP Grating Panels", href: "/products/grating" },
+      { label: "How to Read an FRP Grating Load Table", href: "/resources/blog/how-to-read-frp-grating-load-table" },
+      { label: "How to Install FRP Grating", href: "/resources/blog/how-to-install-frp-grating" },
+      { label: "Pultruded FRP Grating and Clips", href: "/products/frp-gratings#grating-clips" },
+      { label: "Molded FRP Grating and Clips", href: "/products/molded-frp-grating#grating-clips" },
+      { label: "FRP Grating Guide Specification (TXT)", href: "/downloads/f1-frp-grating-guide-specification.txt" },
+    ],
+    sourceLinks: [
+      { label: "UFGS 06 73 01 Fiberglass Reinforced Plastic (FRP) Grating (WBDG)", href: "https://www.wbdg.org/dod/ufgs/ufgs-06-73-01" },
+      { label: "Strongwell: guide specification for FRP pultruded grating and treads (Section 06 74 13)", href: "https://www.strongwell.com/wp-content/uploads/2014/10/StrongwellSpecs-FRP-Pultruded-Grating-and-Treads.pdf" },
+      { label: "Strongwell: guide specification for molded grating and treads", href: "https://www.strongwell.com/wp-content/uploads/2013/03/StrongwellSpecs-Molded-Grating-and-Treads.pdf" },
+      { label: "ASTM E84: surface burning characteristics of building materials", href: "https://www.astm.org/e0084-24.html" },
+    ],
+    faq: {
+      title: "FRP grating specification questions",
+      items: [
+        {
+          question: "What CSI section is FRP grating?",
+          answer: "Manufacturer guide specifications commonly use MasterFormat 06 74 13, Fiberglass Reinforced Gratings. US Department of Defense projects use UFGS 06 73 01, Fiberglass Reinforced Plastic (FRP) Grating. Use the number and format your project manual or owner standard requires.",
+        },
+        {
+          question: "What load and deflection should an FRP grating specification state?",
+          answer: "The values the governing code, the owner's standard and the engineer of record set for the area: a uniform live load at the clear span, any concentrated load and its footprint, and a deflection limit. The specification should require load tables for the offered panel series that show the same span, load type and deflection.",
+        },
+        {
+          question: "Should the specification require ASTM E84 Class A?",
+          answer: "Only where the code or owner requires it. When it does, specify the flame spread index and require a test report for the offered resin system, because fire performance belongs to the formulation. A report for a different resin or product does not qualify the panel being supplied.",
+        },
+        {
+          question: "Is there a free FRP grating guide specification?",
+          answer: "Yes. The F1 guide specification is a plain-text template in the three-part format with bracketed project values. It is a starting point for the specifier, not a product approval, and every value in brackets must be filled in or deleted for the project.",
+        },
+      ],
+    },
+    content: `A grating specification has one job: make every offer comparable and every installed panel checkable. For FRP grating that means stating the loads for the real span, the resin for the real exposure, the surface, the clips and the fabrication rules, and asking for the documents that prove them. This guide walks through the three-part format and links an editable [FRP grating guide specification](/downloads/f1-frp-grating-guide-specification.txt) you can drop into a project manual.
+
+## Where the section sits
+
+Manufacturer guide specifications commonly file FRP grating under MasterFormat 06 74 13, Fiberglass Reinforced Gratings. US Department of Defense projects use the Unified Facilities Guide Specification UFGS 06 73 01, Fiberglass Reinforced Plastic (FRP) Grating, published in August 2023. Both follow the three-part format: general requirements, products and execution. Use whichever number your project manual or owner standard requires, and cross-reference the framing, handrail and ladder sections that the grating sits on or next to.
+
+## Part 1: loads, performance and submittals
+
+**Design requirements.** State the uniform live load at the clear span, any concentrated load with its footprint, and the deflection limit, using the values the governing code and the engineer of record set. Require the load tables to name the offered panel series and bar depth and to show the same span and load type. Our guide on [how to read an FRP grating load table](/resources/blog/how-to-read-frp-grating-load-table) explains what to check.
+
+**Performance requirements.**
+
+- **Resin:** name the resin system for the exposure: isophthalic polyester for general service, vinyl ester for more aggressive chemicals, phenolic where low smoke is required, or as the chemical review decides.
+- **Fire:** where the code or owner requires it, state the flame spread index to ASTM E84 and require a report for the offered resin system.
+- **Walking surface:** grit, meniscus or a covered top, with slip evidence for the expected wet or contaminated condition.
+- **Electrical:** if the area needs a non-conductive floor, say so, and remember that metal clips and fasteners are part of the assembly.
+
+**Submittals.** Ask for product data, load tables, shop drawings with panel layout, bearing-bar direction, cut-outs, clip types and locations, test reports that name the tested product, a sample panel and the installation instructions. A submittal list is the easiest way to make offers comparable, because it forces each bidder to document the same things.
+
+## Part 2: the products
+
+**Molded grating** is a one-piece panel with glass reinforcement in both directions. Specify depth, mesh (square, mini-mesh or rectangular), top surface and color. **Pultruded grating** uses pultruded bearing bars joined by cross rods or cross bars and spans one way, so specify bearing-bar shape and depth, open area, surface and the span direction shown on the shop drawings. Our [grating product guide](/products/grating) compares the two.
+
+For accessories, name the clip material, commonly 316 stainless steel, and require clip types selected for the panel series, bar geometry and support detail. The [pultruded grating clips](/products/frp-gratings#grating-clips) and [molded grating clips](/products/molded-frp-grating#grating-clips) sections show the M, C, J and T types F1 supplies. For fabrication, require every cut surface to be sealed with a resin compatible with the panel, state how openings and edges are banded, and give tolerances for panel size, squareness and flatness.
+
+## Part 3: installation and inspection
+
+Write the installation rules into the specification so the installer works to the same basis as the designer:
+
+1. Supports level and coplanar, with at least 38 mm (1.5 in) of bearing or the bearing on the shop drawings.
+2. Pultruded panels with bearing bars spanning between supports.
+3. At least four hold-downs per panel, two on each support line, at no more than 1,200 mm (4 ft) spacing, or the layout on the shop drawings.
+4. Field cuts made with carbide or diamond tools under dust extraction, cut ends supported, every cut surface sealed, and the clip layout rechecked.
+5. A final inspection of orientation, bearing, clip count and spacing, sealed edges and trip edges before handover.
+
+These rules match our step-by-step guide on [how to install FRP grating](/resources/blog/how-to-install-frp-grating).
+
+## Using the template
+
+The [F1 FRP grating guide specification](/downloads/f1-frp-grating-guide-specification.txt) is a plain-text file in the three-part format. Values in square brackets are project inputs or options: fill them in or delete them, and remove the molded or pultruded paragraphs you do not need. The template sets no loads, deflection limits or fire ratings of its own; those come from the project. When the specification is ready, send it with the drawings and F1 will return load tables, product data and test reports for the [fiberglass grating](/products/grating) offered against it.`,
   },
 ];
 

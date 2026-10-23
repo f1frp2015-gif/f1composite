@@ -723,6 +723,14 @@
     ]
   },
   {
+    "path": "/resources/gfrp-rebar-size-chart",
+    "title": "GFRP Rebar Size Chart: Diameters, Areas & Weights",
+    "description": "GFRP rebar size chart for ASTM D7957 No. 2 to No. 10 and metric Ø6–Ø36 bars: nominal diameter, area and calculated weight per foot and meter, next to steel.",
+    "aliases": [
+      "GFRP rebar size chart"
+    ]
+  },
+  {
     "path": "/resources/glossary",
     "title": "FRP & Pultrusion Glossary — Composite Terminology",
     "description": "Plain-language definitions of key FRP and pultrusion terms: resins, reinforcements, mechanical properties, products, fenestration, and standards.",
@@ -964,10 +972,10 @@
   },
   {
     "path": "/technology/pultrusion-resin-systems",
-    "title": "Pultrusion Resin Systems: Polyester vs Vinyl Ester vs PU",
-    "description": "Compare polyester, vinyl ester, PU, epoxy and phenolic for pultruded FRP. Define chemical exposure, UV protection, temperature and formulation evidence.",
+    "title": "Vinyl Ester vs Polyester Resin: Pultrusion Resin Guide",
+    "description": "Vinyl ester vs polyester resin for pultruded FRP, plus PU, epoxy and phenolic: define chemical exposure, UV protection, temperature and formulation evidence.",
     "aliases": [
-      "Pultrusion resin systems: choosing the right matrix"
+      "Vinyl ester vs polyester and other pultrusion resins"
     ]
   },
   {

@@ -109,7 +109,7 @@ export default function GfrpRebarCalculatorPage() {
       <PageSection
         id="bar-sizes"
         title="Bar size cross-reference"
-        intro="Nominal diameters and areas of the steel bar series, with the closest GFRP diameter on the F1 inquiry list. ASTM D7957 GFRP bars use the ASTM A615 designations."
+        intro={<>Nominal diameters and areas of the steel bar series, with the closest GFRP diameter on the F1 inquiry list. ASTM D7957 GFRP bars use the ASTM A615 designations. For weights per foot and meter, see the <Link href="/resources/gfrp-rebar-size-chart" className="font-semibold text-teal-text hover:underline">GFRP rebar size chart</Link>.</>}
         tone="white"
       >
         <div className="grid gap-[16px] md:grid-cols-2">

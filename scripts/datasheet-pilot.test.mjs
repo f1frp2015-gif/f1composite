@@ -10,9 +10,9 @@ const { CAD_SLUGS } = loadProjectModule("lib/cadManifest.ts");
 const read = (path) => readFileSync(new URL(`../${path}`, import.meta.url), "utf8");
 const productsBySlug = new Map(buildProducts().map((product) => [modelToSlug(product.model), product]));
 
-test("the pilot is 24 published sizes, each with a span table and a CAD drawing", () => {
-  assert.equal(ds.INDEXED_DATASHEET_SLUGS.length, 24);
-  assert.equal(new Set(ds.INDEXED_DATASHEET_SLUGS).size, 24);
+test("the indexed list is 44 published sizes, each with a span table and a CAD drawing", () => {
+  assert.equal(ds.INDEXED_DATASHEET_SLUGS.length, 44);
+  assert.equal(new Set(ds.INDEXED_DATASHEET_SLUGS).size, 44);
   for (const slug of ds.INDEXED_DATASHEET_SLUGS) {
     const product = productsBySlug.get(slug);
     assert.ok(product, `${slug} is not in the catalog`);

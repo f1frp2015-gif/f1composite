@@ -16,7 +16,7 @@ import { fastenerInquiryHref } from "@/lib/fastenerInquiry";
 import { buildPageMetadata, buildProductFamilyPageSchema } from "@/lib/seo";
 
 // Last content review; shown in the page header and used as dateModified.
-const updatedAt = "2026-10-11";
+const updatedAt = "2026-10-23";
 
 const target = getSeoQueryTarget(fastenersPath);
 const imageBase = "/images/products/frp-fasteners-fittings/";
@@ -134,7 +134,7 @@ export default function FastenersFittingsPage() {
         </div>
       </PageSection>
 
-      <PageSection id="thread-sizes" title="Threaded rod sizes & matching nut series" count={`${threadedRodSeries.length} sizes`} intro="Select a series to carry it into your inquiry. Inch-to-millimeter values identify nominal diameter only; UNC and metric threads are not interchangeable. Metric pitch and tolerance must be confirmed.">
+      <PageSection id="thread-sizes" title="Fiberglass threaded rod sizes & matching nuts" count={`${threadedRodSeries.length} sizes`} intro="Select a series to carry it into your inquiry. Inch-to-millimeter values identify nominal diameter only; UNC and metric threads are not interchangeable. Metric pitch and tolerance must be confirmed.">
         <div role="region" aria-label="Threaded rod catalog sizes, scroll horizontally on small screens" tabIndex={0} className="relative overflow-x-auto rounded-card border border-border-default bg-white">
           <table className="w-full min-w-[650px] border-collapse text-left text-f14">
             <caption className="sr-only">Vinyl ester UNC and epoxy metric threaded rod catalog sizes; lengths subject to order confirmation</caption>
