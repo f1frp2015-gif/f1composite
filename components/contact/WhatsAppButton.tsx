@@ -1,4 +1,5 @@
 import { whatsappHref, whatsappMessage } from "@/lib/contact";
+import PhoneContactChannel from "@/components/contact/PhoneContactChannel";
 
 type Variant = "solid" | "outline";
 
@@ -41,6 +42,7 @@ export default function WhatsAppButton({
   // Padding is set here, not through className: Tailwind emits px-[18px] after smaller padding rules, so an override would not apply.
   const padding = iconOnly ? "" : "px-[18px]";
   return (
+    <PhoneContactChannel>
     <a
       href={whatsappHref(whatsappMessage(topic))}
       target="_blank"
@@ -52,5 +54,6 @@ export default function WhatsAppButton({
       <WhatsAppIcon size={iconOnly ? 22 : 18} className={variant === "outline" ? "text-whatsapp" : undefined} />
       {iconOnly ? <span className="sr-only">{label}</span> : label}
     </a>
+    </PhoneContactChannel>
   );
 }

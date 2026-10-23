@@ -6,6 +6,8 @@ import Link from "next/link";
 import CookieSettingsButton from "@/components/consent/CookieSettingsButton";
 import { whatsappHref, whatsappMessage } from "@/lib/contact";
 import { footerNav, type NavLink } from "@/content/data/navigation";
+import PhoneContactChannel from "@/components/contact/PhoneContactChannel";
+import { australiaContact } from "@/content/data/australia";
 
 // Keep industry and application hubs together in a compact footer.
 const columns = [
@@ -54,7 +56,7 @@ export default function Footer() {
             >
               Get a quote
             </Link>
-            <a
+            <PhoneContactChannel><a
               href={whatsappHref(whatsappMessage())}
               target="_blank"
               rel="noopener noreferrer"
@@ -63,7 +65,7 @@ export default function Footer() {
               className="text-f14 font-bold text-white underline decoration-white/35 underline-offset-4 transition-colors hover:text-teal focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
             >
               WhatsApp sales
-            </a>
+            </a></PhoneContactChannel>
           </div>
         </div>
       </div>
@@ -90,6 +92,9 @@ export default function Footer() {
               <a href="mailto:inquiry@f1composite.com" className="text-f14 font-semibold text-teal-text hover:text-teal">
                 inquiry@f1composite.com
               </a>
+              <Link href={australiaContact.path} className="inline-flex min-h-[32px] items-center text-f14 font-semibold text-teal-text hover:underline">
+                Australia contact · Gold Coast
+              </Link>
             </div>
           </div>
 

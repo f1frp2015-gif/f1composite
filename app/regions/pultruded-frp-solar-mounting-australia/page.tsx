@@ -261,6 +261,7 @@ export default function AustraliaSolarPage() {
           {
             title: "Guides",
             links: [
+              { href: "/regions/frp-supplier-australia", label: "Australian FRP supply · Gold Coast contact" },
               { href: "/applications/frp-solar-mounting-profiles", label: "FRP solar support design" },
               { href: "/industries/energy", label: "FRP for the energy industry" },
               { href: "/resources/blog/frp-profile-cost-benchmarks-and-lead-times-2026", label: "2026 FRP cost benchmarks" },

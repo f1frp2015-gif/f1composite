@@ -193,6 +193,7 @@ export const technologyCovers = {
 // Market pages open on their header figure, so the hub shows the same picture
 // with the same note. The pages read their figure from here.
 export const regionCovers = {
+  "/regions/frp-supplier-australia": product("standard-profiles.webp", "Pultruded fibreglass I-beam, channel, square tube and angle for Australian project enquiries"),
   "/regions/frp-pultrusion-supplier-usa": { src: "/images/f1-photos/f1-composite-pultrusion-plant-floor.webp", alt: "Finished pultruded profiles on inspection tables in an F1 Composite plant", note: "Production photo" },
   "/regions/frp-passive-house-windows-canada": { src: "/images/regions/frp-passive-house-windows-canada.jpg", alt: "Snow-covered trees and icicles seen through a window in winter", note: ILLUSTRATIVE },
   "/regions/frp-passive-house-windows-germany": { src: "/images/regions/frp-passive-house-windows-germany.jpg", alt: "Detached modern house with large windows and a timber-clad upper floor", note: ILLUSTRATIVE },
