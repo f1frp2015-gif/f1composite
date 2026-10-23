@@ -312,6 +312,7 @@ export default function MoldedFrpGratingPage() {
               { href: "/technology/frp-vs-steel-gratings", label: "FRP grating vs steel" },
               { href: "/tools/frp-life-cycle-cost-calculator", label: "Life-cycle cost vs galvanized steel" },
               { href: "/resources/blog/how-to-read-frp-grating-load-table", label: "How to read a grating load table" },
+              { href: "/resources/blog/frp-grating-specification-guide", label: "FRP grating specification guide" },
               { href: "/resources/blog/how-to-install-frp-grating", label: "How to install FRP grating" },
             ],
           },

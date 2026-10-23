@@ -335,6 +335,14 @@ export const seoQueryTargets = [
     supportingUrls: ["/technology/fiberglass-rebar-vs-steel", "/products/product-lines"],
   },
   {
+    targetUrl: "/resources/gfrp-rebar-size-chart",
+    primaryQuery: "GFRP rebar size chart",
+    intent: "technical",
+    title: "GFRP Rebar Size Chart: Diameters, Areas & Weights",
+    description: "GFRP rebar size chart for ASTM D7957 No. 2 to No. 10 and metric Ø6–Ø36 bars: nominal diameter, area and calculated weight per foot and meter, next to steel.",
+    supportingUrls: ["/products/frp-rebar", "/tools/gfrp-rebar-calculator"],
+  },
+  {
     targetUrl: "/products/frp-fasteners-fittings",
     primaryQuery: "FRP fasteners and fittings",
     intent: "commercial",

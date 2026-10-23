@@ -384,7 +384,7 @@ export const blogKeywordTargets: BlogKeywordTarget[] = [
   },
   {
     slug: "gfrp-bent-bars-stirrups-mesh-ordering-guide", topic: "gfrp-rebar",
-    primaryQuery: "GFRP bent bars and stirrups ordering guide", secondaryQueries: ["GFRP rebar bend schedule", "GFRP mesh ordering requirements"], intent: "commercial",
+    primaryQuery: "GFRP bent bars and stirrups ordering guide", secondaryQueries: ["can you bend fiberglass rebar", "GFRP rebar bend schedule", "GFRP mesh ordering requirements"], intent: "commercial",
     nextStep: { label: "Download the rebar schedule template", href: "/downloads/f1-rebar-schedule-template.csv" },
   },
   {
@@ -411,6 +411,26 @@ export const blogKeywordTargets: BlogKeywordTarget[] = [
     slug: "how-to-install-gfrp-rebar", topic: "gfrp-rebar",
     primaryQuery: "how to install GFRP rebar", secondaryQueries: ["GFRP rebar handling and storage", "fiberglass rebar ties and concrete placement"], intent: "guide",
     nextStep: { label: "Review rebar supply and schedule requirements", href: "/products/frp-rebar" },
+  },
+  {
+    slug: "fiberglass-rebar-cost-per-foot", topic: "gfrp-rebar",
+    primaryQuery: "fiberglass rebar cost per foot", secondaryQueries: ["GFRP rebar price", "fiberglass rebar vs steel price"], intent: "commercial",
+    nextStep: { label: "Request a GFRP rebar quotation", href: "/products/frp-rebar" },
+  },
+  {
+    slug: "how-to-cut-fiberglass-rebar", topic: "gfrp-rebar",
+    primaryQuery: "how to cut fiberglass rebar", secondaryQueries: ["cut GFRP rebar with an angle grinder", "fiberglass rebar cutting tools"], intent: "guide",
+    nextStep: { label: "Order GFRP bars cut to your schedule", href: "/products/frp-rebar" },
+  },
+  {
+    slug: "basalt-rebar-vs-fiberglass-rebar", topic: "gfrp-rebar",
+    primaryQuery: "basalt rebar vs fiberglass rebar", secondaryQueries: ["BFRP vs GFRP rebar", "basalt rebar standards"], intent: "comparison",
+    nextStep: { label: "Review GFRP rebar supply", href: "/products/frp-rebar" },
+  },
+  {
+    slug: "frp-grating-specification-guide", topic: "grating-and-access",
+    primaryQuery: "FRP grating specification", secondaryQueries: ["fiberglass grating specification", "FRP grating guide specification 06 74 13"], intent: "technical",
+    nextStep: { label: "Download the FRP grating guide specification", href: "/downloads/f1-frp-grating-guide-specification.txt" },
   },
 ];
 

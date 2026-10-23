@@ -1,0 +1,127 @@
+F1 COMPOSITE - FRP GRATING GUIDE SPECIFICATION (EDITABLE TEMPLATE)
+Revision: 2026-10-23
+Source page: https://www.f1composite.com/resources/blog/frp-grating-specification-guide
+
+HOW TO USE THIS TEMPLATE
+- Text in [square brackets] is a project value or an option. Replace it or delete the line.
+- Loads, deflection limits, fire performance and slip requirements come from the governing
+  code, the owner's standard and the engineer of record. This template does not set them.
+- Delete the paragraphs that do not apply (for example, molded or pultruded grating).
+- Section number: manufacturers commonly use MasterFormat 06 74 13 (Fiberglass Reinforced
+  Gratings). US Department of Defense projects use UFGS 06 73 01. Use the number your
+  project manual requires.
+
+======================================================================================
+SECTION [06 74 13] - FIBERGLASS REINFORCED PLASTIC (FRP) GRATING
+======================================================================================
+
+PART 1 - GENERAL
+
+1.1 SUMMARY
+  A. Section includes: [molded] [pultruded] FRP grating panels, [stair treads],
+     [stair tread covers], hold-down clips, panel connectors and accessories.
+  B. Related sections: supporting steel or FRP framing [section], handrails [section],
+     fixed ladders [section].
+
+1.2 REFERENCES
+  A. ANSI/ACMA/FGMC FRP Composites Grating Manual for pultruded and molded grating and
+     stair treads [edition].
+  B. ASTM E84, Standard Test Method for Surface Burning Characteristics of Building
+     Materials [edition], where fire performance is specified.
+  C. [Slip resistance standard required by the owner or jurisdiction, with edition.]
+  D. [Other owner or industry standards, with editions.]
+
+1.3 DESIGN REQUIREMENTS
+  A. Uniform live load: [___ psf / kPa] at clear span [___ in / mm].
+  B. Concentrated load: [___ lb / kN] over [___ in x ___ in / mm x mm] at midspan.
+  C. Deflection limit under the design load: [___ in / mm] or [L/___], whichever is smaller.
+  D. Stair treads: [load and deflection required by the governing code].
+  E. Load tables used for selection shall state the panel series, bar depth, span,
+     load type and deflection for the offered product.
+
+1.4 PERFORMANCE REQUIREMENTS
+  A. Resin system: [isophthalic polyester] [vinyl ester] [phenolic] [other], selected for
+     the chemical, temperature and UV exposure listed in [schedule / Appendix].
+  B. Fire performance: [flame spread index of 25 or less per ASTM E84] [other], tested on
+     the offered resin system. [Delete if not required.]
+  C. Walking surface: [grit] [meniscus] [concave] [smooth]; slip evidence for the
+     [wet / oily / contaminated] condition to [standard].
+  D. Electrical: [state any non-conductive requirement; note that metal clips and
+     fasteners are part of the assembly].
+
+1.5 SUBMITTALS
+  A. Product data: panel series, resin, glass content basis, surface, color and weight
+     per unit area.
+  B. Load tables for each panel type and span, with the test or calculation basis.
+  C. Shop drawings: panel layout, bearing-bar direction (pultruded), cut-outs, banding,
+     support details, clip types, clip locations and quantities.
+  D. Test reports: fire [ASTM E84], slip [standard], and any chemical resistance data,
+     each naming the tested product, report number and date.
+  E. Samples: [___ in x ___ in] panel sample showing color and surface.
+  F. Installation instructions, including cutting, cut-edge sealing and clip spacing.
+
+1.6 QUALITY ASSURANCE
+  A. Manufacturer quality system: [ISO 9001 certificate with scope and holder name].
+  B. Each shipment labeled with panel mark, series and lot, matching the shop drawings.
+
+1.7 DELIVERY, STORAGE AND HANDLING
+  A. Store panels flat on level supports, protected from impact and prolonged sunlight
+     as the manufacturer instructs.
+
+PART 2 - PRODUCTS
+
+2.1 MOLDED FRP GRATING [delete if not used]
+  A. Construction: one-piece molded panel with continuous glass reinforcement in both
+     directions.
+  B. Depth: [___ in / mm]. Mesh: [square ___ x ___] [mini-mesh] [rectangular].
+  C. Top surface: [grit] [meniscus] [covered / solid top].
+  D. Color: [___]. UV inhibitor in the resin.
+
+2.2 PULTRUDED FRP GRATING [delete if not used]
+  A. Construction: pultruded bearing bars [T] [I] [HI] joined by cross rods or
+     cross bars.
+  B. Bearing bar depth: [___ in / mm]. Open area: [___ %].
+  C. Bearing bars span between supports as shown on the shop drawings.
+  D. Top surface: [grit] [smooth]. Color: [___].
+
+2.3 STAIR TREADS AND COVERS [delete if not used]
+  A. Treads: [molded] [pultruded], with nosing [color ___] and end plates for
+     [bolting to stringers].
+  B. Tread covers: [thickness, nosing, grit], fastened to [existing tread type].
+
+2.4 ACCESSORIES
+  A. Hold-down clips and panel connectors: [316 stainless steel] [other], types selected
+     for the panel series, bar geometry and support detail.
+  B. Fasteners: [material and grade].
+  C. Sealing resin: compatible with the panel resin, supplied by the grating
+     manufacturer.
+
+2.5 FABRICATION
+  A. Cut panels to the shop drawings. Seal every cut surface with the compatible resin.
+  B. Band openings and edges where shown, by [method].
+  C. Tolerances: [panel size, squareness and flatness tolerances].
+
+PART 3 - EXECUTION
+
+3.1 EXAMINATION
+  A. Verify that supports are level and coplanar and give at least [1.5 in / 38 mm]
+     bearing, or the bearing shown on the shop drawings.
+
+3.2 INSTALLATION
+  A. Install panels with bearing bars spanning between supports (pultruded grating).
+  B. Fasten each panel with at least [four] hold-downs, at least [two] on each support
+     line, at no more than [4 ft / 1,200 mm] spacing, or as shown on the shop drawings.
+  C. Field cuts: use carbide or diamond tools with dust extraction; support cut ends;
+     seal every cut surface; recheck clip layout after cutting.
+
+3.3 FIELD QUALITY CONTROL
+  A. Inspect panel orientation, bearing, clip count and spacing, sealed cut edges,
+     gaps and trip edges before handover.
+
+END OF SECTION
+
+--------------------------------------------------------------------------------------
+This template is a starting point for the specifier. It is not a product approval or a
+statement that any product meets a particular requirement. Product data, load tables
+and test reports for an F1 offer are provided with the quotation.
+Contact: https://www.f1composite.com/contact

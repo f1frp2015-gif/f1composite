@@ -113,3 +113,63 @@ export const GFRP_STANDARDS_BY_MARKET = [
   { market: "Australia", design: "No national design standard; state road authority specifications, e.g. Queensland TMR MRTS271 (design to CSA S806)", product: "AS 5204:2023 fibre-reinforced polymer bars", notes: "MRTS271 calls for CSA S807 Grade III bars" },
   { market: "New Zealand", design: "No local design standard; the engineer adopts ACI 440.11, CSA S806 or AS 5204 with the consent authority", product: "Project specification, which can name AS 5204:2023 or CSA S807", notes: "Confirm acceptance with the building consent authority" },
 ] as const;
+
+// ── Size chart (/resources/gfrp-rebar-size-chart) ──────────────────────────
+// Masses are calculated from the nominal area, not measured: the supplier's
+// declared mass per meter governs. 1.9 g/cm³ follows the specific gravity of
+// 1.92 measured on GFRP bars in the University of Kentucky study for FHWA,
+// cited in the GFRP installation guide.
+
+export const GFRP_CHART_DENSITY_GCM3 = 1.9;
+export const STEEL_DENSITY_GCM3 = 7.85;
+
+const MM2_PER_IN2 = 645.16;
+const MM_PER_IN = 25.4;
+const LB_PER_FT_PER_KG_PER_M = 0.672;
+
+export interface GfrpChartRow {
+  designation: string;
+  diameterMm: number;
+  diameterIn: number;
+  areaMm2: number;
+  areaIn2: number;
+  gfrpKgPerM: number;
+  gfrpLbPerFt: number;
+  steelKgPerM: number;
+  steelLbPerFt: number;
+}
+
+/** Nominal inch diameters of the ASTM designations: n/8 in up to No. 8, then the standard values. */
+const ASTM_DIAMETER_IN: Record<string, number> = {
+  "No. 2": 0.25, "No. 3": 0.375, "No. 4": 0.5, "No. 5": 0.625, "No. 6": 0.75,
+  "No. 7": 0.875, "No. 8": 1.0, "No. 9": 1.128, "No. 10": 1.27,
+};
+
+function chartRow(designation: string, diameterMm: number, areaMm2: number): GfrpChartRow {
+  const gfrpKgPerM = gfrpUnitMass(areaMm2, GFRP_CHART_DENSITY_GCM3);
+  const steelKgPerM = gfrpUnitMass(areaMm2, STEEL_DENSITY_GCM3);
+  return {
+    designation,
+    diameterMm,
+    diameterIn: ASTM_DIAMETER_IN[designation] ?? diameterMm / MM_PER_IN,
+    areaMm2,
+    areaIn2: areaMm2 / MM2_PER_IN2,
+    gfrpKgPerM,
+    gfrpLbPerFt: gfrpKgPerM * LB_PER_FT_PER_KG_PER_M,
+    steelKgPerM,
+    steelLbPerFt: steelKgPerM * LB_PER_FT_PER_KG_PER_M,
+  };
+}
+
+/** ASTM D7957 bar designations No. 2–No. 10 with nominal values and calculated masses. */
+export function astmGfrpChartRows(): GfrpChartRow[] {
+  return BAR_SIZES.filter((size) => size.system === "astm").map((size) => chartRow(size.designation, size.diameterMm, size.areaMm2));
+}
+
+/** F1 inquiry diameters with the nominal circular area and the closest ASTM designation. */
+export function metricGfrpChartRows(): Array<GfrpChartRow & { closestAstm: string }> {
+  return F1_GFRP_DIAMETERS.map((d) => ({
+    ...chartRow(`Ø${d}`, d, round(d)),
+    closestAstm: matchGfrpSize(d)?.astm.designation ?? "",
+  }));
+}

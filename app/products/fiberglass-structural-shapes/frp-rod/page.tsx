@@ -31,9 +31,14 @@ const pageDescription =
   "Compare solid fiberglass rod sizes and catalog weights. Specify cut lengths, tolerances and machining, with separate routes for rebar and electrical parts.";
 const pagePath = "/products/fiberglass-structural-shapes/frp-rod";
 
-const LAST_UPDATED = "2026-10-11";
+const LAST_UPDATED = "2026-10-23";
 
 const faqItems = [
+  {
+    question: "Should I use a solid fiberglass rod or a hollow round tube?",
+    answer:
+      "Use a solid rod where the part is small in diameter, is machined, threaded or pinned through, or must resist crushing at clamps and fittings. Use a round tube where bending stiffness per kilogram matters, because moving material away from the center raises the moment of inertia for the same mass. Compare A, Ix and mass per meter for both in the profile finder, then confirm the finished part's loads and fittings.",
+  },
   {
     question: "What are pultruded FRP round rods used for?",
     answer:
@@ -158,7 +163,7 @@ export default async function RodPage() {
 
       <ProductSection
         id="sizes"
-        title="Sizes"
+        title="Solid fiberglass rod sizes"
         count={`${sizes.length} catalog sizes`}
         tone="muted"
         intro="Diameter in mm, published catalog mass in kg/m. A and Ix are calculated from the nominal section. Confirm the proposed material, finished diameter, tolerances and surface condition in the quotation."
@@ -184,6 +189,9 @@ export default async function RodPage() {
         <p className="mt-[10px] flex flex-wrap gap-x-[24px] gap-y-[8px] text-f14 font-semibold text-teal-text">
           <Link href="/products/custom-pultruded-profiles" className="underline underline-offset-4 hover:text-teal">
             A diameter not listed: custom pultrusion
+          </Link>
+          <Link href="/products/fiberglass-structural-shapes/frp-tube" className="underline underline-offset-4 hover:text-teal">
+            Need a hollow section: fiberglass round tube
           </Link>
         </p>
       </ProductSection>

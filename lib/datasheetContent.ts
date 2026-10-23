@@ -5,8 +5,12 @@
 // tables, are open to search engines. Each carries content no other size page
 // has: its own allowable-load table, related sizes, approximate inch size and
 // size-specific answers. Every other datasheet stays noindex through
-// app/datasheets/layout.tsx. Review the pilot in Search Console after 4–8
-// weeks before widening the list.
+// app/datasheets/layout.tsx.
+//
+// Second batch (2026-10-23): 20 more span-table sizes, chosen where buyers
+// search by size (competitor SKU pages list the same sections). Angles, rods
+// and flat bars stay noindex until they have span tables of their own.
+// Compare both batches in Search Console before widening the list again.
 //
 // scripts/submit-indexnow.mjs reads INDEXED_DATASHEET_SLUGS from this file's
 // source, so keep it a plain array of string literals.
@@ -43,6 +47,27 @@ export const INDEXED_DATASHEET_SLUGS: readonly string[] = [
   "chs-60x5",
   "chs-76x6-4",
   "chs-100x6",
+  // Second batch, 2026-10-23.
+  "i-120x60x6",
+  "i-160x80x8",
+  "i-305x305x12-7",
+  "u-50x25x5",
+  "u-100x30x6",
+  "u-120x50x6",
+  "u-150x40x6",
+  "u-160x48x8",
+  "u-300x90x15",
+  "shs-60x60x5",
+  "shs-100x100x8",
+  "shs-114x114x6",
+  "shs-160x160x8",
+  "shs-200x200x10",
+  "shs-240x240x12",
+  "rhs-80x60x5",
+  "chs-25x3",
+  "chs-38x3-2",
+  "chs-89x6-4",
+  "chs-114x6-4",
 ];
 
 const indexedSlugs = new Set(INDEXED_DATASHEET_SLUGS);

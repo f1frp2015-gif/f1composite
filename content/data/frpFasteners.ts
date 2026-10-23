@@ -74,6 +74,10 @@ export const fastenerFaqs = [
     answer: "GRP means glass-reinforced plastic. The FRP fasteners on this page use glass reinforcement, so fiberglass fasteners, GRP fasteners and GFRP fasteners refer to the same material family here. The resin, reinforcement and finished component still need to be specified.",
   },
   {
+    question: "What is the tensile strength of fiberglass threaded rod?",
+    answer: "It depends on the rod diameter, resin, reinforcement and thread, and the thread engagement with the nut often governs the assembly. Ask for the ultimate tensile load of the rod and nut together and the thread shear strength for each size quoted, with the test method. Design the joint with those values and the factors your code applies to composite connections.",
+  },
+  {
     question: "Can a metric nut be fitted to a similar-sized UNC rod?",
     answer: "No. Match the thread system, diameter, pitch, tolerance and engagement length. A similar outside diameter does not make metric and UNC threads compatible. Request a matched rod, nut and washer set when the connection is being specified together.",
   },

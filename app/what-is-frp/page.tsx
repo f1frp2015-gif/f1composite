@@ -16,7 +16,7 @@ import { coverFor, industryCovers } from "@/lib/covers";
 import { prefillForWhatIsFRP } from "@/lib/aiPrefill";
 
 // Last content review; shown in the page header and used as dateModified.
-const updatedAt = "2026-09-24";
+const updatedAt = "2026-10-23";
 
 const pagePath = "/what-is-frp";
 const seoTarget = getSeoQueryTarget(pagePath);
@@ -48,6 +48,11 @@ const faqItems = [
     question: "What is glass fiber reinforced plastic (GFRP)?",
     answer:
       "Glass fiber reinforced plastic (GFRP) is a composite made by combining glass fibers with a polymer resin. It is the glass-reinforced subset of FRP and is also called glass fiber reinforced polymer, fiberglass reinforced plastic, GRP, or simply fiberglass. Pultruded GFRP profiles use continuous fibers aligned through a constant cross-section.",
+  },
+  {
+    question: "What is the difference between FRP and GRP?",
+    answer:
+      "GRP (glass reinforced plastic) is FRP made with glass fibers, so every GRP product is an FRP product, but FRP also covers carbon, aramid and basalt reinforcement. For grating, cable tray and structural profiles the two names usually describe the same glass-and-resin product: GRP is the common term in the UK and Europe, FRP or fiberglass in North America. Compare resin, reinforcement, dimensions and test evidence, not the label.",
   },
   {
     question: "Is FRP the same as fiberglass?",
@@ -319,8 +324,10 @@ export default function WhatIsFrpPage() {
           ))}
         </div>
         <p className="mt-[12px] text-f14 leading-golden text-t2">
-          These are naming patterns, not separate material grades. For a like-for-like
-          quote, match reinforcement, resin, dimensions, load case and test requirements.
+          These are naming patterns, not separate material grades. FRP vs GRP grating, FRP vs
+          GRP cable tray and FRP vs GRP profiles are the same comparison: a glass-reinforced
+          product under two regional names. For a like-for-like quote, match reinforcement,
+          resin, dimensions, load case and test requirements.
           Browse our <Link href="/pultruded-frp-profiles" className="font-semibold text-teal-text underline">FRP and GRP profiles</Link>,{" "}
           <Link href="/products/frp-gratings" className="font-semibold text-teal-text underline">pultruded GRP grating</Link> or{" "}
           <Link href="/products/molded-frp-grating" className="font-semibold text-teal-text underline">moulded GRP grating</Link> for product-specific data.
