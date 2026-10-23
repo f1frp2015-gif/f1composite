@@ -58,7 +58,7 @@ export default function MobileActionBar({
     >
       {/* Two actions fit a phone without wrapping: the quote link and WhatsApp.
           The header above keeps every other action. */}
-      <div className="mx-auto grid max-w-[520px] grid-cols-[1fr_46px] gap-[8px]">
+      <div className="mx-auto grid max-w-[520px] grid-cols-[1fr_46px] gap-[8px] [&:not(:has(a:nth-child(2)))]:grid-cols-1">
         <Button href={barAction.href} className="w-full px-[10px]">
           {barAction.label}
         </Button>

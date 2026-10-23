@@ -198,6 +198,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${BASE}/ai/sourcing`, changeFrequency: "monthly", priority: 0.9 },
     { url: `${BASE}/ai/passive-house`, changeFrequency: "monthly", priority: 0.9 },
     { url: `${BASE}/regions`, changeFrequency: "monthly", priority: 0.7 },
+    { url: `${BASE}/regions/frp-supplier-australia`, changeFrequency: "monthly", priority: 0.8 },
     { url: `${BASE}/regions/frp-grating-supplier-saudi-arabia`, changeFrequency: "monthly", priority: 0.85 },
     { url: `${BASE}/regions/pultruded-frp-solar-mounting-australia`, changeFrequency: "monthly", priority: 0.85 },
     { url: `${BASE}/regions/frp-cable-tray-uae-oil-gas`, changeFrequency: "monthly", priority: 0.85 },

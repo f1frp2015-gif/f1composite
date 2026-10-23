@@ -38,7 +38,7 @@ export default function MobileContactBar() {
         visible ? "translate-y-0" : "pointer-events-none translate-y-full"
       }`}
     >
-      <div className="mx-auto grid max-w-[520px] grid-cols-2 gap-[8px]">
+      <div className="mx-auto grid max-w-[520px] grid-cols-2 gap-[8px] [&:not(:has(a:nth-child(2)))]:grid-cols-1">
         <Button href="/contact?source=mobile-contact-bar&inquiry_type=rfq" className="w-full px-[10px]">
           Get a quote
         </Button>

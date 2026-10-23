@@ -266,6 +266,7 @@ export default function AboutPage() {
         title="More about the company"
         groups={[
           { title: "Company", links: [
+            { href: "/regions/frp-supplier-australia", label: "Australia contact · Mason Liu, Gold Coast" },
             { href: "/about/authors", label: "Technical authors" },
             { href: "/contact", label: "Contact the export team" },
           ] },

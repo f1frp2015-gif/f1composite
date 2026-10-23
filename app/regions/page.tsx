@@ -29,6 +29,14 @@ export const metadata: Metadata = buildPageMetadata({
 
 const markets = [
   {
+    region: "Australia",
+    title: "FRP supplier Australia · Gold Coast contact",
+    href: "/regions/frp-supplier-australia",
+    focus:
+      "Fibreglass profiles, grating and custom sections for Australian projects. Contact Mason Liu in Southport, Queensland through our website inquiry form.",
+    standards: ["Gold Coast contact", "Project quotations"],
+  },
+  {
     region: "United States",
     title: "FRP pultrusion supplier for USA projects",
     href: "/regions/frp-pultrusion-supplier-usa",
@@ -109,7 +117,7 @@ export default function RegionsHubPage() {
         breadcrumbs={[{ label: "Home", href: "/" }, { label: "Markets" }]}
       />
 
-      <PageSection id="markets" title="Market pages" count={`${markets.length} markets`} tone="white">
+      <PageSection id="markets" title="Market pages" count={`${markets.length} guides`} tone="white">
         <ul className="grid gap-[12px] md:grid-cols-2 lg:grid-cols-3 lg:gap-[16px]">
           {markets.map((m, index) => (
             <li key={m.href}>
