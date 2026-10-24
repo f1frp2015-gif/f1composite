@@ -8,6 +8,7 @@ import { whatsappHref, whatsappMessage } from "@/lib/contact";
 import { footerNav, type NavLink } from "@/content/data/navigation";
 import PhoneContactChannel from "@/components/contact/PhoneContactChannel";
 import { australiaContact } from "@/content/data/australia";
+import { losAngelesContact } from "@/content/data/losAngeles";
 
 // Keep industry and application hubs together in a compact footer.
 const columns = [
@@ -94,6 +95,9 @@ export default function Footer() {
               </a>
               <Link href={australiaContact.path} className="inline-flex min-h-[32px] items-center text-f14 font-semibold text-teal-text hover:underline">
                 Australia contact · Gold Coast
+              </Link>
+              <Link href={losAngelesContact.path} className="inline-flex min-h-[32px] items-center text-f14 font-semibold text-teal-text hover:underline">
+                Los Angeles contact · Chino
               </Link>
             </div>
           </div>

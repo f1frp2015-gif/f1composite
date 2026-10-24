@@ -250,6 +250,7 @@ export default function UsaRegionPage() {
           {
             title: "Guides",
             links: [
+              { href: "/regions/frp-supplier-los-angeles-usa", label: "Los Angeles project inquiries · Kevin Tang in Chino" },
               { href: "/resources/frp-pultrusion-fob-ddp-export-guide", label: "FOB and DDP export guide" },
               { href: "/technology/frp-vs-aluminum-windows", label: "FRP vs aluminum window frames" },
             ],
