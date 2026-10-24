@@ -29,6 +29,14 @@ export const metadata: Metadata = buildPageMetadata({
 
 const markets = [
   {
+    region: "Los Angeles · United States",
+    title: "FRP supplier Los Angeles · Chino contact",
+    href: "/regions/frp-supplier-los-angeles-usa",
+    focus:
+      "Fiberglass profiles, grating and custom sections for Los Angeles and Southern California projects. Contact Kevin Tang in Chino through our website inquiry form.",
+    standards: ["Chino, California", "Project quotations"],
+  },
+  {
     region: "Australia",
     title: "FRP supplier Australia · Gold Coast contact",
     href: "/regions/frp-supplier-australia",

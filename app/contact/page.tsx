@@ -8,6 +8,7 @@ import JsonLd from "@/components/seo/JsonLd";
 import { absoluteUrl } from "@/lib/seo";
 import { company, supplyTerms } from "@/content/data/company";
 import { australiaContact } from "@/content/data/australia";
+import { losAngelesContact } from "@/content/data/losAngeles";
 
 export const metadata: Metadata = {
   title: "Request a Quote | F1 Composite",
@@ -66,6 +67,16 @@ export default function ContactPage() {
           </div>
 
           <aside className="space-y-[12px]" aria-label="Contact and quotation guidance">
+            <div className="rounded-card border border-border-default bg-white p-[20px] sm:p-[24px]">
+              <h2 className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">Los Angeles &amp; Southern California contact</h2>
+              <p className="mt-[8px] text-f18 font-bold text-t1">{losAngelesContact.name}</p>
+              <address className="mt-[8px] text-f14 not-italic leading-relaxed text-t2">
+                {losAngelesContact.addressLocality}, {losAngelesContact.addressRegion}<br />
+                {losAngelesContact.countryName}
+              </address>
+              <p className="mt-[12px] text-f14 leading-relaxed text-t2">Use this inquiry form for Los Angeles and Southern California projects. Include your delivery city and ZIP code, and mention Kevin Tang for our Chino contact.</p>
+              <Link href={losAngelesContact.path} className="mt-[8px] inline-block text-f14 font-semibold text-teal-text hover:underline">FRP supply for Los Angeles →</Link>
+            </div>
             <div className="rounded-card border border-border-default bg-white p-[20px] sm:p-[24px]">
               <h2 className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">Australia contact</h2>
               <p className="mt-[8px] text-f18 font-bold text-t1">{australiaContact.name}</p>
