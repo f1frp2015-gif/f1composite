@@ -72,6 +72,10 @@ export const customProductPages: CustomProductPage[] = [
         "/products/fiberglass-structural-shapes/frp-rod"
       ],
       [
+        "Solid carbon fiber rods",
+        "/products/fiberglass-structural-shapes/frp-rod/carbon-fiber-rod"
+      ],
+      [
         "Flat bars",
         "/products/fiberglass-structural-shapes/frp-flat-bar"
       ]

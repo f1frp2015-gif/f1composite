@@ -478,6 +478,7 @@ export default function CustomPultrusionsPage() {
             links: [
               { href: "/pultruded-frp-profiles", label: "All pultruded FRP profiles" },
               { href: "/products/fiberglass-structural-shapes", label: "Standard structural shapes" },
+              { href: "/products/fiberglass-structural-shapes/frp-rod/carbon-fiber-rod", label: "Pultruded carbon fiber rods" },
               { href: "/products/frp-window-frames", label: "FRP window and door systems" },
               { href: "/products/frp-gratings", label: "Pultruded FRP grating" },
               { href: "/products/product-lines", label: "F1 Composite product lines" },
