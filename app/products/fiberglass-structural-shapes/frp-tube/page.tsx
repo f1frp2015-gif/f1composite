@@ -157,6 +157,9 @@ export default async function TubePage() {
                 </Link>
               </p>
             </div>
+            <p className="rounded-card border border-border-default bg-bg2 px-[16px] py-[12px] text-f14 leading-golden">
+              Comparing materials for a lightweight member? <Link href="/products/pultruded-carbon-fiber-tubes#carbon-vs-fiberglass" className="font-semibold text-teal-text underline underline-offset-4 hover:text-teal">Compare carbon fiber and fiberglass tubes</Link>. Carbon may suit high axial stiffness and low moving mass; fiberglass may suit cost-sensitive designs and electrical insulation needs. Compare the actual laminate, loads and connections, and qualify any electrical duty for the finished assembly.
+            </p>
             <ul className="flex flex-wrap gap-[8px]">
               {["E23 material reference", "Handrails and guardrails", "Smooth bore", `${supplyTerms.standardLengthM} m lengths or cut to size`].map((chip) => (
                 <li key={chip} className="rounded-tag border border-border-default bg-bg2 px-[10px] py-[4px] text-f14 text-t2">
