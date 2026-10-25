@@ -55,6 +55,14 @@ export default function ProductsPage() {
       <PageNav items={[{ id: "families", label: "Product families" }, { id: "specialist-components", label: "Specialist components" }, { id: "applications", label: "Panel & application profiles" }, { id: "custom-components", label: "Custom shapes" }]} />
       <PageSection id="families" title="Choose your product family" count={`${productFamilies.length} families`}>
         <ProductFamilyCards />
+        <div className="mt-[24px] grid items-center gap-[24px] rounded-card border border-border-default bg-bg2 p-[20px] md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] sm:p-[28px]">
+          <div>
+            <h3 className="text-f24 font-bold text-t1">Carbon fiber pultrusion</h3>
+            <p className="mt-[12px] text-f16 leading-relaxed text-t2">Explore CFRP plates, strips, tubes and rods for lightweight, stiffness-driven components. Compare profile forms, reinforcement direction and project specifications.</p>
+            <Link href="/products/pultrusion-carbon-fiber" className={`mt-[16px] inline-block ${link}`}>Explore carbon fiber profiles →</Link>
+          </div>
+          <CoverCard href="/products/pultrusion-carbon-fiber" cover={coverFor("/products/pultrusion-carbon-fiber")!} title="Plates, tubes & solid rods" text="Choose a section and prepare a drawing-led inquiry." />
+        </div>
         <aside className="mt-[24px] grid grid-cols-1 gap-[16px] rounded-card border border-border-default bg-bg2 p-[20px] sm:p-[28px] lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:gap-[40px]">
           <div>
             <h3 className="text-f20 font-bold text-t1">Standard section or custom development?</h3>

@@ -104,6 +104,7 @@ export const mainNav = [
       { id: "rebar", label: "GFRP rebar & mesh", href: "/products/frp-rebar", glyph: "rebar", links: [] },
       { id: "fasteners", label: "Fasteners & fittings", href: "/products/frp-fasteners-fittings", glyph: "fastener", links: [] },
       { id: "custom-profiles", label: "Custom profiles", href: "/products/custom-pultruded-profiles", line: "F1-FORM", glyph: "custom", links: [
+        { label: "Carbon Fiber Pultrusion", href: "/products/pultrusion-carbon-fiber" },
         { label: "Square Rods", href: "/products/fiberglass-square-rods" },
         { label: "T Profiles", href: "/products/fiberglass-t-profiles" },
         { label: "Sheet Piling", href: "/products/frp-sheet-piling" },

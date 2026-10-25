@@ -34,6 +34,7 @@ const product = (file: string, alt: string): Cover => ({ src: `/images/covers/${
 const ILLUSTRATIVE = "Illustrative photo";
 
 export const productCovers = {
+  "/products/pultrusion-carbon-fiber": { src: "/images/products/pultrusion-carbon-fiber/profile-family.svg", alt: "Pultruded carbon fiber plates, hollow tubes and solid rods with longitudinal fibers", note: "Profile illustration", fit: "contain" },
   "/products/fiberglass-square-rods": { src: "/images/products/custom-range/fiberglass-square-rods.svg", alt: "Schematic of fiberglass square rods; conceptual geometry, not a production drawing", note: "Concept diagram" },
   "/products/fiberglass-t-profiles": { src: "/images/products/custom-range/fiberglass-t-profiles.svg", alt: "Schematic of fiberglass T profiles; conceptual geometry, not a production drawing", note: "Concept diagram" },
   "/products/frp-sheet-piling": { src: "/images/products/custom-range/frp-sheet-piling.svg", alt: "Schematic of FRP sheet piling; conceptual geometry, not a production drawing", note: "Concept diagram" },
