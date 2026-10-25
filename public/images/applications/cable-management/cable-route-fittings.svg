@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="620" viewBox="0 0 1000 620" role="img" aria-labelledby="title desc">
+  <title id="title">FRP cable route fittings and connection accessories</title>
+  <desc id="desc">Eight groups of schematic fittings: horizontal ninety-degree bend, tee, cross, left and right reducers, vertical inside riser, vertical outside riser, splice plates and cover clamps. Plan views illustrate route geometry; side views show vertical transitions. Final radii, dimensions and connection details are project-specific.</desc>
+  <defs>
+    <style>text{font-family:Arial,Helvetica,sans-serif;fill:#172C49}.title{font-size:20px;font-weight:700;fill:#031697}.note{font-size:18px;fill:#50637B}.route{fill:#E7EEFA;stroke:#031697;stroke-width:2.5;stroke-linejoin:round}.part{fill:#D6F0ED;stroke:#00A199;stroke-width:2.3;stroke-linejoin:round}.centre{fill:none;stroke:#8DA8BE;stroke-width:1.2;stroke-dasharray:5 5}.card{fill:#FFF;stroke:#DCE5EE;stroke-width:1.2}</style>
+  </defs>
+  <rect width="1000" height="620" fill="#F4F7FA"/>
+  <path d="M28 39H48" stroke="#00A199" stroke-width="5"/>
+  <text x="61" y="47" font-size="28" font-weight="700" fill="#031697">Build a continuous cable route</text>
+  <text class="note" x="28" y="77">Plan the direction changes, width transitions, joints and cover retention together.</text>
+  <g transform="translate(28 100)">
+    <rect class="card" width="220" height="216" rx="12"/>
+    <text class="title" x="18" y="31">Horizontal 90° bend</text>
+    <path class="route" d="M29 83H106Q179 83 179 156V177H135V156Q135 127 106 127H29Z"/>
+    <path class="centre" d="M29 105H106Q157 105 157 156V177"/>
+    <text class="note" x="18" y="202">PLAN VIEW</text>
+  </g>
+  <g transform="translate(269 100)">
+    <rect class="card" width="220" height="216" rx="12"/>
+    <text class="title" x="18" y="31">Tee</text>
+    <path class="route" d="M27 114H88V62H132V114H193V158H27Z"/>
+    <path class="centre" d="M27 136H193M110 62V136"/>
+    <text class="note" x="18" y="202">PLAN VIEW</text>
+  </g>
+  <g transform="translate(510 100)">
+    <rect class="card" width="220" height="216" rx="12"/>
+    <text class="title" x="18" y="31">Cross</text>
+    <path class="route" d="M27 101H88V58H132V101H193V145H132V181H88V145H27Z"/>
+    <path class="centre" d="M27 123H193M110 58V181"/>
+    <text class="note" x="18" y="202">PLAN VIEW</text>
+  </g>
+  <g transform="translate(751 100)">
+    <rect class="card" width="221" height="216" rx="12"/>
+    <text class="title" x="18" y="31">Reducers</text>
+    <path class="route" d="M28 72H74L119 92H186V120H28ZM28 134H186V157H119L74 174H28Z"/>
+    <text class="note" x="25" y="62">LEFT / RIGHT HAND</text>
+    <text class="note" x="18" y="202">PLAN VIEW</text>
+  </g>
+  <g transform="translate(28 336)">
+    <rect class="card" width="220" height="231" rx="12"/>
+    <text class="title" x="18" y="31">Inside riser</text>
+    <path class="route" d="M28 157H97Q156 157 156 98V61H178V98Q178 179 97 179H28Z"/>
+    <path d="M30 150H97Q149 150 149 98V64" fill="none" stroke="#00A199" stroke-width="3"/>
+    <text class="note" x="18" y="216">SIDE VIEW</text>
+  </g>
+  <g transform="translate(269 336)">
+    <rect class="card" width="220" height="231" rx="12"/>
+    <text class="title" x="18" y="31">Outside riser</text>
+    <path class="route" d="M28 68H97Q178 68 178 149V181H156V149Q156 90 97 90H28Z"/>
+    <path d="M30 61H97Q185 61 185 149V180" fill="none" stroke="#00A199" stroke-width="3"/>
+    <text class="note" x="18" y="216">SIDE VIEW</text>
+  </g>
+  <g transform="translate(510 336)">
+    <rect class="card" width="220" height="231" rx="12"/>
+    <text class="title" x="18" y="31">Splice plates</text>
+    <path class="route" d="M20 104H107V156H20ZM113 104H200V156H113Z"/>
+    <rect class="part" x="68" y="113" width="84" height="34" rx="3"/>
+    <g fill="#FFF" stroke="#00A199" stroke-width="2"><circle cx="81" cy="130" r="4"/><circle cx="97" cy="130" r="4"/><circle cx="123" cy="130" r="4"/><circle cx="139" cy="130" r="4"/></g>
+    <path class="centre" d="M110 81V179"/>
+    <text class="note" x="18" y="216">JOINT DETAIL</text>
+  </g>
+  <g transform="translate(751 336)">
+    <rect class="card" width="221" height="231" rx="12"/>
+    <text class="title" x="18" y="31">Cover clamps</text>
+    <path class="route" d="M43 108H56V168H165V108H178V181H43Z"/>
+    <path class="route" d="M34 98H187V109H34Z"/>
+    <path class="part" d="M36 91H65V97H43V124H54V131H36ZM156 91H185V131H167V124H178V97H156Z"/>
+    <text class="note" x="18" y="216">CROSS SECTION</text>
+  </g>
+  <text class="note" x="28" y="598">SCHEMATIC · Confirm fitting radius, orientation and accessories against the approved route drawing.</text>
+</svg>

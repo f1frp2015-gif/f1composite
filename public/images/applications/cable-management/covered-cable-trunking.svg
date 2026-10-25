@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="520" viewBox="0 0 800 520" role="img" aria-labelledby="title desc">
+  <title id="title">Covered FRP solid-bottom cable tray, exploded schematic</title>
+  <desc id="desc">Isometric schematic of a solid-bottom FRP cable tray with a removable cover shown above the open tray body. Two separate cover clips show the retention concept. The illustration explains the component arrangement and does not specify an ingress protection rating or manufacturing dimensions.</desc>
+  <defs>
+    <style>text{font-family:Arial,Helvetica,sans-serif;fill:#172C49}.label{font-size:19px;font-weight:700;fill:#031697}.line{stroke:#031697;stroke-width:2.2;stroke-linejoin:round}.guide{fill:none;stroke:#87A6B6;stroke-width:1.5;stroke-dasharray:6 6}.leader{fill:none;stroke:#00A199;stroke-width:1.7}</style>
+  </defs>
+  <rect width="800" height="520" fill="#F4F7FA"/>
+  <path d="M32 39H52" stroke="#00A199" stroke-width="5"/>
+  <text x="65" y="47" font-size="27" font-weight="700" fill="#031697">Covered solid-bottom tray</text>
+  <ellipse cx="407" cy="445" rx="265" ry="22" fill="#E5EBF2"/>
+  <path class="guide" d="M132 213V300M308 282V372M666 154V244M490 82V172"/>
+  <!-- Tray: rear wall, solid floor, outer wall and open end section. -->
+  <path class="line" fill="#C5D5EB" d="M132 300L490 172V236L132 364Z"/>
+  <path class="line" fill="#E7EEFA" d="M144 356L490 232L654 299L296 418Z"/>
+  <path class="line" fill="#D7E3F2" d="M308 372L666 244V308L308 436Z"/>
+  <path class="line" fill="#F9FBFD" d="M132 300L144 305L502 177L490 172ZM296 367L308 372L666 244L654 239Z"/>
+  <path class="line" fill="#C5D5EB" d="M132 300L144 305V356L296 418V367L308 372V436L132 364Z"/>
+  <!-- Floating lid, drawn with a shallow return lip. -->
+  <path class="line" fill="#B9DCD9" d="M122 198L310 275V286L122 209Z"/>
+  <path class="line" fill="#9FCBC9" d="M310 275L678 143V154L310 286Z"/>
+  <path class="line" fill="#E1F2F0" d="M122 198L490 66L678 143L310 275Z"/>
+  <path d="M139 197L490 77L661 145" fill="none" stroke="#FFF" stroke-width="2"/>
+  <!-- Independent retention clips: illustrative formed hook profile. -->
+  <g fill="#00A199" stroke="#007E79" stroke-width="1.6" stroke-linejoin="round">
+    <path d="M405 310L419 305L431 310V333L422 337L416 333V326L423 329V315L418 313L405 318Z"/>
+    <path d="M566 252L580 247L592 252V275L583 279L577 275V268L584 271V257L579 255L566 260Z"/>
+  </g>
+  <path class="leader" d="M52 119H172L251 161"/>
+  <circle cx="251" cy="161" r="3" fill="#00A199"/>
+  <text class="label" x="52" y="107">LIFT-OFF COVER</text>
+  <path class="leader" d="M603 346H703V300L590 267"/>
+  <circle cx="590" cy="267" r="3" fill="#00A199"/>
+  <text class="label" x="603" y="369">COVER CLIPS</text>
+  <path class="leader" d="M52 438H147L202 374"/>
+  <circle cx="202" cy="374" r="3" fill="#00A199"/>
+  <text class="label" x="52" y="465">SOLID-BOTTOM BODY</text>
+  <text x="32" y="501" font-size="18" fill="#50637B">EXPLODED SCHEMATIC · Cover profile and retention detail are product-specific.</text>
+</svg>
