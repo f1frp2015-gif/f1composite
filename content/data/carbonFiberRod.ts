@@ -1,0 +1,37 @@
+export const carbonFiberRod = {
+  path: "/products/fiberglass-structural-shapes/frp-rod/carbon-fiber-rod",
+  parentPath: "/products/fiberglass-structural-shapes/frp-rod",
+  title: "Carbon Fiber Rod | Solid Pultruded CFRP Round Bars",
+  description: "Specify solid pultruded carbon fiber rods, including 3/8 inch (9.525 mm) inquiries. Compare CFRP and fiberglass rods, cut lengths, tolerances and end details.",
+  updated: "2026-10-25",
+  image: "/images/products/carbon-fiber-rod/carbon-fiber-solid-rod.svg",
+  specifications: [
+    ["Section", "Solid circular CFRP rod; also called a carbon fiber round bar."],
+    ["Diameter", "State the nominal diameter and tolerance in inches or millimeters. For a 3/8 inch rod, specify 9.525 mm rather than rounding to 9.5 or 10 mm."],
+    ["Length", "List finished cut lengths, length tolerances and quantity per length. Confirm available production and shipping lengths in the quotation."],
+    ["Material", "Identify the carbon fiber grade, resin system and required axial stiffness. Confirm the proposed formulation against temperature and exposure conditions."],
+    ["Finish and fit", "Define straightness, roundness, surface finish and any bonded or clamped interfaces on the drawing."],
+    ["End preparation", "Specify square cuts, bonded inserts or other end details. Review drilling and machining with the fiber direction and connection loads."],
+    ["Acceptance", "Agree the drawing, dimensional inspection and grade-specific test evidence before production. Samples, tooling, MOQ and lead time are confirmed with the quote."],
+  ],
+  applications: [
+    { title: "Linkages and push rods", text: "For axial members where low mass and stiffness matter. Include unsupported length, compression loads and the bonded or mechanical end connection." },
+    { title: "Model and equipment reinforcement", text: "For straight stiffeners in RC models, equipment and lightweight assemblies. Define bending, impact and attachment requirements for the finished part." },
+    { title: "Automation and fixtures", text: "For moving supports and locating components. Check deflection, joint loads, surface wear and electrical isolation where the rod meets the equipment." },
+  ],
+  comparison: [
+    ["Reinforcement", "Carbon fibers in a resin matrix", "Glass fibers in a resin matrix"],
+    ["Selection driver", "Often considered for higher axial stiffness at low mass", "Often considered for electrical isolation and cost-sensitive components"],
+    ["Electrical behavior", "Conductive; do not specify as an electrical insulator", "Insulation duty still requires a qualified material and finished component"],
+    ["Dimensions and properties", "Confirm the offered CFRP grade, diameter and test direction", "Use the fiberglass catalog for GFRP dimensions; confirm the applicable material data"],
+  ],
+  faq: [
+    { question: "What is a pultruded carbon fiber rod?", answer: "It is a solid composite round bar made by drawing continuous carbon fibers and resin through a forming and curing die. The main reinforcement runs along the rod, making load direction and end-connection design important when specifying the component." },
+    { question: "Can I request a 3/8 inch carbon fiber rod?", answer: "Yes. Send an inquiry for a nominal 3/8 inch (9.525 mm) solid rod with your diameter tolerance, cut lengths and quantity. F1 Composite confirms the proposed material, tooling, samples, minimum order and delivery in the quotation; this size reference is not a stock listing." },
+    { question: "Is a 3/8 inch carbon fiber rod the same as a 10 mm rod?", answer: "No. A 3/8 inch diameter is 9.525 mm. A nominal 10 mm rod is 0.475 mm larger, which can change fit and section properties. Specify the intended units and tolerance on the drawing." },
+    { question: "How does a solid carbon fiber rod differ from a tube?", answer: "A rod has a solid cross-section; a tube has an internal bore. A tube places more material away from its center and can suit bending-stiffness targets at lower mass. Compare the actual outside diameter, bore, loads and end fittings before choosing a section." },
+    { question: "Are carbon fiber rods electrically insulating?", answer: "No. Carbon fibers conduct electricity. For an insulating component, start with an appropriate glass-fiber system and specify the required electrical, environmental and finished-assembly qualification." },
+    { question: "Can I use the fiberglass rod datasheet for a CFRP rod?", answer: "No. Glass and carbon reinforcement are different material systems. Request properties and test evidence for the offered carbon fiber grade, resin, section and loading direction. The existing fiberglass catalog does not establish CFRP strength, stiffness or temperature limits." },
+    { question: "Can carbon fiber rods be cut, drilled or threaded?", answer: "Specify the finished drawing and agree the fabrication route. Cutting and cross-drilling can expose or interrupt longitudinal fibers; threads and end fittings need a connection review. Include hole locations, edge distances, bonding surfaces and acceptance requirements with the inquiry." },
+  ],
+};
