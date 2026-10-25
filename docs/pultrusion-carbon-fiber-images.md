@@ -34,4 +34,4 @@ Reviewed 2026-10-25. Technical explanations are qualitative; no outside supplier
 
 ## Internal-link release boundary
 
-At implementation, `origin/main` has specialist CFRP strip, wind-blade panel, roller-tube and robotic-beam destinations. Generic carbon tube and rod pages are being developed in separate worktrees, so this independent change links the hub's `#plates`, `#tubes` and `#rods` sections and existing specialist pages. Point product cards to the generic pages when those routes are merged; do not publish links that currently return 404.
+The hub links its `#plates`, `#tubes` and `#rods` sections and the existing CFRP strip, wind-blade panel, roller-tube and robotic-beam pages. Before production release, PR #168 added the dedicated `/products/fiberglass-structural-shapes/frp-rod/carbon-fiber-rod` page to `main`; the rod section now links directly to it. The generic carbon tube page is separate unmerged work. Add its link once the route is published; do not publish links that currently return 404.

@@ -44,6 +44,7 @@ export const carbonProfileFormats = [
     detail: "A carbon fiber rod is solid through its cross-section. It can suit compact axial members and small reinforcement parts, but its diameter alone does not define load capacity. Long compression members also need a buckling check against their unsupported length and end restraints.",
     checks: "For a 3 mm rod inquiry, send the diameter tolerance, length, quantity, end finish and load case. This is a specification example; stock availability, minimum order and lead time are confirmed in the quote.",
     links: [
+      { label: "Carbon fiber rod product details", href: "/products/fiberglass-structural-shapes/frp-rod/carbon-fiber-rod" },
       { label: "Custom carbon profile development", href: "/products/custom-pultruded-profiles" },
       { label: "Compare fiberglass solid rods", href: "/products/fiberglass-structural-shapes/frp-rod" },
     ],
