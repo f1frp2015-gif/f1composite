@@ -8,6 +8,7 @@ import ProductSection from "@/components/products/ProductSection";
 import RelatedLinks from "@/components/sections/RelatedLinks";
 import FAQDisclosure from "@/components/ui/FAQDisclosure";
 import { carbonFiberRod as page } from "@/content/data/carbonFiberRod";
+import { carbonProfileLinks } from "@/content/data/carbonFiberPultrusion";
 import { buildRfqHref } from "@/lib/rfq";
 import { buildPageMetadata, buildProductFamilyPageSchema } from "@/lib/seo";
 
@@ -122,6 +123,7 @@ export default function CarbonFiberRodPage() {
         <div className="grid items-start gap-[12px] md:grid-cols-2">{page.faq.map((item) => <FAQDisclosure key={item.question} question={item.question} answer={item.answer} />)}</div>
       </ProductSection>
       <RelatedLinks groups={[
+        { title: "Carbon fiber profiles", links: carbonProfileLinks.filter((item) => item.href !== page.path) },
         { title: "Rod and bar products", links: [
           { label: "Solid fiberglass round rods", href: page.parentPath },
           { label: "Fiberglass square rods", href: "/products/fiberglass-square-rods" },
