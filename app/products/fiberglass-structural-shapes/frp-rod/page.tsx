@@ -31,9 +31,14 @@ const pageDescription =
   "Compare solid fiberglass rod sizes and catalog weights. Specify cut lengths, tolerances and machining, with separate routes for rebar and electrical parts.";
 const pagePath = "/products/fiberglass-structural-shapes/frp-rod";
 
-const LAST_UPDATED = "2026-10-23";
+const LAST_UPDATED = "2026-10-25";
 
 const faqItems = [
+  {
+    question: "Do these fiberglass rod specifications also apply to carbon fiber rods?",
+    answer:
+      "No. The catalog sizes, weights and glass-fiber material reference on this page describe fiberglass rods. Carbon fiber rods use a different reinforcement and need their own diameter, resin, tolerance and property confirmation. Use the carbon fiber rod page to specify a solid CFRP rod, including a 3/8-inch (9.525 mm) diameter inquiry.",
+  },
   {
     question: "Should I use a solid fiberglass rod or a hollow round tube?",
     answer:
@@ -131,6 +136,20 @@ export default async function RodPage() {
       />
 
       <ProductSection id="overview" title="Overview">
+        <div className="mb-[28px] rounded-card border border-border-default bg-bg2 p-[20px] md:p-[24px]">
+          <h3 className="font-display text-f20 font-semibold text-t1">Choose a rod material or section</h3>
+          <p className="mt-[10px] max-w-[960px] text-f16 leading-relaxed text-t2">
+            Need carbon reinforcement? Explore{" "}
+            <Link href="/products/fiberglass-structural-shapes/frp-rod/carbon-fiber-rod" className="font-semibold text-teal-text underline underline-offset-4 hover:text-teal">
+              solid pultruded carbon fiber rods, including 3/8-inch diameter inquiries
+            </Link>
+            . Carbon rod specifications are reviewed separately from the fiberglass catalog below. For a solid section with flat locating faces, see{" "}
+            <Link href="/products/fiberglass-square-rods" className="font-semibold text-teal-text underline underline-offset-4 hover:text-teal">
+              fiberglass square rods
+            </Link>
+            .
+          </p>
+        </div>
         <div className="grid grid-cols-1 gap-[28px] lg:grid-cols-[minmax(0,1.3fr)_minmax(0,1fr)] lg:gap-[48px]">
           <div className="space-y-[14px] text-f16 leading-relaxed text-t2">
             <p>
