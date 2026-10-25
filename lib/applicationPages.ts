@@ -335,11 +335,11 @@ export const applicationPages: ApplicationPage[] = [
   },
   {
     slug: "frp-cable-tray-supports",
-    lastModified: "2026-10-11",
-    title: "FRP Cable Trays & Cable Ladders | Selection Guide",
+    lastModified: "2026-10-25",
+    title: "FRP Cable Trays & Ladders | Sizes, Fittings & Selection",
     shortTitle: "FRP cable trays & ladders",
     description:
-      "Compare FRP cable trays and cable ladders for corrosive environments. Define tray bases, ladder rungs, resins, supports, fittings and project requirements.",
+      "Explore FRP cable trays, ladders and covered routes. Compare dimensions, resins, fittings and load-span examples, with a project RFQ checklist.",
     h1: "FRP cable trays & cable ladders",
     intro:
       "F1 Composite supplies pultruded fiberglass profiles and agreed fabricated support components for cable routes in corrosive environments. Define whether the inquiry covers raw profiles, fabricated supports or a complete tray package, with system availability and documentation confirmed in the quotation.",

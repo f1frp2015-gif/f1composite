@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="580" viewBox="0 0 1000 580" role="img" aria-labelledby="title desc">
+  <title id="title">FRP cable tray and ladder dimension guide</title>
+  <desc id="desc">Tray cross section showing usable width W, overall depth H, usable depth h and specified wall or base thickness t. Ladder plan shows width W and rung pitch P. A separate side elevation distinguishes factory straight length L from the distance S between support centres. Illustrative geometry, not to scale.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 8 8" refX="4" refY="4" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L8 4L0 8" fill="none" stroke="#00A199" stroke-width="1.6"/></marker>
+    <style>text{font-family:Arial,Helvetica,sans-serif;fill:#172C49} .heading{font-size:23px;font-weight:700;fill:#031697}.label{font-size:19px}.small{font-size:18px;fill:#50637B}.dim{fill:none;stroke:#00A199;stroke-width:1.7;marker-start:url(#arrow);marker-end:url(#arrow)}.ext{fill:none;stroke:#7EAAA9;stroke-width:1.1}.body{fill:#E7EEFA;stroke:#031697;stroke-width:2.4;stroke-linejoin:round}.panel{fill:#FFF;stroke:#DCE5EE;stroke-width:1.2}</style>
+  </defs>
+  <rect width="1000" height="580" fill="#F4F7FA"/>
+  <path d="M32 45H52" stroke="#00A199" stroke-width="5"/>
+  <text x="65" y="53" font-size="28" font-weight="700" fill="#031697">Define the geometry before specifying the system</text>
+  <rect class="panel" x="28" y="78" width="458" height="274" rx="12"/>
+  <rect class="panel" x="506" y="78" width="466" height="274" rx="12"/>
+  <text class="heading" x="52" y="111">Tray cross section</text>
+  <path class="body" d="M130 174H142V275H342V174H354V287H130Z"/>
+  <path class="ext" d="M142 174V141M342 174V141M354 174H404M354 287H404M342 174H288M342 275H288"/>
+  <path class="dim" d="M146 151H338"/><path class="dim" d="M393 178V283"/><path class="dim" d="M295 178V271"/>
+  <text class="label" x="242" y="138" text-anchor="middle">W · usable width</text>
+  <text class="label" x="406" y="237">H</text>
+  <text class="label" x="307" y="230">h</text>
+  <path d="M136 218H103L88 231M242 281L221 313H196" class="ext"/>
+  <circle cx="136" cy="218" r="3" fill="#00A199"/>
+  <circle cx="242" cy="281" r="3" fill="#00A199"/>
+  <text class="label" x="65" y="245">t</text>
+  <text class="label" x="180" y="319">t</text>
+  <text class="small" x="52" y="341">H overall depth · h usable depth · t thickness</text>
+  <text class="heading" x="530" y="111">Ladder plan view</text>
+  <path class="body" d="M570 164H903V177H570ZM570 263H903V276H570Z"/>
+  <g fill="#D6F0ED" stroke="#031697" stroke-width="2">
+    <rect x="609" y="177" width="14" height="86"/><rect x="687" y="177" width="14" height="86"/><rect x="765" y="177" width="14" height="86"/><rect x="843" y="177" width="14" height="86"/>
+  </g>
+  <path class="ext" d="M903 177H937M903 263H937M616 247V310M694 247V310"/>
+  <path class="dim" d="M926 181V259"/><path class="dim" d="M620 300H690"/>
+  <text class="label" x="938" y="227">W</text>
+  <text class="label" x="655" y="331" text-anchor="middle">P · rung pitch</text>
+  <text class="small" x="570" y="145">Side rails and transverse rungs</text>
+  <rect class="panel" x="28" y="367" width="944" height="184" rx="12"/>
+  <text class="heading" x="52" y="399">Side elevation</text>
+  <path class="ext" d="M100 453V423M900 453V423"/>
+  <path class="dim" d="M104 433H896"/>
+  <rect x="414" y="416" width="172" height="26" fill="#FFF"/>
+  <text class="label" x="500" y="436" text-anchor="middle">L · factory length</text>
+  <rect class="body" x="100" y="453" width="800" height="16"/>
+  <path d="M220 470L205 492H235ZM580 470L565 492H595Z" fill="#D6F0ED" stroke="#00A199" stroke-width="2"/>
+  <path class="ext" d="M220 470V521M580 470V521"/>
+  <path class="dim" d="M224 511H576"/>
+  <text class="label" x="400" y="538" text-anchor="middle">S · support span, centre to centre</text>
+  <text class="small" x="646" y="514">L and S are separate dimensions.</text>
+  <text class="small" x="646" y="537">Verify span against the load data.</text>
+  <text class="small" x="32" y="574">SCHEMATIC · Dimensions are product-specific. Geometry is illustrative and not to scale.</text>
+</svg>

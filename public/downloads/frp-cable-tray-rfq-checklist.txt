@@ -1,7 +1,7 @@
 F1 COMPOSITE — FRP CABLE TRAY & CABLE LADDER RFQ CHECKLIST
 Application guide: https://www.f1composite.com/applications/frp-cable-tray-supports
 Contact: https://www.f1composite.com/contact
-Revision: 2026-09-21
+Revision: 2026-10-25
 
 Start with your name and email. Drawings and technical details can follow.
 
@@ -16,13 +16,14 @@ Engineering and installation responsibilities:
 
 3. ROUTE AND CABLES
 Tray type (ladder / ventilated / solid bottom / covered / trunking):
-Usable width and loading depth / ladder rail depth:
+Usable width W / overall height H / usable loading depth h (mm):
+Wall and base thickness t (mm), tolerances and drawing reference:
 Tray: solid or ventilated base, opening pattern, base and wall thickness:
 Ladder: rung spacing, rung profile and cable restraint requirements:
 Straight-section length (separate from support span):
 Route length and drawing reference:
 Cable schedule, mass per metre and future allowance:
-Minimum cable bend radius:
+Minimum cable bend radius and required fitting radius R (mm):
 Bends, tees, crosses, reducers and risers:
 Dividers, covers, cover clamps and cable cleats:
 
@@ -31,7 +32,9 @@ Support spacing and end-span arrangement:
 Wall / suspended / floor-mounted supports:
 Bracket projection and supporting structure:
 Point loads, installation loads and site actions:
-Deflection requirements:
+Deflection requirements and allowable-load basis (does it include self-weight?):
+Tray / cover / accessories self-weight (kg/m):
+Required load-table test type, joint positions and temperature / creep factors:
 Anchor, hole pattern and hardware requirements:
 
 5. ENVIRONMENT AND ACCEPTANCE
@@ -39,9 +42,12 @@ Chemicals, concentration and exposure mode:
 Operating temperature range:
 UV / coastal / washdown / other exposure:
 Governing standards and editions:
-Required fire, smoke and toxicity evidence:
+Resin grade, surface veil, UV protection, color reference and cut-edge sealing:
+Required fire, smoke, halogen and toxicity tests / classifications:
 Electrical bonding, segregation and short-circuit requirements:
 System load test, certification and inspection documents required:
+Approved GA / BOM revision; batch traceability and dimensional inspection plan:
+Cover retention, drainage and any assembled-enclosure IP requirement:
 
 6. DELIVERY
 Quantity:
