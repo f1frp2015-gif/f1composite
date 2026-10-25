@@ -59,6 +59,7 @@ export const productFamilies = [
         label: "Fiberglass Dog Bone Profiles",
         href: "/products/fiberglass-dog-bone",
       },
+      { label: "Carbon Fiber Tubes", href: "/products/pultruded-carbon-fiber-tubes" },
       { label: "Fiberglass Square Rods", href: "/products/fiberglass-square-rods" },
       { label: "Fiberglass T Profiles", href: "/products/fiberglass-t-profiles" },
       {

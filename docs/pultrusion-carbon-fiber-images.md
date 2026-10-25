@@ -34,4 +34,4 @@ Reviewed 2026-10-25. Technical explanations are qualitative; no outside supplier
 
 ## Internal-link release boundary
 
-The hub links its `#plates`, `#tubes` and `#rods` sections and the existing CFRP strip, wind-blade panel, roller-tube and robotic-beam pages. Before production release, PR #168 added the dedicated `/products/fiberglass-structural-shapes/frp-rod/carbon-fiber-rod` page to `main`; the rod section now links directly to it. The generic carbon tube page is separate unmerged work. Add its link once the route is published; do not publish links that currently return 404.
+The hub links its `#plates`, `#tubes` and `#rods` sections and the existing CFRP strip, wind-blade panel, roller-tube and robotic-beam pages. Before production release, PR #168 added `/products/fiberglass-structural-shapes/frp-rod/carbon-fiber-rod` and PR #169 added `/products/pultruded-carbon-fiber-tubes` to `main`. The rod and tube sections link directly to those dedicated product pages.

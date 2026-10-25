@@ -52,6 +52,7 @@ export const productCovers = {
   "/products/fiberglass-sheets": product("fiberglass-sheet.webp", "White pultruded fiberglass flat sheet"),
   "/products/fiberglass-plates": product("fiberglass-plate.webp", "Pultruded fiberglass plate profile with two enclosed cells"),
   "/products/frp-deck-panels": product("frp-deck-panel.webp", "Closed-profile pultruded FRP deck panel with internal webs"),
+  "/products/pultruded-carbon-fiber-tubes": { src: "/images/products/carbon-fiber-tubes/pultruded-carbon-fiber-tube.svg", alt: "Schematic of a pultruded carbon fiber tube; conceptual geometry, not a production drawing", note: "Concept diagram" },
   "/products/custom-pultruded-profiles": product("custom-profile.webp", "Custom pultruded fiberglass profile with ribs and a formed edge"),
   "/products/frp-window-frames": product("window-profile.webp", "Fiberglass window frame corner with triple glazing and insulated chambers"),
   "/products/grating": product("frp-grating.webp", "Molded fiberglass grating panel beside pultruded bearing-bar grating"),

@@ -29,6 +29,7 @@ export const carbonProfileFormats = [
     detail: "Carbon tubing puts material away from the center of the section. Round, square or rectangular geometry can be reviewed against the drawing and tooling. A mainly axial pultrusion needs particular care at clamps, holes, inserts and bonded end fittings.",
     checks: "State torque, transverse loading and clamp pressure. Pull-winding or another off-axis laminate may be needed; a structural tube has no implied pressure rating.",
     links: [
+      { label: "Pultruded carbon fiber tube product details", href: "/products/pultruded-carbon-fiber-tubes" },
       { label: "Carbon fiber roller tube components", href: "/products/carbon-fiber-roller-tubes" },
       { label: "Compare fiberglass round tubes", href: "/products/fiberglass-structural-shapes/frp-tube" },
     ],
