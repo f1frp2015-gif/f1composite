@@ -4,6 +4,7 @@ import type { MetadataRoute } from "next";
 import { blogPosts } from "@/content/data/blogPosts";
 import { blogTopics, blogLibraryUpdated, getTopicPosts } from "@/content/data/blogStrategy";
 import { customProductUpdated } from "@/content/data/customProductPages";
+import { carbonFiberRod } from "@/content/data/carbonFiberRod";
 import { applicationPages } from "@/lib/applicationPages";
 import { specialistProductIndex } from "@/content/data/pultrusionGuideIndex";
 import { pultrusionGuideReviewed } from "@/content/data/pultrusionGuideTypes";
@@ -43,6 +44,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // <lastmod>. Static routes intentionally omit it: a guessed or deploy-time
   // date is less useful than no date and quickly becomes inaccurate.
   return [
+    { url: `${BASE}/products/fiberglass-structural-shapes/frp-rod/carbon-fiber-rod`, lastModified: carbonFiberRod.updated, changeFrequency: "monthly", priority: 0.75 },
     ...blogTopics.map((topic) => ({
       url: `${BASE}/resources/blog/topics/${topic.slug}`,
       lastModified: getTopicPosts(topic.slug).reduce((latest, post) => post.updatedAt > latest ? post.updatedAt : latest, blogLibraryUpdated),

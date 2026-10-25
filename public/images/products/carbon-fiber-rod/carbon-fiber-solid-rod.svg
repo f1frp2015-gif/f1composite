@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800" role="img" aria-labelledby="title description">
+  <title id="title">Solid pultruded carbon fiber rods</title>
+  <desc id="description">An original technical illustration of three solid round carbon fiber rods. Fine parallel lines follow the rod length, and the exposed end faces show solid sections. A diameter dimension marked D is illustrative only.</desc>
+  <defs>
+    <linearGradient id="rod" x1="0" y1="0" x2="0" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#141d23"/>
+      <stop offset="0.25" stop-color="#414a4f"/>
+      <stop offset="0.4" stop-color="#2a343a"/>
+      <stop offset="0.73" stop-color="#141b20"/>
+      <stop offset="1" stop-color="#080e13"/>
+    </linearGradient>
+    <linearGradient id="face" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#535c60"/>
+      <stop offset="1" stop-color="#1c252b"/>
+    </linearGradient>
+    <pattern id="fiberEnds" width="7" height="7" patternUnits="userSpaceOnUse">
+      <circle cx="1.5" cy="1.5" r="0.65" fill="#a7b1b3" opacity="0.43"/>
+      <circle cx="5" cy="5" r="0.6" fill="#030b10" opacity="0.8"/>
+    </pattern>
+    <filter id="shadow" x="-20%" y="-80%" width="140%" height="260%">
+      <feGaussianBlur stdDeviation="9"/>
+    </filter>
+    <g id="roundRod">
+      <path d="M0 -36H720A22 36 0 0 1 720 36H0Z" fill="url(#rod)" stroke="#111b21" stroke-width="1.5"/>
+      <g fill="none" stroke-linecap="round">
+        <path d="M1 -30H723M2 -21H733M2 -11H738M2 1H739M2 12H736M1 22H732M1 30H725" stroke="#768186" stroke-width="0.85" opacity="0.38"/>
+        <path d="M0 -26H729M1 -16H736M1 -5H740M1 7H739M1 17H735M1 27H728" stroke="#070f15" stroke-width="1.1" opacity="0.55"/>
+        <path d="M10 -23H727M30 -13H733" stroke="#c5cdce" stroke-width="0.7" opacity="0.25"/>
+      </g>
+      <ellipse rx="22" ry="36" fill="url(#face)" stroke="#121c22" stroke-width="2"/>
+      <ellipse rx="20" ry="34" fill="url(#fiberEnds)"/>
+      <path d="M-3 -35C-27 -31 -28 24 -7 34" fill="none" stroke="#9ba5a7" stroke-width="1" opacity="0.5"/>
+    </g>
+    <marker id="arrow" viewBox="0 0 8 8" refX="4" refY="4" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0 0L8 4L0 8Z" fill="#008e89"/>
+    </marker>
+  </defs>
+
+  <rect width="1200" height="800" fill="#f5f5f0"/>
+  <path d="M72 72H120" stroke="#009d95" stroke-width="4"/>
+  <g font-family="Arial, Helvetica, sans-serif">
+    <text x="136" y="78" fill="#53626b" font-size="15" font-weight="600" letter-spacing="2.5">F1 COMPOSITE</text>
+    <text x="72" y="130" fill="#152d40" font-size="28" font-weight="600" letter-spacing="1">SOLID ROUND SECTION</text>
+    <text x="72" y="164" fill="#69777e" font-size="19">Longitudinal reinforcement</text>
+  </g>
+
+  <g transform="translate(340 389) rotate(-17)">
+    <ellipse cx="360" cy="57" rx="360" ry="18" fill="#11252c" opacity="0.12" filter="url(#shadow)"/>
+    <use href="#roundRod"/>
+  </g>
+  <g transform="translate(268 493) rotate(-17)">
+    <ellipse cx="360" cy="57" rx="360" ry="18" fill="#11252c" opacity="0.13" filter="url(#shadow)"/>
+    <use href="#roundRod"/>
+  </g>
+  <g transform="translate(196 597) rotate(-17)">
+    <ellipse cx="360" cy="57" rx="360" ry="18" fill="#11252c" opacity="0.15" filter="url(#shadow)"/>
+    <use href="#roundRod"/>
+    <g fill="none" stroke="#008e89" stroke-width="1.5">
+      <path d="M-5 -36H-63M-5 36H-63" opacity="0.65"/>
+      <path d="M-54 -31V31" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+    </g>
+    <text x="-83" y="7" font-family="Arial, Helvetica, sans-serif" font-size="22" font-style="italic" fill="#008e89">D</text>
+  </g>
+
+  <path d="M704 456L786 622H1056" fill="none" stroke="#809395" stroke-width="1.3"/>
+  <circle cx="704" cy="456" r="4" fill="#009d95"/>
+  <g font-family="Arial, Helvetica, sans-serif">
+    <text x="811" y="655" fill="#354c58" font-size="17">Fibers follow the rod length</text>
+    <path d="M72 722H1128" stroke="#d4dddb"/>
+    <text x="72" y="756" fill="#6d7d80" font-size="13" letter-spacing="1.7">SECTION &amp; FIBER DIRECTION</text>
+    <text x="1128" y="756" text-anchor="end" fill="#6d7d80" font-size="13" letter-spacing="1">ILLUSTRATION · NOT TO SCALE</text>
+  </g>
+</svg>
