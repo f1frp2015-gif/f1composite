@@ -16,6 +16,12 @@ export interface SeoQueryTarget {
 
 export const seoQueryTargets = [
   {
+    targetUrl: "/products/frp-grating-bunnings", primaryQuery: "frp grating bunnings", intent: "comparison",
+    title: "FRP Grating Bunnings: Compare Options | F1 Composite",
+    description: "Searching for FRP grating at Bunnings? Compare retail floor panels with moulded and pultruded fibreglass grating, then request an Australian project quote.",
+    supportingUrls: ["/products/grating", "/regions/frp-supplier-australia"],
+  },
+  {
     targetUrl: "/technology/frp-profile-machining", primaryQuery: "FRP profile machining", intent: "technical",
     title: "FRP Profile Machining: Cutting, Drilling & Tolerances",
     description: "Specify FRP profile cutting, drilling, slots and CNC machining with illustrated datum, tolerance and first-article inspection guidance for fiberglass parts.",

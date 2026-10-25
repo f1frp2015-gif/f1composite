@@ -107,6 +107,7 @@ export default function AustraliaRegionPage() {
         ))}
       </div>
       <p className="mt-[24px] text-f16 leading-golden text-t2">For photovoltaic structures, see our <Link href="/regions/pultruded-frp-solar-mounting-australia" className="font-semibold underline">Australian FRP solar mounting guide</Link>. Provide the mounting arrangement, site exposure and project load requirements for review.</p>
+      <p className="mt-[16px] text-f16 leading-golden text-t2">Comparing retail flooring with project grating? Read our <Link href="/products/frp-grating-bunnings" className="font-semibold text-teal-text underline">FRP grating Bunnings buying guide</Link> for material differences, panel selection and quotation requirements.</p>
     </PageSection>
     <PageSection id="specification" title="Specify for the actual exposure and installation" tone="muted">
       <div className="space-y-[20px] text-f16 leading-golden text-t2">

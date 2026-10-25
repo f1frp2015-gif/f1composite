@@ -44,6 +44,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // <lastmod>. Static routes intentionally omit it: a guessed or deploy-time
   // date is less useful than no date and quickly becomes inaccurate.
   return [
+    { url: `${BASE}/products/frp-grating-bunnings`, lastModified: "2026-10-25", changeFrequency: "monthly", priority: 0.75 },
     { url: `${BASE}/products/fiberglass-structural-shapes/frp-rod/carbon-fiber-rod`, lastModified: carbonFiberRod.updated, changeFrequency: "monthly", priority: 0.75 },
     ...blogTopics.map((topic) => ({
       url: `${BASE}/resources/blog/topics/${topic.slug}`,

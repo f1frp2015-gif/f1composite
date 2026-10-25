@@ -109,6 +109,7 @@ export default function GratingPage() {
         <Link className={link} href="/products/frp-handrail-systems">Handrail systems</Link>
         <Link className={link} href="/products/frp-deck-panels">Structural deck profiles</Link>
         <Link className={link} href="/technology/frp-vs-steel-gratings">FRP vs steel grating</Link>
+        <Link className={link} href="/products/frp-grating-bunnings">FRP grating Bunnings: buying comparison</Link>
         <Link className={link} href="/resources/blog/frp-grating-specification-guide">Write the grating specification</Link>
       </p>
     </PageSection>
