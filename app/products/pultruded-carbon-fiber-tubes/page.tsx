@@ -9,6 +9,7 @@ import RelatedLinks from "@/components/sections/RelatedLinks";
 import JsonLd from "@/components/seo/JsonLd";
 import { FAQList } from "@/components/ui/FAQ";
 import Figure from "@/components/ui/Figure";
+import { carbonProfileLinks } from "@/content/data/carbonFiberPultrusion";
 import { buildRfqHref } from "@/lib/rfq";
 import { buildPageMetadata, buildProductFamilyPageSchema } from "@/lib/seo";
 
@@ -197,6 +198,7 @@ export default function PultrudedCarbonFiberTubesPage() {
       </PageSection>
       <PageSection id="faq" title="Carbon fiber tubing questions" tone="muted"><FAQList items={faqItems} /></PageSection>
       <RelatedLinks background="white" groups={[
+        { title: "Carbon fiber profiles", links: carbonProfileLinks.filter((item) => item.href !== pagePath) },
         { title: "Compare tube materials", links: [{ label: "Fiberglass round tubes", href: roundTubes }, { label: "Fiberglass square & rectangular tubes", href: squareTubes }] },
         { title: "Develop your section", links: [{ label: "Custom pultruded profiles", href: "/products/custom-pultruded-profiles" }, { label: "Pultrusion process", href: "/technology/pultrusion-process" }] },
         { title: "Plan qualification", links: [{ label: "Quality & testing", href: "/technology/quality-testing" }, { label: "Machining & fabrication", href: "/technology/frp-profile-machining" }] },

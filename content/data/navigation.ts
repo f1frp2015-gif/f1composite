@@ -105,6 +105,7 @@ export const mainNav = [
       { id: "fasteners", label: "Fasteners & fittings", href: "/products/frp-fasteners-fittings", glyph: "fastener", links: [] },
       { id: "custom-profiles", label: "Custom profiles", href: "/products/custom-pultruded-profiles", line: "F1-FORM", glyph: "custom", links: [
         { label: "Carbon Fiber Pultrusion", href: "/products/pultrusion-carbon-fiber" },
+        { label: "Carbon Fiber Plates", href: "/products/pultruded-carbon-fiber-plates" },
         { label: "Carbon Fiber Tubes", href: "/products/pultruded-carbon-fiber-tubes" },
         { label: "Square Rods", href: "/products/fiberglass-square-rods" },
         { label: "T Profiles", href: "/products/fiberglass-t-profiles" },

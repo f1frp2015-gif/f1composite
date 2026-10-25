@@ -31,7 +31,7 @@ const linkStyle = "font-semibold text-teal-text underline underline-offset-4 hov
 export default function CarbonFiberPultrusionPage() {
   return (
     <>
-      <CollectionSchema name={title} description={description} path={carbonPultrusionPath} links={carbonProfileFormats.map((format) => ({ label: format.name, href: `${carbonPultrusionPath}#${format.id}` }))} />
+      <CollectionSchema name={title} description={description} path={carbonPultrusionPath} links={carbonProfileFormats.map((format) => ({ label: format.name, href: format.href }))} />
       <PageHeader
         tag="Carbon fiber pultrusion"
         title="Pultrusion carbon fiber: plates, tubes & rods"
@@ -45,7 +45,7 @@ export default function CarbonFiberPultrusionPage() {
 
       <PageSection id="profiles" title="Choose your pultruded carbon fiber profile" intro="Carbon fiber pultrusion combines continuous reinforcement with a resin matrix in a heated die. The process suits long, straight profiles with a consistent cross-section; the main reinforcement typically runs along their length.">
         <div className="grid gap-[20px] md:grid-cols-3">
-          {carbonProfileFormats.map((format) => <CoverCard key={format.id} href={`#${format.id}`} cover={{ src: format.image, alt: format.alt, note: "Profile illustration", fit: "contain" }} title={format.name} text={format.summary} facts={[format.geometry]} action={`Explore ${format.shortName.toLowerCase()}`} />)}
+          {carbonProfileFormats.map((format) => <CoverCard key={format.id} href={format.href} cover={{ src: format.image, alt: format.alt, note: "Profile illustration", fit: "contain" }} title={format.name} text={format.summary} facts={[format.geometry]} action={`Explore ${format.shortName.toLowerCase()}`} />)}
         </div>
         <p className="mt-[20px] text-f16 leading-relaxed text-t2">Need a different section? <Link href="/products/custom-pultruded-profiles" className={linkStyle}>Discuss a custom carbon fiber profile</Link> with the drawing, material requirements and annual volume.</p>
       </PageSection>

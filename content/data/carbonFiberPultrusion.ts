@@ -1,10 +1,17 @@
 export const carbonPultrusionPath = "/products/pultrusion-carbon-fiber";
 
+export const carbonProfileLinks = [
+  { label: "Carbon fiber pultrusion overview", href: carbonPultrusionPath, description: "Compare plates, tubes and rods, manufacturing steps and material selection." },
+  { label: "Pultruded carbon fiber plates", href: "/products/pultruded-carbon-fiber-plates", description: "Flat plates, strips and bars with longitudinal fibers and a broad bonding face." },
+  { label: "Pultruded carbon fiber tubes", href: "/products/pultruded-carbon-fiber-tubes", description: "Hollow CFRP sections for lightweight supports, booms and moving components." },
+  { label: "Pultruded carbon fiber rods", href: "/products/fiberglass-structural-shapes/frp-rod/carbon-fiber-rod", description: "Solid carbon sections for compact members, alignment and reinforcement." },
+];
+
 // Illustrations are owned assets; see docs/pultrusion-carbon-fiber-images.md.
-// Keep these anchor destinations until the standalone ranges are published.
 export const carbonProfileFormats = [
   {
     id: "plates",
+    href: "/products/pultruded-carbon-fiber-plates",
     name: "Carbon fiber plates & strips",
     shortName: "Plates & strips",
     image: "/images/products/pultrusion-carbon-fiber/plates.svg",
@@ -14,12 +21,14 @@ export const carbonProfileFormats = [
     detail: "A pultruded carbon fiber plate carries continuous reinforcement along its length. Specify the bonding face, edge condition and thickness tolerance as well as the section. For a broad sheet with loads in several directions, review a laminated sheet construction instead.",
     checks: "Confirm longitudinal and transverse properties, bond preparation, end load transfer and the qualification of the complete assembly.",
     links: [
+      { label: "Pultruded carbon fiber plate product details", href: "/products/pultruded-carbon-fiber-plates" },
       { label: "CFRP strengthening strips", href: "/products/pultruded-cfrp-strengthening-strips" },
       { label: "Carbon fiber wind-blade panels", href: "/products/wind-turbine-blade-panels#programs" },
     ],
   },
   {
     id: "tubes",
+    href: "/products/pultruded-carbon-fiber-tubes",
     name: "Pultruded carbon fiber tubes",
     shortName: "Tubes",
     image: "/images/products/pultrusion-carbon-fiber/tubes.svg",
@@ -36,6 +45,7 @@ export const carbonProfileFormats = [
   },
   {
     id: "rods",
+    href: "/products/fiberglass-structural-shapes/frp-rod/carbon-fiber-rod",
     name: "Pultruded carbon fiber rods",
     shortName: "Solid rods",
     image: "/images/products/pultrusion-carbon-fiber/rods.svg",
