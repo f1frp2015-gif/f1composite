@@ -457,6 +457,7 @@ export default function PultrusionProcessPage() {
             title: "Products",
             links: [
               { href: "/pultruded-frp-profiles", label: "Pultruded FRP profiles" },
+              { href: "/products/pultrusion-carbon-fiber", label: "Carbon fiber pultrusion: plates, tubes and rods" },
               { href: "/products/custom-pultruded-profiles", label: "Custom pultrusion services" },
               { href: "/technology/knowhow-services", label: "Know-how transfer services" },
             ],

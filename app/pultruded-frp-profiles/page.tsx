@@ -767,6 +767,7 @@ export default function PultrudedFRPProfilesHubPage() {
             title: "Products",
             links: [
               { href: "/products/product-lines", label: "F1-STRUX, GRID, THERM and FORM lines" },
+              { href: "/products/pultrusion-carbon-fiber", label: "Carbon fiber plates, tubes and rods" },
               { href: "/resources/blog/fiberglass-reinforced-plastic", label: "What fiberglass reinforced plastic is" },
               { href: "/technology/china-alternative-to-strongwell-fiberline-exel", label: "China alternative to Strongwell and Exel" },
               { href: "/resources/how-to-choose-frp-pultrusion-supplier", label: "How to choose an FRP supplier" },
