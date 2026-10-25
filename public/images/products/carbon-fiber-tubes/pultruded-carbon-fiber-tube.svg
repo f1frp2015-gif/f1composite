@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="840" height="700" viewBox="0 0 840 700" fill="none">
+  <title>Pultruded carbon tube: longitudinal fiber architecture</title>
+  <desc>Conceptual hollow round tube, parallel fiber lines and a circular cross-section. Not to scale.</desc>
+  <defs>
+    <linearGradient id="ground" x1="0" y1="0" x2="840" y2="700" gradientUnits="userSpaceOnUse"><stop stop-color="#0e2235"/><stop offset="1" stop-color="#07121f"/></linearGradient>
+    <linearGradient id="shell" x1="130" y1="245" x2="197" y2="375" gradientUnits="userSpaceOnUse"><stop stop-color="#647785"/><stop offset=".25" stop-color="#263947"/><stop offset=".6" stop-color="#111c29"/><stop offset=".82" stop-color="#2a3b49"/><stop offset="1" stop-color="#101c29"/></linearGradient>
+    <linearGradient id="end" x1="110" y1="280" x2="230" y2="400" gradientUnits="userSpaceOnUse"><stop stop-color="#a1acb5"/><stop offset=".45" stop-color="#3c4f5d"/><stop offset="1" stop-color="#738692"/></linearGradient>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0V40" stroke="#91b2c7" stroke-opacity=".08"/></pattern>
+    <marker id="arrow" markerWidth="7" markerHeight="7" refX="5" refY="3.5" orient="auto-start-reverse"><path d="m0 0 6 3.5L0 7" fill="none" stroke="#48d6c7" stroke-width="1.2"/></marker>
+  </defs>
+  <path fill="url(#ground)" d="M0 0h840v700H0z"/><path fill="url(#grid)" d="M0 0h840v700H0z"/>
+  <g font-family="Arial,sans-serif">
+    <text x="48" y="60" fill="#70d9cf" font-size="15" letter-spacing="3">CONTINUOUS / LONGITUDINAL</text>
+    <text x="48" y="99" fill="#fff" font-size="28" font-weight="700">Stiffness along the axis.</text>
+    <path d="M147 265 637 153C709 137 755 260 691 282L201 394Z" fill="url(#shell)" stroke="#5c7282" stroke-width="1.5"/>
+    <g stroke="#8ea6b6" stroke-opacity=".25" stroke-width="1.2">
+      <path d="m156 269 493-113m-480 118 494-112m-483 121 494-112m-484 124 495-112m-486 126 494-112m-485 126 494-112m-486 126 492-112m-488 126 492-112m-489 126 491-112m-491 126 492-112m-495 126 494-113"/>
+    </g>
+    <ellipse cx="175" cy="330" rx="61" ry="72" transform="rotate(-24 175 330)" fill="url(#end)" stroke="#a0b3c0"/>
+    <ellipse cx="175" cy="330" rx="42" ry="52" transform="rotate(-24 175 330)" fill="#050e18" stroke="#516878" stroke-width="2"/>
+    <path d="m269 237 350-81" stroke="#48d6c7" stroke-width="2" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+    <text x="343" y="193" transform="rotate(-13 343 193)" fill="#8ee9de" font-size="17">0° fiber direction</text>
+    <path d="m219 365 46 61h176" stroke="#7894a8" stroke-width="1.5"/><circle cx="219" cy="365" r="4" fill="#48d6c7"/>
+    <text x="280" y="415" fill="#dce8ef" font-size="17">Hollow section</text>
+    <path d="M48 471h744" stroke="#7894a8" stroke-opacity=".3"/>
+    <circle cx="140" cy="570" r="57" fill="#293c4b" stroke="#7c96a7" stroke-width="1.5"/>
+    <circle cx="140" cy="570" r="39" fill="#0a1927" stroke="#7894a8"/>
+    <path d="M83 648h114M83 632v25m114-25v25" stroke="#48d6c7" stroke-width="1.5"/>
+    <text x="128" y="675" fill="#8ee9de" font-size="15">OD</text>
+    <path d="m167 529 39-24h45" stroke="#48d6c7" stroke-width="1.5"/>
+    <text x="260" y="511" fill="#8ee9de" font-size="16">Wall</text>
+    <path d="M101 570h78" stroke="#48d6c7" stroke-width="1.5" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+    <text x="132" y="594" fill="#8ee9de" font-size="14">ID</text>
+    <text x="365" y="534" fill="#fff" font-size="21" font-weight="700">Define the section.</text>
+    <text x="365" y="569" fill="#b2c4d2" font-size="18">OD · ID · wall · finished length</text>
+    <text x="365" y="610" fill="#b2c4d2" font-size="17">Match the laminate to the load.</text>
+    <text x="365" y="654" fill="#7894a8" font-size="13" letter-spacing="1.5">CONCEPT DIAGRAM / NOT TO SCALE</text>
+  </g>
+</svg>

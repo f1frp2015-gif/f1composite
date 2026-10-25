@@ -104,6 +104,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${BASE}/products/frp-fasteners-fittings`, lastModified: "2026-09-21", changeFrequency: "monthly", priority: 0.82 },
     { url: `${BASE}/products/fiberglass-snow-markers`, changeFrequency: "monthly", priority: 0.82 },
     { url: `${BASE}/products/fiberglass-stakes`, changeFrequency: "monthly", priority: 0.82 },
+    { url: `${BASE}/products/pultruded-carbon-fiber-tubes`, lastModified: "2026-10-25", changeFrequency: "monthly", priority: 0.75 },
     { url: `${BASE}/products/custom-pultruded-profiles`, changeFrequency: "monthly", priority: 0.8 },
     { url: `${BASE}/products/fiberglass-dog-bone`, changeFrequency: "monthly", priority: 0.78 },
     { url: `${BASE}/products/frp-pultrusion-manufacturer-factory-direct`, changeFrequency: "monthly", priority: 0.9 },
