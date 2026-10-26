@@ -10,6 +10,7 @@ export type ArticleBlock =
   | { type: "list"; ordered: boolean; start: number; items: string[] }
   | { type: "table"; headers: string[]; rows: string[][] }
   | { type: "link"; label: string; href: string; external: boolean }
+  | { type: "image"; src: string; alt: string; caption?: string }
   | { type: "video"; src: string; caption?: string };
 
 /** Only site paths, fragment links and HTTP(S) URLs are navigable in article copy. */
@@ -66,6 +67,16 @@ const listPattern = /^\s*(?:([-+*])|(\d+)[.)])\s+(.+)$/;
 const headingPattern = /^(#{2,3})\s+(.+)$/;
 const legacyHeadingPattern = /^\*\*([^*]+)\*\*$/;
 const videoPattern = /^\[video:([^|\]]+)(?:\|([^\]]+))?\]$/;
+// Keep the caption open to Markdown links, whose labels also contain brackets.
+const imagePattern = /^\[image:([^|\]]+)\|([^|\]]+)(?:\|(.*))?\]$/;
+
+function safeArticleImage(src: string): boolean {
+  // Canonical local raster paths only: no remote sources, URL escapes, queries,
+  // fragments or traversal segments that could leave the image directory.
+  return Boolean(safeArticleLink(src))
+    && /^\/images\/(?:[a-z0-9._-]+\/)*[a-z0-9._-]+\.(?:jpe?g|png|webp|avif|gif)$/i.test(src)
+    && !src.split("/").some((segment) => segment === "." || segment === "..");
+}
 
 /** Parse the site's deliberately small Markdown format once for both body and contents. */
 export function parseBlogContent(content: string): { blocks: ArticleBlock[]; headings: ArticleHeading[] } {
@@ -78,7 +89,7 @@ export function parseBlogContent(content: string): { blocks: ArticleBlock[]; hea
   const startsBlock = (at: number) => {
     const line = lines[at]?.trim() ?? "";
     return !line || headingPattern.test(line) || legacyHeadingPattern.test(line)
-      || listPattern.test(line) || videoPattern.test(line) || isTableStart(lines, at);
+      || listPattern.test(line) || videoPattern.test(line) || imagePattern.test(line) || isTableStart(lines, at);
   };
 
   while (index < lines.length) {
@@ -128,6 +139,14 @@ export function parseBlogContent(content: string): { blocks: ArticleBlock[]; hea
         items.push(text);
       }
       blocks.push({ type: "list", ordered, start, items });
+      continue;
+    }
+
+    const image = line.match(imagePattern);
+    if (image && safeArticleImage(image[1]) && image[2].trim()) {
+      const caption = image[3]?.trim();
+      blocks.push({ type: "image", src: image[1], alt: image[2].trim(), ...(caption ? { caption } : {}) });
+      index++;
       continue;
     }
 

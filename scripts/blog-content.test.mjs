@@ -70,6 +70,59 @@ test("video and legacy subheading blocks survive extraction, while raw HTML stay
   assert.match(html, /&lt;script&gt;/);
 });
 
+test("article images remain separate from adjacent prose and preserve source and license links", () => {
+  const caption = "Glass fibers before impregnation. [Source](https://example.com/photo_(2026)) · [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)";
+  const content = `Before the photograph.\n[image:/images/blog/glass-fibers.webp| Dry glass fibers on a spool |${caption}]\nAfter the photograph.\n[image:/images/blog/glass-mat.jpg|Glass reinforcement mat]\n## Heat exposure`;
+  const { blocks } = parseBlogContent(content);
+  assert.deepEqual(blocks.map(block => block.type), ["paragraph", "image", "paragraph", "image", "heading"]);
+  assert.deepEqual(blocks[1], { type: "image", src: "/images/blog/glass-fibers.webp", alt: "Dry glass fibers on a spool", caption });
+  assert.deepEqual(blocks[3], { type: "image", src: "/images/blog/glass-mat.jpg", alt: "Glass reinforcement mat" });
+  const html = render(content);
+  assert.equal((html.match(/<figure /g) ?? []).length, 2);
+  assert.equal((html.match(/<figcaption /g) ?? []).length, 1);
+  assert.match(html, /alt="Dry glass fibers on a spool"/);
+  assert.match(html, /loading="lazy"/);
+  assert.match(html, /data-nimg="fill"/);
+  assert.match(html, /sizes="\(max-width: 1023px\) 100vw, 800px"/);
+  assert.match(html, /class="object-contain"/);
+  assert.match(html, /relative aspect-\[1\.618\]/);
+  assert.match(html, /<figcaption[^>]*>[\s\S]*href="https:\/\/example.com\/photo_\(2026\)" target="_blank" rel="noopener noreferrer"/);
+  assert.match(html, /href="https:\/\/creativecommons.org\/licenses\/by\/4.0\/"/);
+});
+
+test("article images allow only canonical local raster paths and require descriptive alt text", () => {
+  for (const extension of ["jpg", "jpeg", "png", "webp", "avif", "gif", "JPG"]) {
+    assert.equal(parseBlogContent(`[image:/images/blog/glass.${extension}|Glass fibers]`).blocks[0].type, "image", extension);
+  }
+  for (const src of [
+    "https://example.com/glass.jpg", "//example.com/glass.jpg", "javascript:alert(1)",
+    "data:image/png;base64,AAAA", "/downloads/glass.jpg", "/images/glass.svg", "/images/glass.mp4",
+    "/images/glass.jpg?redirect=evil", "/images/glass.jpg#fragment", "/images/../private.jpg",
+    "/images/./glass.jpg", "/images/%2e%2e/private.jpg", "/images/%252e%252e/private.jpg",
+    "/images/\\evil.jpg", "/images//glass.jpg", "/images/glass%00.jpg", "/images/glass photo.jpg",
+  ]) {
+    const content = `[image:${src}|Glass fibers]`;
+    assert.equal(parseBlogContent(content).blocks[0].type, "paragraph", src);
+    assert.doesNotMatch(render(content), /<(?:img|figure)\b/, src);
+  }
+  for (const alt of ["", "   "]) {
+    const content = `[image:/images/glass.jpg|${alt}|Photo attribution]`;
+    assert.equal(parseBlogContent(content).blocks[0].type, "paragraph");
+    assert.doesNotMatch(render(content), /<img\b/);
+  }
+});
+
+test("image captions use safe inline markup and escape raw HTML in captions and alt text", () => {
+  const content = '[image:/images/glass.jpg|Glass " onload="alert(1)|**Glass reinforcement.** [Guide](/resources) [Unsafe](javascript:alert(1)) <script>alert(1)</script>]';
+  const html = render(content);
+  assert.match(html, /alt="Glass &quot; onload=&quot;alert\(1\)"/);
+  assert.match(html, /<strong[^>]*>Glass reinforcement\.<\/strong>/);
+  assert.match(html, /href="\/resources"/);
+  assert.match(html, /\[Unsafe\]\(javascript:alert\(1\)\)/);
+  assert.match(html, /&lt;script&gt;/);
+  assert.doesNotMatch(html, /<script>|href="javascript:| onload="/);
+});
+
 test("published article lists and contents parse without losing list items or creating duplicate anchors", () => {
   const { blogPosts } = loadProjectModule("content/data/blogPosts.ts");
   let postsWithLists = 0;

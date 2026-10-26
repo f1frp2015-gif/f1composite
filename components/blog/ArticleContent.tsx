@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { parseArticleInline, type ArticleBlock } from "@/lib/blogContent";
 
@@ -70,6 +71,17 @@ export default function ArticleContent({ blocks }: { blocks: ArticleBlock[] }) {
       return <p key={index} className="my-[24px]">{block.external
         ? <a href={block.href} target="_blank" rel="noopener noreferrer" className={className}>{label}</a>
         : <Link href={block.href} className={className}>{label}</Link>}</p>;
+    }
+
+    if (block.type === "image") {
+      return (
+        <figure key={index} className="my-[24px] overflow-hidden rounded-card border border-border-default bg-bg2">
+          <div className="relative aspect-[1.618]">
+            <Image src={block.src} alt={block.alt} fill sizes="(max-width: 1023px) 100vw, 800px" loading="lazy" className="object-contain" />
+          </div>
+          {block.caption ? <figcaption className="border-t border-border-default bg-white px-[14px] py-[10px] text-f14 leading-golden text-t2">{renderInlineMarkdown(block.caption, `image-caption-${index}`)}</figcaption> : null}
+        </figure>
+      );
     }
 
     if (block.type === "video") {
