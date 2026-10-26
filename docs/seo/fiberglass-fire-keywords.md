@@ -67,3 +67,21 @@ Validation completed on 2026-10-26:
 - Independent source review: no mandatory factual corrections found.
 
 Local review URL: `http://127.0.0.1:3011/resources/blog/frp-fire-resistance-ratings-guide`. This local preview is not a public deployment. The owner approved commit, PR and production release of `codex/fiberglass-fire-seo` on 2026-10-26. The final merge SHA and Vercel deployment ID are reported in the release chat.
+
+## Fact-check and illustration pass (2026-10-26, second release)
+
+Every cited source was reopened and the article's claims were checked against the source text. Corrections and additions:
+
+| Item | Finding | Change |
+| --- | --- | --- |
+| ASTM E84 link | `e0084-26.html` is superseded; E84-26a is active. The noncombustibility exclusion is Section 4.3.3 (Significance and Use), not Scope | Link to the stable `store.astm.org/standards/e84`; cite E84-26a §4.3.3; add the 10-minute test and the 24 ft × 20 in (7.32 m × 508 mm) specimen from §1.2/§4.2 |
+| ICC citation | The IFC 2021 Chapter 8 provisions apply to existing buildings and classify by reference to IBC Section 803; the ICC IFC page returns 403 to automated readers | Cite 2021 IBC Section 803.1.2 as primary; add the full Class A/B/C table (FSI 0–25 / 26–75 / 76–200, SDI 0–450 for all) |
+| BS EN 13501-1 table row | Linked to the GOV.UK FAQ rather than the standard | Link to the BSI Knowledge record for BS EN 13501-1:2018; GOV.UK FAQ kept for Question 18 |
+| Euroclass detail | Absent | Add class/test-method/sub-class table (A1–F, s1–s3, d0–d2) from the Measurlabs summary; check against the purchased standard before any product claim |
+| NRC source | The archive record URL is canonical; the paper is Chowdhury, Green, Bisby, Bénichou and Kodur, PROTECT 2007 | Use the record URL. Add §3.1–3.2 data: Tg of construction resins 65–120 °C; epoxy/polyester composite ignition ~300–400 °C; glass-fibre tensile strength ~50% lower above 550 °C; glass softening 650–970 °C, melting above 1,225 °C; glass/vinyl ester bars −20% at ~100 °C, −40% at ~250 °C (secondary citation of Kumahara et al.); char on thick FRP gives minimal protection |
+| Supporting still | Alt text said "localized darkening", but the frame shows a yellow flame at the torch contact point | Alt text and caption describe the flame accurately; boundary statement kept |
+| ASTM E136 / E119 | Current editions E136-26 and E119-26; scope statements match the article | Edition labels added to source list |
+| CDC/NIOSH, Johns Manville, Strongwell, GOV.UK Q18 | Text matches the article's claims | No change |
+| Commons photos | Achim Hering (CC BY 3.0 / GFDL dual) and Tracey Nicholls / CSIRO (CC BY 3.0) confirmed | No change |
+
+New figure: `public/images/blog/frp-fire-resistance/composite-heating-stages.webp` (1294 × 800, golden-ratio frame to match the article figure box), drawn by `scripts/covers/draw-fiberglass-fire-figures.mjs`. All plotted ranges come from the NRC paper; the 750 °C reference line is the ASTM E136 furnace temperature. Resin/glass colours (#c2410c / #0d9488) pass the dataviz palette validator (CVD ΔE 13.7, normal-vision ΔE 27.1); rows are direct-labelled.
