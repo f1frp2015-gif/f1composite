@@ -78,7 +78,7 @@ const areas = [
     tag: "Services",
     title: "Know-how and services",
     description:
-      "From consulting engagements to full turnkey pultrusion line installations, our engineering team transfers decades of composite manufacturing expertise to your operation.",
+      "From consulting engagements to full turnkey pultrusion line installations, our engineering team transfers production experience from FengDu's pultrusion network to your operation.",
     href: "/technology/knowhow-services",
   },
   {
@@ -158,7 +158,7 @@ export default function TechnologyPage() {
           {
             question: "What design code governs pultruded FRP structures?",
             answer:
-              "In North America, ASCE/SEI 74-23 (Pre-Standard for LRFD of Pultruded FRP Structures) is the primary reference. In Europe, EN 13706-1/2/3 defines grades E17 and E23 and test methods. Additional references include the EUROCOMP Design Code and ACI 440 guidelines for FRP rebar.",
+              "In the United States, ASCE/SEI 74-23 (Load and Resistance Factor Design for Pultruded FRP Structures) is the primary reference. In Europe, CEN/TS 19101:2022 covers the design of fibre-polymer composite structures, while EN 13706-1/2/3 defines the profile grades E17 and E23 and their test methods. GFRP-reinforced concrete is a separate topic, covered by ACI CODE-440.11-22 in the United States.",
           },
           {
             question: "What tolerance can pultrusion achieve?",
@@ -168,17 +168,17 @@ export default function TechnologyPage() {
           {
             question: "What fiber content is typical in pultruded FRP?",
             answer:
-              "45–65% glass fiber by weight in general structural profiles, verified by burn-off testing per ASTM D2584. Unidirectional-dominant sections (e.g. flat bar, rod) can reach 70% glass for maximum stiffness-to-weight.",
+              "About 60–70% glass fiber by weight in general structural profiles (F1's published E23 laminate: 65–70%), verified by burn-off testing per ASTM D2584. Unidirectional-dominant sections (e.g. flat bar, rod) can exceed 70% glass for maximum stiffness-to-weight.",
           },
           {
             question: "What is the typical elastic modulus of pultruded FRP?",
             answer:
-              "Longitudinal elastic modulus is 17–28 GPa for E-glass/polyester pultruded profiles, compared with 200 GPa for steel and 69 GPa for aluminum. Because modulus is lower, deflection (L/360 limit) typically governs FRP design rather than strength.",
+              "Longitudinal elastic modulus is 17–28 GPa for E-glass/polyester pultruded profiles, compared with 200 GPa for steel and 70 GPa for aluminum. Because modulus is lower, deflection (for example an L/360 limit) typically governs FRP design rather than strength.",
           },
           {
             question: "How are FRP profiles connected on site?",
             answer:
-              "Bolted connections (stainless steel A2/A4 or FRP bolts) are most common, with minimum edge distance 4× bolt diameter and torque M12 = 20–30 Nm. Adhesive bonding (methacrylate or epoxy) or hybrid bolted-bonded joints are used for load-critical connections. No welding: thermoset FRP cannot be welded or heated.",
+              "Bolted connections (stainless steel A2/A4 or FRP bolts) are most common, with edge and end distances, bolt spacing and tightening torque taken from the governing design standard or the profile design manual. Adhesive bonding (methacrylate or epoxy) or hybrid bolted-bonded joints are used for load-critical connections. No welding: thermoset FRP cannot be welded or heated.",
           },
           {
             question: "What fire performance can FRP achieve?",

@@ -11,7 +11,7 @@ import { absoluteUrl, buildPageMetadata } from "@/lib/seo";
 
 const pagePath = "/frp-profile-calculator/methodology";
 const publishedAt = "2026-07-30";
-const updatedAt = "2026-09-26";
+const updatedAt = "2026-10-26";
 
 export const metadata: Metadata = buildPageMetadata({
   title: "FRP Profile Calculator Methodology | F1 Composite",
@@ -138,7 +138,8 @@ export default function CalculatorMethodologyPage() {
           Bending stress is M/Wx and the average shear check is V/Av. Total deflection uses a load-case-matched Timoshenko
           correction: δtotal = δbending·[1 + c·E·Ix/(G·Av·L²)]. This matters for pultruded GFRP because longitudinal E and
           in-plane G are very different. The selected L/n criterion is then applied to the service-load deflection. For wet
-          service both moduli are reduced by the stiffness factor of that environment (0.90) before the deflection is calculated.
+          and elevated-temperature service both moduli are reduced by the stiffness factor of that environment (0.90 and 0.74)
+          before the deflection is calculated.
         </p>
       </PageSection>
 
@@ -146,9 +147,9 @@ export default function CalculatorMethodologyPage() {
         <p className="max-w-[820px] text-f16 leading-golden text-t2">
           The design strength is φ · λ · F<sub>k</sub> · C<sub>env</sub>, compared with the factored stress. F<sub>k</sub> is
           min(F<sub>tL</sub>, F<sub>cL</sub>) for bending and the shear strength for shear. On the ASCE path, λ is the time-effect
-          factor of the selected load duration (0.8 occupancy live load, 0.6 storage, 0.4 permanent, 1.0 wind or earthquake, from
-          the ASCE LRFD Pre-Standard of 2010 on which ASCE/SEI 74-23 builds), and the load factor follows ASCE 7-22 (1.6 live,
-          1.4 permanent, 1.0 strength-level wind or earthquake). The CEN path uses γ<sub>M</sub> = 1.5 with the EN 1990:2023
+          factor of the selected load duration (0.8 occupancy live load, 0.6 storage, 0.4 permanent, 1.0 wind or earthquake, as in
+          the ASCE/SEI 74-23 table and the 2010 Pre-Standard before it), and the load factor follows ASCE 7-22 (1.6 live,
+          1.4 permanent, 1.0 strength-level wind or earthquake). The CEN path uses a screening γ<sub>M</sub> = 1.5 with the EN 1990:2023
           variable-action factor 1.5 for consequence class CC2; the creep conversion factor for permanent loads is not applied,
           so permanent loads need a separate check. The EN 13706 E17 and E23 datasets use the standard&apos;s minimum modulus,
           tensile strength and interlaminar shear strength (15 and 25 MPa, standing in for the in-plane shear strength that
@@ -215,8 +216,9 @@ export default function CalculatorMethodologyPage() {
           <li className="rounded-card border border-border-default bg-white p-[20px] sm:p-[24px] text-f14 leading-golden text-t2">
             <h3 className="text-f18 font-bold text-t1">CEN/TS 19101:2022</h3>
             <p className="mt-[8px]">
-              The European technical specification for fibre-polymer composite structures. CEN has agreed to turn it into a
-              Eurocode, expected by 2028; until then a project has to adopt it explicitly. Its actions come from EN 1990, now in
+              The European technical specification for fibre-polymer composite structures. CEN/TC 250 approved its conversion
+              into Eurocode 11 (prEN 19101-1-1, -1-2 and -2) as new projects in July 2026, with no publication date yet; until then a
+              project has to adopt the TS explicitly. Its actions come from EN 1990, now in
               its second generation (EN 1990:2023), where the partial factors are 1.35 k<sub>F</sub> and 1.5 k<sub>F</sub> with
               k<sub>F</sub> = 1.0 for consequence class CC2.
             </p>

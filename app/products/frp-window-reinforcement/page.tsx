@@ -28,15 +28,15 @@ const whyReplace = [
   {
     title: "The steel bridge problem",
     body:
-      "uPVC sash and mullion profiles above roughly 1.2 m span deflect beyond code limits under glass dead load and wind load, so system houses insert U-shaped or rectangular galvanized steel into the hollow chamber. The steel restores stiffness — and installs a continuous cold bridge through an otherwise insulating frame, typically raising effective frame U-values from 1.3–1.7 to 1.5–2.1 W/m²·K.",
+      "uPVC sash and mullion profiles above roughly 1.2 m span deflect beyond code limits under glass dead load and wind load, so system houses insert U-shaped or rectangular galvanized steel into the hollow chamber. The steel restores stiffness but also adds a continuous cold bridge through an otherwise insulating frame, which raises the frame U-value (Uf). The size of that penalty depends on the profile and is shown by the system's Uf calculation to EN ISO 10077-2.",
   },
   {
     title: "What fiberglass changes",
     body:
-      "A pultruded fiberglass reinforcement core delivers stiffness in the same chamber at ≈ 0.3 W/m·K conductivity — roughly 1/170th of steel — so the reinforced chamber stays part of the thermal envelope instead of a leak through it. It also cannot rust inside the chamber, weighs about a quarter of the steel section it replaces, and is cut and screwed on the same fabrication line.",
+      "A pultruded fiberglass reinforcement core delivers stiffness in the same chamber at ≈ 0.3 W/m·K conductivity — roughly 1/170th of steel — so the reinforced chamber stays part of the thermal envelope instead of a leak through it. It also cannot rust inside the chamber. The material has about a quarter of steel's density, so even the larger section needed for stiffness is usually lighter than the steel insert, and it is cut and screwed on the same fabrication line.",
   },
   {
-    title: "A proven category, not an experiment",
+    title: "A proven category in European uPVC systems",
     body:
       "Composite window reinforcement is an established European practice — glass-fiber reinforced cores replacing steel are specified by major uPVC system houses for their high-thermal window lines. The engineering trade is straightforward: fiberglass runs a lower elastic modulus than steel, so the section is engineered — deeper webs, thicker walls, or higher glass loading — to match the target stiffness within the same chamber envelope.",
   },
@@ -61,17 +61,17 @@ const engineeringPoints = [
   {
     aspect: "Screw retention & fabrication",
     detail:
-      "Pultruded fiberglass holds hardware screws directly without the stripped-thread and corrosion issues of thin-wall steel. Cores are cut with standard carbide tooling on the fabricator's existing line — no process change beyond the saw blade.",
+      "Hardware screws fix directly into the pultruded core with no corrosion at the screw interface; screw pull-out is checked for the selected section, resin and screw. Cores are cut with standard carbide tooling on the fabricator's existing line — no process change beyond the saw blade.",
   },
   {
     aspect: "Tolerances & QC",
     detail:
-      "ASTM D3917 dimensional tolerance classes with batch mill certificates; first-article dimensional reports against the chamber drawing before production release.",
+      "ASTM D3917 dimensional tolerances with batch mill certificates; first-article dimensional reports against the chamber drawing before production release.",
   },
   {
     aspect: "Tooling & lead time",
     detail:
-      "Custom die fabrication in 3–6 weeks, first production in 6–10 weeks total — the same custom-pultrusion program that runs our structural and fenestration profiles.",
+      "Custom die fabrication in 4–8 weeks, first production in 6–10 weeks from the approved drawing, through the same custom-pultrusion program that runs our structural and fenestration profiles.",
   },
 ];
 
@@ -84,17 +84,17 @@ const faqItems = [
   {
     question: "Why replace steel window reinforcement with fiberglass?",
     answer:
-      "Three reasons. Thermal: steel reinforcement is a continuous cold bridge that typically raises a reinforced uPVC frame's U-value by 0.2–0.4 W/m²·K; fiberglass removes that penalty, which matters most on passive-house and energy-code-driven projects. Corrosion: steel inserts can corrode inside the chamber from condensation over a 30-year service life; fiberglass cannot. Weight and logistics: the composite core weighs roughly a quarter of the equivalent steel section, reducing sash weight, hardware load, and freight.",
+      "Three reasons. Thermal: steel reinforcement is a continuous cold bridge that raises a reinforced uPVC frame's U-value; fiberglass largely removes that penalty, which matters most on passive-house and energy-code-driven projects. Corrosion: steel inserts can corrode inside the chamber from condensation over the service life; fiberglass cannot rust. Weight and logistics: fiberglass has about a quarter of steel's density, so the composite core is usually lighter than the steel insert even at a larger section, reducing sash weight, hardware load and freight.",
   },
   {
     question: "Is fiberglass stiff enough to replace steel in a window chamber?",
     answer:
-      "Not at equal section — and honest suppliers say so. Pultruded fiberglass runs an elastic modulus of 20–28 GPa against steel's ≈ 200 GPa, so a drop-in copy of the steel section would be too flexible. The reinforcement is instead engineered to a target bending stiffness (EI) within the chamber envelope: deeper section, thicker walls, higher glass loading, or a combination. For most sash and mullion chambers there is enough room to reach the required EI; where there is not, we tell you at the drawing stage rather than after tooling.",
+      "Not at equal section. Pultruded fiberglass has an elastic modulus of roughly 23–40 GPa along the profile (EN 13706-3 grade E23 requires at least 23 GPa) against steel's ≈ 200 GPa, so a drop-in copy of the steel section would be too flexible. The reinforcement is instead engineered to a target bending stiffness (EI) within the chamber envelope: deeper section, thicker walls, higher glass loading, or a combination. For most sash and mullion chambers there is enough room to reach the required EI; where there is not, we tell you at the drawing stage rather than after tooling.",
   },
   {
     question: "Can fiberglass reinforcement be used in vinyl windows?",
     answer:
-      "Yes — vinyl (uPVC) window systems are exactly where pultruded fiberglass reinforcement is used. The fiberglass core slides into the same internal chamber the galvanized steel insert occupies today and is fixed the same way, so the vinyl extrusion itself does not change and the fabrication line needs no retooling beyond a carbide saw blade. The gain is thermal: a steel-reinforced vinyl frame typically loses 0.2–0.4 W/m²·K of U-value to the steel bridge, and the fiberglass core removes that penalty — which is often the difference between a standard vinyl system and one that qualifies for energy-code or passive-house-adjacent projects.",
+      "Yes — vinyl (uPVC) window systems are exactly where pultruded fiberglass reinforcement is used. The fiberglass core slides into the same internal chamber the galvanized steel insert occupies today and is fixed the same way, so the vinyl extrusion itself does not change and the fabrication line needs no retooling beyond a carbide saw blade. The gain is thermal: a steel-reinforced vinyl frame loses part of its insulating value to the steel bridge, and the fiberglass core largely removes that penalty. That can help a vinyl system meet a stricter energy-code target; confirm the result with the system's Uf and Uw calculation.",
   },
   {
     question: "What is the alternative to steel reinforcement in uPVC windows?",
@@ -104,7 +104,7 @@ const faqItems = [
   {
     question: "How do I qualify F1's window reinforcement profiles for my system?",
     answer:
-      "Send the chamber drawing (or a physical sample lineal) and the stiffness target — either the steel section currently specified or the deflection criterion itself. F1 returns a proposed composite section with calculated EI, resin recommendation, and tooling quote. Qualification then follows the standard custom-pultrusion path: die in 3–6 weeks, first-article dimensional and flexural reports, then staged production. Batch mill certificates and third-party inspection (SGS/BV) are supported for ongoing supply.",
+      "Send the chamber drawing (or a physical sample lineal) and the stiffness target — either the steel section currently specified or the deflection criterion itself. F1 returns a proposed composite section with calculated EI, resin recommendation, and tooling quote. Qualification then follows the standard custom-pultrusion path: die in 4–8 weeks, first-article dimensional and flexural reports, then staged production. Batch mill certificates and third-party inspection (SGS/BV) are supported for ongoing supply.",
   },
 ];
 
@@ -137,8 +137,8 @@ export default function WindowReinforcementProfilesPage() {
             { name: "Also known as", value: "Fiberglass window reinforcements, composite uPVC reinforcement, vinyl window stiffener cores" },
             { name: "Section forms", value: "U-channel, rectangular box, flat bar, custom chamber-fit" },
             { name: "Thermal conductivity", value: "≈ 0.3 W/m·K (vs galvanized steel ≈ 50 W/m·K)" },
-            { name: "Tolerances", value: "ASTM D3917 classes, batch mill certificates" },
-            { name: "Tooling lead time", value: "Die 3–6 weeks; first production 6–10 weeks" },
+            { name: "Tolerances", value: "ASTM D3917 tolerances, batch mill certificates" },
+            { name: "Tooling lead time", value: "Die 4–8 weeks; first production 6–10 weeks" },
           ],
         })}
       />
@@ -183,7 +183,7 @@ export default function WindowReinforcementProfilesPage() {
       <PageSection id="why-replace" title="Why FRP window reinforcement profiles replace steel cores">
         <div className="grid grid-cols-1 items-start gap-[24px] lg:grid-cols-[minmax(0,1fr)_320px] lg:gap-[48px]">
           <p className="text-f18 leading-golden text-t1">
-            Every white frame like the one pictured hides a structural question inside its largest hollow chamber: what carries the glass load once the sash grows past a kitchen-casement size? For decades the answer has been a galvanized steel insert — invisible in the finished window, decisive for its U-value. Replacing that insert with a pultruded fiberglass core is the single change that lets a standard uPVC system compete thermally in energy-code-driven markets, without retooling the uPVC extrusion itself.
+            Every white frame like the one pictured hides a structural question inside its largest hollow chamber: what carries the glass load once the sash grows past a kitchen-casement size? For decades the answer has been a galvanized steel insert — invisible in the finished window, decisive for its U-value. Replacing that insert with a pultruded fiberglass core can help a standard uPVC system compete thermally in energy-code-driven markets, without retooling the uPVC extrusion itself.
           </p>
           <Figure number={2} title="uPVC tilt-and-turn window" note="Illustrative photo" bleed>
             <div className="relative aspect-[3/4]">
@@ -206,7 +206,7 @@ export default function WindowReinforcementProfilesPage() {
           ))}
         </div>
         <p className="mt-[16px] text-f14 text-t3">
-          Background on the steel-bridge numbers: see the reinforcement discussion in{" "}
+          Background on the steel thermal bridge: see the reinforcement discussion in{" "}
           <Link href="/technology/frp-vs-pvc-windows" className="font-semibold text-teal-text underline underline-offset-4 hover:text-teal">
             FRP vs PVC window frames
           </Link>

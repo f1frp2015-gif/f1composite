@@ -85,7 +85,7 @@ export default function ContactPage() {
                 {australiaContact.addressLocality}, {australiaContact.city}<br />
                 {australiaContact.addressRegion} {australiaContact.postalCode}, Australia
               </address>
-              <p className="mt-[12px] text-f14 leading-relaxed text-t2">Use this inquiry form for Australian projects. Include your delivery postcode and mention Mason Liu if your enquiry is for our Australian contact.</p>
+              <p className="mt-[12px] text-f14 leading-relaxed text-t2">Use this inquiry form for Australian projects. Include your delivery postcode and mention Mason Liu if your inquiry is for our Australian contact.</p>
               <Link href={australiaContact.path} className="mt-[8px] inline-block text-f14 font-semibold text-teal-text hover:underline">FRP supply for Australia →</Link>
             </div>
             <div className="rounded-card border border-border-default bg-white p-[20px] sm:p-[24px]">

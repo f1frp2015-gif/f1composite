@@ -67,7 +67,7 @@ const caseStudies = [
     location: "Netherlands",
     year: "2023",
     excerpt:
-      "Replaced corroding steel bridge deck components with custom-pultruded FRP profiles, achieving 40% weight reduction while exceeding original load specifications.",
+      "Replaced corroding steel bridge deck components with custom-pultruded FRP profiles, achieving a 40% weight reduction while meeting the EN 1991-2 design traffic loads.",
   },
   {
     slug: "coastal-marina-walkway",

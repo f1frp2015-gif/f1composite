@@ -33,12 +33,12 @@ const faqs = [
   {
     question: "How does F1 Composite handle Section 301 tariffs on FRP from China?",
     answer:
-      "Every DDP USA quote itemizes the US duties that apply at the time of shipment, including Section 301 duties on goods from China, so the landed cost has no hidden customs charge. We state the HTSUS classification we use (usually 3926.90 or 7019, depending on the product), and our customs broker handles clearance. If your project needs duty planning, raise it at the RFQ stage; the country of origin for F1 profiles is China.",
+      "Every DDP USA quote itemizes the US duties that apply at the time of shipment, including Section 301 duties on goods from China, so the landed cost has no hidden customs charge. We state the HTSUS classification we use (usually 3916.90 for profiles cut to length, 3925 for fabricated or fenestration parts, depending on the product), and our customs broker handles clearance. Antidumping and countervailing duty orders on fiberglass door panels and sidelites from China took effect in 2026 (91 FR 50797). Pultruded structural profiles fall outside that scope, but a door leaf with a fiberglass skin may not, so we check the order scope before quoting door packages. If your project needs duty planning, raise it at the RFQ stage; the country of origin for F1 profiles is China.",
   },
   {
     question: "Which US standards are F1 Composite FRP profiles tested to?",
     answer:
-      "Mechanical and dimensional QA uses ASTM D638 (tensile), D790 (flexural), D2344 (short-beam shear) and D3917 (dimensional tolerance). Fire test reports (ASTM E84, ASTM D635) for fire-retardant formulations and coating reports (AAMA 2604 / 2605) for finished sections are provided on request with the report number and scope, so you can match them to the exact product. For windows, the 90-series frame holds Passive House Institute (PHI) component certificate 2491wi03 (Uw 0.78 W/m²·K, phB class). Phius runs its own certification, so for a Phius project we supply the PHI certificate and frame data for your energy model. For federally funded projects under Buy America rules, see the next question.",
+      "Mechanical and dimensional QA uses ASTM D638 (tensile), D790 (flexural), D2344 (short-beam shear) and D3917 (dimensional tolerance). Fire test reports (ASTM E84, ASTM D635) for fire-retardant formulations and coating reports (AAMA 624 / 625) for finished sections are provided on request with the report number and scope, so you can match them to the exact product. For windows, the 90-series frame holds Passive House Institute (PHI) component certificate 2491wi03 (Uw 0.78 W/m²·K, phB class). Phius runs its own certification, so for a Phius project we supply the PHI certificate and frame data for your energy model. For federally funded projects under Buy America rules, see the next question.",
   },
   {
     question: "Can I use F1 Composite FRP on Buy America Act / BABA federal projects?",
@@ -65,8 +65,8 @@ const faqs = [
 const standards = [
   { requirement: "Surface burning, interior", standard: "ASTM E84 (flame spread index ≤ 25 for Class A)", provides: "Fire-retardant formulations", documents: "Test report on request" },
   { requirement: "Window thermal", standard: "PHI component certificate", provides: "Uw 0.78, certificate 2491wi03", documents: "PHI certificate (published)" },
-  { requirement: "Architectural coating", standard: "AAMA 2604", provides: "Powder coating on finished sections", documents: "Coater report on request" },
-  { requirement: "High-performance coating", standard: "AAMA 2605", provides: "AAMA 2605 coating on finished sections", documents: "Coater report on request" },
+  { requirement: "Architectural coating", standard: "AAMA 624", provides: "Powder coating on finished sections", documents: "Coater report on request" },
+  { requirement: "High-performance coating", standard: "AAMA 625", provides: "AAMA 625 coating on finished sections", documents: "Coater report on request" },
   { requirement: "Tensile and flexural properties", standard: "ASTM D638 / D790", provides: "Batch testing", documents: "Batch test certificate" },
   { requirement: "Dimensional tolerance", standard: "ASTM D3917", provides: "Dimensional checks per order", documents: "Dimensional report" },
   { requirement: "Bridge and vehicle decks", standard: "AASHTO load classes", provides: "Pultruded deck plank options", documents: "Project calculation on request" },
@@ -146,7 +146,7 @@ export default function UsaRegionPage() {
             </p>
             <p>
               The rest is the usual engineering work: fire-retardant formulations with
-              ASTM E84 reports on request, AAMA 2604 / 2605 coatings for architectural
+              ASTM E84 reports on request, AAMA 624 / 625 coatings for architectural
               sections, low-conductivity window frames, and custom sections that can
               often use one of more than {dies} existing dies. Send a section list and we
               will quote DDP, so you can compare landed cost with your current supplier.
@@ -165,7 +165,7 @@ export default function UsaRegionPage() {
               House Institute <strong>component certificate 2491wi03</strong> (U<sub>w</sub>{" "}
               0.78 W/m²·K, phB class). Phius runs its own certification, so for a Phius
               project we provide the PHI certificate and frame values for your energy
-              model. Frames can be powder coated in RAL colors with AAMA 2604 / 2605
+              model. Frames can be powder coated in RAL colors with AAMA 624 / 625
               systems.
             </p>
           </div>

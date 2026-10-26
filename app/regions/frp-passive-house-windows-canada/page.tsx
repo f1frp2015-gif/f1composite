@@ -33,7 +33,7 @@ const faqs = [
   {
     question: "Are FRP windows from China subject to Canada's 25% surtax?",
     answer:
-      "Canada's surtaxes on Chinese-origin goods in this area target steel and aluminum products, including steel-framed doors and windows. Pultruded FRP frames are a glass-fiber composite, not steel or aluminum, so those orders are not written for them. Surtax rules change, so we confirm the current treatment for the HS classification we use (usually 3926.90 or 7019) when we quote. The normal MFN duty and 5% GST are itemized in the DDP Canada price.",
+      "Canada's surtaxes on Chinese-origin goods in this area target steel and aluminum products, including steel-framed doors and windows. Pultruded FRP frames are a glass-fiber composite, not steel or aluminum, so those orders are not written for them. Surtax rules change, so we confirm the current treatment for the HS classification we use (usually 3925.20 or 7019) when we quote. The normal MFN duty and 5% GST are itemized in the DDP Canada price.",
   },
   {
     question: "Which Canadian standards are F1 Composite FRP windows tested to?",
@@ -43,7 +43,7 @@ const faqs = [
   {
     question: "Do F1 FRP windows meet the BC Energy Step Code and Toronto Green Standard?",
     answer:
-      "The certified 90-series configuration is well inside the window targets of the upper BC Energy Step Code steps, which call for U-factors well below 0.22 Btu/h·ft²·°F (about 1.25 W/m²·K): its Uw is 0.78 W/m²·K (U-factor about 0.14). The frame itself conducts little heat (about 0.3 W/m·K) and has no aluminum thermal break. Step Code and Toronto Green Standard compliance is assessed for the whole building, so confirm the U-factor for your window sizes and glazing in the energy model.",
+      "The certified 90-series configuration is well inside the window targets of the upper BC Energy Step Code steps, where projects commonly specify window U-factors of 0.22 Btu/h·ft²·°F (about 1.25 W/m²·K) or lower: its Uw is 0.78 W/m²·K (U-factor about 0.14). The frame itself conducts little heat (about 0.3 W/m·K) and has no aluminum thermal break. Step Code and Toronto Green Standard compliance is assessed for the whole building, so confirm the U-factor for your window sizes and glazing in the energy model.",
   },
   {
     question: "What are the lead times and shipping options to Canadian ports?",
@@ -53,12 +53,12 @@ const faqs = [
   {
     question: "Can F1 supply CAD-priced, DDP quotes for Canadian projects?",
     answer:
-      "Yes. We quote DDP to your Canadian site in CAD or USD, with MFN customs duty and 5% GST itemized so your quantity surveyor sees the landed cost up front. We state the HS classification (usually 3926.90 or 7019), our Canadian customs broker handles clearance, and supply-chain traceability documents ship with each order. Provincial PST/HST handling is confirmed for the delivery province when the purchase order is placed.",
+      "Yes. We quote DDP to your Canadian site in CAD or USD, with MFN customs duty and 5% GST itemized so your quantity surveyor sees the landed cost up front. We state the HS classification (usually 3925.20 or 7019), our Canadian customs broker handles clearance, and supply-chain traceability documents ship with each order. Provincial PST/HST handling is confirmed for the delivery province when the purchase order is placed.",
   },
   {
     question: "How does F1's FRP compare to Cascadia, Inline, and Innotech fiberglass frames?",
     answer:
-      `North American fiberglass-frame makers also build low-conductivity frames without a thermal break, so compare certified values for the same window size and glazing. What F1 adds is a published PHI component certificate for the 90 series (Uw 0.78 W/m²·K), AAMA 2604 / 2605 powder coating in RAL colors, and a large tooling base: FengDu's production network has more than ${company.production.dieSets.toLocaleString("en-US")} existing dies across ${company.production.lines} pultrusion lines, so many fenestration profiles need no new die. If you work with a Canadian fabricator, we supply the profiles for their assembly.`,
+      `North American fiberglass-frame makers also build low-conductivity frames without a thermal break, so compare certified values for the same window size and glazing. What F1 adds is a published PHI component certificate for the 90 series (Uw 0.78 W/m²·K), AAMA 624 / 625 powder coating in RAL colors, and a large tooling base: FengDu's production network has more than ${company.production.dieSets.toLocaleString("en-US")} existing dies across ${company.production.lines} pultrusion lines, so many fenestration profiles need no new die. If you work with a Canadian fabricator, we supply the profiles for their assembly.`,
   },
 ];
 
@@ -68,7 +68,7 @@ const standards = [
   { requirement: "Passive House thermal", standard: "PHI component certificate", provides: "Uw 0.78, certificate 2491wi03, phB", documents: "PHI certificate (published)" },
   { requirement: "Step Code envelope", standard: "BC Energy Step Code 4–5", provides: "Window U-factor well below upper-step targets", documents: "Project U-value calculation" },
   { requirement: "Municipal green standard", standard: "Toronto Green Standard Tiers 2–4", provides: "Window input for the envelope model", documents: "U-value calculation on request" },
-  { requirement: "Architectural coating", standard: "AAMA 2604 / 2605", provides: "Powder coating in RAL colors", documents: "Coater report on request" },
+  { requirement: "Architectural coating", standard: "AAMA 624 / 625", provides: "Powder coating in RAL colors", documents: "Coater report on request" },
   { requirement: "Traceability", standard: "Import records", provides: "Made in FengDu's production network", documents: "Traceability documents" },
 ];
 
@@ -139,7 +139,8 @@ export default function CanadaRegionPage() {
               Canadian building codes are moving toward net-zero energy ready
               construction, which British Columbia aims to require by 2032. The BC Energy
               Step Code, the Toronto Green Standard and the tiered energy paths in the
-              national codes set the steps, and a growing number of projects follow Phius
+              national codes (NBC and NECB 2025, published in December 2025 and adopted
+              by each province on its own schedule) set the steps, and a growing number of projects follow Phius
               or Passive House Canada. The window is often the limiting element:
               thermally broken aluminum needs very high-performance glazing to reach the
               U-factors of the upper steps.
@@ -163,8 +164,7 @@ export default function CanadaRegionPage() {
             </p>
             <p>
               Phius and Passive House Canada projects can use the PHI certificate values
-              in their own energy models. Frames can be powder coated with AAMA 2604 /
-              2605 systems in RAL colors, and we supply complete windows or profile sets
+              in their own energy models. Frames can be powder coated with AAMA 624 / 625 systems in RAL colors, and we supply complete windows or profile sets
               for a Canadian fabricator to assemble.
             </p>
           </div>

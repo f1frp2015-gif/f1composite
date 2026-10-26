@@ -116,7 +116,7 @@ export function buildPublicKnowledge(catalog?: PublishedCatalog) {
         geometries: ["i-beam", "channel", "angle", "square-tube", "tube", "flat-bar", "rod"],
         configurationSource: `${SITE}/api/catalog`,
         configurationScope: "Read dimensions, mass, formulation and evidence applicability from the catalog configuration. Resin families discussed in the resin guide are not available options for every section.",
-        leadTimeWeeks: { stock: supplyTerms.catalogLeadTimeWeeks, existingDieVariant: supplyTerms.existingDieVariantLeadTimeWeeks, newDie: supplyTerms.newDieLeadTimeWeeks },
+        leadTimeWeeks: { catalog: supplyTerms.catalogLeadTimeWeeks, existingDieVariant: supplyTerms.existingDieVariantLeadTimeWeeks, newDie: supplyTerms.newDieLeadTimeWeeks },
       },
       {
         id: "fiberglass-sheets",
@@ -257,7 +257,7 @@ export function buildPublicKnowledge(catalog?: PublishedCatalog) {
     aiSurfaces: [
       { name: "Published FRP catalog", endpoint: "/api/catalog", method: "GET", purpose: "Stable configuration keys, formulation codes, revision, dimensions, published mass and evidence applicability from the same catalog reader used by product pages." },
       { name: "FRP profile machining guide", path: "/technology/frp-profile-machining", purpose: "Cutting, drilling, slots, datum and tolerance planning, first-article inspection and machining RFQ inputs. Example tolerances are not certified process capability." },
-      { name: "FRP Density & Weight Calculator", path: "/frp-density-calculator", purpose: "Estimate density and weight per metre from composition, layup and geometry." },
+      { name: "FRP Density & Weight Calculator", path: "/frp-density-calculator", purpose: "Estimate density and weight per meter from composition, layup and geometry." },
       { name: "FRP Engineering Advisor (chat)", path: "/ask", endpoint: "/api/chat", method: "POST" },
       { name: "AI sourcing assistant (structured)", path: "/ai/sourcing", endpoint: "/api/sourcing", method: "POST" },
       { name: "AI passive-house window selector", path: "/ai/passive-house" },

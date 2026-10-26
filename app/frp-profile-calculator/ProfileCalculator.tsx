@@ -474,7 +474,7 @@ export default function ProfileCalculator() {
                     ))}
                   </select>
                   <p className="mt-[4px] text-f12 text-t3">
-                    FRP resistance falls under sustained load. λ values follow the ASCE LRFD Pre-Standard (2010), the basis of ASCE/SEI 74-23.
+                    FRP resistance falls under sustained load. λ values follow the ASCE/SEI 74-23 table, unchanged from the 2010 Pre-Standard.
                     {duration.id === "wind" ? " Enter the strength-level wind or seismic load." : ""}
                   </p>
                 </div>

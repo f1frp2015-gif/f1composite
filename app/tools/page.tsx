@@ -46,7 +46,7 @@ const groups: { id: string; title: string; intro: string; tools: { href: ToolHre
     tools: [
       { href: "/tools/frp-cut-list-optimizer", kind: "Optimizer", title: "Cut list optimizer", text: "Nest piece lengths into 6 m, 12 m or container-length bars with kerf and trim; bars to order, waste and a CSV cut list." },
       { href: "/frp-density-calculator", kind: "Calculator", title: "Density and weight", text: "FRP density from mat, fabric and roving, and profile weight from the section." },
-      { href: "/fiberglass-pultruded-profile-price", kind: "Estimator", title: "Price estimator", text: "Planning prices per meter and per kilogram by section, resin, finish and volume." },
+      { href: "/fiberglass-pultruded-profile-price", kind: "Estimator", title: "Price estimator", text: "Planning price ranges per meter and per kilogram by section, resin, finish and volume; the RFQ quote sets the price." },
       { href: "/tools/frp-life-cycle-cost-calculator", kind: "Calculator", title: "Life-cycle cost vs steel", text: "Present-value cost of FRP against galvanized or painted steel, with galvanizing life from ISO 9223 corrosion rates." },
     ],
   },

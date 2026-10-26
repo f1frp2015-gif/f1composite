@@ -20,7 +20,7 @@ const seoTarget = getSeoQueryTarget(pagePath);
 const pageTitle = seoTarget.title;
 const pageDescription = seoTarget.description;
 const publishedAt = "2026-07-07";
-const updatedAt = "2026-09-23";
+const updatedAt = "2026-10-26";
 const referencedStandards = ["EN 14351-1", "EN ISO 10077-1", "EN ISO 10077-2", "PHI Component Criteria (2491wi03)"];
 
 export const metadata: Metadata = buildPageMetadata({
@@ -191,7 +191,7 @@ export default function PolyurethanePultrusionWindowsPage() {
       />
       <PageNav items={[{ id: "short-answer", label: "Short answer" }, { id: "resin-comparison", label: "Resin comparison" }, { id: "where-it-is-proven", label: "Where it is proven" }, { id: "how-to-buy", label: "How to buy" }, { id: "faq", label: "FAQ" }, { id: "products", label: "Products" }]} />
 
-      <PageSection id="short-answer" title="Same pultrusion process, tougher matrix: the frame technology behind arctic-class windows" tone="white">
+      <PageSection id="short-answer" title="Same pultrusion process, tougher matrix: the frame technology behind our Antarctic station windows" tone="white">
         <p className="text-f16 leading-golden text-t2">
           A polyurethane pultrusion window uses the same continuous pultruded-fiberglass frame concept as any FRP window, but replaces the conventional polyester or vinyl ester resin with a polyurethane (PU) matrix, injected into a closed die box. The PU matrix bonds the glass fibers with far greater toughness across the fiber direction, which is exactly where window profiles are stressed: at screw fixings, corner joints, and multi-point lock keeps. That lets a GFRP-PU profile carry more glass fiber (up to roughly 80% by weight), run thinner walls (down to about 2 mm), and keep its impact strength at −40°C and below.
         </p>

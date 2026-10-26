@@ -28,7 +28,7 @@ const uValueFaqs = [
   {
     question: "Why do FRP frames out-perform thermally broken aluminum on U-value?",
     answer:
-      "FRP thermal conductivity is approximately 0.3–0.4 W/m·K: hundreds of times lower than aluminum (~160 W/m·K) and of the same order as PVC (~0.17 W/m·K). FRP frames reach low Uf not through wall conductivity alone: slim, stiff pultruded walls allow deep multi-chamber (and foam-fillable) profiles with no metal reinforcement bridging the section, whereas PVC of equal stiffness needs a steel core that short-circuits its chambers. Thermally broken aluminum retains a continuous metallic path and typically lands at Uf ≈ 2.8–3.4 W/m²·K for standard polyamide-break systems (premium multi-break systems ≈ 1.6–2.5). Pultruded FRP frames achieve Uf of 0.85–1.4 W/m²·K with no thermal break required.",
+      "FRP thermal conductivity is approximately 0.3–0.4 W/m·K: hundreds of times lower than aluminum (~160 W/m·K) and of the same order as PVC (~0.17 W/m·K). FRP frames reach low Uf not through wall conductivity alone: slim, stiff pultruded walls allow deep multi-chamber (and foam-fillable) profiles with no metal reinforcement bridging the section, whereas PVC of equal stiffness needs a steel core that short-circuits its chambers. Thermally broken aluminum retains a continuous metallic path and typically lands at Uf ≈ 2.8–3.4 W/m²·K for standard polyamide-break systems (premium multi-break systems ≈ 1.6–2.5). Pultruded FRP frames achieve Uf of about 0.78–1.4 W/m²·K (65- to 90-series, 0.78 on the PHI-certified 90 series) with no metal thermal break required.",
   },
   {
     question: "What inputs does the calculator need?",

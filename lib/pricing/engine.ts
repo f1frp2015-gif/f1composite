@@ -12,6 +12,7 @@
 // → × (1+margin) → × (1+VAT) → ±band → CNY/m range → USD export display
 // (× (1+EXPORT_MARKUP) ÷ USD_CNY_RATE).
 
+import { supplyTerms } from "@/content/data/company";
 import { findStandardProfile } from "@/lib/catalog/standardProfiles";
 import { calcArea } from "@/lib/frpSectionProperties";
 import { getPriceGeometryError, toStandardSection, type Geometry, type ProfileType } from "./geometry";
@@ -193,7 +194,7 @@ export function estimatePrice(input: PriceInput): PriceResult {
   const qMul = quantityMultiplier(input.totalMeters, coeff.moqMeters);
   if (qMul > 1) {
     warnings.push(
-      `Order length ${Math.round(input.totalMeters)} m is below the ${coeff.moqMeters} m MOQ for this family — a small-batch premium is included.`,
+      `Order length ${Math.round(input.totalMeters)} m is below the ${coeff.moqMeters} m small-batch threshold the estimate uses for this family, so a small-batch premium is included. New custom sections have a ${supplyTerms.customMoqMeters.firstRun} m first-run minimum (${supplyTerms.customMoqMeters.repeat} m repeat).`,
     );
   }
 

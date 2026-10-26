@@ -39,7 +39,7 @@ const spanTableFaqs = [
   {
     question: "What design basis do these FRP span tables use?",
     answer:
-      "Material EN 13706 Grade E23 minimums (E_L 23 GPa, shear strength 25 MPa) with an assumed G_LT of 3.5 GPa; strength checks per LRFD ASCE/SEI 74-23 with φ = 0.65, the time-effect factor λ = 0.8 for occupancy live load and γ_Q = 1.6 (ASCE 7-22); an outdoor knockdown of 0.85 on strengths; simply supported uniform load; deflection limited to L/250 at service load including the Timoshenko shear correction. The governing check for each value is marked: d deflection, b bending, v shear.",
+      "Material EN 13706 Grade E23 minimums (E_L 23 GPa, shear strength 25 MPa) with an assumed G_LT of 3.5 GPa; strength checks on an ASCE/SEI 74-23-style LRFD screen with φ = 0.65, the time-effect factor λ = 0.8 for occupancy live load and γ_Q = 1.6 (ASCE 7-22); an outdoor knockdown of 0.85 on strengths; simply supported uniform load; deflection limited to L/250 at service load including the Timoshenko shear correction. The governing check for each value is marked: d deflection, b bending, v shear.",
   },
   {
     question: "Do these span tables include shear deflection?",

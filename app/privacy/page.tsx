@@ -7,7 +7,7 @@ import { absoluteUrl } from "@/lib/seo";
 export const metadata: Metadata = {
   title: "Privacy Policy",
   description:
-    "How F1 Composite handles enquiry details, AI assistant conversations, cookies and site statistics on f1composite.com, and how to use your privacy rights.",
+    "How F1 Composite handles inquiry details, AI assistant conversations, cookies and site statistics on f1composite.com, and how to use your privacy rights.",
   alternates: { canonical: absoluteUrl("/privacy") },
   // Keep the legal page available to users and crawlable so search engines can
   // read the directive, but do not treat it as a search landing page.
@@ -20,10 +20,10 @@ const list = "list-disc space-y-[6px] pl-[20px] marker:text-teal";
 
 const cookies = [
   { name: "_ga, _ga_*", provider: "Google Analytics", purpose: "Tells visits apart so pages and visits can be counted", lasts: "Up to 2 years" },
-  { name: "_gcl_au", provider: "Google Ads", purpose: "Links an ad click to a later enquiry", lasts: "90 days" },
+  { name: "_gcl_au", provider: "Google Ads", purpose: "Links an ad click to a later inquiry", lasts: "90 days" },
   { name: "f1c_consent (local storage)", provider: "This site", purpose: "Remembers your cookie choice", lasts: "12 months" },
   { name: "f1c_acquisition_first (local storage)", provider: "This site", purpose: "Remembers the first permitted landing page, referral origin and campaign tags", lasts: "90 days; removed when analytics is rejected" },
-  { name: "f1c_acquisition_session (session storage)", provider: "This site", purpose: "Links the current visit's landing page and source to an enquiry", lasts: "30 minutes of inactivity or until the tab closes" },
+  { name: "f1c_acquisition_session (session storage)", provider: "This site", purpose: "Links the current visit's landing page and source to an inquiry", lasts: "30 minutes of inactivity or until the tab closes" },
   { name: "f1_datasheet_lead_email (local storage)", provider: "This site", purpose: "Remembers that you already gave an email for datasheet downloads", lasts: "Until you clear it" },
   { name: "Drafts (session storage)", provider: "This site", purpose: "Keeps grating and rebar schedule drafts while you work", lasts: "Until you close the tab" },
 ];
@@ -35,8 +35,8 @@ export default function PrivacyPage() {
       <PageHeader
         tag="Legal"
         title="Privacy policy"
-        description="How F1 Composite handles enquiry details, AI assistant conversations, cookies and site statistics on f1composite.com, and how to use your privacy rights."
-        updated="2026-10-11"
+        description="How F1 Composite handles inquiry details, AI assistant conversations, cookies and site statistics on f1composite.com, and how to use your privacy rights."
+        updated="2026-10-26"
         breadcrumbs={[
           { label: "Home", href: "/" },
           { label: "Privacy policy" },
@@ -61,20 +61,20 @@ export default function PrivacyPage() {
 
             <div>
               <h2 className={h2}>2. What we collect and why</h2>
-              <h3 className={h3}>Enquiries and quotation requests</h3>
+              <h3 className={h3}>Inquiries and quotation requests</h3>
               <p>
                 When you send a contact, quotation or sample form, we receive what you enter: name, email, phone,
                 company, country, the message and any file you attach. We also record the browser type and the page
-                you came from. The enquiry is stored in our database and emailed to our sales team. We use it to reply,
+                you came from. The inquiry is stored in our database and emailed to our sales team. We use it to reply,
                 prepare a quotation and follow up on the project. When a quotation or order needs production input, the
                 details may be shared within our group (FengDu New Material and its production companies).
               </p>
               <p className="mb-[12px]">
                 When analytics is allowed, we also link the first and current visit&apos;s landing page, referring site
-                origin and campaign identifiers to your enquiry. We keep page paths, not full URL queries, search text
+                origin and campaign identifiers to your inquiry. We keep page paths, not full URL queries, search text
                 or fragments; campaign values must be short identifiers. The browser record expires after 90 days
                 and the current visit resets after 30 minutes of inactivity. Rejecting analytics removes these browser
-                records and stops collection. Previously submitted enquiry records remain under the enquiry retention
+                records and stops collection. Previously submitted inquiry records remain under the inquiry retention
                 policy below. Missing sources remain unknown; we do not infer that a visit came from an AI assistant.
               </p>
               <h3 className={h3}>Datasheet downloads</h3>
@@ -90,11 +90,11 @@ export default function PrivacyPage() {
                 </li>
                 <li>
                   If you give an email address in an assistant chat, the recent conversation is emailed to our sales team
-                  and saved as an enquiry.
+                  and saved as an inquiry.
                 </li>
                 <li>
                   Project descriptions sent to the sourcing tool are emailed to our sales team. If the description
-                  includes an email address, it is also saved as an enquiry.
+                  includes an email address, it is also saved as an inquiry.
                 </li>
               </ul>
               <p className="mt-[12px]">Please do not enter information you would not put in an email to us.</p>
@@ -161,7 +161,7 @@ export default function PrivacyPage() {
                 <li>OpenAI: AI models that answer the assistant and sourcing tool</li>
                 <li>Google: Analytics and Ads, when allowed</li>
                 <li>Ahrefs: cookieless statistics</li>
-                <li>Resend: delivers enquiry emails to our sales team</li>
+                <li>Resend: delivers inquiry emails to our sales team</li>
                 <li>YouTube (Google): the factory video, when you play it</li>
               </ul>
               <p className="mt-[12px]">
@@ -181,7 +181,7 @@ export default function PrivacyPage() {
             <div>
               <h2 className={h2}>6. How long we keep it</h2>
               <p>
-                We keep enquiries, and conversations saved as enquiries, while we are in contact about a project, and
+                We keep inquiries, and conversations saved as inquiries, while we are in contact about a project, and
                 afterwards for as long as commercial and tax records must be kept. Google Analytics data is kept for the
                 period set in our Google Analytics account, at most 14 months.
               </p>
@@ -190,7 +190,7 @@ export default function PrivacyPage() {
             <div>
               <h2 className={h2}>7. Legal basis (EEA, UK and Switzerland)</h2>
               <ul className={list}>
-                <li>Answering an enquiry or preparing a quotation: steps you asked for before a contract, and our legitimate interest in replying to business enquiries</li>
+                <li>Answering an inquiry or preparing a quotation: steps you asked for before a contract, and our legitimate interest in replying to business inquiries</li>
                 <li>Google Analytics and Google Ads cookies: your consent</li>
                 <li>Cookieless statistics, security and abuse limits: our legitimate interest in running a secure, working website</li>
               </ul>

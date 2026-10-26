@@ -10,6 +10,6 @@ export default function OpenGraphImage() {
     description:
       "Pultruded FRP (GFK) fenestration for Passivhaus, Effizienzhaus, and GEG projects. PHI Cert 2491wi03, U_w 0.78 — outside EU aluminum anti-dumping duties and CBAM.",
     accent: "#ffcc00",
-    chips: ["PHI Darmstadt 2491wi03 · U_w 0.78", "GEG 2024 / BEG-ready", "No alu duties · No CBAM · DDP"],
+    chips: ["PHI Darmstadt 2491wi03 · U_w 0.78", "GModG (ex-GEG) / BEG-ready", "No alu duties · No CBAM · DDP"],
   });
 }

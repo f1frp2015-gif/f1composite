@@ -49,7 +49,7 @@ export interface PultrusionGuide {
   related: { href: string; label: string }[];
 }
 
-export const pultrusionGuideReviewed = "2026-10-03";
+export const pultrusionGuideReviewed = "2026-10-26";
 
 export function pultrusionGuidePath(page: Pick<PultrusionGuide, "kind" | "slug">) {
   return `/${page.kind === "application" ? "applications" : "products"}/${page.slug}`;

@@ -187,7 +187,7 @@ export const blogKeywordTargets: BlogKeywordTarget[] = [
   {
     slug: "fiberglass-window-profile-price-drivers", topic: "windows-and-thermal-performance",
     primaryQuery: "fiberglass window profile price drivers", secondaryQueries: ["fiberglass window lineal cost", "pultruded window profile quotation factors"], intent: "commercial",
-    nextStep: { label: "Prepare a window profile enquiry", href: "/products/window-door-profiles" },
+    nextStep: { label: "Prepare a window profile inquiry", href: "/products/window-door-profiles" },
   },
   {
     slug: "fabricating-fiberglass-window-lineals-switching-guide", topic: "windows-and-thermal-performance",
@@ -237,7 +237,7 @@ export const blogKeywordTargets: BlogKeywordTarget[] = [
   {
     slug: "frp-cable-tray-specifications-advantages", topic: "cable-management",
     primaryQuery: "FRP cable tray specification checklist", secondaryQueries: ["FRP cable tray load requirements", "FRP cable tray RFQ checklist"], intent: "technical",
-    nextStep: { label: "Prepare a cable support enquiry", href: "/applications/frp-cable-tray-supports" },
+    nextStep: { label: "Prepare a cable support inquiry", href: "/applications/frp-cable-tray-supports" },
   },
   {
     slug: "frp-bridge-deck-design-guide", topic: "infrastructure-and-energy",
@@ -382,7 +382,7 @@ export const blogKeywordTargets: BlogKeywordTarget[] = [
   {
     slug: "gfrp-rebar-specification-guide-aci-440-astm-d7957", topic: "gfrp-rebar",
     primaryQuery: "GFRP rebar specification guide", secondaryQueries: ["GFRP rebar ASTM D7957", "ACI 440.11 rebar submittal requirements"], intent: "technical",
-    nextStep: { label: "Prepare a GFRP rebar specification enquiry", href: "/products/frp-rebar" },
+    nextStep: { label: "Prepare a GFRP rebar specification inquiry", href: "/products/frp-rebar" },
   },
   {
     slug: "gfrp-bent-bars-stirrups-mesh-ordering-guide", topic: "gfrp-rebar",

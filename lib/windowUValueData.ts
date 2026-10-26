@@ -50,20 +50,23 @@ export const windowTypes = [
 ];
 
 /* Numeric targets for the quick comparison (W/m²·K). Sources and review
-   notes: docs/audits/2026-09-26-tools-standards-audit.md. */
+   notes: docs/audits/2026-09-26-tools-standards-audit.md; updated in the
+   2026-10-26 content audit: GModG Anlage 7 (gesetze.legal consolidated text,
+   Haufe synopsis), UK Future Homes Standard (GGF, 26 March 2026), NZ H1/AS1
+   6th edition Table 2.1.2.7 (MBIE, 27 November 2025). */
 export const TARGET_COMPARISON = [
   { region: "EU", label: "Passive House (PHI), cool-temperate", max: 0.80 },
   { region: "EU", label: "Passive House (PHI), cold", max: 0.60 },
   { region: "UK", label: "England, replacement window (ADL 2021)", max: 1.40 },
   { region: "UK", label: "England, new dwelling limit (ADL 2021)", max: 1.60 },
-  { region: "DE", label: "Germany, replaced window (Anlage 7)", max: 1.30 },
+  { region: "DE", label: "Germany, replaced window (GModG Anlage 7)", max: 1.30 },
   { region: "US", label: "ENERGY STAR v7.0 Northern", max: 1.25 },
   { region: "US", label: "ENERGY STAR v7.0 Southern", max: 1.82 },
   { region: "US", label: "IECC 2024 zones 5–6 and Marine 4", max: 1.59 },
   { region: "US", label: "IECC 2024 zones 7–8", max: 1.53 },
   { region: "CA", label: "ENERGY STAR Canada v5.0", max: 1.22 },
   { region: "CA", label: "NBC 2020 9.36, zones 7B–8", max: 1.40 },
-  { region: "NZ", label: "H1/AS1 5th ed., zones 5–6 (R0.50)", max: 2.00 },
+  { region: "NZ", label: "H1/AS1 6th ed. reference window, zones 5–6 (R0.50)", max: 2.00 },
   { region: "CN", label: "Severe Cold public, WWR ≤ 0.2", max: 2.70 },
   { region: "CN", label: "Severe Cold public, WWR 0.3–0.4", max: 2.20 },
 ] as const;
@@ -72,9 +75,9 @@ export const REFERENCE_TARGETS = [
   { region: "Europe", std: "EN ISO 10077-1 / PHI", zone: "Passive House window, cool-temperate", uw: "≤ 0.80", note: "PHI component criterion; Uw,installed ≤ 0.85. Cold climate 0.60 (0.65 installed), warm-temperate 1.00 (1.05)" },
   { region: "Europe", std: "EPBD (EU) 2024/1275", zone: "All member states", uw: "National", note: "No EU-wide window limit; member states set element limits in national law" },
   { region: "Europe", std: "EN 14351-1", zone: "CE marking", uw: "Declared", note: "No maximum; the declared Uw goes on the declaration of performance" },
-  { region: "Germany", std: "Building energy act, Anlage 7", zone: "Windows replaced in existing buildings", uw: "≤ 1.30", note: "Roof windows 1.40; applies when windows in an existing building are replaced or renewed" },
-  { region: "UK (England)", std: "Approved Document L 2021", zone: "New dwellings, limiting value", uw: "≤ 1.60", note: "Notional dwelling uses 1.2; compliance is by whole-dwelling targets" },
-  { region: "UK (England)", std: "Approved Document L 2021", zone: "Replacement windows, existing dwellings", uw: "≤ 1.40", note: "Or window energy rating band B" },
+  { region: "Germany", std: "Gebäudemodernisierungsgesetz (GModG, formerly GEG), Anlage 7", zone: "Windows replaced in existing buildings", uw: "≤ 1.30", note: "Roof windows 1.40; applies when windows in an existing building are replaced or renewed. The GEG was renamed GModG from 29 July 2026 (BGBl. 2026 I Nr. 226); these window values did not change" },
+  { region: "UK (England)", std: "Approved Document L 2021", zone: "New dwellings, limiting value", uw: "≤ 1.60", note: "Notional dwelling uses 1.2; compliance is by whole-dwelling targets. The 2026 edition (Future Homes Standard, published 24 March 2026) applies from 24 March 2027, keeps the 1.2 notional value and rates each window at its actual size" },
+  { region: "UK (England)", std: "Approved Document L 2021", zone: "Replacement windows, existing dwellings", uw: "≤ 1.40", note: "Or window energy rating band B; industry guidance expects the replacement-window rules to stay essentially unchanged in the 2026 edition" },
   { region: "USA", std: "IECC 2024 / IRC N1102", zone: "Zones 3 and 4 (except Marine)", uw: "≤ 1.70", note: "U ≤ 0.30 Btu/h·ft²·°F" },
   { region: "USA", std: "IECC 2024 / IRC N1102", zone: "Zones 5–6 and Marine 4", uw: "≤ 1.59", note: "U ≤ 0.28; 0.30 allowed above 4,000 ft elevation or in windborne-debris regions" },
   { region: "USA", std: "IECC 2024 / IRC N1102", zone: "Zones 7–8", uw: "≤ 1.53", note: "U ≤ 0.27 (0.30 in the 2021 edition)" },
@@ -82,10 +85,10 @@ export const REFERENCE_TARGETS = [
   { region: "USA", std: "ENERGY STAR v7.0 (2023)", zone: "North-Central", uw: "≤ 1.42", note: "U ≤ 0.25; SHGC ≤ 0.40" },
   { region: "USA", std: "ENERGY STAR v7.0 (2023)", zone: "South-Central", uw: "≤ 1.59", note: "U ≤ 0.28; SHGC ≤ 0.23" },
   { region: "USA", std: "ENERGY STAR v7.0 (2023)", zone: "Southern", uw: "≤ 1.82", note: "U ≤ 0.32; SHGC ≤ 0.23" },
-  { region: "Canada", std: "ENERGY STAR Canada v5.0", zone: "All of Canada (one zone since 2020)", uw: "≤ 1.22", note: "Or energy rating ER ≥ 34; version 6 is in preparation" },
-  { region: "Canada", std: "NBC 2020, 9.36.2.7", zone: "Zones 4–5 / 6–7A / 7B–8", uw: "1.80 / 1.60 / 1.40", note: "Houses and small buildings, prescriptive path; NBC 2025 adds SHGC limits" },
+  { region: "Canada", std: "ENERGY STAR Canada v5.0", zone: "All of Canada (one zone since 2020)", uw: "≤ 1.22", note: "Or energy rating ER ≥ 34; check NRCan for the version in force" },
+  { region: "Canada", std: "NBC 2020, 9.36.2.7", zone: "Zones 4–5 / 6–7A / 7B–8", uw: "1.80 / 1.60 / 1.40", note: "Houses and small buildings, prescriptive path; NBC 2025 (December 2025) is adopted province by province, so check the edition in force" },
   { region: "Australia", std: "NCC (Section J, Part H6)", zone: "Climate-zone dependent", uw: "No single limit", note: "Glazing is assessed with the wall or through NatHERS; product ratings come from AFRC" },
-  { region: "New Zealand", std: "H1/AS1 5th edition", zone: "Zones 1–4 / 5–6 (housing)", uw: "≈ 2.17 / 2.00", note: "Set as construction R-values R0.46 / R0.50; check the edition in force" },
+  { region: "New Zealand", std: "H1/AS1 6th edition (Nov 2025)", zone: "Zones 1–4 / 5–6 (housing)", uw: "≈ 2.17 / 2.00", note: "Reference-building window R-values R0.46 / R0.50 in the calculation method (the schedule method was removed). The 5th edition can be used until 26 November 2026" },
   { region: "China", std: "GB 55015-2021", zone: "All zones, mandatory since April 2022", uw: "Zone / WWR dependent", note: "General code; supersedes the thermal provisions of GB 50189-2015" },
   { region: "China", std: "GB 50189-2015", zone: "Severe Cold A/B, public, WWR ≤ 0.2", uw: "≤ 2.70", note: "Limits tighten with window-to-wall ratio (2.5 / 2.2 …)" },
   { region: "China", std: "GB 50189-2015", zone: "Severe Cold C, public, WWR ≤ 0.2", uw: "≤ 2.90", note: "Shape factor ≤ 0.3 column; tightens with WWR" },

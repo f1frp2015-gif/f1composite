@@ -313,7 +313,7 @@ export const applicationPages: ApplicationPage[] = [
   },
   {
     slug: "agriculture-horticulture-stakes",
-    lastModified: "2026-09-21",
+    lastModified: "2026-10-26",
     title: "Fiberglass Stakes for Agriculture & Horticulture",
     shortTitle: "Agriculture & horticulture stakes",
     description: "Plan fiberglass stakes for nurseries, vineyards, orchards and crops. Compare configurations, qualify samples and prepare a bulk planting stake inquiry.",
@@ -486,7 +486,7 @@ export const applicationPages: ApplicationPage[] = [
   },
   {
     slug: "frp-bridge-deck-panels",
-    lastModified: "2026-09-21",
+    lastModified: "2026-10-26",
     title: "FRP Bridge Deck Panels - Lightweight Pultruded Decking",
     shortTitle: "FRP bridge deck panels",
     description:
@@ -542,7 +542,7 @@ export const applicationPages: ApplicationPage[] = [
     deepDive: {
       heading: "FRP bridge deck panels from load model to installation plan",
       paragraphs: [
-        "FRP bridge deck panels are closed-top pultruded planks or coordinated panel assemblies that form the traffic or walking surface above the primary girders. Their value is system-level: lower dead load can preserve an existing substructure, modular panels shorten the closure window, and a corrosion-resistant laminate removes the painting and deck-repair cycle that often drives lifecycle cost. The correct panel depth is therefore selected from span, stiffness, local patch load, joint behavior, and installation constraints together — not from a generic kilograms-per-square-meter comparison.",
+        "FRP bridge deck panels are closed-top pultruded planks or coordinated panel assemblies that form the traffic or walking surface above the primary girders. Their value is system-level: lower dead load can preserve an existing substructure, modular panels shorten the closure window, and a corrosion-resistant laminate removes the painting and deck-repair cycle that often drives lifecycle cost. The correct panel depth is therefore selected from span, stiffness, local patch load, joint behavior, and installation constraints together, rather than from a generic kilograms-per-square-meter comparison.",
         "Serviceability is normally central to the design. The engineer checks global panel deflection, local face response under concentrated loads, vibration for pedestrian use, and load transfer across tongue-and-groove or bonded joints. Vehicle-rated decks also need the governing wheel-load model and fatigue-sensitive connection details. F1 supplies preliminary load-deflection data, but the issued-for-construction system must be reviewed under the bridge owner's applicable code and project load combinations.",
         "Replacement projects should include a survey of girder spacing, bearing elevations, drainage, curbs, expansion joints, and maximum lift size. Factory-cut modules can arrive with gritted surfaces, edge pieces, splice details, and a numbered installation sequence. Linking the panel design to crane access and closure duration is where the low mass of FRP produces a measurable construction benefit rather than remaining only a material property.",
       ],
@@ -550,7 +550,7 @@ export const applicationPages: ApplicationPage[] = [
   },
   {
     slug: "frp-solar-mounting-profiles",
-    lastModified: "2026-09-12",
+    lastModified: "2026-10-26",
     title: "FRP Solar Support Design: Loads, Spans & Connections",
     shortTitle: "FRP solar mounting profiles",
     description:
@@ -584,7 +584,7 @@ export const applicationPages: ApplicationPage[] = [
       },
       {
         title: "Electrical and environmental coordination",
-        body: "FRP rails do not create a conductive path, but modules, inverters, metallic clips, cabling, and lightning protection still require code-compliant bonding. Coastal, fertilizer, floating, and desert sites also need different resin and UV packages.",
+        body: "FRP rails are not a bonding conductor, and modules, inverters, metallic clips, cabling, and lightning protection still require code-compliant bonding. Coastal, fertilizer, floating, and desert sites also need different resin and UV packages.",
       },
     ],
     rfqInputs: [

@@ -14,7 +14,7 @@ export const doorThresholds = {
       image: "/images/products/door-thresholds/fiberglass-door-threshold-inward-closed-d47624c8a8.webp",
       title: "Inward-opening · closed base",
       body: "A narrow raised deck above two hollow chambers, with a continuous closed base.",
-      alt: "Dark fiberglass threshold with a narrow raised deck and two hollow chambers above a closed base, extruded continuously along its length",
+      alt: "Dark fiberglass threshold with a narrow raised deck and two hollow chambers above a closed base, pultruded continuously along its length",
     },
     {
       id: "inward-hook",

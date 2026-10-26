@@ -45,7 +45,7 @@ const calculatorFaqs = [
   {
     question: "How are environmental knockdowns applied?",
     answer:
-      "FRP characteristic strengths are multiplied by a screening factor for the service environment: 1.00 indoor dry; 0.85 outdoor exposed, in line with the moisture conversion factor CEN/TS 19101 uses outdoors; 0.75 on strength and 0.90 on stiffness for wet service, the ASCE/SEI 74-23 adjustment for a polyester matrix; 0.75 for mild chemical exposure and 0.70 for 32–60 °C, both F1 screening values that need resin-specific data. ASCE/SEI 74-23 also limits the service temperature to T_g − 22 °C. Metals are unaffected.",
+      "FRP characteristic strengths are multiplied by a screening factor for the service environment: 1.00 indoor dry; 0.85 outdoor exposed, an F1 screening value (a CEN/TS 19101 design uses that standard's own moisture conversion factor); 0.75 on strength and 0.90 on stiffness for wet service, the ASCE/SEI 74-23 sustained-moisture factor for polyester and vinyl ester; 0.70 on strength and 0.74 on stiffness for 32–49 °C, the ASCE/SEI 74-23 temperature factor for polyester at 49 °C; 0.75 for mild chemical exposure, an F1 screening value that needs resin-specific data. Above 49 °C the temperature factors fall further, and ASCE/SEI 74-23 limits the service temperature to T_g − 22 °C. Metals are unaffected.",
   },
   {
     question: "Can I use this calculator for vinyl ester, polyurethane, or phenolic FRP profiles?",
@@ -55,12 +55,12 @@ const calculatorFaqs = [
   {
     question: "Does this calculator handle local buckling, lateral-torsional buckling, and connections?",
     answer:
-      "Not as full design checks. The calculator flags a wall-slenderness advisory per shape — outstanding flanges and angle legs at b/t > 18, box flat widths and tube D/t at > 40 (E-glass pultruded typical) — prompting a dedicated local-buckling review per ASCE/SEI 74-23 Ch.3 or CEN/TS 19101 §6. Lateral-torsional buckling, web crippling, single-angle principal-axis bending, long-term creep, and bolted/bonded connection design (ASCE/SEI 74-23 Ch.8) are out of scope — these need a dedicated tool such as PulCalc 3.x or project-specific engineering. F1 Composite engineering supports these checks on request.",
+      "Not as full design checks. The calculator flags a wall-slenderness advisory per shape — outstanding flanges and angle legs at b/t > 18, box flat widths and tube D/t at > 40 (E-glass pultruded typical) — prompting a dedicated local-buckling review to the member provisions of ASCE/SEI 74-23 or CEN/TS 19101. Lateral-torsional buckling, web crippling, single-angle principal-axis bending, long-term creep, and bolted or bonded connection design (ASCE/SEI 74-23 Chapter 8) are out of scope. These need dedicated FRP design software or project-specific engineering. F1 Composite engineering supports these checks on request.",
   },
   {
     question: "Why does FRP need a deeper section than steel for the same deflection?",
     answer:
-      "FRP elastic modulus is 17–28 GPa versus steel's 200 GPa — about 1/8 to 1/10 of steel. To match steel's deflection, the FRP section needs roughly 8–10× the second moment of area, achieved by going deeper (stiffness scales with depth cubed). The FRP replacement is still lighter because FRP density is 1.9 g/cm³ versus 7.85 g/cm³ for steel: ~25–30% lighter under uniform geometric scaling (the calculator's conservative figure), and 40–60% lighter when the section goes deeper rather than uniformly larger.",
+      "FRP elastic modulus is 17–28 GPa versus steel's 200 GPa, about 1/7 to 1/12 of steel. To match steel's deflection, the FRP section needs roughly 7–12× the second moment of area, achieved by going deeper (stiffness scales with depth cubed). The FRP replacement is still lighter because FRP density is 1.9 g/cm³ versus 7.85 g/cm³ for steel: ~25–30% lighter under uniform geometric scaling (the calculator's conservative figure), and 40–60% lighter when the section goes deeper rather than uniformly larger.",
   },
 ];
 
@@ -91,7 +91,7 @@ export default function CalculatorPage() {
             "Preliminary strength-factor screens oriented to ASCE/SEI 74-23, CEN/TS 19101:2022 and GB 50608-2020",
             "ASD legacy allowable-stress method (FS 2.5 bending / 3.0 shear)",
             "Orthotropic FRP properties — E_L, E_T, G_LT, F_tL, F_cL, F_vLT",
-            "Environmental knockdown factor (indoor, outdoor, wet, chemical, hot), with a stiffness reduction for wet service",
+            "Environmental knockdown factor (indoor, outdoor, wet, chemical, hot), with a stiffness reduction for wet and elevated-temperature service",
             "ASCE time-effect factor λ by load duration (occupancy, storage, permanent, wind or earthquake)",
             "Bending stress check with resistance factor vs min(F_tL, F_cL)",
             "Shear stress check (V / A_web)",
@@ -217,7 +217,7 @@ export default function CalculatorPage() {
                 <strong className="text-t1">The equivalent section is deeper, not heavier.</strong> Replacing a W6×12 (152×76) steel beam at equal stiffness needs roughly ×1.7 on every dimension under geometric scaling (about 265 mm deep) and still lands 25–30% lighter. Practical replacements deepen the web instead of scaling every wall, which is how optimized FRP substitutions reach 40–60% weight savings; the equivalence tab shows the conservative geometric-scaling figure.
               </li>
               <li>
-                <strong className="text-t1">Why the allowables look low.</strong> Allowable strength = φ × min(F_tL, F_cL) × Ω_E. Pultruded FRP typically fails on the compression face first, so the lower compressive strength governs bending. The resistance factor (φ_b = 0.65 in ASCE/SEI 74-23, 1/γ_M ≈ 0.67 in CEN/TS 19101, 1/γ_R ≈ 0.63 in GB 50608) covers material and manufacturing variability, and Ω_E (0.70–1.00) adds the long-term environmental knockdown for outdoor, wet, hot or chemical service. Long-term creep and the ASCE 74-23 time-effect factor λ are separate checks. Together these explain why the design allowable is 25–40% of the characteristic strength in the material specification.
+                <strong className="text-t1">Why the allowables look low.</strong> Allowable strength = φ × λ × min(F_tL, F_cL) × C_env. Pultruded FRP typically fails on the compression face first, so the lower compressive strength governs bending. The screening resistance factor (φ = 0.65 on the ASCE path, 1/γ_M = 1/1.5 on the CEN path, 1/γ_R = 1/1.6 on the GB path) covers material and manufacturing variability. On the ASCE path the time-effect factor λ (0.4 to 1.0) covers creep rupture under the selected load duration, and C_env (0.70–1.00) adds the long-term environmental knockdown for outdoor, wet, hot or chemical service. Creep deflection is a separate check. Together these put the design strength at roughly 20–65% of the characteristic strength in the material specification, before the load factor is applied.
               </li>
             </ul>
           </div>
@@ -238,11 +238,11 @@ export default function CalculatorPage() {
           {[
             {
               title: "Using steel allowables for FRP",
-              body: "FRP must not be designed with AISC 360, Eurocode 3 or GB 50017 steel allowables. Pultruded profiles follow ASCE/SEI 74-23 (US), CEN/TS 19101:2022 (Europe) or GB 50608-2020 with T/CECS 692-2020 (China). All three use their own resistance factors and cap long-term stress at 20–35% of ultimate.",
+              body: "FRP must not be designed with AISC 360, Eurocode 3 or GB 50017 steel allowables. Pultruded profiles follow ASCE/SEI 74-23 (US), CEN/TS 19101:2022 (Europe) or GB 50608-2020 with T/CECS 692-2020 (China). All three use their own resistance factors and reduce the resistance further for sustained load.",
             },
             {
               title: "Ignoring local buckling",
-              body: "Thin-walled FRP sections can buckle locally before they reach the calculated bending capacity. The calculator flags an outstanding-flange b/t advisory (limit about 18 for E-glass pultruded), but a full check to ASCE/SEI 74-23 Ch. 3 or CEN/TS 19101 §6 is still required, and the limit tightens for compression members.",
+              body: "Thin-walled FRP sections can buckle locally before they reach the calculated bending capacity. The calculator flags an outstanding-flange b/t advisory (limit about 18 for E-glass pultruded), but a full local-buckling check to ASCE/SEI 74-23 or CEN/TS 19101 is still required, and the limit tightens for compression members.",
             },
             {
               title: "Treating FRP as isotropic",
@@ -275,10 +275,10 @@ export default function CalculatorPage() {
                 ["EN 13706-2/-3:2002", "Reinforced plastic composites, pultruded profiles: general and specific requirements (E17 / E23 minimum-modulus grades)"],
                 ["ASTM D3917", "Dimensional tolerance of thermosetting glass-reinforced plastic pultruded shapes"],
                 ["ASCE/SEI 74-23", "Load and resistance factor design of pultruded FRP structures (2023, supersedes the 2010 ACMA pre-standard)"],
-                ["CEN/TS 19101:2022", "Design of fibre-polymer composite structures (Eurocode-track technical specification preparing prEN 19101)"],
+                ["CEN/TS 19101:2022", "Design of fibre-polymer composite structures (technical specification; conversion to Eurocode 11, prEN 19101, started in July 2026)"],
                 ["GB 50608-2020", "Technical standard for the engineering application of fiber-reinforced composite materials"],
                 ["T/CECS 692-2020", "Technical regulation for structures of pultruded profiles"],
-                ["Eurocomp Design Code and Handbook", "Structural design of polymer composites (companion to CEN/TS 19101)"],
+                ["Eurocomp Design Code and Handbook", "Structural design of polymer composites (1996; a forerunner of CEN/TS 19101)"],
               ].map(([code, title]) => (
                 <tr key={code} className="border-b border-border-default align-top last:border-b-0">
                   <th scope="row" className="whitespace-nowrap px-[14px] py-[10px] font-semibold text-t1">{code}</th>

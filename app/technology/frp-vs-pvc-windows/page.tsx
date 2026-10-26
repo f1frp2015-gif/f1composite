@@ -17,8 +17,8 @@ const pageDescription =
   "FRP vs uPVC window frames: U-value, thermal expansion, structural reinforcement, UV stability, fire performance, and matching applications. When to choose each.";
 const pagePath = "/technology/frp-vs-pvc-windows";
 const publishedAt = "2026-04-15";
-const updatedAt = "2026-09-27";
-const referencedStandards = ["EN ISO 10077-1", "EN 12608", "EN 13501-1", "BS 7412", "ASTM D4216"];
+const updatedAt = "2026-10-26";
+const referencedStandards = ["EN ISO 10077-1", "EN 12608-1", "EN 13501-1", "BS 7412", "ASTM D4216"];
 
 export const metadata: Metadata = buildPageMetadata({
   title: pageTitle,
@@ -43,7 +43,7 @@ const comparisonData: CompRow[] = [
   { property: "Elastic modulus", unit: "GPa", frp: "20 – 28", pvc: "2.4 – 3.5", frpBetter: true },
   { property: "Steel reinforcement", frp: "Not needed", pvc: "Usually, above about 1.2 m span", frpBetter: true },
   { property: "Thermal expansion", unit: "10⁻⁶/K", frp: "8 – 10 (matches glass)", pvc: "60 – 80 (8× glass)", frpBetter: true },
-  { property: "Softening temperature", unit: "°C", frp: "Above 150 (heat distortion, typical)", pvc: "60 – 70 (dark colors can warp)", frpBetter: true },
+  { property: "Softening temperature", unit: "°C", frp: "Resin HDT about 90 – 120; check Tg for the offered resin", pvc: "60 – 70 (dark colors can warp)", frpBetter: true },
   { property: "UV stability", frp: "Stable with a UV-stabilized resin and coating", pvc: "Yellowing, chalking, embrittlement", frpBetter: true },
   { property: "Reaction to fire (EN 13501-1)", frp: "Depends on the FR resin; report per formulation", pvc: "Class B or C, depending on formulation" },
   { property: "Smoke", frp: "Halogen-free FR options avoid HCl", pvc: "Contains hydrogen chloride (HCl)" },
@@ -66,7 +66,7 @@ const faqs = [
   {
     question: "How does dark-color or south-facing performance compare?",
     answer:
-      "PVC softens around 60–70°C. Dark PVC frames on south-facing elevations in hot climates can reach 70–85°C in direct sun, which can cause warping, sash binding and sealant failure, and some PVC systems restrict dark colors on sun-exposed elevations. Pultruded FRP is a thermoset with a heat distortion temperature typically above 150°C, well above the surface temperatures dark frames reach in sun, so dark colors can be used on any elevation. This matters for commercial facades, dark-bronze architecture and hot-climate markets.",
+      "PVC softens around 60–70°C. Dark PVC frames on south-facing elevations in hot climates can reach 70–85°C in direct sun, which can cause warping, sash binding and sealant failure, and some PVC systems restrict dark colors on sun-exposed elevations. Pultruded FRP is a thermoset that does not soften the way PVC does; typical window resins have heat distortion temperatures of about 90–120°C, above the surface temperatures dark frames reach in sun, so dark colors are far less restricted. Confirm the resin's Tg and the coating's suitability for dark colors. This matters for commercial facades, dark-bronze architecture and hot-climate markets.",
   },
   {
     question: "What is the lifecycle difference between FRP and PVC windows?",
@@ -111,7 +111,7 @@ export default function FrpVsPvcWindowsPage() {
       <PageHeader
         tag="Material Comparison"
         title="FRP vs PVC window frames"
-        description="Thermal performance, structural capacity, UV stability, dimensional stability, and fire safety compared. When PVC is genuinely the right choice, and when only pultruded FRP meets the requirement."
+        description="Thermal performance, structural capacity, UV stability, dimensional stability, and fire safety compared. When PVC is genuinely the right choice, and when pultruded FRP is the better fit."
         breadcrumbs={[
           { label: "Home", href: "/" },
           { label: "Technology", href: "/technology" },
@@ -131,7 +131,7 @@ export default function FrpVsPvcWindowsPage() {
 
       <PageSection id="property-comparison" title="Side-by-side: FRP vs uPVC window frames" tone="muted">
         <p className="text-f16 leading-golden text-t2">
-          FRP values are typical of pultruded E-glass/polyester window profiles at 65 to 90 mm frame depths. PVC values reflect premium triple-chamber uPVC systems typical of leading European manufacturers, steel-reinforced where required by span. Bold marks the properties where FRP materially outperforms PVC.
+          FRP values are typical of pultruded E-glass/polyester or polyurethane window profiles at 65 to 90 mm frame depths. PVC values reflect premium triple-chamber uPVC systems typical of leading European manufacturers, steel-reinforced where required by span. Bold marks the properties where FRP materially outperforms PVC.
         </p>
         <div className="relative mt-[20px] overflow-x-auto rounded-card border border-border-default bg-white">
           <table className="w-full border-collapse text-f14">

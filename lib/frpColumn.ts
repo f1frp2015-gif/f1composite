@@ -16,9 +16,13 @@
 //  - Crushing: the longitudinal compressive strength times the area.
 //
 // Design strength: every mode takes the resistance factor the calculator uses
-// for bending (lib/frpDesignBasis.ts). ASCE/SEI 74-23 is understood to allow
-// higher factors for buckling, but they could not be confirmed against the
-// published text, so the lower bending factor is the conservative choice.
+// for bending (lib/frpDesignBasis.ts). The ASCE/SEI 74-23 factor for each
+// buckling mode could not be confirmed against the published text. Committee
+// presentations (ACMA, 2021 and 2024) also describe caps of 0.7·λ·F_cL·A_g on
+// the factored load and 0.3·F_cL·A_g on the service load, which are not
+// checked here, and the standard's lateral-torsional buckling φ is reported as
+// 0.5 (Harati et al., SSRN 6736780), so this screen is not conservative for
+// every mode by construction.
 // Local–global interaction, eccentric load, flexural–torsional buckling of
 // open sections and creep under sustained load are flagged, not calculated.
 

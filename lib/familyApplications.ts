@@ -32,8 +32,8 @@ const FAMILY_APPLICATIONS: Record<ProfileCategory, readonly string[]> = {
 const STAIRCASE_USE: Partial<Record<ProfileCategory, string>> = {
   "i-beam": "I-beam stringers and landing beams with square tubes, in vinyl ester",
   "square-tube": "Square tubes with the I-beam stringers and landing beams, in vinyl ester",
-  "round-tube": "Round tube handrails in UV-stabilised polyester",
-  "flat-bar": "Flat bar kick plates in UV-stabilised polyester",
+  "round-tube": "Round tube handrails in UV-stabilized polyester",
+  "flat-bar": "Flat bar kick plates in UV-stabilized polyester",
 };
 
 export const factoryStaircase: Omit<ApplicationCard, "used"> = {

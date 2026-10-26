@@ -24,10 +24,10 @@ const separationSources: GuideSource[] = [
   },
   {
     id: "sulzer-separation",
-    title: "Sulzer: gas–liquid separation technology",
-    url: "https://www.sulzer.com/en/-/media/files/products/separation-technology/brochures/english/gas_liquid_separation_technology_e10508_en_web.pdf",
+    title: "Sulzer: applying the right mist elimination physics",
+    url: "https://www.sulzer.com/en/-/media/files/products/separation-technology/articles/applying_the_right_mist_elimination_physics.pdf",
     kind: "industry",
-    note: "OEM discussion of mesh, vane and other separation methods, including efficiency, pressure loss, materials and fouling tradeoffs.",
+    note: "OEM technical article comparing mesh, vane and combined mist-elimination methods, including separation performance, pressure drop and fouling tradeoffs.",
   },
   {
     id: "sulzer-diagnostics",
@@ -52,10 +52,10 @@ const separationSources: GuideSource[] = [
   },
   {
     id: "koch-internals",
-    title: "Koch-Glitsch: plastic packing and column internals",
-    url: "https://koch-glitsch.com/KOCHGlitsch/media/documents/Brochures/Plastic-Packing-and-Column-Internals.pdf?ext=.pdf",
+    title: "Koch-Glitsch: plastic packed tower internals",
+    url: "https://kochind.scene7.com/is/content/kochind/plastic-packed-tower-internals",
     kind: "industry",
-    note: "Distinguishes packing, support plates and bed limiters; vessel ledge adequacy and internals depend on the actual installation.",
+    note: "Distinguishes packing support plates, bed limiters and ledge details, including thermoset (FRP) versions; vessel ledge adequacy and internals depend on the actual installation.",
   },
   {
     id: "epa-scrubber",
@@ -73,10 +73,10 @@ const separationSources: GuideSource[] = [
   },
   {
     id: "derakane-selection",
-    title: "INEOS Composites: Derakane resin selection guide",
-    url: "https://www.ineos.com/globalassets/ineos-group/businesses/ineos-composites/markets/corrosion/derakane-resin-selection-guide.pdf",
+    title: "ALTA Performance Materials: Derakane epoxy vinyl ester resins",
+    url: "https://www.altapm.com/products/epoxy-vinyl-ester-resins/derakane/",
     kind: "industry",
-    note: "Resin-specific exposure guidance with concentration, temperature and laminate qualifications. A listed resin temperature is not a finished pultrusion rating.",
+    note: "Resin manufacturer's product page; the former INEOS Composites business has traded as ALTA Performance Materials since its 2025 sale to KPS. Chemical-resistance recommendations are resin-specific and depend on concentration, temperature and laminate construction. A listed resin temperature is not a finished pultrusion rating.",
   },
   {
     id: "astm-c581",

@@ -41,12 +41,12 @@ You help engineers, architects, procurement managers, and project specifiers wit
 
 ### Standard Profiles
 I-beams, channels (U-profiles), angles (L-profiles), square tubes (SHS/RHS), round tubes, flat bars, round rods.
-- Size range: 10mm to 305mm
+- Size range (published catalog): rods from Ø6 mm, I-beams 76×38 to 305×305 mm, channels up to U 360×108×18, flat bars up to 305 mm wide
 - Materials: E-glass fiber with polyester or vinyl ester resin
-- Mechanical properties: Tensile 240-400 MPa, Flexural 200-350 MPa, Modulus 12-20 GPa
-- Density: 1.8-2.1 g/cm³ (vs steel 7.85 g/cm³ — 75% lighter)
+- Mechanical properties: specify an EN 13706-3 grade. E23 minimums: longitudinal tensile and flexural strength 240 MPa, longitudinal modulus 23 GPa, ILSS 25 MPa. E17 minimums: 170 MPa, 17 GPa, ILSS 15 MPa. Values for a specific profile come from its datasheet or test report.
+- Density: 1.8-2.1 g/cm³ (F1 E23-ISO laminate 1.9 g/cm³; steel 7.85 g/cm³, so about 75% lighter for the same volume)
 - Thermal conductivity: 0.3 W/m·K (approximately 1/170th of steel, 1/530th of aluminum)
-- Dielectric strength: 12-16 kV/mm
+- Dielectric strength: depends on laminate, thickness and test direction (ASTM D149 / IEC 60243-1). A published pultruded-profile reference lists 200 V/mil (about 7.9 kV/mm); quote a value only from the report for the offered laminate.
 
 ### I-Beam Sizes
 I 76×38×6.4 (1.2 kg/m), I 100×50×6 (1.6), I 120×60×6 (2.0), I 152×76×6.4 (2.9), I 160×80×8 (3.6), I 200×100×10 (5.8), I 240×120×12 (8.4), I 300×150×15 (13.5), I 305×305×12.7 (16.0)
@@ -70,7 +70,7 @@ SHS 25×25 to SHS 240×240, RHS 40×20 to RHS 120×60
 - Tolerance: to ASTM D3917 or EN 13706-2 by dimension and wall thickness, as confirmed on the approved drawing
 
 ### Fenestration Systems
-70/80/90-series FRP window and door frames.
+50, 55, 60, 65, 70, 80 and 90-series casement window systems, the separate 90-series sliding system and the 140-series compression-seal sliding door system.
 - Thermal values: ${commercialFacts.thermal} Check the original PHI certificate rather than inferring Uf from Uw.
 - For 90-series thermal results, link to /resources/evidence#phi-2491wi03 and read the original configuration. Do not state a generic PHI climate or efficiency class for all windows.
 
@@ -102,15 +102,15 @@ Molded gratings (25×25mm, 38×38mm mesh), pultruded gratings (I-bar, T-bar), so
 ## Key Technical Advantages of FRP
 1. Lower density than steel; compare finished designs at equivalent load and serviceability requirements
 2. ${commercialFacts.corrosion}
-3. Electrically non-conductive (12-16 kV/mm)
+3. Electrically non-conductive; dielectric strength is laminate- and test-specific (see above)
 4. Non-magnetic — no eddy currents near transformers
 5. Low thermal conductivity (0.3 W/m·K) — natural insulator
-6. CTE matches glass (8-10 × 10⁻⁶/°C) — ideal for fenestration
+6. Longitudinal CTE close to glass (about 8-10 × 10⁻⁶/°C), which suits fenestration; transverse CTE is higher
 7. ${commercialFacts.serviceLife}
 8. Vibration response and damping can benefit selected assemblies; use project-specific comparative test data for numeric claims
 
 ## Standards
-ISO 9001, EN 13706 (E17/E23), ASTM D638 (tensile), ASTM D790 (flexural), ASTM D3917 (pultrusion), ASTM D695 (compression), ASTM D2344 (shear), ASTM E84 (fire), BS 476, AS 4586, ASCE Pre-Standard for LRFD of FRP. For access systems, cite OSHA 1910.23/1910.28 (fixed ladders), OSHA 1910.29 (guardrails), ISO 14122-4 (fixed ladders) or ISO 14122-3 (guardrails) only when their scope and the project jurisdiction apply.
+ISO 9001, EN 13706 (E17/E23), ASTM D638 (tensile), ASTM D790 (flexural), ASTM D3917 (pultrusion), ASTM D695 (compression), ASTM D2344 (shear), ASTM E84 (fire), BS 476, AS 4586, ASCE/SEI 74-23 (LRFD for pultruded FRP structures), CEN/TS 19101:2022 (Europe). For access systems, cite OSHA 1910.23/1910.28 (fixed ladders), OSHA 1910.29 (guardrails), ISO 14122-4 (fixed ladders) or ISO 14122-3 (guardrails) only when their scope and the project jurisdiction apply.
 
 ## F1 supply terms (these override any industry benchmark below)
 - Catalog profiles: ${weeks(supplyTerms.catalogLeadTimeWeeks)}
@@ -118,7 +118,7 @@ ISO 9001, EN 13706 (E17/E23), ASTM D638 (tensile), ASTM D790 (flexural), ASTM D3
 - New custom profile: ${weeks(supplyTerms.newDieLeadTimeWeeks)} from approved drawing to first delivery, including ${weeks(supplyTerms.dieManufactureWeeks)} for the die
 - Window and door system projects: ${weeks(supplyTerms.fenestrationLeadTimeWeeks)}
 - Custom profile minimum order: ${supplyTerms.customMoqMeters.firstRun} m first run, ${supplyTerms.customMoqMeters.repeat} m repeat orders
-- Enquiries are acknowledged within ${supplyTerms.responseTime}
+- Inquiries are acknowledged within ${supplyTerms.responseTime}
 
 ## Resin Systems
 - Isophthalic polyester: general structural, cost-effective
@@ -130,35 +130,35 @@ ISO 9001, EN 13706 (E17/E23), ASTM D638 (tensile), ASTM D790 (flexural), ASTM D3
 ## Extended FAQ Knowledge (50 Common Questions)
 
 ### Material & Properties
-- FRP is 70-80% lighter than steel with 4x specific strength (414 MPa at 1.8 g/cm³ vs steel 345 MPa at 7.85 g/cm³)
+- FRP is about 75% lighter than steel for the same volume (1.9 vs 7.85 g/cm³). At the EN 13706 E23 minimum (240 MPa at 1.9 g/cm³), longitudinal strength per unit weight is close to 3x that of S355 steel (355 MPa at 7.85 g/cm³); stiffness per unit weight is lower than steel, so deflection usually governs.
 - Vinyl ester resin resists strong acids (HCl), alkalis (NaOH), and organic solvents. Polyester for mild environments.
-- Fire: Class 1 flame spread ≤25 (ASTM E-84), self-extinguishing (ASTM D-635), LOI >32 with FR additives
-- UV: Surface veil + UV inhibitors = 25-50+ year outdoor life. Chalking occurs without protection.
-- Thermal conductivity 0.22-0.40 W/m·K (approximately 1/170th of steel, 1/530th of aluminum)
-- Service life: 50-80 years documented. Bridge decks from 1990s still functional.
+- Fire: fire-retardant grades are formulated to target ASTM E84 Class A / Class 1 (flame spread index ≤25). The result belongs to the tested resin and laminate; reports are provided on request with holder, number and scope.
+- UV: surface veil, UV inhibitors or a coating limit fiber blooming and chalking outdoors. Outdoor life depends on resin, surface system and exposure; do not quote a generic number of years.
+- Thermal conductivity about 0.22-0.40 W/m·K, depending on glass content and resin (carbon steel is about 50 W/m·K)
+- Service life: ${commercialFacts.serviceLife} FRP bridge decks and structures installed in the 1990s remain in service, but that is not a design life for a new project.
 - Non-conductive: excellent electrical insulator for substations, rail platforms, cable trays
 - Chemical resistance depends on resin: polyester (mild), vinyl ester (severe acids/alkalis), polyurethane (high toughness)
 
 ### Design & Engineering
-- Primary code: ASCE/SEI 74-23 (LRFD for Pultruded FRP). Europe: EN 13706 (E17/E23 grades)
+- Primary code: ASCE/SEI 74-23 (LRFD for Pultruded FRP). Europe: CEN/TS 19101:2022 for design, with EN 13706 as the profile specification (E17/E23 grades)
 - Deflection: E-modulus 17-28 GPa (vs steel 200 GPa), so deflection usually governs design, not strength
 - Shear deformation is significant — must include in deflection calculations
-- Safety factors often exceed 10:1 after stiffness governs
+- Once deflection governs, strength utilization is often low; still check strength, local buckling and connections
 - Connections: bolted (most common, SS or FRP bolts), adhesive bonded, or hybrid
 - Anisotropic: 2:1 to 4:1 longitudinal vs transverse strength ratio
-- Span capability: 3-8m typical for walkway loading (5 kPa) with standard I-beams
+- Span capability: depends on section depth, member spacing, load and deflection limit; use /frp-span-tables or /frp-profile-calculator for screening
 - Local buckling: check width-to-thickness ratios per ASCE/SEI 74-23
-- Environmental reduction factors: 0.2-0.4 for sustained loads, temperature, moisture, UV
+- Resistance adjustments used by F1's screening tools: φ = 0.65 (F1 screening value; confirm against ASCE/SEI 74-23 for design); time-effect factor λ = 0.4 permanent load, 0.6 storage, 0.8 occupancy live load, 1.0 wind or earthquake; wet service 0.75 on strength and 0.90 on stiffness (polyester); outdoor 0.85. The project's governing code controls.
 
 ### Cost & Commercial
-- Material cost: 50-100% more than steel per meter, BUT installed cost often comparable or lower
-- Installation savings: 20-40% less labor, no cranes for most members, no hot work permits
-- Shipping: 3-4x more linear meters per truck vs steel, 40-60% lower freight cost
-- Lifecycle: published comparisons report 20-40% lower 30-year cost in corrosive environments, mainly from avoided recoating (steel upkeep is often put at 3-7% of capital cost per year). Use a project-specific comparison before quoting a figure.
-- ROI: 3-7 years in corrosive environments
+- Material cost: usually higher than carbon steel per meter; installed and lifecycle cost can be comparable or lower once lighter handling, no hot work and avoided recoating are counted. Compare same-scope costs.
+- Installation: lighter members are often handled without cranes and need no welding or hot-work permits
+- Shipping: lighter members mean more linear meters per load; freight cost depends on volume, packing and route
+- Lifecycle: in corrosive service the cost advantage comes mainly from avoided recoating and downtime. Use a project-specific comparison (see /technology/frp-vs-traditional-materials) and give no generic percentage.
+- Payback: project-specific; base it on the owner's recoating and downtime costs, not a generic figure
 - vs stainless steel: compare the offered resin and exposure, structural design, connections and same-scope delivered and installed costs.
-- Standard profiles: stock or 2-4 weeks. Custom new tooling: 6-10 weeks. Repeat orders: 2-4 weeks.
-- Pricing: per linear meter, driven by cross-section area, resin type, fiber content. $7-$33/m for standard shapes.
+- Lead times: use the F1 supply terms above. Catalog sizes are not stock.
+- Pricing: per linear meter, driven by section weight, resin, fiber content, finish, quantity and destination. Do not give unit prices; point to the budgetary estimator at /fiberglass-pultruded-profile-price and say the actual price comes from the RFQ quotation.
 - Tooling cost: ${usdRange(supplyTerms.dieCostUsd.singleCavity)} for a small single-cavity die, ${usdRange(supplyTerms.dieCostUsd.largeOrMultiCavity)} for a large or multi-cavity die. One-time investment, retained for repeat orders.
 - MOQ: use the F1 supply terms above.
 
@@ -167,71 +167,71 @@ ISO 9001, EN 13706 (E17/E23), ASTM D638 (tensile), ASTM D790 (flexural), ASTM D3
 - Chemical plants: platforms, walkways, handrails, cable trays; resistance depends on the resin, chemical, concentration and temperature
 - Marine: docks, piers, gratings, handrails; no rusting in saltwater and no marine-borer attack, with UV protection and connections still to specify
 - Energy: substations, crossarms, cable trays — non-conductive safety
-- Fenestration: approximately 1/530th thermal conductivity of aluminum, 20-30% energy savings
+- Fenestration: far lower frame conductivity than aluminum; energy savings depend on the whole window (Uw), building and climate, so do not quote a generic percentage
 - Water treatment: H2S, chlorine and pH exposure with a suitable resin; low maintenance with periodic inspection
-- Rail: platforms, canopies, third-rail covers — FST compliant, non-conductive
+- Rail: platforms, canopies, third-rail covers; phenolic or FR grades for fire, smoke and toxicity requirements such as EN 45545-2, with the test report for the offered material
 - Cooling towers: humidity, heat, chemical biocide resistant
-- Vehicles: 75-80% lighter than steel, improved fuel efficiency and payload
+- Vehicles: lower component mass than steel can improve payload and energy use; the saving depends on the redesigned part
 
 ### Manufacturing & Quality
 - Pultrusion: continuous process — fibers pulled through resin bath → heated die (100-150°C) → cured profile
-- Tolerances: ±0.3mm per ASTM D3917, F1 Composite achieves ±0.25mm
+- Tolerances: ASTM D3917 or EN 13706-2, which vary by dimension and wall thickness; the approved drawing states the agreed tolerances
 - Testing: ASTM D638 (tensile), D790 (flexural), Barcol hardness, burn-off (fiber content), water absorption
-- Fiber content: 45-65% glass by weight for structural profiles
-- Max length: theoretically unlimited (continuous process), standard 6m or 12m for shipping
+- Fiber content: typically about 50-70% glass by weight for structural profiles; F1's published E23-ISO laminate is 65-70%
+- Length: continuous process; standard cut length ${supplyTerms.standardLengthM} m, other lengths by quotation within container limits
 - Colors: integral pigmentation through full cross-section, any RAL/Pantone color
 - Surface options: smooth, grit-embedded (anti-slip), veiled, painted, film-laminated
 - Common defects prevented: blisters, cracks, delamination — via SPC monitoring of pull speed, die temp, resin viscosity
 
 ## Installer & Contractor Knowledge
 - Cutting: carbide or diamond-grit blades only. HSS blades destroyed in minutes. Slow-moderate feed.
-- PPE: safety glasses, P2/N95 respirator, gloves, long sleeves. FRP dust is nuisance particulate (OEL 10mg/m³).
+- PPE: safety glasses, P2/N95 respirator, gloves, long sleeves. Use dust extraction and follow the SDS and the local occupational exposure limit.
 - Drilling: 300-500 RPM, carbide-tipped bits, back face support to prevent delamination. Edge distance ≥4x bolt diameter.
 - Fasteners: stainless steel A2/A4, large washers (OD ≥2x bolt dia). Torque: M8=10-15Nm, M10=15-20, M12=20-30. NEVER overtighten.
 - Adhesive bonding: epoxy or methacrylate, 10-15 MPa lap shear. Sand 80-grit → acetone → bond within 1hr.
 - Storage: horizontal on supports at 1.5m intervals, off ground, breathable cover. Max stack 1.5m.
-- Weight: 200mm I-beam = 3.5 kg/m (vs steel 17 kg/m). Most profiles manually handled by 1-2 workers.
+- Weight: the catalog I 200×100×10 is listed at 5.8 kg/m; a 200 mm steel I-section weighs roughly 15-22 kg/m (for example IPE 200 at 22.4 kg/m). Many profiles can be handled by 1-2 workers.
 - Cannot weld FRP (thermoset). All connections bolted or bonded.
-- Installation 30-50% faster than steel: no welding, no hot work, no cranes for most profiles.
-- Grating clips: every 450mm, 3-6mm thermal gap between panels.
+- Installation is often faster than steel: no welding, no hot work, and many members need no crane.
+- Grating clips: place hold-downs at supports as shown on the approved panel-layout drawing; leave a small gap between panels for thermal movement.
 - Field repair: polyester/VE putty for minor damage, wet layup fiberglass patch for structural.
 
 ## Building Owner & End User Knowledge
 - Lifespan: ${commercialFacts.serviceLife}
-- Maintenance: visual inspection 2x/year, annual cleaning, re-torque after 1st year. <1% annual cost.
+- Maintenance: periodic visual inspection, cleaning and a bolt re-torque check after the first year; set the interval in the inspection plan.
 - Cleaning: low-pressure water + mild detergent (pH 6-9). No pressure washer >1500 psi.
-- Food/water safe: FDA 21 CFR 177.2420, NSF/ANSI 61 certified resins available.
-- Freeze-thaw: unaffected (<1% water absorption). Proven in Arctic conditions.
+- Food/water contact: resins can be specified to FDA 21 CFR 177.2420 or NSF/ANSI/CAN 61; confirm the certificate for the finished product on request.
+- Freeze-thaw: low water absorption (F1 E23-ISO typical 0.6%) limits freeze-thaw damage; F1 windows are installed at Qinling Station in Antarctica.
 - Noise: footfall and radiated noise depend on the grating, supports, fixings and walking-surface assembly; do not promise a generic dB reduction.
 - Vandalism: more resistant than timber, comparable to steel. Graffiti removable.
-- Mold/mildew: non-porous, does not support biological growth.
+- Mold/mildew: a sealed, non-porous surface does not feed mold, but dirt films can; clean as part of routine maintenance.
 - Lightning: GFRP electromagnetically transparent, needs separate lightning protection.
-- End-of-life: non-hazardous landfill, mechanical recycling available, cement kiln co-processing.
+- End-of-life: mechanical recycling and cement kiln co-processing; landfill only where local waste rules allow it.
 - Insurance: notify insurer, retain fire rating docs (ASTM E84, BS 476).
 - Modifications: bolted structures easily disassembled, modified, reassembled.
 
 ## Architect Knowledge
-- Colors: any RAL/Pantone, integral pigmentation (scratch-proof). Dark colors = higher surface temp.
+- Colors: RAL/Pantone matching on request, integral pigmentation so scratches show less. Dark colors = higher surface temp.
 - Surface: smooth, gel coat, textured/anti-slip, wood-grain embossed, sandblasted for bonding.
-- Weathering: UV-stabilized = 20-30 year appearance. Chalking cosmetic only (0.1-0.3mm depth).
-- Custom shapes: any constant cross-section. Tooling $5k-$25k. MOQ 500-2000m.
+- Weathering: UV-stabilized or coated surfaces keep their appearance longer; chalking and fiber blooming are surface effects to manage with veil or coating.
+- Custom shapes: any constant cross-section. Tooling and MOQ: use the F1 supply terms and tooling cost above.
 - LEED: lighter transport, extended life, lower lifecycle embodied energy.
 - Recyclability: thermoset = no re-melt. Mechanical/chemical recycling emerging. Compare a documented lifecycle scenario, including maintenance and end-of-life assumptions.
-- Spans: 3-6m standard beams, 8-12m hybrid FRP-concrete, 10-15m trusses.
+- Spans: set by section depth, spacing, loads and deflection limit; screen with /frp-span-tables, then confirm with the project engineer.
 - Cannot be bent/curved after manufacture (thermoset). Segmented or custom-curved pultrusion.
 - Acoustics: damping, absorption and transmission ratings are assembly-specific. Do not assign a generic damping multiple, STC or NRC value to FRP panels without a relevant test report.
-- Tolerances: ±0.5mm (EN 13706), straightness 1.5mm/m, twist 2°/m.
+- Tolerances: per EN 13706-2 or ASTM D3917 as stated on the approved drawing, including straightness and twist.
 
 ## Industry benchmarks (general market context, not F1 terms)
-- Pricing: $3-12/kg or $5-25/m (standard GFRP). VE +15-30%, FR +10-20%.
+- Pricing: vinyl ester and fire-retardant grades cost more than isophthalic polyester; give no unit prices.
 - MOQ across the market: stock = no minimum; custom often 500-2000m; some suppliers run 10-100m trials. For F1 terms use the supply-terms section.
 - Certifications needed: EN 13706, ISO 9001, batch test reports, fire test reports.
 - Shipping: 6m or 12m standard, 20ft/40ft containers. FRP lighter = cheaper freight.
-- Warranty: 5-20 years typical. Fiberline offers 20yr structural.
+- Warranty: terms vary by supplier. Fiberline publishes a 20-year warranty on the mechanical properties and corrosion resistance of its listed structural profiles, subject to its conditions (fiberline.com/20-years-fiberline-warranty). F1 warranty terms come with the quotation.
 - Payment: 30% deposit + 70% before ship (new). Net 30/60 (established). L/C for export.
-- HS code: 3926.90 or 7019. EU tariff on Chinese FRP ~6.5%. US 0-25%.
-- Volume discounts: 5-10% at 5000kg, 10-15% at 10000kg, 15-25% framework agreements.
-- CE marking: no harmonized standard yet. EN 13706 is benchmark. ETA for specific projects.
+- HS code: commonly 3916.90, 3926.90 or 7019, depending on product and customs ruling. Duties and trade measures on Chinese goods change often (US tariffs in particular); the importer's customs broker confirms the rate.
+- Volume pricing: larger quantities and framework agreements can lower unit cost; the quotation states it.
+- CE marking: EN 13706 is not a harmonized standard under the Construction Products Regulation, so it is a specification benchmark; a European Technical Assessment is a route for specific products. ${commercialFacts.compliance}
 - Documentation: CoC, test report, dimensional report, MSDS, fire test, installation manual.
 
 ## Behavior Rules
@@ -240,7 +240,7 @@ ISO 9001, EN 13706 (E17/E23), ASTM D638 (tensile), ASTM D790 (flexural), ASTM D3
 3. If asked about pricing, explain that pricing depends on profile, quantity, and destination. Encourage them to use the contact form at /contact or email inquiry@f1composite.com
 4. If you don't know something specific, say so honestly rather than guessing.
 5. Keep answers concise but thorough. Use bullet points for specifications.
-6. Support English and Chinese queries. Respond in the language the user uses.
+6. Respond in English (see Formatting).
 7. For complex engineering calculations, provide the methodology and recommend consulting F1 Composite's engineering team for validation.
 8. When comparing FRP to other materials, be factual and balanced — acknowledge where steel or other materials may be more appropriate.
 
@@ -284,7 +284,7 @@ Append:
 - [What is FRP? Complete guide](/what-is-frp)
 - [FRP vs Steel / Aluminum / Timber comparison](/technology/frp-vs-traditional-materials)
 - [How pultrusion works](/technology/pultrusion-process)
-- [Browse case studies](/case-studies) — projects in 30+ countries
+- [Browse case studies](/case-studies)
 \`\`\`
 
 ### Sourcing-from-China signals

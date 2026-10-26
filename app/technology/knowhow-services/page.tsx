@@ -21,7 +21,7 @@ const pageDescription =
 const pagePath = "/technology/knowhow-services";
 const publishedAt = "2024-04-12";
 const updatedAt = "2026-10-02";
-const standards = ["ISO 9001:2015", "EN 13706", "ASTM D3917", "EN 10204 Type 3.1"];
+const standards = ["ISO 9001", "EN 13706", "ASTM D3917", "EN 10204 Type 3.1"];
 
 export const metadata: Metadata = buildPageMetadata({
   title: pageTitle,

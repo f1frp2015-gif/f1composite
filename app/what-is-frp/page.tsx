@@ -14,6 +14,7 @@ import { getSeoQueryTarget } from "@/content/data/seoQueryTargets";
 import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
 import { coverFor, industryCovers } from "@/lib/covers";
 import { prefillForWhatIsFRP } from "@/lib/aiPrefill";
+import { supplyTerms, weeks } from "@/content/data/company";
 
 // Last content review; shown in the page header and used as dateModified.
 const updatedAt = "2026-10-26";
@@ -62,17 +63,17 @@ const faqItems = [
   {
     question: "Are FRP composites considered advanced composites?",
     answer:
-      "Yes. Pultruded FRP profiles are classified as advanced composites because they use engineered fiber architectures (unidirectional roving, continuous strand mat, woven fabric) and controlled fiber-volume fractions of 60–70%. Advanced composites are distinguished from short-fiber or filled plastics by their tailored directional properties and structural-grade mechanical performance.",
+      "Often, in the broad sense of the term. Pultruded FRP profiles use engineered fiber architectures (unidirectional roving, continuous strand mat, woven fabric) and high, controlled glass contents, typically 60–70% by weight (roughly 45–55% by volume). That sets them apart from short-fiber or filled plastics, which lack tailored directional properties and structural-grade mechanical performance. In aerospace usage, \"advanced composites\" usually means carbon or aramid fiber systems.",
   },
   {
     question: "Is FRP stronger than steel?",
     answer:
-      "Pultruded FRP has tensile strength of 240–400 MPa, comparable to A36 structural steel (400 MPa), but at about one quarter of the weight. Per kilogram, FRP is significantly stronger than steel. However, the elastic modulus of FRP (17–28 GPa) is roughly 1/10 that of steel (200 GPa), so stiffness and deflection usually govern design rather than strength.",
+      "Pultruded FRP has a longitudinal tensile strength of 240–400 MPa, in the range of A36 structural steel (250 MPa minimum yield, 400–550 MPa ultimate), at about one quarter of the weight. Per kilogram, FRP is significantly stronger than steel. However, the elastic modulus of FRP (17–28 GPa) is roughly 1/10 that of steel (200 GPa), so stiffness and deflection usually govern design rather than strength.",
   },
   {
     question: "Does FRP rust or corrode?",
     answer:
-      "No. FRP does not rust, pit, or suffer galvanic corrosion. The polymer matrix is inert to most acids, bases, salts, and chlorinated environments. Vinyl ester resin is specified for aggressive chemical or marine environments, and field reports on vinyl ester FRP in saltwater splash zones show little property loss after 30 years or more of service.",
+      "FRP does not rust, pit, or suffer galvanic corrosion. The polymer matrix resists many acids, salts and chlorinated environments, but resistance depends on the resin, chemical, concentration and temperature, so check the resin supplier's chemical-resistance data for the service. Vinyl ester resin is specified for aggressive chemical or marine environments.",
   },
   {
     question: "Is FRP flammable?",
@@ -82,18 +83,18 @@ const faqItems = [
   {
     question: "How long do FRP composites last?",
     answer:
-      "Pultruded FRP structures can be designed for 50–100 years when the resin, UV protection, connections and inspection plan are right, and they need no painting or galvanizing. Installations in chemical plants, bridges and marine sites have been in service for 30 years or more.",
+      "Service life depends on the resin, UV protection, loading, connections, exposure and inspection plan, so it is set per project rather than as a generic figure. FRP does not rust and needs no galvanizing or anti-corrosion recoating; outdoor surfaces rely on a surfacing veil and UV-stable resin. Pultruded FRP has been used in chemical plants, cooling towers and marine structures for decades.",
   },
   {
     question: "Can FRP be recycled?",
     answer:
-      "Thermoset FRP cannot be melted and re-formed like metals. Current end-of-life options include mechanical grinding to filler for cement or concrete (widely commercial), co-processing in cement kilns (energy recovery plus calcium oxide input), and emerging solvolysis/pyrolysis fiber-recovery routes. Non-hazardous landfill is permitted — FRP contains no heavy metals or toxic leachates.",
+      "Thermoset FRP cannot be melted and re-formed like metals. Current end-of-life options include mechanical grinding to filler for cement or concrete, co-processing in cement kilns (energy recovery, with the glass contributing mineral input), and emerging solvolysis/pyrolysis fiber-recovery routes. Landfill rules vary by country, and some European countries restrict landfilling of composite waste, so check local waste regulations.",
   },
 ];
 
 const toolingLeadTime = [
   { step: "Cross-section design & approval", duration: "1–2 weeks" },
-  { step: "Steel die manufacturing", duration: "3–6 weeks" },
+  { step: "Steel die manufacturing", duration: weeks(supplyTerms.dieManufactureWeeks) },
   { step: "Trial run & sample approval", duration: "1 week" },
   { step: "First production batch", duration: "1–2 weeks" },
 ];
@@ -170,7 +171,7 @@ export default function WhatIsFrpPage() {
     citation: [
       "ASTM D3917 — Standard Specification for Dimensional Tolerance of Thermosetting Glass-Reinforced Plastic Pultruded Shapes",
       "EN 13706 — Reinforced plastics composites — Specifications for pultruded profiles",
-      "ASCE/SEI 74-23 — Pre-Standard for LRFD of Pultruded FRP Structures",
+      "ASCE/SEI 74-23 — Load and Resistance Factor Design (LRFD) for Pultruded Fiber Reinforced Polymer (FRP) Structures",
     ],
   };
 
@@ -422,9 +423,9 @@ export default function WhatIsFrpPage() {
                 marine and chemical environments.
               </li>
               <li>
-                <strong className="text-t1">Polyurethane (PU)</strong> — 3–5×
-                the flexural toughness of polyester; fast cure; used in rail
-                interiors and EV battery trays.
+                <strong className="text-t1">Polyurethane (PU)</strong> — higher
+                toughness than polyester in many formulations; fast cure; used
+                for window profiles and impact-loaded parts.
               </li>
               <li>
                 <strong className="text-t1">Phenolic</strong> — low smoke and
@@ -438,8 +439,9 @@ export default function WhatIsFrpPage() {
               </li>
               <li>
                 <strong className="text-t1">Additives</strong> — UV stabilizers,
-                flame retardants, pigments, release agents, and catalysts (MEKP
-                for polyester; BPO for vinyl ester).
+                flame retardants, pigments, internal release agents, and
+                heat-activated peroxide initiators for the polyester or vinyl
+                ester cure in the die.
               </li>
             </ul>
           </div>
@@ -452,8 +454,8 @@ export default function WhatIsFrpPage() {
       <PageSection id="pultrusion" title="How pultruded FRP is made" tone="white">
         <p className="text-f16 leading-golden text-t2">
           Pultrusion is a continuous, automated process that produces
-          constant-cross-section FRP profiles. Invented in the 1950s and
-          standardized in the 1970s, it is now the dominant manufacturing route
+          constant-cross-section FRP profiles. Developed in the early 1950s and
+          widely commercialized from the 1970s, it is now the dominant manufacturing route
           for structural FRP shapes worldwide.
         </p>
 
@@ -461,7 +463,7 @@ export default function WhatIsFrpPage() {
           {[
             {
               step: "Creel",
-              body: "Thousands of E-glass roving packages are fed from a creel frame, aligned in the longitudinal direction.",
+              body: "Dozens to several hundred E-glass roving packages are fed from a creel frame, aligned in the longitudinal direction.",
             },
             {
               step: "Resin impregnation",
@@ -481,7 +483,7 @@ export default function WhatIsFrpPage() {
             },
             {
               step: "Cut-off",
-              body: "A synchronized flying saw cuts profiles to length — typically 6 m or 12 m for shipping — and they are stacked for inspection.",
+              body: "A synchronized flying saw cuts profiles to length (6 m standard, or a project cut length) and they are stacked for inspection.",
             },
           ].map((item, index) => (
             <li
@@ -498,7 +500,8 @@ export default function WhatIsFrpPage() {
         <div className="mt-[12px] rounded-card border border-border-default bg-bg2 p-[20px] sm:p-[24px]">
           <h3 className="text-f18 font-bold text-t1">Custom die lead time</h3>
           <p className="mt-[8px] text-f16 leading-golden text-t2">
-            Creating a new custom profile typically takes 6–10 weeks total:
+            From an approved drawing, a new custom profile typically takes{" "}
+            {weeks(supplyTerms.newDieLeadTimeWeeks)} to first delivery; design approval comes first, and some steps overlap:
           </p>
           <ul className="mt-[12px] space-y-[4px] text-f16 text-t2">
             {toolingLeadTime.map((row) => (
@@ -517,7 +520,8 @@ export default function WhatIsFrpPage() {
           Typical values for E-glass / isophthalic-polyester pultruded
           structural profiles at 23 °C. Properties are directional — the table
           below gives longitudinal (L) values unless noted. Vinyl ester and
-          polyurethane systems provide 10–25% higher strength.
+          polyurethane systems can give higher values; compare the datasheet
+          for the offered formulation.
         </p>
 
         <div className="relative mt-[24px] overflow-x-auto rounded-card border border-border-default bg-white">
@@ -541,8 +545,8 @@ export default function WhatIsFrpPage() {
                 ["Barcol hardness", "40–55", "ASTM D2583"],
                 ["Coefficient of thermal expansion (L)", "8 × 10⁻⁶ / °C", "ASTM E831"],
                 ["Thermal conductivity", "0.3 W/m·K", "ASTM C177"],
-                ["Dielectric strength", "10–14 kV/mm", "ASTM D149"],
-                ["Water absorption (24 h)", "< 0.6%", "ASTM D570"],
+                ["Dielectric strength", "≈ 7.9 kV/mm (200 V/mil) reference; laminate- and test-specific", "ASTM D149"],
+                ["Water absorption (24 h)", "≤ 0.6%", "ASTM D570"],
                 ["Glass fiber content by weight", "60–70%", "ASTM D2584 (burn-off)"],
                 ["Dimensional tolerance", "±0.25 mm typical", "EN 13706 / ASTM D3917"],
               ].map(([prop, val, std]) => (
@@ -571,7 +575,7 @@ export default function WhatIsFrpPage() {
             },
             {
               title: "Electrically non-conductive",
-              body: "Dielectric strength 10–14 kV/mm. Used for electrical substations, rail insulators, and RF-transparent structures.",
+              body: "Published dielectric strength references are around 7.9 kV/mm (200 V/mil) through the thickness; the offered laminate and test set the value. Used for electrical substations, rail insulators, and RF-transparent structures.",
             },
             {
               title: "Thermally insulating",
@@ -613,8 +617,8 @@ export default function WhatIsFrpPage() {
           <li>
             <strong className="text-t1">Creep under sustained load.</strong>
             Polyester-matrix FRP creeps under long-term high stress; design
-            allowables typically apply a 0.25–0.35 reduction factor for
-            permanent loads.
+            standards such as ASCE/SEI 74-23 and CEN/TS 19101:2022 reduce the
+            design resistance for permanent loads.
           </li>
           <li>
             <strong className="text-t1">No welding.</strong> Thermoset FRP
@@ -628,8 +632,8 @@ export default function WhatIsFrpPage() {
             temperatures, specialty resins or alternative materials are needed.
           </li>
           <li>
-            <strong className="text-t1">Upfront cost.</strong> Per meter, FRP is
-            50–100% more expensive than carbon steel. Lifecycle economics
+            <strong className="text-t1">Upfront cost.</strong> Per meter, FRP
+            often costs more than carbon steel for the same duty. Lifecycle economics
             favor FRP in corrosive environments, but marginal-environment
             projects may not justify the premium.
           </li>
@@ -654,12 +658,12 @@ export default function WhatIsFrpPage() {
             </thead>
             <tbody>
               {[
-                ["ISO 9001:2015", "Quality management system standard. Ask any supplier for the certificate holder, number and scope; F1's certificate is available on request."],
+                ["ISO 9001", "Quality management system standard. ISO 9001:2026 was published in September 2026; ISO 9001:2015 certificates remain valid during the transition to September 2029. Ask any supplier for the certificate holder, number, edition and scope; F1's certificate is available on request."],
                 ["EN 13706-1/2/3", "European pultruded profile standard. Defines structural grades E17 and E23, test methods, and classification."],
                 ["ASTM D3917", "Standard specification for dimensional tolerance of thermosetting glass-reinforced plastic pultruded shapes."],
                 ["ASTM D638 / D790 / D695 / D2344", "Test methods for tensile, flexural, compressive, and interlaminar shear properties."],
-                ["ASCE/SEI 74-23", "Pre-Standard for LRFD Design of Pultruded FRP Structures (United States)."],
-                ["EUROCOMP Design Code", "Structural design of polymer composites (Europe)."],
+                ["ASCE/SEI 74-23", "Load and Resistance Factor Design (LRFD) for Pultruded FRP Structures (United States)."],
+                ["CEN/TS 19101:2022", "Design of fibre-polymer composite structures (Europe). Successor to the 1996 EUROCOMP Design Code; Eurocode parts are in development."],
                 ["ASTM E84 / BS 476", "Fire: surface burning characteristics and fire tests on building materials."],
                 ["EN 45545-2", "Fire: fire protection on railway rolling stock."],
                 ["AS 4586", "Slip resistance classification for pedestrian surface materials (gratings)."],

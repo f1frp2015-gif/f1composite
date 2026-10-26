@@ -4,7 +4,7 @@ export const bridgeRfqHref = buildRfqHref({
   source: "pedestrian-bridge-guide",
   product: "FRP pedestrian bridge components",
   productPath: "/applications/frp-pedestrian-bridge-superstructures",
-  message: "Please review my FRP pedestrian bridge component enquiry. Clear span / width / structural depth: __. Location and governing bridge criteria: __. Pedestrian and maintenance vehicle loads: __. Deck and parapet requirements: __. Exposure and design life: __. Module transport and lifting limits: __. Supply scope, quantity and destination: __. Drawings and engineering responsibilities: __.",
+  message: "Please review my FRP pedestrian bridge component inquiry. Clear span / width / structural depth: __. Location and governing bridge criteria: __. Pedestrian and maintenance vehicle loads: __. Deck and parapet requirements: __. Exposure and design life: __. Module transport and lifting limits: __. Supply scope, quantity and destination: __. Drawings and engineering responsibilities: __.",
 });
 
 const sources = {
@@ -18,7 +18,7 @@ const sections = [
   {
     id: "system-selection", title: "Choose the load path before choosing a profile",
     paragraphs: [
-      "An FRP footbridge, fiberglass pedestrian bridge or GRP pedestrian bridge can describe similar glass-fiber composite construction. The useful distinction for procurement is whether FRP forms the main structure, only the walking deck, or a combination of members within a hybrid bridge. State this in the enquiry so competing quotations cover the same scope.",
+      "An FRP footbridge, fiberglass pedestrian bridge or GRP pedestrian bridge can describe similar glass-fiber composite construction. The useful distinction for procurement is whether FRP forms the main structure, only the walking deck, or a combination of members within a hybrid bridge. State this in the inquiry so competing quotations cover the same scope.",
       "Start the concept review with a cross-section showing the walking surface, main supports, parapets and available clearance. Ask how loads pass from the deck to cross-members, main girders or trusses, bearings and abutments. A handrail profile is not automatically a structural truss chord, and a deck attachment should not be assumed to provide lateral restraint without a designed connection.",
     ],
   },
@@ -26,7 +26,7 @@ const sections = [
     id: "loads-and-vibration", title: "Separate strength, deflection and pedestrian comfort",
     paragraphs: [
       "Pultruded glass FRP is direction-dependent and typically less stiff than steel. Passing a stress check does not establish acceptable bridge deflection or walking comfort. The design review should address bending and shear deformation, member and system buckling, connection flexibility, and dynamic response. The Forest Service guide discusses serviceability concerns; its historical criteria should not be treated as the current specification for a new crossing.",
-      "Give the engineer the intended users: occasional walkers, groups, runners, cyclists, or an authorised maintenance vehicle. Request a documented load schedule and acceptance criteria for the complete bridge. Identify which assumptions cover occupancy, wind, temperature and other site actions. Ask for the dynamic assessment to state the mass, stiffness, damping assumptions and comfort criteria used, rather than accepting a static profile calculator as evidence of bridge vibration performance.",
+      "Give the engineer the intended users: occasional walkers, groups, runners, cyclists, or an authorized maintenance vehicle. Request a documented load schedule and acceptance criteria for the complete bridge. Identify which assumptions cover occupancy, wind, temperature and other site actions. Ask for the dynamic assessment to state the mass, stiffness, damping assumptions and comfort criteria used, rather than accepting a static profile calculator as evidence of bridge vibration performance.",
     ], source: sources.forest,
   },
   {
@@ -39,7 +39,7 @@ const sections = [
   {
     id: "deck-and-interfaces", title: "Specify the deck, parapets and approaches together",
     paragraphs: [
-      "A deck enquiry should define the walking surface, support direction and spacing, permitted openings, drainage, panel joints and attachment method. Request slip-test evidence relevant to the installed finish and expected wet conditions. Include accessibility requirements for wheelchairs, walking aids and cycles where applicable; an open grating selected for industrial access may need a different review for public use.",
+      "A deck inquiry should define the walking surface, support direction and spacing, permitted openings, drainage, panel joints and attachment method. Request slip-test evidence relevant to the installed finish and expected wet conditions. Include accessibility requirements for wheelchairs, walking aids and cycles where applicable; an open grating selected for industrial access may need a different review for public use.",
       "Trace parapet forces into the main structure. Request details for posts, end zones, transitions and replaceable panels. At the bridge ends, coordinate bearing seats, anchors, movement allowance, drainage and approach levels with the civil design. If existing abutments are retained, require an assessment of their condition and reactions rather than assuming that a lighter bridge makes them adequate.",
     ],
   },
@@ -54,7 +54,7 @@ const sections = [
     id: "installation-maintenance", title: "Plan transport, installation and inspection before ordering",
     paragraphs: [
       "Compare delivery as individual members, trial-assembled modules or a larger assembly against the actual access route. Request a packing list, member identification, module weights, approved lifting points and temporary support requirements. Agree who checks bearing levels and anchors, who assembles the bridge, and who signs off the completed installation. A low component weight does not itself establish a safe manual-handling or lifting method.",
-      "The Forest Service guide covers transport, assembly and maintenance, including the need to avoid damaging FRP by overtightening connections. Set the inspection programme with the bridge engineer and supplier. Include joints, surface damage, deck condition and supports; retain baseline photographs and installation records so later changes can be assessed. Obtain an approved repair process rather than treating the bridge as maintenance-free.",
+      "The Forest Service guide covers transport, assembly and maintenance, including the need to avoid damaging FRP by overtightening connections. Set the inspection program with the bridge engineer and supplier. Include joints, surface damage, deck condition and supports; retain baseline photographs and installation records so later changes can be assessed. Obtain an approved repair process rather than treating the bridge as maintenance-free.",
     ], source: sources.forest,
   },
   {
