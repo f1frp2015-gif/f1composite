@@ -9,17 +9,19 @@ import RelatedLinks from "@/components/sections/RelatedLinks";
 import JsonLd from "@/components/seo/JsonLd";
 import { FAQList } from "@/components/ui/FAQ";
 import Figure from "@/components/ui/Figure";
+import { getSeoQueryTarget } from "@/content/data/seoQueryTargets";
 import { carbonProfileLinks } from "@/content/data/carbonFiberPultrusion";
 import { buildRfqHref } from "@/lib/rfq";
 import { buildPageMetadata, buildProductFamilyPageSchema } from "@/lib/seo";
 
 const pagePath = "/products/pultruded-carbon-fiber-tubes";
-const pageTitle = "Pultruded Carbon Fiber Tubes | Custom CFRP Tubing";
-const pageDescription = "Pultruded carbon fiber tubes for lightweight components. Review custom dimensions, fiber direction and CFRP vs fiberglass tubing with F1 Composite.";
+const seoTarget = getSeoQueryTarget(pagePath);
+const pageTitle = seoTarget.title;
+const pageDescription = seoTarget.description;
 const diagram = "/images/products/carbon-fiber-tubes/pultruded-carbon-fiber-tube.svg";
 const roundTubes = "/products/fiberglass-structural-shapes/frp-tube";
 const squareTubes = "/products/fiberglass-structural-shapes/frp-square-tube";
-const updated = "2026-10-25";
+const updated = "2026-10-26";
 const linkStyle = "font-semibold text-teal-text underline underline-offset-4 hover:text-teal";
 
 export const metadata: Metadata = buildPageMetadata({
@@ -33,7 +35,7 @@ const quoteHref = buildRfqHref({
   source: "pultruded-carbon-fiber-tubes",
   product: "Pultruded carbon fiber tubes",
   productPath: pagePath,
-  message: "Please review my pultruded carbon fiber tube requirements.\nSection / OD / ID / wall thickness (with units):\nFinished length, tolerance and quantity:\nApplication, span, loads and deflection limit:\nFiber / resin requirements and service temperature:\nClamps, bonded fittings, holes or inserts:\nRequired inspection and test evidence:\nDestination and target delivery date:",
+  message: "Please review my pultruded carbon fiber tube requirements.\nSection / OD / ID / wall thickness (with units):\nFinished length, tolerance and quantity:\nApplication, span, loads and deflection limit:\nFiber / resin requirements and service temperature:\nBore tolerance, insert diameter, engagement length and required clearance:\nClamps, bonded fittings, holes or inserts:\nRequired inspection and test evidence:\nDestination and target delivery date:",
 });
 
 const specifications = [
@@ -61,6 +63,8 @@ const applications = [
 ];
 
 const faqItems = [
+  { question: "Is a hollow carbon fiber rod the same as a carbon fiber tube?", answer: "Yes. A hollow carbon fiber rod is commonly called a carbon fiber tube because it has an internal bore. A solid rod has no bore. Specify outside diameter (OD), inside diameter (ID), wall thickness and finished length so the quoted section is unambiguous; the name alone does not define its reinforcement or load capacity." },
+  { question: "Is a hollow carbon fiber rod stiffer than a solid rod?", answer: "At the same outside diameter, length and longitudinal modulus, a solid rod has greater bending stiffness and more mass. At the same mass and length, using the same material density and modulus, a larger-diameter hollow section can provide greater bending stiffness. Neither comparison establishes strength or a safe load: wall stability, reinforcement and connections still need review." },
   { question: "What is a pultruded carbon fiber tube?", answer: "It is a hollow, constant-section composite made by pulling resin-impregnated carbon reinforcement through a heated die. The main fibers typically run along the tube. This architecture supports longitudinal stiffness, while the resin and any off-axis reinforcement govern other aspects of performance." },
   { question: "How does pultruded tubing differ from roll-wrapped carbon tubing?", answer: "Pultrusion pulls reinforcement continuously through a die. Roll wrapping places prepreg plies around a mandrel, allowing selected fiber angles. A mainly unidirectional pultrusion can suit axial and bending duties; significant torque or circumferential loads may need an architecture with off-axis plies. Compare the actual laminate and test data, not just the process name." },
   { question: "Which carbon tube sizes and tolerances can I order?", answer: "Send the required outside and inside dimensions, wall, finished length, fit and quantity. F1 reviews the section, tooling and inspection requirements before confirming dimensions and tolerances. This page does not represent a fixed stock-size list; sample timing, MOQ and production lead time are quoted for the proposed configuration." },
@@ -73,7 +77,7 @@ export default function PultrudedCarbonFiberTubesPage() {
   return (
     <>
       <JsonLd data={buildProductFamilyPageSchema({
-        name: "Pultruded Carbon Fiber Tubes",
+        name: "Hollow Carbon Fiber Rod & Pultruded Tubes",
         description: pageDescription,
         path: pagePath,
         image: diagram,
@@ -89,8 +93,8 @@ export default function PultrudedCarbonFiberTubesPage() {
       <PageHeader
         tag="Carbon fiber tubing"
         line={{ name: "F1-FORM", label: "Carbon fiber tubes" }}
-        title="Pultruded carbon fiber tubes"
-        description="Longitudinal stiffness. Less moving mass. Develop CFRP tubing around your component’s dimensions, loads and connections, with F1 review of the laminate, tooling and finished-part requirements."
+        title="Hollow carbon fiber rod & pultruded tubes"
+        description="A hollow carbon fiber rod is a carbon fiber tube with an internal bore. Specify custom pultruded CFRP tubing by outside diameter, bore, wall and finished length, with F1 review of loads, laminate and connections."
         updated={updated}
         facts={[
           { label: "Material", value: "CFRP" },
@@ -107,7 +111,7 @@ export default function PultrudedCarbonFiberTubesPage() {
         breadcrumbs={[{ label: "Home", href: "/" }, { label: "Products", href: "/pultruded-frp-profiles" }, { label: "Custom profiles", href: "/products/custom-pultruded-profiles" }, { label: "Carbon fiber tubes" }]}
       />
       <PageNav items={[
-        { id: "overview", label: "Why carbon" }, { id: "specifications", label: "Specifications" },
+        { id: "overview", label: "Why carbon" }, { id: "hollow-vs-solid", label: "Hollow vs solid" }, { id: "specifications", label: "Specifications" },
         { id: "carbon-vs-fiberglass", label: "Carbon vs glass" }, { id: "applications", label: "Applications" },
         { id: "connections", label: "Connections" }, { id: "faq", label: "FAQ" }, { id: "quote", label: "Quote" },
       ]} />
@@ -124,6 +128,23 @@ export default function PultrudedCarbonFiberTubesPage() {
             <h3 className="mt-[12px] text-f24 font-bold leading-tight text-white">Axial stiffness is only one part of the specification.</h3>
             <p className="mt-[16px] text-f16 leading-relaxed text-white/85">Torque, clamp pressure, impact and pressure service need separate review. Specify these loads early so the reinforcement and manufacturing route can be matched to the component.</p>
           </aside>
+        </div>
+      </PageSection>
+
+      <PageSection id="hollow-vs-solid" title="Hollow carbon fiber rod or solid rod?" intro="Choose the section around the available space, mass target and connection. A hollow rod provides a bore; a solid rod fills the entire circular section.">
+        <div className="grid gap-[24px] md:grid-cols-2">
+          <div className="rounded-card border border-border-default p-[24px]">
+            <h3 className="text-f20 font-bold text-t1">When the outside diameter is fixed</h3>
+            <p className="mt-[12px] text-f16 leading-relaxed text-t2">At equal outside diameter, length and longitudinal modulus, a solid rod has greater bending stiffness. Removing the center reduces mass and stiffness together. A hollow section is useful when a bore is required or the reduced mass meets the design brief; it is not automatically stronger than a solid rod of the same diameter.</p>
+          </div>
+          <div className="rounded-card border border-border-default p-[24px]">
+            <h3 className="text-f20 font-bold text-t1">When the mass is fixed</h3>
+            <p className="mt-[12px] text-f16 leading-relaxed text-t2">At equal mass and length, with the same material density and longitudinal modulus, a larger-diameter tube can place material farther from the center and provide greater bending stiffness. This needs space for the larger OD. Thin walls, local crushing, buckling and fittings can still govern the design.</p>
+          </div>
+        </div>
+        <div className="mt-[24px] space-y-[12px] text-f16 leading-relaxed text-t2">
+          <p>For a uniform round tube, wall thickness = (OD − ID) / 2. Identify whether the OD controls a clamp or housing fit, or the ID controls an insert or telescoping member. Specify the mating dimensions, tolerances, insertion depth and clearance or adhesive gap; nominal bore size alone does not establish assembly fit.</p>
+          <p>A bore can accommodate a bonded end fitting or cable route, subject to connection and electrical-isolation requirements. If no bore is needed, compare <Link href="/products/fiberglass-structural-shapes/frp-rod/carbon-fiber-rod" className={linkStyle}>solid pultruded carbon fiber rods</Link>. For either section, confirm the actual laminate and finished assembly rather than inferring a load rating from shape.</p>
         </div>
       </PageSection>
 
@@ -205,7 +226,7 @@ export default function PultrudedCarbonFiberTubesPage() {
       ]} />
       <PageSection id="quote" title="Send your carbon tube drawing" tone="deep">
         <ProductRfq product="Pultruded carbon fiber tubes" productPath={pagePath} quoteHref={quoteHref} quoteLabel="Request a tube review" intro="Start with your section, finished length, quantity and the job the tube needs to do." items={[
-          { title: "Drawing & fit", text: "OD / ID, wall, cut length, tolerances and mating components." },
+          { title: "Drawing & fit", text: "OD / ID, wall, cut length, bore tolerance, insert diameter, engagement length and clearance or adhesive gap." },
           { title: "Loads & service", text: "Span, axial and bending loads, torque, clamp loads, deflection and exposure." },
           { title: "Material & evidence", text: "Fiber, resin, surface preparation and the inspection or test plan." },
           { title: "Quantity & delivery", text: "Trial and repeat quantities, destination and required date." },

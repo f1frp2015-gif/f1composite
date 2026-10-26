@@ -3,7 +3,7 @@ export const carbonPultrusionPath = "/products/pultrusion-carbon-fiber";
 export const carbonProfileLinks = [
   { label: "Carbon fiber pultrusion overview", href: carbonPultrusionPath, description: "Compare plates, tubes and rods, manufacturing steps and material selection." },
   { label: "Pultruded carbon fiber plates", href: "/products/pultruded-carbon-fiber-plates", description: "Flat plates, strips and bars with longitudinal fibers and a broad bonding face." },
-  { label: "Pultruded carbon fiber tubes", href: "/products/pultruded-carbon-fiber-tubes", description: "Hollow CFRP sections for lightweight supports, booms and moving components." },
+  { label: "Hollow carbon fiber rods & tubes", href: "/products/pultruded-carbon-fiber-tubes", description: "Hollow CFRP sections for lightweight supports, booms and moving components." },
   { label: "Pultruded carbon fiber rods", href: "/products/fiberglass-structural-shapes/frp-rod/carbon-fiber-rod", description: "Solid carbon sections for compact members, alignment and reinforcement." },
 ];
 

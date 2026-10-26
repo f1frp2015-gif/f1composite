@@ -14,6 +14,7 @@ import {
   frpStakeImageAssets,
   frpStakePublicSources,
   frpStakeReferenceSizes,
+  frpTreeStakeGuidanceSources,
 } from "@/content/data/frpStakeSpecs";
 import { getSeoQueryTarget } from "@/content/data/seoQueryTargets";
 import { authorsBySlug, reviewerCredit } from "@/lib/authors";
@@ -23,7 +24,7 @@ import { buildPageMetadata, buildProductFamilyPageSchema } from "@/lib/seo";
 const pagePath = "/products/fiberglass-stakes";
 const seoTarget = getSeoQueryTarget(pagePath);
 const publishedAt = "2026-08-30";
-const updatedAt = "2026-09-21";
+const updatedAt = "2026-10-26";
 const author = authorsBySlug["yifan-liu"];
 const reviewer = authorsBySlug["haifeng-gong"];
 
@@ -38,12 +39,12 @@ const quoteHref = buildRfqHref({
   source: "fiberglass-stakes",
   product: "Fiberglass stakes",
   productPath: pagePath,
-  message: "Please quote fiberglass stakes. I will send the application, diameter, length, color, surface, end treatment, pack and quantity.",
+  message: "Please quote fiberglass tree stakes or plant supports. I will send the application, tree or plant height, diameter, overall and exposed length, soil, wind exposure, ties, color, surface, end treatment, pack and quantity.",
 });
 
 const requestItems = [
-  { title: "Application", text: "What the stake supports (plant, tree, vine, marker) and the diameter or flexibility target." },
-  { title: "Length and ground", text: "Overall and exposed length, embedment method and the soil condition." },
+  { title: "Application and support", text: "Plant, tree, vine or marker; tree height, root-ball condition, wind exposure, tie arrangement and diameter or flexibility target." },
+  { title: "Length and ground", text: "Overall and exposed length, proposed tie height, embedment method and soil condition." },
   { title: "Finish", text: "Color, smooth or surface-veil finish, tapered, flat or capped ends and any reflector." },
   { title: "Quantity and delivery", text: "Quantity, bundle and pallet limits, labelling, destination and Incoterm." },
 ];
@@ -112,7 +113,8 @@ const comparisonRows = [
 ] as const;
 
 const rfqInputs = [
-  "Application and supported item",
+  "Application, tree height and root-ball condition",
+  "Wind exposure and tie arrangement",
   "Diameter or flexibility target",
   "Overall and exposed length",
   "Embedment and ground condition",
@@ -123,6 +125,26 @@ const rfqInputs = [
 ] as const;
 
 const faqItems = [
+  {
+    question: "Does every newly planted tree need fiberglass tree stakes?",
+    answer:
+      "No. Stake only when the tree needs temporary support or anchorage. Assess trunk stability, root-ball movement and site exposure before selecting a stake; many newly planted trees need no staking.",
+  },
+  {
+    question: "How should tree ties be fitted?",
+    answer:
+      "Use broad, flexible ties in loose loops that allow trunk movement. Avoid narrow rope or wire against the bark. Check for rubbing and constriction as the trunk grows; a rigidly tied trunk cannot develop normally.",
+  },
+  {
+    question: "When should tree stakes and ties be removed?",
+    answer:
+      "Review support regularly and remove it when the tree is stable without it, generally after one growing season. If the root ball still shifts or the trunk cannot stand alone, investigate the cause before extending support. See the university guidance in the tree-stakes section.",
+  },
+  {
+    question: "Can I request 8 ft, 10 ft or 12 ft fiberglass tree stakes?",
+    answer:
+      "Include an 8 ft, 10 ft or 12 ft requested length in your inquiry, equivalent to about 2.44 m, 3.05 m or 3.66 m. These are inquiry lengths, not confirmed F1 stock sizes or load ratings. F1 must review manufacturability, diameter, exposed length, embedment, ties, wind and shipping before confirming an offer.",
+  },
   {
     question: "What are fiberglass stakes made from?",
     answer:
@@ -165,7 +187,7 @@ export default function FiberglassStakesPage() {
     <>
       <JsonLd
         data={buildProductFamilyPageSchema({
-          name: "Fiberglass Stakes for Plant Support and Site Marking",
+          name: "Fiberglass Tree Stakes and Plant Supports",
           description: seoTarget.description,
           path: pagePath,
           image: frpStakeImageAssets.hero,
@@ -193,8 +215,8 @@ export default function FiberglassStakesPage() {
         reviewer={reviewerCredit(reviewer)}
         tag="Fiberglass stakes"
         line={{ name: "F1-STRUX", label: "Fiberglass stakes" }}
-        title="Fiberglass stakes for plants, trees, vineyards and marking"
-        description="Factory-direct pultruded FRP stakes for plant support, nursery trees, vineyard training, garden crops and site identification. Start with the 5–19 mm public-market planning band below, then release the actual diameter, length, surface, color and end treatment by quotation."
+        title="Fiberglass tree stakes and plant supports"
+        description="Fiberglass tree stakes provide temporary support where young trees need it. F1 quotes pultruded FRP stakes for nursery trees, plant support, vineyard training, garden crops and site identification, with diameter, length, surface, color and end treatment confirmed for each order."
         facts={[
           { label: "Diameter band", value: "5–19 mm" },
           { label: "Lengths", value: "1.07–1.83 m" },
@@ -229,6 +251,7 @@ export default function FiberglassStakesPage() {
       <PageNav
         items={[
           { id: "overview", label: "Overview" },
+          { id: "tree-stakes", label: "Tree stakes" },
           { id: "sizes", label: "Sizes" },
           { id: "selection", label: "Selection" },
           { id: "applications", label: "Applications" },
@@ -243,7 +266,7 @@ export default function FiberglassStakesPage() {
         <div className="grid grid-cols-1 items-start gap-[28px] lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] lg:gap-[48px]">
           <div className="space-y-[14px] text-f16 leading-golden text-t2">
             <p className="text-f18 text-t1">
-              Fiberglass stakes are solid pultruded rods built from continuous glass reinforcement and a polymer matrix. The controlled geometry, low weight and corrosion-free body make them a reusable alternative to irregular bamboo, wood stakes and steel markers when the diameter, surface and installation are selected together.
+              Fiberglass tree stakes and plant supports are solid pultruded rods built from continuous glass reinforcement and a polymer matrix. The controlled geometry, low weight and corrosion-free body make them a reusable alternative to irregular bamboo, wood stakes and steel markers when the diameter, surface and installation are selected together.
             </p>
             <p>
               F1 quotes fiberglass plant stakes, tree supports and general site-marker rods on this page. For reflective plow guides and driveway visibility programs, use the dedicated{" "}
@@ -259,6 +282,52 @@ export default function FiberglassStakesPage() {
               Read the application guide
             </Link>
           </aside>
+        </div>
+      </PageSection>
+
+      <PageSection
+        id="tree-stakes"
+        title="Choosing and using fiberglass tree stakes"
+        tone="muted"
+        intro="Begin with the tree and site. Stake material alone does not determine whether support is needed or whether an installation is suitable."
+      >
+        <ol className="grid grid-cols-1 gap-[16px] md:grid-cols-3">
+          <li className={card}>
+            <h3 className="text-f18 font-bold text-t1">1. Decide whether support is needed</h3>
+            <p className="mt-[8px] text-f14 leading-golden text-t2">
+              Many newly planted trees stand without stakes. Consider temporary support for unstable, top-heavy or wind-exposed trees; assess the trunk and root ball before ordering.
+            </p>
+          </li>
+          <li className={card}>
+            <h3 className="text-f18 font-bold text-t1">2. Position stakes and allow movement</h3>
+            <p className="mt-[8px] text-f14 leading-golden text-t2">
+              Place stakes outside the root ball and planting hole in undisturbed soil. Use broad, flexible ties with a loose fit, supporting the tree while allowing the trunk to sway. Confirm the stake geometry and embedment for the site.
+            </p>
+          </li>
+          <li className={card}>
+            <h3 className="text-f18 font-bold text-t1">3. Review and remove support</h3>
+            <p className="mt-[8px] text-f14 leading-golden text-t2">
+              Inspect ties for abrasion or constriction as the tree grows. Remove stakes and ties once support is unnecessary, generally after one growing season. Persistent instability needs investigation rather than automatic restaking.
+            </p>
+          </li>
+        </ol>
+        <div className="mt-[20px] rounded-card border border-border-default bg-white p-[20px] sm:p-[24px]">
+          <h3 className="text-f18 font-bold text-t1">Considering 8 ft, 10 ft or 12 ft tree stakes?</h3>
+          <p className="mt-[8px] text-f14 leading-golden text-t2">
+            An inquiry for 8 ft (2.44 m), 10 ft (3.05 m) or 12 ft (3.66 m) fiberglass tree stakes starts a length review, not a stock selection. These requested lengths are not confirmed F1 sizes or structural ratings. Send tree height, proposed tie height, exposed length, soil, embedment and wind exposure so F1 can review the diameter, production feasibility and transport limits before quoting. A taller stake is not automatically the right support for a taller tree.
+          </p>
+        </div>
+        <div className="mt-[20px] text-f14 leading-golden text-t2">
+          <p>
+            Tree-care sources, checked October 26, 2026: the guidance below informs support, tie and removal decisions. It does not certify fiberglass stake strength or establish F1 stock sizes; wholesale size references appear separately below.
+          </p>
+          <ul className="mt-[8px] space-y-[8px]">
+            {frpTreeStakeGuidanceSources.map((source) => (
+              <li key={source.href}>
+                <a href={source.href} target="_blank" rel="noopener noreferrer" className={link}>{source.label}</a>
+              </li>
+            ))}
+          </ul>
         </div>
       </PageSection>
 
@@ -423,7 +492,7 @@ export default function FiberglassStakesPage() {
           quoteHref={quoteHref}
           items={requestItems}
           intro="Describe the use and the stake you have now. We return a size, finish and packing review, with a sample before a volume run."
-          advisorPrompt="I need fiberglass stakes for [plant/tree/vineyard/nursery/site marking]. Target diameter or flexibility: [ ], overall and exposed length: [ ], embedment/soil: [ ], color and visibility: [ ], surface/end treatment: [ ], quantity and pack: [ ], destination and Incoterm: [ ]. Build a quote-ready specification and flag what needs sample or test confirmation."
+          advisorPrompt="I need fiberglass stakes for [plant/tree/vineyard/nursery/site marking]. Tree or plant height and root-ball condition: [ ], wind exposure: [ ], ties and proposed tie height: [ ], target diameter or flexibility: [ ], overall and exposed length: [ ], embedment/soil: [ ], color and visibility: [ ], surface/end treatment: [ ], quantity and pack: [ ], destination and Incoterm: [ ]. Build a quote-ready specification and flag what needs sample or test confirmation."
         />
       </PageSection>
     </>

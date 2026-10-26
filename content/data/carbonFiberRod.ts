@@ -3,7 +3,7 @@ export const carbonFiberRod = {
   parentPath: "/products/fiberglass-structural-shapes/frp-rod",
   title: "Carbon Fiber Rod | Solid Pultruded CFRP Round Bars",
   description: "Specify solid pultruded carbon fiber rods, including 3/8 inch (9.525 mm) inquiries. Compare CFRP and fiberglass rods, cut lengths, tolerances and end details.",
-  updated: "2026-10-25",
+  updated: "2026-10-26",
   image: "/images/products/carbon-fiber-rod/carbon-fiber-solid-rod.svg",
   specifications: [
     ["Section", "Solid circular CFRP rod; also called a carbon fiber round bar."],
@@ -29,7 +29,7 @@ export const carbonFiberRod = {
     { question: "What is a pultruded carbon fiber rod?", answer: "It is a solid composite round bar made by drawing continuous carbon fibers and resin through a forming and curing die. The main reinforcement runs along the rod, making load direction and end-connection design important when specifying the component." },
     { question: "Can I request a 3/8 inch carbon fiber rod?", answer: "Yes. Send an inquiry for a nominal 3/8 inch (9.525 mm) solid rod with your diameter tolerance, cut lengths and quantity. F1 Composite confirms the proposed material, tooling, samples, minimum order and delivery in the quotation; this size reference is not a stock listing." },
     { question: "Is a 3/8 inch carbon fiber rod the same as a 10 mm rod?", answer: "No. A 3/8 inch diameter is 9.525 mm. A nominal 10 mm rod is 0.475 mm larger, which can change fit and section properties. Specify the intended units and tolerance on the drawing." },
-    { question: "How does a solid carbon fiber rod differ from a tube?", answer: "A rod has a solid cross-section; a tube has an internal bore. A tube places more material away from its center and can suit bending-stiffness targets at lower mass. Compare the actual outside diameter, bore, loads and end fittings before choosing a section." },
+    { question: "How does a solid carbon fiber rod differ from a tube?", answer: "A solid rod has no bore; a hollow carbon fiber rod is a tube. At the same outside diameter and longitudinal modulus, the solid rod has greater bending stiffness and mass. At equal mass and length with the same material, a larger-diameter tube can provide greater bending stiffness. Compare bore, wall stability, loads and end fittings before choosing a section." },
     { question: "Are carbon fiber rods electrically insulating?", answer: "No. Carbon fibers conduct electricity. For an insulating component, start with an appropriate glass-fiber system and specify the required electrical, environmental and finished-assembly qualification." },
     { question: "Can I use the fiberglass rod datasheet for a CFRP rod?", answer: "No. Glass and carbon reinforcement are different material systems. Request properties and test evidence for the offered carbon fiber grade, resin, section and loading direction. The existing fiberglass catalog does not establish CFRP strength, stiffness or temperature limits." },
     { question: "Can carbon fiber rods be cut, drilled or threaded?", answer: "Specify the finished drawing and agree the fabrication route. Cutting and cross-drilling can expose or interrupt longitudinal fibers; threads and end fittings need a connection review. Include hole locations, edge distances, bonding surfaces and acceptance requirements with the inquiry." },

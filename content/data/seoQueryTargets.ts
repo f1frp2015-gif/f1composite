@@ -503,16 +503,43 @@ export const seoQueryTargets = [
   },
   {
     targetUrl: "/products/fiberglass-stakes",
-    primaryQuery: "fiberglass stakes manufacturer",
+    primaryQuery: "fiberglass tree stakes",
     intent: "commercial",
-    title: "Fiberglass Stakes Manufacturer | FRP Plant & Tree Stakes",
+    title: "Fiberglass Tree Stakes & Plant Supports | F1 Composite",
     description:
-      "Fiberglass stakes manufacturer for 5–19 mm FRP plant, tree, vineyard and nursery rods. Compare sizes, colors, tapered ends, surface veil and RFQ inputs.",
+      "Specify fiberglass tree stakes for nursery and planting projects. Compare reference sizes, support height, flexible ties and bulk supply with F1 Composite.",
     supportingUrls: [
       "/products/fiberglass-snow-markers",
       "/products/fiberglass-structural-shapes/frp-rod",
       "/products/custom-pultruded-profiles",
       "/products/frp-rebar",
+      "/applications/agriculture-horticulture-stakes",
+    ],
+  },
+  {
+    targetUrl: "/products/fiberglass-snow-markers",
+    primaryQuery: "fiberglass driveway markers",
+    intent: "commercial",
+    title: "Fiberglass Driveway Markers & Snow Stakes | Wholesale",
+    description:
+      "Wholesale fiberglass driveway markers and snow stakes. Specify height, solid or hollow rods, reflective bands, installation needs and custom packs with F1.",
+    supportingUrls: [
+      "/products/fiberglass-stakes",
+      "/products/fiberglass-structural-shapes/frp-rod",
+      "/pultruded-frp-profiles",
+    ],
+  },
+  {
+    targetUrl: "/products/pultruded-carbon-fiber-tubes",
+    primaryQuery: "hollow carbon fiber rod",
+    intent: "commercial",
+    title: "Hollow Carbon Fiber Rod & Pultruded Tubes | F1 Composite",
+    description:
+      "Specify a hollow carbon fiber rod or pultruded tube by OD, bore, wall and fit. Compare solid rods and request a custom CFRP tube review from F1 Composite.",
+    supportingUrls: [
+      "/products/fiberglass-structural-shapes/frp-rod/carbon-fiber-rod",
+      "/products/pultrusion-carbon-fiber",
+      "/products/fiberglass-structural-shapes/frp-tube",
     ],
   },
   {

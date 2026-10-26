@@ -386,11 +386,11 @@ export const applicationGroups = [
         href: "/products/wind-turbine-blade-panels",
       },
       {
-        label: "Reflective Snow Markers",
+        label: "Fiberglass Driveway Markers & Snow Stakes",
         href: "/products/fiberglass-snow-markers",
       },
       {
-        label: "Plant, Tree & Vineyard Stakes",
+        label: "Fiberglass Tree, Plant & Vineyard Stakes",
         href: "/products/fiberglass-stakes",
       },
     ],
