@@ -1,0 +1,52 @@
+# GFRP rebar market, leading producers, standards and pricing — research basis for the October 2026 rebar upgrade
+
+Compiled 2026-10-25 from public sources (manufacturer datasheets, ICC-ES evaluation reports, DOT documents, analyst summaries, trade press). This file records what the site pages cite and the decisions taken. Numbers are the sources' numbers; nothing here is a property of an F1 bar. Companion: `frp-rebar-procurement.md` (manufacturing source, images, September 2026 release).
+
+## 1. Market
+
+| Publisher | Scope | 2025 value | CAGR | Source |
+|---|---|---|---|---|
+| MarketsandMarkets | GFRP only | USD 0.54 bn → 0.95 bn (2030) | 12.1% | https://www.marketsandmarkets.com/Market-Reports/gfrp-rebar-market-222008548.html |
+| MarketsandMarkets | all FRP | USD 0.69 bn → 1.19 bn (2030) | 11.5% | https://www.marketsandmarkets.com/Market-Reports/frp-rebars-market-77486355.html |
+| Fortune Business Insights | all FRP | USD 0.78 bn → 2.30 bn (2034) | 12.8% | https://www.fortunebusinessinsights.com/frp-rebar-market-106874 |
+| Stratview (outlier) | all FRP | USD 0.22 bn | 5.6% | https://www.stratviewresearch.com/market-reports/FRP-rebar-market |
+
+Working range used on site: USD 0.5–0.8 bn in 2025, 10–13% growth. Top five producers hold about 15–20% combined (MarketsandMarkets companies page). Regional pages (M&M, 2025, GFRP): North America 153 M, Europe 133 M, GCC 42 M, China 65 M, India 57 M; indicative only.
+
+Drivers: corrosion life-cycle cost (Qatar chlorination tank LCCA, breakeven ~35 years, https://qspace.qu.edu.qa/handle/10576/39115); ACI 440.11-22 referenced in the 2024 IBC; Saudi Aramco engineering standards mandating GFRP in corrosion-risk concrete; new plants (Pultrall Ohio 2026, MST Rebar NC 2025, IKK Mateenbar Dammam 2021, GFRP Tech South Africa 2025).
+
+## 2. Leading producers (what the site says about them, with sources)
+
+| Producer | Facts used on site | Sources |
+|---|---|---|
+| Dextra (ASTEC, Durabar) | Bangkok/Guangzhou/Pune; soft-eyes since 1996, 500+ supplied; ESR-5751 (AC454, 2026) with ~65–68 GPa modulus; ESR-5501 (AC521); CSA S807:19; polyester (temporary) vs vinyl ester (permanent) ranges; verified EPD; Jizan channel and SPARK | https://dextragroup.com/ground-engineering/tunneling/astec-soft-eyes · https://icc-es.org/wp-content/uploads/report-directory/ESR-5751.pdf · https://environdec.com/library/epd9434 · https://dextragroup.com/jizan-flood-mitigation-channel |
+| Pultrall (V-ROD) | Thetford Mines; Edon, Ohio plant 2026 for Buy America; grades 46/50/60 GPa; V-ROD 46 guaranteed 1,000 MPa to No. 6; CSA S807 Grade I/III, MTO; ESR-4923 flatwork line only; 1,000+ bridges | https://cdn.shopify.com/s/files/1/0551/8396/6382/files/V-ROD_46.pdf · https://fiberglassrebar.com/press-release-new-v-rod-fiberglass-rebar-production-facility-in-edon-ohio/ · https://icc-es.org/wp-content/uploads/report-directory/ESR-4923.pdf |
+| Mateenbar / Pultron | Gisborne NZ, Concord NC, Dubai, Dammam; ESR/EER-5548 (Greenbar2X 46.8 GPa, Mateenbar60 60 GPa); TxDOT producer list; Home Depot/Lowe's; Harkers Island Bridge ~1.5 M lf | https://icc-es.org/wp-content/uploads/report-directory/ESR-5548.pdf · https://www.txdot.gov/content/dam/docs/division/mtd/mpl/gfrpman.pdf · https://acmanet.org/fully-frp-reinforced-bridge-paves-way-for-future-projects |
+| Schöck (Combar) | DIBt Z-1.6-238 and Z-21.8-2082; Ø8–32 mm; 60 GPa; design value 445 MPa for 100-year life; rail, MRI, soft-eyes | https://www.schoeck.com/viewfile/8943/Technische_Informatie_Schoeck_Combar_EN___8943__.pdf · https://www.dibt.de/en/service/approval-download/detail/z-16-238 |
+| Neuvokas (GatorBar) | Ahmeek MI; ESR-4526 (No. 3); 47–49 GPa; ExxonMobil licence 2024; Ohio/Virginia DOT | https://icc-es.org/wp-content/uploads/report-directory/ESR-4526.pdf · https://www.businesswire.com/news/home/20241030840896/en/ |
+| Owens Corning (dropped) | PINKBAR+ discontinued; glass reinforcements sold to Praana Group, closed May 2026 | https://www.businesswire.com/news/home/20260430997267/en/ |
+
+Retail anchors (October 2026, US): Greenbar2X No. 3 × 10 ft $4.35–6.21, No. 4 × 10 ft $6.41–8.48 (Home Depot); GatorBar No. 4 × 10 ft $7.98; FRP 3/8 in × 84 in 12-pack ≈ $0.23–0.33/ft; Ernest Maier No. 5 $0.95/ft, No. 6 $1.49/ft. Site wording: "roughly $0.25 to $0.85 per foot for No. 3 and No. 4 bars, structural No. 5 above $1 per foot" (owner rule 2026-10-23: ranges only, RFQ decides).
+
+## 3. Standards (values used on the standards page)
+
+- ASTM D7957/D7957M-26 active (store page "Last Updated Sep 02, 2026", verified 2026-10-25). ACI CODE-440.11-22 references D7957-22. Table 3 minimum guaranteed force by size, as reproduced in Nanni, *Concrete International* Aug. 2021 (https://par.nsf.gov/servlets/purl/10353515): No. 2 6.1 kip (27 kN), No. 3 13.2 (59), No. 4 21.6 (96), No. 5 29.1 (130), No. 6 40.9 (182), No. 7 54.1 (241), No. 8 66.8 (297), No. 9 82.0 (365), No. 10 98.2 (437). ODOT "generation 2" requires more (No. 4 27.6 kip … No. 10 138 kip) and 8,700 ksi modulus; TxDOT 7,500 ksi.
+- Property minimums (D7957, confirmed for -17/-22 via AFNOR abstract and PINKBAR 2023 datasheet): modulus ≥ 44.8 GPa mean; strain ≥ 1.1%; fiber ≥ 70% mass; transverse shear ≥ 131 MPa; bond ≥ 7.6 MPa; moisture ≤ 0.25% (24 h) / < 1.0% saturation; alkali ≥ 80% retained; Tg ≥ 100 °C; cure ≥ 95%; bent portion ≥ 60%; guaranteed = mean − 3σ; 5 QC specimens per lot. Verify against the -26 text before quoting a clause number.
+- CSA S807:19 (R2024) grades I/II/III by modulus (40/50/60 GPa), D1/D2; MTO OPSS 1640 Grade III, D1, E-CR, VE/epoxy. CSA S6:25 issued Oct 2025. CSA S806-12 reaffirmation status conflicting between ANSI and SCC.
+- ISO 10406-1:2025 (site link https://www.iso.org/standard/84321.html). EN 1992-1-1:2023 Annex R informative; CE via EAD 260023-00-0301 (Sireg ETA, REBARMAT). DIBt Z-1.6-238 valid to 2029. AS 5204:2023; Queensland TMR MRTS271 calls CSA S807 Grade III. GB/T 26743-2011 and JG/T 406-2013 (grade tables not retrieved). GOST 31938-2022 superseded 2012.
+- ICC-ES AC454 (structural) / AC521 (flatwork). Buy America applies to GFRP on federally funded work from October 2025 (TxDOT list flags Canadian plants "project-level certification").
+
+## 4. Pricing and trade facts used
+
+- Quoting: North America per ft and per bar (20 ft); Europe/GCC per metre or kg (6/12 m); China per metre or tonne FOB. A tonne of GFRP ≈ 4× the metres of a tonne of steel.
+- Chinese FOB references (vendor guides, inconsistent): USD 1,500–2,200/t or 0.50–1.00/m for 10–16 mm; Made-in-China 12 mm USD 0.70–0.80/m. Not published on site as numbers.
+- HS: US CBP ruling B87240 → 3916.90.50, general 5.8% (https://open-gov.usebase.io/rulings/B87240). Section 301 stack on Chinese goods changed in 2025–26; broker confirms. No AD/CVD on GFRP rebar in US/EU/CA/AU as of Oct 2026.
+- Container: 40 ft HC internal 12.03 m (bars ≈ 11.8 m), 20 ft ≈ 5.8 m, payload ≈ 26 t. Vendor tonnage claims unreconciled (5–6 t per 20 ft vs much higher); site uses a planning range of 12–20 t per 40 ft HC for straight bars with the packing list governing. Metres per tonne computed at 2.0 g/cm³ on nominal area.
+
+## 5. Decisions
+
+1. Product page restructured around buyer segments and supply routes (project, distributor/precaster program, sample lot, technical review); ASTM Table 3 and metric sizes shown side by side; standards by market; price basis with the range rule; export packing.
+2. New reference pages `/resources/gfrp-rebar-applications` (7 segments, approval route per market, attributed reference projects) and `/resources/gfrp-rebar-standards` (crosswalk, D7957 forces and properties, approvals explainer).
+3. New articles: `gfrp-rebar-manufacturers-how-to-qualify-a-supplier` and `importing-gfrp-rebar-container-loading-documents`.
+4. Claims boundary: no ICC-ES, DOT, CSA designated-source, ETA, DIBt or Buy America claim anywhere; "we do not hold" stated on product, standards and manufacturer pages; test `scripts/gfrp-rebar-market-pages.test.mjs` guards it. Competitor facts are attributed with sources and no competitor performance is attributed to F1 or its source.
+5. Navigation: no new product sub-links (menu bound of 115 destinations reached); new pages are linked from the product page, size chart, calculator, vs-steel page, the GFRP rebar blog topic and both new articles.

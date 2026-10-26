@@ -156,7 +156,8 @@ export default function GfrpRebarCalculatorPage() {
           { title: "GFRP reinforcement", links: [
             { href: "/products/frp-rebar", label: "FRP rebar: bars, stirrups and mesh" },
             { href: "/technology/fiberglass-rebar-vs-steel", label: "Fiberglass rebar vs steel" },
-            { href: "/resources/blog/gfrp-bent-bars-stirrups-mesh-ordering-guide", label: "GFRP stirrups and bent bars" },
+            { href: "/resources/gfrp-rebar-standards", label: "GFRP rebar standards by market" },
+            { href: "/resources/gfrp-rebar-applications", label: "GFRP rebar applications" },
           ] },
           { title: "Other tools", links: [
             { href: "/tools/thermal-expansion-calculator", label: "Thermal expansion calculator" },

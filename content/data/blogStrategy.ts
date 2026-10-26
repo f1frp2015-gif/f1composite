@@ -1,7 +1,7 @@
 import { blogPosts, blogPostsBySlug, type BlogPost } from "@/content/data/blogPosts";
 
 // Collection navigation revision; original article dates remain content-owned.
-export const blogLibraryUpdated = "2026-10-19";
+export const blogLibraryUpdated = "2026-10-25";
 
 export type BlogTopicSlug =
   | "materials-and-process"
@@ -126,6 +126,8 @@ export const blogTopics: BlogTopic[] = [
       { label: "GFRP rebar supply and RFQ", href: "/products/frp-rebar" },
       { label: "Compare fiberglass rebar and steel", href: "/technology/fiberglass-rebar-vs-steel" },
       { label: "Rebar size and design-value calculator", href: "/tools/gfrp-rebar-calculator" },
+      { label: "GFRP rebar applications by segment", href: "/resources/gfrp-rebar-applications" },
+      { label: "GFRP rebar standards by market", href: "/resources/gfrp-rebar-standards" },
       { label: "Download the bar schedule template", href: "/downloads/f1-rebar-schedule-template.csv" },
     ],
   },
@@ -426,6 +428,16 @@ export const blogKeywordTargets: BlogKeywordTarget[] = [
     slug: "basalt-rebar-vs-fiberglass-rebar", topic: "gfrp-rebar",
     primaryQuery: "basalt rebar vs fiberglass rebar", secondaryQueries: ["BFRP vs GFRP rebar", "basalt rebar standards"], intent: "comparison",
     nextStep: { label: "Review GFRP rebar supply", href: "/products/frp-rebar" },
+  },
+  {
+    slug: "gfrp-rebar-manufacturers-how-to-qualify-a-supplier", topic: "gfrp-rebar",
+    primaryQuery: "GFRP rebar manufacturers", secondaryQueries: ["frp rebar manufacturers", "gfrp rebar suppliers", "fiberglass rebar manufacturers china", "how to qualify a GFRP rebar supplier"], intent: "commercial",
+    nextStep: { label: "Review GFRP rebar supply and documents", href: "/products/frp-rebar" },
+  },
+  {
+    slug: "importing-gfrp-rebar-container-loading-documents", topic: "gfrp-rebar",
+    primaryQuery: "importing GFRP rebar", secondaryQueries: ["gfrp rebar container loading", "fiberglass rebar HS code", "gfrp rebar MOQ and lead time", "fiberglass rebar price per ton"], intent: "guide",
+    nextStep: { label: "Request a GFRP rebar quotation", href: "/products/frp-rebar" },
   },
   {
     slug: "frp-grating-specification-guide", topic: "grating-and-access",
