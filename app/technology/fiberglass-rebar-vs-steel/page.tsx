@@ -634,6 +634,8 @@ export default function FiberglassRebarVsSteelPage() {
             title: "Rebar product",
             links: [
               { href: "/products/frp-rebar", label: "FRP rebar sizes, surfaces and RFQ data" },
+              { href: "/resources/gfrp-rebar-applications", label: "GFRP rebar applications by segment" },
+              { href: "/resources/gfrp-rebar-standards", label: "GFRP rebar standards by market" },
               { href: "/products/fiberglass-structural-shapes/frp-rod", label: "Pultruded fiberglass round rod" },
               { href: "/products/custom-pultruded-profiles", label: "Custom pultruded profiles" },
             ],

@@ -249,6 +249,7 @@ export default function GfrpRebarSizeChartPage() {
             title: "Supply",
             links: [
               { href: "/products/frp-rebar", label: "GFRP bars, stirrups and mesh" },
+              { href: "/resources/gfrp-rebar-applications", label: "GFRP rebar applications" },
               { href: "/downloads/f1-rebar-schedule-template.csv", label: "Bar schedule template (CSV)" },
             ],
           },
@@ -256,6 +257,7 @@ export default function GfrpRebarSizeChartPage() {
             title: "Design",
             links: [
               { href: "/tools/gfrp-rebar-calculator", label: "GFRP rebar calculator" },
+              { href: "/resources/gfrp-rebar-standards", label: "GFRP rebar standards and ASTM D7957 forces" },
               { href: "/technology/fiberglass-rebar-vs-steel", label: "Fiberglass rebar vs steel" },
             ],
           },

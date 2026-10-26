@@ -6550,6 +6550,264 @@ These rules match our step-by-step guide on [how to install FRP grating](/resour
 
 The [F1 FRP grating guide specification](/downloads/f1-frp-grating-guide-specification.txt) is a plain-text file in the three-part format. Values in square brackets are project inputs or options: fill them in or delete them, and remove the molded or pultruded paragraphs you do not need. The template sets no loads, deflection limits or fire ratings of its own; those come from the project. When the specification is ready, send it with the drawings and F1 will return load tables, product data and test reports for the [fiberglass grating](/products/grating) offered against it.`,
   },
+  {
+    slug: "gfrp-rebar-manufacturers-how-to-qualify-a-supplier",
+    title: "GFRP Rebar Manufacturers: What the Leading Producers Publish and How to Qualify a Supplier",
+    seoTitle: "GFRP Rebar Manufacturers: Leaders & Supplier Checklist",
+    answerBox: "The GFRP rebar market is fragmented: analysts put the five leading producers (Dextra, Pultrall, Mateenbar/Pultron, Schöck and Neuvokas) at roughly 15 to 20% combined share of a market worth about USD 0.5 to 0.8 billion in 2025. They win on published guaranteed values, 46 to 60 GPa modulus tiers, resin disclosure and producer-specific approvals (ICC-ES reports, DOT listings, DIBt), not on scale. Qualify any supplier, including an exporter, on the same seven items: size-by-size test reports, modulus tier, resin and glass type, durability data, bent-bar data, lot traceability and a plain statement of approvals held.",
+    category: "Concrete Reinforcement",
+    date: "2026-10-25",
+    updatedAt: "2026-10-25",
+    readTime: "11 min",
+    excerpt: "Who the leading GFRP rebar manufacturers are, how they position and price, what their datasheets and evaluation reports actually contain, and a seven-point checklist to qualify any supplier, including an exporter.",
+    authorName: "F1 Composite Editorial Team",
+    authorType: "Organization",
+    authorRole: "Technical content and sourcing guidance",
+    reviewedBy: "Editorial source check",
+    standards: [
+      "ASTM D7957/D7957M-26",
+      "ACI CODE-440.11-22",
+      "ICC-ES AC454 / AC521",
+      "CSA S807:19 (R2024)",
+      "DIBt Z-1.6-238",
+    ],
+    coverImage: "/images/covers/blog/gfrp-rebar-surface-types.webp",
+    coverAlt: "Three GFRP bar surfaces side by side: sand-coated, helically wrapped with sand, and machined ribs, each labeled",
+    coverNote: "Schematic",
+    supportingImage: "/images/products/frp-rebar/gfrp-helical-surface.webp",
+    supportingAlt: "Close-up of a GFRP bar with a helical bond surface",
+    supportingImageFit: "contain",
+    supportingCaption: "Supplier photo of a helically wrapped GFRP bar. Surface type, resin and glass are confirmed on the datasheet of the bar actually offered; the photo identifies no grade.",
+    highlights: [
+      "Five producers lead a fragmented market: Dextra (tunnelling, Middle East), Pultrall (North American bridges), Mateenbar/Pultron (US and Gulf structural plus big-box flatwork), Schöck (German-approved rail and research buildings) and Neuvokas (high-speed US flatwork).",
+      "Every leader publishes guaranteed force by size, modulus, strain, shear and bond with the mean-minus-three-sigma definition; the modulus tier (46, 50 or 60 GPa) is read as the quality tier.",
+      "US and Canadian public work runs through ICC-ES reports, DOT producer lists, CSA S807 Grade III and Buy America; an imported bar competes in private, precast, marine and overseas projects instead.",
+      "Qualify a supplier on seven items, and treat any claim of ICC-ES, DOT, CE or DIBt approval without a report number as a disqualifier.",
+    ],
+    ogDescription: "Who leads GFRP rebar manufacturing, how Dextra, Pultrall, Mateenbar, Schöck and Neuvokas position and price, and a checklist to qualify any supplier.",
+    ogChips: [
+      "Five leading producers",
+      "46–60 GPa tiers",
+      "Supplier checklist",
+    ],
+    relatedLinks: [
+      { label: "GFRP Rebar: Bars, Stirrups & Mesh", href: "/products/frp-rebar" },
+      { label: "GFRP Rebar Standards by Market", href: "/resources/gfrp-rebar-standards" },
+      { label: "GFRP Rebar Applications", href: "/resources/gfrp-rebar-applications" },
+      { label: "Fiberglass Rebar vs Steel: Evidence Review", href: "/technology/fiberglass-rebar-vs-steel" },
+      { label: "How to Choose an FRP Pultrusion Supplier", href: "/resources/how-to-choose-frp-pultrusion-supplier" },
+    ],
+    sourceLinks: [
+      { label: "MarketsandMarkets: GFRP rebar market and company ranking (2025)", href: "https://www.marketsandmarkets.com/ResearchInsight/gfrp-rebar-companies.asp" },
+      { label: "Dextra Group: ASTEC soft-eyes, more than 500 supplied since 1996", href: "https://dextragroup.com/ground-engineering/tunneling/astec-soft-eyes" },
+      { label: "ICC-ES ESR-5751: Dextra Astec Plus GFRP bars (2026)", href: "https://icc-es.org/wp-content/uploads/report-directory/ESR-5751.pdf" },
+      { label: "Pultrall V-ROD 46 technical data sheet", href: "https://cdn.shopify.com/s/files/1/0551/8396/6382/files/V-ROD_46.pdf" },
+      { label: "Pultrall press release: V-ROD production facility in Edon, Ohio (2026)", href: "https://fiberglassrebar.com/press-release-new-v-rod-fiberglass-rebar-production-facility-in-edon-ohio/" },
+      { label: "ICC-ES ESR-5548: Mateenbar Greenbar2X and Mateenbar60 (2026)", href: "https://icc-es.org/wp-content/uploads/report-directory/ESR-5548.pdf" },
+      { label: "TxDOT material producer list: GFRP reinforcing bar (Dec 2025)", href: "https://www.txdot.gov/content/dam/docs/division/mtd/mpl/gfrpman.pdf" },
+      { label: "Schöck Combar technical information 2025.1", href: "https://www.schoeck.com/viewfile/8943/Technische_Informatie_Schoeck_Combar_EN___8943__.pdf" },
+      { label: "DIBt approval Z-1.6-238: Schöck Combar", href: "https://www.dibt.de/en/service/approval-download/detail/z-16-238" },
+      { label: "ICC-ES ESR-4526: Neuvokas GatorBar (reissued 2026)", href: "https://icc-es.org/wp-content/uploads/report-directory/ESR-4526.pdf" },
+      { label: "ExxonMobil: licensing agreement for the Neuvokas rebar process (2024)", href: "https://www.businesswire.com/news/home/20241030840896/en/ExxonMobil-Announces-Licensing-Agreement-to-Expand-Proprietary-Rebar-Processing-Technology-to-Global-Markets" },
+      { label: "Owens Corning completes sale of glass reinforcements business to Praana Group (2026)", href: "https://www.businesswire.com/news/home/20260430997267/en/Owens-Corning-Completes-Sale-of-Glass-Reinforcements-Business-to-Praana-Group" },
+      { label: "Nanni, Concrete International Aug. 2021: GFRP bar specifications and DOT requirements", href: "https://par.nsf.gov/servlets/purl/10353515" },
+    ],
+    faq: {
+      title: "GFRP rebar manufacturer questions",
+      items: [
+        {
+          question: "Who are the largest GFRP rebar manufacturers?",
+          answer: "Analysts name Dextra Group (Thailand, China, India), Pultrall (Canada, now also Ohio), Mateenbar and its parent Pultron (New Zealand, United States, UAE, Saudi Arabia), Schöck (Germany) and Neuvokas (United States) among the leaders, with the top five holding only about 15 to 20% of the market between them. Owens Corning's PINKBAR+ line is discontinued and its reinforcements business was sold in 2026.",
+        },
+        {
+          question: "What modulus should a structural GFRP bar have?",
+          answer: "ASTM D7957 requires at least 44.8 GPa. Leading structural bars publish 46 GPa (Pultrall V-ROD 46, Mateenbar Greenbar2X, GatorBar), 60 GPa (V-ROD 60, Mateenbar60, Schöck Combar, CSA S807 Grade III) and in Dextra's ICC-ES report about 65 to 68 GPa. Ontario, Texas and Ohio DOT require the 60 GPa class for their work.",
+        },
+        {
+          question: "Can a Chinese GFRP rebar factory hold ICC-ES or DOT approval?",
+          answer: "Only by going through the same audits as a domestic producer. Dextra's Guangdong plant holds an ICC-ES report; no other Chinese producer's report was found in October 2026. DOT producer lists additionally require Buy America compliance on federally funded work, which an import cannot meet. Ask any supplier for the report number or a plain statement that none is held.",
+        },
+        {
+          question: "How do I compare a GFRP supplier's datasheet with a leader's?",
+          answer: "Line up the same seven items: guaranteed force per size with the laboratory and edition, modulus, strain, transverse shear, bond, moisture and alkali data, bent-bar data, the resin and glass type, and the approvals held. A datasheet that quotes only ultimate or mean values, or a tensile strength without a size, has not been qualified to the standard's definition.",
+        },
+      ],
+    },
+    content: `Glass fiber reinforced polymer (GFRP) rebar is a small industry with a long list of producers. A 2018 review counted 27 manufacturers in 14 countries, and analysts put the five leading companies at only 15 to 20% of a global market worth about USD 0.5 to 0.8 billion in 2025, depending on whether basalt bars are counted. Nobody owns the market. The leaders win on approvals, published data and proximity to the owner, not on tonnage. This guide summarizes what the five most visible producers publish and do, and turns it into a checklist for qualifying any supplier, including an exporter such as F1 Composite.
+
+## The five leading producers and how they position
+
+| Producer | Base | Positioning | Sizes and modulus | Approvals held |
+| --- | --- | --- | --- | --- |
+| Dextra Group (ASTEC, Durabar) | Bangkok, Guangzhou, Pune | Engineered tunnelling packages (TBM soft-eyes since 1996), Middle East channels and energy parks, sea-sand concrete | 6–51 mm; ICC-ES values about 65–68 GPa | ICC-ES ESR-5751 (AC454) and ESR-5501 (AC521), CSA S807:19, verified EPD |
+| Pultrall (V-ROD) | Thetford Mines, Québec; Edon, Ohio from 2026 | North American bridge decks, barriers, soft-eyes and seawalls; "well over 1,000 bridge structures" | No. 2–No. 10; grades 46, 50 and 60 GPa | CSA S807 Grade I and III, MTO designated source, TxDOT list; ICC-ES report for the flatwork line only |
+| Mateenbar / Pultron | Gisborne NZ; Concord NC; Dubai; Dammam | US structural supply with Buy America compliance plus the Greenbar2X flatwork brand in big-box stores; Gulf projects for Saudi Aramco | No. 3–No. 8 in the ICC-ES report; 46.8 and 60 GPa | ICC-ES ESR and EER-5548, TxDOT pre-approved producer, PCI and ACMA awards |
+| Schöck (Combar) | Baden-Baden; made in Halle | The European approved benchmark: rail and tram slabs, MRI and research buildings, soft-eyes; design to Eurocode 2 through the approval | Ø8–Ø32 mm; 60 GPa, design value 445 MPa for a 100-year life | DIBt Z-1.6-238 and Z-21.8-2082, EPD in verification |
+| Neuvokas (GatorBar) | Ahmeek, Michigan | High-speed process for flatwork, slabs and pools; "made in America"; licensed abroad through ExxonMobil since 2024 | No. 3–No. 5; 47–49 GPa | ICC-ES ESR-4526 (No. 3), Ohio and Virginia DOT listings |
+
+Two things stand out. First, every producer publishes the same table: guaranteed tensile force for each size, defined as the mean minus three standard deviations, with modulus, ultimate strain, transverse shear and bond. Second, the market reads the modulus as the quality tier. ASTM D7957 requires 44.8 GPa; the leaders sell 46 GPa bars for flatwork and ordinary structures and 60 GPa bars (CSA S807 Grade III) for bridges, barriers and anything an Ontario, Texas or Ohio owner buys.
+
+Owens Corning, long the most visible name in US fiberglass rebar, is no longer in the list. Its PINKBAR+ line is discontinued, its Pultron joint venture has reverted to Mateenbar, and the glass reinforcements business was sold to Praana Group in May 2026.
+
+## Where each one sells, and what that means for an importer
+
+**Specification selling to owners.** Pultrall and Mateenbar live on state DOT producer lists, CSA designated-source listings and the AASHTO plant audits behind them. Since October 2025, Buy America rules apply to GFRP on federally funded work, which is why Pultrall opened an Ohio plant in 2026 and why Mateenbar advertises its North Carolina plant as compliant. This channel is closed to an imported bar and will stay closed.
+
+**Engineered packages.** Dextra sells soft-eyes, couplers and training as one scope; Schöck sells a design method through its German approval and software integration. An importer competes inside these packages only as a bar supplier to the contractor's designer, with full test data for every size.
+
+**Distribution and retail.** Mateenbar's Greenbar2X and Neuvokas' GatorBar sit on Home Depot and Lowe's shelves at roughly $0.45 to $0.85 per foot for No. 3 and No. 4 bars in October 2026, and dealer networks carry Pultrall's flatwork line. This is the largest volume channel and the one where price per foot, stable supply and a clean datasheet decide the order.
+
+**Project tenders outside North America.** The Jizan flood channel in Saudi Arabia, described as the largest GFRP project built, was split between Mateenbar and Dextra against Saudi Aramco's engineering standards, which now mandate GFRP in corrosion-risk concrete. Gulf, African, Asian and Latin American owners specify project by project with a third-party test package, and this is where an exporter with honest data competes directly with the leaders.
+
+## How the leaders price
+
+North American producers quote per linear foot by bar size in 20 ft sticks, bends per piece; Ontario's ministry pays GFRP as a lump-sum item. Europe and the Gulf quote per metre or per kilogram by diameter in 6 m and 12 m bars. Published retail anchors in October 2026 ran from about $0.25 to $0.85 per foot for No. 3 and No. 4 bars and above $1 per foot for structural No. 5 and No. 6 bars; project and DOT prices are quoted, not listed. On a per-pound basis GFRP costs several times steel; per foot it sits near epoxy-coated steel and well below stainless. Our [cost-per-foot guide](/resources/blog/fiberglass-rebar-cost-per-foot) shows how to compare offers per certified area rather than per foot.
+
+## Seven items that qualify any GFRP rebar supplier
+
+1. **Guaranteed force for every size you will buy**, with the laboratory, the test method (ASTM D7205 or ISO 10406-1) and the edition stated, and the mean-minus-three-sigma definition used. A single "tensile strength" without a size is a marketing number.
+2. **Modulus tier.** 46 GPa or 60 GPa, stated as a guaranteed or mean value per size. Design is governed by stiffness, so this is the number that changes the bar area.
+3. **Resin and glass disclosure.** E-CR glass with a vinyl ester or epoxy matrix for permanent works; polyester only where the use is temporary, as Dextra states on its own range. Ontario's specification makes this mandatory.
+4. **Durability data.** Moisture absorption, alkali resistance with retained strength, glass transition temperature and degree of cure to ASTM D7957 or the CSA D1 protocol. These are cheaper than an approval and are what an engineer actually reads.
+5. **Bent-bar data.** Test results for the bent portion to ASTM D7914, shape capability and minimum bend radii. The bent portion only has to reach 60% of the straight bar, and some tests show far less for large diameters.
+6. **Lot traceability.** Bar marking, production-lot certificates with five specimens per lot, and the link from bundle label to certificate.
+7. **A plain statement of approvals.** ICC-ES, DOT, CSA designated source, ETA or DIBt are producer-specific. A supplier should state the report number or say clearly that none is held. Treat an implied approval as a disqualifier.
+
+The [GFRP rebar standards page](/resources/gfrp-rebar-standards) lists the document to request against each standard, and the [specification guide](/resources/blog/gfrp-rebar-specification-guide-aci-440-astm-d7957) shows how to write the three layers into a project specification.
+
+## Where F1 Composite stands
+
+F1 Composite coordinates GFRP rebar supply from its manufacturing source in China for export projects, alongside its pultruded profiles and grating. We publish the inquiry size range, Ø6 to Ø36 mm, and confirm the grade, resin, measured area, guaranteed force and modulus for the bar actually offered, with third-party test reports and lot certificates against the project's standard and edition. We do not hold ICC-ES, DOT, CSA designated-source, ETA or DIBt listings, and we say so before a project relies on one. The segments where that position competes are marine and coastal concrete, precast, slabs and pools, water and chemical plants, MRI and rail facilities and overseas tenders, which the [GFRP rebar applications](/resources/gfrp-rebar-applications) page covers one by one. Send a bar schedule or a technical question through the [GFRP rebar page](/products/frp-rebar) and the seven items above are what the reply will address.`,
+  },
+  {
+    slug: "importing-gfrp-rebar-container-loading-documents",
+    title: "Importing GFRP Rebar: Container Loading, Documents, MOQ and Lead Time",
+    seoTitle: "Importing GFRP Rebar: Container Loading, Docs & MOQ",
+    answerBox: "A tonne of GFRP rebar is about 4,400 m of Ø12 mm bar or 2,500 m of Ø16 mm, four times the length of a tonne of steel, so GFRP is bought per container rather than per tonne. A 40 ft high-cube carries straight bars up to about 11.8 m and, depending on diameter and packing, roughly 12 to 20 tonnes; a 20 ft box takes bars up to 5.8 m. Request a qualification report per size, production-lot certificates, handling instructions and a certificate of origin with the shipping documents; GFRP bars are generally classified under HS heading 3916, and the duty stack is confirmed by your broker.",
+    category: "Concrete Reinforcement",
+    date: "2026-10-25",
+    updatedAt: "2026-10-25",
+    readTime: "9 min",
+    excerpt: "How to plan a GFRP rebar import: metres per tonne by diameter, what fits a 20 ft and 40 ft container, coils versus straight bars, the documents to request, customs classification, and how MOQ and lead time are set.",
+    authorName: "F1 Composite Editorial Team",
+    authorType: "Organization",
+    authorRole: "Technical content and sourcing guidance",
+    reviewedBy: "Editorial source check",
+    standards: [
+      "ASTM D7957/D7957M-26",
+      "ASTM D7205/D7205M",
+      "ISO 10406-1:2025",
+      "Incoterms 2020",
+    ],
+    coverImage: "/images/covers/blog/gfrp-rebar-container-loading.webp",
+    coverAlt: "Side view of a 40 ft high-cube container with strapped bundles of 12 m GFRP bars stacked on the floor and a coil of small-diameter bar at the door end, with length and payload labels",
+    coverNote: "Schematic",
+    supportingImage: "/images/products/frp-rebar/gfrp-straight-bars.webp",
+    supportingAlt: "Straight GFRP reinforcing bars of several diameters",
+    supportingImageFit: "contain",
+    supportingCaption: "Supplier photo of straight GFRP bars. Bundle counts, lengths and labels for an export order are fixed in the packing list, not by the catalog photo.",
+    highlights: [
+      "GFRP is about a quarter of steel's weight: a tonne of Ø12 mm bar is roughly 4,400 m, so compare offers per metre and per container, not per tonne.",
+      "A 40 ft high-cube takes straight bars up to about 11.8 m and roughly 12 to 20 tonnes depending on diameter and packing; a 20 ft box takes 5.8 m bars; Ø6–Ø10 mm can ship as coils.",
+      "Five documents travel with a qualified order: qualification report per size, production-lot certificate, handling instructions, certificate of origin and the commercial set.",
+      "MOQ and lead time follow the size mix and the test scope; a sample lot with agreed testing is the normal first order.",
+    ],
+    ogDescription: "Plan a GFRP rebar import: metres per tonne by size, 20 ft and 40 ft container loading, coils vs bars, documents, HS classification, MOQ and lead time.",
+    ogChips: [
+      "Metres per tonne",
+      "40 ft HC loading",
+      "Document checklist",
+    ],
+    relatedLinks: [
+      { label: "GFRP Rebar: Bars, Stirrups & Mesh", href: "/products/frp-rebar" },
+      { label: "FOB & DDP Export Guide for Pultruded FRP", href: "/resources/frp-pultrusion-fob-ddp-export-guide" },
+      { label: "GFRP Rebar Size Chart", href: "/resources/gfrp-rebar-size-chart" },
+      { label: "GFRP Rebar Standards by Market", href: "/resources/gfrp-rebar-standards" },
+      { label: "How to Install GFRP Rebar", href: "/resources/blog/how-to-install-gfrp-rebar" },
+    ],
+    sourceLinks: [
+      { label: "ASTM D7957/D7957M-26: GFRP bars for concrete reinforcement", href: "https://store.astm.org/d7957_d7957m-26.html" },
+      { label: "PINKBAR data sheet (2023): bar weights, bundle counts and truckload quantities", href: "https://cemstonesupply.com/wp-content/uploads/2025/05/PINKBAR-Data-Sheet-2024.pdf" },
+      { label: "US CBP ruling B87240: classification of FRP rebar under heading 3916", href: "https://open-gov.usebase.io/rulings/B87240" },
+      { label: "USITC Harmonized Tariff Schedule: subheading 3916.90.50", href: "https://hts.usitc.gov/reststop/search?keyword=3916.90.50" },
+      { label: "Nanni, Concrete International Aug. 2021: lot testing and DOT acceptance of GFRP bars", href: "https://par.nsf.gov/servlets/purl/10353515" },
+    ],
+    faq: {
+      title: "GFRP rebar import questions",
+      items: [
+        {
+          question: "How many tonnes of GFRP rebar fit in a 40 ft container?",
+          answer: "Roughly 12 to 20 tonnes of straight bars, depending on diameter and how tightly the bundles stack. Large diameters in dense bundles approach the 26-tonne road payload; small diameters and bent shapes run out of space first. In linear metres that is about 50,000 to 90,000 m of Ø12 mm bar. The packing list for your order gives the exact figure.",
+        },
+        {
+          question: "What is the longest GFRP bar that ships in a standard container?",
+          answer: "About 11.8 m in a 40 ft high-cube, whose internal length is 12.03 m, and about 5.8 m in a 20 ft box. Bars of 12 m nominal length are usually produced at 11.8 m for container shipment, or booked on an open-top or flat-rack unit at a higher freight cost.",
+        },
+        {
+          question: "Which HS code applies to GFRP rebar?",
+          answer: "US Customs classifies FRP reinforcing bars under heading 3916, monofilament and rods of plastics, at subheading 3916.90.50 with a 5.8% general rate, and most other customs territories use heading 3916 as well. Additional duties, including US Section 301 measures on Chinese goods, change over time, so your broker confirms the stack for the shipment date.",
+        },
+        {
+          question: "What documents should come with an imported GFRP rebar order?",
+          answer: "Beyond the commercial invoice, packing list and bill of lading: a qualification report for each size stating the standard and edition, production-lot certificates traceable to the bundle labels, handling and storage instructions for the offered grade, a certificate of origin and, where required, bent-bar test data and a material safety data sheet.",
+        },
+      ],
+    },
+    content: `Glass fiber reinforced polymer (GFRP) rebar weighs about a quarter of steel for the same size. That one fact changes how an import is planned: the price per tonne means little, a container is filled by space as often as by weight, and the documents matter more than the freight because the bars are being bought against a standard, not by the kilogram. This guide gives the planning figures and the checklist.
+
+## Metres per tonne: why GFRP is bought per container
+
+A GFRP bar's unit mass is its nominal area times a density of about 1.9 to 2.1 g/cm³, against 7.85 for steel. The table uses 2.0 g/cm³ and nominal areas; the supplier's declared unit mass governs the packing list.
+
+| Nominal Ø | Closest ASTM | Area mm² | kg per metre (calc.) | Metres per tonne (approx.) |
+| --- | --- | --- | --- | --- |
+| 6 mm | No. 2 | 28 | 0.06 | 17,700 |
+| 8 mm | — | 50 | 0.10 | 9,900 |
+| 10 mm | No. 3 | 79 | 0.16 | 6,400 |
+| 12 mm | No. 4 | 113 | 0.23 | 4,400 |
+| 16 mm | No. 5 | 201 | 0.40 | 2,500 |
+| 20 mm | No. 6 | 314 | 0.63 | 1,600 |
+| 25 mm | No. 8 | 491 | 0.98 | 1,000 |
+| 32 mm | No. 10 | 804 | 1.61 | 620 |
+
+A tonne of Ø12 mm GFRP is about 4,400 m of bar; a tonne of Ø12 mm steel is about 1,100 m. A quotation in dollars per tonne therefore looks four times higher than it is per metre, and a quotation per kilogram cannot be compared with a steel price per kilogram at all. Ask for the price per metre by diameter, or per bar at the agreed length, and compare it per certified area as the [cost-per-foot guide](/resources/blog/fiberglass-rebar-cost-per-foot) explains. Imperial weights for every ASTM size are in the [GFRP rebar size chart](/resources/gfrp-rebar-size-chart).
+
+## What fits in a 20 ft and a 40 ft container
+
+**Length decides the equipment.** A 40 ft high-cube container has an internal length of 12.03 m, so straight bars are produced at about 11.8 m for container shipment; a 20 ft box takes bars up to about 5.8 m. North American schedules in 20 ft (6.1 m) lengths need a 40 ft unit. True 12 m bars, or longer, travel on an open-top or flat-rack unit at a higher freight rate, or are cut to an agreed length.
+
+**Diameter and packing decide the tonnage.** Round bars in strapped bundles leave air between bars and between bundles. Large diameters in dense bundles can approach a container's road payload of about 26 tonnes; small diameters, mixed lengths and bent shapes fill the space long before the weight. Planning figures for a 40 ft high-cube run from roughly 12 to 20 tonnes of straight bars, which for Ø12 mm bar is 50,000 to 90,000 m. A 20 ft box with 5.8 m bars carries proportionally less. These are planning ranges; the packing list for the actual size mix is the number to use.
+
+**Coils for small diameters.** Ø6 to Ø10 mm bars can be coiled, which cuts the freight volume of mesh rods and slab bars considerably. Coiled bar needs straightening and careful handling on site, so agree the coil diameter and the straightening method before choosing it.
+
+**Bundles and labels.** Bundles are strapped, protected from abrasion and labeled by bar mark, diameter, length and quantity so the inspector can match each bundle to its lot certificate. Bent bars and mesh sheets are palletized or crated to the drawing reference. One US producer's data sheet lists master bundles of 500 bars and a full truckload of 20,000 No. 3 or 12,000 No. 4 bars of 20 ft; export bundles are agreed per order, but the same logic applies: the count, not the weight, is what the site checks.
+
+## Documents to request before the goods move
+
+1. **Qualification report for each size.** Guaranteed tensile force, modulus, strain, transverse shear, bond, moisture absorption, alkali resistance and glass transition temperature, tested to ASTM D7205, D7617, D7913 and D7705 or the ISO 10406-1 methods, with the laboratory and the standard edition stated. This is the document the engineer of record reads.
+2. **Production-lot certificates.** ASTM D7957 calls for five specimens from each production lot; the certificate must carry the lot number that appears on the bundle labels.
+3. **Bent-bar data** for every scheduled shape, to ASTM D7914, plus the shape drawings as approved.
+4. **Handling, storage and cutting instructions** for the offered grade, which also serve as the contractor's method statement under ACI SPEC-440.5.
+5. **Certificate of origin** on the form your destination requires (a preferential form where a trade agreement applies, otherwise a chamber certificate), with the commercial invoice, packing list and bill of lading.
+
+A supplier who cannot produce items 1 and 2 before shipment has not qualified the bar to the standard, whatever the datasheet says. The [GFRP rebar standards page](/resources/gfrp-rebar-standards) lists what to ask for against each standard in each market.
+
+## Customs classification and duties
+
+GFRP rebar is not steel and is not classified with it. US Customs and Border Protection classifies FRP reinforcing bars under heading 3916, monofilament and rods of plastics, at subheading 3916.90.50, with a general duty rate of 5.8%; most other customs territories also use heading 3916 for composite bars. Additional measures sit on top of the general rate: in the United States, Section 301 duties on Chinese goods have changed several times in 2025 and 2026, and Buy America rules exclude imported bars from federally funded transportation work regardless of duty. No anti-dumping or countervailing case on GFRP rebar existed in the United States, the European Union, Canada or Australia as of October 2026. Confirm the classification and the duty stack with your broker for the shipment date, and keep the technical description on the invoice consistent with the test reports.
+
+## How MOQ and lead time are set
+
+A GFRP rebar line is set up per diameter, so the minimum order follows the size mix: a few thousand metres of one diameter is a normal lower bound, and a 20 ft container of a stable size mix is the usual first commercial order. Lead time has three parts: production, which depends on the number of diameters and shapes; testing, which adds time when a project requires lot tests at an accredited laboratory before release; and transit. A sample lot of the sizes the engineer wants tested, with the test scope agreed in advance, is the normal way to start and shortens every later order.
+
+## Shipping terms
+
+Compare offers on the same term. FOB leaves freight, insurance, duty and clearance with the buyer; CIF adds freight and insurance to the port; DAP and DDP move delivery and, under DDP, duty to the seller. For GFRP the freight term matters more than for steel because the container count, not the tonnage, drives the cost. The [FOB and DDP export guide](/resources/frp-pultrusion-fob-ddp-export-guide) explains the responsibilities under each term.
+
+## Starting an inquiry
+
+Send the bar schedule or the size mix, the lengths and shapes, the standard and edition the project names, the documents your engineer requires and the destination port. F1 Composite confirms the offered grade, the test scope, the packing plan and the price per metre, per bar or per container through the [GFRP rebar page](/products/frp-rebar); the [bar schedule template](/downloads/f1-rebar-schedule-template.csv) has the columns a quotation needs.`,
+  },
 ];
 
 export const blogPostsBySlug = Object.fromEntries(

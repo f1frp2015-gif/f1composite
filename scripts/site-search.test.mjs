@@ -63,7 +63,7 @@ test("sizes are recognised in the ways buyers type them", () => {
 test("text queries rank the owning page first", () => {
   const top = (query) => search(index, query).groups[0].hits[0].entry;
   assert.equal(top("grating").kind, "product");
-  assert.equal(titles("rebar", "product")[0], "FRP Rebar");
+  assert.equal(titles("rebar", "product")[0], "FRP Rebar Supplier");
   assert.equal(top("span table").url, "/frp-span-tables");
   assert.equal(top("cable tray").url, "/applications/frp-cable-tray-supports");
   assert.ok(titles("AS 2047", "document").some((title) => title.startsWith("Intertek AS 2047")));
