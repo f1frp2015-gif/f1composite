@@ -45,6 +45,8 @@ Retail anchors (October 2026, US): Greenbar2X No. 3 × 10 ft $4.35–6.21, No. 4
 
 ## 5. Decisions
 
+0. Owner confirmation 2026-10-26: the manufacturer named on the rebar pages is FengDu New Material (F1 Composite is its export company), not the September 2026 catalog source; the offer is two modulus grades, GFRP 45 and GFRP 60 (CSA S807 Grade I and III classes); the product menu is not extended.
+
 1. Product page restructured around buyer segments and supply routes (project, distributor/precaster program, sample lot, technical review); ASTM Table 3 and metric sizes shown side by side; standards by market; price basis with the range rule; export packing.
 2. New reference pages `/resources/gfrp-rebar-applications` (7 segments, approval route per market, attributed reference projects) and `/resources/gfrp-rebar-standards` (crosswalk, D7957 forces and properties, approvals explainer).
 3. New articles: `gfrp-rebar-manufacturers-how-to-qualify-a-supplier` and `importing-gfrp-rebar-container-loading-documents`.

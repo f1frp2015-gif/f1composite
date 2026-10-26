@@ -42,6 +42,9 @@ test("the catalog describes segments, supply routes, price basis and export pack
   for (const segment of rebarCatalog.segments) assert.match(segment.href, /^\/resources\/gfrp-rebar-applications#/);
   assert.deepEqual(rebarCatalog.supplyRoutes.map((route) => route.stage).sort(), ["distributor", "quote", "sample", "technical"]);
   assert.ok(rebarCatalog.faqs.length >= 10);
+  assert.deepEqual(rebarCatalog.grades.map((g) => g.id), ["45", "60"], "owner decision 2026-10-26: two modulus grades");
+  assert.ok(read(PRODUCT).includes("catalog.grades.map"));
+  assert.match(read(APPLICATIONS) + read(STANDARDS) + read(PRODUCT), /FengDu/);
   assert.ok(rebarCatalog.title.length <= 60, "title length");
   assert.ok(rebarCatalog.description.length <= 160, "description length");
   // Owner rule 2026-10-23: price ranges only, RFQ decides.

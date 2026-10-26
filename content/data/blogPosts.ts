@@ -5233,7 +5233,7 @@ Send the vertical rise; the top and bottom landing geometry and the top exit (th
     supportingImage: "/images/products/frp-rebar/gfrp-straight-bars.webp",
     supportingAlt: "Straight GFRP reinforcing bars of several diameters",
     supportingImageFit: "contain",
-    supportingCaption: "Straight GFRP bars from the manufacturing source's catalog. Product illustration only: the grade, surface, dimensions and documents are confirmed for the bar actually offered.",
+    supportingCaption: "Straight GFRP bars from the FengDu's catalog. Product illustration only: the grade, surface, dimensions and documents are confirmed for the bar actually offered.",
     highlights: [
       "Name the design code, the product standard and its edition, and the submittals: three layers, not one line item.",
       "ACI CODE-440.11-22 references ASTM D7957-22; a newer ASTM edition does not update the code or an existing test report by itself.",
@@ -5336,7 +5336,7 @@ Cured GFRP bars are never field-bent, heated or welded: every bend is ordered fr
 
 ## How F1 handles GFRP rebar enquiries
 
-F1 supplies GFRP straight bars, factory-formed stirrups and reinforcement mesh from its manufacturing source, against a project schedule. The inquiry list covers nominal diameters from 6 to 36 mm. Grade, resin, dimensions and the evidence available are confirmed for the bar actually offered, and the standard and edition your project requires are part of that confirmation. Send a BOQ or drawing, or fill in the [bar schedule template](/downloads/f1-rebar-schedule-template.csv), through the [FRP rebar page](/products/frp-rebar).`,
+F1 supplies GFRP straight bars, factory-formed stirrups and reinforcement mesh made by FengDu New Material, against a project schedule. The inquiry list covers nominal diameters from 6 to 36 mm. Grade, resin, dimensions and the evidence available are confirmed for the bar actually offered, and the standard and edition your project requires are part of that confirmation. Send a BOQ or drawing, or fill in the [bar schedule template](/downloads/f1-rebar-schedule-template.csv), through the [FRP rebar page](/products/frp-rebar).`,
   },
   {
     slug: "gfrp-bent-bars-stirrups-mesh-ordering-guide",
@@ -5365,7 +5365,7 @@ F1 supplies GFRP straight bars, factory-formed stirrups and reinforcement mesh f
     supportingImage: "/images/products/frp-rebar/gfrp-reinforcement-mesh.webp",
     supportingAlt: "GFRP reinforcement mesh panel with bars in two directions",
     supportingImageFit: "contain",
-    supportingCaption: "GFRP reinforcement mesh from the manufacturing source's catalog. Product illustration only: rod diameter, spacing, intersections and test scope are confirmed for the mesh actually offered.",
+    supportingCaption: "GFRP reinforcement mesh from the FengDu's catalog. Product illustration only: rod diameter, spacing, intersections and test scope are confirmed for the mesh actually offered.",
     highlights: [
       "Every GFRP bend is made in the factory while the resin cures; nothing is bent, heated or welded on site.",
       "A bend schedule needs bar mark, shape, diameter, leg dimensions, inside radius, quantity and tolerances.",
@@ -5445,7 +5445,7 @@ Closed stirrups need a stated closure: the overlap length or the hook arrangemen
 
 ## Mesh and intersections
 
-Pre-manufactured GFRP mesh is outside the scope of ASTM D7957. A mesh order therefore needs its own specification: rod diameter and center-to-center spacing in both directions, overall sheet dimensions, the intersection type, edge distances, quantity and the approved drawing. The mesh from F1's manufacturing source uses glass fiber with an epoxy resin and custom spacing and sheet sizes, and its properties are confirmed for the configuration offered rather than borrowed from straight-bar data. ISO 10406-1:2025 provides test methods for FRP bars and grids when the project needs its own test scope.
+Pre-manufactured GFRP mesh is outside the scope of ASTM D7957. A mesh order therefore needs its own specification: rod diameter and center-to-center spacing in both directions, overall sheet dimensions, the intersection type, edge distances, quantity and the approved drawing. FengDu's mesh uses glass fiber with an epoxy resin and custom spacing and sheet sizes, and its properties are confirmed for the configuration offered rather than borrowed from straight-bar data. ISO 10406-1:2025 provides test methods for FRP bars and grids when the project needs its own test scope.
 
 ## Timing and logistics
 
@@ -6003,7 +6003,7 @@ To choose a system, compare the square- and round-tube options on our [fiberglas
     supportingImage: "/images/products/frp-rebar/gfrp-helical-surface.webp",
     supportingAlt: "Close-up of GFRP reinforcing bars with a helical surface wrap",
     supportingImageFit: "contain",
-    supportingCaption: "Supplier photo of GFRP bars from the manufacturing source's catalog. Product illustration only: handling, storage and cutting follow the instructions supplied with the bars actually delivered.",
+    supportingCaption: "Supplier photo of GFRP bars from the FengDu's catalog. Product illustration only: handling, storage and cutting follow the instructions supplied with the bars actually delivered.",
     highlights: [
       "Lift bundles with a spreader bar at several pick-up points, and never drag or drop bars: surface damage means replacement.",
       "Store bars off the ground and shaded, below 120 °F (49 °C), and cover them with opaque sheeting on long outdoor storage.",
@@ -6677,7 +6677,7 @@ The [GFRP rebar standards page](/resources/gfrp-rebar-standards) lists the docum
 
 ## Where F1 Composite stands
 
-F1 Composite coordinates GFRP rebar supply from its manufacturing source in China for export projects, alongside its pultruded profiles and grating. We publish the inquiry size range, Ø6 to Ø36 mm, and confirm the grade, resin, measured area, guaranteed force and modulus for the bar actually offered, with third-party test reports and lot certificates against the project's standard and edition. We do not hold ICC-ES, DOT, CSA designated-source, ETA or DIBt listings, and we say so before a project relies on one. The segments where that position competes are marine and coastal concrete, precast, slabs and pools, water and chemical plants, MRI and rail facilities and overseas tenders, which the [GFRP rebar applications](/resources/gfrp-rebar-applications) page covers one by one. Send a bar schedule or a technical question through the [GFRP rebar page](/products/frp-rebar) and the seven items above are what the reply will address.`,
+F1 Composite is the export company of FengDu New Material, which makes GFRP rebar in two modulus grades, GFRP 45 and GFRP 60, alongside the pultruded profiles and grating F1 sells. We publish the inquiry size range, Ø6 to Ø36 mm, and confirm the grade, resin, measured area, guaranteed force and modulus for the bar actually offered, with third-party test reports and lot certificates against the project's standard and edition. We do not hold ICC-ES, DOT, CSA designated-source, ETA or DIBt listings, and we say so before a project relies on one. The segments where that position competes are marine and coastal concrete, precast, slabs and pools, water and chemical plants, MRI and rail facilities and overseas tenders, which the [GFRP rebar applications](/resources/gfrp-rebar-applications) page covers one by one. Send a bar schedule or a technical question through the [GFRP rebar page](/products/frp-rebar) and the seven items above are what the reply will address.`,
   },
   {
     slug: "importing-gfrp-rebar-container-loading-documents",

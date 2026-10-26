@@ -1,5 +1,7 @@
 # FRP rebar procurement release — 2026-09-21
 
+> Owner update 2026-10-26: the manufacturer named on the rebar pages is FengDu New Material, and the offer is two modulus grades (45 and 60 GPa). The supplier catalog below remains the record of where the September images and inquiry sizes came from. See `frp-rebar-market-2026-10.md`.
+
 Owner approved publication and deployment after reviewing the September 20 research plan. FRP Rebar is the fifth commercial family; the existing canonical `/products/frp-rebar` remains the supply page. `/technology/fiberglass-rebar-vs-steel` remains the material comparison. No new brand name, country clones or duplicate comparison page.
 
 ## Manufacturing-source data
