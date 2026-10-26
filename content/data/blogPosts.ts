@@ -2868,14 +2868,14 @@ For specifiers weighing FRP against traditional materials on lifecycle grounds, 
     category: "Technical Guide",
     date: "2026-04-06",
     updatedAt: "2026-10-26",
-    readTime: "9 min",
+    readTime: "10 min",
     excerpt:
       "Does fiberglass burn, and is fibreglass flammable? Compare glass fibers, insulation and FRP resin, then learn what fire ratings actually prove.",
     authorName: "F1 Composite Editorial Team",
     authorType: "Organization",
     authorRole: "Technical content and sourcing guidance",
     reviewedBy: "Editorial source check",
-    standards: ["ASTM E84", "ASTM E136", "ASTM E119", "BS EN 13501-1"],
+    standards: ["ASTM E84", "ASTM E136", "ASTM E119", "BS EN 13501-1", "IBC Section 803.1.2"],
     coverImage: "/images/blog/frp-fire-resistance/fiberglass-cloth.webp",
     coverAlt: "Close-up of woven glass fiber fabric showing interlaced bundles of reinforcement",
     coverNote: "Illustrative material photo",
@@ -2888,12 +2888,13 @@ For specifiers weighing FRP against traditional materials on lifecycle grounds, 
       licenseHref: "https://creativecommons.org/licenses/by/3.0/",
     },
     supportingImage: "/images/blog/frp-fire-resistance/frp-profile-char-formation.jpg",
-    supportingAlt: "Localized darkening on an FRP profile during direct torch exposure",
+    supportingAlt: "Yellow flame on the face of an FRP profile where a blue torch flame strikes it",
     supportingCaption:
-      "Reference image from the torch demonstration. Surface darkening does not establish noncombustibility, a fire classification or retained load capacity; those require evidence for the specified product and test conditions.",
+      "Reference still from the torch demonstration. Unlike the blue torch flame, the yellow flame at the contact point shows surface material burning locally. The clip does not establish noncombustibility, a fire classification or retained load capacity; those require evidence for the specified product and test conditions.",
     highlights: [
       "Glass fibers are noncombustible; the complete fiberglass product may contain combustible components.",
       "Insulation facing and FRP resin change the fire question.",
+      "Published ranges: construction resins soften at 65–120 °C and ignite around 300–400 °C; glass fibres soften at 650–970 °C.",
       "Flame-retardant does not mean fireproof or structurally fire-resistant.",
       "Match the test report to the formulation, thickness and installation being supplied.",
     ],
@@ -2910,20 +2911,22 @@ For specifiers weighing FRP against traditional materials on lifecycle grounds, 
     sourceLinks: [
       { label: "CDC / NIOSH: fibrous glass is noncombustible", href: "https://www.cdc.gov/niosh/npg/npgd0288.html" },
       { label: "Johns Manville: unfaced, kraft-faced and foil-faced fiberglass insulation", href: "https://www.jm.com/content/dam/jm/global/en/building-insulation/Files/BI%20Data%20Sheets/Resi%20and%20Commercial/BID-0144-JM-Unfaced-Kraft-and-Foil-Faced-Fiberglass-DS.pdf" },
-      { label: "NRC / Chowdhury et al.: thermal and mechanical behavior of FRP in fire", href: "https://publications-cnrc.canada.ca/eng/view/accepted/?id=424b0bf1-c553-4b5f-b443-21271b163f23" },
+      { label: "NRC / Chowdhury et al., PROTECT 2007: Tg, ignition and glass-fibre temperature ranges (sections 3.1–3.2)", href: "https://nrc-publications.canada.ca/eng/view/object/?id=424b0bf1-c553-4b5f-b443-21271b163f23" },
       { label: "Strongwell: resin options and product-specific fire performance", href: "https://www.strongwell.com/faqs/technical-product-questions/" },
-      { label: "ASTM E84: surface-burning test scope and limitations", href: "https://store.astm.org/e0084-26.html" },
-      { label: "ASTM E136: assessing combustibility", href: "https://store.astm.org/standards/e136" },
-      { label: "ASTM E119: fire tests of building construction and materials", href: "https://store.astm.org/standards/e119" },
-      { label: "ICC: 2021 IFC Section 803.1.2, interior-finish classes", href: "https://codes.iccsafe.org/content/IFC2021P2/chapter-8-interior-finish-decorative-materials-and-furnishings" },
-      { label: "GOV.UK: Approved Document B FAQ and classification applicability (England)", href: "https://www.gov.uk/guidance/approved-document-b-fire-safety-frequently-asked-questions" },
+      { label: "ASTM E84-26a: surface-burning test scope and limitations (Section 4.3.3)", href: "https://store.astm.org/standards/e84" },
+      { label: "ASTM E136-26: combustibility in a vertical tube furnace at 750 °C", href: "https://store.astm.org/standards/e136" },
+      { label: "ASTM E119-26: fire tests of building construction and materials", href: "https://store.astm.org/standards/e119" },
+      { label: "ICC: 2021 IBC Section 803.1.2, Class A–C interior-finish limits", href: "https://codes.iccsafe.org/content/IBC2021P1/chapter-8-interior-finishes" },
+      { label: "BSI: BS EN 13501-1:2018 reaction-to-fire classification", href: "https://knowledge.bsigroup.com/products/fire-classification-of-construction-products-and-building-elements-classification-using-data-from-reaction-to-fire-tests" },
+      { label: "Measurlabs: EN 13501-1 classes and the tests behind them", href: "https://measurlabs.com/blog/en-13501-1-fire-classification-performance-classes-and-criteria/" },
+      { label: "GOV.UK: Approved Document B FAQ, Question 18 on classification applicability (England)", href: "https://www.gov.uk/guidance/approved-document-b-fire-safety-frequently-asked-questions" },
     ],
     faq: {
       title: "Fiberglass flammability: common questions",
       items: [
         {
           question: "Does fiberglass burn or melt?",
-          answer: "Glass fibers are noncombustible, but they can soften or melt under sufficient heat. In a fiberglass composite, the resin can degrade and burn while glass remains. There is no single burning or melting temperature that describes every finished fiberglass product.",
+          answer: "Glass fibers do not burn. A construction-FRP review cites glass-fiber softening at about 650–970 °C and melting above 1,225 °C. In a fiberglass composite the resin reacts far earlier: typical construction resins soften at 65–120 °C and epoxy or polyester composites ignite around 300–400 °C. No single temperature describes every finished fiberglass product.",
         },
         {
           question: "Is fibreglass flammable in the UK?",
@@ -2976,9 +2979,15 @@ An insulation product's classification also does not establish the fire resistan
 
 ## What happens when FRP is heated?
 
-The polymer matrix holds the reinforcement together and transfers stress between fibers. As it heats, the matrix can soften and lose its ability to perform that role. An FRP member can therefore lose stiffness or load capacity before visible flaming occurs. [Research archived by Canada's National Research Council](https://publications-cnrc.canada.ca/eng/view/accepted/?id=424b0bf1-c553-4b5f-b443-21271b163f23) documents this relationship and the importance of the particular composite formulation.
+The polymer matrix holds the reinforcement together and transfers stress between fibers. As it heats, the matrix can soften and lose its ability to perform that role. An FRP member can therefore lose stiffness or load capacity before visible flaming occurs. [Research archived by Canada's National Research Council](https://nrc-publications.canada.ca/eng/view/object/?id=424b0bf1-c553-4b5f-b443-21271b163f23) documents this relationship and the importance of the particular composite formulation.
 
-At greater exposure, the resin can decompose and burn. Visible glass remaining after heating is not evidence that the original laminate still carries its design load. Nor is a darkened surface proof that a protective char layer has preserved structural capacity.
+Published ranges put numbers on that sequence. Chowdhury et al. (PROTECT 2007) report glass transition temperatures of 65–120 °C for resin systems typically used in construction, ignition of epoxy- and polyester-based composites at roughly 300–400 °C, about a 50% loss of glass-fiber tensile strength above 550 °C, and glass-fiber softening at 650–970 °C. The same paper cites glass/vinyl ester reinforcing bars losing up to 20% of their tensile strength at about 100 °C and about 40% at 250 °C.
+
+[image:/images/blog/frp-fire-resistance/composite-heating-stages.webp|Chart of temperature ranges: resin glass transition 65 to 120 °C, resin ignition 300 to 400 °C, glass fibre tensile strength about halved above 550 °C, glass softening 650 to 970 °C and melting above 1,225 °C, with the 750 °C ASTM E136 furnace temperature marked|The resin reacts long before the glass. Ranges from [Chowdhury et al., PROTECT 2007, sections 3.1–3.2](https://nrc-publications.canada.ca/eng/view/object/?id=424b0bf1-c553-4b5f-b443-21271b163f23); the 750 °C line is the [ASTM E136](https://store.astm.org/standards/e136) furnace temperature. Literature ranges, not F1 product data.]
+
+Treat these as orientation, not as properties of a particular pultruded profile. A specified product's glass transition temperature and fire behavior come from its own resin data and test reports.
+
+At greater exposure, the resin can decompose and burn. Visible glass remaining after heating is not evidence that the original laminate still carries its design load. Nor is a darkened surface proof that a protective char layer has preserved structural capacity: the same NRC paper notes that the char forming on thicker FRP provides minimal protection from fire.
 
 [video:/videos/frp-fire-resistance-torch-test.mp4|Reference demonstration: a torch is applied to an FRP profile. This clip does not establish a fire classification, noncombustibility, smoke performance or load-bearing fire resistance.]
 
@@ -2998,18 +3007,38 @@ The phrase fire-rated needs a qualifier. These references address different ques
 
 | Reference | Question it addresses | What it does not establish by itself |
 | --- | --- | --- |
-| [ASTM E84](https://store.astm.org/e0084-26.html) | Surface flame spread and smoke development under the test conditions | Noncombustibility or a structural fire-resistance duration |
+| [ASTM E84](https://store.astm.org/standards/e84) | Surface flame spread and smoke development under the test conditions | Noncombustibility or a structural fire-resistance duration |
 | [ASTM E136](https://store.astm.org/standards/e136) | Material combustibility in a specified furnace test | A finished assembly's fire-resistance duration |
-| [BS EN 13501-1](https://www.gov.uk/guidance/approved-document-b-fire-safety-frequently-asked-questions) | Reaction-to-fire classification within the report's field of application | A load-bearing fire-resistance duration or approval for every installation |
+| [BS EN 13501-1](https://knowledge.bsigroup.com/products/fire-classification-of-construction-products-and-building-elements-classification-using-data-from-reaction-to-fire-tests) | Reaction-to-fire classification within the report's field of application | A load-bearing fire-resistance duration or approval for every installation |
 | [ASTM E119](https://store.astm.org/standards/e119) | Fire endurance of tested building elements and assemblies | Performance of an untested configuration or suitability for reuse after a fire |
 
 ### Does ASTM E84 Class A mean noncombustible?
 
-No. In [2021 IFC Section 803.1.2](https://codes.iccsafe.org/content/IFC2021P2/chapter-8-interior-finish-decorative-materials-and-furnishings), Class A interior finishes have a flame spread index of 0–25 and a smoke-developed index of 0–450. These are classification limits, not measured values for F1 products. Confirm the code edition and requirements adopted for the project.
+No. [2021 IBC Section 803.1.2](https://codes.iccsafe.org/content/IBC2021P1/chapter-8-interior-finishes) groups interior wall and ceiling finishes tested to ASTM E84 or UL 723 into three classes. The 2021 International Fire Code applies the same IBC Section 803 classification to existing buildings.
 
-ASTM E84 explicitly excludes defining noncombustibility from a flame spread index alone. It also does not establish a period of structural fire resistance. A low flame-spread result cannot be converted into a claim that a beam will support its load during a fire.
+| Class (2021 IBC 803.1.2) | Flame spread index | Smoke-developed index |
+| --- | --- | --- |
+| Class A | 0–25 | 0–450 |
+| Class B | 26–75 | 0–450 |
+| Class C | 76–200 | 0–450 |
+
+These are classification limits, not measured values for F1 products. Confirm the code edition and requirements adopted for the project.
+
+[ASTM E84-26a](https://store.astm.org/standards/e84) is a 10-minute test on a nominal 24 ft (7.32 m) by 20 in (508 mm) specimen. Its Section 4.3.3 states that the method does not classify or define a material as noncombustible by a flame spread index alone. It also does not establish a period of structural fire resistance. A low flame-spread result cannot be converted into a claim that a beam will support its load during a fire.
 
 ### What should a British specification check?
+
+[BS EN 13501-1:2018](https://knowledge.bsigroup.com/products/fire-classification-of-construction-products-and-building-elements-classification-using-data-from-reaction-to-fire-tests) classifies construction products other than floorings from A1, the highest class, down to F. Most classes also carry a smoke sub-class (s1 lowest to s3) and a flaming-droplet sub-class (d0 none to d2), so a full classification reads like B-s1,d0. The [test methods behind each class](https://measurlabs.com/blog/en-13501-1-fire-classification-performance-classes-and-criteria/) differ:
+
+| Euroclass | Main test methods | Sub-classes |
+| --- | --- | --- |
+| A1 | EN ISO 1182 non-combustibility and EN ISO 1716 heat of combustion | None |
+| A2 | EN ISO 1182 or EN ISO 1716, plus the EN 13823 single burning item (SBI) test | s1–s3 and d0–d2 |
+| B, C, D | EN 13823 (SBI) and EN ISO 11925-2 ignitability | s1–s3 and d0–d2 |
+| E | EN ISO 11925-2 ignitability | d2 only where flaming droplets ignite the filter paper |
+| F | Product fails the Class E criteria | None |
+
+A resin-rich GRP laminate is assessed by the same route as any other product. Its class depends on the formulation, thickness, substrate and mounting tested.
 
 For reaction-to-fire classifications, identify the applicable BS EN 13501-1 report and its field of application. The [UK government's Approved Document B FAQ](https://www.gov.uk/guidance/approved-document-b-fire-safety-frequently-asked-questions), which applies to England, explains that form, fixings, orientation and substrate can affect a classification. An ASTM Class A label is not a substitute for that evidence. Check the requirements of the project's jurisdiction and end use.
 
