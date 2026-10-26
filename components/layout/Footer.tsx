@@ -1,4 +1,3 @@
-import { buildRebarRfqHref } from "@/lib/rebarInquiry";
 import { productFamilies } from "@/content/data/productTaxonomy";
 import { buildRfqHref } from "@/lib/rfq";
 import Image from "next/image";
@@ -48,7 +47,7 @@ export default function Footer() {
               Tell us what you need
             </p>
             <p className="mt-[5px] text-f14 text-white/70">Start with your name and email. We can confirm product details together.</p>
-            <div className="mt-[12px] flex flex-wrap gap-x-[18px] gap-y-[8px]">{productFamilies.map(family => <Link key={family.id} href={family.id === "rebar" ? buildRebarRfqHref() : buildRfqHref({ source: "footer-family", product: family.label, productPath: family.href })} className="inline-flex min-h-[32px] items-center text-f14 font-semibold text-white underline underline-offset-4 hover:text-teal">{family.label}</Link>)}</div>
+            <div className="mt-[12px] flex flex-wrap gap-x-[18px] gap-y-[8px]">{productFamilies.map(family => <Link key={family.id} href={buildRfqHref({ source: "footer-family", product: family.label, productPath: family.href })} className="inline-flex min-h-[32px] items-center text-f14 font-semibold text-white underline underline-offset-4 hover:text-teal">{family.label}</Link>)}</div>
           </div>
           <div className="flex flex-wrap items-center gap-x-[18px] gap-y-[10px]">
             <Link

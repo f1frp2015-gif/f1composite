@@ -17,7 +17,6 @@ function mockRoute({ db = null, mail = null, dbThrows = false, mailThrows = fals
     "@/lib/notify": { NOTIFY_EMAILS: ["test@example.invalid"] },
     "@/lib/rateLimit": { rateLimit: () => ({ ok: true }) },
     "@/lib/inquiryReceipt": { inquiryReceipt },
-    "@/lib/rebarInquiry": loadProjectModule("lib/rebarInquiry.ts"),
     "@/lib/windowInquiry": loadProjectModule("lib/windowInquiry.ts"),
     "@/lib/contactAttachment": loadProjectModule("lib/contactAttachment.ts"),
     "@/lib/acquisition": loadProjectModule("lib/acquisition.ts"),
@@ -208,31 +207,11 @@ test("minimal inquiry still rejects missing name and invalid email without deliv
   }
 });
 
-for (const stage of ["quote", "technical", "sample", "distributor"]) {
-  test(`rebar ${stage}: optional schedule is retained in database and escaped email`, async () => {
-    const { emptyRebarInquiry, emptyRebarLine } = loadProjectModule("lib/rebarInquiry.ts");
-    const inquiry = emptyRebarInquiry(stage);
-    inquiry.lines = [{ ...emptyRebarLine("bends"), mark: "<B01>", diameter: "12 mm", quantity: "40", details: "200 × 300 mm; inside radius 48 mm" }];
-    const route = mockRoute({ db: 42, mail: "mock-mail" });
-    const response = await route.POST(request(false, { rebar_inquiry: JSON.stringify(inquiry), source: "rebar-procurement" }));
-    assert.equal(response.status, 200);
-    assert.equal(route.state.stored.context.specification, "152×76×6.4");
-    assert.deepEqual(route.state.stored.context.rebarInquiry, inquiry);
-    assert.match(route.state.stored.message, /40 pieces/);
-    assert.match(route.state.mailed.html, /&lt;B01&gt;/);
-    assert.match(route.state.mailed.html, /inside radius 48 mm/);
-  });
-}
-test("invalid rebar data is rejected before database or email side effects", async () => {
+// A rebar inquiry is an ordinary product RFQ since 2026-10-26: the rebar-only schedule fields were retired.
+test("a rebar inquiry is accepted as a plain product request without rebar-specific fields", async () => {
   const route = mockRoute({ db: 42, mail: "mock-mail" });
-  const response = await route.POST(request(false, { rebar_inquiry: JSON.stringify({ stage: "unsafe", lines: [] }) }));
-  assert.equal(response.status, 400);
-  assert.equal(route.state.stored, null);
-  assert.equal(route.state.mailed, null);
-});
-test("rebar technical inquiry can be submitted before any bar size is known", async () => {
-  const route = mockRoute({ db: 42, mail: "mock-mail" });
-  const response = await route.POST(request(false, { message: "", rebar_inquiry: JSON.stringify({ stage: "technical", lines: [] }) }));
+  const response = await route.POST(request(false, { source: "product-rfq", product_path: "/products/frp-rebar", message: "Ø12 mm × 6 m, 400 pieces, ASTM D7957, to Jebel Ali" }));
   assert.equal(response.status, 200);
-  assert.match(route.state.stored.message, /Technical review/);
+  assert.match(route.state.stored.message, /400 pieces/);
+  assert.match(route.state.mailed.html, /Jebel Ali/);
 });

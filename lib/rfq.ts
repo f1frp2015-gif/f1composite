@@ -82,7 +82,7 @@ export function applyRfqFragment(state: RfqFragmentState, hash: string): RfqFrag
 export function contactPrefillKey(params: Pick<URLSearchParams, "get">): string {
   return JSON.stringify([
     "source", "ref", "company", "country", "inquiry_type", "message", "context", "product", "product_path",
-    "specification", "evidence_id", "grating_project", "rebar_stage", "rebar_form", "rebar_draft",
+    "specification", "evidence_id", "grating_project",
     "window_mode", "window_series", "window_stage", "window_role",
   ].map(key => [key, params.get(key)]));
 }

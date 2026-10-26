@@ -1,6 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { readFileSync } from "node:fs";
+import { existsSync, readFileSync } from "node:fs";
 import { loadProjectModule } from "./load-project-module.mjs";
 
 // Guards for the GFRP rebar cluster added in the October 2026 market upgrade: the product
@@ -43,7 +43,19 @@ test("the catalog describes segments, supply routes, price basis and export pack
   assert.ok(rebarCatalog.faqs.some((f) => /dowels, form ties/.test(f.question)));
   assert.ok(read(PRODUCT).includes("catalog.companions.map"));
   for (const segment of rebarCatalog.segments) assert.match(segment.href, /^\/resources\/gfrp-rebar-applications#/);
-  assert.deepEqual(rebarCatalog.supplyRoutes.map((route) => route.stage).sort(), ["distributor", "quote", "sample", "technical"]);
+  // Owner decision 2026-10-26: one inquiry route, the site contact form; no rebar-only builder or stage entry points.
+  assert.equal(rebarCatalog.supplyRoutes, undefined);
+  for (const text of [read(PRODUCT), read(APPLICATIONS), read(STANDARDS)]) {
+    assert.doesNotMatch(text, /rebarInquiry|RebarScheduleBuilder|buildRebarRfqHref|rebar_stage/);
+    assert.match(text, /buildRfqHref\(/);
+  }
+  // Every companion carries a picture and links to a live page or the page's own quote block.
+  for (const item of rebarCatalog.companions) {
+    assert.ok(item.image && item.alt && item.note, item.title);
+    assert.doesNotMatch(item.href, /#(request-quote|buying-routes)$/);
+  }
+  for (const image of Object.values(rebarCatalog.images)) assert.ok(existsSync(new URL(`../public${image}`, import.meta.url)), image);
+  assert.ok(read(PRODUCT).includes("RebarSegmentIcon") && read(APPLICATIONS).includes("RebarSegmentIcon"), "segment icons on both pages");
   assert.ok(rebarCatalog.faqs.length >= 10);
   assert.deepEqual(rebarCatalog.grades.map((g) => g.id), ["45", "60"], "owner decision 2026-10-26: two modulus grades");
   assert.ok(read(PRODUCT).includes("catalog.grades.map"));
