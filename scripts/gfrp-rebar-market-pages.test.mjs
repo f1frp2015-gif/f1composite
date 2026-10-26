@@ -15,7 +15,7 @@ const read = (path) => readFileSync(new URL(`../${path}`, import.meta.url), "utf
 const PRODUCT = "app/products/frp-rebar/page.tsx";
 const APPLICATIONS = "app/resources/gfrp-rebar-applications/page.tsx";
 const STANDARDS = "app/resources/gfrp-rebar-standards/page.tsx";
-const NEW_POSTS = ["gfrp-rebar-manufacturers-how-to-qualify-a-supplier", "importing-gfrp-rebar-container-loading-documents"];
+const NEW_POSTS = ["gfrp-rebar-manufacturers-how-to-qualify-a-supplier", "importing-gfrp-rebar-container-loading-documents", "fiberglass-rebar-for-residential-concrete"];
 
 test("ASTM D7957 Table 3 is reproduced for No. 2 to No. 10 with falling stress per area", () => {
   const sizes = rebar.ASTM_D7957_SIZE_MINIMUMS;
@@ -38,7 +38,10 @@ test("the standards crosswalk covers every market the calculator lists and the C
 });
 
 test("the catalog describes segments, supply routes, price basis and export packing", () => {
-  assert.ok(rebarCatalog.segments.length >= 6);
+  assert.ok(rebarCatalog.segments.length >= 10, "Pultron benchmark 2026-10-26: buildings, flood and walls segments");
+  assert.ok(rebarCatalog.companions.length >= 4 && rebarCatalog.companions.every((c) => c.href.startsWith("/")));
+  assert.ok(rebarCatalog.faqs.some((f) => /dowels, form ties/.test(f.question)));
+  assert.ok(read(PRODUCT).includes("catalog.companions.map"));
   for (const segment of rebarCatalog.segments) assert.match(segment.href, /^\/resources\/gfrp-rebar-applications#/);
   assert.deepEqual(rebarCatalog.supplyRoutes.map((route) => route.stage).sort(), ["distributor", "quote", "sample", "technical"]);
   assert.ok(rebarCatalog.faqs.length >= 10);
@@ -64,7 +67,7 @@ test("the rebar pages link each other and the owner page", () => {
   }
   assert.ok(read(APPLICATIONS).includes("/resources/gfrp-rebar-standards"));
   assert.ok(read(STANDARDS).includes("/resources/gfrp-rebar-applications"));
-  for (const id of ["marine", "precast", "flatwork", "bridges", "mri", "soft-eye", "water"]) assert.ok(read(APPLICATIONS).includes(`id: "${id}"`), `applications page lacks #${id}`);
+  for (const id of ["marine", "precast", "flatwork", "bridges", "mri", "soft-eye", "water", "buildings", "flood", "walls"]) assert.ok(read(APPLICATIONS).includes(`id: "${id}"`), `applications page lacks #${id}`);
 });
 
 test("new pages and articles are registered as query owners with title and description limits", () => {

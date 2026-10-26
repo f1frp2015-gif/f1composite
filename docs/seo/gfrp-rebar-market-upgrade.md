@@ -39,3 +39,18 @@ Shared data lives in `lib/gfrpRebar.ts` (`ASTM_D7957_SIZE_MINIMUMS`, `ASTM_D7957
 ## Measurement
 
 Record the action in the vault PDCA ledger (A022). Review indexing of the four new URLs and the changed product page at T+7, impressions for "frp rebar", "gfrp rebar", "gfrp rebar applications", "gfrp rebar standards", "gfrp rebar manufacturers" and "importing gfrp rebar" at T+14, clicks and qualified rebar inquiries (contact source `rebar-procurement`, stages quote/technical/sample/distributor) at T+28. Two checks before trusting the baseline: confirm the rebar URLs are indexed in Google Search Console, and keep the sitemap host consistent with the canonical tags.
+
+## Second pass: Pultron / Mateenbar benchmark (2026-10-26)
+
+Source: `docs/research/frp-rebar-market-2026-10.md` §2b. The leading flatwork-and-structural producer was read across its three regional sites for product line, application taxonomy, FAQ and blog themes.
+
+| Page | Change |
+| --- | --- |
+| `/products/frp-rebar` | Segments 7 → 10 (buildings and parking; flood channels, culverts and stormwater; basement, retaining and ICF walls and masonry); MRI segment widened to data centres, substations, compass pads and smelters; companion items block (smooth dowels via `/products/fiberglass-structural-shapes/frp-rod`, form ties via `/products/frp-fasteners-fittings`, nonmetallic accessories, rock bolts as inquiry); bend shape list with Z-shape caveat and the lower bent-bar class; 10/20/30/40 ft lengths and retail-length dealer programs; five FAQs (mixing with steel, No. 3 for No. 4, masonry and ICF, dowels and form ties, why 45 and 60 GPa); link to the residential article. Revision 2026-10-26. |
+| `/resources/gfrp-rebar-applications` | Three sections added (`#buildings`, `#flood`, `#walls`) with detailing, sizes, route and attributed references; marine, flatwork and MRI sections extended (ports and dowels, industrial floors and retail lengths, rail detection loops and data centres); two FAQs; new title and description; header count derived from the data. |
+| `/resources/blog/fiberglass-rebar-for-residential-concrete` (new) | Query owner "fiberglass rebar for residential concrete" with the flatwork long tail (driveway, slab on grade, pool, footings, ICF, No. 3 vs No. 4 steel). Element-by-element guide, code-route table by market, handling rules, price range, dealer and project supply. Cover drawn by `scripts/covers/draw-gfrp-rebar-covers.mjs`. |
+| `content/data/blogStrategy.ts` | New keyword target; article added to the GFRP rebar topic's start-here list. |
+| `content/data/seoQueryTargets.ts` | Applications owner title and description updated; the residential article added as a supporting URL of the product page. |
+| `scripts/gfrp-rebar-market-pages.test.mjs` | Guards extended: 10 segments, companion items, dowel FAQ, the three new section ids, the new article's sources and FAQ, and the approval-claim scan now covers it. |
+
+Rules unchanged: price ranges only; no approval, listing, domestic-content or service-life claim; competitor projects attributed to the producer that supplied them.

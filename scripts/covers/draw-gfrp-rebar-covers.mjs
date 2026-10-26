@@ -1,5 +1,5 @@
 // node scripts/covers/draw-gfrp-rebar-covers.mjs
-// Draws the two schematic covers for the GFRP rebar manufacturer and import articles
+// Draws the schematic covers for the GFRP rebar manufacturer, import and residential-concrete articles
 // (1200x750 WebP, white ground, brand teal #0f766e, graphite text) with sharp.
 import sharp from "sharp";
 const W = 1200, H = 750;
@@ -72,6 +72,53 @@ function containerLoading() {
 </svg>`;
 }
 
+// Cover 3: section through a residential slab on grade with GFRP bars on chairs.
+function residentialSlab() {
+  const x0 = 110, x1 = 1070, grade = 400, slabTop = 260, slabBot = 360; // slab 100 mm drawn 100 px
+  const edgeW = 160, edgeBot = 500; // thickened edge at the left
+  const barY = 310, chairXs = [330, 530, 730, 930];
+  let bars = `<line x1="${x0 + edgeW - 40}" y1="${barY}" x2="${x1 - 30}" y2="${barY}" stroke="${TEAL}" stroke-width="9" stroke-linecap="round"/>`;
+  let chairs = "";
+  for (const cx of chairXs) chairs += `<path d="M ${cx - 14} ${slabBot - 2} L ${cx} ${barY + 5} L ${cx + 14} ${slabBot - 2}" fill="none" stroke="${INK}" stroke-width="3"/><rect x="${cx - 20}" y="${slabBot - 6}" width="40" height="5" fill="${INK}"/>`;
+  // cross-section dots for the transverse bars
+  let dots = "";
+  for (let i = 0; i < 9; i++) dots += `<circle cx="${x0 + edgeW + 10 + i * 100}" cy="${barY}" r="7" fill="#ffffff" stroke="${TEAL}" stroke-width="4"/>`;
+  // footing bars (two) in the thickened edge
+  const footBars = `<circle cx="${x0 + 45}" cy="${edgeBot - 45}" r="8" fill="#ffffff" stroke="${TEAL}" stroke-width="4"/><circle cx="${x0 + edgeW - 45}" cy="${edgeBot - 45}" r="8" fill="#ffffff" stroke="${TEAL}" stroke-width="4"/>
+  <path d="M ${x0 + 45} ${edgeBot - 45} L ${x0 + 45} ${barY + 30} Q ${x0 + 45} ${barY} ${x0 + 75} ${barY}" fill="none" stroke="${TEAL}" stroke-width="7" stroke-linecap="round"/>`;
+  // ground hatch
+  let hatch = "";
+  for (let i = 0; i < 40; i++) hatch += `<line x1="${x0 - 40 + i * 30}" y1="${grade + 20}" x2="${x0 - 20 + i * 30}" y2="${grade + 60}" stroke="${LINE}" stroke-width="2"/>`;
+  return `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}">
+  <rect width="100%" height="100%" fill="#ffffff"/>
+  <text x="${x0}" y="70" ${font} font-size="20" font-weight="600" fill="${TEAL}" letter-spacing="2">RESIDENTIAL SLAB ON GRADE · GFRP REINFORCEMENT</text>
+  <text x="${x0}" y="100" ${font} font-size="17" fill="${MUTED}">No. 3 to No. 5 (Ø10–Ø16 mm) bars on chairs at mid-depth; factory L-bar at the thickened edge; vapor retarder on compacted base.</text>
+  <text x="${x0}" y="124" ${font} font-size="17" fill="${MUTED}">GFRP floats in fresh concrete: tie every bar to its chair before the pour.</text>
+  <!-- slab -->
+  <path d="M ${x0} ${slabTop} L ${x1} ${slabTop} L ${x1} ${slabBot} L ${x0 + edgeW} ${slabBot} L ${x0 + edgeW} ${edgeBot} L ${x0} ${edgeBot} Z" fill="#eef1f3" stroke="${INK}" stroke-width="3"/>
+  <!-- vapor retarder -->
+  <path d="M ${x0 + edgeW} ${slabBot + 6} L ${x1} ${slabBot + 6}" stroke="${TEAL}" stroke-width="3" stroke-dasharray="14 8"/>
+  <!-- base -->
+  <rect x="${x0 + edgeW}" y="${slabBot + 10}" width="${x1 - x0 - edgeW}" height="${grade - slabBot - 10}" fill="#f7f9fa" stroke="${LINE}"/>
+  ${hatch}
+  <line x1="${x0 - 40}" y1="${grade + 20}" x2="${x1 + 40}" y2="${grade + 20}" stroke="${INK}" stroke-width="2"/>
+  ${chairs}${bars}${dots}${footBars}
+  <!-- labels -->
+  <text x="${chairXs[1] + 24}" y="${barY - 18}" ${font} font-size="16" fill="${INK}" font-weight="700">GFRP bars each way, tied to chairs</text>
+  <text x="${chairXs[1] + 24}" y="${slabBot + 32}" ${font} font-size="15" fill="${MUTED}">Vapor retarder · compacted base</text>
+  <text x="${x0 + edgeW + 24}" y="${edgeBot - 20}" ${font} font-size="15" fill="${MUTED}">Thickened edge: 2 longitudinal bars + factory L-shaped starter</text>
+  <line x1="${x1 + 20}" y1="${slabTop}" x2="${x1 + 20}" y2="${slabBot}" stroke="${TEAL}" stroke-width="2"/>
+  <line x1="${x1 + 12}" y1="${slabTop}" x2="${x1 + 28}" y2="${slabTop}" stroke="${TEAL}" stroke-width="2"/>
+  <line x1="${x1 + 12}" y1="${slabBot}" x2="${x1 + 28}" y2="${slabBot}" stroke="${TEAL}" stroke-width="2"/>
+  <text x="${x1 + 30}" y="${(slabTop + slabBot) / 2 + 6}" ${font} font-size="15" fill="${INK}" font-weight="700">100–125</text>
+  <text x="${x1 + 30}" y="${(slabTop + slabBot) / 2 + 26}" ${font} font-size="15" fill="${INK}" font-weight="700">mm</text>
+  <text x="${x0}" y="${edgeBot + 60}" ${font} font-size="16" fill="${INK}">Spacing 300–450 mm each way as the slab designer confirms.</text>
+  <text x="${x0}" y="${edgeBot + 86}" ${font} font-size="16" fill="${INK}">A listed No. 3 may replace No. 4 steel only under its own evaluation report; every other bar goes through the engineer’s design.</text>
+  <text x="${x0}" y="728" ${font} font-size="15" fill="${MUTED}">Schematic, not to scale. The engineer's drawing governs bar size, spacing, cover and joints.</text>
+</svg>`;
+}
+
 await sharp(Buffer.from(surfaceTypes())).webp({ quality: 86 }).toFile("public/images/covers/blog/gfrp-rebar-surface-types.webp");
 await sharp(Buffer.from(containerLoading())).webp({ quality: 86 }).toFile("public/images/covers/blog/gfrp-rebar-container-loading.webp");
+await sharp(Buffer.from(residentialSlab())).webp({ quality: 86 }).toFile("public/images/covers/blog/gfrp-rebar-residential-slab.webp");
 console.log("covers written");

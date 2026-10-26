@@ -777,8 +777,8 @@
   },
   {
     "path": "/resources/gfrp-rebar-applications",
-    "title": "GFRP Rebar Applications: Marine, Precast, Slabs, MRI",
-    "description": "Where GFRP rebar is specified: seawalls, precast, slabs and pools, bridge decks, MRI rooms, soft-eyes and water plants, with the approval route in each market.",
+    "title": "GFRP Rebar Applications: Marine, Slabs, Bridges, Buildings",
+    "description": "Where GFRP rebar is specified: seawalls, precast, slabs, bridges, buildings, flood channels, walls, MRI and rail, soft-eyes and water plants, by market.",
     "aliases": [
       "GFRP rebar applications"
     ]
