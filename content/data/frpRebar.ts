@@ -1,7 +1,8 @@
 /**
  * GFRP rebar supply page data. Catalog availability is not stock, a design value or a certification.
- * Sources: docs/research/frp-rebar-procurement.md (manufacturing source) and
- * docs/research/frp-rebar-market-2026-10.md (market, leading producers, standards, pricing).
+ * Manufacturer: FengDu New Material (owner confirmation 2026-10-26); F1 Composite is its export company.
+ * Grades are modulus tiers (45 and 60 GPa); guaranteed values per size come from the qualification report.
+ * Sources: docs/research/frp-rebar-market-2026-10.md (market, leading producers, standards, pricing).
  */
 export const rebarCatalog = {
   path: "/products/frp-rebar",
@@ -9,7 +10,12 @@ export const rebarCatalog = {
   title: "FRP Rebar Supplier | GFRP Bars, Stirrups & Mesh Export",
   description: "GFRP rebar Ø6–36 mm (No. 2–No. 10): straight bars, factory stirrups and mesh for marine, precast, slab and MRI concrete. ASTM D7957 data, export packing, RFQ.",
   diameters: [6, 8, 10, 12, 14, 16, 18, 20, 22, 25, 28, 30, 32, 34, 36],
-  scope: "GFRP straight bars, factory-formed stirrups and reinforcement mesh supplied against a project schedule. Grade, resin, dimensions, evidence and delivery are confirmed for the offered product.",
+  scope: "GFRP straight bars, factory-formed stirrups and reinforcement mesh made by FengDu New Material and supplied by F1 Composite against a project schedule. Grade, resin, dimensions, evidence and delivery are confirmed for the offered product.",
+  /** Modulus tiers. The guaranteed tensile force for each size comes from the qualification report of the grade offered. */
+  grades: [
+    { id: "45", name: "GFRP 45", modulus: "Tensile modulus 45 GPa class", positioning: "The working grade for slabs, pavements, pools, precast and marine elements where the engineer designs to ASTM D7957 minimums or CSA S807 Grade I.", note: "Exceeds the 44.8 GPa ASTM D7957 minimum; comparable to the 46 GPa tier the leading producers sell for flatwork and ordinary structures." },
+    { id: "60", name: "GFRP 60", modulus: "Tensile modulus 60 GPa class", positioning: "The structural grade for bridge decks, barriers, soft-eyes and deflection-governed members, and for owners that call for CSA S807 Grade III or a 60 GPa class bar.", note: "Matches the tier Ontario, Texas and Ohio owners specify; crack-width and deflection checks use the certified modulus." },
+  ],
   images: {
     straight: "/images/products/frp-rebar/gfrp-straight-bars.webp",
     bends: "/images/products/frp-rebar/gfrp-rectangular-stirrups.webp",
@@ -17,7 +23,7 @@ export const rebarCatalog = {
     surface: "/images/products/frp-rebar/gfrp-helical-surface.webp",
   },
   forms: [
-    { id: "straight", anchor: "straight-bars", title: "Straight GFRP rebar", subtitle: "Schedule by diameter, length and quantity", body: "Glass-fiber reinforcing bars with an enhanced bond surface. The source catalog lists 15 metric diameters; confirm the resin, surface profile and cut length for your order.", inputs: "Diameter or bar designation · cut length · number of bars · surface requirement", action: "Quote straight bars" },
+    { id: "straight", anchor: "straight-bars", title: "Straight GFRP rebar", subtitle: "Schedule by diameter, length and quantity", body: "Glass-fiber reinforcing bars with an enhanced bond surface in two modulus grades, GFRP 45 and GFRP 60. FengDu lists 15 metric diameters; confirm the grade, resin, surface profile and cut length for your order.", inputs: "Diameter or bar designation · cut length · number of bars · surface requirement", action: "Quote straight bars" },
     { id: "bends", anchor: "stirrups-bends", title: "Factory-formed stirrups & bends", subtitle: "Make the shape before it reaches site", body: "Rectangular stirrups and project bends are reviewed against your drawing. Confirm the inside bend radius, leg dimensions, tolerances and bent-section performance before manufacture.", inputs: "Bar diameter · shape drawing · inside radius · dimensions · quantity", action: "Send a bending schedule" },
     { id: "mesh", anchor: "mesh", title: "GFRP reinforcement mesh", subtitle: "Specify both directions and the intersection", body: "The source offers glass-fiber and epoxy-resin mesh with custom spacing and panel dimensions. Rod properties alone do not establish the performance of the assembled mesh or its joints.", inputs: "Rod sizes in both directions · spacing · panel dimensions · joint type · number of sheets", action: "Quote reinforcement mesh" },
   ],
@@ -78,7 +84,8 @@ export const rebarCatalog = {
     { title: "Place & inspect before pouring", body: "Use appropriate supports and ties. Check the approved spacing, cover, laps and stability so reinforcement remains in position during casting." },
   ],
   faqs: [
-    { question: "What sizes of GFRP rebar can I request?", answer: "The manufacturing-source catalog lists nominal metric diameters of 6, 8, 10, 12, 14, 16, 18, 20, 22, 25, 28, 30, 32, 34 and 36 mm, which covers the ASTM D7957 range from No. 2 to No. 10. These are inquiry sizes, not a stock list. Confirm the offered grade, tolerance, length and supporting reports with your quotation." },
+    { question: "What sizes of GFRP rebar can I request?", answer: "FengDu's catalog lists nominal metric diameters of 6, 8, 10, 12, 14, 16, 18, 20, 22, 25, 28, 30, 32, 34 and 36 mm, which covers the ASTM D7957 range from No. 2 to No. 10. These are inquiry sizes, not a stock list. Confirm the offered grade, tolerance, length and supporting reports with your quotation." },
+    { question: "Which GFRP rebar grades does F1 offer?", answer: "Two modulus tiers made by FengDu New Material: GFRP 45, a 45 GPa class bar for slabs, precast, pools and marine elements designed to ASTM D7957 or CSA S807 Grade I, and GFRP 60, a 60 GPa class bar for bridge decks, barriers and deflection-governed members where owners call for CSA S807 Grade III. The guaranteed tensile force for each size is stated in the qualification report of the grade offered, not assumed from the tier." },
     { question: "Is fiberglass rebar stronger than steel?", answer: "In tension, yes: GFRP bars are typically guaranteed between 800 and 1,100 MPa against 420 MPa yield for Grade 60 steel. But the modulus is 45 to 60 GPa against about 200 GPa, so GFRP is about a quarter as stiff and does not yield. Crack width and deflection, not strength, usually set the bar area." },
     { question: "Can GFRP replace steel rebar at the same diameter?", answer: "Do not assume a one-for-one substitution. Stiffness, cracking, deflection, bond, anchorage and sustained loading must be checked along with strength under ACI CODE-440.11-22, CSA S806 or the code adopted for the project. The project designer approves the reinforcement layout and the offered bar properties." },
     { question: "Can I bend or weld fiberglass rebar on site?", answer: "No. Cured GFRP bars must not be field-bent, heated into shape or welded. Submit the required factory-formed shapes with dimensions, inside radii and quantities before production, and design with the bent-portion strength, which ASTM D7957 only requires to be 60% of the straight bar." },
