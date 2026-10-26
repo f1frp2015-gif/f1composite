@@ -286,7 +286,7 @@ export const blogKeywordTargets: BlogKeywordTarget[] = [
   },
   {
     slug: "frp-fire-resistance-ratings-guide", topic: "materials-and-process",
-    primaryQuery: "FRP fire ratings and resin selection", secondaryQueries: ["FRP fire resistance ratings", "flame retardant FRP test requirements"], intent: "technical",
+    primaryQuery: "does fiberglass burn", secondaryQueries: ["is fibreglass flammable", "is fiberglass flammable", "does fiberglass insulation burn", "FRP fire resistance ratings", "ASTM E84 Class A FRP"], intent: "guide",
     nextStep: { label: "Review product-specific test evidence", href: "/resources/evidence" },
   },
   {

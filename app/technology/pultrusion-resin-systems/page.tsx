@@ -17,7 +17,7 @@ import { MatrixFormationFigure, LoadTransferFigure } from "./MatrixFigures";
 import { resinSystems, resinSelectionSources } from "./resinSystems";
 
 const publishedAt = "2026-07-08";
-const updatedAt = "2026-10-23";
+const updatedAt = "2026-10-26";
 const pagePath = "/technology/pultrusion-resin-systems";
 const description = "Vinyl ester vs polyester resin for pultruded FRP, plus PU, epoxy and phenolic: define chemical exposure, UV protection, temperature and formulation evidence.";
 export const metadata: Metadata = buildPageMetadata({ title: "Vinyl Ester vs Polyester Resin: Pultrusion Resin Guide", description, path: pagePath });
@@ -75,7 +75,10 @@ export default function PultrusionResinSystemsPage() {
       <p className="mt-[12px] text-f16 leading-golden text-t2">A veil alone does not establish a fixed outdoor life. Agree inspection and any surface renewal for the environment. Strongwell&apos;s <a href={resinSelectionSources[1].href} className="font-semibold text-teal-text underline underline-offset-4">custom-pultrusion guidance</a> describes these protection choices as an industry reference; it does not qualify F1 products.</p>
       <p className="mt-[12px] text-f16 leading-golden text-t2">For the offered configuration, use the <Link href="/resources/evidence" className="font-semibold text-teal-text underline underline-offset-4">F1 evidence index</Link> to distinguish a technical reference from a matching report. Confirm the report identity, sample, method and applicable limits before release.</p>
     </PageSection>
-    <PageSection id="faq" title="Frequently asked questions" tone="muted"><FAQList items={resinFaqs} /></PageSection>
+    <PageSection id="faq" title="Frequently asked questions" tone="muted">
+      <FAQList items={resinFaqs} />
+      <p className="mt-[20px] text-f16 leading-golden text-t2">For the difference between noncombustible glass fibres and a resin-bonded product, read <Link href="/resources/blog/frp-fire-resistance-ratings-guide" className="font-semibold text-teal-text hover:underline">Is fibreglass flammable? Glass, resin and fire-test scope</Link>.</p>
+    </PageSection>
     <RelatedLinks background="white" groups={[{ title: "Evidence and process", links: [{ href: "/resources/evidence", label: "Product evidence and applicability" }, { href: "/technology/quality-testing", label: "Inspection and release records" }, { href: "/technology/pultrusion-process", label: "Pultrusion process" }] }, { title: "Select a product", links: [{ href: "/products/fiberglass-sheets", label: "Solid fiberglass sheets" }, { href: "/products/fiberglass-structural-shapes", label: "Standard structural profiles" }, { href: "/products/custom-pultruded-profiles", label: "Custom formulation and section review" }, { href: "/products/frp-gratings", label: "Pultruded grating" }, { href: "/products/molded-frp-grating", label: "Molded grating" }] }, { title: "Compare alternatives", links: [{ href: "/technology/frp-vs-traditional-materials", label: "FRP, steel and aluminum" }, { href: "/tools/frp-life-cycle-cost-calculator", label: "Life-cycle cost assumptions" }] }]} />
     <InnerCTA title="Send the exposure schedule and the part drawing for a material review" advisorPrompt={prefillForProduct({ name: "Pultrusion resin systems", path: pagePath, question: "Review a candidate formulation for my section and chemical composition, concentration, normal/upset temperatures, contact mode, duration, cleaning, loads and UV/fire requirements. Identify applicable evidence and unresolved inputs before recommending it." })} />
   </>;

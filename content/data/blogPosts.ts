@@ -2861,126 +2861,175 @@ For specifiers weighing FRP against traditional materials on lifecycle grounds, 
   },
   {
     slug: "frp-fire-resistance-ratings-guide",
-    title: "Fire Resistance of FRP Profiles: Ratings, Resin Chemistry, and Real-World Applications",
-    seoTitle: "ASTM E84 Class A FRP — Fire Resistance Guide",
+    title: "Does Fiberglass Burn? Is Fibreglass Flammable?",
+    seoTitle: "Does Fiberglass Burn? Is Fibreglass Flammable?",
     answerBox:
-      "FRP profiles achieve ASTM E84 Class A (FSI ≤ 25, SDI ≤ 450) through resin chemistry (phenolic, fire-retardant vinyl ester) and reactive flame retardants. Formulations qualified for US interior structural use, BS 476 Class 0 or EN 45545-2 rolling stock are classified per profile and thickness; F1 issues the test report of the formulation quoted rather than a blanket rating.",
+      "Glass fibers themselves do not burn, but fiberglass products can contain combustible resin, binder or facing. Fibreglass is the British spelling of the same material. For FRP or GRP profiles, assess the complete product: ASTM E84 measures surface burning, while BS EN 13501-1 classifies reaction to fire. Neither establishes a structural fire-resistance duration.",
     category: "Technical Guide",
     date: "2026-04-06",
-    updatedAt: "2026-04-06",
-    readTime: "8 min",
+    updatedAt: "2026-10-26",
+    readTime: "9 min",
     excerpt:
-      "How do pultruded FRP profiles behave in fire? This guide explains the fire-resistance mechanisms of fiber reinforced polymers, the role of resin chemistry and flame-retardant additives, classification standards from Euroclass to ASTM E84, and where fire-rated FRP is already deployed.",
-    authorName: "Haifeng Gong, Ph.D.",
-    authorRole: "R&D Lead for composite materials, pultrusion process development and standards",
-    reviewedBy: "F1 Composite engineering team",
-    standards: ["EN 13501-1", "ASTM E84", "BS 476", "EN 45545-2", "ASTM E162", "ASTM D635"],
-    coverImage: "/images/blog/frp-fire-resistance/frp-i-beam-torch-flame-test.jpg",
-    coverAlt: "Pultruded FRP I-beam profile undergoing direct flame exposure test with a butane torch",
-    coverNote: "Reference photo",
+      "Does fiberglass burn, and is fibreglass flammable? Compare glass fibers, insulation and FRP resin, then learn what fire ratings actually prove.",
+    authorName: "F1 Composite Editorial Team",
+    authorType: "Organization",
+    authorRole: "Technical content and sourcing guidance",
+    reviewedBy: "Editorial source check",
+    standards: ["ASTM E84", "ASTM E136", "ASTM E119", "BS EN 13501-1"],
+    coverImage: "/images/blog/frp-fire-resistance/fiberglass-cloth.webp",
+    coverAlt: "Close-up of woven glass fiber fabric showing interlaced bundles of reinforcement",
+    coverNote: "Illustrative material photo",
+    coverImageFit: "contain",
+    coverAttribution: {
+      creator: "Achim Hering",
+      href: "https://commons.wikimedia.org/wiki/File:Fibreglass_fabric_1100g_per_m2.jpg",
+      source: "Wikimedia Commons; resized and converted to WebP",
+      license: "CC BY 3.0",
+      licenseHref: "https://creativecommons.org/licenses/by/3.0/",
+    },
     supportingImage: "/images/blog/frp-fire-resistance/frp-profile-char-formation.jpg",
-    supportingAlt: "FRP composite profile showing char layer formation during sustained torch flame application",
+    supportingAlt: "Localized darkening on an FRP profile during direct torch exposure",
     supportingCaption:
-      "Under direct flame, FRP profiles form a protective char layer that insulates the underlying material and limits flame spread: a key factor in achieving Euroclass B and ASTM Class 1 ratings.",
+      "Reference image from the torch demonstration. Surface darkening does not establish noncombustibility, a fire classification or retained load capacity; those require evidence for the specified product and test conditions.",
     highlights: [
-      "FRP achieves Euroclass B s1 d0 fire rating",
-      "Char layer acts as thermal insulation barrier",
-      "Glass fibers are inherently non-combustible",
+      "Glass fibers are noncombustible; the complete fiberglass product may contain combustible components.",
+      "Insulation facing and FRP resin change the fire question.",
+      "Flame-retardant does not mean fireproof or structurally fire-resistant.",
+      "Match the test report to the formulation, thickness and installation being supplied.",
     ],
     ogDescription:
-      "How FRP profiles achieve ASTM E84 Class A (FSI ≤ 25, SDI ≤ 450). Resin chemistry, flame retardants, US code references, test report scope for spec engineers.",
-    ogChips: ["ASTM E84 Class A", "FSI ≤ 25", "US fire code"],
+      "Does fiberglass burn, and is fibreglass flammable? Compare glass fibers, insulation and FRP resin, then learn what fire ratings actually prove.",
+    ogChips: ["Glass vs resin", "Insulation vs FRP", "Fire test scope"],
     relatedLinks: [
-      { label: "FRP vs Traditional Materials", href: "/technology/frp-vs-traditional-materials" },
-      { label: "Standard Profiles", href: "/products/fiberglass-structural-shapes" },
-      { label: "Custom Pultrusions", href: "/products/custom-pultruded-profiles" },
-      { label: "Infrastructure Applications", href: "/industries/infrastructure" },
+      { label: "What is FRP? Fiberglass and GRP explained", href: "/what-is-frp" },
+      { label: "Pultrusion resin selection", href: "/technology/pultrusion-resin-systems" },
+      { label: "Fiberglass structural shapes", href: "/products/fiberglass-structural-shapes" },
+      { label: "Pultruded FRP grating", href: "/products/frp-gratings" },
+      { label: "Product-specific test evidence", href: "/resources/evidence" },
     ],
-    content: `One of the most frequently asked questions about FRP composite profiles concerns fire. Engineers, architects, and building officials want to know: how do pultruded FRP structural shapes behave when exposed to flame? Can they meet building code fire requirements? And how do they compare to steel, concrete, and timber in fire scenarios?
+    sourceLinks: [
+      { label: "CDC / NIOSH: fibrous glass is noncombustible", href: "https://www.cdc.gov/niosh/npg/npgd0288.html" },
+      { label: "Johns Manville: unfaced, kraft-faced and foil-faced fiberglass insulation", href: "https://www.jm.com/content/dam/jm/global/en/building-insulation/Files/BI%20Data%20Sheets/Resi%20and%20Commercial/BID-0144-JM-Unfaced-Kraft-and-Foil-Faced-Fiberglass-DS.pdf" },
+      { label: "NRC / Chowdhury et al.: thermal and mechanical behavior of FRP in fire", href: "https://publications-cnrc.canada.ca/eng/view/accepted/?id=424b0bf1-c553-4b5f-b443-21271b163f23" },
+      { label: "Strongwell: resin options and product-specific fire performance", href: "https://www.strongwell.com/faqs/technical-product-questions/" },
+      { label: "ASTM E84: surface-burning test scope and limitations", href: "https://store.astm.org/e0084-26.html" },
+      { label: "ASTM E136: assessing combustibility", href: "https://store.astm.org/standards/e136" },
+      { label: "ASTM E119: fire tests of building construction and materials", href: "https://store.astm.org/standards/e119" },
+      { label: "ICC: 2021 IFC Section 803.1.2, interior-finish classes", href: "https://codes.iccsafe.org/content/IFC2021P2/chapter-8-interior-finish-decorative-materials-and-furnishings" },
+      { label: "GOV.UK: Approved Document B FAQ and classification applicability (England)", href: "https://www.gov.uk/guidance/approved-document-b-fire-safety-frequently-asked-questions" },
+    ],
+    faq: {
+      title: "Fiberglass flammability: common questions",
+      items: [
+        {
+          question: "Does fiberglass burn or melt?",
+          answer: "Glass fibers are noncombustible, but they can soften or melt under sufficient heat. In a fiberglass composite, the resin can degrade and burn while glass remains. There is no single burning or melting temperature that describes every finished fiberglass product.",
+        },
+        {
+          question: "Is fibreglass flammable in the UK?",
+          answer: "The spelling does not change the material: glass fibres are noncombustible, while a GRP product contains resin whose fire behaviour depends on the formulation. For a project, specify the required classification and check the report's field of application. The England guidance cited here is not a UK-wide approval.",
+        },
+        {
+          question: "Is fiberglass insulation fireproof?",
+          answer: "Do not use fireproof as a blanket description. An unfaced insulation product may be classified as noncombustible, while its facing can burn. Follow the exact product's installation instructions and distinguish an insulation rating from the fire resistance of the complete wall or roof.",
+        },
+        {
+          question: "Does ASTM E84 Class A mean FRP cannot catch fire?",
+          answer: "No. Class A describes surface-burning performance in a specified classification system. It does not establish noncombustibility, smoke toxicity or a load-bearing fire-resistance duration. Match the original report to the product and end use.",
+        },
+        {
+          question: "Can a torch video prove that a fiberglass profile is fire-rated?",
+          answer: "No. A video can show that sample's visible response, but it does not establish the standardized exposure, smoke measurements or structural performance required by a formal test. Request the applicable product report.",
+        },
+      ],
+    },
+    content: `A woven glass fabric and a resin-bonded fiberglass beam can both contain glass fibers, yet behave differently in a fire. The answer to **does fiberglass burn** depends on whether you mean the glass reinforcement, an insulation product or a finished composite. This guide separates those materials before explaining what a fire-test report can establish.
 
-These are fair questions. FRP profiles are made from organic polymer resins reinforced with glass fibers, and organic polymers are, by their nature, combustible. But "combustible" does not mean "dangerous in fire," and the fire performance of modern FRP composites is far more nuanced, and far better, than many specifiers assume.
+## Does fiberglass burn? Identify the material first
 
-[video:/videos/frp-fire-resistance-torch-test.mp4|Direct torch flame applied to a pultruded FRP I-beam. Note the localized char formation and absence of flame spread beyond the point of direct impingement.]
+[CDC / NIOSH lists fibrous glass as noncombustible](https://www.cdc.gov/niosh/npg/npgd0288.html). That describes the fibers themselves. It does not classify every product sold as fiberglass, because a finished product can also contain organic resin, binder, coatings or facing.
 
-## How FRP Behaves in Fire
+| Material people call fiberglass | What is in the product? | What to check about fire |
+| --- | --- | --- |
+| Glass fibers or glass fabric | Glass reinforcement; supplied fabrics may also have sizing or finishes | Glass does not burn; check any treatment separately |
+| Unfaced fiberglass insulation | Glass wool, with a product-specific binder system | Look for the exact insulation product's classification |
+| Faced fiberglass insulation | Insulation plus a paper, foil composite or other facing | The facing can change the fire behavior and installation limits |
+| Fiberglass reinforced plastic, FRP or GRP | Glass reinforcement embedded in polymer resin | The resin can burn; assess the complete laminate and its test evidence |
 
-When a pultruded FRP profile is exposed to fire, a sequence of events occurs that is fundamentally different from how wood, steel, or unprotected plastic responds.
+The cover photograph shows a woven reinforcement, not a tested structural laminate. For terminology and product forms, see [FRP, fiberglass and GRP explained](/what-is-frp). A material name alone is not a fire specification.
 
-**Phase 1: Surface decomposition and char formation.** As the surface temperature reaches 250–350 °C, the outermost resin layer begins to decompose (pyrolyze). This decomposition produces a carbonaceous char layer on the surface. The char layer then acts as a protective barrier. The char has very low thermal conductivity and acts as an insulating shield, slowing heat transfer into the profile interior.
+## Is fibreglass flammable?
 
-**Phase 2: Glass fiber reinforcement remains intact.** Glass fibers are inherently non-combustible, with a melting point above 1,000 °C. As the resin at the surface chars, the glass fiber architecture remains structurally intact beneath the char layer. This is fundamentally different from timber, which loses cross-section as it burns, or steel, which rapidly loses strength above 400 °C and can collapse without warning.
+**Fibreglass is the British spelling of fiberglass.** The distinction is between glass fibres and a composite containing resin, not between US and UK materials. A glass-reinforced plastic part, often called GRP in British specifications, may be combustible even though its glass reinforcement is not.
 
-**Phase 3: Self-extinguishing behavior.** When the external flame source is removed, properly formulated FRP profiles self-extinguish. The flame does not propagate beyond the zone of direct impingement. This is a consequence of both the resin formulation and the glass fiber content: the high volume fraction of non-combustible glass (typically 60–70% by weight in pultruded profiles) physically limits the amount of combustible material available per unit volume.
+For a GRP panel, tube or beam, ask which resin formulation, surface finish and installed configuration the claim covers. A statement about loose glass wool cannot establish the performance of a resin-rich laminate. Similarly, a supplier's result for one panel thickness does not automatically cover every structural shape in its catalogue.
 
-## The Role of Resin Chemistry
+## Does fiberglass insulation burn?
 
-Not all FRP is equal in fire performance. The resin system is the primary variable that determines a profile's fire rating, and the difference between a standard polyester and a fire-retardant phenolic formulation is substantial.
+Unfaced insulation and faced insulation need separate answers. [Johns Manville's fiberglass insulation data sheet](https://www.jm.com/content/dam/jm/global/en/building-insulation/Files/BI%20Data%20Sheets/Resi%20and%20Commercial/BID-0144-JM-Unfaced-Kraft-and-Foil-Faced-Fiberglass-DS.pdf) identifies its unfaced product as noncombustible under ASTM E136, but warns that kraft and standard foil facings will burn. That is a documented product example, not a classification for every insulation sold worldwide.
 
-**Standard polyester resin** provides baseline fire performance. It is combustible and will sustain flame, making it unsuitable for applications with stringent fire requirements. It is typically used in chemical processing and underground environments where fire codes are less demanding.
+[image:/images/blog/frp-fire-resistance/glass-wool-insulation.webp|Insulation batts being fitted between roof framing members|Insulation installation, shown for context rather than as fire-test evidence. Photo: [Tracey Nicholls / CSIRO, via Wikimedia Commons](https://commons.wikimedia.org/wiki/File:CSIRO_ScienceImage_2175_Installing_Insulation_Batts.jpg), [CC BY 3.0](https://creativecommons.org/licenses/by/3.0/). Resized and converted to WebP.]
 
-**Fire-retardant polyester and vinyl ester resins** incorporate halogenated or non-halogenated flame-retardant additives, often in combination with aluminum trihydrate (ATH) fillers. ATH decomposes endothermically at approximately 220 °C, absorbing heat and releasing water vapor that dilutes combustible gases. These formulations can achieve Euroclass B or ASTM E84 Class 1 ratings.
+Identify the product and facing before deciding how it may be installed. Follow its instructions for coverings and separation from heat sources. Do not assume a metallic-looking facing makes the complete product noncombustible. The insulation photograph illustrates an installation; it does not identify the photographed material's fire class.
 
-**Phenolic resin** is inherently fire-resistant due to its aromatic chemical structure. When phenolic resin decomposes, it produces a dense, stable char layer with very low flame spread and minimal smoke. Phenolic FRP profiles routinely achieve Euroclass B s1 d0, meaning low flame spread, very limited smoke production, and no flaming droplets. This makes phenolic FRP the preferred choice for railway, tunnel, and building interior applications.
+An insulation product's classification also does not establish the fire resistance of a whole wall, ceiling or roof. Framing, linings, joints and penetrations belong to the assembly assessment.
 
-**Intumescent coatings** can be applied to any FRP profile to add an additional layer of fire protection. These coatings expand when heated, forming a thick insulating foam that shields the underlying composite from heat for extended periods.
+## What happens when FRP is heated?
 
-## Fire Classification Standards
+The polymer matrix holds the reinforcement together and transfers stress between fibers. As it heats, the matrix can soften and lose its ability to perform that role. An FRP member can therefore lose stiffness or load capacity before visible flaming occurs. [Research archived by Canada's National Research Council](https://publications-cnrc.canada.ca/eng/view/accepted/?id=424b0bf1-c553-4b5f-b443-21271b163f23) documents this relationship and the importance of the particular composite formulation.
 
-FRP profiles are tested and classified under the same fire standards as any other building material. The principal frameworks are:
+At greater exposure, the resin can decompose and burn. Visible glass remaining after heating is not evidence that the original laminate still carries its design load. Nor is a darkened surface proof that a protective char layer has preserved structural capacity.
 
-**EN 13501-1 (Euroclass system)** is the European standard that classifies building products from A1 (non-combustible) to F (no performance determined). FRP profiles with fire-retardant resin systems typically achieve Euroclass B (limited contribution to fire), with sub-classifications for smoke production (s1 = low smoke) and flaming droplets (d0 = no droplets). This is the same class achieved by fire-rated timber products and gypsum boards.
+[video:/videos/frp-fire-resistance-torch-test.mp4|Reference demonstration: a torch is applied to an FRP profile. This clip does not establish a fire classification, noncombustibility, smoke performance or load-bearing fire resistance.]
 
-**ASTM E84 (Surface Burning Characteristics)** is the North American standard that measures flame spread index (FSI) and smoke developed index (SDI). Class 1 (also called Class A) requires FSI of 0–25 and SDI of 0–450. Fire-retardant FRP profiles achieve Class 1 ratings, placing them in the highest fire-performance category alongside mineral fiber boards and fire-rated gypsum.
+The clip shows a local exposure. It does not reproduce a standard fire test or measure the condition of the entire member. There is no universal fiberglass burning temperature suitable for design: distinguish resin softening, ignition, decomposition and glass softening, and use data for the specified material and exposure.
 
-**BS 476 (British Standard)** includes tests for surface spread of flame (Part 7) and fire propagation (Part 6). FRP profiles can achieve Class 0 and Class 1 ratings under this framework.
+## Flame-retardant fiberglass is not fireproof
 
-**EN 45545-2 (Railway applications)** sets particularly demanding requirements for materials used in rail vehicles, including flame spread, smoke density, and toxicity. Phenolic FRP profiles meet HL2 and HL3 hazard levels required for passenger-carrying rolling stock in European rail applications.
+A flame-retardant formulation is intended to improve defined aspects of fire behavior. It does not remove the need to identify the test method and acceptance requirement. Resin names such as polyester, vinyl ester, epoxy or phenolic are useful starting points, but are too broad to serve as ratings.
 
-## Comparative Fire Performance
+For example, [Strongwell's technical FAQ](https://www.strongwell.com/faqs/technical-product-questions/) describes several resin options and highlights phenolic systems for fire and smoke performance. That manufacturer guidance illustrates why formulation selection matters; it is not test evidence for an F1 Composite product.
 
-To put FRP fire performance in context, it is useful to compare it against conventional structural materials.
+When comparing candidate resins, separate flame spread, smoke development, smoke toxicity and structural endurance. A result for one does not answer all the others. Review the [pultrusion resin systems guide](/technology/pultrusion-resin-systems) alongside the proposed product's documents, especially when a change of resin also changes the laminate or production process.
 
-**Steel** is non-combustible (Euroclass A1) but loses 50% of its yield strength at approximately 550 °C and can undergo catastrophic collapse. Structural steel in buildings almost always requires fire-protective coatings, intumescent paint, or concrete encasement to achieve the required fire resistance rating. The cost of fire protection for structural steel is a significant but often overlooked line item in building projects.
+## FRP fire ratings: what the tests actually show
 
-**Timber** is combustible but benefits from predictable charring rates (approximately 0.7 mm per minute for glulam). Engineered timber products such as CLT are accepted in building codes up to 18 stories with appropriate fire design. FRP's char formation mechanism is analogous to timber's charring behavior.
+The phrase fire-rated needs a qualifier. These references address different questions; their results are not interchangeable.
 
-**Concrete** is non-combustible and provides excellent fire resistance, but its high weight and thermal mass make it unsuitable for many applications where FRP excels: lightweight walkways, cable trays, offshore platforms.
+| Reference | Question it addresses | What it does not establish by itself |
+| --- | --- | --- |
+| [ASTM E84](https://store.astm.org/e0084-26.html) | Surface flame spread and smoke development under the test conditions | Noncombustibility or a structural fire-resistance duration |
+| [ASTM E136](https://store.astm.org/standards/e136) | Material combustibility in a specified furnace test | A finished assembly's fire-resistance duration |
+| [BS EN 13501-1](https://www.gov.uk/guidance/approved-document-b-fire-safety-frequently-asked-questions) | Reaction-to-fire classification within the report's field of application | A load-bearing fire-resistance duration or approval for every installation |
+| [ASTM E119](https://store.astm.org/standards/e119) | Fire endurance of tested building elements and assemblies | Performance of an untested configuration or suitability for reuse after a fire |
 
-**Aluminum** melts at 660 °C and loses structural capacity well before that point. In corrosive environments where aluminum might be considered as an alternative to FRP, the fire performance advantage of aluminum is marginal while its corrosion resistance is significantly inferior.
+### Does ASTM E84 Class A mean noncombustible?
 
-## Where Fire-Rated FRP Is Already in Service
+No. In [2021 IFC Section 803.1.2](https://codes.iccsafe.org/content/IFC2021P2/chapter-8-interior-finish-decorative-materials-and-furnishings), Class A interior finishes have a flame spread index of 0–25 and a smoke-developed index of 0–450. These are classification limits, not measured values for F1 products. Confirm the code edition and requirements adopted for the project.
 
-Fire-rated pultruded FRP profiles are deployed in demanding applications worldwide.
+ASTM E84 explicitly excludes defining noncombustibility from a flame spread index alone. It also does not establish a period of structural fire resistance. A low flame-spread result cannot be converted into a claim that a beam will support its load during a fire.
 
-**Railway and metro systems** across Europe specify phenolic FRP profiles for platform screens, cable management systems, and interior panels. The EN 45545-2 compliance of phenolic FRP makes it a standard material in modern rolling stock, where low smoke and toxicity are critical for passenger safety in enclosed environments.
+### What should a British specification check?
 
-**Tunnel infrastructure** benefits from FRP's combination of fire performance and corrosion resistance. Cable trays, walkway systems, and structural supports in road and rail tunnels use fire-rated FRP where the combination of fire safety, durability in humid/aggressive environments, and lightweight installation would be difficult to achieve with any single alternative material.
+For reaction-to-fire classifications, identify the applicable BS EN 13501-1 report and its field of application. The [UK government's Approved Document B FAQ](https://www.gov.uk/guidance/approved-document-b-fire-safety-frequently-asked-questions), which applies to England, explains that form, fixings, orientation and substrate can affect a classification. An ASTM Class A label is not a substitute for that evidence. Check the requirements of the project's jurisdiction and end use.
 
-**Building facades and cladding** increasingly specify fire-rated FRP for structural framing elements, particularly in curtain wall and rainscreen systems. Post-Grenfell regulations in the UK and revised EU Construction Products Regulation requirements have made Euroclass B the minimum acceptable standard for many facade applications: a standard that fire-retardant FRP meets.
+## Specifying pultruded fiberglass profiles for a project
 
-**Offshore platforms and marine vessels** require materials that resist both fire and aggressive saltwater environments. Fire-rated FRP gratings and structural profiles serve dual duty in these applications, providing fire safety without the corrosion vulnerability of fire-protected steel.
+For a fiberglass structural shape, FRP grating or custom section, begin with the required fire performance and the drawing. Do not choose a resin name first and assume the rating will follow. The procurement review should answer these questions:
 
-**Electrical and data infrastructure** uses flame-retardant FRP cable trays and conduit supports in buildings, data centers, and industrial plants. The electrical non-conductivity of FRP is an additional safety benefit in these installations.
+- **Product identity:** Does the report identify the formulation, reinforcement, thickness, surface treatment and product being offered?
+- **Test scope:** Are the method, edition, laboratory, specimen arrangement and reported result visible?
+- **Installation:** Do supports, joints, substrate and exposed faces match the report's applicable configuration?
+- **Performance objective:** Is the requirement about surface burning, noncombustibility, smoke or structural endurance?
+- **Release conditions:** Are any required protection, maintenance and unresolved evidence gaps recorded before approval?
 
-## The Future of FRP Fire Technology
+These questions help distinguish a useful report from a rating copied into a sales table. They also make comparisons between quotations more meaningful: two offers with the same resin-family label may describe different materials and different evidence.
 
-The fire performance of FRP composites continues to improve as resin chemistry, nano-additive technology, and manufacturing processes advance.
+F1 Composite supplies [pultruded fiberglass structural shapes](/products/fiberglass-structural-shapes) and [custom pultruded profiles](/products/custom-pultruded-profiles). For a project with fire requirements, send the section drawing, intended use, installation details and required classification for review. Available documents must be checked against the proposed product; this article assigns no blanket fire rating to the F1 range.
 
-**Nano-scale flame retardants** such as nano-clay, carbon nanotubes, and graphene-based additives are showing promising results in reducing peak heat release rate and improving char quality without the environmental concerns associated with halogenated flame retardants. Research programs at European and Chinese universities are demonstrating 30–40% reductions in peak heat release with nano-additive loadings of just 2–5% by weight.
+[Review the product evidence index](/resources/evidence)
 
-**Bio-based flame retardant systems** derived from phosphorus-containing natural compounds offer a pathway to FRP profiles that are both fire-resistant and more sustainable. These systems are still at the development stage but are expected to reach commercial availability within the next 5–10 years.
-
-**Hybrid intumescent-composite systems** integrate intumescent functionality directly into the resin matrix rather than applying it as a surface coating. This approach eliminates the maintenance requirement of external fire coatings and provides fire protection that lasts the full service life of the profile.
-
-**Digital fire engineering** using computational fluid dynamics (CFD) and finite element analysis (FEA) is enabling more precise prediction of FRP fire behavior in complex building geometries. As fire engineering moves from prescriptive codes to performance-based design, the ability to model FRP fire response accurately opens opportunities for FRP in applications where prescriptive material classifications would otherwise exclude it.
-
-## Conclusion
-
-The fire performance of pultruded FRP profiles is a solved engineering problem, not an open question. Through the combination of fire-retardant resin chemistry, high glass fiber content, protective char formation, and self-extinguishing behavior, FRP profiles achieve Euroclass B s1 d0 and ASTM E84 Class 1 fire ratings: classifications that place them alongside the best-performing conventional building materials.
-
-The torch test video at the beginning of this article illustrates the key principle: direct flame exposure produces localized charring with no flame propagation. This is not a material that burns and spreads fire. It is a material that resists fire through fundamental material science: non-combustible glass reinforcement, endothermic filler decomposition, and self-limiting char formation.
-
-For engineers and architects specifying structural profiles in fire-regulated applications, the question is no longer whether FRP can meet fire requirements. The question is which resin system and fire classification best match the specific project requirements.`,
+[Send your profile and fire requirements for technical review](/contact?source=fiberglass-fire-guide&inquiry_type=technical)`,
   },
   {
     slug: "frp-impact-resistance-vs-steel-aluminum",

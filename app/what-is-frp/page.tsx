@@ -16,7 +16,7 @@ import { coverFor, industryCovers } from "@/lib/covers";
 import { prefillForWhatIsFRP } from "@/lib/aiPrefill";
 
 // Last content review; shown in the page header and used as dateModified.
-const updatedAt = "2026-10-23";
+const updatedAt = "2026-10-26";
 
 const pagePath = "/what-is-frp";
 const seoTarget = getSeoQueryTarget(pagePath);
@@ -77,7 +77,7 @@ const faqItems = [
   {
     question: "Is FRP flammable?",
     answer:
-      "The standard isophthalic polyester laminate is combustible and is not fire-retardant. Fire-retardant polyester and vinyl ester formulations reach ASTM E84 Class A (flame-spread index 25 or less) with the right additive package, and phenolic resin gives inherently low flame spread, smoke and toxicity, which is why it is specified for rail interiors (EN 45545-2), tunnels and offshore platforms. A fire class belongs to the tested formulation, thickness and installation, so ask for the test report of the formulation quoted rather than relying on a resin name; UL 94, ASTM E84 and EN 13501-1 results are not interchangeable.",
+      "Glass fibers themselves are noncombustible, but the polymer resin in FRP can burn. Flame-retardant formulations may improve specified fire-test results without making a profile noncombustible or establishing structural fire resistance. Match the report to the formulation, thickness, surface treatment and installation being supplied; a resin-family name alone establishes no fire rating.",
   },
   {
     question: "How long do FRP composites last?",
@@ -730,6 +730,12 @@ export default function WhatIsFrpPage() {
 
       <PageSection id="faq" title="Frequently asked questions" tone="white">
         <FAQList items={faqItems} />
+        <p className="mt-[20px] text-f16 leading-golden text-t2">
+          For glass fibers, insulation and resin-bonded profiles, read{" "}
+          <Link href="/resources/blog/frp-fire-resistance-ratings-guide" className="font-semibold text-teal-text hover:underline">
+            Does fiberglass burn? Fire behavior and test ratings
+          </Link>.
+        </p>
       </PageSection>
 
       <RelatedLinks background="bg2"
