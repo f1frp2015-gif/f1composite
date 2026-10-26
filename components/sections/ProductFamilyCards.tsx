@@ -23,7 +23,7 @@ function familyFigures(): Record<string, string[]> {
   const [dieMin, dieMax] = supplyTerms.newDieLeadTimeWeeks;
   return {
     standard: [`${sizes.length} sizes`, `${families} section families`, "EN 13706 E23"],
-    custom: [`New die in ${dieMin}–${dieMax} weeks`, `First run from ${supplyTerms.customMoqMeters.firstRun} m`],
+    custom: [`New-die first delivery in ${dieMin}–${dieMax} weeks`, `First run from ${supplyTerms.customMoqMeters.firstRun} m`],
     windows: [`${Math.min(...series)}–${Math.max(...series)} series`, "Profiles or finished units"],
     grating: ["Molded mesh", "Pultruded bars", "Clips and fixings"],
     rebar: [`${diameters.length} diameters`, `Ø${diameters[0]}–${diameters[diameters.length - 1]} mm`, "Bars, bends, mesh"],

@@ -74,29 +74,29 @@ const bladeEngineering = [
   {
     title: "No thermal bridge through the envelope",
     body:
-      "Every aluminum sunshade bracket is a conductive path punched through the insulation line — the penalty shows up in the whole-facade U-value calculation and as condensation risk at the anchor. FRP conducts heat at roughly 0.3 W/m·K, about 1/500th of aluminum, so an FRP blade-and-bracket assembly leaves the envelope's thermal performance intact.",
+      "Every aluminum sunshade bracket is a conductive path punched through the insulation line — the penalty shows up in the whole-facade U-value calculation and as condensation risk at the anchor. FRP conducts heat at roughly 0.3 W/m·K, about 1/500th of aluminum, so an FRP blade on FRP brackets adds far less heat flow at each anchor. The metal fixings remain small point bridges and still belong in the facade U-value calculation.",
   },
   {
     title: "Light on the wall",
     body:
-      "At 1.9–2.0 g/cm³ the plate runs about a quarter of the density of steel and 25% under aluminum — and stiffness-for-weight it outperforms both as a thin blade. Lower dead load means lighter substructure, smaller anchors into the mullion or slab edge, and blades a two-person crew can set without mechanical lifting.",
+      "At 1.9–2.0 g/cm³ the plate runs about a quarter of the density of steel and 25–30% under aluminum, and at equal weight a thin FRP plate is stiffer in bending than a thin steel or aluminum plate. Lower dead load means lighter substructure, smaller anchors into the mullion or slab edge, and blades a two-person crew can set without mechanical lifting.",
   },
   {
     title: "Dimensionally quiet across sun cycles",
     body:
-      "A sunshade blade lives in the harshest thermal-cycling position on the building — full sun to shade, every day. FRP's coefficient of thermal expansion (≈ 7–9 × 10⁻⁶/K) is close to glass and a third of aluminum's, so a 4 m blade moves under 2 mm across a 60°C swing where aluminum moves 5.5 mm. Joints stay tight; there is no thermal walk, bracket-slot wear, or the oil-canning that shows on aluminum sheet in raking light.",
+      "A sunshade blade lives in the harshest thermal-cycling position on the building — full sun to shade, every day. FRP's coefficient of thermal expansion (≈ 7–9 × 10⁻⁶/K) is close to glass and a third of aluminum's, so a 4 m blade moves about 2 mm (1.7–2.2 mm) across a 60°C swing where aluminum moves 5.5 mm. Joints stay tight; there is no thermal walk, bracket-slot wear, or the oil-canning that shows on aluminum sheet in raking light.",
   },
   {
     title: "No corrosion, no repaint cycle",
     body:
-      "Coastal chloride, urban pollution, and constant wet-dry cycling attack coated aluminum and steel shading over a facade's life. The pultruded plate cannot corrode, carries a resin-rich surface veil under an architectural-grade AAMA 2604 / 2605 finish in any RAL color, and holds it without a recoating budget — the same finish system proven through a full polar irradiance season on our Antarctic fenestration.",
+      "Coastal chloride, urban pollution, and constant wet-dry cycling attack coated aluminum and steel shading over a facade's life. The pultruded plate cannot corrode, carries a resin-rich surface veil under an architectural coating in any RAL color, specified to AAMA 624 or 625, the FGIA coating specifications for fiber-reinforced thermoset profiles (AAMA 2604 and 2605 cover aluminum). There is no recoating budget for corrosion protection.",
   },
 ];
 
 const laminateStack = [
   {
     layer: "Surface veil + PU topcoat",
-    role: "UV screen and finish carrier — a resin-rich synthetic veil under an AAMA 2604/2605 architectural coating in any RAL color, protecting the structural laminate from weathering.",
+    role: "UV screen and finish carrier: a resin-rich synthetic veil under an architectural coating in any RAL color, specified to AAMA 624 or 625 for fiber-reinforced thermoset profiles, protecting the structural laminate from weathering.",
   },
   {
     layer: "Multiaxial stitched fabrics (0°/90°/±45°), multiple layers",
@@ -108,14 +108,14 @@ const laminateStack = [
   },
   {
     layer: "Resin system",
-    role: "Isophthalic polyester as standard; vinyl ester for coastal and chemical exposure; fire-retardant systems with BS 476-tested options where the facade specification demands reaction-to-fire performance.",
+    role: "Isophthalic polyester as standard; vinyl ester for coastal and chemical exposure; fire-retardant systems where the facade specification sets a reaction-to-fire requirement; available test reports for the offered formulation are provided on request.",
   },
 ];
 
 const bladeFormats = [
   {
     name: "Flat plate blades",
-    tag: "The E40 plate · stock format",
+    tag: "The E40 plate · standard format",
     detail:
       "The multi-layer fabric plate itself: 3–25 mm thick, widths to 600 mm, cut to blade length from a continuous pultrusion run. The workhorse format for fin and louver arrays — a clean rectangular section that reads crisp on the facade, machines with standard tooling, and takes concealed or clamped fixings. Practical maximum shipping length is container-limited at 11.8 m.",
   },
@@ -138,7 +138,7 @@ const orientations = [
     name: "Vertical fins",
     loads: "Wind pressure and suction flatwise · self-weight axial · floor-to-floor spans",
     detail:
-      "Vertical fin arrays — the classic brise-soleil for east and west elevations — span floor to floor, typically 3–4 m between brackets. The load case is almost pure flatwise bending under wind pressure and suction, and deflection, not strength, governs the blade. This is exactly where the E40 modulus pays: a floor-to-floor fin on two anchors, no intermediate bracket, no visible sag line down the array. Self-weight acts along the blade axis, where the pultrusion is strongest.",
+      "Vertical fin arrays, the classic brise-soleil for east and west elevations, often run floor to floor at 3–4 m. The load case is almost pure flatwise bending under wind pressure and suction, and deflection, not strength, governs the blade. This is where the E40 modulus pays, but a flat plate spans less than a floor height at typical design pressures (see the bracket-spacing table below): a floor-to-floor fin on two anchors needs a hollow section, a low design pressure or an intermediate bracket. Self-weight acts along the blade axis, where the pultrusion is strongest.",
   },
   {
     name: "Horizontal louvers",
@@ -170,7 +170,7 @@ const fatigueMechanisms = [
   {
     title: "Working stress below the damage threshold",
     body:
-      "Because the blade is sized by deflection, its working bending stress typically lands below 15–20% of the laminate's ultimate strength. At that amplitude, glass-fiber laminates run out past 10⁷ load cycles with no measurable stiffness loss — the gust spectrum of a 50-year facade life sits inside the flat end of the S-N curve, with margin the strength check never touches.",
+      "Because the blade is sized by deflection, its working bending stress typically lands below 15–20% of the laminate's ultimate strength. At that amplitude, glass-fiber laminates are generally expected to exceed 10⁷ load cycles with limited stiffness loss, so the gust spectrum over the facade's design life sits toward the flat end of the S-N curve. Confirm with fatigue data for the specified laminate where the project requires a fatigue check.",
   },
   {
     title: "No endurance-limit problem, no notch-critical detail",
@@ -243,12 +243,12 @@ const connectionDetails = [
   {
     title: "Fixed points — no slotted holes, no fretting",
     body:
-      "With a CTE of 7–9 × 10⁻⁶/K, a 4 m blade moves under 2 mm across a 60°C swing — inside normal bolt-hole clearance. Blades therefore fix rigidly, without the slotted expansion holes aluminum needs. That removes the fretting wear, thermal clicking, and locked-slot failures that aluminum shading develops as its slots seize with oxide and grime.",
+      "With a CTE of 7–9 × 10⁻⁶/K, a 4 m blade moves about 2 mm across a 60°C swing, inside normal bolt-hole clearance where the brackets sit on concrete or steel. Blades therefore fix rigidly, without the slotted expansion holes aluminum needs. On an aluminum subframe, check the differential movement between blade and rail. That removes the fretting wear, thermal clicking, and locked-slot failures that aluminum shading develops as its slots seize with oxide and grime.",
   },
   {
     title: "Galvanically inert at every interface",
     body:
-      "FRP forms no corrosion couple with stainless, aluminum, or galvanized steel, so blades mount directly to any substructure without isolation pads or sleeves — one less part, one less failure mode, and no white-rust or run-off staining bleeding down the finished facade.",
+      "Glass-fiber FRP forms no corrosion couple with stainless, aluminum, or galvanized steel, so blades mount directly to any substructure without isolation pads or sleeves, and no white-rust or run-off staining bleeds down the finished facade. Metal-to-metal contacts between bolts and brackets still need the usual isolation.",
   },
   {
     title: "Cut edges with nothing to corrode",
@@ -263,7 +263,7 @@ const connectionDetails = [
   {
     title: "Maintenance scope: a wash",
     body:
-      "There is no recoat cycle, no touch-up program for chipped coatings, no torque-recheck driven by slot fretting, and no corrosion inspection interval. The maintenance scope of an FRP shading array is the one the facade already has: periodic cleaning and the standard visual inspection — which matters most on high-rise and coastal work, where every access event is a rope or rig cost.",
+      "There is no recoat cycle for corrosion protection and no corrosion inspection interval. The maintenance scope of an FRP shading array is close to the one the facade already has: periodic cleaning, visual inspection, and a bolt-tension check at the interval the facade engineer sets, because clamped FRP joints can relax. That matters most on high-rise and coastal work, where every access event is a rope or rig cost.",
   },
 ];
 
@@ -271,23 +271,23 @@ const materialProperties = [
   { property: "Full-section flexural modulus", value: "Up to 40 GPa (E40)", note: "vs 17 / 23 GPa for EN 13706 E17 / E23 standard grades" },
   { property: "Transverse flexural modulus", value: "10 – 14 GPa", note: "Multi-layer multiaxial fabric; roving-only flat sheet runs 5 – 7 GPa" },
   { property: "Longitudinal tensile strength", value: "350 – 600 MPa", note: "Layup-dependent; tuned per blade span and section" },
-  { property: "Density", value: "1.9 – 2.0 g/cm³", note: "≈ 25% of steel, 25% under aluminum" },
+  { property: "Density", value: "1.9 – 2.0 g/cm³", note: "≈ 25% of steel, 25–30% under aluminum" },
   { property: "Thermal expansion (CTE)", value: "7 – 9 × 10⁻⁶ /K", note: "Aluminum: 23 × 10⁻⁶ /K — three times the movement per blade" },
-  { property: "Thermal conductivity", value: "≈ 0.3 W/m·K", note: "Aluminum: 160 W/m·K — no thermal bridge at brackets" },
-  { property: "Fire performance", value: "FR resin systems", note: "Fire-retardant formulations with BS 476-tested options, per project spec" },
-  { property: "Finish", value: "AAMA 2604 / 2605, any RAL", note: "Architectural PU topcoat over resin-rich veil; 10-year exposure rating" },
+  { property: "Thermal conductivity", value: "≈ 0.3 W/m·K", note: "Aluminum: 160 W/m·K; far smaller thermal bridge at brackets" },
+  { property: "Fire performance", value: "FR resin systems", note: "Fire-retardant formulations per project spec; available test reports on request. Not a noncombustible (A1 / A2-s1,d0) material" },
+  { property: "Finish", value: "AAMA 624 / 625, any RAL", note: "Architectural PU topcoat over resin-rich veil; AAMA 625 is the superior-performance tier for fiber-reinforced thermoset profiles" },
 ];
 
 const aluminumComparison = [
   {
     criterion: "Thermal bridging at brackets",
     aluminum: "Every bracket is a conductive penetration; thermal-break pads add parts and still leak heat",
-    frp: "Blade and connection are intrinsically insulating — envelope U-value unaffected",
+    frp: "Low-conductivity blade and FRP bracket; only the metal fixings remain as small point bridges",
   },
   {
     criterion: "Thermal movement (4 m blade, ΔT 60°C)",
     aluminum: "≈ 5.5 mm — slotted fixings, expansion noise, joint wear",
-    frp: "< 2 mm — CTE close to glass; fixed connections stay quiet",
+    frp: "≈ 2 mm: CTE close to glass; fixed connections stay quiet",
   },
   {
     criterion: "Coastal & urban exposure",
@@ -315,7 +315,7 @@ const faqItems = [
   {
     question: "What are FRP facade sunshade panels?",
     answer:
-      "FRP facade sunshade panels — also specified as brise-soleil, solar shading fins, or sun louvers — are pultruded fiberglass blades fixed to a curtain wall or facade to control solar heat gain and glare. F1 Composite supplies them as high-modulus thin plates (and custom hollow sections) produced by pultrusion: continuous E-glass reinforcement pulled through a heated die with a thermoset resin. The result is a blade that is stiff, light, corrosion-free, and — unlike aluminum shading — thermally inert, so it does not bridge the building envelope at its brackets.",
+      "FRP facade sunshade panels — also specified as brise-soleil, solar shading fins, or sun louvers — are pultruded fiberglass blades fixed to a curtain wall or facade to control solar heat gain and glare. F1 Composite supplies them as high-modulus thin plates (and custom hollow sections) produced by pultrusion: continuous E-glass reinforcement pulled through a heated die with a thermoset resin. The result is a blade that is stiff, light and corrosion-free, with a thermal conductivity far below aluminum, so it adds much less heat flow through the envelope at its brackets.",
   },
   {
     question: "What does E40 mean, and why does it matter for sunshades?",
@@ -325,7 +325,7 @@ const faqItems = [
   {
     question: "How far can a blade span between brackets?",
     answer:
-      "It depends on blade section, wind pressure, and the deflection limit in your facade specification (commonly L/180 to L/240 for shading elements). As an order of magnitude: vertical fins in the E40 flat plate typically span floor-to-floor — 3 to 4 m on two anchors — under common wind loads, and hollow custom sections extend that. We run the span check for your actual blade geometry and wind report (EN 1991-1-4 or ASCE 7) as part of quoting, and tune the laminate to the span rather than forcing the design onto a stock layup.",
+      "It depends on blade section, wind pressure, and the deflection limit in your facade specification (commonly L/180 to L/240 for shading elements). As an order of magnitude, the indicative table on this page gives about 1–2.7 m between brackets for 10–25 mm E40 louvers at 1.0 kPa; floor-to-floor spans of 3 to 4 m on two anchors need a hollow custom section, a lower design pressure or an intermediate bracket. We run the span check for your actual blade geometry and wind report (EN 1991-1-4 or ASCE 7) as part of quoting, and tune the laminate to the span rather than forcing the design onto a stock layup.",
   },
   {
     question: "Can the same plate be used for vertical fins and horizontal louvers?",
@@ -335,7 +335,7 @@ const faqItems = [
   {
     question: "Do FRP blades fatigue under decades of wind gusting?",
     answer:
-      "This is where FRP holds a structural advantage over aluminum, which has no fatigue endurance limit — its life keeps falling with cycle count, governed by exactly the details a shading system is full of: bolt holes, notches, and slotted expansion holes with fretting. Because an FRP blade is sized by deflection, its working stress sits below 15–20% of the laminate's ultimate strength, a level at which glass laminates survive beyond 10⁷ cycles without measurable degradation. The multi-layer fabric also arrests matrix cracks rather than propagating them, the laminate is symmetric for full pressure–suction reversal, and material damping roughly an order of magnitude above aluminum suppresses vortex-induced resonance in slender fins.",
+      "This is where FRP holds a structural advantage over aluminum, which has no fatigue endurance limit — its life keeps falling with cycle count, governed by exactly the details a shading system is full of: bolt holes, notches, and slotted expansion holes with fretting. Because an FRP blade is sized by deflection, its working stress sits below 15–20% of the laminate's ultimate strength, a level at which glass laminates are generally expected to exceed 10⁷ cycles with limited degradation; fatigue data for the specified laminate confirm it where required. The multi-layer fabric also arrests matrix cracks rather than propagating them, the laminate is symmetric for full pressure–suction reversal, and material damping roughly an order of magnitude above aluminum suppresses vortex-induced resonance in slender fins.",
   },
   {
     question: "How are the blades fixed to the building?",
@@ -345,17 +345,17 @@ const faqItems = [
   {
     question: "What about fire performance?",
     answer:
-      "Facade shading sits outside the insulated envelope, but many specifications still call for a reaction-to-fire class on every facade-mounted element. We produce the plate in fire-retardant resin systems with BS 476-tested options, and match the resin formulation to the fire clause in your specification. Tell us the standard your project is reviewed under and we will confirm the applicable test evidence with the quotation.",
+      "Check the building regulation first. In England, the slats of solar shading devices on relevant buildings (a storey 18 m or more above ground, with dwellings, residential rooms or an institution) must reach class A1 or A2-s1,d0 to EN 13501-1, except devices below 4.5 m above ground; a polymer composite blade does not reach those classes. Since March 2025, Approved Document B also accepts only EN 13501-1 classes, not BS 476 national classes, for reaction to fire. In the US, exterior FRP falls under the plastics chapter of the IBC, which can require NFPA 285 assembly testing depending on building type and height. Where FRP is permitted, we offer fire-retardant resin systems and confirm which test reports exist for the offered formulation, with holder, number and scope, before quotation.",
   },
   {
     question: "What colors and finishes are available, and how do they weather?",
     answer:
-      "Blades ship with an architectural-grade AAMA 2604 or 2605 polyurethane finish in any RAL color, applied over the plate's resin-rich surface veil. These are the same 10-year-exposure-rated finish systems we use on our fenestration range, proven through a full polar irradiance season at our Antarctic installation — including dark colors, which are the hardest to hold against UV fade on a fully sun-exposed shading blade.",
+      "Blades ship with an architectural polyurethane finish in any RAL color, applied over the plate's resin-rich surface veil and specified to AAMA 624 or 625, the coating specifications for fiber-reinforced thermoset profiles (AAMA 2604 and 2605 are the aluminum equivalents). Request the coater's test report for the selected system and color. Dark colors are the hardest to hold against UV fade on a fully sun-exposed shading blade.",
   },
   {
     question: "How do FRP sunshade blades compare with aluminum on cost?",
     answer:
-      "On blade material alone, a high-modulus FRP plate typically prices above a commodity aluminum extrusion. The comparison changes at system level: FRP needs no thermal-break hardware at the brackets, fewer brackets per elevation because deflection performance per weight is higher, lighter substructure because the blades weigh less, and no recoat cycle over the facade's life. On coastal and high-rise projects — where access costs dominate maintenance — the lifecycle comparison generally favors FRP. We quote DDP so the landed comparison is explicit.",
+      "On blade material alone, a high-modulus FRP plate typically prices above a commodity aluminum extrusion. The comparison changes at system level: FRP needs no thermal-break hardware at the brackets, fewer brackets per elevation because deflection performance per weight is higher, lighter substructure because the blades weigh less, and no recoat cycle over the facade's life. On coastal and high-rise projects, where access costs dominate maintenance, the lifecycle comparison can favor FRP; run it with project prices. We quote DDP so the landed comparison is explicit.",
   },
   {
     question: "Can you produce custom blade profiles — aerofoil or box sections?",
@@ -385,9 +385,9 @@ export default function FacadeSunshadePanelsPage() {
             { name: "Reinforcement architecture", value: "Multi-layer multiaxial stitched fabric + unidirectional roving, developed by F1 Composite" },
             { name: "Formats", value: "Flat plate 3–25 mm × up to 600 mm; custom aerofoil/box hollow sections to 600 × 300 mm" },
             { name: "Mounting orientations", value: "Vertical fins and horizontal louvers — biaxial load capability" },
-            { name: "Thermal conductivity", value: "≈ 0.3 W/m·K (vs aluminum 160 W/m·K) — no thermal bridge at brackets" },
-            { name: "Finish", value: "AAMA 2604 / 2605 architectural PU, any RAL color" },
-            { name: "Fire options", value: "Fire-retardant resin systems, BS 476-tested options" },
+            { name: "Thermal conductivity", value: "≈ 0.3 W/m·K (vs aluminum 160 W/m·K); far smaller thermal bridge at brackets" },
+            { name: "Finish", value: "AAMA 624 / 625 architectural PU, any RAL color" },
+            { name: "Fire options", value: "Fire-retardant resin systems; test reports for the offered formulation on request" },
           ],
         })}
       />
@@ -452,7 +452,7 @@ export default function FacadeSunshadePanelsPage() {
             That is the problem F1 Composite&apos;s facade sunshade plate was developed to solve. Where standard pultruded flat sheet reaches the EN 13706 E17 or E23 grades — 17 to 23 GPa full-section modulus — our multi-layer fabric-reinforced plate reaches <strong className="font-semibold text-t1">E40: up to 40 GPa across the full section</strong>. The gain comes from a laminate F1 developed specifically for thin structural plate: multiple stitched multiaxial fabric layers distributed through the thickness over a high-count unidirectional roving core, so the blade is stiff along its span <em>and</em> across it.
           </p>
           <p>
-            The biaxial capability is what makes one blade family serve a whole elevation: vertical fins spanning floor to floor, horizontal louvers carrying gravity and wind together, angled blades in between. Add what pultruded FRP brings to any facade element — no thermal bridge at the brackets, no corrosion in coastal exposure, a quarter the thermal movement of aluminum, and an architectural AAMA 2604/2605 finish in any RAL color — and the E40 plate becomes the rational blade material for high-performance envelopes.
+            The biaxial capability is what makes one blade family serve a whole elevation: vertical fins spanning floor to floor, horizontal louvers carrying gravity and wind together, angled blades in between. Add what pultruded FRP brings to any facade element — no thermal bridge at the brackets, no corrosion in coastal exposure, about a third of the thermal movement of aluminum, and an architectural AAMA 624/625 finish in any RAL color — and the E40 plate becomes the rational blade material for high-performance envelopes.
           </p>
         </div>
         <h3 className="mt-[40px] text-f20 font-bold text-t1">Six reasons the blade material decides the shading design</h3>
@@ -532,7 +532,7 @@ export default function FacadeSunshadePanelsPage() {
               The arithmetic is direct. Deflection-limited bracket spacing scales with the cube root of modulus, so moving from a standard E23 pultrusion to the E40 plate buys 20% more span from the identical blade — or, holding the bracket grid, the same deflection limit is met by a blade about 17% thinner and lighter. And because stiffness — not strength — sizes the section, the working bending stress ends up at a small fraction of the laminate&apos;s ultimate, which is precisely the margin that makes the fatigue behavior below a non-issue.
             </p>
             <p>
-              One honest caveat belongs here: for horizontal louvers, self-weight is a sustained load, and polymer composites creep under sustained stress. On a thin blade at 2.0 g/cm³ the gravity stress is small, and we verify the sustained case with long-term modulus reduction factors as standard — so the creep deflection over a 50-year life stays invisible, checked rather than assumed.
+              One honest caveat belongs here: for horizontal louvers, self-weight is a sustained load, and polymer composites creep under sustained stress. On a thin blade at 2.0 g/cm³ the gravity stress is small, and we verify the sustained case with long-term modulus reduction factors as standard, so creep deflection over the design life is checked rather than assumed.
             </p>
           </div>
           <dl className="grid grid-cols-1 gap-px overflow-hidden rounded-card border border-border-default bg-border-default">
@@ -546,7 +546,7 @@ export default function FacadeSunshadePanelsPage() {
           </dl>
         </div>
 
-        <h3 className="mt-[40px] text-f20 font-bold text-t1">Fifty years of gust cycles, without a fatigue-critical detail</h3>
+        <h3 className="mt-[40px] text-f20 font-bold text-t1">Decades of gust cycles, without a fatigue-critical detail</h3>
         <p className="mt-[8px] max-w-[820px] text-f14 leading-golden text-t2">
           A facade blade sees millions of fully-reversing gust cycles over the building&apos;s life — fatigue, not peak load, is what actually retires metal shading systems. Six mechanisms put the FRP blade on the other side of that problem.
         </p>

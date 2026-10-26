@@ -17,7 +17,7 @@ const seoTarget = getSeoQueryTarget(pagePath);
 const pageTitle = seoTarget.title;
 const pageDescription = seoTarget.description;
 const publishedAt = "2026-08-31";
-const updatedAt = "2026-09-25";
+const updatedAt = "2026-10-26";
 const heroImage =
   "/images/products/frp-rebar/gfrp-straight-bars.webp";
 
@@ -236,7 +236,7 @@ const faqItems = [
   {
     question: "Is fiberglass rebar stronger than steel rebar?",
     answer:
-      "It can have higher ultimate tensile strength per unit area, but that does not make it a universally stronger replacement. GFRP has roughly one quarter of steel's elastic modulus and no yield plateau. Compare ultimate-to-ultimate values, then design for serviceability, bond, environmental reduction factors and the governing code: never compare GFRP ultimate strength only with steel yield strength.",
+      "It can have higher ultimate tensile strength per unit area, but that does not make it a universally stronger replacement. GFRP has roughly one fifth to one quarter of steel's elastic modulus and no yield plateau. Compare ultimate-to-ultimate values, then design for serviceability, bond, environmental reduction factors and the governing code: never compare GFRP ultimate strength only with steel yield strength.",
   },
   {
     question: "Can GFRP rebar replace steel one-for-one?",

@@ -48,6 +48,6 @@ export const resinSystems = [
 ] as const;
 
 export const resinSelectionSources = [
-  { label: "INEOS Derakane resin selection guide", href: "https://www.ineos.com/globalassets/ineos-group/businesses/ineos-composites/markets/corrosion/derakane-resin-selection-guide.pdf", scope: "How a named resin supplier organizes chemical, concentration and temperature data. Its ratings are not F1 product approvals." },
+  { label: "Derakane vinyl ester resins (Alta Performance Materials, formerly INEOS Composites)", href: "https://www.altapm.com/products/epoxy-vinyl-ester-resins/derakane/", scope: "A named resin supplier whose Derakane resin selection guide organizes chemical, concentration and temperature data. Its ratings are not F1 product approvals." },
   { label: "Strongwell custom-pultrusion guidance", href: "https://www.strongwell.com/faqs/custom-pultrusions/", scope: "Industry explanation of UV protection through resin, additives, veils, color and coatings. No Strongwell qualification transfers to F1." },
 ] as const;

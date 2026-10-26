@@ -3,9 +3,12 @@
 // Loads come from the rule the user selects; section properties and design
 // strengths come from the same engine as the FRP profile calculator
 // (lib/frpSectionProperties.ts, lib/frpDesignBasis.ts). Presets carry values
-// that agree across reliable sources; the UK, Canadian and Australian/New
-// Zealand rows were checked against secondary sources only, and say so in
-// their notes. Other categories ask the user to enter the value from the
+// that agree across reliable sources. The Canadian rows match Article
+// 4.1.5.14 as reproduced for the 2024 Ontario Building Code (City of Markham
+// Builder Tip No. 90, 2024), which follows NBC 2020 Part 4. The UK and
+// Australian/New Zealand rows were checked against secondary sources only,
+// and say so in their notes. EN ISO 14122-3:2016 (current; the 2010 A1
+// amendment belonged to the 2001 edition) values remain secondary-source. Other categories ask the user to enter the value from the
 // named clause (docs/audits/2026-09-26-tools-standards-audit.md and
 // docs/audits/2026-09-28-tools-round-2.md).
 //

@@ -25,7 +25,7 @@ const checklist: Array<{ title: string; body: string }> = [
   },
   {
     title: "Standards & certification",
-    body: "Require EN 13706 (pultruded profiles, structural grades E17/E23) and/or ASTM D3917 (dimensional tolerance), plus ISO 9001:2015 quality management. For fire, marine, or rail, ask for BS 476 / ASTM E84 / EN 45545-2 / DNV as relevant. Certificates should name the supplier, not a generic group.",
+    body: "Require EN 13706 (pultruded profiles, structural grades E17/E23) and/or ASTM D3917 (dimensional tolerance), plus ISO 9001 quality management (ISO 9001:2026 was published in September 2026; 2015-edition certificates remain valid during the transition). For fire, marine, or rail, ask for BS 476 / ASTM E84 / EN 45545-2 / DNV as relevant. Certificates should name the supplier, not a generic group.",
   },
   {
     title: "Real test data",
@@ -41,7 +41,7 @@ const checklist: Array<{ title: string; body: string }> = [
   },
   {
     title: "MOQ, lead time & tooling",
-    body: "Get stock-size lead time (typically 2–4 weeks), custom-die lead time (commonly 6–10 weeks total), and minimum order quantities in writing. Clarify who owns custom tooling and the repeat-order MOQ before committing.",
+    body: "Get catalog-section lead time (typically 2–4 weeks), custom-die lead time (commonly 6–10 weeks total), and minimum order quantities in writing. Clarify who owns custom tooling and the repeat-order MOQ before committing.",
   },
 ];
 
@@ -69,7 +69,7 @@ const faqItems = [
   {
     question: "What certifications should a pultruded FRP profile supplier have?",
     answer:
-      "At minimum EN 13706 (pultruded profiles, grades E17/E23) and/or ASTM D3917 (dimensional tolerance), under an ISO 9001:2015 quality system. Application-specific certifications may be required: BS 476 / ASTM E84 for fire, EN 45545-2 for rail, AS 4586 slip resistance for gratings, PHI / NFRC for fenestration, and DNV / Lloyd's for marine. Certificates should name the manufacturing entity, and be backed by batch test reports.",
+      "At minimum EN 13706 (pultruded profiles, grades E17/E23) and/or ASTM D3917 (dimensional tolerance), under an ISO 9001 quality system (2015 or 2026 edition during the transition). Application-specific certifications may be required: BS 476 / ASTM E84 for fire, EN 45545-2 for rail, AS 4586 slip resistance for gratings, PHI / NFRC for fenestration, and DNV / Lloyd's for marine. Certificates should name the manufacturing entity, and be backed by batch test reports.",
   },
   {
     question: "What documents should I request before placing an FRP profile order?",

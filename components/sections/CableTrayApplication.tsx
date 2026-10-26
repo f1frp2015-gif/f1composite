@@ -18,7 +18,7 @@ const rfqHref = buildRfqHref({
   source: "cable-tray-application",
   product: "FRP cable trays and cable ladders",
   productPath: "/applications/frp-cable-tray-supports",
-  message: "Please review my FRP cable tray / cable ladder enquiry. Scope (raw support profiles, fabricated components, tray / ladder sections, or complete package): __. Width, depth and route length: __. Tray base / perforations or ladder rung spacing: __. Cable mass and future allowance: __. Support spacing and fixing structure: __. Chemicals and operating temperature: __. Fire / electrical / project standards and required evidence: __. Fittings, covers and fasteners, including items supplied by others: __. Drawing / BOM revision: __. Quantity, destination and required date: __. Please confirm availability, included documents and design responsibility for the offered configuration. Drawings can follow.",
+  message: "Please review my FRP cable tray / cable ladder inquiry. Scope (raw support profiles, fabricated components, tray / ladder sections, or complete package): __. Width, depth and route length: __. Tray base / perforations or ladder rung spacing: __. Cable mass and future allowance: __. Support spacing and fixing structure: __. Chemicals and operating temperature: __. Fire / electrical / project standards and required evidence: __. Fittings, covers and fasteners, including items supplied by others: __. Drawing / BOM revision: __. Quantity, destination and required date: __. Please confirm availability, included documents and design responsibility for the offered configuration. Drawings can follow.",
 });
 
 const productFamilies = [
@@ -79,7 +79,7 @@ const sources = {
   trunking: { label: "IEC 61084-1 · trunking and ducting scope", href: "https://webstore.iec.ch/en/publication/92096" },
   ul: { label: "UL · nonmetallic tray evaluation", href: "https://www.ul.com/services/mechanical-support-and-assembly-services" },
   cti: { label: "Cable Tray Institute · standards status", href: "https://www.cabletrays.org/codes-and-standards/" },
-  fire: { label: "ASTM E84 · surface burning test scope", href: "https://store.astm.org/e0084-24.html" },
+  fire: { label: "ASTM E84 · surface burning test scope", href: "https://store.astm.org/standards/e84" },
   cleats: { label: "IEC 61914 · cable cleats", href: "https://webstore.iec.ch/en/publication/64504" },
 };
 
@@ -128,7 +128,7 @@ const faqs = [
   { question: "Is vinyl ester always better than polyester?", answer: "No. Compare the exact resin and laminate with the chemicals, concentration, exposure mode, operating temperature and mechanical loads. Vinyl ester is often considered for more demanding chemical service; it is not a guarantee of compatibility with every chemical or process." },
   { question: "Does fire-retardant FRP provide fire resistance?", answer: "A flame-spread or flammability result does not establish structural endurance, circuit integrity, smoke or toxicity performance. State the required test, classification, duration and tested assembly. Tunnel, rail and offshore requirements need their own evidence." },
   { question: "Can I add covers or extra cables later?", answer: "Only after reviewing cable fill, heat dissipation, added mass, support capacity and access. Covers also introduce fixing and wind-uplift demands outdoors. Keep the original design allowance and accepted changes in the route records." },
-  { question: "What information is needed for an initial quotation?", answer: "Start with your name, email and project scope. A route sketch, cable schedule, tray dimensions, support spacing, environment, required standards, quantities and destination help refine the quote. Drawings and technical details can follow after the first enquiry." },
+  { question: "What information is needed for an initial quotation?", answer: "Start with your name, email and project scope. A route sketch, cable schedule, tray dimensions, support spacing, environment, required standards, quantities and destination help refine the quote. Drawings and technical details can follow after the first inquiry." },
 ];
 
 export default function CableTrayApplication({ page }: { page: ApplicationPage }) {
@@ -167,7 +167,7 @@ export default function CableTrayApplication({ page }: { page: ApplicationPage }
 
     <Section id="system-types" title="Cable tray or cable ladder? Start with the cable arrangement" muted>
       <p className="max-w-[920px]">A tray provides a supporting base; a ladder carries cables on spaced rungs. “Ladder-type cable tray” is another name for a cable ladder. Here, cable tray refers to channel and trough configurations so the two constructions are easy to compare.</p>
-      <Table caption="Cable-management configurations to define in your enquiry" headers={["Configuration", "Useful starting point", "Check before selection"]} rows={[
+      <Table caption="Cable-management configurations to define in your inquiry" headers={["Configuration", "Useful starting point", "Check before selection"]} rows={[
         ["Open cable ladder", "Power cables and larger cable runs where ventilation, drainage and access matter.", "Rung spacing, cable support requirements, cleat attachment, rail depth and bend radius."],
         ["Ventilated / perforated tray", "Control and instrumentation routes that need more frequent cable support.", "Cable diameter, opening pattern, drainage, fill allowance and declared load capacity."],
         ["Solid-bottom / covered tray", "Routes requiring a continuous base or protection from falling debris and sunlight.", "Heat dissipation, cover retention, drainage, inspection access and outdoor uplift."],
@@ -184,7 +184,7 @@ export default function CableTrayApplication({ page }: { page: ApplicationPage }
         ["With removable covers", "Schedule cover sections and retaining hardware separately. Covers add protection from debris or sunlight; they do not establish an IP rating."],
       ].map(([title, body]) => <article key={title} className="rounded-card border border-border-default bg-bg2 p-[24px]"><h3 className="text-f18 font-bold text-t1">{title}</h3><p className="mt-[10px]">{body}</p></article>)}</div>
       <p><strong className="text-t1">Specify:</strong> usable width, loading depth, wall / base thickness, straight-section length, base configuration, bend radius, resin and any cover requirements. Dimensions and available tooling are confirmed for the offered product.</p>
-      <div className="flex flex-wrap items-center gap-[22px]"><Button href={familyRfqHref(productFamilies[0])}>Enquire about cable trays</Button><Source source={sources.saiTray} /></div>
+      <div className="flex flex-wrap items-center gap-[22px]"><Button href={familyRfqHref(productFamilies[0])}>Inquire about cable trays</Button><Source source={sources.saiTray} /></div>
     </Section>
 
     <Section id="frp-cable-ladders" title="FRP cable ladders: coordinate the rails, rungs and cable restraints" muted>
@@ -195,7 +195,7 @@ export default function CableTrayApplication({ page }: { page: ApplicationPage }
         ["Cleats & route changes", "Coordinate cable cleats, separation, bend radius and fitting supports. Short-circuit restraint requires its own cable and cleat assessment."],
       ].map(([title, body]) => <article key={title} className="rounded-card border border-border-default bg-white p-[24px]"><h3 className="text-f18 font-bold text-t1">{title}</h3><p className="mt-[10px]">{body}</p></article>)}</div>
       <p className="rounded-card border border-teal-border bg-teal-bg px-[22px] py-[18px]"><strong className="text-t1">Rung spacing and support span are different dimensions.</strong> Rung spacing is the distance between cable-bearing cross members. Support span is the distance between brackets or frames carrying the complete ladder. Neither can be inferred from the supplied section length.</p>
-      <div className="flex flex-wrap items-center gap-[22px]"><Button href={familyRfqHref(productFamilies[1])}>Enquire about cable ladders</Button><Source source={sources.saiLadder} /></div>
+      <div className="flex flex-wrap items-center gap-[22px]"><Button href={familyRfqHref(productFamilies[1])}>Inquire about cable ladders</Button><Source source={sources.saiLadder} /></div>
     </Section>
 
     <Section id="trunking" title="Covered trays and GRP trunking: specify the complete enclosure">
@@ -211,7 +211,7 @@ export default function CableTrayApplication({ page }: { page: ApplicationPage }
             <li><strong className="text-t1">Environment:</strong> drainage paths, condensation, UV exposure and compatible fasteners.</li>
             <li><strong className="text-t1">Enclosure duty:</strong> required ingress protection and evidence for the assembled joints, lids and penetrations.</li>
           </ul>
-          <Button href={familyRfqHref(productFamilies[2])}>Enquire about covered routes</Button>
+          <Button href={familyRfqHref(productFamilies[2])}>Inquire about covered routes</Button>
           <div><Source source={sources.trunking} /></div>
         </div>
       </div>
@@ -258,7 +258,7 @@ export default function CableTrayApplication({ page }: { page: ApplicationPage }
       <Table caption="Include fittings and accessories in the bill of materials" headers={["Group", "Items to schedule", "Coordination question"]} rows={[
         ["Route changes", "Horizontal bends, tees, crosses, reducers and vertical risers", "Does every fitting respect the cable’s minimum bending radius and have the required local support?"],
         ["Connections", "Splice plates, bolts, washers, expansion connections and hold-downs", "Do joints and fixed / sliding points follow the offered system’s tested arrangement?"],
-        ["Cable organisation", "Dividers, cable ties, cleats and identification", "Are segregation, cable restraint and short-circuit duties specified separately?"],
+        ["Cable organization", "Dividers, cable ties, cleats and identification", "Are segregation, cable restraint and short-circuit duties specified separately?"],
         ["Protection & interfaces", "Covers, cover clamps, end treatments, support brackets and anchors", "Are wind exposure, cut edges, substrate and dissimilar-material interfaces addressed?"],
       ]} />
       <Table caption="NHC support-component examples — supplier model identifiers" headers={["Model", "Total length (mm)", "Effective length (mm)", "Published mass (kg)"]} rows={[
@@ -284,7 +284,7 @@ export default function CableTrayApplication({ page }: { page: ApplicationPage }
         ["Hardware", "Compatible stainless or qualified composite splice, fixing and cover hardware.", "Confirm grade, size, hole geometry, torque, corrosion exposure and electrical bonding requirements."],
       ]} />
       <Table caption="FRP versus metal: compare the installed solution" headers={["Material", "Why it may fit", "Tradeoff to review"]} rows={[
-        ["Glass FRP", "Corrosion resistance in compatible chemical service; insulating structural material; manageable component weight.", "Stiffness, sustained-load behaviour, temperature, fire criteria and connection detailing."],
+        ["Glass FRP", "Corrosion resistance in compatible chemical service; insulating structural material; manageable component weight.", "Stiffness, sustained-load behavior, temperature, fire criteria and connection detailing."],
         ["Galvanized steel", "High stiffness and familiar support details for many industrial routes.", "Coating suitability, damaged or cut surfaces, corrosion exposure and maintenance access."],
         ["Stainless steel", "Mechanical robustness and corrosion resistance where a suitable grade is selected.", "Specific chemical and chloride exposure, weight, installed cost and bonding requirements."],
         ["Aluminum", "Low weight and useful corrosion resistance in suitable environments.", "Chemical compatibility, galvanic interfaces, thermal movement and electrical bonding."],
@@ -296,7 +296,7 @@ export default function CableTrayApplication({ page }: { page: ApplicationPage }
     <Section id="engineering" title="A tray width is not a load rating" muted>
       <p className="max-w-[920px]">Select the complete load path: cables → tray rungs and rails → crossarm or bracket → frame and connections → anchors and supporting structure. Each part needs appropriate evidence.</p>
       <div className="grid gap-[20px] md:grid-cols-2">{[
-        ["01", "Build the load schedule", "List installed cable mass per metre, future allowance, tray and cover self-weight, and any concentrated or installation loads. Define wind, ice, seismic and other site actions where applicable."],
+        ["01", "Build the load schedule", "List installed cable mass per meter, future allowance, tray and cover self-weight, and any concentrated or installation loads. Define wind, ice, seismic and other site actions where applicable."],
         ["02", "Match the tested arrangement", "Read load capacity together with support spacing, deflection, splice position and end-span conditions. A multi-span result cannot automatically be used for a single span or a cantilever."],
         ["03", "Check sustained service", "Review creep, temperature effects and environmental reduction factors using the offered laminate and system data. Ask which factors are already included in the published allowable load."],
         ["04", "Verify local and electrical actions", "Check bracket bending, bolt bearing, connection slip, pull-out and substrate anchorage. Cleat forces and cable short-circuit restraint need their own assessment."],
@@ -324,7 +324,7 @@ export default function CableTrayApplication({ page }: { page: ApplicationPage }
         ["IEC 61084-1:2017 + AMD1:2024", "General requirements for cable trunking and ducting; Part 1 is used with the applicable specific part.", "System classification and tests for the complete enclosure, fittings and openings."],
         ["UL 568", "Nonmetallic cable tray evaluation for the relevant market.", "If required, a verifiable listing or certification record covering the exact offered system."],
         ["EN 13706 / ASTM D3917", "Pultruded-profile requirements / dimensional tolerances, respectively.", "Profile and laminate documentation; these do not replace cable-system testing."],
-        ["ASTM E84 / specified fire tests", "Surface burning or other explicitly specified fire behaviour.", "The actual specimen, method and result. A surface-burning test does not establish circuit integrity or structural fire endurance."],
+        ["ASTM E84 / specified fire tests", "Surface burning or other explicitly specified fire behavior.", "The actual specimen, method and result. A surface-burning test does not establish circuit integrity or structural fire endurance."],
         ["IEC 61914", "Cable cleats and intermediate restraints, including declared electromechanical duties.", "Evidence for the cable arrangement, cleat spacing and relevant short-circuit forces."],
         ["Legacy NEMA FG 1 references", "Historical fiberglass cable-tray classifications still seen in catalogues.", "Clarify the contractual requirement: FG 1 was rescinded in November 2017. Do not present it as a current standard."],
       ]} />
@@ -347,7 +347,7 @@ export default function CableTrayApplication({ page }: { page: ApplicationPage }
       <Table caption="Project information for FRP cable trays and cable ladders" headers={["Input", "Information to send", "Why it matters"]} rows={[
         ["Supply boundary", "Raw profiles, fabricated supports, tray sections or complete system; engineering and installation responsibilities.", "Makes the offered package and exclusions explicit."],
         ["Geometry", "Tray base / opening pattern or ladder rung spacing; route drawing, width, loading depth, length, bends, risers, reducers and minimum cable bend radius.", "Defines straight sections, fittings and usable space."],
-        ["Cable and support loads", "Cable schedule, mass per metre, future allowance, point loads, spans and support arrangement.", "Sets system capacity and individual support checks."],
+        ["Cable and support loads", "Cable schedule, mass per meter, future allowance, point loads, spans and support arrangement.", "Sets system capacity and individual support checks."],
         ["Exposure", "Chemicals and concentrations, splash or immersion, temperature range, UV and coastal exposure.", "Guides resin, surface protection and hardware selection."],
         ["Interfaces", "Wall / floor / overhead structure, bracket projection, anchors, hole patterns and access restrictions.", "Defines connection loads and fabrication details."],
         ["Acceptance evidence", "Project standards and editions, fire / smoke requirements, electrical criteria and inspection documents.", "Aligns the proposed configuration with the approval process."],

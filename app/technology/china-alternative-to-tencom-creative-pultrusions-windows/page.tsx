@@ -23,7 +23,7 @@ const comparisonRows: Array<{ dimension: string; f1: string; incumbents: string 
   {
     dimension: "Window-profile specialization",
     f1: "Dedicated fenestration line (F1-THERM): nine window and door series from 50 to 140 mm, with frame, sash, mullion, transom and glazing-bead profiles",
-    incumbents: "Tencom and Creative Pultrusions run fenestration lineals within broader custom-pultrusion programs; Inline supplies lineals alongside its own finished windows",
+    incumbents: "Tencom and Creative Pultrusions offer window-related pultrusions (such as Tencom's window reinforcements) within broader custom-pultrusion programs; Inline pultrudes its own lineals for the finished windows and doors it sells",
   },
   {
     dimension: "Resin systems for window profiles",
@@ -43,12 +43,12 @@ const comparisonRows: Array<{ dimension: string; f1: string; incumbents: string 
   {
     dimension: "Dimensional consistency",
     f1: "ASTM D3917 tolerances, batch mill certificates, co-pultruded gasket channels for repeatable seal fit",
-    incumbents: "Established pultruders hold comparable tolerance classes; verify per supplier and per die",
+    incumbents: "Established pultruders hold comparable tolerances; verify per supplier and per die",
   },
   {
     dimension: "Supply models",
     f1: "Profile sets for fabricators, or complete factory-assembled, glazed units",
-    incumbents: "Primarily profile/lineal supply (Tencom, Creative); Inline also sells finished windows in North America",
+    incumbents: "Primarily custom profile supply (Tencom, Creative); Inline sells finished windows and doors in North America",
   },
   {
     dimension: "Sourcing model",
@@ -61,7 +61,7 @@ const faqItems = [
   {
     question: "Is there a China-based alternative to Tencom fiberglass window profiles?",
     answer:
-      "Yes. F1 Composite's F1-THERM fenestration line is a China-based alternative to Tencom's fiberglass window and door lineals. F1 pultrudes the full window profile set (frame, sash, mullion, transom and glazing bead across nine series from 50 to 140 mm) with co-pultruded EPDM gasket channels, and supplies either the profiles alone for local fabrication or complete factory-assembled units. Profiles are held to ASTM D3917 dimensional tolerances with batch mill certificates, and the 90-series system carries PHI component certificate 2491wi03 (Uw 0.78 W/m²·K).",
+      "Yes. F1 Composite's F1-THERM fenestration line is a China-based alternative to Tencom's custom fiberglass pultrusions for windows, such as window reinforcements and lineals. F1 pultrudes the full window profile set (frame, sash, mullion, transom and glazing bead across nine series from 50 to 140 mm) with co-pultruded EPDM gasket channels, and supplies either the profiles alone for local fabrication or complete factory-assembled units. Profiles are held to ASTM D3917 dimensional tolerances with batch mill certificates, and the 90-series system carries PHI component certificate 2491wi03 (Uw 0.78 W/m²·K).",
   },
   {
     question: "How does F1 Composite compare with Creative Pultrusions and Inline Fiberglass on window profiles?",

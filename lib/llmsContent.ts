@@ -29,7 +29,7 @@ function keyFacts({ withRelationship = true } = {}): string {
     ...(withRelationship ? [`- Relationship: ${companyStatements.relationship}`] : []),
     `- Production: ${companyStatements.production}`,
     `- Founded: ${company.foundingYear}; ships to ${company.exportCountries} countries`,
-    `- Contact: ${company.contact.email}, ${company.contact.phone}; enquiries answered within ${supplyTerms.responseTime}`,
+    `- Contact: ${company.contact.email}, ${company.contact.phone}; inquiries answered within ${supplyTerms.responseTime}`,
     `- Certificates: ${companyStatements.certificates}`,
     `- Name: ${companyStatements.disambiguation}`,
   ].join("\n");

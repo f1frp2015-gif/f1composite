@@ -29,12 +29,12 @@ const comparisonRows: Array<{ dimension: string; f1: string; incumbents: string 
   {
     dimension: "Structural range",
     f1: "Full range: I-beam, channel, angle, square/round tube, flat bar, rod, plus gratings, fenestration & custom",
-    incumbents: "Full range (Strongwell, Creative, Fiberline); Exel focuses on fewer segments",
+    incumbents: "Broad structural-shape ranges (Strongwell, Creative, Exel); Fiberline Building Profiles covers profiles, planks and gratings",
   },
   {
     dimension: "Sourcing model",
     f1: "Direct from the manufacturing factory: no regional distributor layer",
-    incumbents: "Established Western brands sold largely through regional distributors / stocking partners",
+    incumbents: "Established Western brands sold through their own sales teams, regional distributors and stocking partners (Fiberline also runs a webshop for Europe)",
   },
   {
     dimension: "Pricing basis",
@@ -49,7 +49,7 @@ const comparisonRows: Array<{ dimension: string; f1: string; incumbents: string 
   {
     dimension: "Export terms",
     f1: `FOB or DDP to ${company.exportCountries} countries, export documentation handled in-house`,
-    incumbents: "Domestic-market focus; export via distributors where available",
+    incumbents: "Regional plants (USA for Strongwell and Creative; Fiberline in Denmark and Poland; Exel in Europe, the US, China and India); international supply through their sales networks",
   },
 ];
 
@@ -62,7 +62,7 @@ const faqItems = [
   {
     question: "How does F1 Composite compare with Creative Pultrusions, Fiberline, and Exel?",
     answer:
-      "F1 Composite supplies to the same EN 13706 / ASTM D3917 specifications as Creative Pultrusions (USA), Fiberline Composites (Denmark) and Exel Composites (Finland). Like Strongwell, Creative and Fiberline, F1 supplies the full structural range plus grating, window profiles and custom pultrusions. The difference is the route to market: F1 is the export company of the manufacturer, FengDu New Material, and ships on FOB or DDP terms rather than through regional distribution.",
+      "F1 Composite supplies to the same EN 13706 / ASTM D3917 specifications as Creative Pultrusions (USA), Fiberline Building Profiles (Denmark) and Exel Composites (Finland). F1 supplies the full structural range plus grating, window profiles and custom pultrusions from one supplier. The difference is the route to market: F1 is the export company of the manufacturer, FengDu New Material, and ships on FOB or DDP terms rather than through regional distribution.",
   },
   {
     question: "Are Chinese pultruded FRP profiles made to the same standards as Western brands?",
@@ -115,8 +115,8 @@ export default function ChinaAlternativePage() {
       {/* Positioning intro */}
       <PageSection id="positioning" title="Same specification, factory-direct from China" tone="white">
         <p className="text-f16 leading-golden text-t2">
-          Strongwell (EXTREN®, USA), Creative Pultrusions (USA), Fiberline Composites
-          (Denmark), and Exel Composites (Finland) are the established Western names in
+          Strongwell (EXTREN®, USA), Creative Pultrusions (USA), Fiberline Building
+          Profiles (Denmark), and Exel Composites (Finland) are the established Western names in
           pultruded FRP. They are excellent manufacturers, and they all build to the same
           international standards that{" "}
           <Link href="/pultruded-frp-profiles" className="font-semibold text-teal-text hover:text-teal">
@@ -206,7 +206,7 @@ export default function ChinaAlternativePage() {
                   series: "EXTREN® Series 500 · Pultex® 1500-series",
                   resin: "Polyester with surfacing veil, general purpose",
                   f1: "F1-STRUX polyester (EN 13706 E17/E23, ASTM D3917)",
-                  verify: "Flexural/tensile values and tolerance class per datasheet",
+                  verify: "Flexural/tensile values per datasheet; tolerances per drawing",
                 },
                 {
                   series: "EXTREN® Series 525 · Pultex® 1525-series",

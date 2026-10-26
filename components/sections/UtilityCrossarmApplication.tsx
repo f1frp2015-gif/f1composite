@@ -15,7 +15,7 @@ const quoteHref = buildRfqHref({
   source: "frp-utility-crossarms",
   product: "FRP utility crossarms",
   productPath: path,
-  message: "Please review an FRP crossarm enquiry. Utility / country: __. Pole and line arrangement: __. Voltage class: __. Tangent / angle / dead-end duty: __. Conductor and insulator positions: __. Design loads and deflection limits: __. Crossarm length, section and hole drawing: __. Surface, electrical and test requirements: __. Quantity and destination: __. Drawings can follow.",
+  message: "Please review an FRP crossarm inquiry. Utility / country: __. Pole and line arrangement: __. Voltage class: __. Tangent / angle / dead-end duty: __. Conductor and insulator positions: __. Design loads and deflection limits: __. Crossarm length, section and hole drawing: __. Surface, electrical and test requirements: __. Quantity and destination: __. Drawings can follow.",
 });
 
 const navigation = [
@@ -53,7 +53,7 @@ const faqs = [
   { question: "What voltage rating does a fiberglass crossarm have?", answer: "There is no universal voltage rating from the material name or crossarm shape. Insulation coordination depends on the complete line geometry, insulators, contamination, clearances and tests required by the utility." },
   { question: "Are distribution and transmission crossarms the same product?", answer: "They may use similar composite materials, but transmission members can have much larger spans, forces and connection systems. This page describes distribution planning; transmission or H-frame work needs a separate engineering and qualification scope." },
   { question: "Can new holes be drilled on site?", answer: "Only if the approved design and supplier procedure permit them. Added holes can change bending capacity and local bearing, and freshly exposed laminate requires the specified sealing treatment." },
-  { question: "What should I send for a first quotation?", answer: "A utility drawing or sketch, pole configuration, voltage class, load schedule, crossarm dimensions and hole plan, material and test requirements, quantity and destination. The initial enquiry can be sent before every detail is final." },
+  { question: "What should I send for a first quotation?", answer: "A utility drawing or sketch, pole configuration, voltage class, load schedule, crossarm dimensions and hole plan, material and test requirements, quantity and destination. The initial inquiry can be sent before every detail is final." },
 ];
 
 function Card({ title, body, eyebrow }: { title: string; body: string; eyebrow?: string }) {

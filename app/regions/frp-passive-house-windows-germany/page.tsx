@@ -32,7 +32,7 @@ const faqs = [
   {
     question: "Are FRP windows from China subject to EU anti-dumping duties or CBAM?",
     answer:
-      "Not under current rules. The EU's anti-dumping duties on Chinese aluminum extrusions (Implementing Regulation (EU) 2021/546, 21.2–32.1%) apply to aluminum profiles, so aluminum window systems made from Chinese extrusions carry that cost. CBAM, in its definitive period since January 2026, charges for the embedded carbon of imported iron, steel and aluminum goods, including aluminum doors, windows and frames (CN 7610) and steel ones (CN 7308 30). Pultruded FRP fenestration is a glass-fiber composite, classified under HS 3925.20 or 7019 depending on the configuration, so it falls outside both. We confirm the treatment for the classification we use when we quote. Normal EU customs duty and Germany's 19% import VAT (Einfuhrumsatzsteuer) still apply and are itemized in the DDP Germany price.",
+      "Not under current rules. The EU's anti-dumping duties on Chinese aluminum extrusions (Implementing Regulation (EU) 2021/546, 21.2–32.1%, kept in force during the expiry review opened in March 2026) apply to aluminum profiles, so aluminum window systems made from Chinese extrusions carry that cost. CBAM, in its definitive period since January 2026, charges for the embedded carbon of imported iron, steel and aluminum goods, including aluminum doors, windows and frames (CN 7610) and steel ones (CN 7308 30). Pultruded FRP fenestration is a glass-fiber composite, classified under HS 3925.20 or 7019 depending on the configuration, so it falls outside both. We confirm the treatment for the classification we use when we quote. Normal EU customs duty and Germany's 19% import VAT (Einfuhrumsatzsteuer) still apply and are itemized in the DDP Germany price.",
   },
   {
     question: "Which German and EU standards do F1 Composite FRP windows follow?",
@@ -40,9 +40,9 @@ const faqs = [
       "Windows placed on the EU market carry CE marking under EN 14351-1 with a declaration of performance. Type testing for air permeability, watertightness and wind-load resistance (classified to EN 12207, EN 12208 and EN 12210) is arranged per project at an accredited European laboratory such as ift Rosenheim. Thermal performance is calculated to EN ISO 10077. The published Passive House document is PHI component certificate 2491wi03 for the 90-series window (Uw 0.78 W/m²·K, phB class), issued by the Passive House Institute in Darmstadt.",
   },
   {
-    question: "Do F1 FRP windows meet GEG, BEG funding and Passivhaus targets?",
+    question: "Do F1 FRP windows meet GEG / GModG, BEG funding and Passivhaus targets?",
     answer:
-      "The certified 90-series configuration does. Its Uw of 0.78 W/m²·K (PHI 2491wi03, phB) is below the GEG reference window value of 1.3, the BEG threshold of 0.95 for replacement windows and the PHI criterion of 0.80 for the cool-temperate climate zone. The whole frame insulates (about 0.3 W/m·K, against 160 for aluminum), with no metal thermal break and no steel reinforcement as in uPVC frames. GEG compliance and BEG funding are assessed for the building or the measure, so confirm the Uw for your window sizes and glazing in the energy calculation.",
+      "The certified 90-series configuration does. Its Uw of 0.78 W/m²·K (PHI 2491wi03, phB) is below the reference window value of 1.3 in the Gebäudemodernisierungsgesetz (GModG), which replaced the GEG on 29 July 2026, the BEG threshold of 0.95 for replacement windows and the PHI criterion of 0.80 for the cool-temperate climate zone. The whole frame insulates (about 0.3 W/m·K, against 160 for aluminum), with no metal thermal break and no steel reinforcement as in uPVC frames. GModG compliance and BEG funding are assessed for the building or the measure, so confirm the Uw for your window sizes and glazing in the energy calculation.",
   },
   {
     question: "What are the lead times and shipping options to German sites?",
@@ -57,7 +57,7 @@ const faqs = [
   {
     question: "Does F1 supply profiles to German window fabricators, or only finished windows?",
     answer:
-      `Both. For Passivhaus and Effizienzhaus projects that want the glazing and gaskets fitted in the factory, we ship complete GFRP-PU window units, including tilt-and-turn (Dreh-Kipp) openings. For Germany's window-fabrication trade (Fensterbau), we supply the pultruded profile set (frame, sash, mullion, transom and glazing bead) with EPDM gaskets and fabrication drawings, so a German fabricator assembles locally. FengDu's production network has more than ${company.production.dieSets.toLocaleString("en-US")} existing dies on ${company.production.lines} lines across ${company.production.bases} bases, so many profiles need no new die. Frames can be powder coated with AAMA 2604 / 2605 systems in RAL colors.`,
+      `Both. For Passivhaus and Effizienzhaus projects that want the glazing and gaskets fitted in the factory, we ship complete GFRP-PU window units, including tilt-and-turn (Dreh-Kipp) openings. For Germany's window-fabrication trade (Fensterbau), we supply the pultruded profile set (frame, sash, mullion, transom and glazing bead) with EPDM gaskets and fabrication drawings, so a German fabricator assembles locally. FengDu's production network has more than ${company.production.dieSets.toLocaleString("en-US")} existing dies on ${company.production.lines} lines across ${company.production.bases} bases, so many profiles need no new die. Frames can be powder coated with AAMA 624 / 625 systems in RAL colors.`,
   },
 ];
 
@@ -65,10 +65,10 @@ const standards = [
   { requirement: "CE marking", standard: "EN 14351-1 (windows and external doors)", provides: "Air, water and wind type testing per project", documents: "Test reports and declaration of performance on request" },
   { requirement: "Thermal calculation", standard: "EN ISO 10077, DIN 4108", provides: "Uw 0.78 W/m²·K (90-series, certified size)", documents: "Calculation on request" },
   { requirement: "Passive House thermal", standard: "PHI component certificate", provides: "Uw 0.78, certificate 2491wi03, phB", documents: "PHI certificate (published)" },
-  { requirement: "GEG reference building", standard: "Reference window Uw 1.3", provides: "0.78 in the certified configuration", documents: "Project U-value calculation" },
+  { requirement: "GEG / GModG reference building", standard: "Reference window Uw 1.3 (GModG Annex 1)", provides: "0.78 in the certified configuration", documents: "Project U-value calculation" },
   { requirement: "BEG window funding", standard: "Replacement windows Uw ≤ 0.95", provides: "0.78 in the certified configuration", documents: "U-value calculation on request" },
   { requirement: "Trade costs", standard: "EU anti-dumping duties (aluminum), CBAM (aluminum, steel)", provides: "FRP falls outside both under current rules", documents: "HS classification in the quote" },
-  { requirement: "Architectural coating", standard: "AAMA 2604 / 2605", provides: "Powder coating in RAL colors", documents: "Coater report on request" },
+  { requirement: "Architectural coating", standard: "AAMA 624 / 625", provides: "Powder coating in RAL colors", documents: "Coater report on request" },
 ];
 
 const steps = [
@@ -135,8 +135,9 @@ export default function GermanyRegionPage() {
         <div className="grid gap-[32px] lg:grid-cols-2">
           <div className="space-y-[20px] text-f16 leading-golden text-t2">
             <p>
-              German energy law keeps raising the bar for windows. The GEG reference
-              building assumes a window U<sub>w</sub> of 1.3 W/m²·K, BEG funding for
+              German energy law keeps raising the bar for windows. The reference
+              building of the Gebäudemodernisierungsgesetz (GModG), which replaced the
+              GEG on 29 July 2026, keeps a window U<sub>w</sub> of 1.3 W/m²·K, BEG funding for
               replacement windows asks for U<sub>w</sub> ≤ 0.95, and Passivhaus and
               Effizienzhaus 40 projects usually aim below 0.80. Much of that is decided
               at the frame: thermally broken aluminum needs very high-performance glazing
@@ -154,8 +155,8 @@ export default function GermanyRegionPage() {
           <div className="space-y-[20px] text-f16 leading-golden text-t2">
             <p>
               Trade costs are worth checking too. Chinese aluminum extrusions carry EU
-              anti-dumping duties of 21.2–32.1% (Implementing Regulation (EU) 2021/546),
-              and since January 2026 CBAM charges for the embedded carbon of imported
+              anti-dumping duties of 21.2–32.1% (Implementing Regulation (EU) 2021/546,
+              under expiry review since March 2026), and since January 2026 CBAM charges for the embedded carbon of imported
               aluminum and steel goods, including aluminum window frames. Pultruded FRP
               is a glass-fiber composite, so neither applies to it under current rules.
               Normal EU duty and 19% import VAT are itemized in the DDP price.
@@ -164,7 +165,7 @@ export default function GermanyRegionPage() {
               German projects choose the supply model: complete factory-glazed window
               units, including tilt-and-turn (Dreh-Kipp) openings, or pultruded profile
               sets for a German window fabricator to assemble. Frames can be powder
-              coated with AAMA 2604 / 2605 systems in RAL colors.
+              coated with AAMA 624 / 625 systems in RAL colors.
             </p>
           </div>
         </div>
@@ -199,7 +200,7 @@ export default function GermanyRegionPage() {
             href="/technology/frp-u-value-calculator#frame=frp-90&glass=tg-kr&spacer=warm-premium&type=casement&w=1200&h=1400"
             eyebrow="Free tool · Passivhaus preset"
             title="Check the U-value of a passive house window"
-            sub="Opens the U-value calculator with a 90-series passive house build-up. Change the size and glazing, compare Uw with the GEG reference value, the BEG threshold and the PHI 0.80 criterion, then ask for a DDP Germany quote."
+            sub="Opens the U-value calculator with a 90-series passive house build-up. Change the size and glazing, compare Uw with the GModG (former GEG) reference value, the BEG threshold and the PHI 0.80 criterion, then ask for a DDP Germany quote."
           />
         </div>
       </PageSection>

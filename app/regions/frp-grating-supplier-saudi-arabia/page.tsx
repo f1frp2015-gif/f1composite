@@ -10,7 +10,7 @@ import CoverCard from "@/components/ui/CoverCard";
 import Figure from "@/components/ui/Figure";
 import JsonLd from "@/components/seo/JsonLd";
 import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
-import { company, supplyTerms } from "@/content/data/company";
+import { company, supplyTerms, weeks } from "@/content/data/company";
 import { coverFor, regionCovers } from "@/lib/covers";
 
 const pageTitle =
@@ -41,12 +41,12 @@ const faqs = [
   {
     question: "What are the lead times to Jebel Ali, Dammam, or Jeddah port from China?",
     answer:
-      "Sea freight from Shanghai or Ningbo to Jebel Ali, the UAE port most commonly used for shipments to Saudi Arabia, takes 18–25 days. Less frequent direct sailings to Dammam and Jeddah typically take 22–32 days. For time-sensitive Saudi orders, F1 Composite generally ships CIF Jebel Ali or DAP to the project site, with inland trucking through the GCC road network. Transit from Jebel Ali to Riyadh, Jubail, Yanbu or Ras Tanura takes 1–3 days. The total lead time from purchase order to site is 6–9 weeks for standard FRP grating; custom panel sizes add 2–3 weeks for fabrication.",
+      `Sea freight from Shanghai or Ningbo to Jebel Ali, the UAE port most commonly used for shipments to Saudi Arabia, takes 18–25 days. Less frequent direct sailings to Dammam and Jeddah typically take 22–32 days. For time-sensitive Saudi orders, F1 Composite generally ships CIF Jebel Ali or DAP to the project site, with inland trucking through the GCC road network. Transit from Jebel Ali to Riyadh, Jubail, Yanbu or Ras Tanura takes 1–3 days. Standard grating panels take ${weeks(supplyTerms.catalogLeadTimeWeeks)} to produce, so plan about 5–9 weeks from purchase order to site; custom panel sizes add 2–3 weeks for fabrication.`,
   },
   {
     question: "Can FRP gratings handle 65°C+ desert summer surface temperatures?",
     answer:
-      "Yes, with a vinyl ester resin. Vinyl ester grating keeps most of its structural properties at a continuous 65°C, and its heat-distortion temperature is above 100°C, well over realistic outdoor surface temperatures in Saudi Arabia, even on dark grating in full sun. FRP expands about a third as much as aluminum with temperature, so daily heating and cooling does not open gaps the way it can with aluminum grating. UV-stabilized resin and surfacing veils protect the top surface; plan periodic inspection in strong sun.",
+      "Yes, with a vinyl ester resin. Vinyl ester grating keeps most of its structural properties at a continuous 65°C, and its heat-distortion temperature is above 100°C, well over realistic outdoor surface temperatures in Saudi Arabia, even on dark grating in full sun. FRP expands less than aluminum with temperature, so daily heating and cooling does not open gaps the way it can with aluminum grating. UV-stabilized resin and surfacing veils protect the top surface; plan periodic inspection in strong sun.",
   },
   {
     question: "What grating sizes and load ratings are most commonly ordered for Saudi projects?",
@@ -104,7 +104,7 @@ const steps = [
   },
   {
     title: "Production and documents",
-    body: `Standard panels take 4–6 weeks in FengDu's production network of ${company.production.bases} bases, with batch-traceable mill test certificates and third-party fire and chemical test reports as required.`,
+    body: `Standard panels take ${weeks(supplyTerms.catalogLeadTimeWeeks)} in FengDu's production network of ${company.production.bases} bases, with batch-traceable mill test certificates and third-party fire and chemical test reports as required.`,
   },
   {
     title: "Sea freight and delivery",

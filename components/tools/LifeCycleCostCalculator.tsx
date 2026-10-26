@@ -376,7 +376,7 @@ function LccResults({ result, studyYears, rfqHref, onRfq, share, shareState }: {
         </div>
         <Link href="/fiberglass-pultruded-profile-price" className="block rounded-control border border-teal/30 bg-white p-[12px] text-f14 text-t2 transition-colors hover:border-teal">
           <span className="block font-mono text-f12 uppercase tracking-[0.06em] text-t3">FRP installed cost</span>
-          Planning prices per meter in the price estimator <span aria-hidden>→</span>
+          Planning price ranges per meter in the price estimator <span aria-hidden>→</span>
         </Link>
       </div>
     </div>

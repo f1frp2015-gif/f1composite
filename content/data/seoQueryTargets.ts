@@ -674,7 +674,7 @@ export const seoQueryTargets = [
     intent: "comparison",
     title: "China Alternative to Strongwell, Fiberline & Exel FRP",
     description:
-      "Compare F1-STRUX pultruded FRP profiles with Strongwell, Fiberline, Creative Pultrusions and Exel on standards, tooling, capacity and export supply.",
+      "Compare F1-STRUX pultruded FRP profiles with Strongwell, Fiberline, Creative Pultrusions and Exel on standards, tooling and export supply.",
     supportingUrls: [
       "/pultruded-frp-profiles",
       "/resources/how-to-choose-frp-pultrusion-supplier",

@@ -49,7 +49,7 @@ export const authors: Author[] = [
       "ASTM D3917 dimensional tolerance",
       "ASCE/SEI 74-23 LRFD design",
       "FRP cable tray engineering",
-      "AS/NZS 4420 fenestration installation",
+      "AS 2047 and AS/NZS 4420.1 window testing",
     ],
     accent: "#0f8a83",
   },

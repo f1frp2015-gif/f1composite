@@ -22,7 +22,7 @@ const seoTarget = getSeoQueryTarget(pagePath);
 const pageTitle = seoTarget.title;
 const pageDescription = seoTarget.description;
 const publishedAt = "2026-04-04";
-const updatedAt = "2026-10-11";
+const updatedAt = "2026-10-26";
 const author = authorsBySlug["haifeng-gong"];
 const reviewer = authorsBySlug["yifan-liu"];
 const { firstRun, repeat } = supplyTerms.customMoqMeters;
@@ -78,7 +78,7 @@ const dimensions = [
   { label: "Maximum cross-section", value: "600 × 300 mm" },
   { label: "Minimum wall thickness", value: "1.5 mm" },
   { label: "Maximum wall thickness", value: "30 mm" },
-  { label: "Maximum profile length", value: "14 m standard" },
+  { label: "Maximum profile length", value: `${supplyTerms.standardLengthM} m standard; up to 14 m by agreement (lengths over about 11.8 m do not fit a standard container)` },
   { label: "Dimensional tolerance", value: "Agreed by feature and drawing revision" },
 ];
 
@@ -154,7 +154,7 @@ const faqItems = [
   {
     question: "What lead time should we expect from inquiry to first delivery?",
     answer:
-      `For a new custom profile with no existing tooling, the typical lead time from approved design to first delivery is ${weeks(supplyTerms.newDieLeadTimeWeeks)}. This includes tooling manufacture (${weeks(supplyTerms.dieManufactureWeeks)}), trial run and validation (1–2 weeks), and production of the first order (1–2 weeks). We can compress this timeline for urgent projects by running parallel workstreams, though expedited fees may apply. Repeat orders with existing tooling typically ship within ${weeks(supplyTerms.catalogLeadTimeWeeks)}.`,
+      `For a new custom profile with no existing tooling, the typical lead time from approved design to first delivery is ${weeks(supplyTerms.newDieLeadTimeWeeks)}. This covers tooling manufacture (${weeks(supplyTerms.dieManufactureWeeks)}), followed by the trial run, validation and production of the first order. We can compress this timeline for urgent projects by running parallel workstreams, though expedited fees may apply. Repeat orders with existing tooling typically ship within ${weeks(supplyTerms.catalogLeadTimeWeeks)}.`,
   },
   {
     question: "Can you guarantee the same tolerance on every feature?",

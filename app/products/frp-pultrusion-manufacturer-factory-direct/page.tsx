@@ -17,7 +17,7 @@ import { buildPageMetadata, buildProductFamilyPageSchema } from "@/lib/seo";
 const pagePath = "/products/frp-pultrusion-manufacturer-factory-direct";
 const seoTarget = getSeoQueryTarget(pagePath);
 const publishedAt = "2026-07-30";
-const updatedAt = "2026-09-23";
+const updatedAt = "2026-10-26";
 const author = authorsBySlug["haifeng-gong"];
 const reviewer = authorsBySlug["yifan-liu"];
 
@@ -76,7 +76,7 @@ const qualificationSteps = [
   },
   {
     title: "Validate material and tooling",
-    body: "Before tooling is quoted, the resin, glass architecture, die envelope, pulling force, cure window and expected production rate are reviewed. The first-article plan should say which dimensions and properties are measured, which reports you receive, and what happens if the sample misses the agreed criteria. Problems caught at this stage never reach volume production.",
+    body: "Before tooling is quoted, the resin, glass architecture, die envelope, pulling force, cure window and expected production rate are reviewed. The first-article plan should say which dimensions and properties are measured, which reports you receive, and what happens if the sample misses the agreed criteria. Problems caught at this stage are fixed before volume production starts.",
   },
   {
     title: "Release controlled production",

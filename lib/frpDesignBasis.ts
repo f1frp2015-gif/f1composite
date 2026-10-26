@@ -10,11 +10,20 @@
 //  - Metals: minimum yield strengths of the cited product standards, elastic
 //    moduli of the design code of the same market (EN 1993/EN 1999 in Europe,
 //    AISC 360, CSA S16 and AS 4100 elsewhere).
-//  - ASCE/SEI 74-23 resistance factors are applied as φ = 0.65 for both
-//    flexure and shear; the time-effect factors λ are the ASCE LRFD
-//    Pre-Standard (2010) values that ASCE/SEI 74-23 builds on.
-//  - CEN/TS 19101:2022 is screened with γ_M = 1.5 and EN 1990:2023 actions
-//    for consequence class CC2 (k_F = 1.0).
+//  - ASCE/SEI 74-23: one screening φ = 0.65 is applied to flexure and shear.
+//    This value is NOT verified against the standard text (confidence C);
+//    committee presentations say the 74-23 φ factors are generally equal to
+//    or lower than the 2010 Pre-Standard's, and Harati et al. (SSRN 6736780,
+//    2026) report a uniform φ = 0.5 for lateral-torsional buckling, which the
+//    tools do not check. The time-effect factors λ (0.4 / 0.6 / 0.8 / 1.0)
+//    and the moisture factor C_M (0.75 strength, 0.90 modulus) match the
+//    ASCE/SEI 74 tables presented by committee members at ACMA events
+//    (Zarghamee, SGH; acmanet.org 2024 uploads), confidence B.
+//  - CEN/TS 19101:2022 is screened with γ_M = 1.5 (not verified against the
+//    TS tables, confidence C) and EN 1990:2023 actions for consequence class
+//    CC2 (k_F = 1.0). CEN/TC 250 approved Eurocode 11 (prEN 19101-1-1, -1-2
+//    and -2) as new projects in July 2026; no publication date is set.
+//    (Review: docs/audits/2026-09-26, 2026-09-28; content audit 2026-10-26.)
 
 export type MaterialGroup = "FRP" | "Metal";
 
@@ -69,9 +78,9 @@ export const DESIGN_MATERIALS: Record<string, DesignMaterial> = {
  */
 export const MARKET_CODES = [
   { market: "United States", loads: "ASCE 7-22 through the IBC: 1.4D; 1.2D + 1.6L", design: "ASCE/SEI 74-23 (LRFD for pultruded GFRP shapes and connections)", related: "OSHA 29 CFR 1910 Subpart D for workplace access; ASTM D3917 dimensional tolerances" },
-  { market: "European Union", loads: "EN 1990:2023 and EN 1991: 1.35·k_F·G; 1.5·k_F·Q (k_F = 1.0 for CC2), national annexes", design: "CEN/TS 19101:2022, Eurocode expected by 2028", related: "EN 13706 product specification; EN ISO 14122 for machinery access" },
+  { market: "European Union", loads: "EN 1990:2023 and EN 1991: 1.35·k_F·G; 1.5·k_F·Q (k_F = 1.0 for CC2), national annexes", design: "CEN/TS 19101:2022; its conversion to Eurocode 11 (prEN 19101) started as a CEN project in July 2026, with no publication date yet", related: "EN 13706 product specification; EN ISO 14122 for machinery access" },
   { market: "United Kingdom", loads: "BS EN 1990 and BS EN 1991 with UK National Annexes", design: "PD CEN/TS 19101:2022", related: "BS EN 13706; BS EN ISO 14122 for machinery access" },
-  { market: "Canada", loads: "NBC Part 4 (NBC 2020; NBC 2025 published December 2025, adopted by each province on its own timetable: check the edition in force): 1.4D; 1.25D + 1.5L", design: "No standard specific to pultruded shapes; CSA S806 covers self-supporting FRP components and FRP-reinforced or strengthened concrete in buildings and is the usual Canadian reference", related: "CSA S6:25 for bridges; CSA S807 for FRP bars" },
+  { market: "Canada", loads: "NBC Part 4 (NBC 2020; NBC 2025 published December 2025, adopted by each province on its own timetable: check the edition in force): 1.4D; 1.25D + 1.5L", design: "No standard specific to pultruded shapes; CSA S806:26 (third edition, 2026) covers FRP building components and FRP-reinforced or strengthened concrete in buildings and is the usual Canadian reference", related: "CSA S6:25 for bridges; CSA S807 for FRP bars" },
   { market: "Australia", loads: "AS/NZS 1170.0 and 1170.1: 1.35G; 1.2G + 1.5Q", design: "No Australian standard for pultruded shapes; published Australian design guides use the ASCE LRFD approach with AS/NZS 1170 loads", related: "AS 1657:2018 for platforms, walkways, stairs and ladders; AS 5204:2023 for FRP bars" },
   { market: "New Zealand", loads: "AS/NZS 1170.0 and 1170.1 through NZBC B1: 1.35G; 1.2G + 1.5Q", design: "No New Zealand standard for pultruded shapes; the resistance model is agreed with the building consent authority", related: "NZBC D1 and F4 for access routes and barriers" },
 ] as const;
@@ -108,7 +117,10 @@ export const DESIGN_METHODS: Record<DesignMethod, DesignMethodBasis> = {
 /**
  * Load duration for the ASCE/SEI 74-23 path: the time-effect factor λ on
  * resistance and the ASCE 7-22 factor on the one load the calculator carries.
- * λ values: ASCE LRFD Pre-Standard for pultruded FRP (2010), Table 2.3-1.
+ * λ values: the ASCE/SEI 74 table as presented by committee members (ACMA,
+ * 2021 and 2024), unchanged from the 2010 Pre-Standard Table 2.3-1. The
+ * standard also gives 0.75 for 1.2D + 1.6(Lr or S or R) and 1.0 for live-load
+ * impact; those cases are not offered here.
  */
 export const LOAD_DURATIONS = [
   { id: "occupancy", label: "Live load from occupancy (1.2D + 1.6L)", lambda: 0.8, loadFactor: 1.6 },
@@ -129,10 +141,10 @@ export function loadDuration(id: string) {
  */
 export const ENV_FACTORS = [
   { id: "indoor-dry", label: "Indoor, dry, ≤ 30 °C", factor: 1.0, stiffness: 1.0, note: "Reference; no knockdown" },
-  { id: "outdoor", label: "Outdoor, exposed (UV + humidity)", factor: 0.85, stiffness: 1.0, note: "In line with the moisture conversion factor CEN/TS 19101 uses for outdoor exposure not continuously wet" },
-  { id: "wet", label: "Wet / immersion", factor: 0.75, stiffness: 0.9, note: "ASCE/SEI 74-23 wet-service adjustment for a polyester matrix: 0.75 on strength, 0.90 on stiffness" },
+  { id: "outdoor", label: "Outdoor, exposed (UV + humidity)", factor: 0.85, stiffness: 1.0, note: "F1 screening value for outdoor exposure that is not continuously wet; a CEN/TS 19101 design uses the standard's own moisture conversion factor" },
+  { id: "wet", label: "Wet / immersion", factor: 0.75, stiffness: 0.9, note: "ASCE/SEI 74-23 sustained-moisture factor C_M: 0.75 on strength, 0.90 on stiffness, the same for polyester and vinyl ester" },
   { id: "chemical", label: "Mild chemical (acid/alkali)", factor: 0.75, stiffness: 1.0, note: "F1 screening value; resin-specific chemical data are needed" },
-  { id: "hot", label: "Elevated temperature (32–60 °C)", factor: 0.7, stiffness: 1.0, note: "F1 screening value; stiffness also falls, so ask for resin data. ASCE/SEI 74-23 limits service temperature to T_g − 22 °C" },
+  { id: "hot", label: "Elevated temperature (32–49 °C)", factor: 0.7, stiffness: 0.74, note: "ASCE/SEI 74-23 temperature factor C_T for a polyester matrix at 49 °C (120 °F): 1.9 − 0.010T on strength and 1.7 − 0.008T on stiffness, T in °F. At 60 °C these fall to 0.50 and 0.58, so ask for resin data. Service is limited to T_g − 22 °C" },
 ] as const;
 
 export type EnvFactorId = (typeof ENV_FACTORS)[number]["id"];

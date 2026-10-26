@@ -46,7 +46,7 @@ export default function TermsPage() {
 
             <div>
               <h2 className={h2}>3. Intellectual property</h2>
-              <p>The content of this website, including text, images, graphics, CAD drawings and technical data, belongs to {company.legalName} or is used under licence, and is protected by copyright. You may not reproduce, distribute or republish it without our written permission.</p>
+              <p>The content of this website, including text, images, graphics, CAD drawings and technical data, belongs to {company.legalName} or is used under license, and is protected by copyright. You may not reproduce, distribute or republish it without our written permission.</p>
             </div>
 
             <div id="image-use" className="scroll-mt-[100px]">
@@ -55,7 +55,7 @@ export default function TermsPage() {
                 Photos of FengDu&apos;s production halls, of our products in production and of our own installations carry the mark &quot;© f1composite.com&quot; and copyright information in the file. They are {photoRights.notice.replace(" All rights reserved.", "")}. You may not use them to present another company&apos;s plant, products or projects, or to advertise products we did not make. Distributors and customers selling our products may use them with our written permission and the credit &quot;Photo: {photoRights.credit}&quot;.{" "}
                 <Link className="font-semibold text-teal-text underline underline-offset-4" href="/contact?source=image-license&inquiry_type=general">Ask us for permission</Link>.
               </p>
-              <p className="mt-[12px]">Images labelled &quot;Illustrative photo&quot; are stock images licensed from third parties; we cannot license them to you.</p>
+              <p className="mt-[12px]">Images labeled &quot;Illustrative photo&quot; are stock images licensed from third parties; we cannot license them to you.</p>
             </div>
 
             <div>

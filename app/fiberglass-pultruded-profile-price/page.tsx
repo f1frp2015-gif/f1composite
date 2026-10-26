@@ -93,7 +93,7 @@ export default function ProfilePricePage() {
     {
       question: "What is the minimum order quantity for pultruded profiles?",
       answer:
-        `Standard catalog sections run from 100 m (rounds, squares, angles) to 200 m (channels, I-beams) minimum. Below those lengths the estimator adds a small-batch premium, which reflects real setup economics rather than a penalty. Custom cross-sections carry a ${supplyTerms.customMoqMeters.firstRun} m first-run minimum; the custom pultrusions page gives tooling costs and lead times.`,
+        `Catalog sections have no fixed minimum; quantity and production timing are confirmed in the quotation. Below about 100 m (rounds, squares, angles) to 200 m (channels, I-beams) the estimator adds a small-batch premium, which reflects real setup economics rather than a penalty. Custom cross-sections carry a ${supplyTerms.customMoqMeters.firstRun} m first-run minimum; the custom pultrusions page gives tooling costs and lead times.`,
     },
     {
       question: "How much more expensive is carbon fiber pultrusion?",
@@ -102,12 +102,12 @@ export default function ProfilePricePage() {
     {
       question: "Does the price include shipping and import duty?",
       answer:
-        "No. The figures on this page are indicative FOB China. Ocean freight, insurance, import duty, and Section 301 exposure depend on your port and HS classification. We quote DDP for the USA with duty pre-cleared line by line; the DDP, tariffs and HS-code guide explains exactly how those layers stack.",
+        "No. The figures on this page are indicative FOB China. Ocean freight, insurance, import duty, and Section 301 exposure depend on your port and HS classification. We quote DDP for the USA with duties itemized line by line; the DDP, tariffs and HS-code guide explains exactly how those layers stack.",
     },
     {
       question: "How do I convert the price per meter to price per foot?",
       answer:
-        "Divide by 3.281. A profile at $10.00 per meter is about $3.05 per linear foot. Quotations can be issued in either unit — US buyers usually receive per-foot line items and metric section drawings.",
+        "Divide the per-meter figure by 3.281 (one meter is 3.281 feet). Quotations can be issued in either unit — US buyers usually receive per-foot line items and metric section drawings.",
     },
   ];
 
@@ -202,7 +202,7 @@ export default function ProfilePricePage() {
           </table>
         </div>
         <p className="mt-[12px] max-w-[860px] text-f14 leading-golden text-t3">
-          Indicative export pricing for budgeting, not an offer. Dimensions follow the{" "}
+          Indicative export price ranges for budgeting, not an offer; the actual price is set by the written RFQ quotation. Dimensions follow the{" "}
           <Link href="/products/fiberglass-structural-shapes" className="font-semibold text-teal-text hover:underline">published size catalog</Link>; the kg/m column is the pricing model&rsquo;s nominal-section mass, and where a datasheet publishes a lower weight, the datasheet prevails. Other sizes scale with section mass. Duty and freight are excluded; see the{" "}
           <Link href="/resources/frp-pultrusion-fob-ddp-export-guide" className="font-semibold text-teal-text hover:underline">DDP, tariffs and HS code guide</Link>.
         </p>
@@ -213,7 +213,7 @@ export default function ProfilePricePage() {
           {[
             {
               title: "Section mass (kg per meter)",
-              body: <>The biggest driver. Glass and resin are bought by the kilogram, so a 305&times;305 I-beam at 16 kg/m contains about ten times the material of a 50&times;50 angle at 1.1 kg/m. That is why per-kg comparisons between quotes mean more than per-meter ones.</>,
+              body: <>The biggest driver. Glass and resin are bought by the kilogram, so a 305&times;305 I-beam at 16 kg/m contains about fifteen times the material of a 50&times;50 angle at 1.1 kg/m. That is why per-kg comparisons between quotes mean more than per-meter ones.</>,
             },
             {
               title: "Resin system",
@@ -221,7 +221,7 @@ export default function ProfilePricePage() {
             },
             {
               title: "Pull speed of the shape",
-              body: <>Simple rounds pull at three to four times the line speed of a deep wide-flange beam, so the machine-hour cost per meter differs widely. Open, thin, symmetric shapes are cheap; thick flange-web junctions are slow.</>,
+              body: <>Simple rounds pull at two to three times the line speed of a deep wide-flange beam, so the machine-hour cost per meter differs widely. Open, thin, symmetric shapes are cheap; thick flange-web junctions are slow.</>,
             },
             {
               title: "Order quantity",
@@ -249,9 +249,9 @@ export default function ProfilePricePage() {
         <div className="max-w-[860px] space-y-[12px] text-f16 leading-golden text-t2">
           <p>
             Per kilogram, pultruded fiberglass costs more than mild steel. Per meter of equivalent structural duty it is
-            usually closer than the kg number suggests, because the FRP section weighs much less: about 25&ndash;60% less
-            at equal stiffness, depending on how the section is proportioned. Over a service life in a corrosive
-            environment, FRP is often cheaper overall, with no galvanizing or repainting cycles and lighter lifts. The
+            usually closer than the kg number suggests, because the FRP section weighs much less per meter. At equal
+            stiffness the gap narrows, and the result depends on how deep the FRP section can be. Over a service life in a corrosive
+            environment, FRP can be cheaper overall, with no galvanizing or anti-corrosion repainting and lighter lifts. The
             comparison, with worked numbers, is in{" "}
             <Link href="/technology/frp-vs-traditional-materials" className="font-semibold text-teal-text hover:underline">FRP vs steel vs aluminum</Link>.
           </p>

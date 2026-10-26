@@ -1,7 +1,7 @@
 // Reference values are explicitly attributed. They are not F1 batch test results.
 // See docs/engineering/pultruded-profile-performance.md for editorial decisions.
 export const performancePath = "/technology/pultruded-profile-performance";
-export const performanceReviewed = "2026-09-21";
+export const performanceReviewed = "2026-10-26";
 
 export const performanceSources = {
   gbProfiles: { label: "SAMR · GB/T 31539-2015", href: "https://openstd.samr.gov.cn/bzgk/std/newGbInfo?hcno=AD4DB757D7FCC94752F4660D016CF46A", note: "Chinese specification for structural pultruded FRP profiles." },
@@ -13,9 +13,9 @@ export const performanceSources = {
   hardness: { label: "ASTM · D2583-25", href: "https://store.astm.org/d2583-25.html", note: "Barcol indentation hardness of rigid plastics." },
   composites: { label: "ASTM · Composite test methods", href: "https://store.astm.org/products-services/standards-and-publications/standards/composite-standards.html", note: "Mechanical test methods and D7290 characteristic-value evaluation." },
   gbTensile: { label: "SAMR · GB/T 1447-2005", href: "https://openstd.samr.gov.cn/bzgk/std/newGbInfo?hcno=6856A2CAA76987D8EF07C010401CD8B8", note: "Tensile testing of fiber-reinforced plastic composites." },
-  gbThermal: { label: "SAMR · GB/T 3399-1982", href: "https://std.samr.gov.cn/gb/search/gbDetailed?id=lhIhDQbhU6U%3D&mode=p", note: "Thermal conductivity by guarded hot plate; catalogue lists it as current." },
+  gbThermal: { label: "SAMR · GB/T 3399-1982", href: "https://std.samr.gov.cn/gb/search/gbDetailed?id=lhIhDQbhU6U%3D&mode=p", note: "Thermal conductivity by guarded hot plate; the SAMR catalog lists it as current." },
   isoThermal: { label: "ISO · 11357-2:2020", href: "https://www.iso.org/standard/77310.html", note: "Glass transition temperature by differential scanning calorimetry." },
-  isoComposites: { label: "ISO · Reinforced plastics standards", href: "https://committee.iso.org/ics/83.120/x/", note: "Catalogue includes ISO 14125 flexure and ISO 14130 apparent interlaminar shear testing." },
+  isoComposites: { label: "ISO · Reinforced plastics standards", href: "https://committee.iso.org/ics/83.120/x/", note: "Catalog includes ISO 14125 flexure and ISO 14130 apparent interlaminar shear testing." },
   epta: { label: "EPTA · Pultruded composites in rail", href: "https://pultruders.com/wp-content/uploads/2022/07/2018_EPTA-Rail-Industry-Briefing.pdf", note: "Industry comparison values, including thermal conductivity and thermal expansion; not product certification." },
   dielectric: { label: "ASTM · D149-25", href: "https://store.astm.org/d0149-25.html", note: "Breakdown voltage and dielectric strength at commercial power frequencies." },
   electrical: { label: "ASTM · Electrical insulation methods", href: "https://store.astm.org/products-services/standards-and-publications/standards/electrical-insulating-material-standards.html", note: "Methods for electrical properties, resistivity and insulation evaluation." },

@@ -238,7 +238,7 @@ const comparisonRows = [
   },
   {
     attr: "Heel-proof / ADA options",
-    molded: "19 x 19 mm mini mesh",
+    molded: "13 x 13 mm top-opening mini mesh; 19 x 19 mm mini mesh is heel-resistant but exceeds the ADA 13 mm opening limit",
     pultruded: "T- and I-series types with openings of 13 mm or less",
   },
   {
@@ -264,7 +264,7 @@ const moldedFit = [
 const pultrudedFit = [
   "Long clear spans: pipe-rack crossovers, elevated walkways, fewer support beams",
   "Cooling towers and airflow-critical decks — SI series with 73-83% open area",
-  "ADA / DDA public walkways and pedestrian bridges — T-series with 13 mm openings",
+  "ADA-accessible public walkways and pedestrian bridges — T-series with openings of 13 mm or less",
   "Forklift and vehicle traffic — HI high-load series rated per AASHTO wheel loads",
   "Retrofits where the stiffness and sightlines of metal grating must be matched",
 ];

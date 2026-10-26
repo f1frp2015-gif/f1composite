@@ -183,7 +183,7 @@ const resinOptions: Array<{ system: string; use: string; notes: string }> = [
   {
     system: "Isophthalic polyester",
     use: "General structural (default)",
-    notes: "Best cost / performance balance. ASTM E84 Class II flame spread available.",
+    notes: "Best cost / performance balance. Fire-retardant grades available; ASTM E84 report on request for the formulation.",
   },
   {
     system: "Vinyl ester",
@@ -255,14 +255,14 @@ const comparisonRows: Array<{
   {
     property: "Tensile strength (MPa)",
     frp: "240 – 400",
-    steel: "400 (A36)",
-    aluminum: "240 (6061-T6)",
+    steel: "400 – 550 (A36 ultimate; 250 yield)",
+    aluminum: "260 (6061-T6 ultimate; 240 yield)",
   },
   {
     property: "Elastic modulus (GPa)",
     frp: "17 – 28",
     steel: "200",
-    aluminum: "69",
+    aluminum: "70",
   },
   {
     property: "Thermal conductivity (W/m·K)",
@@ -299,7 +299,7 @@ const faqItems = [
   {
     question: "How do pultruded FRP profiles compare with steel?",
     answer:
-      "Pultruded FRP is approximately 75% lighter than steel (density 1.9 vs 7.85 g/cm³), has comparable tensile strength (240–400 MPa vs 400 MPa for A36), but lower elastic modulus (~25 GPa vs 200 GPa). FRP does not rust like steel; chemical and electrical performance depend on the material and exposure, and has thermal conductivity ~170× lower than steel. Stiffness or deflection usually governs FRP design rather than strength.",
+      "Pultruded FRP is approximately 75% lighter than steel (density 1.9 vs 7.85 g/cm³), has comparable tensile strength (240–400 MPa vs 400–550 MPa ultimate for A36), but lower elastic modulus (~25 GPa vs 200 GPa). FRP does not rust like steel; chemical and electrical performance depend on the material and exposure, and has thermal conductivity ~170× lower than steel. Stiffness or deflection usually governs FRP design rather than strength.",
   },
   {
     question: "Are pultruded FRP profiles certified to international standards?",
@@ -309,7 +309,7 @@ const faqItems = [
   {
     question: "What CSI MasterFormat section covers pultruded FRP structural shapes?",
     answer:
-      "In North American construction specifications, pultruded FRP structural shapes are specified under CSI MasterFormat Division 06, most often Section 06 50 00 (Structural Plastics) and Section 06 51 00 (Structural Plastic Shapes and Plates). FRP gratings are typically specified under Section 06 74 13 (Fiberglass Reinforced Gratings). F1 Composite supports spec-section submittals with EN 13706 / ASTM D3917 compliance data, mechanical test reports (ASTM D638 / D790 / D695), and material test reports (MTRs) for each production batch. These are the documents an engineer of record usually asks to review.",
+      "In North American construction specifications, pultruded FRP structural shapes are specified under CSI MasterFormat Division 06, most often Section 06 70 00 (Structural Composites), or Section 06 50 00 (Structural Plastics) and Section 06 51 00 (Structural Plastic Shapes and Plates) in older specifications. FRP gratings are typically specified under Section 06 74 13 (Fiberglass Reinforced Gratings). F1 Composite supports spec-section submittals with EN 13706 / ASTM D3917 compliance data, mechanical test reports (ASTM D638 / D790 / D695), and material test reports (MTRs) for each production batch. These are the documents an engineer of record usually asks to review.",
   },
   {
     question: "What is the typical lead time for pultruded FRP profiles?",
@@ -324,7 +324,7 @@ const faqItems = [
   {
     question: "Can FRP profiles be used for primary structural members?",
     answer:
-      "Yes. FRP is widely used for primary structural members in walkways, pedestrian bridges, platforms, cooling tower framing, solar mounting, and cable tray support. Design follows ASCE/SEI 74-23 LRFD Pre-Standard for Pultruded FRP Structures or EN 13706. Local and global buckling checks are essential because of the lower modulus.",
+      "Yes. FRP is widely used for primary structural members in walkways, pedestrian bridges, platforms, cooling tower framing, solar mounting, and cable tray support. Design follows ASCE/SEI 74-23 (LRFD for pultruded FRP structures) in the United States or CEN/TS 19101:2022 in Europe, with profiles specified to EN 13706. Local and global buckling checks are essential because of the lower modulus.",
   },
   {
     question: "What is the minimum order quantity for custom FRP profiles?",
@@ -334,7 +334,7 @@ const faqItems = [
   {
     question: "How does FRP compare to Strongwell, Fiberline, and Creative Pultrusions?",
     answer:
-      "F1 Composite supplies to the same EN 13706 / ASTM D3917 specifications as Strongwell (EXTREN®), Fiberline Composites, and Creative Pultrusions (SuperStrut®). The differentiators are the scale of the FengDu manufacturing base it exports from (370 pultrusion lines, 150,000 t/year), direct-from-factory pricing without regional distributor markups, and custom tooling turnaround for export markets.",
+      "F1 Composite supplies to the same EN 13706 / ASTM D3917 specifications as Strongwell (EXTREN®), Fiberline Building Profiles, and Creative Pultrusions (Pultex®). The differentiators are the scale of the FengDu manufacturing base it exports from (370 pultrusion lines, 150,000 t/year), direct-from-factory pricing without regional distributor markups, and custom tooling turnaround for export markets.",
   },
   {
     question:
@@ -345,16 +345,16 @@ const faqItems = [
 ];
 
 // EN 13706-3 grade table. Modulus rows ARE the grade definition (E17 = 17 GPa,
-// E23 = 23 GPa min full-section flexural modulus); strength / density / glass /
-// hardness are F1 characteristic values per the cited test method.
+// E23 = 23 GPa min full-section flexural modulus); strength rows are EN minimums;
+// "F1:" values are the published E23-ISO laminate (lib/catalog/en13706.ts).
 const en13706Rows = [
   { property: "Full-section flexural modulus (grade definition)", method: "EN 13706-2 Annex D", e17: "≥ 17 GPa", e23: "≥ 23 GPa" },
   { property: "Axial tensile modulus", method: "EN ISO 527-4", e17: "≥ 17 GPa", e23: "≥ 23 GPa" },
-  { property: "Axial tensile strength", method: "EN ISO 527-4", e17: "170 MPa", e23: "240 MPa" },
-  { property: "Interlaminar shear strength (short-beam)", method: "EN ISO 14130", e17: "15 MPa", e23: "30 MPa" },
-  { property: "Density", method: "EN ISO 1183", e17: "1.8 g/cm³", e23: "1.9 g/cm³" },
-  { property: "Glass content (by weight)", method: "ISO 1172", e17: "55–60%", e23: "65–70%" },
-  { property: "Barcol hardness (cure proxy)", method: "ASTM D2583", e17: "≥ 40", e23: "≥ 40" },
+  { property: "Axial tensile strength", method: "EN ISO 527-4", e17: "≥ 170 MPa", e23: "≥ 240 MPa" },
+  { property: "Interlaminar shear strength (short-beam)", method: "EN ISO 14130", e17: "≥ 15 MPa", e23: "≥ 25 MPa (F1: 30)" },
+  { property: "Density", method: "EN ISO 1183", e17: "Not specified", e23: "F1: 1.9 g/cm³" },
+  { property: "Glass content (by weight)", method: "ISO 1172", e17: "Not specified", e23: "F1: 65–70%" },
+  { property: "Barcol hardness (cure proxy)", method: "ASTM D2583", e17: "Not specified", e23: "F1: 45 typical" },
 ];
 
 const hubGlossary = [
@@ -363,7 +363,7 @@ const hubGlossary = [
   { term: "Continuous strand mat (CSM)", def: "A randomly-oriented glass mat layered between rovings to build transverse (cross-direction) strength." },
   { term: "Surfacing veil", def: "A thin veil at the surface that creates a resin-rich, UV- and corrosion-resistant outer layer." },
   { term: "EN 13706 E17 / E23", def: "European grades for pultruded structural profiles, defined by minimum full-section flexural modulus: 17 GPa (E17) and 23 GPa (E23)." },
-  { term: "ASTM D3917", def: "A dimensional-tolerance specification for pultruded shapes. Confirm the applicable dimension, tolerance class and acceptance criteria on the approved drawing." },
+  { term: "ASTM D3917", def: "A dimensional-tolerance specification for pultruded shapes. Confirm the applicable dimension, tolerance and acceptance criteria on the approved drawing." },
   { term: "Vinyl ester resin", def: "A corrosion-grade resin for acid, alkali, chlorine and marine service, one step up from general-purpose isophthalic polyester." },
   { term: "Barcol hardness", def: "A surface-indentation test (ASTM D2583) used as a quick proxy for adequate cure of a pultruded profile." },
 ];
@@ -382,7 +382,7 @@ const tools = [
   { href: "/fiberglass-pultruded-profile-price", title: "Price estimator", text: "A budget price range per meter, with quantity breaks." },
 ] as const;
 
-const LAST_UPDATED = "2026-09-24";
+const LAST_UPDATED = "2026-10-26";
 const REVIEWER = { name: "Yifan Liu", title: "Application Engineer", slug: "yifan-liu" };
 const AUTHOR = { name: "Dr. Haifeng Gong", title: "R&D Lead, Materials & Standards", slug: "haifeng-gong" };
 const quoteHref = buildRfqHref({ source: "pultruded-profiles-hub", product: "Pultruded FRP profiles", productPath: pagePath });
@@ -691,7 +691,7 @@ export default function PultrudedFRPProfilesHubPage() {
               </table>
             </div>
             <p className="mt-[12px] text-f14 leading-golden text-t3">
-              Modulus rows are the EN 13706 grade definition; strength, density, glass content, and hardness are F1 characteristic values per the cited method. Per-size section properties (A, I<sub>x</sub>, S<sub>x</sub>, weight/m) are published on each{" "}
+              Modulus and strength rows are EN 13706-3 grade minimums; values marked F1 are for F1&rsquo;s published E23 isophthalic laminate (Barcol is a typical value pending certified test data). Per-size section properties (A, I<sub>x</sub>, S<sub>x</sub>, weight/m) are published on each{" "}
               <Link href="/products/fiberglass-structural-shapes" className={link}>shape datasheet</Link>, or compute them live in the{" "}
               <Link href="/frp-profile-calculator" className={link}>FRP profile calculator</Link>.
             </p>

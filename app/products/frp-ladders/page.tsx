@@ -26,7 +26,7 @@ import { buildPageMetadata, buildProductFamilyPageSchema } from "@/lib/seo";
 const pagePath = "/products/frp-ladders";
 const seoTarget = getSeoQueryTarget(pagePath);
 const publishedAt = "2026-08-30";
-const updatedAt = "2026-09-24";
+const updatedAt = "2026-10-26";
 const author = authorsBySlug["yifan-liu"];
 const reviewer = authorsBySlug["haifeng-gong"];
 
@@ -73,7 +73,7 @@ const faqItems = [
   {
     question: "What nominal dimensions are listed for the FRP fixed ladder?",
     answer:
-      "The source catalog lists 500 mm outside rail-to-rail width, 300 mm rung spacing, 32 mm outside-diameter fluted rungs with 6.4 mm wall, and 50.8 × 50.8 × 6.4 mm square side rails. These are catalog references; the approved project drawing controls the released geometry.",
+      "The source catalog lists 500 mm outside rail-to-rail width, 300 mm rung spacing, 32 mm outside-diameter fluted rungs with 6.4 mm wall, and 50.8 × 50.8 × 6.4 mm square side rails. If the 500 mm is measured over the outside faces of the 50.8 mm rails, the clear width between rails is about 398 mm, just under the 16 in (406 mm) minimum clear width in OSHA 1910.23(b)(4). State the clear width required by the governing standard in the RFQ. These are catalog references; the approved project drawing controls the released geometry.",
   },
   {
     question: "Does a fiberglass ladder cage satisfy the fall-protection requirement?",

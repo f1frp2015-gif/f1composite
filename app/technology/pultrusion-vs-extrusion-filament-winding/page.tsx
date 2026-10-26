@@ -16,7 +16,7 @@ const pageDescription =
   "Pultrusion vs extrusion vs filament winding: process, fiber orientation, achievable shapes, and mechanical properties compared for FRP and plastic profiles.";
 const pagePath = "/technology/pultrusion-vs-extrusion-filament-winding";
 const publishedAt = "2026-07-03";
-const updatedAt = "2026-07-03";
+const updatedAt = "2026-10-26";
 const authorName = "Haifeng Gong, Ph.D.";
 const reviewedBy = "Yifan Liu, Application Engineer";
 const referencedStandards = ["ASTM D3917", "ASTM D638", "ASTM D2996"];
@@ -45,7 +45,7 @@ const comparisonData: CompRow[] = [
   {
     property: "Matrix material",
     pultrusion: "Thermoset resin (polyester, vinyl ester, PU, phenolic): cures in the die",
-    extrusion: "Thermoplastic (PVC, ABS, nylon, aluminum): cools and solidifies after the die",
+    extrusion: "Thermoplastic (PVC, ABS, nylon) or a heated aluminum billet: cools and solidifies after the die",
     filamentWinding: "Thermoset resin (epoxy, vinyl ester): cures on or off the mandrel",
   },
   {
@@ -68,7 +68,7 @@ const comparisonData: CompRow[] = [
   },
   {
     property: "Longitudinal tensile strength (typical)",
-    pultrusion: "350–700 MPa (E-glass/polyester), directional along the pull axis",
+    pultrusion: "240–400 MPa for E-glass/polyester structural profiles (higher in unidirectional rods), directional along the pull axis",
     extrusion: "35–55 MPa for unreinforced rigid PVC; higher with short-glass fill, still well below continuous-fiber FRP",
     filamentWinding: "Very high in the hoop/wind direction; low axially unless dedicated axial fiber is added",
   },
@@ -89,7 +89,7 @@ const faqs = [
   {
     question: "Can extrusion produce the same structural shapes as pultrusion?",
     answer:
-      "Aluminum and rigid PVC extrusion can produce visually similar open shapes: I-beams, channels, angles, window frames. The limitation is material, not geometry: without continuous fiber reinforcement, an extruded profile's longitudinal strength and stiffness are governed by the base material alone (aluminum's modulus, or unreinforced/short-fiber-filled thermoplastic's much lower strength). For structural spans, corrosion-critical environments, or electrical/thermal insulation requirements, pultruded FRP outperforms extruded alternatives at a comparable or lighter cross-section.",
+      "Aluminum and rigid PVC extrusion can produce visually similar open shapes: I-beams, channels, angles, window frames. The limitation is material, not geometry: without continuous fiber reinforcement, an extruded profile's longitudinal strength and stiffness are governed by the base material alone (aluminum's modulus, or unreinforced/short-fiber-filled thermoplastic's much lower strength). For corrosion-critical environments or electrical/thermal insulation requirements, pultruded FRP can outperform extruded alternatives at a comparable or lighter cross-section; aluminum remains stiffer, so long spans need a deflection check.",
   },
   {
     question: "Why can't filament winding make an I-beam or channel?",

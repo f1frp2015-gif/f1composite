@@ -46,7 +46,7 @@ const steps = [
 ];
 
 const inputs = [
-  { title: "Climate and certification route", text: "Identify PHI, PHIUS, the local energy code or project-specific modeling, and the required climate or performance class, instead of treating the programs as interchangeable." },
+  { title: "Climate and certification route", text: "Identify PHI, Phius, the local energy code or project-specific modeling, and the required climate or performance class, instead of treating the programs as interchangeable." },
   { title: "Reference size and opening type", text: "Document the tested or calculated window dimensions, sash configuration, frame fraction, mullions, transoms, reinforcement, hardware and allowable operating size." },
   { title: "Glazing and spacer", text: "Record Ug, pane build, coatings, gas fill, spacer linear transmittance, edge conditions and the supplier data used in the whole-window calculation." },
   { title: "Installation interface", text: "Review the rough opening, anchors, support blocks, membranes, insulation continuity, sill drainage and the linear thermal bridge between frame and wall." },

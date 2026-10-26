@@ -36,7 +36,7 @@ const faqs = [
   {
     question: "Which resistance factors are applied?",
     answer:
-      "Every mode takes the factor the FRP profile calculator uses for bending: φ = 0.65 with the time-effect factor λ on the ASCE/SEI 74-23 style screen, 1/1.5 on the CEN/TS 19101 style screen, or a factor of safety of 2.5. ASCE/SEI 74-23 is understood to allow higher factors for buckling, but they could not be confirmed against the published text for this tool, so the lower bending factor is used. That keeps the screen on the safe side; the project design applies the code factors.",
+      "Every mode takes the factor the FRP profile calculator uses for bending: φ = 0.65 with the time-effect factor λ on the ASCE/SEI 74-23 style screen, 1/1.5 on the CEN/TS 19101 style screen, or a factor of safety of 2.5. The ASCE/SEI 74-23 factor for each buckling mode could not be confirmed against the published text for this tool, so one factor is used throughout. Do not read the screen as conservative for every mode: committee presentations describe a cap on the service axial load of 0.3 times the compressive strength over the gross area, which this tool does not check, and the project design applies the code factors.",
   },
   {
     question: "What is not covered?",

@@ -129,8 +129,8 @@ export default function CookieConsent() {
       </h2>
       <p id="cookie-consent-text" className="mt-[8px] text-f14 leading-golden text-t2">
         With your permission we use Google Analytics to count visits and Google Ads to see which ads lead to
-        enquiries. Both set cookies. Analytics also remembers referral sites, campaign tags and landing pages to
-        connect visits to enquiries. Vercel and Ahrefs statistics run without cookies. You can change your choice
+        inquiries. Both set cookies. Analytics also remembers referral sites, campaign tags and landing pages to
+        connect visits to inquiries. Vercel and Ahrefs statistics run without cookies. You can change your choice
         at any time under &ldquo;Cookie settings&rdquo; at the foot of each page.{" "}
         <Link href="/privacy#cookies" className="font-semibold text-teal-text underline underline-offset-4">
           Privacy policy
@@ -149,7 +149,7 @@ export default function CookieConsent() {
             />
             <span>
               <span className="font-semibold text-t1">Analytics.</span> Google Analytics page views and visit
-              counts, plus this site&apos;s referral and landing-page records linked to enquiries.
+              counts, plus this site&apos;s referral and landing-page records linked to inquiries.
             </span>
           </label>
           <label className="flex gap-[10px] text-f14 leading-golden text-t2">
@@ -161,7 +161,7 @@ export default function CookieConsent() {
             />
             <span>
               <span className="font-semibold text-t1">Advertising (Google Ads).</span> Measures which ads lead to an
-              enquiry, and may be used to show our ads to past visitors.
+              inquiry, and may be used to show our ads to past visitors.
             </span>
           </label>
         </fieldset>

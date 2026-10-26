@@ -35,7 +35,7 @@ const publishedReports = [
   "PHI component certificate 2491wi03 for the Fengdu Passive GFRP 90 Series window",
   "SGS full-section modulus tests to EN 13706-2 Annex D",
   "Intertek AS 2047 tests on a turn-and-tilt window and a lift-sliding door",
-  "CABR 3-star green building material certificate and EPD for the window range",
+  "CABR 3-star green building material certificate for the window range, and a CABR EPD and carbon-footprint report for GFRP profiles",
 ];
 
 const services = [

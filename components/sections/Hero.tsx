@@ -45,7 +45,7 @@ export default function Hero() {
           </h1>
 
           <p className="mt-[18px] max-w-[650px] text-[clamp(16px,1.8vw,18px)] leading-[1.6] text-white/76">
-            F1 Composite brings FengDu’s manufacturing network to international projects: 370 pultrusion lines across five production bases, with 150,000 tonnes of annual capacity. Choose standard or custom profiles, with grating and window and door products available.
+            F1 Composite brings FengDu’s manufacturing network to international projects: 370 pultrusion lines across five production bases, with about 150,000 tonnes of annual capacity. Choose standard or custom profiles, with grating and window and door products available.
           </p>
 
           <p className="mt-[12px] text-f14 leading-golden text-white/75">

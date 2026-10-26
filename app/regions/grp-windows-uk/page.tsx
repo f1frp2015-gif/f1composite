@@ -37,7 +37,7 @@ const faqs = [
   {
     question: "Do GRP windows meet Approved Document Part L and the Future Homes Standard?",
     answer:
-      "They can. Part L in England limits replacement windows in existing dwellings to a U-value of 1.4 W/m²·K and uses 1.2 for the notional new dwelling, and the Future Homes Standard tightens the envelope further. The 90-series holds PHI component certificate 2491wi03 at Uw 0.78 W/m²·K. For the other series the whole-window value depends on size and glazing, so check it in the U-value calculator or ask us for an EN ISO 10077 calculation. The GRP frame needs no metal thermal break and no steel stiffeners.",
+      "They can. Part L in England limits replacement windows in existing dwellings to a U-value of 1.4 W/m²·K and uses 1.2 for the notional new dwelling. The Future Homes Standard (Approved Document L 2026, published in March 2026 and applying in England from 24 March 2027) keeps the 1.2 notional window value for new homes and leaves the replacement-window rules essentially unchanged. The 90-series holds PHI component certificate 2491wi03 at Uw 0.78 W/m²·K. For the other series the whole-window value depends on size and glazing, so check it in the U-value calculator or ask us for an EN ISO 10077 calculation. The GRP frame needs no metal thermal break and no steel stiffeners.",
   },
   {
     question: "Are GRP windows suitable for UK Passivhaus and EnerPHit projects?",
@@ -57,7 +57,7 @@ const faqs = [
   {
     question: "Does F1 supply GRP profiles to UK window fabricators, or only finished windows?",
     answer:
-      "Both. For Passivhaus and other performance-driven projects, we ship complete GRP window units, assembled, glazed and gasketed in the factory, including tilt-and-turn openings. For UK fabricators, we supply pultruded profile sets with EPDM gaskets, corner kits and fabrication drawings for local assembly. AAMA 2604 or 2605 powder coatings are available in RAL colors, including the anthracite and other dark tones UK architects specify. GRP is a thermoset, so dark finishes do not soften the frame in strong sun as they can with uPVC.",
+      "Both. For Passivhaus and other performance-driven projects, we ship complete GRP window units, assembled, glazed and gasketed in the factory, including tilt-and-turn openings. For UK fabricators, we supply pultruded profile sets with EPDM gaskets, corner kits and fabrication drawings for local assembly. AAMA 624 or 625 powder coatings are available in RAL colors, including the anthracite and other dark tones UK architects specify. GRP is a thermoset, so dark finishes do not soften the frame in strong sun as they can with uPVC.",
   },
 ];
 
@@ -68,7 +68,7 @@ const standards = [
   { requirement: "Type testing", standard: "EN 14351-1 (air, water, wind)", provides: "Type testing per project", documents: "Test reports and declaration of performance on request" },
   { requirement: "Product marking", standard: "CE or UKCA", provides: "Documents for the supplied configuration", documents: "CE / UKCA documents on request" },
   { requirement: "Trade costs", standard: "UK CBAM from 2027: iron, steel, aluminum", provides: "GRP falls outside its scope", documents: "HS classification in the quote" },
-  { requirement: "Architectural finish", standard: "AAMA 2604 / 2605", provides: "Powder coating in RAL colors, including anthracite", documents: "Coater report on request" },
+  { requirement: "Architectural finish", standard: "AAMA 624 / 625", provides: "Powder coating in RAL colors, including anthracite", documents: "Coater report on request" },
 ];
 
 const steps = [
@@ -137,8 +137,9 @@ export default function UkRegionPage() {
             <p>
               UK window specification is being squeezed from two sides. Part L in
               England limits replacement windows to a U-value of 1.4 W/m²·K and uses 1.2
-              for the notional new dwelling, and the Future Homes Standard tightens the
-              envelope further. Passivhaus and EnerPHit projects, common in social
+              for the notional new dwelling. The Future Homes Standard (Approved Document
+              L 2026, applying in England from 24 March 2027) keeps the 1.2 notional window
+              value and adds low-carbon heating requirements for new homes. Passivhaus and EnerPHit projects, common in social
               housing and education, work to the PHI component criterion of 0.80.
             </p>
             <p>

@@ -94,7 +94,7 @@ export const blogPosts: BlogPost[] = [
     answerBox: "Cable ladder is a type of cable tray; trunking is an enclosure system with different requirements. IEC 61537 covers trays and ladders, while IEC 61084 covers trunking and ducting. FRP selection depends on resin, load, span, temperature and fire evidence: Eaton, Enduro and Øglænd document distinct systems, not a universal substitute for metal.",
     category: "Electrical Infrastructure",
     date: "2026-09-12",
-    updatedAt: "2026-09-12",
+    updatedAt: "2026-10-26",
     readTime: "14 min",
     excerpt: "Compare FRP cable tray, trunking and ladder with steel and aluminum. Learn IEC 61537 scope, load-table checks, resin selection and RFQ requirements.",
     authorName: "F1 Composite Editorial Team",
@@ -204,7 +204,7 @@ export const blogPosts: BlogPost[] = [
       },
       {
         label: "Unitech FRP catalogue, installation section",
-        href: "https://unitech-ikk.com/shared/Technical_Catalogues/catalogues/mep-solutions/cable-management-system-with-accessories/frp.pdf"
+        href: "https://websitesikkblob.blob.core.windows.net/unitech-files/catalogues/d978246c-71f5-4a65-94de-bf367c7cb680/source-files/frp-catalog.pdf"
       },
       {
         label: "Strongwell, Section 2, page 2-5",
@@ -235,12 +235,12 @@ export const blogPosts: BlogPost[] = [
         href: "https://www.oglaend-system.com/news/product-news/have-you-considered-choosing-our-high-performance-frp-composite-system"
       },
       {
-        label: "ASTM E84-24 — Surface Burning Characteristics of Building Materials",
-        href: "https://store.astm.org/e0084-24.html"
+        label: "ASTM E84 (current edition E84-26a) — Surface Burning Characteristics of Building Materials",
+        href: "https://store.astm.org/standards/e84"
       },
       {
-        label: "UL Solutions — Nonmetallic cable tray standard UL 568",
-        href: "https://www.ul.com/services/mechanical-support-and-assembly-services"
+        label: "UL Standards & Engagement — UL 568, Nonmetallic Cable Tray Systems",
+        href: "https://www.shopulstandards.com/ProductDetail.aspx?productId=UL568"
       },
       {
         label: "Enduro installation guide",
@@ -305,7 +305,7 @@ The following is a technical reference set, not a market-share ranking or an end
 | Niedax Ebo Systems, Europe | Pressed and pultruded GRP ducts, trays and support systems | Manufacturing methods differ across components. [Group product portfolio](https://www.niedax-group.com/en/products-solutions/) |
 | Mita / Wibe Group, UK and European markets | GRP solid trays, troughs, lids and support components | Identify the actual product series and closure details. [Mita range](https://wibe-group.com/uk/brand/mita) |
 | Ercon Composites, India | GRP/FRP cable trays, ladders and pultruded sections | Match the supplier's offered system to the project environment. [Manufacturer portfolio](https://www.ercon-india.com/) |
-| Unitech / IKK Group, Middle East | Documented FRP ladder, tray and support-system range | Include bends, support positions and expansion details in procurement. [FRP catalogue](https://unitech-ikk.com/shared/Technical_Catalogues/catalogues/mep-solutions/cable-management-system-with-accessories/frp.pdf) |
+| Unitech / IKK Group, Middle East | Documented FRP ladder, tray and support-system range | Include bends, support positions and expansion details in procurement. [FRP catalogue](https://websitesikkblob.blob.core.windows.net/unitech-files/catalogues/d978246c-71f5-4a65-94de-bf367c7cb680/source-files/frp-catalog.pdf) |
 
 Two additional structural-material references help explain the engineering. Strongwell publishes directional mechanical properties for EXTREN profiles, while Fiberline publishes chemical-resistance guidance for its own resin grades. These documents are useful for understanding FRP behavior; neither substitutes for a tray-system test report or establishes F1 product ratings. See [Strongwell's metric material comparison](https://www.strongwell.com/wp-content/uploads/2024/11/Section02m-1124.pdf) and [Fiberline's technical data](https://fiberline.com/download-area/profiles/).
 
@@ -348,7 +348,7 @@ Delivery length, support spacing and rung spacing describe different dimensions.
 
 These are selected entries from the manufacturer's table, not F1 ratings or generic FRP limits. The source ties its load test to IEC 61537 and requires the end span to be three-quarters of the support spacing, without splices on that end span. Obtain the full report and configuration before using the values. [FOE data and conditions](https://www.oglaend-system.com/products/cableladders/foe/).
 
-For each quotation, request the allowable distributed load, concentrated-load conditions, deflection criterion and temperature basis. Ask whether self-weight and covers are included. Separately identify cable-pulling loads and support requirements at fittings. Unitech's installation guidance specifically discusses pulling stresses, expansion arrangements and fitting supports; straight-run capacity alone does not resolve those locations. [Unitech FRP catalogue, installation section](https://unitech-ikk.com/shared/Technical_Catalogues/catalogues/mep-solutions/cable-management-system-with-accessories/frp.pdf).
+For each quotation, request the allowable distributed load, concentrated-load conditions, deflection criterion and temperature basis. Ask whether self-weight and covers are included. Separately identify cable-pulling loads and support requirements at fittings. Unitech's installation guidance specifically discusses pulling stresses, expansion arrangements and fitting supports; straight-run capacity alone does not resolve those locations. [Unitech FRP catalogue, installation section](https://websitesikkblob.blob.core.windows.net/unitech-files/catalogues/d978246c-71f5-4a65-94de-bf367c7cb680/source-files/frp-catalog.pdf).
 
 ## Ventilation, cable temperature and covers
 
@@ -370,7 +370,7 @@ For power circuits, also ask the electrical designer to specify cable restraint 
 
 Fire retardancy, smoke production, halogen content and circuit survival are different requirements. A resin can be formulated to improve one behavior without proving all the others. Øglænd explicitly offers different FRP resin options for chemical, fire, smoke and toxicity requirements; the formulation matters. [Manufacturer's resin-selection discussion](https://www.oglaend-system.com/news/product-news/have-you-considered-choosing-our-high-performance-frp-composite-system).
 
-[ASTM E84](https://store.astm.org/e0084-24.html) concerns surface-burning characteristics. Its scope does not establish load-bearing survival in a fire, and the test alone is not a complete real-fire risk assessment. An E84 result must not be presented as proof that the tray will keep a circuit operational for a specified fire duration. Also request the edition, specimen description, thickness, mounting arrangement and reported result.
+[ASTM E84](https://store.astm.org/standards/e84) concerns surface-burning characteristics. Its scope does not establish load-bearing survival in a fire, and the test alone is not a complete real-fire risk assessment. An E84 result must not be presented as proof that the tray will keep a circuit operational for a specified fire duration. Also request the edition, specimen description, thickness, mounting arrangement and reported result.
 
 In a tunnel or another life-safety application, work backward from the required system behavior. Ask what combination of cables, supports, fixings and substrate was evaluated, and which smoke or toxicity requirements apply. A manufacturer's certificate logo on a general brochure is not enough to qualify every resin and assembly it sells.
 
@@ -380,10 +380,10 @@ In a tunnel or another life-safety application, work backward from the required 
 | --- | --- | --- |
 | IEC 61537:2023 | Cable tray and ladder systems; excludes trunking and ducting | Test evidence for the offered system and installation conditions. [IEC](https://webstore.iec.ch/en/publication/31963) |
 | IEC 61084-1:2017 + AMD1:2024 | General requirements for trunking and ducting; used with relevant other parts | Correct system classification and applicable parts. [IEC](https://webstore.iec.ch/en/publication/92096) |
-| UL 568 | Nonmetallic cable tray systems | Verify any claimed certification for the exact product. [UL Solutions](https://www.ul.com/services/mechanical-support-and-assembly-services) |
+| UL 568 | Nonmetallic cable tray systems | Verify any claimed certification for the exact product. [UL Standards & Engagement](https://www.shopulstandards.com/ProductDetail.aspx?productId=UL568) |
 | NEMA VE 1 | Metal cable tray systems | Do not present it as the generic FRP product standard. [Cable Tray Institute](https://www.cabletrays.org/codes-and-standards/) |
 | NEMA FG 1 | Legacy fiberglass tray standard, rescinded in November 2017 | Clarify the contractual basis when a legacy class appears. [Cable Tray Institute](https://www.cabletrays.org/codes-and-standards/) |
-| ASTM E84 | Surface-burning test | Product-specific result; separate evidence for other fire objectives. [ASTM](https://store.astm.org/e0084-24.html) |
+| ASTM E84 | Surface-burning test | Product-specific result; separate evidence for other fire objectives. [ASTM](https://store.astm.org/standards/e84) |
 
 Standards listed in a catalogue are not interchangeable certifications. Identify the edition adopted by the project, jurisdictional requirements and the particular product covered by each report. Historical references can explain a supplier's load-class terminology without being the current acceptance basis.
 
@@ -468,7 +468,7 @@ Photography shows metal cable ladders, perforated trays and wire-mesh tray const
       { label: "Tsinghua University: completion report, June 6, 2012 (Chinese)", href: "https://www.civil.tsinghua.edu.cn/ce/info/1112/1376.htm" },
       { label: "Mao Yisheng Science and Technology Education Foundation: Pengshui project record and photograph (Chinese)", href: "https://www.mysf.org.cn/Detail/index.html?id=685&aid=145" },
       { label: "Feng, Jin and Ye: structural performance and design criteria for FRP pedestrian bridges, 2011", href: "https://jace.chd.edu.cn/oa/DArticle.aspx?id=201103003&type=view" },
-      { label: "FHWA Covered Bridge Manual: beam bending and truss axial load paths", href: "https://highways.dot.gov/sites/fhwa.dot.gov/files/FHWA-HRT-04-098.pdf" },
+      { label: "FHWA Covered Bridge Manual: beam bending and truss axial load paths", href: "https://www.fhwa.dot.gov/publications/research/infrastructure/structures/04098/" },
     ],
     content: `A river crossing can determine whether a child reaches school. In the mountains of Chongqing, the Mao Yisheng Charity Bridge brought pultruded FRP profiles into a public footbridge serving that everyday need. This early application of FRP pedestrian bridges connects composite bridge design with rural access.
 
@@ -490,7 +490,7 @@ This distinction matters when discussing FRP internationally. GFRP and GRP refer
 
 ## Beam bridges vs. truss bridges for rural crossings
 
-Beam bridges carry deck loads through the bending resistance of their main beams or girders. A truss instead uses an arrangement of chords and web members whose principal action is axial tension or compression, although real members and joints can also experience bending. These are structural concepts, independent of whether the material is steel, timber or FRP. [FHWA Covered Bridge Manual](https://highways.dot.gov/sites/fhwa.dot.gov/files/FHWA-HRT-04-098.pdf).
+Beam bridges carry deck loads through the bending resistance of their main beams or girders. A truss instead uses an arrangement of chords and web members whose principal action is axial tension or compression, although real members and joints can also experience bending. These are structural concepts, independent of whether the material is steel, timber or FRP. [FHWA Covered Bridge Manual](https://www.fhwa.dot.gov/publications/research/infrastructure/structures/04098/).
 
 Pengshui belongs to the truss category. Engineers considering composite bridges for another rural crossing can compare a beam arrangement with a truss while reviewing structural depth, connection details and the proposed delivery units. The material label alone does not decide the structural form. Our guide to [beam bridges](/case-studies/beam-bridge) explains pedestrian and cycle bridge load paths and discusses public FRP beam bridge examples.
 
@@ -764,7 +764,7 @@ Avoid copying the highest numbers from several brochures into one impossible “
       },
       {
         label: "ASCE/SEI 74-23 — LRFD for pultruded FRP structures",
-        href: "https://sp360.asce.org/personifyebusiness/Merchandise/Product-Details/productId/309903818",
+        href: "https://doi.org/10.1061/9780784415771",
       },
       {
         label: "Google Android Enterprise Help — factory reset protection",
@@ -882,10 +882,10 @@ For example, “pultruded E-glass/vinyl ester channel, EN 13706 E23, dimensions 
     title: "How to Qualify a Chinese Fiberglass Window Profile Supplier: A 9-Point Checklist",
     seoTitle: "Qualify a Chinese Fiberglass Window Profile Supplier",
     answerBox:
-      "Qualifying a Chinese fiberglass window profile supplier comes down to nine verifiable checks: legal-entity and factory verification, production capability (own lines and dies), ASTM D3917 tolerance class in writing, material-system verification with coupon tests, the certification stack (EN 14351-1 / NAFS / PHI component), a paid first article with dimensional report, run-to-run consistency evidence across batches, finish qualification (AAMA 2604/2605 coater reports), and commercial terms that pass the logistics test (HS classification, DDP capability, staged-order structure). Any supplier confident in its process will agree to all nine without hesitation.",
+      "Qualifying a Chinese fiberglass window profile supplier comes down to nine verifiable checks: legal-entity and factory verification, production capability (own lines and dies), ASTM D3917 or tighter drawing tolerances in writing, material-system verification with coupon tests, the certification stack (EN 14351-1 / NAFS / PHI component), a paid first article with dimensional report, run-to-run consistency evidence across batches, finish qualification (AAMA 2604/2605 or the thermoset-profile AAMA 624/625 coater reports), and commercial terms that pass the logistics test (HS classification, DDP capability, staged-order structure). Any supplier confident in its process will agree to all nine without hesitation.",
     category: "Industry Analysis",
     date: "2026-07-07",
-    updatedAt: "2026-09-27",
+    updatedAt: "2026-10-26",
     readTime: "11 min",
     excerpt:
       "Every window fabricator evaluating a Chinese profile supplier asks the same underlying question: will run number forty look like run number one? This checklist turns that question into nine concrete, verifiable checks (the same ones our own customers put us through) so qualification runs on evidence instead of assurances.",
@@ -937,9 +937,9 @@ Confirm that the company named in your contract owns the factory. In China's exp
 
 Pultrusion capacity is countable. Ask how many pultrusion lines the supplier operates, how many window-profile dies it holds, and which frame-depth series exist as standing tooling versus new-die projects. This tells you two things: whether your order competes for line time, and whether your profiles need new tooling (with its 4–8 week die lead time and amortization cost) or can run on existing dies.
 
-## 3. Tolerance class, in writing
+## 3. Tolerances, in writing
 
-"Good tolerances" is not a specification. The reference standard for pultruded profile dimensional tolerance is **ASTM D3917**; the drawing should state the tolerance class and the critical dimensions it applies to, typically ±0.25 mm class on chamber-critical dimensions for window lineals. If the supplier will not put a D3917 class on the drawing, the tolerances are aspirational.
+"Good tolerances" is not a specification. The reference standard for pultruded profile dimensional tolerance is **ASTM D3917**, which sets tolerances for standard shapes; custom window sections normally carry their own tolerances on the drawing. The drawing should name D3917 as the default and list the critical dimensions that need tighter limits, such as ±0.25 mm on chamber-critical dimensions where the die and process can hold it. If the supplier will not put tolerances on the drawing, they are aspirational.
 
 ## 4. Material system verification
 
@@ -959,15 +959,15 @@ Consistency is where fabricators have been burned, and it is evidenced, not prom
 
 ## 8. Finish qualification
 
-Window lineals are architectural surfaces. The finish standard to name is **AAMA 2604 or 2605** (10-year exposure rating); the evidence is the coater's qualification report and, for dark colors, the heat-buildup discussion: dark fiberglass does not carry the warping risk dark uPVC does, but the coating system still needs the rating. Ask for finished samples in your actual RAL color, not the showroom color.
+Window lineals are architectural surfaces. The finish standard to name is **AAMA 2604 or 2605** (5-year and 10-year South Florida exposure requirements respectively), or their counterparts written for fiber-reinforced thermoset profiles, [AAMA 624](https://store.fgiaonline.org/aama-624-25) and [AAMA 625](https://store.fgiaonline.org/aama-625-25); the evidence is the coater's qualification report and, for dark colors, the heat-buildup discussion: dark fiberglass does not carry the warping risk dark uPVC does, but the coating system still needs the rating. Ask for finished samples in your actual RAL color, not the showroom color.
 
 ## 9. The commercial and logistics test
 
-Finally, the commerce has to work as smoothly as the product: correct HS classification (fiberglass profiles under 3925.20 / 7019, see our [DDP, tariffs and HS code guide](/resources/frp-pultrusion-fob-ddp-export-guide)), genuine DDP capability with duty itemized in the quote, spare-parts and gasket supply policy, and a staged-order structure (first article, pilot order, production volumes) that lets you scale commitment with evidence.
+Finally, the commerce has to work as smoothly as the product: correct HS classification (window profiles are usually classified under 3925.20 or 7019 depending on configuration; confirm with a binding ruling, see our [DDP, tariffs and HS code guide](/resources/frp-pultrusion-fob-ddp-export-guide)), genuine DDP capability with duty itemized in the quote, spare-parts and gasket supply policy, and a staged-order structure (first article, pilot order, production volumes) that lets you scale commitment with evidence.
 
 ## The meta-signal
 
-There is a tenth check hiding inside the nine: **how the supplier reacts to the checklist itself**. A manufacturer with a controlled process treats these requests as routine paperwork. Evasion on any point (the audit, the D3917 class, the paid first article, the run-separated reports) is data. In our experience the checklist does not just qualify suppliers; it sorts them faster than any factory tour. Apply it to us as well: our [fiberglass window and door profiles](/products/window-door-profiles) page sets out the sections, cut lengths, machining and documents to specify.`,
+There is a tenth check hiding inside the nine: **how the supplier reacts to the checklist itself**. A manufacturer with a controlled process treats these requests as routine paperwork. Evasion on any point (the audit, the written tolerances, the paid first article, the run-separated reports) is data. In our experience the checklist does not just qualify suppliers; it sorts them faster than any factory tour. Apply it to us as well: our [fiberglass window and door profiles](/products/window-door-profiles) page sets out the sections, cut lengths, machining and documents to specify.`,
   },
 
   {
@@ -978,7 +978,7 @@ There is a tenth check hiding inside the nine: **how the supplier reacts to the 
       "Fiberglass window profile pricing is driven by eight factors: resin system (polyester is the baseline; vinyl ester adds ~10–25%; polyurethane sits at the top of the range), glass content and fiber architecture, section complexity and wall thickness, die tooling amortization (the main reason MOQs exist), surface finish (mill finish vs AAMA 2604/2605 powder coating in custom RAL colors), certification and testing overhead, order volume and scheduling, and logistics terms (EXW vs FOB vs DDP with duty). Published catalog pricing for F1's fenestration profile range spans roughly €8–110 per linear meter depending on series and configuration, but B2B pricing is quoted per RFQ because these eight factors interact.",
     category: "Industry Analysis",
     date: "2026-07-07",
-    updatedAt: "2026-09-27",
+    updatedAt: "2026-10-26",
     readTime: "9 min",
     excerpt:
       "Nobody in this industry publishes how window profile pricing actually works, which leaves buyers comparing quotes they cannot decompose. Here are the eight cost drivers, what each one does to the per-meter number, and why two quotes for 'the same profile' can differ by 40% without anyone cheating.",
@@ -1043,13 +1043,13 @@ Pultrusion economics reward continuity: a standing order that keeps a die on the
 
 ## 8. Logistics terms: the quiet 15–30%
 
-An EXW-factory price and a DDP-jobsite price are different products. Between them sit sea freight, insurance, customs classification (fiberglass profiles under HS 3925.20 / 7019: [our tariff guide covers this](/resources/frp-pultrusion-fob-ddp-export-guide)), import duty and VAT, and broker risk. A "cheaper" EXW quote routinely loses to a DDP quote once those are priced honestly, and the DDP quote tells you the supplier has done this route before.
+An EXW-factory price and a DDP-jobsite price are different products. Between them sit sea freight, insurance, customs classification (window profiles usually under HS 3925.20 or 7019 depending on configuration: [our tariff guide covers this](/resources/frp-pultrusion-fob-ddp-export-guide)), import duty and VAT, and broker risk. A "cheaper" EXW quote routinely loses to a DDP quote once those are priced honestly, and the DDP quote tells you the supplier has done this route before.
 
 ## So what does it cost?
 
 Published catalog pricing for F1's fenestration profile range spans roughly **€8–110 per linear meter**: a deliberately wide band, because the eight drivers above interact. A 65-series polyester frame profile in mill finish and a 90-series GFRP-PU sash profile in dark AAMA 2605 powder coat are both "fiberglass window profiles," and they sit at opposite ends of that band on merit.
 
-The practical takeaway for buyers: **make quotes decomposable.** Ask every supplier to state resin system, glass content, D3917 tolerance class, finish specification, tooling treatment, and incoterm on the quote itself. The 40% spread will collapse into an explainable comparison, and the suppliers who resist decomposing their number have answered a different question for you. Our [fiberglass window and door profiles](/products/window-door-profiles) page lists what to specify for a quote of that kind: sections, cut lengths, machining and documents.`,
+The practical takeaway for buyers: **make quotes decomposable.** Ask every supplier to state resin system, glass content, tolerances (ASTM D3917 or the drawing limits), finish specification, tooling treatment, and incoterm on the quote itself. The 40% spread will collapse into an explainable comparison, and the suppliers who resist decomposing their number have answered a different question for you. Our [fiberglass window and door profiles](/products/window-door-profiles) page lists what to specify for a quote of that kind: sections, cut lengths, machining and documents.`,
   },
 
   {
@@ -1139,10 +1139,10 @@ The honest summary: one station genuinely changes (corners), one improves (hardw
     title: "Why Aluminum Window Frames Stream Water in Cold Climates — the Physics and the Fix",
     seoTitle: "Why Aluminum Window Frames Condense in Cold Climates",
     answerBox:
-      "Aluminum window frames condense and frost in cold climates because aluminum conducts heat at ≈160 W/m·K (roughly 500× the rate of insulating frame materials) so the interior frame surface drops below the room air's dew point on cold nights. Thermal breaks help but leave bridges at screw ports, corner keys, and hardware penetrations, and the condensation resistance factor (CRF) of even thermally-broken aluminum sits well below intrinsically insulating frames. The fixes, in order of effect: raise interior surface temperature with a low-conductivity frame material (pultruded fiberglass at ≈0.3 W/m·K keeps the frame face warm to −40°C and below), warm-edge IGU spacers, and managed indoor humidity. Field reference: GFRP-PU frames run condensation-free at a −25°C industrial campus and a −60°C Antarctic station.",
+      "Aluminum window frames condense and frost in cold climates because aluminum conducts heat at ≈160 W/m·K (roughly 500× the rate of insulating frame materials) so the interior frame surface drops below the room air's dew point on cold nights. Thermal breaks help but leave bridges at screw ports, corner keys, and hardware penetrations, and the condensation resistance factor (CRF) of even thermally-broken aluminum sits well below intrinsically insulating frames. The fixes, in order of effect: raise interior surface temperature with a low-conductivity frame material (pultruded fiberglass at ≈0.3 W/m·K; F1's PHI-certified 90 series has a temperature factor fRsi of 0.77–0.78, which keeps the coldest frame surface near 11–12°C at 21°C inside and −20°C outside), warm-edge IGU spacers, and managed indoor humidity. Field reference: GFRP-PU frames are installed at a −25°C design-low industrial campus and at an Antarctic station with a −60°C design low.",
     category: "Thermal Performance",
     date: "2026-07-07",
-    updatedAt: "2026-07-07",
+    updatedAt: "2026-10-26",
     readTime: "9 min",
     excerpt:
       "The service call every cold-climate building manager knows: water pooling on aluminum window sills in January, frost on the frame by February, and a mold remediation quote by spring. The window is not faulty. The frame material is doing exactly what physics says it must. Here is the mechanism, the metric that predicts it, and what actually fixes it.",
@@ -1178,7 +1178,7 @@ The honest summary: one station genuinely changes (corners), one improves (hardw
 
 Condensation forms on any surface colder than the local air's **dew point**. At 21°C interior temperature and 40% relative humidity, ordinary winter conditions in an occupied building, the dew point sits around 7°C. Any interior surface below 7°C collects water; below 0°C, it grows frost.
 
-The question, then, is what temperature the interior face of a window frame runs on a cold night. That is set almost entirely by the frame material's thermal conductivity: how fast the frame pipes interior heat to the outside. Aluminum conducts at roughly **160 W/m·K**. Pultruded fiberglass conducts at roughly **0.3 W/m·K**: a factor of about 500. Timber and uPVC sit near fiberglass; no practical geometry overcomes a 500× material handicap. On a −20°C night, an unbroken aluminum frame's interior face can run below freezing while the wall beside it sits at 18°C. The frame is not underperforming; it is a heat exchanger doing its job in the wrong application.
+The question, then, is what temperature the interior face of a window frame runs on a cold night. That is set almost entirely by the frame material's thermal conductivity: how fast the frame pipes interior heat to the outside. Aluminum conducts at roughly **160 W/m·K**. Pultruded fiberglass conducts at roughly **0.3 W/m·K**: a factor of about 500. Timber and uPVC sit near fiberglass. An aluminum section can only work around a 500× material handicap with a wide insulating zone. On a −20°C night, an unbroken aluminum frame's interior face can run below freezing while the wall beside it sits at 18°C. The frame is not underperforming; it is a heat exchanger doing its job in the wrong application.
 
 ## Why thermal breaks help less than the datasheet implies
 
@@ -1188,7 +1188,7 @@ The industry's answer is the thermal break: a polyamide or polyurethane strip se
 
 **Edge-of-frame details.** Sills, thresholds, and coupling mullions are the hardest places to keep the break continuous, which is why cold-climate condensation photographs are so often of sills.
 
-**The arithmetic ceiling.** Even executed perfectly, a thermally-broken aluminum frame reaches U-frame values of roughly 2.5–4.0 W/m²·K. An intrinsically insulating pultruded frame starts below 1.6 and reaches 0.8 without any break at all, because there is no metallic path to interrupt in the first place.
+**The arithmetic ceiling.** Mainstream thermally broken aluminum frames typically run at roughly 2–4 W/m²·K. The best passive-house aluminum systems get down to about 0.8, but only with deep, foam-filled insulating zones and wide sightlines; Schüco, for example, quotes [U_f 0.80 W/m²·K for its AWS 90.SI+ system at a 117 mm face width](https://www.schueco.com/by/architects/products/windows/aluminium/aws-90-si-optimized). An intrinsically insulating pultruded frame starts below 1.6 and reaches 0.78 (F1's PHI-certified 90 series, with foam-insulated chambers) without a metal thermal break, because there is no metallic path to interrupt in the first place.
 
 ## CRF: the number that predicts the service calls
 
@@ -1200,7 +1200,7 @@ If you specify windows for heating-dominated climates, CRF (or fRsi) belongs on 
 
 In order of effect:
 
-**1. Frame material.** Raise the interior surface temperature at the source: a frame that conducts at 0.3 instead of 160 W/m·K keeps its interior face above dew point down to design temperatures no break assembly reaches. This is the structural fix; everything else is mitigation. The [material-by-material comparison is here](/technology/frp-vs-aluminum-windows).
+**1. Frame material.** Raise the interior surface temperature at the source: a frame that conducts at 0.3 instead of 160 W/m·K keeps its interior face above dew point at outdoor temperatures where a typical break assembly does not. With an fRsi of 0.77, the frame surface at 21°C inside and −20°C outside sits near 11.6°C, well above the 7°C dew point at 40% RH. This is the structural fix; everything else is mitigation. The [material-by-material comparison is here](/technology/frp-vs-aluminum-windows).
 
 **2. Warm-edge spacers and glazing.** The IGU edge is the second-coldest line in the assembly. Non-metallic warm-edge spacers plus triple glazing lift the edge-of-glass temperature: necessary in any frame material, sufficient in none.
 
@@ -1208,7 +1208,7 @@ In order of effect:
 
 ## The field evidence
 
-Theory aside, the condensation question has field answers. F1's GFRP-PU windows run condensation-free on a **−25°C chemical-industry campus in Baotou** (specified precisely because the previous aluminum frames frosted) and at **Qinling Station, Antarctica, against a −60°C design low** ([case study](/case-studies/qinling-station-antarctic-passive-windows)), where a frame-face condensation failure would not be a service call but a station-integrity problem. The same physics that streams water down an aluminum sill in Winnipeg keeps an insulating frame face dry in Antarctica; the only variable that changed is the conductivity of the material in between.
+Theory aside, the condensation question has field answers. F1's GFRP-PU windows are installed on a **chemical-industry campus in Baotou with a −25°C design low** and at **Qinling Station, Antarctica, against a −60°C design low** ([case study](/case-studies/qinling-station-antarctic-passive-windows)), where a frame-face condensation failure would not be a service call but a station-integrity problem. The same physics that streams water down an aluminum sill in Winnipeg keeps an insulating frame face dry in Antarctica; the only variable that changed is the conductivity of the material in between.
 
 To check where a specific frame and glazing build lands before specifying, run it through our [EN ISO 10077-1 U-value calculator](/technology/frp-u-value-calculator). It computes the whole-window value and flags the pass/fail against cold-climate program targets.`,
   },
@@ -1218,10 +1218,10 @@ To check where a specific frame and glazing build lands before specifying, run i
     title: "The FRP Window Profile Market: Demand Drivers, Supplier Landscape, and What Buyers Should Verify",
     seoTitle: "FRP Window Profile Market — Suppliers & Demand Drivers",
     answerBox:
-      "The FRP window profile market splits into two businesses: pultruded lineals sold to window fabricators, and finished fiberglass windows. Demand is pulled by energy codes (GEG 2024, BC Step Code, ENERGY STAR, Passive House), aluminum's thermal-bridge ceiling, and uPVC's span and dark-color limits. Supply is concentrated: North American lineal specialists (Tencom, Creative Pultrusions, Inline Fiberglass), vertically integrated window brands with in-house pultrusion (Marvin, Pella), and factory-direct exporters like F1 Composite. Buyers should verify dimensional consistency (ASTM D3917, batch mill certificates), the certification stack (EN 14351-1 / NAFS / PHI), and run staged qualification orders.",
+      "The FRP window profile market splits into two businesses: pultruded lineals sold to window fabricators, and finished fiberglass windows. Demand is pulled by energy codes (Germany's GEG as amended by the 2026 Gebäudemodernisierungsgesetz, BC Step Code, ENERGY STAR, Passive House), aluminum's thermal-bridge ceiling, and uPVC's span and dark-color limits. Supply is concentrated: North American lineal specialists (Tencom, Creative Pultrusions, Inline Fiberglass), vertically integrated window brands with in-house pultrusion (Marvin, Pella), and factory-direct exporters like F1 Composite. Buyers should verify dimensional consistency (ASTM D3917, batch mill certificates), the certification stack (EN 14351-1 / NAFS / PHI), and run staged qualification orders.",
     category: "Industry Analysis",
     date: "2026-07-07",
-    updatedAt: "2026-09-09",
+    updatedAt: "2026-10-26",
     readTime: "10 min",
     excerpt:
       "Search interest in the 'FRP window profile market' is usually a fabricator or specifier trying to answer three practical questions: who actually supplies pultruded window lineals, what is pulling demand, and how do you qualify a supplier you have not worked with. This analysis answers those three questions without the invented market-size numbers that plague this topic.",
@@ -1240,7 +1240,7 @@ To check where a specific frame and glazing build lands before specifying, run i
     supportingCaption: "The product this market trades in: a multi-chamber pultruded window profile. Fabricators buy the profile set (frame, sash, mullion, transom, glazing bead) and assemble, glaze and certify the finished window locally; the alternative model is buying the finished, factory-tested unit.",
     highlights: [
       "Two distinct businesses: lineals for fabricators vs finished fiberglass windows. Different buyers, margins, and qualification paths",
-      "Demand is code-pulled: GEG 2024, BC Step Code, ENERGY STAR, and Passive House targets sit below what thermally-broken aluminum reaches comfortably",
+      "Demand is code-pulled: German GEG requirements, BC Step Code, ENERGY STAR, and Passive House targets sit below what thermally-broken aluminum reaches comfortably",
       "Supply is concentrated behind real barriers: die tooling, certification stacks, and fabricator qualification cycles",
     ],
     ogDescription:
@@ -1255,7 +1255,9 @@ To check where a specific frame and glazing build lands before specifying, run i
       { label: "U-Value Calculator", href: "/technology/frp-u-value-calculator" },
     ],
     sourceLinks: [
-      { label: "EPTA — European Pultrusion Technology Association", href: "https://pultruders.org" },
+      { label: "EPTA — European Pultrusion Technology Association", href: "https://pultruders.com" },
+      { label: "EU Implementing Regulation 2021/546 — anti-dumping duty on Chinese aluminum extrusions", href: "https://eur-lex.europa.eu/eli/reg_impl/2021/546/oj" },
+      { label: "Bundesingenieurkammer — Gebäudemodernisierungsgesetz in force (BGBl. 2026 I Nr. 226)", href: "https://bingk.de/gebaeudemodernisierungsgesetz-gmodg-tritt-in-kraft/" },
       { label: "ACMA — American Composites Manufacturers Association", href: "https://acmanet.org" },
       { label: "Passive House Institute — component database", href: "https://passivehouse.com" },
       { label: "FGIA — Fenestration & Glazing Industry Alliance", href: "https://fgiaonline.org" },
@@ -1278,13 +1280,13 @@ There is also a third, adjacent product this market includes: [pultruded fibergl
 
 Demand for FRP window profiles is code-pulled, not fashion-pulled. Four mechanisms are verifiable:
 
-**Energy codes have moved below aluminum's comfort zone.** Germany's GEG 2024 and the BEG funding thresholds, Canada's BC Energy Step Code upper steps, ENERGY STAR Northern-zone criteria, and the UK's Part L revisions all set whole-window U-values that thermally-broken aluminum reaches only with expensive multi-chamber break assemblies, and Passive House targets (U_w ≤ 0.80 W/m²·K for cold-climate certification) sit below what most aluminum systems reach at all. A pultruded frame conducts heat at roughly 0.3 W/m·K against aluminum's 160, so the FRP frame starts where aluminum systems strain to arrive.
+**Energy codes have moved below aluminum's comfort zone.** Germany's GEG (amended by the Gebäudemodernisierungsgesetz, in force since 29 July 2026) and the BEG funding thresholds, Canada's BC Energy Step Code upper steps, ENERGY STAR Northern-zone criteria, and the UK's Part L revisions all set whole-window U-values that thermally-broken aluminum reaches only with expensive multi-chamber break assemblies, and Passive House targets (U_w ≤ 0.80 W/m²·K for cool-temperate certification, lower still for the cold and arctic zones) sit below what most aluminum systems reach at all. A pultruded frame conducts heat at roughly 0.3 W/m·K against aluminum's 160, so the FRP frame starts where aluminum systems strain to arrive.
 
 **uPVC's physical limits cap its share of the performance segment.** Above roughly 1.2 m spans, uPVC needs internal steel reinforcement that re-introduces a thermal bridge; dark frame colors on sun-exposed elevations push uPVC toward its softening range; and deep-cold embrittlement makes severe-cold codes cautious about it. Each limit hands the performance tier of the market to stiffer, more temperature-stable frame materials.
 
 **The passive house pipeline is growing from a small base.** Certified-component fenestration (the segment where FRP frames are structurally advantaged) tracks the growth of passive house and near-zero-energy construction in Germany, the Nordics, Canada, and the northern US. The Passive House Institute's public component database is the verifiable proxy: the number of certified window systems, including fiberglass entries such as F1's Component Certificate 2491wi03 at the phB efficiency class for the cool-temperate climate zone, grows year over year.
 
-**Trade friction on competing frame materials.** Aluminum extrusions face anti-dumping duties into the EU and, for Chinese material, Canada's 25% surtax on steel and aluminum: measures that do not apply to FRP profiles. This does not create demand by itself, but it shifts relative landed costs at the margin where frame-material decisions are made.
+**Trade friction on competing frame materials.** Chinese aluminum extrusions face EU anti-dumping duties (Implementing Regulation (EU) 2021/546, kept in force while the expiry review opened in March 2026 runs) and Canada's 25% surtax on Chinese steel and aluminum: measures that do not apply to FRP profiles. This does not create demand by itself, but it shifts relative landed costs at the margin where frame-material decisions are made.
 
 ## The Supplier Landscape
 
@@ -1316,7 +1318,7 @@ Three barriers keep the supplier list short, and they are the same three things 
 
 If you are entering this market as a buyer, the verification list follows directly from the barriers:
 
-1. **Dimensional consistency, in writing.** ASTM D3917 tolerance class on the drawing, batch mill certificates, and a first-article dimensional report against the die drawing, before production release, not after.
+1. **Dimensional consistency, in writing.** ASTM D3917 or tighter drawing tolerances on the critical dimensions, batch mill certificates, and a first-article dimensional report against the die drawing, before production release, not after.
 2. **The certification stack, at the right level.** Component-level (PHI, EN ISO 10077-2 profile data) and unit-level (EN 14351-1, NAFS) evidence, matched to whether you are buying profiles or finished windows.
 3. **Resin system by name.** Polyester, vinyl ester, or polyurethane: specified per profile, not per brochure.
 4. **A staged qualification path.** First-article run, third-party inspection (SGS/BV) if importing, then production volumes. Any supplier confident in run-to-run repeatability will agree to this structure readily.
@@ -1329,10 +1331,10 @@ The FRP window profile market rewards exactly one kind of participant on each si
     title: "FRP Thermal Break Profiles for Curtain Walls: The Isolator Is a Structural Member, Not a Spacer",
     seoTitle: "FRP Thermal Break Profiles for Curtain Walls",
     answerBox:
-      "In a stick curtain wall the thermal break profile is a structural member, not a spacer: pressure-plate screws clamp through it, wind suction loads it in transverse tension, and on transoms it carries the glass dead load. A triple IGU at 45 kg/m² puts 1.5–2 kN of sustained point load near each setting block for the 25–50-year life of the envelope (EN 13830 / EN 14024). Conventional pultrusion runs its 0°:90° modulus ratio at 4–5:1, leaving those transverse loads on the resin matrix. F1 Composite laminates curtain-wall isolator profiles with multi-layer multiaxial (0°/90°/±45°) stitched fabrics that pull the ratio toward 1:1, so sustained transverse load is carried by glass fiber, which barely creeps, instead of polymer matrix, which does.",
+      "In a stick curtain wall the thermal break profile is a structural member, not a spacer: pressure-plate screws clamp through it, wind suction loads it in transverse tension, and on transoms it carries the glass dead load. A triple IGU at 45 kg/m² puts 1.5–2 kN of sustained point load near each setting block for the 25–50-year service life that project specifications commonly set for the envelope. Conventional pultrusion runs its 0°:90° modulus ratio at roughly 3–5:1, leaving those transverse loads on the resin matrix. F1 Composite laminates curtain-wall isolator profiles with multi-layer multiaxial (0°/90°/±45°) stitched fabrics that pull the ratio toward 1:1, so sustained transverse load is carried by glass fiber, which barely creeps, instead of polymer matrix, which does.",
     category: "Engineering Deep-Dive",
     date: "2026-07-01",
-    updatedAt: "2026-07-01",
+    updatedAt: "2026-10-26",
     readTime: "11 min",
     excerpt:
       "The thermal break in a curtain wall is not the same part as the thermal break in a window. It sits in the primary load path: clamped by pressure-plate screws, pulled by wind suction, and on transoms, loaded around the clock by the dead weight of the glass, transverse to the pultrusion axis. That load case is why F1 laminates isolator profiles with balanced 0°/90° moduli.",
@@ -1356,8 +1358,8 @@ The FRP window profile market rewards exactly one kind of participant on each si
       "The highlighted profile is the isolator: it separates the exterior pressure plate from the interior mullion and transom body, and every load on the glazing (clamp preload, wind pressure and suction, and on transoms the glass dead weight) passes through it. On a transom that load acts across the pultrusion axis, which is exactly where conventional pultrusion is weakest.",
     highlights: [
       "Transom isolators carry glass dead load transversely: a 90° laminate demand, sustained for decades",
-      "Multi-layer multiaxial fabric balances 0°/90° modulus where standard pultrusion runs 4–5:1",
-      "Thermoset GFRP: no melt point, ~10× lower moisture uptake than PA66, tested to EN 14024 from −20 to +80 °C",
+      "Multi-layer multiaxial fabric balances 0°/90° modulus where standard pultrusion runs roughly 3–5:1",
+      "Thermoset GFRP: no melt point, roughly an order of magnitude lower water uptake than saturated PA66 GF25, specified against EN 14024's −20 to +80 °C test range",
     ],
     ogDescription:
       "Pultruded GFRP thermal break profiles for curtain walls: balanced 0°/90° modulus laminates carry glass dead load on transoms for a 25–50-year envelope life.",
@@ -1370,7 +1372,8 @@ The FRP window profile market rewards exactly one kind of participant on each si
       { label: "KNOWHOW Engineering Services", href: "/technology/knowhow-services" },
     ],
     sourceLinks: [
-      { label: "FGIA — AAMA TIR A8, Structural Performance of Composite Thermal Barrier Framing Systems", href: "https://fgiaonline.org" },
+      { label: "FGIA — AAMA TIR-A8-16, Structural Performance of Composite Thermal Barrier Framing Systems", href: "https://store.fgiaonline.org/AAMA-TIR-A8-16/" },
+      { label: "BASF Ultramid A3WG5 (PA66 GF25) datasheet via UL Prospector — moisture and water absorption", href: "https://plastics.ulprospector.com/datasheet/e14477/ultramid-a3wg5" },
       { label: "Ensinger insulbar — thermal insulating profiles", href: "https://www.insulbar.com" },
       { label: "Technoform — insulating profiles for facades", href: "https://www.technoform.com" },
       { label: "CWCT — Centre for Window and Cladding Technology", href: "https://www.cwct.co.uk" },
@@ -1412,9 +1415,9 @@ Four load components make the curtain wall case harder than the window case.
 
 ## The service-life requirement changes the material question
 
-A curtain wall is designed as a permanent building envelope. European practice (EN 13830, CWCT guidance) and project specifications commonly put its service life at 25 years minimum and often 50. The isolator is buried in the system: replacing it means removing cover caps, pressure plates, and glass, effectively re-glazing the elevation. So the isolator must be specified on its end-of-life properties, not its day-one datasheet.
+A curtain wall is designed as a permanent building envelope. EN 13830 does not itself fix a service life, but project specifications and durability guidance (such as CWCT's) commonly put it at 25 years minimum and often 50. The isolator is buried in the system: replacing it means removing cover caps, pressure plates, and glass, effectively re-glazing the elevation. So the isolator must be specified on its end-of-life properties, not its day-one datasheet.
 
-That is uncomfortable for the incumbent material. Glass-reinforced polyamide (PA66 GF25) is an excellent engineering polymer and the deserved standard for window thermal-break strips. But it is a thermoplastic that absorbs moisture, around 2.5–3% at saturation, and conditioned properties fall well below the dry-as-molded values on the datasheet. It creeps measurably under sustained load, which is precisely the load type a curtain wall isolator carries. And at fire temperatures it melts rather than chars, which for a part whose job is holding the pressure plate on is worth thinking about carefully.
+That is uncomfortable for the incumbent material. Glass-reinforced polyamide (PA66 GF25) is an excellent engineering polymer and the deserved standard for window thermal-break strips. But it is a thermoplastic that absorbs moisture: BASF's datasheet for Ultramid A3WG5 (PA66 GF25) lists about 1.7–2.1% at 23 °C/50% RH equilibrium and 5.7–6.3% at saturation in water, and conditioned properties fall well below the dry-as-molded values (its tensile modulus drops from 8,600 to 6,500 MPa). It creeps measurably under sustained load, which is precisely the load type a curtain wall isolator carries. And at fire temperatures it melts rather than chars, which for a part whose job is holding the pressure plate on is worth thinking about carefully.
 
 Pultruded thermoset GFRP approaches the same job from the other side. Moisture uptake is roughly an order of magnitude lower, and there is no plasticization mechanism: properties do not step down when the profile gets wet. The thermoset matrix does not melt; in fire it chars in place. Thermal conductivity is comparable to filled polyamide at roughly 0.3 W/m·K, so the thermal calculation is essentially neutral in the swap. The one place where conventional pultrusion genuinely struggles for this application is directional: everything difficult about the isolator load case happens across the profile axis, and a standard pultrusion is weakest exactly there. Which brings us to the transom.
 
@@ -1424,7 +1427,7 @@ Run the numbers on a modern glazing unit. Glass weighs about 2.5 kg/m² per mill
 
 Now look at the direction of that load. The transom isolator is pultruded along the transom, horizontally. The glass weight acts vertically: transverse to the fiber axis. The clamping screws engage perpendicular to the fiber axis. Wind suction pulls perpendicular to the fiber axis. On a transom, essentially every load the isolator carries is a 90° load.
 
-Conventional pultrusion is built the other way. A standard profile is mostly unidirectional roving with a chopped strand mat skin: full-section modulus of 23–40 GPa along the axis (the EN 13706 E23 grade and above), but only about 7–10 GPa across it, a 0°:90° ratio of 4–5:1. Worse than the stiffness ratio is the load-carrying mechanism behind it: transverse stress in a roving-and-mat laminate is carried substantially by the resin matrix. Under short-term load that is manageable. Under a sustained transverse load held for 25–50 years, matrix-dominated load paths creep, and creep in the part that holds the clamp force is exactly the failure mode a facade engineer cannot accept.
+Conventional pultrusion is built the other way. A standard profile is mostly unidirectional roving with a chopped strand mat skin: full-section modulus of 23–40 GPa along the axis (the EN 13706 E23 grade and above), but only about 7–10 GPa across it, a 0°:90° ratio of roughly 3–5:1 (the E23 minimums alone give 23:7, about 3.3:1). Worse than the stiffness ratio is the load-carrying mechanism behind it: transverse stress in a roving-and-mat laminate is carried substantially by the resin matrix. Under short-term load that is manageable. Under a sustained transverse load held for 25–50 years, matrix-dominated load paths creep, and creep in the part that holds the clamp force is exactly the failure mode a facade engineer cannot accept.
 
 ## Balancing 0° and 90°: the multi-layer multiaxial laminate
 
@@ -1434,7 +1437,7 @@ This is the problem F1 Composite's curtain-wall isolator laminate was developed 
 | --- | --- | --- |
 | 0° modulus | 23–40 GPa | Tuned to the profile |
 | 90° modulus | 7–10 GPa | Raised to the same order as the 0° |
-| 0°:90° ratio | 4–5 : 1 | 2 : 1 down to near 1 : 1 where the detail demands |
+| 0°:90° ratio | roughly 3–5 : 1 | 2 : 1 down to near 1 : 1 where the detail demands |
 | Sustained transverse load carried by | Resin matrix (creeps) | Continuous glass fiber (negligible creep) |
 | Screw pull-out and thread engagement | Matrix and mat dependent | Backed by 90°/±45° fabric layers |
 | Local bearing at setting-block loads | Prone to matrix-dominated crushing | Fiber-supported in both directions |
@@ -1449,7 +1452,7 @@ Specify curtain-wall isolators against the load case, not against a material nam
 
 **EN 14024**: the mechanical performance standard for thermal barrier profiles in metal framing: transverse tensile and longitudinal shear, characterized at −20 °C, room temperature, and +80 °C, with category classification. Ask for the isolator's test values at all three temperatures, because the part operates across that whole range at once.
 
-**EN 13830**: the curtain walling product standard, which frames the system-level performance (wind resistance, air, water, impact) the isolator must survive inside, and the service-life expectation it must match.
+**EN 13830**: the curtain walling product standard, which frames the system-level performance (wind resistance, air, water, impact) the isolator must survive inside.
 
 **EN ISO 10077-2**: the two-dimensional thermal calculation in which the isolator's conductivity and geometry set the frame U-value contribution. Pultruded GFRP at approximately 0.3 W/m·K slots into existing thermal models in place of filled polyamide with minimal change.
 
@@ -1474,10 +1477,10 @@ Conventional pultrusion met most of that list and missed the last item. Balancin
     title: "Pultruded FRP Pipe in Oil and Gas: Where Pultrusion Actually Fits",
     seoTitle: "Pultruded FRP Pipe in Oil & Gas Piping",
     answerBox:
-      "In oil and gas piping, high-pressure trunklines are filament winding's job, because hoop stress needs fiber wound at about ±54°; pultruded FRP is not used there. Pultrusion wins where loads run axially or pressure is low to moderate: API 15HR threaded line pipe (DN50–150, 3,000–5,000 psi / 21–34.5 MPa), API 15LR gathering lines, UL 971 double-wall fuel-station pipe, spoolable composite line pipe (API 15S), and continuous composite sucker rods rated to 285 °F (140 °C). It can cost less than filament-wound pipe at the same diameter, and in a representative 25-year example its lifecycle cost comes out well below coated carbon steel with cathodic protection. F1 Composite ships this as Series 01: pultruded GRE / GRVE surface-gathering pipe in serial production, DN50–DN300, 0.7–3.5 MPa, +140 °C continuous (short-term peak +160 °C), qualified to API 15LR, ISO 14692, NORSOK M-622, ASTM D2992, and SY/T 6266.",
+      "In oil and gas piping, high-pressure trunklines are filament winding's job, because hoop stress needs fiber wound at about ±54°; pultruded FRP is not used there. Pultrusion wins where loads run axially or pressure is low to moderate: small-bore threaded line pipe made by pull-winding (a pultrusion variant with a wound hoop layer), API 15LR gathering lines (rated up to 1,000 psig cyclic), UL 971 double-wall fuel-station pipe, and fiberglass sucker rods, whose high-temperature grades are rated to 285 °F (140 °C). Spoolable API 15S line pipe is a neighboring technology. Pultruded pipe can cost less than filament-wound pipe at the same diameter, and in a representative 25-year example its lifecycle cost comes out well below coated carbon steel with cathodic protection. F1 Composite ships this as Series 01: pultruded GRE / GRVE surface-gathering pipe in serial production, DN50–DN300, 0.7–3.5 MPa, +140 °C continuous (short-term peak +160 °C), built and tested to API 15LR, ISO 14692, NORSOK M-622, ASTM D2992, and SY/T 6266, with qualification reports provided on request.",
     category: "Oil & Gas",
     date: "2026-06-02",
-    updatedAt: "2026-09-27",
+    updatedAt: "2026-10-26",
     readTime: "12 min",
     excerpt:
       "Pultruded FRP does not replace filament-wound high-pressure trunklines. It earns its place in oilfield piping where loads are axial or pressure is low to moderate: threaded line pipe, gathering lines, fuel-station double-wall pipe, and continuous sucker rods.",
@@ -1506,7 +1509,7 @@ Conventional pultrusion met most of that list and missed the last item. Balancin
     highlights: [
       "F1 Composite Series 01 in serial production: DN50–DN300, 0.7–3.5 MPa, +140 °C continuous, API 15LR / ISO 14692",
       "Vinyl-ester, epoxy, and polyurethane matrices; 0.5–2.5 mm resin-rich liner: novolac VE for sour H₂S / CO₂ service",
-      "−15% artificial-lift pumping energy vs carbon steel · −75% weight · no cathodic protection · ≥ 25-year service life",
+      "Up to −15% artificial-lift pumping energy vs carbon steel · about −75% weight · no cathodic protection · ≥ 25-year service life",
     ],
     ogDescription:
       "F1 Composite Series 01 pultruded GRE / GRVE oilfield surface-gathering pipe in serial production: DN50–300, API 15LR, ISO 14692, +140 °C continuous.",
@@ -1529,17 +1532,21 @@ Conventional pultrusion met most of that list and missed the last item. Balancin
         href: "https://www.ogj.com/refining-processing/refining/article/17232888/saudi-aramco-details-nonmetallic-products-deployment-in-oil-gas",
       },
       {
-        label: "Derakane Resin Selection Guide (INEOS)",
-        href: "https://www.ineos.com/globalassets/ineos-group/businesses/ineos-composites/markets/corrosion/derakane-resin-selection-guide.pdf",
+        label: "NOV Fiberspar LinePipe — installed length and continuous lengths (flyer OG6212)",
+        href: "https://assets.nov.com/NCP4N68N/at/qf0xdl-6ulp80-c4ky6q/OG6212_Fiberspar_Lower_Installed_and_Operating_Cost_Pipeline_System.pdf",
+      },
+      {
+        label: "Smiths Group: John Crane high-temperature Fiberod sucker rod to 285 °F (2013)",
+        href: "https://www.smiths.com/news-and-insights/news/2013/john-crane-launches-new-rod-for-high-temperature-upstream-oil-production",
       },
     ],
-    content: `Fiber-reinforced polymer pipe has been in oilfield service for decades, but it pays to be precise about where pultrusion belongs. The global FRP/GRP/GRE pipe market was about USD 5.14 billion in 2025, and oil and gas is its largest single segment at roughly 40%, around USD 800 million, growing near 5.4% a year. Most of that money flows to filament-wound and centrifugally cast pipe, not pultrusion. Knowing why is the key to specifying pultruded FRP correctly instead of forcing it into the wrong job.
+    content: `Fiber-reinforced polymer pipe has been in oilfield service for decades, but it pays to be precise about where pultrusion belongs. Oil and gas is one of the largest end markets for FRP, GRP and GRE pipe, and most of that pipe is filament-wound or centrifugally cast, not pultruded. Knowing why is the key to specifying pultruded FRP correctly instead of forcing it into the wrong job.
 
 ## Why pultrusion is not a high-pressure trunkline
 
 Internal pressure loads a pipe wall in the hoop direction. The fiber that resists it has to wrap around the circumference, which is exactly what filament winding does: it lays roving at roughly ±54° to the axis, the angle that balances hoop and axial stress for burst. Pultrusion pulls fiber straight down the axis, so its reinforcement is mostly longitudinal. That makes a pultruded tube very strong in tension and compression along its length and comparatively weak against internal pressure.
 
-The practical result is a clean division of labor. High-pressure GRE line pipe to API 15HR (up to about 5,000 psi / 34.5 MPa) and large-diameter platform risers stay with winding, which holds roughly three-quarters of the FRP pipe market for this reason. Pultrusion competes where its axial strength, continuous output, and lower cost matter more than hoop strength.
+The practical result is a clean division of labor. High-pressure GRE line pipe to API 15HR (up to about 5,000 psi / 34.5 MPa) and large-diameter platform risers stay with winding, which is why winding dominates the pressure-pipe market. Pultrusion competes where its axial strength, continuous output, and lower cost matter more than hoop strength.
 
 ## The five places pultrusion wins
 
@@ -1547,11 +1554,11 @@ The practical result is a clean division of labor. High-pressure GRE line pipe t
 
 **2. Low-pressure gathering and injection lines.** Field gathering and water injection at 150–450 psi (1–3 MPa), covered by API 15LR, is high-volume, long-distance work where cost per meter decides the project. Pultrusion's continuous process is built for it.
 
-**3. Double-wall fuel-station pipe.** Underground fuel pipe needs a primary wall and a secondary containment wall. Pultrusion can form both in one pass, and a vinyl-ester system qualified to UL 971 handles gasoline through E100 ethanol with a 30-year warranty.
+**3. Double-wall fuel-station pipe.** Underground fuel pipe needs a primary wall and a secondary containment wall. Pultruded or pull-wound tube can supply either wall, and a vinyl-ester system listed to UL 971 for the intended fuels can cover gasoline and ethanol blends; check the listing and warranty terms of the specific system.
 
-**4. Spoolable composite line pipe.** Reinforced and pultruded composite line pipe to API 15S ships on reels up to about 3 km long, which removes most of the field joints: the single largest source of FRP pipe failure. NOV's Fiberspar line has more than 12,000 km installed worldwide on that principle.
+**4. Spoolable composite line pipe (a neighboring technology).** Spoolable reinforced line pipe to API 15S usually winds its reinforcement over a thermoplastic liner rather than pultruding it, but it competes for the same gathering duty and shows why joints matter. It ships on reels in continuous lengths of up to about 3 km, which removes most field joints, the most common source of FRP pipe failure. NOV reports more than 80 million ft (about 24,000 km) of its Fiberspar LinePipe in service. [NOV Fiberspar flyer](https://assets.nov.com/NCP4N68N/at/qf0xdl-6ulp80-c4ky6q/OG6212_Fiberspar_Lower_Installed_and_Operating_Cost_Pipeline_System.pdf).
 
-**5. Continuous composite sucker rods.** This is pultrusion's standout oilfield product, because a sucker rod is loaded almost purely in axial tension and compression, the direction pultruded fiber is strongest. Glass or carbon roving is pultruded continuously, cut to length, and bonded to steel end fittings. John Crane's Series 200 fiberglass rod (now under Endurance Lift Solutions) is rated to 285 °F (140 °C), resists corrosion, and lowers lifting energy in deep rod-pumped wells.
+**5. Composite sucker rods.** This is pultrusion's standout oilfield product, because a sucker rod is loaded almost purely in axial tension and compression, the direction pultruded fiber is strongest. Glass or carbon roving is pultruded continuously, cut to length, and bonded to steel end fittings. The Fiberod line, developed under John Crane and now offered by Endurance Lift Solutions, includes a standard rod rated to 185 °F (85 °C) and a high-temperature rod rated to 285 °F (140 °C); the rods resist corrosion and reduce rod-string weight in rod-pumped wells. [High-temperature rod announcement](https://www.smiths.com/news-and-insights/news/2013/john-crane-launches-new-rod-for-high-temperature-upstream-oil-production).
 
 ## What the field actually runs on
 
@@ -1560,13 +1567,13 @@ These applications live or die on standards and resin chemistry, not on marketin
 | Standard | Scope |
 |---|---|
 | API 15HR | High-pressure fiberglass line pipe, 500–5,000 psi |
-| API 15LR | Low-pressure fiberglass line pipe, ≤ 500 psi |
+| API 15LR | Low-pressure fiberglass line pipe, 150–1,000 psig cyclic |
 | API 15S | Spoolable reinforced plastic line pipe |
 | ISO 14692 | GRP piping for oil and gas (four parts) |
 | ASTM D2992 | Long-term hydrostatic design basis (HDB) |
 | NACE MR0175 / ISO 15156 | Materials for sour (H₂S) service |
 
-Resin choice follows the fluid. A bisphenol-A vinyl ester such as Derakane 411 covers general gathering and injection to about 105 °C (220 °F). Sour service with H₂S or CO₂ moves to a novolac vinyl ester such as Derakane 470, with a resin-rich liner of at least 1.5 mm. High-pressure threaded line pipe uses amine- or anhydride-cured epoxy. For sour wells, NACE MR0175 sets the material screen before anything else.
+Resin choice follows the fluid. A bisphenol-A vinyl ester such as Derakane 411 covers much general gathering and injection service, with the temperature limit for each fluid taken from the resin supplier's chemical-resistance table. Sour service with H₂S or CO₂ moves to a novolac vinyl ester such as Derakane 470, with a resin-rich liner of at least 1.5 mm. High-pressure threaded line pipe uses amine- or anhydride-cured epoxy. For sour wells, NACE MR0175 sets the material screen before anything else.
 
 ## The number that wins the meeting
 
@@ -1582,11 +1589,11 @@ Against carbon steel, the case is lifecycle cost, not purchase price. A represen
 | Replacement / patching | 70 | 0 |
 | Total | 220 | 78 |
 
-In this example FRP costs more to buy and about 65% less to own; run the numbers with your own installation, inspection and repair costs. That math is why Saudi Aramco runs more than 1,000 km of GRE injection line at Ghawar, why Sinopec's Shengli field has replaced over 5,000 km of carbon-steel produced-water line with FRP, and why CNPC's Changqing field has more than 3,500 km of FRP injection pipe in service.
+In this example FRP costs more to buy and about 65% less to own; run the numbers with your own installation, inspection and repair costs. Large operators have moved in the same direction: [Oil & Gas Journal reported in 2018](https://www.ogj.com/refining-processing/refining/article/17232888/saudi-aramco-details-nonmetallic-products-deployment-in-oil-gas) that Saudi Aramco was deploying reinforced thermoplastic flowlines at Khurais, Shaybah and Turaif and had piloted reinforced thermosetting resin pipe in North Ghawar, and Chinese oilfields use fiberglass pipe widely for water injection and produced-water service.
 
 ## F1 Composite Series 01: in serial production
 
-F1 Composite supplies pultruded oilfield surface-gathering pipe as a stocked, serial-production line, not a one-off custom run. The product sits in the DN50–DN300 band where pultrusion is genuinely the right process, and it is qualified to the standards the field actually buys against.
+F1 Composite supplies pultruded oilfield surface-gathering pipe as a standard serial-production line, not a one-off custom run. The product sits in the DN50–DN300 band where pultrusion is genuinely the right process, and it is built and tested to the standards the field actually buys against; qualification reports, with holder, number and scope, are provided on request.
 
 **Series 01: Oilfield Surface Gathering Pipe**
 
@@ -1617,10 +1624,10 @@ For high-pressure wound line pipe we still tell engineers to specify winding. Fo
     title: "Pultruded FRP Pipe for Coal Mine Gas Drainage: Anti-Static and Flame-Retardant by Design",
     seoTitle: "FRP Pipe for Coal Mine Gas Drainage",
     answerBox:
-      "Coal-mine gas (methane) drainage is the piping application where pultrusion fits best. The duty is moderate pressure (0.6–1.6 MPa / 90–230 psi) with two hard safety requirements: the pipe must be flame-retardant and anti-static so it cannot ignite methane underground. Pultruded GFRP pipe in DN25–300, built to a surface resistance below 10⁶ Ω and a 45° flame test, gives a smooth bore, a 50-year design service life and a fraction of steel's weight. F1 Composite ships this as Series 02: pultruded GFRP CMM drainage pipe in serial production, DN25–DN300, 0.6–1.6 MPa, MT 558.2 / GB 16413 / MT 113 with surface resistance ≤ 3 × 10⁸ Ω, LOI ≥ 28%, and UL 94 V-0, with ASTM E84 Class I results on request.",
+      "Coal-mine gas (methane) drainage is the piping application where pultrusion fits best. The duty is moderate pressure (0.6–1.6 MPa / 90–230 psi) with two hard safety requirements: the pipe must be flame-retardant and anti-static so it cannot ignite methane underground. China's FRP mine-pipe standard, MT/T 558.3, requires gas-drainage pipe to test below 1.0 × 10⁶ Ω surface resistance on both walls and to pass an alcohol-burner flame test. Pultruded GFRP pipe in DN25–300 gives a smooth bore, no rust and a fraction of steel's weight. F1 Composite ships this as Series 02: pultruded GFRP CMM drainage pipe in serial production, DN25–DN300, 0.6–1.6 MPa, tested to the MT/T 558.3 / GB 16413 / MT 113 methods, catalog surface resistance ≤ 3 × 10⁸ Ω, LOI ≥ 28%, and UL 94 V-0, with test reports and ASTM E84 Class I results on request.",
     category: "Coal Mine Safety",
     date: "2026-06-02",
-    updatedAt: "2026-06-03",
+    updatedAt: "2026-10-26",
     readTime: "11 min",
     excerpt:
       "Draining methane underground demands a pipe that will not spark and will not carry flame. Pultruded GFRP pipe, anti-static and flame-retardant by formulation, is one of the few cases where pultrusion is the best process, not a compromise.",
@@ -1628,7 +1635,7 @@ For high-pressure wound line pipe we still tell engineers to specify winding. Fo
     authorRole:
       "R&D Lead for composite materials, pultrusion process development and standards",
     reviewedBy: "F1 Composite engineering team",
-    standards: ["MT 558.2", "MT 558.3", "GB 16413", "MT 113", "ISO 4589-2", "UL 94 V-0", "ASTM E84", "ISO 9001"],
+    standards: ["MT/T 558.3", "GB 16413", "MT 113", "ISO 4589-2", "UL 94 V-0", "ASTM E84", "ISO 9001"],
     coverImage: "/images/blog/coal-mine-underground-tunnel-track.jpg",
     coverAlt:
       "Illuminated underground coal mine tunnel with haulage track",
@@ -1639,20 +1646,20 @@ For high-pressure wound line pipe we still tell engineers to specify winding. Fo
     ),
     supportingImage: "/images/blog/composite-drainage-pipes-stacked.jpg",
     supportingAlt:
-      "Stacked composite drainage pipe ready for installation",
+      "Stacked plastic pipes at a construction site, an illustrative photo rather than F1 GFRP mine pipe",
     supportingCaption:
-      "A pultruded GFRP drainage line is light enough to carry and hang by hand underground and keeps a smooth bore that lowers the energy needed to pull gas from the seam, but only an anti-static, flame-retardant grade is allowed below ground.",
+      "Illustrative photo of plastic pipe, not F1 product. A pultruded GFRP drainage line is light enough to carry and hang by hand underground and keeps a smooth bore that lowers the energy needed to pull gas from the seam, but only an anti-static, flame-retardant grade is allowed below ground.",
     supportingAttribution: pexelsCredit(
       "Sergei Starostin",
       "https://www.pexels.com/photo/stack-of-pvc-pipes-at-a-construction-site-29301874/",
     ),
     highlights: [
-      "F1 Composite Series 02 in serial production: DN25–DN300, 0.6–1.6 MPa, surface resistance ≤ 3 × 10⁸ Ω, LOI ≥ 28%, UL 94 V-0",
-      "ATH 50 / APP 8 / AOM 3 flame package + conductive carbon-veil outer layer clear MT 558 / GB 16413 / MT 113 in one pull",
-      "50-year design service life · low maintenance · bell-and-spigot or quick-lock joints replace the leak-prone gasketed steel/PE alternatives",
+      "F1 Composite Series 02 in serial production: DN25–DN300, 0.6–1.6 MPa, catalog surface resistance ≤ 3 × 10⁸ Ω, LOI ≥ 28%, UL 94 V-0",
+      "ATH 50 / APP 8 / AOM 3 flame package + conductive carbon-veil outer layer, formulated against MT/T 558.3 / GB 16413 / MT 113 in one pull",
+      "No rust or recoating · bell-and-spigot or quick-lock joints replace the leak-prone gasketed steel/PE alternatives",
     ],
     ogDescription:
-      "F1 Composite Series 02 pultruded GFRP coal-mine methane drainage pipe in serial production: DN25–300, MT 558, UL 94 V-0, ≤3×10⁸ Ω surface resistance.",
+      "F1 Composite Series 02 pultruded GFRP coal-mine methane drainage pipe in serial production: DN25–300, MT/T 558.3 test basis, UL 94 V-0, LOI ≥ 28%.",
     ogChips: ["Mine methane", "Anti-static", "Flame-retardant"],
     relatedLinks: [
       { label: "Fire Resistance of FRP Profiles", href: "/resources/blog/frp-fire-resistance-ratings-guide" },
@@ -1663,20 +1670,20 @@ For high-pressure wound line pipe we still tell engineers to specify winding. Fo
 
 ## A moderate-pressure, axial-friendly duty
 
-Gas drainage runs at 0.6–1.6 MPa (90–230 psi) in diameters from DN25 to DN300 (1–12 in). That sits squarely inside what pultrusion does well: small to medium bore, moderate pressure, long straight runs, no need for the heavy hoop reinforcement that pushes high-pressure pipe toward filament winding. A pultruded GFRP drainage pipe gives a smooth internal bore that lowers flow resistance and pumping energy, around 50 years of service life, full corrosion resistance against the damp and acidic mine atmosphere, and a fraction of the weight of steel, which matters when every length is carried and hung by hand underground.
+Gas drainage runs at 0.6–1.6 MPa (90–230 psi) in diameters from DN25 to DN300 (1–12 in). That sits squarely inside what pultrusion does well: small to medium bore, moderate pressure, long straight runs, no need for the heavy hoop reinforcement that pushes high-pressure pipe toward filament winding. A pultruded GFRP drainage pipe gives a smooth internal bore that lowers flow resistance and pumping energy, no rust in the damp and acidic mine atmosphere, and a fraction of the weight of steel, which matters when every length is carried and hung by hand underground.
 
 ## The two safety properties that define the product
 
-**Anti-static.** A pultruded pipe is an insulator by default, so it can accumulate surface charge as gas and dust move through it. In a methane atmosphere, that charge is an ignition source. The fix is a conductive surface: a carbon veil or conductive additive that pulls surface resistance below 10⁶ Ω, low enough to bleed charge to ground instead of releasing it as a spark.
+**Anti-static.** A pultruded pipe is an insulator by default, so it can accumulate surface charge as gas and dust move through it. In a methane atmosphere, that charge is an ignition source. The fix is a conductive surface: a carbon veil or conductive additive that lowers surface resistance enough to bleed charge to ground instead of releasing it as a spark. For gas-drainage pipe, [MT/T 558.3-2005](https://www.chinamine-safety.gov.cn/zfxxgk/fdzdgknr/zcfg/hybz_01/mkanj/202004/P020200422403100047608.pdf) sets the limit at an average below 1.0 × 10⁶ Ω on both the inner and outer wall, stricter than the limits it sets for water, compressed-air and ventilation pipe.
 
-**Flame-retardant.** The resin system has to self-extinguish rather than feed a fire. In China the benchmark is the 45° flame test in GB 16413, paired with the oxygen-index and anti-static methods in MT 113. Clearing both with margin, not just scraping the minimum, is the entry ticket.
+**Flame-retardant.** The resin system has to self-extinguish rather than feed a fire. In China the benchmark is the alcohol-burner flame test: under MT/T 558.3, each set of six specimens must average less than 3 s of flaming and less than 20 s of afterglow, with the inspection methods set out in GB 16413 and MT 113. Clearing these with margin, not just scraping the minimum, is the entry ticket.
 
 ## The standards that gate the market
 
 | Standard | What it covers |
 |---|---|
-| MT 558.3 | Underground coal-mine plastic pipe — fiberglass (FRP) section |
-| GB 16413 | Safety performance of FRP products in coal mines — 45° flame test |
+| MT/T 558.3-2005 | Underground coal-mine plastic pipe, Part 3: FRP pipe (pressure, surface resistance, flame tests) |
+| GB 16413 | Safety performance inspection of FRP products for coal mines |
 | MT 113 | Flame-retardant and anti-static test methods for mine polymer products |
 
 Mine drainage pipe carries the KW designation (gas drainage) in the Chinese mine-pipe classification, alongside water lines (KS), grout-spray lines (KJ), and ventilation lines (KFZ/KFF). The hardest gate is the mine-safety mark (MA) approval, which any product needs before it can be bought for underground use. The pipe specification is the easy part. No MA, no sale, however good the pipe is.
@@ -1692,7 +1699,7 @@ Field studies of non-metallic mine pipe point to a consistent set of failures, a
 
 ## F1 Composite Series 02: in serial production
 
-F1 Composite supplies pultruded coal-mine methane drainage pipe as a stocked, serial-production line, not a one-off custom run. The product clears the MT 558 / GB 16413 / MT 113 envelope and goes underground with a 50-year design service life, as a low-maintenance replacement for carbon steel (which corrodes against the wet, acidic mine atmosphere) and standard polyolefins (which fail the flame-retardant and anti-static limits).
+F1 Composite supplies pultruded coal-mine methane drainage pipe as a standard serial-production line, not a one-off custom run. The product is formulated and tested against the MT/T 558.3 / GB 16413 / MT 113 requirements, with test reports provided on request, as a replacement for carbon steel (which corrodes against the wet, acidic mine atmosphere) and standard polyolefins (which fail the flame-retardant and anti-static limits).
 
 **Series 02: Mine Methane Drainage Pipe**
 
@@ -1701,24 +1708,24 @@ F1 Composite supplies pultruded coal-mine methane drainage pipe as a stocked, se
 | Diameter range | DN25 – DN300 mm |
 | Working pressure | 0.6 – 1.6 MPa |
 | Working temperature | −20 °C to +80 °C |
-| Surface resistance | ≤ 3 × 10⁸ Ω (MT 558.2) |
+| Surface resistance | ≤ 3 × 10⁸ Ω catalog value; gas-drainage duty under MT/T 558.3 requires < 1.0 × 10⁶ Ω, confirm with the grade's test report |
 | LOI / flame class | ≥ 28 % · UL 94 V-0 |
 | Resin systems | Vinyl-ester · Epoxy · Polyurethane |
 | Flame package | ATH 50 / APP 8 / AOM 3 + carbon-veil outer layer |
 | Surface enhancement | Glass veil · biaxial fabric · carbon veil |
 | Jointing | Bell-and-spigot · quick-lock |
-| Service life | 50-year design service life · low maintenance |
+| Service life | No rust or recoating · design life set by project assessment |
 | Pultrusion speed | 0.8 – 1.4 m/min |
-| Standards | MT 558.2 · GB 16413 · MT 113 · ISO 4589-2 · UL 94 V-0 · ASTM E84 Class I |
+| Standards | MT/T 558.3 · GB 16413 · MT 113 · ISO 4589-2 · UL 94 V-0 · ASTM E84 Class I (reports on request) |
 | Capacity | FengDu base · 5 sites · 370 pultrusion lines · 150,000 t/yr |
 
-The matrix library lets us pick the resin to the duty. Brominated bisphenol-A (or halogen-free FR) vinyl-ester is the primary MT 558 matrix; epoxy and polyurethane variants cover the structural and non-FR runs. The ATH–APP–AOM package gives UL 94 V-0 and LOI ≥ 28% in a single pull, and a conductive carbon-veil outer layer brings surface resistance to ≤ 3 × 10⁸ Ω for the anti-static limit. Beyond methane drainage, Series 02 also covers auxiliary mine-ventilation ducting, acidic mine-water transfer (pH 2 – 6), compressed-air supply mains, outdoor UV-exposed vent and drainage runs, and combined service runs along mine roadways.
+The matrix library lets us pick the resin to the duty. Brominated bisphenol-A (or halogen-free FR) vinyl-ester is the primary mine-pipe matrix; epoxy and polyurethane variants cover the structural and non-FR runs. The ATH–APP–AOM package gives UL 94 V-0 and LOI ≥ 28% in a single pull, and a conductive carbon-veil outer layer brings surface resistance down for the anti-static requirement (≤ 3 × 10⁸ Ω catalog value; specify the < 1.0 × 10⁶ Ω gas-drainage limit where MT/T 558.3 applies). Beyond methane drainage, Series 02 also covers auxiliary mine-ventilation ducting, acidic mine-water transfer (pH 2 – 6), compressed-air supply mains, outdoor UV-exposed vent and drainage runs, and combined service runs along mine roadways.
 
 The 3-page edition 2026.06 product catalog has the full specification, the resin / flame-package matrix, and the qualified application list:
 
 [Download the F1 Composite Pipe Catalog 2026 (PDF, 3 pages)](/downloads/f1composite-oilfield-mine-pipe-catalog-2026-06.pdf)
 
-For a mine operator weighing a switch from steel or PE, the case rests on fewer failures and a 50-year design service life, which is an argument about total cost rather than purchase price. Send the diameter, the working pressure, and the drainage layout, and we can scope a section and a resin system against it.`,
+For a mine operator weighing a switch from steel or PE, the case rests on fewer failures, no rust and no recoating, which is an argument about total cost rather than purchase price. Send the diameter, the working pressure, and the drainage layout, and we can scope a section and a resin system against it.`,
   },
   {
     slug: "frp-vs-steel-structural-profiles",
@@ -1730,10 +1737,10 @@ For a mine operator weighing a switch from steel or PE, the case rests on fewer 
     title: "FRP vs Steel for Structural Profiles: A Data-Driven Comparison",
     seoTitle: "FRP vs Steel Structural Profiles — Data Comparison",
     answerBox:
-      "Pultruded FRP structural profiles weigh ~75% less than steel at comparable tensile strength (240–400 MPa for FRP vs 400 MPa for A36), are immune to corrosion, and are electrically non-conductive, making them the default specification in coastal, chemical-plant, substation, and rail-platform infrastructure.",
+      "Pultruded FRP structural profiles weigh ~75% less than steel at comparable tensile strength (240–400 MPa for FRP vs 400–550 MPa for A36), do not rust, and are electrically non-conductive, making them a common specification in coastal, chemical-plant, substation, and rail-platform infrastructure. Their lower stiffness means deflection usually sets the section size.",
     category: "Material Comparison",
     date: "2024-02-20",
-    updatedAt: "2026-03-28",
+    updatedAt: "2026-10-26",
     readTime: "10 min",
     excerpt:
       "An engineering comparison of pultruded FRP and structural steel across weight, corrosion resistance, thermal conductivity, lifecycle cost, and environmental impact.",
@@ -1764,7 +1771,7 @@ For a mine operator weighing a switch from steel or PE, the case rests on fewer 
     ],
     content: `When engineers evaluate materials for structural profiles, steel has been the default choice for over a century. But pultruded fiber reinforced polymer composites are increasingly displacing steel in applications where corrosion resistance, weight reduction, or electrical insulation are critical. This article presents a practical, data-driven comparison.
 
-## Weight: FRP Is 75 to 80 Percent Lighter
+## Weight: FRP Is About 75 Percent Lighter
 
 Pultruded E-glass and polyester FRP has a density of 1.8 to 2.1 grams per cubic centimeter, compared to 7.85 grams per cubic centimeter for structural steel. This means FRP profiles are approximately 75 percent lighter than steel profiles of equivalent cross-section. In practice, this weight advantage translates to reduced foundation loads, smaller lifting equipment requirements, faster installation, and lower transportation costs.
 
@@ -1806,10 +1813,10 @@ At F1 Composite, we help engineers compare materials based on actual service con
     title: "Thermal Performance of FRP Window Frames: Uf, Thermal Bridging and Condensation",
     seoTitle: "FRP Window Frame Thermal Performance — Uf & Thermal Bridging",
     answerBox:
-      "Pultruded GFRP-PU window frames deliver U_f as low as 0.78 W/m²·K, roughly 500× lower thermal conductivity than aluminum, without a metal thermal break. F1's 90 Series carries PHI Component Certificate 2491wi03 (phB class); on PHIUS projects in the US and Canada its PHI data is used as input to the energy model.",
+      "Pultruded GFRP-PU window frames deliver U_f as low as 0.78 W/m²·K, roughly 500× lower thermal conductivity than aluminum, without a metal thermal break. F1's 90 Series carries PHI Component Certificate 2491wi03 (phB class); on Phius projects in the US and Canada its PHI data is used as input to the energy model.",
     category: "Fenestration",
     date: "2024-03-10",
-    updatedAt: "2026-03-28",
+    updatedAt: "2026-10-26",
     readTime: "7 min",
     excerpt:
       "Pultruded FRP window frames deliver thermal conductivity 500× lower than aluminum. We break down the physics, the U-value impact, and the energy savings.",
@@ -1847,7 +1854,7 @@ A thermal bridge is a pathway through the building envelope where heat transfers
 
 ## FRP Frame Performance
 
-Pultruded FRP window frames typically achieve frame U-values in the 0.8 to 1.2 watt per square meter-kelvin range without requiring separate thermal break inserts. When combined with high-performance glazing units, FRP systems can support whole-window performance targets needed for low-energy and passive-standard buildings.
+Pultruded FRP window frames typically achieve frame U-values in the 0.8 to 1.2 watt per square meter-kelvin range without a metal thermal break; the lowest values use foam-insulated chambers, as in F1's PHI-certified 90 series (U_f 0.78). When combined with high-performance glazing units, FRP systems can support whole-window performance targets needed for low-energy and passive-standard buildings.
 
 ## Dimensional Stability
 
@@ -1859,9 +1866,9 @@ FRP window frames offer tensile strength exceeding 240 megapascals and strong st
 
 ## Why More Specifiers Are Looking at FRP
 
-High-performance building standards have shifted the discussion from simple frame strength to full-envelope performance. In that context, FRP solves several problems at once: lower thermal bridging, reduced condensation risk, good dimensional stability, and corrosion immunity in coastal or industrial climates.
+High-performance building standards have shifted the discussion from simple frame strength to full-envelope performance. In that context, FRP solves several problems at once: lower thermal bridging, reduced condensation risk, good dimensional stability, and no rust or recoating in coastal or industrial climates.
 
-F1 Composite develops pultruded FRP fenestration profiles for casement, tilt-and-turn, sliding, and fixed systems. The material case is straightforward: if the project wants aluminum-like structural performance without aluminum's thermal penalty, FRP deserves a serious specification review.`,
+F1 Composite develops pultruded FRP fenestration profiles for casement, tilt-and-turn, sliding, and fixed systems. The material case is straightforward: if the project needs a stiff, strong frame without aluminum's thermal penalty, FRP deserves a serious specification review. Its modulus is lower than aluminum's, so frame depth and reinforcement are checked for deflection on large sashes.`,
   },
   {
     slug: "frp-grating-vs-steel-grating-cost-comparison",
@@ -1994,9 +2001,9 @@ Where both systems meet the performance requirement, the result may favor either
       { label: "chemical-resistance table", href: "https://fiberline.com/download-area/profiles/" },
       { label: "Øglænd FOE data", href: "https://www.oglaend-system.com/products/cableladders/foe/" },
       { label: "IEC 61537:2023", href: "https://webstore.iec.ch/en/publication/31963" },
-      { label: "UL 568", href: "https://www.ul.com/services/mechanical-support-and-assembly-services" },
+      { label: "UL 568", href: "https://www.shopulstandards.com/ProductDetail.aspx?productId=UL568" },
       { label: "Cable Tray Institute", href: "https://www.cabletrays.org/codes-and-standards/" },
-      { label: "ASTM E84", href: "https://store.astm.org/e0084-24.html" },
+      { label: "ASTM E84", href: "https://store.astm.org/standards/e84" },
       { label: "Eaton's cable tray manual", href: "https://www.eaton.com/content/dam/eaton/products/support-systems/cable-management/ct-manual.pdf" },
       { label: "Enduro's installation guide", href: "https://www.creativecompositesgroup.com/hubfs/2024%20CCG%20Website/CCG%20Resource%20Library/Enduro%20Resources/Enduro-FRP-Cable-Management-Systems-Catalog_web_04-08-19.pdf" },
     ],
@@ -2018,11 +2025,11 @@ The [Øglænd FOE data](https://www.oglaend-system.com/products/cableladders/foe
 
 ## Use standards within their scope
 
-[IEC 61537:2023](https://webstore.iec.ch/en/publication/31963) covers cable tray and ladder systems and excludes trunking and ducting. [UL 568](https://www.ul.com/services/mechanical-support-and-assembly-services) addresses nonmetallic cable tray systems. Verify certification claims for the actual offered product.
+[IEC 61537:2023](https://webstore.iec.ch/en/publication/31963) covers cable tray and ladder systems and excludes trunking and ducting. [UL 568](https://www.shopulstandards.com/ProductDetail.aspx?productId=UL568) addresses nonmetallic cable tray systems. Verify certification claims for the actual offered product.
 
 NEMA VE 1 concerns metal cable trays. The legacy fiberglass standard NEMA FG 1 was rescinded in November 2017, according to the [Cable Tray Institute](https://www.cabletrays.org/codes-and-standards/). A historic load class does not automatically establish acceptance under the project's current requirements.
 
-[ASTM E84](https://store.astm.org/e0084-24.html) measures surface-burning characteristics. A result under that method does not establish circuit survival or load-bearing performance in a fire. Ask separately for the fire, smoke and other evidence required by the project.
+[ASTM E84](https://store.astm.org/standards/e84) measures surface-burning characteristics. A result under that method does not establish circuit survival or load-bearing performance in a fire. Ask separately for the fire, smoke and other evidence required by the project.
 
 ## Electrical and installation considerations
 
@@ -2039,17 +2046,17 @@ Send the route drawing, cable schedule, support spacing, exposure, temperature a
     title: "FRP Bridge Deck Design: Engineering Considerations and Specification Guide",
     seoTitle: "FRP Bridge Deck Design — Engineering Guide",
     answerBox:
-      "FRP bridge deck panels weigh ~20% of equivalent concrete decks, install in fractions of conventional time, and carry AASHTO H-5 / H-10 / H-20 vehicular load ratings. Project specifications for FRP decks commonly call for design lives well beyond those of steel decks in the same exposure, because the deck has no steel to corrode; the achievable life depends on the laminate, the loads, the exposure and the inspection plan, with documented 30-year installed evidence in Europe and the US.",
+      "FRP bridge deck panels weigh roughly 20% of equivalent concrete decks, install in a fraction of conventional time, and are designed for the project's specified loads: HL-93 vehicular loading under AASHTO LRFD, H-5 or H-10 maintenance vehicles on pedestrian bridges, or EN 1991-2 load models in Europe. Project specifications for FRP decks commonly call for design lives well beyond those of steel decks in the same exposure, because the deck has no steel to corrode; the achievable life depends on the laminate, the loads, the exposure and the inspection plan, with documented 30-year installed evidence in Europe and the US.",
     category: "Infrastructure",
     date: "2024-06-15",
-    updatedAt: "2026-04-01",
+    updatedAt: "2026-10-26",
     readTime: "11 min",
     excerpt:
       "FRP bridge decks are 80% lighter than concrete, enabling longer spans and rapid installation. This guide covers design criteria, deflection limits, durability, and lifecycle cost analysis.",
     authorName: "Yifan Liu, Application Engineer",
     authorRole: "Senior Application Engineer, pultruded FRP structural design and project specification",
     reviewedBy: "F1 Composite engineering team",
-    standards: ["AASHTO LRFD", "EN 1991-2", "BD 90/05", "ASTM D7290"],
+    standards: ["AASHTO LRFD", "EN 1991-2", "DMRB CD 368", "CEN/TS 19101:2022", "ASTM D7290"],
     coverImage: "/images/industries/frp-infrastructure-bridge-structure.jpg",
     coverAlt: "Steel truss bridge running out to sea in low light",
     coverNote: "Illustrative photo",
@@ -2071,7 +2078,11 @@ Send the route drawing, cable schedule, support spacing, exposure, temperature a
       { label: "Standard Profiles", href: "/products/fiberglass-structural-shapes" },
       { label: "FRP Profile Calculator", href: "/frp-profile-calculator" },
     ],
-    content: `Bridge infrastructure worldwide faces a compounding maintenance crisis. Reinforced concrete decks corrode from de-icing salts, freeze-thaw cycles, and increasing traffic loads. Steel decks fatigue at welded connections and require ongoing protective coating programs. Fiber reinforced polymer bridge decks offer a fundamentally different approach: a lightweight, corrosion-immune structural deck system that changes how engineers design, build, and maintain bridge infrastructure.
+    sourceLinks: [
+      { label: "National Highways DMRB CD 368 Rev 0 (2020): design of fibre reinforced polymer bridges, formerly BD 90/05", href: "https://www.standardsforhighways.co.uk/tses/attachments/4075e21b-fd36-4479-a620-9941370aa3f8" },
+      { label: "EuCIA via Composites UK: update on the future Eurocode for composites (CEN/TS 19101)", href: "https://compositesuk.co.uk/eucia-publishes-update-on-future-eurocode-for-composites/" },
+    ],
+    content: `Bridge infrastructure worldwide faces a compounding maintenance crisis. Reinforced concrete decks corrode from de-icing salts, freeze-thaw cycles, and increasing traffic loads. Steel decks fatigue at welded connections and require ongoing protective coating programs. Fiber reinforced polymer bridge decks offer a fundamentally different approach: a lightweight structural deck system with no reinforcing steel to corrode, that changes how engineers design, build, and maintain bridge infrastructure.
 
 ## Why FRP Bridge Decks
 
@@ -2085,7 +2096,7 @@ FRP bridge deck panels typically weigh far less than conventional reinforced con
 
 FRP bridge decks are stiffness-governed, not strength-governed. Because FRP modulus is much lower than steel, deflection criteria usually control the design. Connection detailing is equally important because the load path from deck to girder must manage fatigue, thermal movement, and maintainability.
 
-Designers also need to consider wearing surfaces, long-term creep under sustained load, and the way the deck system interacts with steel or concrete support members. Good FRP bridge design is never just a panel problem. It is a complete structural system problem.
+Designers also need to consider wearing surfaces, long-term creep under sustained load, and the way the deck system interacts with steel or concrete support members. In the UK, National Highways' DMRB CD 368 (which replaced BD 90/05 in 2020) sets the design rules for FRP bridges; in Europe, CEN/TS 19101:2022 covers fibre-polymer composite structures pending its conversion to a Eurocode. Good FRP bridge design is never just a panel problem. It is a complete structural system problem.
 
 ## Installation and Social Cost
 
@@ -2105,7 +2116,7 @@ F1 Composite supports bridge and access-structure teams with load-deflection ana
       "ASTM E1996 sets the windborne-debris impact levels for hurricane-zone fenestration, a large missile (a 9 lb section of 2×4 lumber) and a small missile (gravel-sized debris), tested per the impact-then-pressure-cycling sequence of ASTM E1886. Miami-Dade County's HVHZ additionally requires TAS 201/202/203 testing at design wind speeds up to 175 mph. These standards qualify the finished window assembly, not the frame material alone: pultruded FRP's fiber architecture and impact retention at both high and sub-zero temperatures make it a strong structural candidate, but assembly-level NOA/E1996 certification is a project-specific undertaking, not a blanket material claim.",
     category: "Fenestration",
     date: "2026-07-05",
-    updatedAt: "2026-07-05",
+    updatedAt: "2026-10-26",
     readTime: "6 min",
     excerpt:
       "ASTM E1996, AAMA 506, and the Miami-Dade NOA govern what a hurricane-zone window has to survive. Here is what each standard actually tests, and why frame material impact behavior is only part of getting a project certified.",
@@ -2134,9 +2145,10 @@ F1 Composite supports bridge and access-structure teams with load-deflection ana
       { label: "FRP Impact Resistance vs Steel & Aluminum", href: "/resources/blog/frp-impact-resistance-vs-steel-aluminum" },
     ],
     sourceLinks: [
-      { label: "ASTM E1996-20 — Standard Specification", href: "https://www.astm.org/Standards/E1996.htm" },
+      { label: "ASTM E1996 (current edition E1996-26) — Standard Specification", href: "https://store.astm.org/standards/e1996" },
+      { label: "ASTM E1886 (current edition E1886-19) — Test Method", href: "https://store.astm.org/standards/e1886" },
       { label: "FGIA — AAMA 506-23 Voluntary Specification", href: "https://store.fgiaonline.org/AAMA-506-23/" },
-      { label: "Florida Building Code — HVHZ window requirements", href: "https://www.floridabuilding.org/fbc/publications/fact_sheets_0307/windowsystems061506revised.pdf" },
+      { label: "Florida Building Code, Building, 8th Edition (2023) — Chapter 16, including HVHZ requirements", href: "https://codes.iccsafe.org/content/FLBC2023P1/chapter-16-structural-design" },
     ],
     content: `Every hurricane-zone window specification eventually comes down to the same question: what, exactly, does the window have to survive, and who decides it survived. Three references answer that: ASTM E1996, ASTM E1886, and, for the two counties that enforce it, the Miami-Dade Notice of Acceptance (NOA). None of them certify a frame material. All three certify a finished assembly.
 
@@ -2148,7 +2160,7 @@ The two missile levels in E1996 are a large missile (a nominal 9 lb section of 2
 
 ## AAMA 506 and Where It Sits
 
-AAMA 506 (now AAMA 506-23, aligned to NAFS-22) is FGIA's voluntary specification for impact and cycle testing of fenestration products. It builds on E1996 and E1886 and adds a structured qualification path, so that a manufacturer's finished window or door line, not just a coupon sample, has a documented basis for claiming compliance across a product family.
+AAMA 506 (current edition AAMA 506-23) is FGIA's voluntary specification for impact and cycle testing of fenestration products. It builds on E1996 and E1886 and adds a structured qualification path, so that a manufacturer's finished window or door line, not just a coupon sample, has a documented basis for claiming compliance across a product family.
 
 ## Miami-Dade: The Standard Above the Standard
 
@@ -2156,7 +2168,7 @@ Miami-Dade County and neighboring Broward County, Florida's High Velocity Hurric
 
 ## Where Frame Material Actually Matters
 
-None of these standards test frame material in isolation. They test the assembled window or door. But frame material behavior under impact still determines how much margin a design has going into that test. This is where pultruded FRP's structural profile is relevant: F1's higher-performance fenestration series use a hybrid fiber architecture (unidirectional E-glass roving for longitudinal stiffness combined with ±45-degree multiaxial fabric at the corners specifically for impact resistance and corner rigidity) rather than a single fiber orientation optimized for stiffness alone. Aluminum frames dent under large-missile impact; PVC frames can crack, and lose additional impact strength at low temperature. Pultruded FRP retains its impact strength and stiffness across a wide temperature range: the same property that lets F1's 90-series hold PHI Component Certificate 2491wi03 and survive 45 m/s katabatic wind gusts at Qinling Station, Antarctica, is structurally the same impact-retention behavior a hurricane-zone assembly needs at the other end of the temperature scale.
+None of these standards test frame material in isolation. They test the assembled window or door. But frame material behavior under impact still determines how much margin a design has going into that test. This is where pultruded FRP's structural profile is relevant: F1's higher-performance fenestration series use a hybrid fiber architecture (unidirectional E-glass roving for longitudinal stiffness combined with ±45-degree multiaxial fabric at the corners specifically for impact resistance and corner rigidity) rather than a single fiber orientation optimized for stiffness alone. Aluminum frames dent under large-missile impact; PVC frames can crack, and lose additional impact strength at low temperature. Pultruded FRP retains its impact strength and stiffness across a wide temperature range. F1's 90-series (which separately holds PHI Component Certificate 2491wi03 for its thermal performance) is installed at Qinling Station, Antarctica, against 45 m/s katabatic winds; that cold-climate structural behavior is relevant background for a hurricane-zone assembly, but it is not a substitute for impact testing.
 
 ## The Honest Limit of This Argument
 
@@ -2169,10 +2181,10 @@ F1 Composite engineers pultruded FRP window and door frame systems for high-wind
     title: "The 7 Questions the Pultrusion Industry Cares About Most in 2026",
     seoTitle: "7 Key Questions Pultrusion Industry Asks in 2026",
     answerBox:
-      "Seven structural questions shape the 2026 pultrusion industry conversation: design-standard convergence (ASCE/SEI 74-23 LRFD, EN 13706, ACMA pre-standards), qualification speed, ASTM E84 fire performance, thermoset circularity, PHIUS component certification, embodied-carbon EPDs (EN 15804), and real installed-cost transparency.",
+      "Seven questions shape the 2026 pultrusion industry conversation: which design standard to use (ASCE/SEI 74-23 LRFD, CEN/TS 19101:2022, EN 13706), real installed cost, application-specific durability evidence, qualification speed for custom sections, fire and smoke performance, thermoset circularity, and supply-chain stability at production scale.",
     category: "Industry Insight",
     date: "2026-01-22",
-    updatedAt: "2026-07-30",
+    updatedAt: "2026-10-26",
     readTime: "9 min",
     excerpt:
       "In 2026 the pultrusion conversation has shifted from proving the material exists to proving it can be specified, qualified, priced, and scaled with less friction. These are the seven questions shaping that discussion.",
@@ -2246,10 +2258,10 @@ At F1 Composite, the projects that move fastest are the ones where the buyer has
     title: "The 10 Questions Engineers Ask Most Before Specifying Pultruded FRP",
     seoTitle: "10 Questions Engineers Ask Before Specifying FRP",
     answerBox:
-      "Ten engineering questions account for roughly 90% of the uncertainty around FRP specifications: stiffness (elastic modulus of 17–28 GPa versus 200 GPa for steel), connection design, ASTM E84 fire ratings, dimensional tolerance (±0.25 mm per ASTM D3917), lead times, fatigue behavior, lifecycle cost, and third-party test evidence. This guide answers each question with measured data.",
+      "Ten engineering questions come up most often before an FRP specification moves forward: strength, stiffness (elastic modulus of roughly 17–28 GPa versus about 200 GPa for steel), the design code (ASCE/SEI 74-23, CEN/TS 19101, EN 13706), connection design, elevated temperature and fire, creep under sustained load, dimensional tolerance (ASTM D3917 for standard shapes, tighter drawing limits where interfaces need them), quality documents, field installation, and MOQ and tooling lead time. This guide explains what a credible answer to each one contains.",
     category: "Engineering FAQ",
     date: "2025-11-14",
-    updatedAt: "2026-03-26",
+    updatedAt: "2026-10-26",
     readTime: "10 min",
     excerpt:
       "Engineers rarely reject pultruded FRP because they dislike the material. They reject it when key design questions are left vague. These are the ten questions we hear most before a specification moves forward.",
@@ -2329,10 +2341,10 @@ F1 Composite supports engineers with design coordination, tolerance planning, qu
     title: "The Biggest Pain Point in Pultrusion Today: Qualification Speed, Not Capability",
     seoTitle: "Pultrusion's #1 Pain Point — Qualification Speed",
     answerBox:
-      "Qualification speed (the time from engineer interest to spec-approved material) is the dominant procurement pain point in pultrusion. Pre-built standards alignment (EN 13706, ASCE/SEI 74-23, ASTM D3917), third-party test reports, and early engineering coordination consistently cut qualification timelines by 50% or more.",
+      "Qualification speed (the time from engineer interest to spec-approved material) is the dominant procurement pain point in pultrusion. Pre-built standards alignment (EN 13706, ASCE/SEI 74-23, ASTM D3917), third-party test reports, and early engineering coordination shorten qualification by removing repeated technical loops.",
     category: "Industry Analysis",
     date: "2026-03-18",
-    updatedAt: "2026-07-30",
+    updatedAt: "2026-10-26",
     readTime: "8 min",
     excerpt:
       "Pultrusion can already deliver strong, corrosion-resistant, repeatable composite sections. The biggest pain point today is how slowly projects qualify, approve, and scale those sections into real specifications.",
@@ -2400,10 +2412,10 @@ At F1 Composite, we see the most successful projects when engineering support st
       "Pultrusion Industry Trends in 2026: Standards, Sustainability, and Faster Qualification",
     seoTitle: "Pultrusion Industry Trends 2026: Standards to Patents",
     answerBox:
-      "Across 2026's design codes, leading manufacturers, trade shows, technical symposia, and patent filings, pultrusion is converging on one issue: qualification speed. Recognized standards (ASCE/SEI 74-23, CEN/TS 19101), verified EPDs (EN 15804 / ISO 14025), ASTM E84 fire data, and simulation-led design are all aimed at shortening the path from engineer interest to approved specification.",
+      "Across 2026's design codes, leading manufacturers, trade shows, technical symposia, and patent filings, pultrusion is converging on one issue: qualification speed. Recognized standards (ASCE/SEI 74-23, CEN/TS 19101:2022), verified EPDs (EN 15804 / ISO 14025), ASTM E84 fire data, and simulation-led design are all aimed at shortening the path from engineer interest to approved specification.",
     category: "Industry Trends",
     date: "2026-03-17",
-    updatedAt: "2026-07-30",
+    updatedAt: "2026-10-26",
     readTime: "10 min",
     excerpt:
       "Standards bodies, leading manufacturers, trade shows, technical symposia, and patent filings all point the same way in 2026: the bottleneck is qualification speed, not whether pultrusion works.",
@@ -2411,7 +2423,7 @@ At F1 Composite, we see the most successful projects when engineering support st
     authorRole:
       "Industry research and education: markets, standards and pultrusion adoption",
     reviewedBy: "F1 Composite engineering team",
-    standards: ["ASCE/SEI 74-23", "CEN/TS 19101", "EN 15804", "ASTM E84"],
+    standards: ["ASCE/SEI 74-23", "CEN/TS 19101:2022", "EN 15804", "ASTM E84"],
     coverImage: "/images/blog/pultrusion-patents-2026-cover.jpg",
     coverAlt:
       "Engineer reviewing pultruded profile geometry and design data on a laptop",
@@ -2424,7 +2436,7 @@ At F1 Composite, we see the most successful projects when engineering support st
     supportingAlt: "Resin samples dispensed into test tubes in a laboratory",
     supportingCaption: "Illustrative photo. Much of the 2026 activity sits in the resin: faster-curing systems, fire-retardant chemistries and recyclable matrices all start in the laboratory.",
     highlights: [
-      "Recognized design codes (ASCE/SEI 74-23, CEN/TS 19101) now back FRP specification",
+      "Recognized design codes (ASCE/SEI 74-23, CEN/TS 19101:2022) now back FRP specification",
       "Sustainability claims need verified EPDs, not adjectives",
       "Simulation and documentation are replacing trial-and-error qualification",
     ],
@@ -2447,6 +2459,19 @@ At F1 Composite, we see the most successful projects when engineering support st
         href: "https://acmanet.org/acma-announces-completion-of-product-category-rule-for-fiber-reinforced-polymer-frp-rebar/",
       },
       {
+        label: "ACMA reaffirms ANSI/ACMA/FGMC grating manual (2025)",
+        href: "https://acmanet.org/acma-reaffirms-frp-grating-standard-reinforcing-support-for-engineering-and-design-innovation/",
+      },
+      {
+        label: "ACMA LCA+EPD Generator (2025)",
+        href: "https://acmanet.org/acmas-lcaepd-generator-a-smart-investment-in-selling-the-environmental-benefits-of-composites",
+      },
+      {
+        label: "Pultron Mateenbar EPD, EPD-IES-0022664 (June 2025)",
+        href: "https://epd-australasia.com/wp-content/uploads/2025/08/EPD-IES-0022664_001-Marteenbar-Fibreglass-Rebars-Dowels-Rockbolts-and-Form-Ties.pdf",
+      },
+      { label: "Strongwell: About (since 1956, 65+ pultrusion machines)", href: "https://www.strongwell.com/about/" },
+      {
         label: "EuCIA on Circularity at NAPC",
         href: "https://eucia.eu/eucia-discusses-circularity-at-north-american-pultrusion-conference/",
       },
@@ -2468,18 +2493,19 @@ At F1 Composite, we see the most successful projects when engineering support st
         href: "https://patents.google.com/patent/CN222681847U/en",
       },
       { label: "PulCalc FRP Design Program", href: "https://fibrdesign.com/" },
+      { label: "M-ERA.NET OPTIPUL variable cross-section pultrusion project", href: "https://www.m-era.net/materipedia/2023/optipul" },
     ],
-    content: `Through the first half of 2026, the pultrusion market has stopped arguing about whether the material works. Buyers, design codes, and trade events have moved on to a harder set of questions: how fast a section can be qualified, how its fire and end-of-life behavior is documented, and which supplier can carry a project from drawing to approved specification. Five vantage points show where the industry is heading: the standards bodies, the leading manufacturers, the big trade shows, the technical symposia, and the patent record. They point the same way.
+    content: `Through 2026, the pultrusion market has stopped arguing about whether the material works. Buyers, design codes, and trade events have moved on to a harder set of questions: how fast a section can be qualified, how its fire and end-of-life behavior is documented, and which supplier can carry a project from drawing to approved specification. Five vantage points show where the industry is heading: the standards bodies, the leading manufacturers, the big trade shows, the technical symposia, and the patent record. They point the same way.
 
 ## Design standards have caught up to practice
 
-The most important change is that pultruded FRP now has design codes a plan reviewer will recognize. ASCE/SEI 74-23 brought LRFD provisions for pultruded structures into a published US standard, and CEN/TS 19101 is doing the equivalent work in Europe. ACMA has pushed hard on the execution side: it launched a Code of Standard Practice, reaffirmed its FRP grating standard, and completed a Product Category Rule for FRP rebar.
+The most important change is that pultruded FRP now has design codes a plan reviewer will recognize. ASCE/SEI 74-23 brought LRFD provisions for pultruded structures into a published US standard, and CEN/TS 19101:2022 is doing the equivalent work in Europe while CEN/TC 250 drafts the future EN 19101 Eurocode parts. ACMA has pushed hard on the execution side: it launched a Code of Standard Practice, had the ANSI/ACMA/FGMC grating manual reaffirmed in 2025, and completed a Product Category Rule for FRP rebar.
 
 For a specifying engineer this changes the conversation. The pitch is no longer "trust the manufacturer's brochure." It is "design to a named standard, and ask the supplier for the section properties and test data that back it." Suppliers who can map a project to the right standard set and hand over the proof package with it clear approval faster than those who cannot.
 
 ## Sustainability became a document, not a slogan
 
-Pultron published an Environmental Product Declaration for its Mateenbar fiberglass rebar in late 2025, tied to ISO 14025 and EN 15804. ACMA now runs an LCA/EPD generator for its members, and EuCIA used the North American Pultrusion Conference to move circularity and recycling data into the technical program rather than a marketing track.
+Pultron published an Environmental Product Declaration for its Mateenbar fiberglass rebar in June 2025 (EPD-IES-0022664), tied to ISO 14025 and EN 15804. ACMA launched an LCA+EPD Generator for composite manufacturers in 2025, and EuCIA used the North American Pultrusion Conference to move circularity and recycling data into the technical program rather than a marketing track.
 
 The lesson for buyers is blunt. An environmental claim that cannot survive procurement review is losing value; one backed by a verified declaration is gaining it. If embodied carbon or recyclability sits in your specification, ask for the document, not the adjective.
 
@@ -2491,13 +2517,13 @@ No single model is the correct one, and that is the point for a buyer building a
 
 ## Trade shows and symposia describe the same direction
 
-JEC World 2026 in Paris and CAMX 2026 in Atlanta (September 21–24) both frame pultrusion as one link in a wider value chain (raw materials, equipment, part manufacturing, design support, qualification) rather than isolated profile supply. The technical venues say it in more detail. Fraunhofer IWU's June 2026 pultrusion symposium is built on two themes: sustainable material concepts and simulation-based development. Its sessions run through Proxxima resin systems, flame-retarded epoxy, circular and natural fibers, facade profiles, and thermoplastic window sections, alongside design software such as fibclick's Pultrusion Designer and PulCalc, which follows ASCE 74 practice.
+JEC World 2026 in Paris and CAMX 2026 in Atlanta (September 21–24) both frame pultrusion as one link in a wider value chain (raw materials, equipment, part manufacturing, design support, qualification) rather than isolated profile supply. The technical venues say it in more detail. Fraunhofer IWU's pultrusion symposium in Chemnitz (June 16–17, 2026) was built on two themes: sustainable material concepts and simulation-based development. Its program covered Proxxima resin systems, flame-retarded epoxy, circular and natural fibers, facade profiles, thermoplastic window sections and fibclick's Pultrusion Designer software. In North America, design programs such as FiberDesign's PulCalc are written around ASCE 74.
 
 The practical reading is that the industry is replacing trial-and-error with simulation and documentation. Inherited shop know-how alone is getting harder to defend on a serious project.
 
 ## The patent record points at throughput and control
 
-Recent filings cluster around the same constraints the symposia describe. US20250162266A1 (May 2025) describes a three-sled puller built for smoother motion, lower clamping force, and less surface marking. CN222681847U covers a multi-cavity die with separate preform, cure, and post-cure zones: productivity from tooling architecture rather than raw pull speed. CN119141816A targets thermoplastic pultrusion equipment, and CN222590749U addresses yarn-tension control. Read alongside Fraunhofer's OPTIPUL work on variable cross-sections, the direction is toward more geometry, more functional integration, and tighter process control, not just faster straight sections.
+Recent filings cluster around the same constraints the symposia describe. US20250162266A1 (May 2025) describes a three-sled puller built for smoother motion, lower clamping force, and less surface marking. CN222681847U covers a multi-cavity die with separate preform, cure, and post-cure zones: productivity from tooling architecture rather than raw pull speed. CN119141816A targets thermoplastic pultrusion equipment, and CN222590749U addresses yarn-tension control. Read alongside the M-ERA.NET OPTIPUL project on variable cross-section pultrusion (coordinated by LIST, with Fraunhofer as a partner), the direction is toward more geometry, more functional integration, and tighter process control, not just faster straight sections.
 
 ## What it means for a buyer in 2026
 
@@ -2513,14 +2539,14 @@ That is the filter we use at F1 Composite. Projects move fastest when engineerin
       "Pultruded FRP profiles are replacing galvanized and stainless steel across coastal infrastructure: they weigh about 75% less, do not suffer chloride stress-corrosion cracking, and have about 30 years of installed history on marinas, piers and offshore structures.",
     category: "Lifecycle Analysis",
     date: "2026-04-03",
-    updatedAt: "2026-09-27",
+    updatedAt: "2026-10-26",
     readTime: "8 min",
     excerpt:
       "Coastal infrastructure is among the harshest service environments for structural materials. Installed FRP on marinas, piers and offshore structures now has 20 to 30 years of service history: the profiles weigh about 75% less than steel, do not rust and need no recoating.",
     authorName: "Yifan Liu, Application Engineer",
     authorRole: "Senior Application Engineer, pultruded FRP structural design and project specification",
     reviewedBy: "F1 Composite engineering team",
-    standards: ["EN 13706", "ISO 9001", "ASCE Pre-Standard for LRFD of Pultruded FRP"],
+    standards: ["EN 13706", "ISO 9001", "ASCE/SEI 74-23", "CEN/TS 19101:2022"],
     coverImage: "/images/blog/frp-coastal-infrastructure-cover.jpg",
     coverAlt: "Coastal dock and pier structure extending over water — typical marine infrastructure environment",
     coverNote: "Illustrative photo",
@@ -2536,7 +2562,7 @@ That is the filter we use at F1 Composite. Projects move fastest when engineerin
       "https://www.pexels.com/photo/rusty-metal-railing-by-water-surface-31478101/",
     ),
     highlights: [
-      "Global corrosion costs exceed $2.5 trillion annually (NACE/AMPP)",
+      "Global corrosion cost estimated at US$2.5 trillion a year (NACE IMPACT study, 2016)",
       "FRP weighs about 75% less than steel and needs no corrosion recoating",
       "Lifecycle cost compared project by project, with recoating and downtime counted",
     ],
@@ -2550,29 +2576,32 @@ That is the filter we use at F1 Composite. Projects move fastest when engineerin
       { label: "Coastal Marina Walkway Case Study", href: "/case-studies/coastal-marina-walkway" },
       { label: "Marine Applications", href: "/industries/marine" },
     ],
+    sourceLinks: [
+      { label: "NACE (now AMPP) IMPACT study: global cost of corrosion", href: "http://impact.nace.org/economic-impact.aspx" },
+    ],
     content: `Coastal infrastructure is among the harshest service environments for structural materials. Salt spray, tidal wetting and drying cycles, UV exposure, and biological fouling combine to create a corrosion regime that accelerates the degradation of carbon steel far beyond what inland specifications anticipate. Yet for decades, engineers have continued to specify hot-dip galvanized or painted steel for marine walkways, pier substructures, handrails, cable trays, and platform framing, largely because it was the known quantity.
 
 That is changing. Pultruded fiber reinforced polymer (FRP) profiles are now being specified at increasing rates for coastal and marine infrastructure, not as a novelty material but as a lifecycle-cost decision backed by field data spanning 20 to 30 years.
 
 ## The Real Cost of Coastal Corrosion
 
-The global cost of corrosion is staggering. NACE International (now AMPP) has estimated that corrosion costs the global economy in excess of $2.5 trillion annually, representing roughly 3.4 percent of world GDP. In marine and coastal infrastructure specifically, corrosion-related maintenance, repair, and premature replacement represent a disproportionately high share of total asset cost.
+The global cost of corrosion is staggering. NACE International (now AMPP) estimated in its 2016 IMPACT study that corrosion cost the global economy about US$2.5 trillion a year, roughly 3.4 percent of world GDP (2013 data). In marine and coastal infrastructure specifically, corrosion-related maintenance, repair, and premature replacement represent a disproportionately high share of total asset cost.
 
 For a typical galvanized steel walkway or platform in a coastal environment, the protective zinc layer begins to deteriorate within 5 to 15 years depending on the chloride exposure class. Once the base steel is exposed, corrosion accelerates. The standard response (inspection, surface preparation and recoating with a marine-grade protective system) costs far more than the materials: access, scaffolding, containment of blasting debris and disruption to operations all add up.
 
-Over a 50-year design life, it is common for maintenance costs on coastal steel structures to exceed the original installed cost of the steelwork by a factor of two to four. That is the economic reality that is shifting specification decisions.
+Over a long design life, cumulative maintenance on coastal steelwork can exceed the original installed cost of the steel. The ratio depends on the exposure class, coating system and access cost, so model it for the project. That recurring cost is what is shifting specification decisions.
 
 ## FRP Lifecycle Performance in Marine Environments
 
 Pultruded FRP profiles manufactured with corrosion-resistant resin systems (typically isophthalic polyester or vinyl ester matrices reinforced with E-glass rovings and mats) do not corrode electrochemically. They do not rust, pit, or suffer from crevice corrosion. They are immune to the galvanic effects that plague mixed-metal assemblies in salt environments. And they do not require protective coatings to maintain structural integrity over their service life.
 
-This is not a theoretical advantage. FRP structures installed in marine service in the 1990s and early 2000s have now accumulated 25 to 30 years of field exposure data. Inspection programs on these assets consistently show that pultruded FRP profiles retain their mechanical properties and dimensional stability with no evidence of structural degradation that would require remedial intervention.
+This is not a theoretical advantage. FRP structures installed in marine service in the 1990s and early 2000s now have 20 to 30 years of field exposure. Long-term performance still depends on the resin, the UV protection of the surface and the connection details, so ask for inspection records from comparable installed projects rather than relying on a general claim.
 
-Profiles manufactured to EN 13706, the European standard for pultruded FRP structural profiles, provide a clear specification framework for minimum mechanical properties, dimensional tolerances, and quality requirements. When combined with ISO 9001-certified manufacturing processes, engineers have a credible qualification path that did not exist 15 years ago.
+Profiles manufactured to EN 13706, the European standard for pultruded FRP structural profiles, provide a clear specification framework for minimum mechanical properties, dimensional tolerances, and quality requirements. EN 13706 has been in place since 2002. With ASCE/SEI 74-23 and CEN/TS 19101:2022 now covering structural design, and ISO 9001 process control at the plant, engineers have a far more complete qualification path than they had 15 years ago.
 
 ## Weight: A Compounding Structural Advantage
 
-Pultruded E-glass FRP profiles have a density of approximately 1.8 to 2.1 g/cm³, compared with 7.85 g/cm³ for structural steel. That 75 to 80 percent weight reduction has cascading benefits in coastal infrastructure:
+Pultruded E-glass FRP profiles have a density of approximately 1.8 to 2.1 g/cm³, compared with 7.85 g/cm³ for structural steel. That is roughly 73 to 77 percent less weight for the same volume, with cascading benefits in coastal infrastructure:
 
 **Reduced foundation loading.** Lighter superstructures mean smaller piles, reduced embedment depth, and lower installation cost, particularly in soft marine soils where pile capacity is expensive to develop.
 
@@ -2586,19 +2615,17 @@ Pultruded E-glass FRP profiles have a density of approximately 1.8 to 2.1 g/cm³
 
 Coastal marina walkways represent one of the clearest use cases for pultruded FRP. The environment combines constant salt exposure, intermittent wetting, pedestrian and light vehicular loading, and an expectation of 25 to 50 year service life with minimal maintenance.
 
-A documented marina walkway project using pultruded FRP profiles demonstrated a total installed cost premium of approximately 15 to 25 percent over galvanized steel. However, the projected 30-year maintenance cost was reduced by more than 60 percent, yielding a net lifecycle saving that justified the upfront investment within the first 8 to 12 years.
-
-This pattern (modest upfront premium, rapid payback through eliminated maintenance) is consistent across numerous coastal FRP projects reported in the literature and in asset owner experience.
+On a marina walkway the comparison usually runs the same way: FRP can carry a higher installed cost than galvanized steel, and the case for it rests on the recoating, access and replacement costs it removes. The size of the premium and the payback period vary with the section, the exposure and the owner's maintenance plan, so they belong in a project-specific lifecycle model that counts inspection, fasteners and surface condition as well as coatings.
 
 ## Standards and Specification Confidence
 
 One of the historical barriers to FRP adoption was the lack of recognized structural design standards comparable to those available for steel and concrete. That gap has narrowed substantially:
 
-**EN 13706** provides minimum property requirements for pultruded profiles in grades E17 and E23, covering flexural, tensile, compressive, and interlaminar shear properties along with dimensional tolerances and test methods.
+**EN 13706** provides minimum property requirements for pultruded profiles in grades E17 and E23, covering modulus, tensile, flexural, interlaminar shear and pin-bearing properties along with dimensional tolerances and test methods.
 
-**EUROCOMP Design Code and Handbook** offers a design methodology for FRP composite structures.
+**CEN/TS 19101:2022** gives a European design method for fiber-polymer composite structures; the EUROCOMP Design Code and Handbook (1996) preceded it.
 
-**ASCE Pre-Standard for Load and Resistance Factor Design of Pultruded FRP Structures** provides a US-focused design framework.
+**ASCE/SEI 74-23**, Load and Resistance Factor Design for Pultruded FRP Structures, is the published US standard that replaced the earlier ASCE pre-standard.
 
 **ISO 9001** certification of manufacturing facilities gives specifiers assurance of process control, traceability, and quality management.
 
@@ -2618,17 +2645,17 @@ Steel remains appropriate where very high impact resistance is required, where f
 
 ## Conclusion
 
-The shift from steel to pultruded FRP in coastal infrastructure is not driven by material novelty. It is driven by 30 years of field evidence, improving design standards, and the increasingly clear lifecycle cost arithmetic. For asset owners and engineers responsible for structures in aggressive marine environments, FRP has moved from an alternative material to a serious default candidate: one that delivers lower total cost of ownership, reduced maintenance burden, and longer effective service life.`,
+The shift from steel to pultruded FRP in coastal infrastructure is not driven by material novelty. It is driven by 20 to 30 years of field evidence, published design standards, and the increasingly clear lifecycle cost arithmetic. For asset owners and engineers responsible for structures in aggressive marine environments, FRP has moved from an alternative material to a serious default candidate: one that delivers lower total cost of ownership, reduced maintenance burden, and longer effective service life.`,
   },
   {
     slug: "frp-fenestration-passivhaus-certification",
     title: "FRP Fenestration: How Pultruded Window Frames Achieve Passivhaus Certification",
     seoTitle: "PHI-Certified GFRP Window Frames — U_w 0.78, Cert 2491wi03",
     answerBox:
-      "F1 Composite's Fengdu Passive GFRP 90 Series carries PHI Component Certificate 2491wi03: U_w 0.78 W/m²·K, phB class, U_f uniform across all sections. Tested with Ug 0.70 + Swisspacer Ultimate; installed U_w 0.82–0.84 depending on wall type. Its PHI data can be used in US, Canadian and European Passive House energy models.",
+      "F1 Composite's Fengdu Passive GFRP 90 Series carries PHI Component Certificate 2491wi03: U_w 0.78 W/m²·K, phB class, U_f uniform across all sections. Tested with Ug 0.70 + Swisspacer Ultimate; installed U_w 0.82–0.84 depending on wall type. Its PHI data can be entered in PHPP energy models for Passive House projects in Europe and North America; Phius certification runs its own window program.",
     category: "Thermal Performance",
     date: "2026-04-03",
-    updatedAt: "2026-04-03",
+    updatedAt: "2026-10-26",
     readTime: "9 min",
     excerpt:
       "Pultruded FRP window frames achieve Passivhaus certification through inherent material properties: 500x lower thermal conductivity than aluminum, CTE matching glass, and slim profiles that maximize glazing area.",
@@ -2642,7 +2669,7 @@ The shift from steel to pultruded FRP in coastal infrastructure is not driven by
     supportingImage: "/images/blog/frp-fenestration-passivhaus-supporting.jpg",
     supportingAlt: "Modern building facade showing window frame profiles and glazing systems",
     supportingCaption:
-      "Frame U-values below 0.8 W/m²·K are achievable with standard pultruded FRP profiles, without the complex thermal break engineering required for aluminum.",
+      "Frame U-values below 0.8 W/m²·K are achievable with insulated multi-chamber pultruded FRP profiles, without a metal thermal break.",
     supportingAttribution: pexelsCredit(
       "Jan van der Wolf",
       "https://www.pexels.com/photo/modern-building-windows-19503548/",
@@ -2650,10 +2677,10 @@ The shift from steel to pultruded FRP in coastal infrastructure is not driven by
     highlights: [
       "PHI certified: U_W = 0.78 W/(m²·K), efficiency class phB",
       "FRP thermal conductivity ~0.3 W/m·K: 500x lower than aluminum",
-      "Frame U_f = 0.78 W/(m²·K) uniform across all sections, no thermal break needed",
+      "Frame U_f = 0.78 W/(m²·K) uniform across all sections, insulated chambers and no metal thermal break",
     ],
     ogDescription:
-      "F1's 90 Series PHI Cert 2491wi03: U_w 0.78 W/m²·K, phB. For US Passive House projects, the PHI data feeds the PHIUS energy model. RAL custom AAMA 2604 finish.",
+      "F1's 90 Series PHI Cert 2491wi03: U_w 0.78 W/m²·K, phB. PHI data feeds PHPP energy models; Phius runs its own window program. RAL finishes in any color.",
     ogChips: ["PHI · 2491wi03", "U_w 0.78", "AAMA 2604/2605"],
     relatedLinks: [
       { label: "FRP Windows and Doors", href: "/products/frp-window-frames" },
@@ -2673,7 +2700,7 @@ The Passivhaus Institut (PHI) certifies window systems that meet its criteria fo
 
 ## Why Aluminum Frames Fall Short
 
-Aluminum has a thermal conductivity of approximately 160 W/m·K. Even with polyamide thermal break strips, the standard approach in commercial aluminum fenestration, the effective frame U-value typically lands in the 1.8 to 3.5 W/m²·K range for conventional systems, and 1.2 to 1.8 W/m²·K for high-performance thermally broken designs.
+Aluminum has a thermal conductivity of approximately 160 W/m·K. Even with polyamide thermal break strips, the standard approach in commercial aluminum fenestration, standard thermally broken frames typically land around U_f 1.4 to 2.4 W/m²·K, and premium systems with deep polyamide breaks and insulating inserts reach about 1.0 W/m²·K or slightly lower.
 
 Achieving frame U-values below 1.0 W/m²·K with aluminum requires increasingly complex multi-chamber thermal break geometries, polyurethane foam insulation inserts, and sophisticated profile engineering. These solutions add cost, manufacturing complexity, and potential failure modes at the interfaces between conductive and insulating elements.
 
@@ -2681,9 +2708,9 @@ The fundamental problem is that aluminum is being asked to do something its phys
 
 ## FRP: Insulation as a Material Property
 
-Pultruded FRP window frame profiles have a thermal conductivity of approximately 0.3 W/m·K. That is roughly 500 times lower than aluminum. No added insulation or thermal break strips are needed for this; it comes from the glass-fiber-reinforced polymer itself.
+Pultruded FRP window frame profiles have a thermal conductivity of approximately 0.3 W/m·K. That is roughly 500 times lower than aluminum. The low conductivity comes from the glass-fiber-reinforced polymer itself, so the frame needs no metal thermal break.
 
-The practical result is that pultruded FRP frames routinely achieve frame U-values in the 0.8 to 1.2 W/m²·K range in standard profile configurations, without requiring supplementary insulation inserts. With optimized multi-chamber profile design and appropriate gasket systems, FRP fenestration systems can reach frame U-values below 0.8 W/m²·K, comfortably within Passivhaus territory.
+The practical result is that pultruded FRP frames routinely achieve frame U-values in the 0.8 to 1.2 W/m²·K range in standard profile configurations. With optimized multi-chamber profiles, insulating foam in the chambers and appropriate gasket systems, FRP fenestration systems can reach frame U-values below 0.8 W/m²·K, which is Passivhaus territory. The certified 90 Series described below uses Kooltherm and PE foam inserts in its chambers.
 
 This matters because the frame's thermal performance is not dependent on the integrity of a thermal break joint. The entire cross-section is insulating. There is no conductive short circuit waiting to emerge if a thermal break strip degrades, shifts, or is bridged by fasteners.
 
@@ -2711,7 +2738,7 @@ For Passivhaus certification, where the building must show airtightness of no mo
 
 ## Structural Performance: Slim Profiles, Larger Glazing Areas
 
-Pultruded FRP window profiles deliver tensile strength exceeding 240 MPa and flexural strength in the 200 to 350 MPa range, depending on laminate design. This structural capacity allows frame sections to be slimmer than PVC equivalents while maintaining adequate stiffness for large window openings.
+Pultruded FRP window profiles deliver tensile strength exceeding 240 MPa and flexural strength of roughly 240 to 350 MPa, depending on laminate design. This structural capacity allows frame sections to be slimmer than PVC equivalents while maintaining adequate stiffness for large window openings.
 
 In Passivhaus design, maximizing glazing area on south-facing elevations is a key strategy for capturing passive solar gains during heating months. Slimmer frame profiles increase the glass-to-frame ratio, which improves both daylight and solar gain. FRP enables this without the thermal penalty of aluminum and without the structural limitations of PVC at large spans.
 
@@ -2731,7 +2758,7 @@ Manufacturers operating under ISO 9001 quality management systems with documente
 
 ## Certified Performance: Fengdu Passive GFRP 90 Series
 
-The theoretical advantages described above are validated by actual Passive House Institute certification. The Fengdu Passive GFRP 90 Series (a pultruded glass fiber reinforced polymer window frame system) holds PHI Component Certificate 2491wi03 for the cool, temperate climate zone, achieving Passive House efficiency class phB.
+The theoretical advantages described above are validated by actual Passive House Institute certification. The Fengdu Passive GFRP 90 Series (a pultruded glass fiber reinforced polymer window frame system) holds PHI Component Certificate 2491wi03 (issued to Chongqing Xianju New Material Co., Ltd., valid until 31 December 2026) for the cool, temperate climate zone, achieving Passive House efficiency class phB.
 
 The certified performance data confirms what the material physics predict:
 
@@ -2739,11 +2766,11 @@ The certified performance data confirms what the material physics predict:
 
 **Glazing edge thermal bridge (Ψ_g):** 0.023 W/(m·K) using Swisspacer Ultimate warm-edge spacer with butyl secondary seal, significantly below the 0.030 to 0.035 range typical of conventional systems.
 
-**Whole-window U-value (U_W):** 0.78 W/(m²·K) with U_g = 0.70 glazing, meeting the Passivhaus comfort criterion of U_W ≤ 0.80. With higher-performance glazing, the system reaches U_W = 0.65 W/(m²·K).
+**Whole-window U-value (U_W):** 0.78 W/(m²·K) with U_g = 0.70 glazing, meeting the Passivhaus comfort criterion of U_W ≤ 0.80. With Ug 0.52 glazing, the certificate lists U_W = 0.65 W/(m²·K).
 
 **Installed performance:** U_W,installed ranges from 0.82 to 0.84 W/(m²·K) depending on wall construction type (EIFS, formwork blocks, or lightweight timber), all within the 0.85 W/(m²·K) installed limit.
 
-**Temperature factor (f_Rsi):** 0.77 to 0.78 across all sections, well above the 0.70 hygiene threshold, confirming no condensation risk at the frame interior surface.
+**Temperature factor (f_Rsi):** 0.77 to 0.78 across all sections, above the 0.70 hygiene threshold for the cool-temperate zone, so the interior frame surface meets PHI's anti-mold criterion.
 
 The frame construction uses a fiberglass reinforced profile (0.30 W/(m·K)) insulated with Kooltherm (0.022 W/(m·K)) and PE foam (0.038 W/(m·K)), combined with triple glazing at 48 mm pane thickness (4/18/4/18/4) and 19 mm rebate depth.
 
@@ -2760,10 +2787,10 @@ For architects and engineers specifying windows for Passivhaus or other high-per
     title: "Thermoset FRP Is Now Recyclable: How Chemical Degradation Recovers Glass Fibers and Resin",
     seoTitle: "Thermoset FRP Recyclability via Chemical Recovery",
     answerBox:
-      "Chemical degradation technology now breaks down cured thermoset FRP at ~100 °C to recover glass fibers and reclaim solvents, pushing pultruded composites from landfill-only into mechanically recyclable. Combined with cement-kiln co-processing, this closes the circularity gap that drove EU EPD scrutiny in 2024–2025.",
+      "A laboratory-scale chemical degradation process breaks down cured thermoset FRP at ~100 °C to recover glass fibers and reclaim the solvent, adding a chemical recycling route to the existing options for glass-fiber composite waste such as cement-kiln co-processing. Industrial scale-up is the next step.",
     category: "Sustainability",
     date: "2026-04-06",
-    updatedAt: "2026-04-06",
+    updatedAt: "2026-10-26",
     readTime: "7 min",
     excerpt:
       "Thermoset FRP composites were long considered non-recyclable. A new chemical degradation process dissolves cured polyester and vinyl ester matrices at just 100 °C, recovering clean glass fibers for reuse and reclaiming the solvent in a closed loop.",
@@ -2777,7 +2804,7 @@ For architects and engineers specifying windows for Passivhaus or other high-per
     supportingImage: "/images/blog/frp-recycling/recovered-fiber-applications.jpg",
     supportingAlt: "Recovered glass fibers from chemically recycled FRP composite material ready for reuse",
     supportingCaption:
-      "Clean glass fibers recovered through chemical degradation retain sufficient length and strength for reuse as long fibers, chopped strands, or fiber mats in new composite products.",
+      "Clean glass fibers recovered through chemical degradation keep their continuous length, so they can be considered for reuse as long fibers, chopped strands, or fiber mats in new composite products once their properties are tested.",
     highlights: [
       "Thermoset FRP recycled at just 100 °C",
       "Glass fibers recovered intact for reuse",
@@ -2794,7 +2821,7 @@ For architects and engineers specifying windows for Passivhaus or other high-per
     ],
     content: `"FRP composites cannot be recycled." For decades, this claim has been the single strongest objection raised against fiber reinforced polymer profiles in lifecycle assessments, green building certifications, and procurement specifications. Thermoset resins (polyester, vinyl ester, phenolic) cure through irreversible cross-linking, creating a three-dimensional polymer network that cannot be melted or reshaped. Unlike thermoplastic materials or metals, there was no practical way to recover the constituent fibers and resin from a cured composite part.
 
-That limitation has now been overcome. A chemical degradation process developed under the TS Recycle program demonstrates full recycling of thermoset FRP composites at laboratory scale, recovering clean glass fibers suitable for reuse and reclaiming the process solvent in a closed loop.
+That limitation is starting to give way. A chemical degradation process developed under the TS Recycle program has recycled a thermoset FRP part at laboratory scale, recovering clean glass fibers suitable for reuse and reclaiming the process solvent in a closed loop.
 
 [video:/videos/frp-recycle-chemical-degradation-process.mp4|Watch the full chemical degradation process: from FRP fenestration profile to recovered glass fibers in under 41 hours at 100 °C.]
 
@@ -2829,7 +2856,7 @@ The spent degradation solution, now containing dissolved resin products, is tran
 
 The recovered glass fibers retain their continuous form and can be processed into several useful reinforcement formats. Long fibers can be used directly in hand lay-up, filament winding, or as supplementary reinforcement in new pultrusion. Chopped strands can serve as reinforcement in injection-molded or compression-molded parts. Fiber mats can be formed from the recovered fibers for use in resin transfer molding (RTM) or as surfacing veils.
 
-This versatility is the key differentiator from mechanical recycling, where fiber length is destroyed, or pyrolysis, where thermal damage reduces glass fiber tensile strength to a fraction of its original value. Chemical degradation at 100 °C preserves fiber integrity in ways that higher-temperature processes cannot.
+This versatility is the key differentiator from mechanical recycling, where fiber length is destroyed, or pyrolysis, where thermal damage reduces glass fiber tensile strength to a fraction of its original value. Because chemical degradation runs at 100 °C, it avoids the thermal damage that higher-temperature processes cause to glass fiber.
 
 ## What This Means for FRP Specification
 
@@ -2837,15 +2864,15 @@ For engineers, architects, and procurement teams evaluating FRP profiles against
 
 **Green building certifications.** Standards such as LEED, BREEAM, and DGNB award credits for materials with demonstrated end-of-life recyclability. FRP profiles can now present a credible recycling pathway alongside their already strong durability and low-maintenance lifecycle performance.
 
-**EU regulatory compliance.** The EU Waste Framework Directive (2008/98/EC) establishes a waste hierarchy that prioritizes recycling over energy recovery and disposal. The End-of-Life Vehicles Directive (2000/53/EC) sets recycling targets that composite components must address. A validated chemical recycling process provides a compliance pathway for FRP in these regulated applications.
+**EU regulatory compliance.** The EU Waste Framework Directive (2008/98/EC) establishes a waste hierarchy that prioritizes recycling over energy recovery and disposal. The End-of-Life Vehicles Directive (2000/53/EC) sets recycling targets that composite components must address. Once validated at scale, a chemical recycling process would give FRP a route up the waste hierarchy in these regulated applications.
 
-**Lifecycle cost analysis.** When the residual value of recoverable glass fiber and reclaimable solvent is factored into whole-life cost models, the already favorable FRP lifecycle position improves further. A profile that lasts 50+ years without corrosion and can then be recycled into new reinforcement material presents a compelling total-cost case.
+**Lifecycle cost analysis.** When the residual value of recoverable glass fiber and reclaimable solvent is factored into whole-life cost models, the already favorable FRP lifecycle position improves further. A profile that needs no corrosion recoating in service and can then be recycled into new reinforcement material presents a stronger total-cost case.
 
 **Carbon footprint reduction.** Recovering glass fibers avoids the energy-intensive process of manufacturing virgin glass fiber from raw materials (melting glass at 1,400+ °C). Solvent reclamation minimizes chemical waste. The net carbon impact of recycled-content FRP profiles could significantly undercut that of virgin-only production.
 
 ## The Road from Lab to Industrial Scale
 
-It is important to be transparent about where this technology stands today. The TS Recycle process has been demonstrated at laboratory scale with real production parts. The chemistry works. The fiber quality is validated. The solvent recovery loop is proven.
+It is important to be transparent about where this technology stands today. The TS Recycle process has been demonstrated at laboratory scale with a real production part. The chemistry works on that part, and the solvent is recovered by vacuum distillation. Mechanical testing of the recovered fiber and solvent performance over repeated batches belong to the scale-up work.
 
 Scaling from laboratory reactors to industrial continuous processing is the next engineering challenge. Key questions include reactor sizing for full-length profile sections, throughput optimization, quality assurance for recovered fiber properties, and cost modeling at production volumes. These are engineering problems rather than gaps in the underlying science, and the composites industry has solved problems like them before, from batch curing to continuous pultrusion.
 
@@ -2853,11 +2880,11 @@ F1 Composite is committed to advancing this technology as part of our broader su
 
 ## Conclusion
 
-The long-standing objection that thermoset FRP composites cannot be recycled is no longer valid. Chemical degradation at 100 °C using a purpose-designed solvent system can fully dissolve cured polyester and vinyl ester matrices, recover clean glass fibers for reuse, and reclaim the process solvent in a closed loop.
+The long-standing objection that thermoset FRP composites cannot be recycled is weakening. Chemical degradation at 100 °C using a purpose-designed solvent system can fully dissolve cured polyester and vinyl ester matrices, recover clean glass fibers for reuse, and reclaim the process solvent in a closed loop.
 
-The process has been demonstrated in the laboratory on real pultruded window profiles. As the technology scales toward industrial application, it closes the last major gap in the FRP sustainability story: a material that already outlasts steel by decades, requires no protective coatings, and generates no corrosion runoff can now also be recycled at end of life.
+The process has been demonstrated in the laboratory on real pultruded window profiles. As the technology scales toward industrial application, it addresses the largest remaining gap in the FRP sustainability story: a material that needs no corrosion recoating and generates no corrosion runoff could also be recycled at end of life.
 
-For specifiers weighing FRP against traditional materials on lifecycle grounds, the equation has fundamentally shifted.`,
+For specifiers weighing FRP against traditional materials on lifecycle grounds, the equation is starting to shift.`,
   },
   {
     slug: "frp-fire-resistance-ratings-guide",
@@ -3070,13 +3097,13 @@ F1 Composite supplies [pultruded fiberglass structural shapes](/products/fibergl
     title: "Pultruded FRP vs Steel, Aluminum, PVC, and Wood: Impact Resistance Under 3-Point Bending Drop Test",
     seoTitle: "FRP vs Steel, Aluminum, PVC & Wood — Impact Test",
     answerBox:
-      "In a Covestro 3-point bending drop test, pultruded FRP is the only structural material that absorbs impact energy and recovers its original geometry. Steel, stainless, aluminum, PVC, and wood all show permanent deformation; FRP's fiber-reinforced thermoset returns to within 2% of original profile after impact.",
+      "In a Covestro 3-point bending drop test, the polyurethane pultruded composite was the only sample of seven that absorbed the impact and sprang back to its original straight form. The steel, stainless and aluminum samples bent permanently, and the PVC and plywood samples were damaged or broke.",
     category: "Material Science",
     date: "2026-04-06",
-    updatedAt: "2026-04-06",
+    updatedAt: "2026-10-26",
     readTime: "7 min",
     excerpt:
-      "A 3-point bending drop test by Covestro's polyurethane research team puts seven materials head-to-head: sheet steel, stainless steel, two aluminum alloys, PVC, plywood, and polyurethane pultruded composite. The results reveal why FRP's unique combination of toughness and elastic recovery outperforms every conventional alternative.",
+      "A 3-point bending drop test by Covestro's polyurethane research team puts seven materials head-to-head: sheet steel, stainless steel, two aluminum alloys, PVC, plywood, and polyurethane pultruded composite. The results show why the combination of toughness and elastic recovery matters for impact-exposed parts.",
     authorName: "Haifeng Gong, Ph.D.",
     authorRole: "R&D Lead for composite materials, pultrusion process development and standards",
     reviewedBy: "F1 Composite engineering team",
@@ -3094,7 +3121,7 @@ F1 Composite supplies [pultruded fiberglass structural shapes](/products/fibergl
       "Toughness + elastic recovery in one material",
     ],
     ogDescription:
-      "Covestro 3-point bending drop test: FRP vs steel, stainless, aluminum, PVC, wood. FRP is the only material that absorbs impact and recovers its original shape.",
+      "Covestro 3-point bending drop test: FRP vs steel, stainless, aluminum, PVC, wood. The pultruded composite was the only sample that recovered its original shape.",
     ogChips: ["Material science", "Impact testing", "Comparison"],
     relatedLinks: [
       { label: "FRP vs Traditional Materials", href: "/technology/frp-vs-traditional-materials" },
@@ -3127,9 +3154,9 @@ The seven materials tested represent the most common choices for structural and 
 
 **Aluminum (Al99 5G11, 3 mm, k = 1.15)**: The standard-grade aluminum shows the same pattern as the Bondur alloy: permanent plastic deformation with no elastic recovery. Both aluminum samples demonstrate that metallic materials fundamentally respond to impact through yielding: a one-way process.
 
-**PVC shock-resistant (3 mm, k = 0.68)**: Despite being marketed as "shock-resistant," the PVC sample shows significant damage. PVC is a brittle thermoplastic that absorbs impact energy poorly. Under high-rate loading, it cracks or crazes rather than deforming gracefully. Its low k-factor (0.68) confirms inferior impact energy absorption compared to all other tested materials.
+**PVC shock-resistant (3 mm, k = 0.68)**: Despite being marketed as "shock-resistant," the PVC sample shows significant damage. PVC is a brittle thermoplastic that absorbs impact energy poorly. Under high-rate loading, it cracks or crazes rather than deforming gracefully.
 
-**Wood multiplex (9 mm, k = 0.98)**: Even at three times the thickness of the metal samples, the plywood specimen fractures. Wood fails in a brittle, catastrophic manner under impact: fibers break and the section loses all structural capacity. The k-factor of 0.98 is achieved only because of the significantly greater thickness.
+**Wood multiplex (9 mm, k = 0.98)**: Even at three times the thickness of the metal samples, the plywood specimen fractures. Wood fails in a brittle manner under this impact: fibers break and the section loses its structural capacity.
 
 **PUR pultruded composite (k = 1.0)**: The polyurethane pultruded profile is the standout result. After absorbing the full impact energy, the sample springs back to its original straight form. No permanent deformation. No fracture. No visible damage. The material absorbs the impact energy elastically and returns it, emerging from the test functionally identical to its pre-test condition.
 
@@ -3141,49 +3168,47 @@ The dramatic difference between the pultruded composite and every other material
 
 **Brittle materials (PVC, wood) absorb impact through fracture.** When the stress exceeds the material's fracture toughness, cracks initiate and propagate. The energy is absorbed by creating new crack surfaces, but the component fails catastrophically.
 
-**Fiber reinforced polymers absorb impact through elastic strain energy.** The continuous glass fibers in a pultruded profile act as highly efficient springs. When the profile is loaded in bending, the fibers on the tension face stretch elastically while the fibers on the compression face store strain energy. Because the fiber volume fraction is high (60–70%) and the fiber-matrix bond is engineered to allow controlled micro-deformation at the interface, the total elastic energy absorption capacity is enormous.
+**Fiber reinforced polymers absorb impact through elastic strain energy.** The continuous glass fibers in a pultruded profile act as highly efficient springs. When the profile is loaded in bending, the fibers on the tension face stretch elastically while the fibers on the compression face store strain energy. Because the glass content is high (typically 60–70% by weight) and the fiber-matrix bond is engineered to allow controlled micro-deformation at the interface, the total elastic energy absorption capacity is enormous.
 
 Critically, this energy is recoverable. When the load is removed, the elastic strain energy stored in the glass fibers drives the profile back to its original shape. The property at work is toughness, the combination of high strength and high elastic strain capacity, which is more than simple "flexibility".
 
 ## What the k-Factor Tells Us
 
-The k-factor shown for each material in the Covestro video represents a normalized impact energy absorption metric. A higher k-factor indicates greater energy absorption capacity relative to a reference material.
+The Covestro video labels each sample with a k value (PUR pultruded composite 1.0, aluminum Bondur 1.2, aluminum Al99 1.15, wood 0.98, PVC 0.68), but the footage does not define the factor or report absorbed energy. We therefore do not read k as a measured energy-absorption ranking.
 
-The PUR pultruded profile achieves k = 1.0 (the reference), matching or exceeding the metals (aluminum Bondur at k = 1.2, aluminum Al99 at k = 1.15) in total energy absorption, but with one important qualitative difference. The metals absorb energy destructively (permanent deformation), while the pultruded profile absorbs energy constructively (elastic recovery). A pultruded profile with k = 1.0 that fully recovers its shape is functionally superior to an aluminum section with k = 1.2 that is permanently bent.
-
-PVC at k = 0.68 and wood at k = 0.98 confirm what the visual evidence shows: these materials are simply outclassed in impact scenarios.
+The result that can be read from the test is qualitative. The metals absorbed the impact by permanent deformation, the PVC and plywood by damage or fracture, and the pultruded profile by elastic deflection followed by recovery. For a part that must stay in service after a knock, that recovery is the useful property. Quantifying it for a specific section requires an instrumented impact test that reports energy and residual properties.
 
 ## Engineering Implications
 
 The Covestro drop test results have direct implications for material selection in applications where impact loading is a design consideration.
 
-**Guardrails and safety barriers.** A steel guardrail that takes a vehicle impact must be inspected and typically replaced. An FRP guardrail absorbs the same impact and returns to service without maintenance. Over a 30-year infrastructure lifecycle, the replacement cost avoidance for FRP barriers in high-traffic locations is substantial.
+**Guardrails and safety barriers.** A steel guardrail that takes a vehicle impact is usually bent and replaced. An FRP rail that deflects elastically can often return to service after inspection, provided the impact has not cracked or delaminated it. Impact above the laminate's elastic limit can cause matrix cracking or delamination that is not always visible, so inspect after any significant hit.
 
-**Walkways and platforms.** Industrial walkways and offshore platforms are subject to dropped-object impacts. FRP grating and structural profiles absorb these impacts without permanent damage, eliminating the inspection-repair-replace cycle that steel walkways require.
+**Walkways and platforms.** Industrial walkways and offshore platforms are subject to dropped-object impacts. FRP grating and structural profiles recover from impacts within their elastic range without the permanent dents that steel walkways collect, although a heavy dropped object still calls for inspection.
 
-**Marine structures.** Dock fenders, pontoon frames, and marina walkways experience repeated wave-action impacts and vessel contact. FRP's elastic recovery means these structures maintain their geometry and function over decades of cyclic impact loading: conditions that progressively fatigue and deform metal structures.
+**Marine structures.** Dock fenders, pontoon frames, and marina walkways experience repeated wave-action impacts and vessel contact. FRP's elastic recovery helps these structures keep their geometry under repeated contact, but repeated loading still has to be checked against fatigue data for the laminate.
 
 **Fenestration systems.** Window frames in commercial buildings and residential high-rises must resist wind-borne debris impact (hurricane zones) and operational impacts (slamming, cleaning equipment contact). Pultruded FRP window frames absorb these impacts without the denting that affects aluminum frames or the cracking that damages PVC frames.
 
-**Transportation infrastructure.** Bridge deck panels, highway sound barriers, and railway platform edges are subject to continuous vibration and occasional high-energy impacts. FRP's ability to absorb and release impact energy without accumulating fatigue damage makes it fundamentally better suited to these dynamic loading environments than materials that absorb energy through plastic yielding.
+**Transportation infrastructure.** Bridge deck panels, highway sound barriers, and railway platform edges are subject to continuous vibration and occasional high-energy impacts. FRP's ability to absorb and release impact energy without permanent set suits these dynamic environments, provided fatigue is designed for with S-N data for the actual laminate, since composites also accumulate fatigue damage.
 
 ## Conclusion
 
-The Covestro 3-point bending drop test provides visual, quantifiable proof of what FRP manufacturers have long understood: pultruded fiber reinforced polymer profiles occupy a unique position in the engineering material spectrum. They combine the energy absorption capacity of metals with the elastic recovery of high-performance springs, while avoiding the permanent deformation of steel, the brittleness of PVC, and the fracture vulnerability of wood.
+The Covestro 3-point bending drop test gives a clear visual demonstration of a property pultruded fiber reinforced polymer profiles are chosen for: elastic recovery after impact. They combine the energy absorption capacity of metals with the elastic recovery of high-performance springs, while avoiding the permanent deformation of steel, the brittleness of PVC, and the fracture vulnerability of wood.
 
 No other material in the test could absorb the impact and return to its original form, including the aerospace-grade aluminum, the stainless steel and the shock-rated PVC. Only the pultruded composite achieved this.
 
-For engineers designing structures that must survive impact events and remain in service without repair, this is not a marginal advantage. It is a fundamental material capability that exists in pultruded FRP composites and in no conventional alternative.`,
+For engineers designing structures that must survive impact events and remain in service without repair, that is a meaningful advantage. Confirm it for the actual section with instrumented impact testing and post-impact inspection criteria.`,
   },
   {
     slug: "gfrp-fenestration-australian-market-as2047",
     title: "GFRP Fenestration Passes AS 2047: What It Means for the Australian Window and Door Market",
     seoTitle: "GFRP Fenestration Passes AS 2047 — Australia Market",
     answerBox:
-      "Intertek-certified GFRP-PU fenestration systems clear all six AS 2047 test sequences (wind, water, operating force, air infiltration, ultimate strength, slam), positioning pultruded FRP to disrupt Australia's aluminum-dominated window market with U_w improvements and zero-coating-renewal maintenance over a 30-year asset horizon.",
+      "Two Intertek test reports record GFRP-PU fenestration specimens meeting AS 2047-2014 across serviceability wind pressure, operating force, air infiltration, water penetration and ultimate strength. That gives pultruded FRP an entry point into Australia's aluminum-dominated window market, with lower U_w and no corrosion recoating.",
     category: "Market Analysis",
     date: "2026-04-06",
-    updatedAt: "2026-04-06",
+    updatedAt: "2026-10-26",
     readTime: "9 min",
     excerpt:
       "Intertek reports document AS 2047-2014 testing of an 80 Series turn-and-tilt window and a historical 140 Series Lift-Sliding Door specimen. Results apply to the stated specimens and test conditions; they do not automatically establish project compliance or cover the current 140 Series Compression-Seal Sliding Door.",
@@ -3205,7 +3230,7 @@ For engineers designing structures that must survive impact events and remain in
       "Zero water penetration at 600 Pa (window) and 200 Pa (door)",
     ],
     ogDescription:
-      "Intertek-certified GFRP fenestration passes Australian AS 2047. Test results, market potential, why pultruded FRP disrupts AU aluminum-dominated windows.",
+      "Intertek-tested GFRP fenestration meets AS 2047-2014 in two reports. Test results, market fit, and where pultruded FRP competes with aluminum in Australia.",
     ogChips: ["Market analysis", "Australian standards", "Fenestration"],
     relatedLinks: [
       { label: "Fenestration Systems", href: "/products/frp-window-frames" },
@@ -3216,10 +3241,12 @@ For engineers designing structures that must survive impact events and remain in
     sourceLinks: [
       { label: "AS 2047-2014 — Windows and external glazed doors in buildings", href: "https://www.standards.org.au" },
       { label: "NCC 2022 — National Construction Code of Australia", href: "https://ncc.abcb.gov.au" },
+      { label: "Building Ministers' Meeting communiqué, October 2025 (NCC 2025 and residential pause)", href: "https://treasury.gov.au/media-release/meeting-communique-building-ministers-meeting-october-2025" },
+      { label: "PHI: Criteria for Certified Transparent Building Components v5.6", href: "https://passivehouse.com/downloads/03_certification_criteria_transparent_components_en.pdf" },
     ],
     content: `**Current product scope:** This article discusses historical tested specimens. Intertek 240821010SHF-002 retains the original name **140 Series Lift-Sliding Door**. The current product is the **140 Series Compression-Seal Sliding Door** (CP006–CP011). The historical report does not automatically cover the current compression-seal configuration; dimensions, profiles, glazing, hardware and seals require technical verification before evidence can be applied.
 
-In October 2024, two pultruded glass fiber reinforced polymer (GFRP) fenestration systems underwent full performance testing at Intertek's IAS-accredited laboratory under AS/NZS 4420.1-2016 test methods, evaluated against AS 2047-2014 specification requirements. Both systems passed every test category. This is the first independently verified demonstration that GFRP pultruded fenestration can meet Australian building code requirements, and it opens a market opportunity that the Australian construction industry has not yet recognized.
+In October 2024, two pultruded glass fiber reinforced polymer (GFRP) fenestration systems underwent full performance testing at Intertek's IAS-accredited laboratory under AS/NZS 4420.1-2016 test methods, evaluated against AS 2047-2014 specification requirements. Both systems passed every test category. The reports give independent evidence that these GFRP pultruded specimens met the applicable AS 2047 requirements, which is the starting point for using GFRP fenestration on Australian projects.
 
 ## The Test Results
 
@@ -3249,45 +3276,43 @@ Both systems were tested across every performance category required by AS 2047-2
 
 ## Why These Results Matter for Australia
 
-Australia's fenestration market is overwhelmingly dominated by aluminum. According to industry estimates, aluminum frames account for more than 80% of residential and commercial window installations across the country. This dominance is historical: Australia has abundant bauxite reserves, a mature aluminum extrusion industry, and building codes that were written with aluminum as the default framing material.
+Australia's fenestration market is dominated by aluminum, which accounts for the large majority of residential and commercial window installations. This dominance is historical: Australia has abundant bauxite reserves, a mature aluminum extrusion industry, and long-established fabrication and supply networks.
 
 But the conditions that created aluminum's dominance are shifting. Three forces are converging to create a market opening for GFRP fenestration that did not exist five years ago.
 
 ## Force 1: NCC Energy Efficiency Mandates
 
-The National Construction Code (NCC) 2022 introduced significantly tighter energy efficiency requirements for residential and commercial buildings. Section J of the NCC now mandates total system U-values for glazing assemblies that are difficult to achieve with aluminum frames alone.
+The National Construction Code (NCC) 2022 introduced significantly tighter energy efficiency requirements. New homes must reach a 7-star NatHERS rating or an equivalent pathway, and Section J sets wall-glazing limits for commercial buildings through total system U-value calculations. Window performance carries more weight on both routes.
 
-Aluminum has a thermal conductivity of approximately 160 W/(m·K). Even with a thermal break, aluminum-framed windows typically achieve whole-window U-values of 2.5 to 4.0 W/(m2·K). The NCC 2022 targets for Climate Zones 6–8 (which include Melbourne, Canberra, Hobart, and alpine regions) are pushing toward U-values that require either triple glazing with thermally broken aluminum or a fundamentally different frame material.
+Aluminum has a thermal conductivity of approximately 160 W/(m·K), and many aluminum windows sold in Australia have no thermal break. In the cooler Climate Zones 6–8 (which include Melbourne, Canberra, Hobart, and alpine regions), meeting the targets pushes specifiers toward thermally broken frames, better glazing, or a different frame material.
 
-GFRP has a thermal conductivity of approximately 0.3 W/(m·K): more than 500 times lower than aluminum. A GFRP frame achieves the same thermal performance as a thermally broken aluminum frame using a simpler, lighter profile with fewer components. With the same glazing unit, a GFRP window will deliver a lower whole-window U-value than its aluminum equivalent, every time.
+GFRP has a thermal conductivity of approximately 0.3 W/(m·K): more than 500 times lower than aluminum. A GFRP frame reaches the thermal performance of a thermally broken aluminum frame with a simpler, lighter profile and fewer components. With the same glazing unit and a comparable section, a GFRP window will usually deliver a lower whole-window U-value than its aluminum equivalent.
 
-As NCC requirements tighten further (the trajectory toward NCC 2025 suggests even lower U-value targets), the thermal performance advantage of GFRP becomes not just desirable but economically necessary.
+NCC 2025 left residential energy-efficiency requirements at the NCC 2022 level, and Building Ministers agreed in October 2025 to pause further residential code changes until mid-2029; its energy changes target commercial buildings. The thermal case for GFRP in housing therefore rests on the existing 7-star requirement, on commercial Section J work, and on projects that aim above the code minimum.
 
 ## Force 2: Coastal Durability Requirements
 
 Australia has one of the longest coastlines in the world, and a disproportionate share of its population lives within 50 km of the sea. Coastal and near-coastal environments are extremely aggressive to metals: salt spray, humidity, and UV exposure combine to degrade aluminum frames, steel fasteners, and hardware over time.
 
-Aluminum fenestration in coastal zones requires marine-grade alloys (6063-T6 or higher), anodized or powder-coated finishes, and stainless steel fasteners, all of which add cost. Even with these precautions, aluminum frames in coastal environments show visible degradation within 10–15 years and may require replacement within 20–25 years.
+Aluminum fenestration in coastal zones needs anodized or powder-coated finishes rated for the exposure and stainless steel fasteners, all of which add cost. Even then, coastal aluminum frames need regular cleaning and finish maintenance to keep their finish warranties.
 
-GFRP is inherently immune to salt spray corrosion. It does not pit, oxidize, or develop galvanic corrosion when in contact with dissimilar metals. The AS 2047 test results confirm that GFRP fenestration systems perform to standard without any special coatings or corrosion protection: the durability is intrinsic to the material.
+GFRP is inherently immune to salt spray corrosion. It does not pit, oxidize, or develop galvanic corrosion when in contact with dissimilar metals. AS 2047 does not test corrosion, but the tested GFRP specimens met it with no metal reinforcement and no thermal break, and the profile material itself does not corrode.
 
 For coastal Australian markets (from the Gold Coast to Perth's western suburbs to Tasmania's exposed coastlines) GFRP offers a whole-of-life cost advantage that improves with every year of service.
 
 ## Force 3: Passivhaus and Green Building Adoption
 
-The Passivhaus standard, originally European, is gaining rapid traction in Australia. The Australian Passive House Association (APHA) reports accelerating membership growth and project certifications, particularly in Victoria, Tasmania, and the ACT where climate conditions most closely match the cool-temperate zones for which Passivhaus was designed.
+The Passivhaus standard, originally European, is gaining traction in Australia. The Australian Passive House Association (APHA) promotes it, and interest is strongest in Victoria, Tasmania, and the ACT, where the climate is closest to the cool-temperate conditions Passivhaus was first developed for.
 
-Passivhaus requires whole-window U-values of 0.80 W/(m2·K) or lower: a target that aluminum frames simply cannot reach even with the most advanced thermal breaks. GFRP fenestration has already achieved Passivhaus certification: the Fengdu Passive GFRP 90 Series holds PHI Component ID 2491wi03 with a certified U-value of 0.78 W/(m2·K) for the cool/temperate climate zone.
+PHI's window criteria depend on the climate zone: U_w ≤ 0.80 W/(m²·K) in the cool-temperate zone and 1.00 to 1.20 W/(m²·K) in the warm-temperate and warm zones that cover much of populated Australia. Only a small number of highly insulated aluminum systems hold PHI certificates; insulating frames reach these values more easily. GFRP fenestration has already achieved Passivhaus certification: the Fengdu Passive GFRP 90 Series holds PHI Component ID 2491wi03 with a certified U-value of 0.78 W/(m2·K) for the cool/temperate climate zone.
 
-As Passivhaus adoption grows in Australia, GFRP is positioned as the only non-timber, non-PVC frame material that can achieve certification.
+As Passivhaus adoption grows in Australia, GFRP joins timber, uPVC, timber-aluminum and a few highly insulated aluminum systems among the frame types with PHI-certified products.
 
 ## Market Sizing: The Opportunity
 
-Australia's fenestration market is valued at approximately AUD 8–10 billion annually (windows, doors, curtain walls, and associated hardware/glazing). The residential segment accounts for roughly 60%, commercial 30%, and industrial/infrastructure 10%.
+There is no audited public figure for the size of Australia's window and door market, so treat any single headline number with caution. The more useful question is segment fit: the high-performance residential segment, Passivhaus and near-Passivhaus projects, coastal premium housing, and commercial buildings pursuing Green Star or NABERS ratings. These are the projects where frame U-value and corrosion resistance decide the specification, so even a small share of them is a meaningful volume for a new frame material.
 
-If GFRP captures even 2–5% of this market over the next decade (targeting the high-performance residential segment, Passivhaus projects, coastal premium housing, and commercial buildings pursuing Green Star or NABERS ratings) the addressable market is AUD 160–500 million annually.
-
-The penetration rate in Europe provides a reference point. In Germany and Scandinavia, where energy efficiency requirements have been stringent for longer, composite and fiberglass frames have reached 5–8% market share in the residential sector. Australia's regulatory trajectory is following the same path with a 5–10 year lag.
+Europe offers a qualitative reference. Where energy requirements have been strict for longer, new high-performance windows are dominated by insulating frames (uPVC, timber, timber-aluminum and fiberglass), and fiberglass competes in that group on stiffness, finish and durability.
 
 ## What Needs to Happen Next
 
@@ -3313,7 +3338,7 @@ The sweet spot for GFRP in Australia is the growing segment of energy-conscious,
 
 The Intertek AS 2047 test results for GFRP turn-and-tilt windows and lift-sliding doors are not merely a technical milestone. They are a market entry ticket.
 
-Australia's construction industry is moving toward higher energy efficiency standards, demanding greater coastal durability, and increasingly adopting international high-performance building methodologies. GFRP fenestration is the material system best aligned with all three of these trends simultaneously, offering thermal conductivity 500 times lower than aluminum, inherent corrosion immunity, Passivhaus-certifiable performance, and now verified AS 2047 compliance.
+Australia's construction industry is moving toward higher energy efficiency standards, demanding greater coastal durability, and increasingly adopting international high-performance building methodologies. GFRP fenestration is the material system best aligned with all three of these trends simultaneously, offering thermal conductivity 500 times lower than aluminum, inherent corrosion immunity, Passivhaus-certifiable performance, and AS 2047 test evidence for the tested specimens.
 
 The question for the Australian market is not whether GFRP fenestration will arrive. It is which manufacturers, distributors, and installers will move first to capture the emerging demand.`,
   },
@@ -3322,17 +3347,17 @@ The question for the Australian market is not whether GFRP fenestration will arr
     title: "Powder-Coated FRP Window Profiles: How to Get an Aluminum-Grade Finish with Superior Thermal Performance",
     seoTitle: "Powder-Coated FRP Windows — Aluminum-Grade Finish",
     answerBox:
-      "Powder-coated FRP window profiles match aluminum's metallic finish appearance across AAMA 2604 / 2605 systems (any RAL color, 10-year South Florida–verified durability) while delivering U_w as low as 0.78 W/m²·K, eliminating the historical FRP aesthetic vs aluminum thermal trade-off on architectural fenestration.",
+      "Powder-coated FRP window profiles match aluminum's metallic finish appearance with coatings in the AAMA 2604 / 2605 performance classes (any RAL color; 5- and 10-year South Florida exposure requirements; AAMA 624 / 625 are the counterparts written for fiber-reinforced thermoset profiles) while delivering U_w as low as 0.78 W/m²·K, removing the historical trade-off between FRP thermal performance and aluminum aesthetics.",
     category: "Fenestration",
     date: "2026-04-11",
-    updatedAt: "2026-04-11",
+    updatedAt: "2026-10-26",
     readTime: "9 min",
     excerpt:
       "Pultruded FRP window profiles can now achieve the same sleek, metallic finish as aluminum frames through architectural-grade powder coating, without sacrificing the thermal insulation, corrosion resistance, and dimensional stability that make fiberglass window frames superior.",
     authorName: "Yifan Liu, Application Engineer",
     authorRole: "Senior Application Engineer, pultruded FRP structural design and project specification",
     reviewedBy: "F1 Composite engineering team",
-    standards: ["ISO 10077-2", "EN 12206-1", "AAMA 2604", "Qualicoat Class 2", "GSB Master"],
+    standards: ["ISO 10077-2", "EN 12206-1", "AAMA 2604", "AAMA 624", "Qualicoat Class 2", "GSB Master"],
     coverImage: "/images/blog/frp-powder-coating-production-line-gema.webp",
     coverAlt: "Pultruded FRP profiles entering a Gema powder coating oven on a factory production line",
     coverNote: "Reference photo",
@@ -3343,7 +3368,7 @@ The question for the Australian market is not whether GFRP fenestration will arr
     highlights: [
       "Architectural powder coating on FRP matches aluminum aesthetics",
       "Thermal conductivity remains 500x lower than aluminum after coating",
-      "Qualicoat and AAMA 2604 rated durability: 20+ year exterior finish life",
+      "AAMA 2604 / 2605-class coatings: 5- and 10-year South Florida exposure requirements",
     ],
     ogDescription:
       "How powder-coated FRP window profiles achieve aluminum-grade metallic finishes with U_w as low as 0.78 W/m²K. AAMA 2604/2605 process and spec guide.",
@@ -3354,6 +3379,11 @@ The question for the Australian market is not whether GFRP fenestration will arr
       { label: "FRP vs Aluminum Windows (full comparison)", href: "/technology/frp-vs-aluminum-windows" },
       { label: "U-Value Calculator", href: "/technology/frp-u-value-calculator" },
       { label: "Custom Pultrusions", href: "/products/custom-pultruded-profiles" },
+    ],
+    sourceLinks: [
+      { label: "FGIA: AAMA 624-17a, coatings on fiber reinforced thermoset profiles", href: "https://store.fgiaonline.org/AAMA-624-17a/" },
+      { label: "FGIA: AAMA 625-25, superior-performance coatings on fiber reinforced thermoset profiles", href: "https://store.fgiaonline.org/aama-625-25" },
+      { label: "Qualicoat: quality label for coatings on aluminum", href: "https://www.qualicoat.net" },
     ],
     content: `For decades aluminum has dominated architectural fenestration because of its finish. Its thermal performance is poor. The anodized or powder-coated surface of an aluminum window frame delivers a precision, consistency, and visual sophistication that architects and building owners expect. That aesthetic monopoly is now over. Pultruded FRP window profiles can achieve the exact same architectural-grade finish through modern powder coating technology, while retaining the thermal insulation, dimensional stability, and corrosion resistance that make fiberglass window frames the superior engineering choice.
 
@@ -3391,13 +3421,13 @@ The finished coating is inspected for thickness (typically 60 to 120 micrometers
 
 ## Coating Performance Standards
 
-Powder-coated FRP window profiles can be certified to the same architectural coating standards as aluminum frames.
+Powder-coated FRP window profiles are tested against the same architectural coating criteria as aluminum frames. Most of these standards were written for aluminum, so they define the coating's performance class rather than certify the FRP frame.
 
-**Qualicoat Class 2** requires the coating to pass accelerated weathering tests equivalent to approximately 20 years of exterior exposure in a European climate, including gloss retention, color stability, and adhesion after weathering cycles. Our powder coating process on pultruded FRP profiles achieves Qualicoat Class 2 requirements.
+**Qualicoat Class 2** is the superdurable tier of the Qualicoat quality label for coatings on aluminum, with natural and accelerated weathering requirements for gloss retention and color stability. The same Class 2 powders can be applied to FRP; ask for the coater's test report on the FRP substrate.
 
-**AAMA 2604** is the North American equivalent for high-performance exterior coatings, requiring 10-year South Florida exposure testing. Fluoropolymer-modified polyester powders on FRP profiles meet AAMA 2604 requirements, and AAMA 2605 (the highest tier) can be achieved with PVDF-based powder systems.
+**AAMA 2604** and **AAMA 2605** are the North American specifications for high-performance and superior-performance organic coatings on aluminum extrusions, with 5-year and 10-year South Florida exposure requirements respectively. For fiber-reinforced thermoset profiles, FGIA publishes the counterpart specifications AAMA 623, 624 and 625. Superdurable polyester powders typically target the 2604 / 624 level, and fluoropolymer (FEVE or PVDF) systems the 2605 / 625 level.
 
-**GSB Master** is a pan-European quality mark for coated architectural profiles, requiring consistent batch-to-batch color and gloss within tight tolerances. The dimensional stability of pultruded FRP profiles actually makes GSB compliance easier than on aluminum, because FRP profiles do not exhibit the thermal expansion that can cause powder thickness variation on long aluminum extrusions.
+**GSB Master** is the top grade of GSB International's quality mark for coatings on aluminum building components, with tight batch-to-batch color and gloss tolerances. As with Qualicoat, use it as the coating performance reference and confirm results on the FRP substrate.
 
 ## FRP vs Aluminum: Finish Equivalent, Performance Superior
 
@@ -3405,7 +3435,7 @@ With architectural-grade powder coating, the visual comparison between FRP and a
 
 | Property | Powder-coated FRP | Powder-coated aluminum |
 |---|---|---|
-| Frame U-value (Uf) | 0.8 – 1.5 W/m²K | 2.5 – 5.0 W/m²K |
+| Frame U-value (Uf) | 0.8 – 1.5 W/m²K | 1.4 – 2.4 W/m²K (thermally broken) |
 | Thermal conductivity | 0.3 W/mK | 160 W/mK |
 | Coefficient of thermal expansion | 8 × 10⁻⁶/°C | 23 × 10⁻⁶/°C |
 | Condensation risk | Very low | High without thermal break |
@@ -3413,7 +3443,7 @@ With architectural-grade powder coating, the visual comparison between FRP and a
 | Weight | ~1.9 g/cm³ | ~2.7 g/cm³ |
 | Coating adhesion on substrate | Excellent (mechanical + chemical bond) | Excellent (oxide layer bond) |
 
-The difference in thermal conductivity is decisive. Aluminum conducts heat at more than 500 times the rate of FRP. No thermal-break design in an aluminum frame can match the inherent insulation of a solid FRP profile. At 60 to 120 micrometers thick, the powder-coating layer has no measurable effect on the thermal performance of either substrate.
+The difference in thermal conductivity is decisive. Aluminum conducts heat at more than 500 times the rate of FRP. Only the most elaborate aluminum thermal-break designs approach the frame U-values that insulated FRP profiles reach. At 60 to 120 micrometers thick, the powder-coating layer has no measurable effect on the thermal performance of either substrate.
 
 ## Color Options and Architectural Flexibility
 
@@ -3441,9 +3471,9 @@ When specifying, confirm the resin system of the FRP profile with the manufactur
 
 A common misconception in fenestration specification is that the coating determines the frame's long-term appearance. In reality, the substrate underneath determines whether the coating stays where it was applied.
 
-Aluminum window frames expand and contract significantly with temperature changes. The coefficient of thermal expansion for aluminum is 23 × 10⁻⁶ per degree C, meaning a 3-meter aluminum frame experiences approximately 2 mm of length change over a 30 degree C temperature swing. This cyclic dimensional movement stresses the coating-to-substrate bond and is the primary cause of coating micro-cracking and edge lifting on aluminum frames after 10 to 15 years of service.
+Aluminum window frames expand and contract significantly with temperature changes. The coefficient of thermal expansion for aluminum is 23 × 10⁻⁶ per degree C, meaning a 3-meter aluminum frame experiences approximately 2 mm of length change over a 30 degree C temperature swing. This cyclic dimensional movement works on corner joints, seals and the coating at those joints.
 
-Pultruded FRP window profiles have a coefficient of thermal expansion of approximately 8 × 10⁻⁶ per degree C, close to that of glass (9 × 10⁻⁶ per degree C) and roughly one-third that of aluminum. This means the FRP substrate moves less, stresses the coating less, and maintains coating adhesion for longer. In accelerated weathering tests, powder coatings on FRP substrates consistently outperform identical coatings on aluminum substrates in adhesion retention after thermal cycling.
+Pultruded FRP window profiles have a coefficient of thermal expansion of approximately 8 × 10⁻⁶ per degree C, close to that of glass (9 × 10⁻⁶ per degree C) and roughly one-third that of aluminum. This means the FRP substrate moves less and puts less cyclic strain on joints, seals and coating. Coating adhesion itself should still be confirmed by cross-hatch and weathering tests on the FRP substrate.
 
 ## Specification Guide for Architects
 
@@ -3451,7 +3481,7 @@ When specifying powder-coated FRP window profiles for a project, consider the fo
 
 **Color specification.** Specify RAL number, gloss level (matt, satin, or gloss), and whether metallic or solid finish is required. Provide a physical color sample for custom colors. The same color specification process used for aluminum frames applies to FRP.
 
-**Standard reference.** Specify Qualicoat Class 2 for European projects, AAMA 2604 or AAMA 2605 for North American projects. These standards apply identically to FRP and aluminum substrates.
+**Standard reference.** Specify the coating performance class: Qualicoat Class 2 powders for European projects; AAMA 2604 / 2605 class, or the FRP-specific AAMA 624 / 625, for North American projects. Ask for the coater's test report on the FRP substrate, because Qualicoat, GSB and AAMA 2604 / 2605 are written for aluminum.
 
 **Dual-color requirement.** If interior and exterior colors differ, specify both and confirm the frame system supports dual-finish (our 70-series and above support dual-color powder coating).
 
@@ -3459,9 +3489,9 @@ When specifying powder-coated FRP window profiles for a project, consider the fo
 
 ## The Bottom Line
 
-The aesthetic argument for aluminum window frames is no longer valid. Powder-coated pultruded FRP window profiles deliver identical visual results, verified by the same international coating standards, on a substrate that is thermally, structurally, and dimensionally superior. For passive house projects, near-zero-energy buildings, and any application where frame U-value matters, specifying FRP fenestration with architectural-grade powder coating gives architects and building owners everything aluminum offers visually, with everything aluminum cannot offer thermally.
+The aesthetic argument for aluminum window frames is no longer valid. Powder-coated pultruded FRP window profiles deliver the same visual result, tested against the same coating performance criteria, on a substrate that is thermally, structurally, and dimensionally superior. For passive house projects, near-zero-energy buildings, and any application where frame U-value matters, specifying FRP fenestration with architectural-grade powder coating gives architects and building owners everything aluminum offers visually, with everything aluminum cannot offer thermally.
 
-At F1 Composite, our 65/70/80/90-series pultruded FRP fenestration profiles are available with factory-applied low-temperature powder coating (for high-Tg resin systems) or high-performance liquid coating (for polyurethane-matrix profiles) in any RAL color. Both coating routes are certified to Qualicoat Class 2 and AAMA 2604 standards. Contact our fenestration team through the [fiberglass window and door profiles](/products/window-door-profiles) page to request color samples and specification documents for your project.`,
+At F1 Composite, our 65/70/80/90-series pultruded FRP fenestration profiles are available with factory-applied low-temperature powder coating (for high-Tg resin systems) or high-performance liquid coating (for polyurethane-matrix profiles) in any RAL color. Both coating routes are specified to Qualicoat Class 2 / AAMA 2604-class performance, with the coater's test report provided on request. Contact our fenestration team through the [fiberglass window and door profiles](/products/window-door-profiles) page to request color samples and specification documents for your project.`,
   },
   {
     slug: "frp-lift-sliding-door-as2047-engineering",
@@ -3471,7 +3501,7 @@ At F1 Composite, our 65/70/80/90-series pultruded FRP fenestration profiles are 
       "Intertek 240821010SHF-002 records testing of a historical 3 m × 2.4 m 140 Series Lift-Sliding Door specimen. Its results apply to the reported configuration and do not automatically cover the current 140 Series Compression-Seal Sliding Door.",
     category: "Engineering Deep-Dive",
     date: "2026-04-30",
-    updatedAt: "2026-09-27",
+    updatedAt: "2026-10-26",
     readTime: "12 min",
     excerpt:
       "Historical report review: Intertek tested a 3000 × 2400 mm 140 Series Lift-Sliding Door to AS 2047-2014 / AS/NZS 4420.1-2016. Review the specimen and conditions before using these results; this report is not automatic evidence for the current 140 compression-seal door.",
@@ -3506,6 +3536,7 @@ At F1 Composite, our 65/70/80/90-series pultruded FRP fenestration profiles are 
       { label: "AS 2047-2014 — Windows and external glazed doors in buildings", href: "https://www.standards.org.au" },
       { label: "AS/NZS 4420.1-2016 — Test methods for windows and external glazed doors", href: "https://www.standards.org.au" },
       { label: "AS 4055-2021 — Wind loads for housing", href: "https://www.standards.org.au" },
+      { label: "AGWA: A Guide to Window and Door Selection (AS 2047 rating, ULS and water tables)", href: "https://agwa.imiscloud.com/common/Uploaded%20files/AGWA/Technical/AGWA%20Guides/AGWA-Guide-Selection.pdf" },
       { label: "NCC 2022 — National Construction Code", href: "https://ncc.abcb.gov.au" },
     ],
     content: `**Current product scope:** This article discusses historical tested specimens. Intertek 240821010SHF-002 retains the original name **140 Series Lift-Sliding Door**. The current product is the **140 Series Compression-Seal Sliding Door** (CP006–CP011). The historical report does not automatically cover the current compression-seal configuration; dimensions, profiles, glazing, hardware and seals require technical verification before evidence can be applied.
@@ -3534,7 +3565,7 @@ The test specimen was not a downsized engineering sample. It was a fully assembl
 | Sealing | EPDM gaskets (Haida JT5091/JT5071/JT5052/JT5011) + brush seal (Hebei Lidejia) + 166 neutral silicone (German Weiss) |
 | Installation | Fixed by screws every 300 mm and sealed with silicone, as is typical for an Australian timber- or steel-frame opening |
 
-Two practical points matter here. First, there was no internal steel reinforcement. Aluminum 140-series sliding door systems at this size invariably require a steel insert in the mullion to meet wind load deflection limits. The GFRP system passed without one; the pultruded profile carries its own load. Second, the door was tested with German Roto Lift hardware, not a generic locally-fitted alternative. This is the same hardware platform used by leading European and Australian premium aluminum suppliers, so the comparison is like-for-like.
+Two practical points matter here. First, the report lists no reinforcement. Large sliding doors in other materials often rely on a reinforced or deeper interlock section to meet wind deflection limits; this GFRP door passed with the pultruded profile carrying its own load. Second, the door was tested with German Roto lift-slide hardware, a platform also widely used on premium aluminum and timber lift-slide doors, rather than a generic locally fitted alternative.
 
 ## Test 1: Serviceability Wind Pressure (AS/NZS 4420.1-2016 Section 3)
 
@@ -3543,19 +3574,20 @@ Two practical points matter here. First, there was no internal steel reinforceme
 
 What this means: AS/NZS 4420.1 requires that for windows and sliding doors, no structural member shall deflect more than span/250 at serviceability design wind pressure. The mullion ratio of 1/376 sits 33 % inside the limit, so the door is well within margin. The stile ratio of 1/822 is more than three times stiffer than required.
 
-For Australian wind region mapping under AS 4055-2021:
+For housing, AS 2047 converts the AS 4055 site rating into test pressures (general windows and doors, rounded to the nearest 100 Pa, as summarized by the Australian Glass and Window Association):
 
-| Wind Region | Design Pressure (Pa, residential) | 140 Series Pass Margin |
-| --- | --- | --- |
-| N1 (sheltered) | ~480 Pa | 2.5× headroom |
-| N2 (suburban) | ~720 Pa | 1.7× headroom |
-| N3 (Sydney coastal, urban Melbourne, Adelaide) | ~960 Pa | 1.25× headroom |
-| N4 (exposed Sydney/Brisbane suburbs) | ~1200 Pa | At rated limit, sized headroom from ultimate test |
-| N5 (cyclonic-adjacent) | ~1500 Pa | Requires re-engineering or stronger glazing; outside the scope of this test |
+| Housing rating | Serviceability (Pa) | Ultimate (Pa) | Water, non-exposed / exposed (Pa) | Tested door (1200 / 3000 / 200 Pa) |
+| --- | --- | --- | --- | --- |
+| N1 | 400 | 600 | 150 / 200 | Meets all three |
+| N2 | 400 | 900 | 150 / 200 | Meets all three |
+| N3 | 600 | 1400 | 150 / 300 | Meets non-exposed; exposed needs 300 Pa water |
+| N4 | 800 | 2000 | 200 / 300 | Meets non-exposed; exposed needs 300 Pa water |
+| N5 | 1200 | 3000 | 300 / 450 | Meets wind pressures; water rating too low |
+| N6 | 1600 | 4000 | 450 / 600 | Not covered |
 
-For practical purposes, the 140 Series is a clean fit for N1, N2, N3, and edge-of-N4 projects without redesign. This covers the bulk of Australian residential and most non-cyclonic commercial buildings.
+Cyclonic ratings (C1 to C4) have their own pressures and can bring further project requirements; they are outside the scope of this report. On wind pressure alone, the tested door covers housing ratings up to N5. Its 200 Pa water result is the limiting line: N1 to N4 in non-exposed positions, and N1 to N2 where the door is exposed. That covers a large share of Australian residential work, but check the rating and exposure for each opening.
 
-**The mullion behavior is the diagnostic finding.** In a sliding door, the mullion (the central vertical member where two sash meet) is the most loaded element under wind pressure because each sash transfers half of the door's wind load into it. A 2220 mm span mullion deflecting only 5.9 mm at 1200 Pa is a structurally efficient result that aluminum 140-series systems typically achieve only with a steel insert. The GFRP mullion does it as a single pultruded section.
+**The mullion behavior is the diagnostic finding.** In a sliding door, the mullion (the central vertical member where two sash meet) is the most loaded element under wind pressure because each sash transfers half of the door's wind load into it. A 2220 mm span mullion deflecting only 5.9 mm at 1200 Pa is a structurally efficient result for a single pultruded section with no reinforcement.
 
 ## Test 2: Operating Force (AS/NZS 4420.1-2016 Section 4)
 
@@ -3566,26 +3598,22 @@ The 99 N initial-movement result is approximately 45 % below the 180 N AS 2047 l
 
 This matters in two specific Australian regulatory contexts:
 
-**Disability Discrimination Act (DDA) and Premises Standards.** The DDA Premises Standards require that doors in accessible paths of travel be operable with no more than 19.5 N of force for accessible doors (NCC D2.21 / AS 1428.1 reference). A standard sliding door is generally exempt from this strict limit, but aging-in-place and universal-design briefs increasingly specify a lower operating force. At 99 N, the 140 Series is well suited to these applications without electric assistance.
+**Accessible paths of travel (Premises Standards and AS 1428.1).** Doors on an accessible path of travel are held to a much lower operating force, about 20 N under AS 1428.1. At 99 N, this door is well above that limit, so a door on an accessible path would need powered operation or another compliant solution. Its 99 N result matters for ease of use on a residential sliding door, not for accessible-path compliance.
 
-**Livable Housing Australia (LHA) Silver and Gold ratings.** LHA Silver requires "easy-to-use" hardware on entry and primary external doors. There is no hard-Newton specification, but typical aluminum 3 m sliding doors tested under similar conditions report 130–160 N initial movement. The GFRP 140 Series at 99 N is meaningfully lighter to operate than competing aluminum systems at the same size.
+**Livable housing.** The NCC 2022 Livable Housing Design Standard and the Livable Housing Australia guidelines focus on step-free access, door widths and circulation rather than a Newton limit for sliding doors. A lighter operating force still helps aging-in-place and universal-design briefs, and 99 N on a 7.2 m² door is a light result for its size.
 
-The mechanical reason for the low operating force is the lift-slide hardware combined with the lower self-weight of the GFRP sash. Pultruded GFRP profile has a density of approximately 1.9 g/cm³ versus 2.7 g/cm³ for aluminum. A full-height GFRP lift-slide sash is roughly 30% lighter than its aluminum equivalent before glazing, and the difference compounds when the operator lifts the leaf to disengage it from the seal track.
+The mechanical reason for the low operating force is the lift-slide hardware combined with the lower self-weight of the GFRP sash. Pultruded GFRP profile has a density of approximately 1.9 g/cm³ versus 2.7 g/cm³ for aluminum. For the same profile volume, GFRP is about 30% lighter than aluminum, which helps when the operator lifts the leaf to disengage it from the seal track.
 
 ## Test 3: Air Infiltration at ±75 Pa (AS/NZS 4420.1-2016 Section 5)
 
-**Required:** Classified by infiltration rate. "Low" class is ≤ 0.5 L/s·m².
-**Result:** 0.30 L/s·m² at +75 Pa, 0.32 L/s·m² at −75 Pa. Verdict: **Low** infiltration class, the highest-performing classification in AS 2047.
+**Required:** Air infiltration within the AS 2047 limit at ±75 Pa.
+**Result:** 0.30 L/s·m² at +75 Pa, 0.32 L/s·m² at −75 Pa over the 7.20 m² door. Verdict: Pass, with the air infiltration level classified as **Low** in the report.
 
-Air infiltration is an under-specified performance line in Australian residential procurement. Specifiers and clients focus on glass U-value and frame U-value, but envelope air leakage typically accounts for 30–50% of total heating and cooling load in poorly sealed buildings. NCC 2022 Section J3D7 introduced a stricter envelope sealing requirement, and large-format external doors are a common point of failure.
+Air infiltration is an under-specified performance line in Australian residential procurement. Specifiers and clients focus on glass U-value and frame U-value, but envelope air leakage can be a large share of the heating and cooling load in a poorly sealed building. The NCC includes building-sealing provisions that cover external doors, and large-format sliding doors are a common leakage point.
 
-Achieving 0.30 L/s·m² on a 3 m sliding door is non-trivial. For comparison:
+Achieving 0.30 L/s·m² on a 3 m sliding door is a useful result. When comparing systems, set it against the other door's AS 2047 report at a similar size, because leakage per square meter changes with panel size and configuration.
 
-- Typical Australian aluminum 3 m sliding door: 0.6–1.5 L/s·m² (Medium to High class)
-- Premium European aluminum tilt-slide systems: 0.4–0.6 L/s·m²
-- This 140 Series GFRP lift-slide: 0.30 L/s·m²
-
-The combination of EPDM compression gaskets, brush seal, and the lift-slide hardware (which lowers the sash onto the gasket when locked) is what enables the sub-0.5 result. Critically, the GFRP frame's coefficient of thermal expansion (5–8 × 10⁻⁶ /°C) is close to that of glass and silicone, meaning the gasket compression remains stable across the −10 °C to +50 °C service range Australia experiences. Aluminum frames at 23 × 10⁻⁶ /°C move 3–4× more, which over time loosens gasket compression and degrades the air seal.
+The combination of EPDM compression gaskets, brush seal, and the lift-slide hardware (which lowers the sash onto the gasket when locked) is what enables the sub-0.5 result. The GFRP frame's coefficient of thermal expansion (5–8 × 10⁻⁶ /°C) is close to that of glass (about 9 × 10⁻⁶ /°C), which helps keep gasket compression stable across the −10 °C to +50 °C service range Australia experiences. Aluminum frames at 23 × 10⁻⁶ /°C move 3–4× more, which over time loosens gasket compression and degrades the air seal.
 
 ## Test 4: Water Penetration (AS/NZS 4420.1-2016 Section 6)
 
@@ -3594,18 +3622,11 @@ The combination of EPDM compression gaskets, brush seal, and the lift-slide hard
 
 This is the test result that requires the most careful interpretation for Australian projects.
 
-AS 2047-2014 does not mandate a single water penetration pressure for all sliding doors. Instead, water rating is matched to the project's exposure category. For a typical Australian residential project, water penetration test pressures correspond approximately to the following exposure scenarios:
+AS 2047-2014 does not mandate a single water penetration pressure for all doors. For housing, the required pressure follows the site rating and whether the opening is exposed (see the table under Test 1): 150 Pa non-exposed and 200 Pa exposed for N1 and N2, 150 / 300 Pa for N3, 200 / 300 Pa for N4 and 300 / 450 Pa for N5. For other buildings, the water test pressure is set at 30% of the positive serviceability design pressure.
 
-| Test Pressure | Wind-Driven Rain Equivalent | Suitable Australian Exposure |
-| --- | --- | --- |
-| 150 Pa | Light rain at moderate wind | N1 sheltered, suburban residential |
-| 200 Pa | Moderate rain at 80 km/h | N2 suburban, low-coastal residential |
-| 300 Pa | Heavy rain at 95 km/h | N3 exposed coastal residential |
-| 450 Pa | Cyclonic conditions | C1+ tropical zones |
+At 200 Pa, the tested door meets the housing requirement for N1 to N4 in non-exposed positions and for N1 to N2 where it is exposed. On an exposed N3 or N4 opening, 300 Pa is required, so the door needs a sheltered position under the project's definition of exposure (verandah, balcony soffit or deep eaves) or a configuration with a higher tested water rating.
 
-The 140 Series at 200 Pa is suitable for N1 and N2 exposure with appropriate awning or recess detailing, and for N3 exposure when installed under a verandah, balcony soffit, or eaves overhang of at least 600 mm. That covers the vast majority of well-detailed Australian residential design. It is not appropriate for fully exposed coastal facades in N3+ without further sheltering.
-
-Water overflow at 300 Pa was localized to the sliding track, not the frame head, jambs, or glazing seals. This is consistent with the AS 2047 sliding-door class: the track is the inherent weak point of any lift-and-slide system, and 200 Pa is typical even for premium aluminum systems. Vantage, Capral, and Stegbar 140-series sliding doors generally carry ratings of 150–300 Pa, depending on the configuration and sill-drainage accessories.
+Water overflow at 300 Pa was localized to the sliding track, not the frame head, jambs, or glazing seals. The track is the inherent weak point of any lift-and-slide system, and published water ratings for large aluminum sliding doors commonly fall in a similar range, depending on the configuration and sill-drainage accessories.
 
 For projects requiring 300+ Pa water rating, a tilt-slide system (different hardware) or a French-door configuration (hinged rather than sliding) would be more appropriate. Both are available in the same GFRP profile family.
 
@@ -3614,48 +3635,47 @@ For projects requiring 300+ Pa water rating, a tilt-slide system (different hard
 **Applied:** ±3000 Pa.
 **Result:** No collapse. No significant breakage. No permanent deformation. No operational malfunction after pressure release. Verdict: Pass.
 
-Ultimate strength testing applies pressure 2.5 × the serviceability design pressure (1200 × 2.5 = 3000 Pa) to verify that the system has structural reserve beyond design. The 140 Series held 3000 Pa in both directions with no failure mode, and it operated normally after the test was released.
+Ultimate strength testing applies the ultimate limit state pressure to verify structural reserve beyond serviceability. Here that was 3000 Pa, 2.5 times the 1200 Pa serviceability test pressure and equal to the AS 2047 ultimate pressure for an N5 housing rating. The 140 Series held 3000 Pa in both directions with no failure mode, and it operated normally after the test was released.
 
-Operational survivability post-ultimate is the practical metric. A door that does not collapse but binds shut after a storm requires a callback and a frame replacement; a door that operates normally after surviving 158 km/h gust pressure is a door that can be left in service. The Roto Lift hardware combined with the GFRP frame's elastic recovery (no permanent set after the test) delivered this.
+Operational survivability post-ultimate is the practical metric. A door that does not collapse but binds shut after a storm requires a callback and a frame replacement; a door that operates normally after 3000 Pa, roughly the stagnation pressure of a 250 km/h gust, is a door that can be left in service. The Roto Lift hardware combined with the GFRP frame's elastic recovery (no permanent set after the test) delivered this.
 
-For AS 4055 mapping: 3000 Pa ultimate corresponds to design wind pressures up to N4 (1200 Pa serviceability, 3000 Pa ultimate) without need for re-engineering. C1 cyclonic regions require ≥ 4500 Pa ultimate, which is outside the scope of this 140 Series test. For cyclonic projects F1 Composite produces a heavier 160 Series.
+For AS 2047 housing ratings, 3000 Pa ultimate matches the N5 pressure, so on structural pressures alone the tested door covers N1 to N5; water penetration then sets the limit, as above. Cyclonic ratings are outside the scope of this report, and a door for a cyclonic site needs its own engineered and tested configuration.
 
 ## How the 140 Series Compares to Australian Aluminum Sliding Doors
 
-The most useful comparison for an Australian specifier is against the established 140 mm depth aluminum sliding door systems. Headline performance numbers, drawn from public specification literature for the most commonly specified systems:
+The most useful comparison for an Australian specifier is against the aluminum sliding door actually being considered, using its own AS 2047 report at a similar size. Published brochure figures vary with configuration, so compare test reports line by line. The tested GFRP door gives the reference column:
 
-| Metric | Capral 1100 (140 mm) | Vantage Magnum (146 mm) | Stegbar 140 | F1 Composite 140 GFRP (this test) |
-| --- | --- | --- | --- | --- |
-| Maximum tested size | 3000 × 2400 | 3000 × 2700 | 2700 × 2400 | 3000 × 2400 (tested) |
-| Serviceability wind | 1200 Pa | 1200 Pa | 1000 Pa | 1200 Pa |
-| Ultimate wind | 3000 Pa | 3600 Pa | 2500 Pa | 3000 Pa |
-| Air infiltration | Medium | Low | Medium | **Low (0.30 L/s·m²)** |
-| Water rating (typical) | 200 Pa | 300 Pa | 150 Pa | 200 Pa |
-| Operating force, 3 m | ~140 N | ~120 N | ~150 N | **99 N** |
-| Frame U-value (no thermal break) | 5.9 W/m²·K | — | 5.9 W/m²·K | — |
-| Frame U-value (thermal break / inherent) | 3.5–4.5 W/m²·K | 2.8–3.5 W/m²·K | 3.5–4.5 W/m²·K | **1.6–2.0 W/m²·K (inherent)** |
-| Steel reinforcement required | Yes (mullion) | Yes (mullion) | Yes (mullion) | **No** |
-| Coastal corrosion service life | 15–25 years (marine grade) | 20–30 years (marine grade) | 15–25 years (marine grade) | **40+ years (immune)** |
+| Metric | What to compare in the aluminum door's report | Tested 140 Series GFRP door |
+| --- | --- | --- |
+| Tested size | Same or larger opening | 3000 × 2400 mm (7.2 m²) |
+| Serviceability wind | Rating needed for the site | 1200 Pa |
+| Ultimate wind | Rating needed for the site | 3000 Pa |
+| Air infiltration | Measured L/s·m² and level | **Low (0.30 / 0.32 L/s·m²)** |
+| Water penetration | Non-exposed or exposed requirement | 200 Pa |
+| Operating force, initial | Measured value | **99 N** |
+| Frame U-value | Rated or calculated Uf | **1.6–2.0 W/m²·K (F1 calculation, no thermal break)** |
+| Reinforcement | Any steel or aluminum insert listed | **None listed** |
+| Coastal corrosion | Finish class and maintenance terms | Profile material does not corrode |
 
-The 140 Series GFRP system matches or beats the leading Australian aluminum systems on every line except maximum ultimate wind and maximum width, both of which are addressable by the heavier F1 Composite 160 Series. Where it pulls ahead is on operating force, frame U-value, air tightness, and the absence of any internal steel reinforcement, which is a long-term corrosion liability in coastal aluminum installations.
+The GFRP door's distinctive results are the low operating force, the Low air infiltration classification, the frame U-value and the absence of reinforcement. Its 200 Pa water rating is the line to check on exposed sites.
 
 ## What an Australian Specifier Should Take Away
 
 For an architect, building designer, or specifier evaluating GFRP fenestration on a current project, the AS 2047 results translate to a short specifier checklist:
 
-**Site exposure check.** AS 4055 region N1, N2, N3 and edge-of-N4 are within the 140 Series serviceability envelope without modification. N5 and C1+ require the heavier 160 Series or a re-engineered configuration.
+**Site rating check.** On wind pressures the tested door covers AS 2047 housing ratings N1 to N5. Cyclonic ratings are outside this report and need a separately engineered and tested configuration.
 
-**Water exposure check.** A 200 Pa water rating is suitable when the door has a balcony, verandah, or eaves overhang of 600 mm or more. Fully exposed beach-front installations should specify the tilt-slide configuration (300+ Pa rating).
+**Water exposure check.** A 200 Pa water rating meets N1 to N4 in non-exposed positions and N1 to N2 where exposed. Exposed N3 and N4 openings need 300 Pa, so shelter the door or choose a configuration with a higher tested water rating.
 
-**Energy compliance check.** NCC 2022 Section J Climate Zones 6, 7, 8 (Melbourne, Canberra, Hobart, alpine) increasingly require whole-window U-values that aluminum 140 series cannot achieve without triple glazing. The GFRP 140 Series with the tested 39 mm IGU achieves a calculated whole-window U-value of approximately 1.4–1.6 W/m²·K, comfortably within Climate Zone 6/7 mandatory limits.
+**Energy compliance check.** In NCC Climate Zones 6, 7 and 8 (Melbourne, Canberra, Hobart, alpine), window performance carries a lot of weight in the NatHERS or deemed-to-satisfy calculation. With the tested 39 mm IGU, F1 calculates a whole-window U-value of approximately 1.4–1.6 W/m²·K for this door. Confirm the rated value through WERS for the project.
 
-**Accessibility check.** With an initial operating force of 99 N, the 140 Series is suitable for LHA Silver and Gold ratings and aging-in-place specifications without electric assistance.
+**Ease-of-use check.** An initial operating force of 99 N suits aging-in-place briefs for a residential sliding door. It is not an accessible-path door under AS 1428.1.
 
 **Coastal projects.** GFRP requires no marine-grade alloy specification, no anodized or powder-coated finish for corrosion (the substrate is inherently inert), and no stainless fastener specification beyond what the threshold detailing requires. Over a 25-year life that removes the finishing and corrosion items from the cost of ownership; compare it with marine-grade aluminum for the project.
 
 ## Bottom Line
 
-The Intertek AS 2047-2014 / AS/NZS 4420.1-2016 test on the 140 Series GFRP lift-sliding door confirms that pultruded fiberglass-reinforced polyurethane fenestration is technically ready for the Australian premium residential and commercial market at standard 3 m × 2.4 m patio door dimensions. The test results match or exceed leading aluminum systems on every critical performance line, with the additional advantages of significantly lower operating force, inherent thermal performance, higher air tightness, and complete corrosion immunity.
+The Intertek AS 2047-2014 / AS/NZS 4420.1-2016 test on the 140 Series GFRP lift-sliding door confirms that pultruded fiberglass-reinforced polyurethane fenestration is technically ready for the Australian premium residential and commercial market at standard 3 m × 2.4 m patio door dimensions. The tested door met every AS 2047 line it was tested on, with a low operating force for its size, a Low air infiltration classification, inherent thermal performance and a profile material that does not corrode.
 
 [Download the Intertek 240821010SHF-002 Test Report (PDF)](/downloads/intertek-report-240821010SHF-002-lift-sliding-door.pdf)
 
@@ -3666,10 +3686,10 @@ For specifiers actively evaluating GFRP fenestration for an Australian project, 
     title: "The Surface Finish Question — How Transverse-Reinforced Pultrusion Removes Glass-Fiber Telegraph from FRP Window Profiles",
     seoTitle: "FRP Surface Finish — Transverse-Reinforced Profiles",
     answerBox:
-      "Transverse fiber reinforcement on pultruded GFRP window profiles solves the historical surface-telegraph appearance under powder-coat finishes. Combined with a synthetic surfacing veil and 2-stage cure, the finished surface matches AAMA 2604 Class 2 visual quality across the full RAL palette and PVDF (AAMA 2605) coatings.",
+      "Transverse fiber reinforcement placed deep in pultruded GFRP window profiles removes the historical fiber-telegraph texture under architectural finishes. Combined with a resin-rich surface zone and a synthetic surfacing veil, the surface accepts AAMA 2604 / 2605-class coatings across the full RAL palette.",
     category: "Material Innovation",
     date: "2026-04-30",
-    updatedAt: "2026-04-30",
+    updatedAt: "2026-10-26",
     readTime: "11 min",
     excerpt:
       "Why premium architectural fenestration still chooses aluminum over fiberglass, and how a transversely reinforced pultrusion architecture places cross-direction reinforcement deeper in the profile to produce powder-coated finishes that are indistinguishable from aluminum.",
@@ -3701,6 +3721,8 @@ For specifiers actively evaluating GFRP fenestration for an Australian project, 
       { label: "Construction Industry", href: "/industries/construction" },
     ],
     sourceLinks: [
+      { label: "AAMA 625-25 — Superior performance organic coatings on fiber reinforced thermoset profiles (FGIA)", href: "https://store.fgiaonline.org/aama-625-25" },
+      { label: "Pella Impervia: factory powder-coat finish, five colors", href: "https://pella.com/shop/windows/pella-impervia/casement-windows" },
       { label: "AAMA 2604 — Voluntary Specification for Performance Requirements for Pigmented Organic Coatings", href: "https://www.fgiaonline.org" },
       { label: "AAMA 2605 — Superior Performance Pigmented Organic Coatings", href: "https://www.fgiaonline.org" },
       { label: "Qualicoat — Quality Label for Coating on Aluminum and Aluminum Alloys", href: "https://www.qualicoat.net" },
@@ -3736,9 +3758,9 @@ This is the unspoken reason fiberglass fenestration has not been the default cho
 
 Two approaches have emerged in the established fiberglass fenestration category, and each has tradeoffs.
 
-**Response 1: Embrace the texture as an aesthetic signature.** Established North American fiberglass window brands (for example, the Pella Impervia line, a category benchmark for more than two decades) position the subtle surface texture as part of an "engineered durability" aesthetic. They support it with a curated palette of approximately ten color options optimized for the substrate. This coherent product strategy serves a clear customer segment well. However, it does not satisfy specifications that require an unrestricted RAL palette, different interior and exterior colors, custom architectural pigments, or finishes that must blend visually with an adjacent powder-coated aluminum curtain wall on the same building.
+**Response 1: Work within a curated palette.** Established North American fiberglass window brands (for example, the Pella Impervia line, a long-standing category benchmark) offer a factory powder-coat finish in a short palette optimized for the substrate: five solid colors on Pella's current product pages, plus dual-color options with a white interior. This coherent product strategy serves a clear customer segment well. However, it does not satisfy specifications that require an unrestricted RAL palette, different interior and exterior colors, custom architectural pigments, or finishes that must blend visually with an adjacent powder-coated aluminum curtain wall on the same building.
 
-**Response 2: Add a surface cap film or in-line co-extrusion layer.** Some manufacturers laminate a smooth thermoplastic capstock onto the pultruded profile during or after manufacture. This delivers a smoother starting surface but introduces three new problems: long-term adhesion of the cap to the substrate (capstock systems can delaminate after 15–25 years of UV and thermal cycling), additional cost ($/linear meter), and a coating system that is now a different chemistry from the substrate, meaning powder coating onto the cap requires its own qualification protocol. Capstock-based systems exist but have not become the category standard.
+**Response 2: Add a surface cap film or in-line co-extrusion layer.** Some manufacturers laminate a smooth thermoplastic capstock onto the pultruded profile during or after manufacture. This delivers a smoother starting surface but introduces three new problems: long-term adhesion of the cap to the substrate under UV and thermal cycling, additional cost ($/linear meter), and a coating system that is now a different chemistry from the substrate, meaning powder coating onto the cap requires its own qualification protocol. Capstock-based systems exist but have not become the category standard.
 
 Neither response solves the underlying engineering problem: how do you keep cross-direction strength while removing the surface signature it creates?
 
@@ -3762,7 +3784,7 @@ Three engineering choices make this work.
 
 **Choice 2: The transverse fabric is buried mid-section, not surface-adjacent.** Because the fabric is structurally most effective when it spans the section, not when it sits at the skin, placing it deeper in the profile actually improves both surface quality AND structural efficiency. The resin-rich transition zone above it is 200–400 µm thick, enough to fully decouple the surface topography from the underlying fiber pattern.
 
-**Choice 3: The matrix is polyurethane, not polyester or vinyl ester.** Polyurethane resin pultrusion has lower cure shrinkage and superior wet-out of fine surfacing veils than polyester systems. The result is a substrate that comes off the pultrusion line with mirror-finish surface quality, ready for direct architectural powder coating without a fill-and-sand pre-treatment step.
+**Choice 3: The matrix is polyurethane, not polyester or vinyl ester.** Polyurethane resin pultrusion has lower cure shrinkage and superior wet-out of fine surfacing veils than polyester systems. The result is a substrate that comes off the pultrusion line with a smooth, uniform surface, ready for architectural coating without a fill-and-sand pre-treatment step.
 
 This is what we mean by transverse-reinforced architecture: cross-direction strength delivered structurally by an internal stitched fabric, not aesthetically compromised by a surface mat.
 
@@ -3782,15 +3804,15 @@ The output of this architecture is a coated fenestration profile that is genuine
 | Coating thickness (µm) | 60–100 µm | 60–100 µm |
 | Cross-hatch adhesion (ISO 2409) | Class 0 (no flaking) | Class 0 |
 
-In side-by-side architectural mockups, neither the architect nor the building owner can distinguish the powder-coated F1 Composite GFRP frame from the powder-coated aluminum frame in the same RAL color. The thermal performance underneath is, of course, dramatically different (frame U-value 1.6–2.0 W/m²·K for GFRP versus 3.5–4.5 W/m²·K for thermally broken aluminum) but the visual experience is identical.
+In side-by-side architectural mockups, the coated F1 Composite GFRP frame and a powder-coated aluminum frame in the same RAL color are hard to tell apart. The thermal performance underneath is very different (frame U-value of about 0.8–1.2 W/m²·K for GFRP casement sections versus roughly 1.4–2.4 W/m²·K for typical thermally broken aluminum), but the visual experience is the same.
 
 ## What This Unlocks for Specifiers
 
 Removing the surface-finish constraint expands the range of projects suitable for fiberglass fenestration.
 
-**Passive house and ultra-low-energy buildings.** Architects working on Passivhaus-certified projects in Australia, Canada, the Pacific Northwest, and Northern Europe routinely require U_w ≤ 0.80 W/m²·K. Aluminum cannot reach this even with thermal breaks. PHI-certified GFRP fenestration can: F1 Composite's 90 Series holds [PHI Component ID 2491wi03 at U_w 0.78](/resources/blog/frp-fenestration-passivhaus-certification). With architectural-grade powder coating in any RAL, these projects no longer face an aesthetic compromise to achieve their energy target.
+**Passive house and ultra-low-energy buildings.** Architects working on Passivhaus-certified projects in Australia, Canada, the Pacific Northwest, and Northern Europe routinely require U_w ≤ 0.80 W/m²·K in cool-temperate climates. Only a few highly insulated aluminum systems reach it. PHI-certified GFRP fenestration does: F1 Composite's 90 Series holds [PHI Component ID 2491wi03 at U_w 0.78](/resources/blog/frp-fenestration-passivhaus-certification). With architectural-grade powder coating in any RAL, these projects no longer face an aesthetic compromise to achieve their energy target.
 
-**Class A commercial and hospitality.** Hotel facades, premium office buildings, and luxury retail interiors specify finishes that meet architectural coating standards, typically AAMA 2605. Until recently, the uncertainty around specifying a fiberglass window under AAMA 2605 involved substrate finish quality, not coating chemistry. On transversely reinforced GFRP profiles, AAMA 2605 powder coatings are applied, qualified, and finished using the same process and standards as coatings on aluminum.
+**Class A commercial and hospitality.** Hotel facades, premium office buildings, and luxury retail interiors specify finishes that meet architectural coating standards, typically AAMA 2605. Until recently, the uncertainty around specifying a fiberglass window under AAMA 2605 involved substrate finish quality, not coating chemistry. On transversely reinforced GFRP profiles, AAMA 2605-class fluoropolymer coatings can be applied and qualified on the FRP substrate, where AAMA 625 is the FGIA counterpart specification for fiber-reinforced thermoset profiles.
 
 **Coastal premium residential.** Beach-front Australian, Mediterranean, and Pacific Coast US projects specify aluminum because it can take a coating, despite knowing that aluminum in salt air will eventually fail. GFRP solves the corrosion problem at the substrate level, and now solves the finish problem too. The coating is no longer the only argument for aluminum.
 
@@ -3800,25 +3822,25 @@ Removing the surface-finish constraint expands the range of projects suitable fo
 
 ## A Note on Coating Process
 
-The powder coating process applied to F1 Composite fenestration profiles is the same process applied to architectural aluminum extrusions: surface preparation (degrease, light abrasion, ultrasonic clean), conversion-coat or adhesion primer where required, electrostatic powder application in a downdraft booth, and oven cure at 180–200 °C for 15–20 minutes. The full process and standards alignment are documented in our companion article on [powder-coated FRP window profiles for architectural finishes](/resources/blog/frp-window-profiles-powder-coating-aluminum-finish). What this article adds is the substrate-side innovation that makes the coating process produce architectural-grade results rather than near-architectural-grade results.
+The coating process applied to F1 Composite fenestration profiles follows the same steps as for architectural aluminum extrusions: surface preparation (degrease, light abrasion, clean), adhesion or conductive primer where required, application, and cure on a schedule matched to the profile's resin system. The low-temperature powder route, and the liquid-coating route used for polyurethane-matrix profiles, are documented in our companion article on [powder-coated FRP window profiles for architectural finishes](/resources/blog/frp-window-profiles-powder-coating-aluminum-finish). What this article adds is the substrate-side innovation that makes the coating process produce architectural-grade results rather than near-architectural-grade results.
 
 ## Bottom Line
 
 For thirty years, pultruded fenestration treated cross-direction strength and surface-finish quality as a tradeoff. Brands that prioritized structural efficiency accepted a visible surface texture; brands that prioritized finish quality added capstock films or reduced the cross-direction reinforcement. That tradeoff was real until the reinforcement was repositioned, both structurally and chemically, within the profile so that it no longer affected the coated surface.
 
-That repositioning is what F1 Composite calls transverse-reinforced architecture. It is not a coating innovation. It is a substrate architecture innovation that lets the coating do its job. The result is a pultruded GFRP fenestration profile that hits the structural targets (EN 13706, AS 2047, AAMA/WDMA classifications), hits the thermal targets (whole-window U_w 1.4–1.6 W/m²·K with the right glazing), and now hits the architectural finish targets (AAMA 2604/2605, Qualicoat Class 1/2, full RAL palette, dual-tone capable).
+That repositioning is what F1 Composite calls transverse-reinforced architecture. It is not a coating innovation. It is a substrate architecture innovation that lets the coating do its job. The result is a pultruded GFRP fenestration profile that meets the structural tests completed so far (AS 2047 for the tested specimens, with project-specific North American testing where required), reaches the thermal targets (whole-window U_w from about 1.4 W/m²·K in double-glazed builds down to 0.78 in the PHI-certified 90 Series), and now reaches the architectural finish targets (AAMA 2604 / 2605 or Qualicoat Class 1 / 2 coating performance, full RAL palette, dual-tone capable).
 
-For specifiers seeking a fiberglass option that does not require an aesthetic compromise, that option is now available. F1 Composite supplies its [65, 70, 80, and 90 Series fenestration profiles](/products/window-door-profiles) with transversely reinforced architecture and factory-applied powder coatings that meet AAMA 2604, AAMA 2605, or Qualicoat Class 1 or Class 2 standards. Finish samples are available in any RAL or NCS color; project-specific matching to existing curtain-wall finishes is available on request.`,
+For specifiers seeking a fiberglass option that does not require an aesthetic compromise, that option is now available. F1 Composite supplies its [65, 70, 80, and 90 Series fenestration profiles](/products/window-door-profiles) with transversely reinforced architecture and factory-applied coatings specified to AAMA 2604, AAMA 2605, or Qualicoat Class 1 or Class 2 performance, with the coater's test report on request. Finish samples are available in any RAL or NCS color; project-specific matching to existing curtain-wall finishes is available on request.`,
   },
   {
     slug: "how-to-source-pultruded-frp-profiles-from-china-2026-buyers-guide",
     title: "How to Source Pultruded FRP Profiles Directly from China — 2026 Buyer's Guide",
     seoTitle: "Sourcing FRP from China — 2026 US Buyer's Guide",
     answerBox:
-      "US buyers sourcing pultruded FRP from China in 2026 face three structural costs: Section 301 25% tariff, UFLPA supply-chain verification, and ADD/CVD risk on certain standard profiles. Direct-from-factory DDP pricing with transparent Section 301 disclosure, EN 13706 / ASTM verification, and US-LLC-issued POs avoids 30–50% of distributor markup.",
+      "US buyers sourcing pultruded FRP from China in 2026 face three import checks: Section 301 duties (25% on List 1–3 tariff lines; the rate depends on the HTS classification), UFLPA supply-chain documentation, and whether any antidumping or countervailing duty order covers the product. US tariff measures changed repeatedly in 2025–2026, so a direct-from-factory DDP quote should itemize the duties in force at shipment. Buying direct removes the distributor margin; compare landed cost line by line.",
     category: "Procurement Guide",
     date: "2026-05-05",
-    updatedAt: "2026-09-27",
+    updatedAt: "2026-10-26",
     readTime: "12 min",
     excerpt:
       "A buyer's guide for sourcing pultruded FRP profiles directly from a Chinese manufacturer in 2026: how to qualify factories, what MOQ and lead times to expect, RFQ checklist, EN 13706 / ASTM D3917 verification, Incoterms, container loading, and how to avoid the 5 most common procurement mistakes.",
@@ -3850,10 +3872,11 @@ For specifiers seeking a fiberglass option that does not require an aesthetic co
     ],
     sourceLinks: [
       { label: "EN 13706 — Pultruded profiles specification", href: "https://www.cencenelec.eu" },
-      { label: "ASTM D3917 — Dimensional tolerance of pultruded shapes", href: "https://www.astm.org/d3917" },
+      { label: "ASTM D3917-23 — Dimensional tolerance of pultruded shapes", href: "https://store.astm.org/d3917-23.html" },
       { label: "Incoterms 2020 — ICC", href: "https://iccwbo.org/business-solutions/incoterms-rules/" },
+      { label: "Drewry World Container Index", href: "https://www.drewry.co.uk/supply-chain-advisors/supply-chain-expertise/world-container-index-assessed-by-drewry" },
     ],
-    content: `Sourcing pultruded FRP profiles directly from a Chinese manufacturer can reduce delivered cost by 30–50% compared with buying from a regional distributor in North America, the UK, or Europe. The catch is that buyers realize those savings only when the procurement process is structured correctly. Buyers who treat FRP like a commodity steel section (issuing an RFQ, accepting the lowest bid, and hoping for the best) often receive profiles that fail incoming inspection, miss the project schedule, or cost more after delivery than a domestic source would have.
+    content: `Sourcing pultruded FRP profiles directly from a Chinese manufacturer can reduce delivered cost substantially compared with buying from a regional distributor in North America, the UK, or Europe; the size of the saving depends on freight, duty and order size. The catch is that buyers realize those savings only when the procurement process is structured correctly. Buyers who treat FRP like a commodity steel section (issuing an RFQ, accepting the lowest bid, and hoping for the best) often receive profiles that fail incoming inspection, miss the project schedule, or cost more after delivery than a domestic source would have.
 
 This guide walks through the procurement process F1 Composite has refined across 30+ countries of direct-from-factory export. The framework applies whether you buy from us or from a peer Chinese pultrusion factory.
 
@@ -3877,7 +3900,7 @@ The single biggest procurement mistake is treating an FRP RFQ like a steel RFQ, 
 
 Before you send any RFQ, qualify the factory on four points:
 
-**(a) Manufacturing standards.** Ask for the certificate scope of EN 13706 (E17 and/or E23 grade, which profile families are covered) and ISO 9001:2015. A factory that lists "EN 13706" without a grade or scope is a flag. Established Chinese pultrusion factories will show the actual certificate scope on request. F1 Composite sends each certificate with its holder, number and scope.
+**(a) Manufacturing standards.** Ask for the EN 13706 grade evidence (E17 and/or E23, which profile families are covered, and the test reports behind it) and the ISO 9001 certificate scope. A factory that lists "EN 13706" without a grade or test report is a flag. Established Chinese pultrusion factories will show the actual evidence and certificate scope on request. F1 Composite sends each certificate with its holder, number and scope.
 
 **(b) Mechanical test capability.** Ask whether the factory operates an in-house mechanical test lab and whether they will issue a Mill Test Certificate (MTC) per batch. Tested values should be referenced against ASTM D638 (tensile), ASTM D790 (flexural), ASTM D695 (compressive), and ASTM D2344 (interlaminar shear). A factory without an in-house lab can still qualify, but you will need third-party testing on the first article, which adds 2–3 weeks.
 
@@ -3885,7 +3908,7 @@ Before you send any RFQ, qualify the factory on four points:
 
 **(d) Custom tooling capability.** If your project needs anything beyond stock standard profiles, the factory must operate its own tooling shop. Outsourced tooling adds 3–4 weeks and, more importantly, removes the manufacturer's ability to debug a die that is producing dimension-out profiles in the first run.
 
-A 20-minute video call with the factory technical contact answering these four questions filters out 60–70% of the suppliers a first-time buyer might consider.
+A 20-minute video call with the factory technical contact answering these four questions filters out many of the suppliers a first-time buyer might consider.
 
 ## Step 2: The RFQ checklist that gets a complete quote
 
@@ -3932,16 +3955,16 @@ Most Chinese FRP factories quote in three Incoterms:
 
 **DAP [project site].** The factory arranges everything to the project site, including destination customs, inland trucking, and unloading. DAP is roughly 8–15% above CIF but eliminates buyer-side logistics overhead. Best for project-based buyers with no in-house import logistics.
 
-A 40' high-cube container holds approximately 18–22 tonnes of pultruded FRP profiles depending on cross-section density. Ocean freight from Shanghai to Rotterdam runs $1,200–2,500 per 40HC in 2026 (down sharply from 2021–2022 peaks). Ocean freight to LA/Long Beach runs $1,800–3,500 per 40HC. Insurance is typically 0.3–0.5% of cargo value.
+A 40' high-cube container holds approximately 18–22 tonnes of pultruded FRP profiles depending on cross-section density. Spot freight is volatile: the Drewry World Container Index for 22 October 2026 put Shanghai–Rotterdam at $3,632 and Shanghai–Los Angeles at $8,007 per 40 ft container. Check the current index and the forwarder's quote at booking. Insurance is typically 0.3–0.5% of cargo value.
 
 Container loading: pultruded FRP profiles are usually packed in wooden crates or steel-banded bundles, with ends protected against impact damage. Bundle weight is held at 100–150 kg per bundle for forklift handling. Long profiles (over 12 m) require open-top containers or specialized flat-rack equipment, which adds cost: keep cut lengths at 6 m or 12 m where possible.
 
 ## Step 5: Quality verification at receipt
 
-When the container arrives, three checks catch 95% of quality issues before they affect the project:
+When the container arrives, three checks catch most quality issues before they affect the project:
 
 1. **Mill Test Certificate matches the order.** Cross-reference batch numbers on the certificate against batch numbers stamped on the profiles. Tested mechanical values should meet or exceed EN 13706 E17 or E23 thresholds (whichever was specified).
-2. **Dimensional spot-check on 3-5 random pieces per cross-section.** ASTM D3917 tolerance is ±0.25 mm on width and depth, ±0.5% on length. A digital caliper and a 5-meter tape measure are sufficient.
+2. **Dimensional spot-check on 3-5 random pieces per cross-section.** ASTM D3917 sets tolerances by feature and size (wall thickness, width or depth, straightness, twist, flatness and angularity). Check the measurements against its table for the section and against any tighter tolerances on the drawing. A digital caliper, a straightedge and a 5-meter tape measure are usually sufficient.
 3. **Surface inspection for veil coverage.** No exposed glass fibers, no resin starvation patches, no surface cracks. A veil-deficient surface will weather poorly even if the structural performance is fine.
 
 If issues are found, photograph and send to the factory within 48 hours. Established Chinese factories (F1 Composite included) replace defective material at factory cost. Documenting the issue at receipt rather than after installation is what activates the warranty.
@@ -3950,9 +3973,9 @@ If issues are found, photograph and send to the factory within 48 hours. Establi
 
 **Mistake 1: Spec'ing only by dimensions, not by mechanical class.** Two profiles with the same 200×100×10 dimensions can have 30% different stiffness depending on fiber architecture. Always specify EN 13706 E17 or E23, or specify minimum tested mechanical values.
 
-**Mistake 2: Mixing resin systems on a single project.** Polyester and vinyl ester profiles cannot be bonded with the same adhesives; their thermal expansion coefficients differ slightly. Pick one resin system for a project and document it on the BOM.
+**Mistake 2: Mixing resin systems on a single project.** Polyester and vinyl ester profiles differ in chemical resistance, and site repairs and bonded joints should use materials qualified for the resin in question. Pick one resin system for a project and document it on the BOM.
 
-**Mistake 3: Ignoring UV protection.** "Pultruded FRP is UV-resistant" is true at the resin level but not at the surface. Outdoor profiles need a synthetic veil plus a UV-stabilized resin or protective coating. Include this requirement in the RFQ.
+**Mistake 3: Ignoring UV protection.** An unprotected pultruded surface chalks and exposes glass fibers ("fiber blooming") under long UV exposure, even though the structural core is unaffected at first. Outdoor profiles need a synthetic veil plus a UV-stabilized resin or protective coating. Include this requirement in the RFQ.
 
 **Mistake 4: Underestimating lead time on first runs.** Custom tooling, production and sea freight take about 10–16 weeks. Buyers planning around 8 weeks routinely miss project schedules.
 
@@ -3969,10 +3992,10 @@ Before the RFQ, the [fiberglass pultruded profile price estimator](/fiberglass-p
     title: "FRP Profile Cost Benchmarks, MOQ, and Lead Times — 2026 Reference",
     seoTitle: "FRP Profile Prices, MOQ and Lead Times — 2026 Data",
     answerBox:
-      "2026 pultruded FRP benchmarks: FOB China reference prices for standard sections, with catalog sections made in 2–4 weeks and a new die in 4–8 weeks, plus 16–32 days of ocean freight to US ports. Custom MOQ 500 m first run, repeat from 200 m; a new die costs USD 5,000–8,000 (small, single-cavity) to USD 15,000–40,000 (large or multi-cavity), once.",
+      "2026 pultruded FRP benchmarks: FOB China reference prices for standard sections, with catalog sections made in 2–4 weeks and a new die in 4–8 weeks, plus roughly 25–40 days of sea freight to most EU and US ports. Custom MOQ 500 m first run, repeat from 200 m; a new die costs USD 5,000–8,000 (small, single-cavity) to USD 15,000–40,000 (large or multi-cavity), once.",
     category: "Procurement Reference",
     date: "2026-05-05",
-    updatedAt: "2026-09-27",
+    updatedAt: "2026-10-26",
     readTime: "9 min",
     excerpt:
       "2026 reference benchmarks for pultruded FRP profile pricing, MOQ, custom tooling lead times, container freight rates, and Incoterms cost deltas: calibrated against direct-from-factory China sourcing.",
@@ -3990,7 +4013,7 @@ Before the RFQ, the [fiberglass pultruded profile price estimator](/fiberglass-p
     highlights: [
       "Per-meter pricing for 12 standard profile cross-sections",
       "Tooling cost and amortization for custom profiles",
-      "Container freight benchmarks to US, EU, ME, AU ports",
+      "Dated container freight benchmarks (Drewry WCI, October 2026)",
     ],
     ogDescription:
       "2026 FRP profile benchmarks: FOB China prices per meter for 12 standard sections, MOQ, tooling cost, lead times, container freight and Incoterms.",
@@ -4008,7 +4031,7 @@ Before the RFQ, the [fiberglass pultruded profile price estimator](/fiberglass-p
     ],
     content: `Pricing for pultruded FRP profiles is harder to benchmark than steel or aluminum because the major distributors do not publish list prices and the per-meter cost varies significantly with resin system, fiber architecture, and surface finish. This reference collects 2026 direct-from-factory FOB China benchmarks for the most common profile families, updated against active F1 Composite quotes and observed market pricing.
 
-The profile prices below come from the engine behind the [price estimator](/fiberglass-pultruded-profile-price): FOB China (Shanghai or Ningbo) in USD, E-glass and general-purpose polyester at 70% glass, standard gray, no options, for a 1,000 m order, price basis 30 June 2026. Each range is the estimator's ±15% band, and the weights are the published catalog values. Vinyl ester, polyurethane or phenolic resin, fire-retardant and UV packages and a surface veil each add a premium; run the estimator with the options the application needs.
+The profile prices below come from the engine behind the [price estimator](/fiberglass-pultruded-profile-price): FOB China (Shanghai or Ningbo) in USD, E-glass and general-purpose polyester at 70% glass, standard gray, no options, for a 1,000 m order, price basis 30 June 2026. Each range is the estimator's ±15% band, and the weights are the published catalog values. These are reference ranges, not quotations; the actual price is set by the RFQ quote. Vinyl ester, polyurethane or phenolic resin, fire-retardant and UV packages and a surface veil each add a premium; run the estimator with the options the application needs.
 
 ## Standard profile pricing (FOB China, 2026)
 
@@ -4081,17 +4104,16 @@ Air freight (DHL/FedEx) cuts transit to 5–7 days but costs 8–15× sea freigh
 
 ## Container freight benchmarks (40' high-cube, 2026)
 
-| Origin | Destination | $ per 40HC |
-| --- | --- | --- |
-| Shanghai / Ningbo | Rotterdam / Hamburg | 1,200 – 2,500 |
-| Shanghai / Ningbo | Felixstowe / London Gateway | 1,400 – 2,700 |
-| Shanghai / Ningbo | Los Angeles / Long Beach | 1,800 – 3,500 |
-| Shanghai / Ningbo | New York / Savannah | 2,500 – 4,500 |
-| Shanghai / Ningbo | Jebel Ali (UAE) | 900 – 1,800 |
-| Shanghai / Ningbo | Sydney / Melbourne | 1,500 – 2,800 |
-| Shanghai / Ningbo | Santos (Brazil) | 2,800 – 4,800 |
+Container spot rates moved sharply during 2026, so use a dated index rather than a fixed range. Drewry's World Container Index for 22 October 2026:
 
-A 40HC packs 18–22 tonnes of pultruded FRP profiles depending on cross-section density. Per-tonne sea freight to Rotterdam runs $55–140; per-tonne to LA runs $80–195. On a 200×100×10 I-beam at 5.8 kg/m in a full container, freight to Rotterdam adds about $0.30–0.80 per meter.
+| Origin | Destination | Drewry WCI spot, 22 Oct 2026 ($ per 40 ft) |
+| --- | --- | --- |
+| Shanghai | Rotterdam | 3,632 |
+| Shanghai | Genoa | 4,152 |
+| Shanghai | Los Angeles | 8,007 |
+| Shanghai | New York | 10,166 |
+
+Felixstowe, Jebel Ali, Sydney or Melbourne, and Santos are not WCI lanes; ask a forwarder for a current quote. A 40HC packs 18–22 tonnes of pultruded FRP profiles depending on cross-section density. At the rates above, per-tonne sea freight runs about $165–200 to Rotterdam and $365–445 to Los Angeles. On a 200×100×10 I-beam at 5.8 kg/m in a full container, freight to Rotterdam adds about $0.95–1.20 per meter.
 
 Insurance: 0.3–0.5% of cargo value, typically included in CIF terms.
 
@@ -4102,9 +4124,9 @@ Quoted as a percentage above the FOB China price for the same physical shipment:
 | Incoterms | Delta vs FOB China | What it includes |
 | --- | --- | --- |
 | FOB Shanghai | baseline | Goods to export port, Chinese customs cleared |
-| CFR / CIF [destination port] | +6 to +12% | Adds sea freight (and insurance for CIF) |
-| DAP [project site] | +14 to +22% | Adds destination customs, inland trucking |
-| DDP [project site] | +18 to +30% | Adds destination import duty |
+| CFR / CIF [destination port] | about +6 to +15% for a full container at October 2026 spot rates; more for part loads | Adds sea freight (and insurance for CIF) |
+| DAP [project site] | CIF plus destination handling and inland trucking | Adds destination customs clearance, inland trucking |
+| DDP [project site] | DAP plus import duty and taxes, which vary by country and tariff line (US Section 301 duty is 25% on List 1–3 lines) | Adds destination import duty |
 
 DDP is the most expensive Incoterm because the factory takes on import-side tax and customs risk, which factories price conservatively. Most experienced buyers run CIF or DAP unless they have no in-house customs capability.
 
@@ -4112,10 +4134,12 @@ DDP is the most expensive Incoterm because the factory takes on import-side tax 
 
 For a typical project of 5 tonnes of 200×100×10 FRP I-beam (≈ 860 m) in polyester resin to EN 13706 E23, shipped CIF Rotterdam, the 2026 benchmark math is:
 
-- Profile: 860 m × $19/m (the estimator's central figure for an order under 1,000 m) = $16,340
-- Container freight (1 × 40HC): $1,800 average
-- Insurance (0.4% of cargo value): $65
-- Total CIF Rotterdam: ≈ $18,200, or about $21.20/m before import duty and inland delivery
+- Profile: 860 m × about $15–21/m (the estimator's planning range for this section at 1,000 m; orders under 1,000 m run about 5% higher) ≈ $13,900–18,800
+- Container freight (1 × 40HC): $3,632 (Drewry WCI spot, 22 October 2026)
+- Insurance (0.4% of cargo value): about $55–75
+- Total CIF Rotterdam: roughly $17,600–22,500, or about $20–26/m before import duty and inland delivery
+
+These are planning ranges, not a quotation; the RFQ quote sets the actual price.
 
 Add import duty, customs clearance and inland delivery for the landed figure, then set it against a delivered quote for the same section and standard from a regional supplier.
 
@@ -4133,7 +4157,7 @@ For a planning figure on a specific section, use the [fiberglass pultruded profi
       "GFRP pultruded spar-cap laminate for wind turbine blades: ISO 13003 fatigue characterization, P95 S-N design line per DNVGL-ST-0376 characteristic methodology, with full datasheet for blade structural design. Replaces hand-laid laminate with tighter dimensional consistency and a lower part cost at volume.",
     category: "Energy",
     date: "2026-05-12",
-    updatedAt: "2026-09-27",
+    updatedAt: "2026-10-26",
     readTime: "8 min",
     excerpt:
       "WE-G80 is F1 Composite's high glass-content unidirectional pultruded laminate for the spar caps of medium-length wind blades. The article walks the tension-tension S-N fatigue data per ISO 13003 and shows how blade designers should turn the P95 / 95 % confidence design line into a layup that survives 10⁷ cycles.",
@@ -4192,7 +4216,7 @@ That fiber volume fraction is roughly ten percentage points above commodity GFRP
 
 For a wind-blade GFRP laminate, tension-tension fatigue per ISO 13003 is the defining test. It runs at load ratio R = σmin / σmax = 0.1 (always in tension, never compressive), sine wave at 5 Hz, 23 °C / 50 % RH, on waisted dog-bone specimens cut from the production panel. Specimens are loaded at varied stress amplitudes from roughly 10³ to 10⁷ cycles, and the S-N relationship is fitted as σa = A · N^(−1/m), with two regression statistics: the slope exponent m and the stress-amplitude intercept A at N = 1.
 
-For WE-G80 the laboratory returns slope exponent m = 8.51, intercept A = 957 MPa, coefficient of correlation −0.993, and goodness of fit 0.985. The slope of 8.51 sits at the upper edge of what wind-grade pultruded GFRP returns in the international literature. A generic E-glass / polyester pultruded laminate typically slopes around 8.0 to 8.3; structural steel under tension-tension fatigue slopes around 3 to 5, and a lower slope means faster fatigue degradation.
+For WE-G80 the laboratory returns slope exponent m = 8.51, intercept A = 957 MPa, coefficient of correlation −0.993, and goodness of fit 0.985. Published slope exponents for unidirectional glass laminates vary with resin, specimen geometry and whether the fit is made on stress amplitude or maximum stress, so compare m only against data fitted the same way. For context, S-N curves for structural steel details use slopes of about 3 to 5, and a lower slope means faster fatigue degradation.
 
 For certification, the 50 % survival fit is not the design input. Certification bodies require a one-sided 95 % survival, 95 % confidence design line that captures both the inherent scatter of the laminate and the finite sample size of the test panel. WE-G80's P95 / 95 % S-N curve is σa = 861 · N^(−0.1175). Read at the canonical wind-blade design lives:
 
@@ -4202,15 +4226,15 @@ For certification, the 50 % survival fit is not the design input. Certification 
 | 10⁷ | 129.5 | 287.8 |
 | 10⁸ | 98.8 | 219.6 |
 
-At 10⁷ cycles, the design life used in most wind-blade certification, the P95 curve predicts σa around 130 MPa with a corresponding maximum stress of 288 MPa. That value goes into the layup calculation before environmental partial safety factors are applied on top.
+At 10⁷ cycles, a common reference point in wind-blade fatigue data, the P95 curve predicts σa around 130 MPa with a corresponding maximum stress of 288 MPa. That value goes into the layup calculation before environmental partial safety factors are applied on top.
 
 ## Using the curve in practice
 
 Engineers approaching WE-G80 for the first time usually take three working notes from these numbers. The first is to drive the layup from the P95 line. The 50 % fit is for engineering reference and material comparisons; certification bodies will not accept it as a design input.
 
-The second is that environmental and geometric partial factors apply on top of the P95 stress. The S-N curve was measured dry, room-temperature, and axial. Real spar-cap stress is humid, warm, multi-axial, and ply-misalignment-sensitive. DNVGL-ST-0376 (Rotor Blades for Wind Turbines, Edition December 2015) specifies the γMb and γMc factors for matrix-dominated and fiber-dominated failure modes; GL 2010 has equivalent factors under slightly different names.
+The second is that environmental and geometric partial factors apply on top of the P95 stress. The S-N curve was measured dry, room-temperature, and axial. Real spar-cap stress is humid, warm, multi-axial, and ply-misalignment-sensitive. The data sheet's statistics follow the DNVGL-ST-0376 (Rotor Blades for Wind Turbines, Edition December 2015) method, which sets material partial safety factors with separate treatment of fiber-dominated, matrix-dominated and compressive failure modes; GL 2010 has equivalent factors under different names. DNV has since revised the standard as DNV-ST-0376 (Edition April 2024), so confirm with the certification body which edition and factors the blade program uses.
 
-The third is to read the slope exponent m as a process quality indicator, not only as a regression output. A panel that returns m below about 7.5 usually has a fiber / matrix interface problem (often sizing-related). WE-G80 at m = 8.51 says the pultrusion process is consolidating the laminate cleanly.
+The third is to read the slope exponent m as a process quality indicator, not only as a regression output. A slope that steepens from one panel or batch to the next is worth investigating, because fiber / matrix interface problems (often sizing-related) tend to show up that way. Tracking m across production lots is a cheap check that the pultrusion process is consolidating the laminate consistently.
 
 ## When to step up to CFRP
 
@@ -4223,10 +4247,10 @@ The complete fatigue table for WE-G80 (P50 and P95 columns across 10³ to 10⁸ 
     title: "CFRP Pultruded Spar-Cap Laminate for Wind Blades — Static Characteristic Values per DNVGL-ST-0376",
     seoTitle: "CFRP Spar-Cap for Wind Blades — DNVGL-ST-0376 Data",
     answerBox:
-      "CFRP pultruded spar-cap laminate for long-blade wind turbines: full ISO and ASTM static design data with DNVGL-ST-0376 characteristic values. Enables 8–12% blade length extension at iso-mass vs GFRP spar caps: material cost amortized over 1.2–1.5× annual energy production gain.",
+      "CFRP pultruded spar-cap laminate for long-blade wind turbines: full ISO and ASTM static design data with DNVGL-ST-0376 characteristic values. Carbon's higher modulus and lower density let a designer build a longer or slimmer blade at the same mass than a glass spar cap allows, which is where the carbon premium pays back.",
     category: "Energy",
     date: "2026-05-12",
-    updatedAt: "2026-05-12",
+    updatedAt: "2026-10-26",
     readTime: "9 min",
     excerpt:
       "WE-C100 is F1 Composite's unidirectional carbon / epoxy pultruded laminate for the spar caps of long wind blades. The article walks the full static mechanical data (tension, compression, shear, flexure, ILSS) and explains how the DNVGL-ST-0376 characteristic value Rk differs from the panel average, and why blade designers must build the layup on Rk rather than the mean.",
@@ -4302,7 +4326,7 @@ WE-C100 has been characterized across the complete static range a blade design b
 
 ## What Rk is and why it matters
 
-Rk is not the average. It is a one-sided 95 % survival, 95 % confidence statistical tolerance bound calculated per the DNVGL-ST-0376 (Rotor Blades for Wind Turbines, Edition December 2015) method. The calculation accounts for two sources of uncertainty at once: the panel-to-panel scatter measured across the test specimens (typically captured as coefficient of variation, CoV) and the finite sample size of the test program (captured as a k-factor that shrinks toward unity as n increases).
+Rk is not the average. It is a one-sided 95 % survival, 95 % confidence statistical tolerance bound calculated per the DNVGL-ST-0376 (Rotor Blades for Wind Turbines, Edition December 2015) method. DNV has since issued DNV-ST-0376 Edition April 2024; confirm with the certification body which edition applies to the blade program. The calculation accounts for two sources of uncertainty at once: the panel-to-panel scatter measured across the test specimens (typically captured as coefficient of variation, CoV) and the finite sample size of the test program (captured as a tolerance factor that falls toward 1.645, the one-sided 95 % normal quantile, as n increases).
 
 The form is Rk = X̄ · (1 − kn · CoV), where X̄ is the panel mean, CoV is the coefficient of variation of the n tests, and kn is the one-sided tolerance factor from DNVGL-ST-0376 Section 5 for the chosen survival and confidence levels. For WE-C100, the gap from average to Rk is about 12 % on 0° tensile strength (1920 to 1690 MPa), 9 % on 0° compressive strength (1480 to 1350 MPa), 12 % on 0° flexural strength (1760 to 1550 MPa), 5 % on interlaminar shear strength (70.2 to 66.4 MPa), and only 1 % on 90° compressive strength (164 to 162 MPa).
 
@@ -4310,9 +4334,9 @@ The narrowest gap, on 90° compression, says the laminate scatter in that test w
 
 ## How designers apply Rk
 
-The first and most important point is to build the laminate model on Rk, not the average. Averages are useful for engineering judgment and grade-to-grade comparison; they are not allowed as design inputs in any wind-blade certification scheme, and a blade certified on averages will not survive a notified-body review.
+The first and most important point is to build the laminate model on Rk, not the average. Averages are useful for engineering judgment and grade-to-grade comparison; they are not accepted as design inputs in wind-blade certification, and a layup built on averages will not pass a certification-body review.
 
-The second is that environmental and partial safety factors apply on top of Rk. DNVGL-ST-0376 specifies separate γ factors for matrix-dominated and fiber-dominated failure modes (γMb) and for compressive failure (γMc), then layers environmental knock-downs for humidity, temperature, and UV. The Rk column is the starting point for design stress, not the design stress itself.
+The second is that environmental and partial safety factors apply on top of Rk. DNVGL-ST-0376 sets material partial safety factors with separate treatment of fiber-dominated, matrix-dominated and compressive failure modes, then layers environmental knock-downs for humidity, temperature, and UV. The Rk column is the starting point for design stress, not the design stress itself.
 
 The third is to read 90° compression as the cleanest process quality test on the laminate. Pultruded UD laminates are strongly orthotropic; 0° properties are dominated by the fiber, while 90° properties are matrix- and interface-controlled. A high and tight 90° compression result (164 MPa with Rk = 162 MPa, CoV around 0.5 %) tells you the pultrusion process is consolidating the matrix without micro-voids or interface defects.
 
@@ -4327,10 +4351,10 @@ The complete static data for WE-C100 (all 15 mechanical properties with their Rk
     title: "Pultruded FRP for Offshore, Tidal, and Fishery-PV Solar Mounts and Module Frames",
     seoTitle: "FRP for Offshore, Tidal & Fishery-PV Solar Mounts",
     answerBox:
-      "Pultruded FRP profiles and PV module frames cut LCOE in offshore, tidal, and fishery-PV installations by eliminating saltwater corrosion (no zinc loss, no galvanic couples), avoiding 5–8 year recoating shutdowns, and weighing 75% less than steel, reducing float buoyancy and anchoring load requirements.",
+      "Pultruded FRP profiles and PV module frames cut LCOE in offshore, tidal, and fishery-PV installations by eliminating saltwater corrosion (no zinc loss, no galvanic couples), avoiding recurring recoating campaigns, and weighing about 75% less than steel, reducing float buoyancy and anchoring load requirements.",
     category: "Energy",
     date: "2026-05-12",
-    updatedAt: "2026-05-12",
+    updatedAt: "2026-10-26",
     readTime: "9 min",
     excerpt:
       "Offshore, tidal-flat, and wind-solar-fishery PV plants expose mounts and module frames to salt, humidity, UV, and constant vibration. Pultruded FRP covers both the mounting structure and the module frame because it does not corrode, does not conduct electricity and needs no recoating.",
@@ -4350,7 +4374,7 @@ The complete static data for WE-C100 (all 15 mechanical properties with their Rk
       "Electrically non-conductive: no galvanic or stray-current corrosion",
     ],
     ogDescription:
-      "How pultruded FRP profiles and module frames cut LCOE in offshore, tidal, fishery-PV: no saltwater corrosion, no galvanic couples, no 25-yr recoating.",
+      "How pultruded FRP profiles and module frames cut LCOE in offshore, tidal, fishery-PV: no saltwater corrosion, no galvanic couples, no recoating cycle.",
     ogChips: ["Offshore solar", "Fishery-PV", "Pultruded FRP"],
     relatedLinks: [
       { label: "FRP Solar Mounting Profiles", href: "/applications/frp-solar-mounting-profiles" },
@@ -4358,7 +4382,10 @@ The complete static data for WE-C100 (all 15 mechanical properties with their Rk
       { label: "Marine Applications", href: "/industries/marine" },
       { label: "FRP vs Steel for Structural Profiles", href: "/resources/blog/frp-vs-steel-structural-profiles" },
     ],
-    content: `Photovoltaic plants built on water collapse the corrosion safety margin that mainland EPCs rely on. Salt spray, full-time humidity, UV at sea-surface intensity, wave-induced vibration, and biological loading from fish and bird waste all act on the same steel and aluminum that worked perfectly inland. Conventional hot-dip galvanized mounts and anodized aluminum frames give up 30 to 50 percent of their nameplate life in this environment. Pultruded fiber reinforced polymer (FRP) profiles are corrosion-immune by chemistry rather than by coating, and they cover both the mounting structure and the module frame.
+    sourceLinks: [
+      { label: "American Galvanizers Association: HDG corrosion rates for ISO 9223 categories C1–CX", href: "https://galvanizeit.org/knowledgebase/article/hdg-corrosion-rates-for-iso-categories-c1-c5-x" },
+    ],
+    content: `Photovoltaic plants built on water collapse the corrosion safety margin that mainland EPCs rely on. Salt spray, full-time humidity, UV at sea-surface intensity, wave-induced vibration, and biological loading from fish and bird waste all act on the same steel and aluminum that worked perfectly inland. Conventional hot-dip galvanized mounts and anodized aluminum frames lose a large part of their expected life in this environment. Pultruded fiber reinforced polymer (FRP) profiles are corrosion-immune by chemistry rather than by coating, and they cover both the mounting structure and the module frame.
 
 ## Three water-side scenarios, one set of failure drivers
 
@@ -4374,21 +4401,21 @@ From a corrosion standpoint, all three sites combine chlorides, moisture, UV exp
 
 ## Why galvanized steel and aluminum fall short on water
 
-Hot-dip galvanized steel mounts corrode at the C5-M coastal grade at roughly 50 to 200 µm of zinc loss per year. A typical 60 to 85 µm zinc layer is consumed in five to eight years, and the red rust that follows stains module glass, drops shading patches across cells, and forces unplanned coating renewal far from shore.
+ISO 9223 puts first-year zinc corrosion at about 4.2 to 8.4 µm per year in category C5 and 8.4 to 25 µm per year in CX, and splash zones on the water can be harsher still. At those rates a typical 60 to 85 µm galvanized layer lasts somewhere between a few years and a couple of decades depending on exposure, and the red rust that follows stains module glass, drops shading patches across cells, and forces unplanned coating renewal far from shore.
 
-Aluminum module frames and mounts pit aggressively in salt environments. When the same array bolts stainless fasteners and copper grounding cables to aluminum, a galvanic couple forms and the aluminum becomes the sacrificial anode. Designs scoped for a five-year inspection cycle are usually re-scoped to two or three years in service, eating the IRR projected at financial close.
+Aluminum module frames and mounts pit aggressively in salt environments. When the same array bolts stainless fasteners and copper grounding cables to aluminum, a galvanic couple forms and the aluminum becomes the sacrificial anode. Inspection intervals planned on inland assumptions often have to be shortened in service, which adds O&M cost the financial model did not carry.
 
-Stainless steel is often proposed as the fix. 304 is open to stress-corrosion cracking under chloride loading, and 316L pushes the bill of materials past the budget for most utility-scale projects on the water. Where a coastal or floating PV plant inherits a mainland mounting specification unchanged, the operations and maintenance line in its LCOE is routinely understated by more than 30 percent.
+Stainless steel is often proposed as the fix. 304 is open to stress-corrosion cracking under chloride loading, and 316L pushes the bill of materials past the budget for most utility-scale projects on the water. Where a coastal or floating PV plant inherits a mainland mounting specification unchanged, the operations and maintenance line in its LCOE is likely to be understated.
 
 ## How pultruded FRP carries the structure
 
 Glass-fiber-reinforced thermoset polymer profiles produced by pultrusion meet the structural demands of marine-class PV plants on intrinsic chemistry rather than on a coating. A pultruded E-glass plus vinyl ester or polyurethane composite does not react with Cl⁻ or SO₄²⁻. There is no sacrificial coating to renew, no cathodic protection circuit to power, and no zinc-loss rate to budget against.
 
-Specific strength is the second argument. Pultruded FRP delivers longitudinal tensile strength on the order of 600 MPa at a density of about 1.9 g/cm³, roughly a quarter of carbon steel. The reduced dead load relaxes the design of pontoons, piles, and lifting equipment.
+Specific strength is the second argument. Pultruded FRP delivers longitudinal tensile strength from 240 MPa (the EN 13706 E23 minimum) in general structural sections to more than 1,000 MPa in roving-rich PV frame laminates (1,310 MPa mean in CPVT report 2025DACS20319), at a density of about 1.9 g/cm³, roughly a quarter of carbon steel. The reduced dead load relaxes the design of pontoons, piles, and lifting equipment.
 
-Dielectric performance is the third. Volume resistivity above 10¹² Ω·cm means FRP profiles can run alongside HV cabling without inducing stray-current corrosion in adjacent steel, and they remove an entire class of safety-case complications around DC-side grounding faults.
+Dielectric performance is the third. Volume resistivity above 10¹² Ω·cm means FRP profiles do not become a path for stray current when they run alongside cabling, and they simplify some grounding and touch-voltage questions on the DC side.
 
-The fourth is fatigue behavior under combined wind and wave loading. With no metallic crack-initiation sites, FRP cross-sections retain more than 90 percent of their static strength after 10⁷ load cycles. Aluminum and high-strength steel cannot match that margin in chloride service.
+The fourth is fatigue behavior under combined wind and wave loading. FRP sections have no welds, so the weld-toe cracks that govern steel fatigue do not arise, and chloride does not accelerate crack growth the way it does in metals. Composites still lose strength with load cycles, so check members against S-N data for the actual laminate.
 
 F1 Composite produces the full set of structural members typical of an offshore or fishery PV plant: I-beams, channels, angles, square tube, round tube, and custom hat sections for purlins, rafters, struts, posts, walkways, and cable trays.
 
@@ -4398,9 +4425,9 @@ The module frame is the second weather-exposed structure on every panel, and his
 
 FRP frames have a longitudinal coefficient of thermal expansion near 6 × 10⁻⁶/°C, compared with about 23 × 10⁻⁶/°C for aluminum. The narrower mismatch with the glass reduces silicone seal cycling on bifacial double-glass modules and extends the rated edge-seal life.
 
-Replacing an aluminum frame with a pultruded FRP frame typically removes 0.6 to 1.2 kg from a 630 W or 700 W module, which makes two-person installation on floating walkways and pond catwalks substantially easier.
+For the same section volume a glass-fiber composite frame is about 30 percent lighter than aluminum, which helps two-person installation on floating walkways and pond catwalks.
 
-Accelerated weathering under ASTM G154 shows a color shift of less than ΔE 3 after 3,000 hours of UV-A exposure on a properly stabilized polyurethane or polyester pultruded frame, with no chalking on the exposed surface. Aluminum anodization cannot match that performance in fishery environments rich in volatile nitrogen and sulfur compounds.
+Accelerated weathering under ASTM G154 is the usual UV check: ask for color shift (ΔE), gloss and chalking results at the exposure hours the project specifies, on the actual resin and surface system. Ammonia exposure belongs in the test plan for fishery sites.
 
 F1 Composite supplies pultruded FRP module frame profiles for N-type TOPCon, HJT, double-glass bifacial, and BIPV module formats, with click-fit, structural-adhesive, and gasket-sealed assembly options engineered around the cell-string layout.
 
@@ -4410,12 +4437,12 @@ The purchase-price comparison between FRP and galvanized steel is the wrong plac
 
 | Dimension | Galvanized steel or anodized aluminum | Pultruded FRP |
 |---|---|---|
-| Real coastal service life | 8 to 12 years | Set by the project design; no recoating |
-| Coating renewal cycle | 5 to 8 years | None required |
+| Real coastal service life | Shortened by chloride exposure; set by coating life | Set by the project design; no recoating |
+| Coating renewal cycle | Recurring, set by the exposure class | None required |
 | Galvanic and stray-current corrosion | High risk | Not a failure mode |
 | Mass at equivalent section | Reference | Roughly one quarter of steel, 70 percent of aluminum |
 | Site cutting and drilling | Cold-work then re-protect | Cold-work, no re-protection required |
-| Maintenance opex over 25 years | Adds 30 percent plus to LCOE | Removed from the opex line |
+| Maintenance opex over 25 years | Recurring coating and inspection line | Coating line removed; inspection remains |
 
 This is the same conclusion drawn in the broader [FRP vs steel structural comparison](/resources/blog/frp-vs-steel-structural-profiles). On water, the more aggressive the environment and the more expensive the maintenance access, the harder the FRP case is to refuse.
 
@@ -4429,9 +4456,9 @@ Reading the cover image as a system, the corrosion-exposed surfaces of an offsho
 
 **Piles entering the water.** The intertidal band is the highest-corrosion-rate part of any steel pile. Pultruded FRP posts or FRP-jacketed concrete piles take that band out of the failure path.
 
-**High-voltage transmission run.** Pultruded FRP cross-arms replace porcelain insulators and steel cross-arms in one step. The dielectric performance is intrinsic to the material.
+**High-voltage transmission run.** Pultruded FRP cross-arms replace steel cross-arms and add insulation of their own, which can reduce the insulator requirement in some line designs.
 
-Replacing the metallic exposure surface across the plant turns the 25-year warranty from a financial-model assumption into a material-level fact.
+Replacing the metallic exposure surfaces across the plant takes most of the corrosion risk out of the 25-year financial model.
 
 For a project-specific FRP solar mounting specification, full pultruded section drawings, or a comparative LCOE model, contact F1 Composite engineering through [the contact form](/contact) or browse the [FRP solar mounting application page](/applications/frp-solar-mounting-profiles).`,
   },
@@ -4443,7 +4470,7 @@ For a project-specific FRP solar mounting specification, full pultruded section 
       "Standard pultruded FRP (EN 13706 E23, ~23 GPa) and F1's own E40 sunshade-grade laminate solve the thermal-bridge problem in curtain wall framing, but hit a stiffness ceiling on the largest unitized bays and the combined bending-torsion load case a primary structural mullion or transom sees that a thermal-break isolator never does. F1 Composite is developing an E50-class carbon/glass hybrid, braided pultruded laminate for primary mullions and transoms, extending the fiber-volume and fatigue-qualification discipline already proven in its WE-C100 carbon spar-cap laminate (147 GPa tensile modulus, 1920 MPa tensile strength, characteristic values per DNVGL-ST-0376) from a wind blade's largely uniaxial bending case to a mullion's combined bending, torsion, and sustained glass dead load.",
     category: "Engineering Deep-Dive",
     date: "2026-07-06",
-    updatedAt: "2026-07-06",
+    updatedAt: "2026-10-26",
     readTime: "12 min",
     excerpt:
       "F1's curtain wall isolator profiles already carry glass dead load across the thermal break. The next step is harder: a primary structural mullion or transom that replaces the aluminum extrusion itself, at the stiffness a modern unitized facade demands. This is why that step needs carbon/glass hybrid reinforcement and braided pultrusion, not just more glass roving.",
@@ -4479,14 +4506,14 @@ For a project-specific FRP solar mounting specification, full pultruded section 
       { label: "KNOWHOW Engineering Services", href: "/technology/knowhow-services" },
     ],
     sourceLinks: [
-      { label: "FGIA — AAMA 507, Standard Practice for Determining the Structural Performance of Composite Thermal Barrier Framing Systems", href: "https://fgiaonline.org" },
+      { label: "FGIA — AAMA 507, Standard Practice for Determining the Thermal Performance Characteristics of Fenestration Systems Installed in Commercial Buildings", href: "https://fgiaonline.org" },
       { label: "CWCT — Centre for Window and Cladding Technology", href: "https://www.cwct.co.uk" },
       { label: "Nature Scientific Reports — Static and fatigue tensile properties of carbon/glass hybrid fiber-reinforced epoxy composites", href: "https://www.nature.com/articles/s41598-022-10245-5" },
-      { label: "ResearchGate — Mechanical properties of GFRP braid-pultruded composite rods", href: "https://www.researchgate.net/publication/239273259_An_experimental_study_on_mechanical_properties_of_GFRP_braid-pultruded_composite_rods" },
+      { label: "eXPRESS Polymer Letters (2009) — An experimental study on mechanical properties of GFRP braid-pultruded composite rods", href: "https://doi.org/10.3144/expresspolymlett.2009.70" },
     ],
     content: `A curtain wall isolator profile carries the glass dead load of a transom across the thermal break, sustained, for the 25-to-50-year life of the envelope. F1 Composite's own isolator laminates do this today with multi-layer multiaxial fabric that balances the 0°/90° modulus most pultrusion runs at 4-to-5-to-1. That is a solved problem. The harder one sits one layer out: replacing the aluminum mullion and transom themselves, the primary structural members rather than the thermal break inside them, with pultruded FRP at the stiffness a modern unitized facade demands.
 
-Nobody disputes the case for trying. Aluminum conducts heat at roughly 500 times the rate of pultruded FRP, and every mullion is a thermal bridge whether or not it carries an isolator. F1's own construction-grade profiles already meet EN 14024 and AAMA 507 performance criteria for curtain wall framing, in halogen-free flame-retardant resin rated Class B-s1,d0 to EN 13501-1. What is missing is not the thermal case. It is the stiffness case, at the sizes and load combinations the biggest unitized bays actually put on a primary member, and that is a genuinely different engineering problem than the isolator solved.
+Nobody disputes the case for trying. Aluminum conducts heat at roughly 500 times the rate of pultruded FRP, and every mullion is a thermal bridge whether or not it carries an isolator. F1's construction-grade profiles are already supplied for thermal-barrier roles in curtain wall framing, where EN 14024 sets the mechanical tests and AAMA 507 the thermal-performance method, and they can be made in halogen-free flame-retardant resin, with EN 13501-1 classification reports provided on request with holder, number and scope. What is missing is not the thermal case. It is the stiffness case, at the sizes and load combinations the biggest unitized bays actually put on a primary member, and that is a genuinely different engineering problem than the isolator solved.
 
 ## The mechanics expert's view: why modulus runs out before strength does
 
@@ -4500,15 +4527,15 @@ The load case compounds from there. A wind-blade spar cap is designed overwhelmi
 
 A spar cap ships to one customer, in one blade, under one qualification program. A curtain wall mullion has to slot into an existing ecosystem of pressure plates, gaskets, setting blocks, and, on four-side structural silicone glazed (SSG) facades, a bonded glass connection that loads the frame differently than a captured, gasketed one does. Every one of those interfaces raises a question the isolator profile did not have to answer, because the isolator sits buried inside the section, isolated from the weather and from direct connection hardware.
 
-Move FRP into the primary structural role and it now interfaces directly with the aluminum pressure-plate and gasket system most curtain wall hardware is built around, which raises real bolting, bonding, and galvanic-isolation questions that a captive isolator profile never faced. Fire performance scrutiny escalates too: a thermal break buried inside a section gets one level of code attention; a primary structural member carrying the building's glazing gets another, which is exactly why F1's curtain-wall-grade resin is already formulated to Class B-s1,d0 per EN 13501-1 with ASTM E84 Class A available on request, and why any new higher-modulus grade has to clear the same bar, not a lighter one.
+Move FRP into the primary structural role and it now interfaces directly with the aluminum pressure-plate and gasket system most curtain wall hardware is built around, which raises real bolting, bonding, and galvanic-isolation questions that a captive isolator profile never faced. Fire performance scrutiny escalates too: a thermal break buried inside a section gets one level of code attention; a primary structural member carrying the building's glazing gets another, which is why F1's curtain-wall-grade resin is a halogen-free flame-retardant system, with EN 13501-1 and ASTM E84 reports for the specified product provided on request, and why any new higher-modulus grade has to clear the same bar, not a lighter one.
 
-Durability follows the same logic. A curtain wall's design life runs the same 25-to-50-year order of magnitude as a wind blade's, under a comparable regime of cyclic wind and thermal load, which is precisely why the tension-tension fatigue discipline F1 already runs for WE-G80 (P95/95-percent-confidence S-N design lines to ISO 13003, not the 50-percent mean curve) is the right qualification path to carry over, not a new one to invent. A structural building component that has not been fatigue-qualified to that standard is not a credible primary member, whatever its static modulus claims.
+Durability follows the same logic. A curtain wall's design life (often 25 to 50 years) is as long as or longer than a wind blade's 20 to 25 years, under a comparable regime of cyclic wind and thermal load, which is precisely why the tension-tension fatigue discipline F1 already runs for WE-G80 (P95/95-percent-confidence S-N design lines to ISO 13003, not the 50-percent mean curve) is the right qualification path to carry over, not a new one to invent. A structural building component that has not been fatigue-qualified to that standard is not a credible primary member, whatever its static modulus claims.
 
 ## The architect's view: every GPa is millimeters of sightline
 
 An architect asking for a slimmer curtain wall grid is asking, in effect, for more EI at the same depth. The deflection math in the mechanics section above is the real constraint behind the sightline they are drawing. Aluminum's problem was never stiffness; it was thermal bridging and weight. FRP's problem, once the thermal case is solved, is exactly the opposite: get the stiffness up without growing the section, or the sightline win evaporates into a deeper mullion or a bolted-on reinforcement bar.
 
-The rest of the architectural case is already proven at the fenestration scale and should transfer directly. F1's powder-coated profiles already match aluminum's finish system (AAMA 2604/2605, any RAL color, Qualicoat Class 2), so a higher-modulus curtain-wall grade does not reopen the finish question. Pultrusion's die economics (a custom profile die typically runs 6 to 10 weeks) make bespoke mullion geometries viable at project volumes that would not justify a new aluminum extrusion die. And there is a design-language argument beyond economics: a visibly slender, corrosion-immune structural grid is not just an engineering deliverable, it is an expressive move for a facade, in the way exposed structure has always been for architects willing to let the frame read as part of the design rather than something to hide behind glass.
+The rest of the architectural case is already proven at the fenestration scale and should transfer directly. F1's coated profiles already match aluminum's finish (AAMA 2604 / 2605 or Qualicoat Class 2 coating performance, any RAL color), so a higher-modulus curtain-wall grade does not reopen the finish question. Pultrusion's die economics (a custom die takes 4 to 8 weeks, with first delivery 6 to 10 weeks after drawing approval) make bespoke mullion geometries viable at project volumes that would not justify a new aluminum extrusion die. And there is a design-language argument beyond economics: a visibly slender, corrosion-immune structural grid is not just an engineering deliverable, it is an expressive move for a facade, in the way exposed structure has always been for architects willing to let the frame read as part of the design rather than something to hide behind glass.
 
 None of that argument works, though, if the higher-modulus mullion needs a deeper section than the one it is replacing. The architectural case and the mechanics case are the same case, stated in two vocabularies.
 
@@ -4516,7 +4543,7 @@ None of that argument works, though, if the higher-modulus mullion needs a deepe
 
 The direction this points to is a laminate architecture built for the mullion's actual load case, not adapted from one that was built for something else. Two moves address it directly.
 
-The first is carbon/glass hybridization rather than a straight swap to unidirectional carbon. Carbon fiber pultrudes to a tensile modulus range of roughly 120 to 500 GPa depending on grade, well above E-glass's 40-to-45 GPa ceiling, and F1's own WE-C100 spar-cap laminate already proves the process can hold 147 GPa at production scale. But published hybrid-composite research shows carbon/glass laminates retain a useful property pure carbon does not: once the carbon fibers reach their failure strain, the glass fraction keeps carrying load, giving the laminate a secondary, lower stiffness rather than a sudden loss of capacity. For a life-safety building structural member (as opposed to a component inside a wind blade's own separate certification regime) that residual load path after first-fiber-failure is not a footnote, it is a real design consideration.
+The first is carbon/glass hybridization rather than a straight swap to unidirectional carbon. Unidirectional carbon laminates reach a tensile modulus of roughly 120 GPa and up depending on fiber grade, well above the 40-to-45 GPa that unidirectional E-glass laminates reach, and F1's own WE-C100 spar-cap laminate already proves the process can hold 147 GPa at production scale. But published hybrid-composite research shows carbon/glass laminates retain a useful property pure carbon does not: once the carbon fibers reach their failure strain, the glass fraction keeps carrying load, giving the laminate a secondary, lower stiffness rather than a sudden loss of capacity. For a life-safety building structural member (as opposed to a component inside a wind blade's own separate certification regime) that residual load path after first-fiber-failure is not a footnote, it is a real design consideration.
 
 The second is braided reinforcement architecture at the profile's outer layers, in addition to the unidirectional carbon/glass core. Braid-pultruded (or "pull-braided") composites add fiber oriented in the peripheral, helical direction rather than only 0° and 90°, and published testing on braid-pultruded rods is consistent on the trade-off: shear and torsional stiffness go up substantially, tensile and flexural modulus come down somewhat relative to an equivalent unidirectional laminate at the same fiber volume. The result is a different material rather than a better one on every count. It was chosen because a mullion's torsion and edge-bearing demands at unitized panel joints and operable-vent hardware are exactly the load case a purely 0°/90° laminate under-serves.
 
@@ -4537,7 +4564,7 @@ For engineers and facade consultants tracking this development, or interested in
       "EN ISO 10077-1 computes the whole-window U-value as Uw = (Ag·Ug + Af·Uf + lg·Ψg) / (Ag + Af): glazing area times glazing U-value, plus frame area times frame U-value, plus glass-edge perimeter times the spacer's linear thermal bridge Ψg, divided by total window area. On the standard 1.23 × 1.48 m reference window the frame is roughly a quarter to a third of the area, so a triple-glazed unit at Ug 0.70 W/m²K still lands near Uw 0.88 with a Uf 1.0 frame: the frame and spacer, not the glass, decide whether a window reaches program targets like the Passive House 0.80 limit.",
     category: "Thermal Performance",
     date: "2026-07-11",
-    updatedAt: "2026-07-11",
+    updatedAt: "2026-10-26",
     readTime: "9 min",
     excerpt:
       "Specifiers compare windows by U-value every day, yet the number on the datasheet is the output of a calculation most spec sheets never show. Here is the EN ISO 10077-1 method in full: the three-zone formula, a worked example on the reference window, why European and North American numbers refuse to match, and why the frame decides the result.",
@@ -4572,7 +4599,7 @@ For engineers and facade consultants tracking this development, or interested in
       { label: "ISO 10077-1:2017 — Thermal performance of windows, doors and shutters (ISO)", href: "https://www.iso.org/standard/67090.html" },
       { label: "ISO 10077-2:2017 — Numerical method for frames (ISO)", href: "https://www.iso.org/standard/64995.html" },
       { label: "BF Bulletin: Uw calculation with warm-edge Ψ values (Bundesverband Flachglas)", href: "https://www.warmekanteberater.de/wp-content/uploads/2018/02/BF-Information_007-2017-Uw-Wert-Berechnung-Sprossen-EN.pdf" },
-      { label: "NFRC vs EN/ISO test-method comparison (OTM)", href: "https://www.otm.sg/test-method-comparison" },
+      { label: "ANSI/NFRC 100 U-factor procedure and boundary conditions (Intertek)", href: "https://www.intertek.com/building/standards/ansi-nfrc-100/" },
       { label: "PHI: Criteria for Certified Transparent Building Components (v5.6)", href: "https://passivehouse.com/downloads/03_certification_criteria_transparent_components_en.pdf" },
     ],
     content: `A window datasheet says U-value 0.85 W/m²K. A competing datasheet says 0.80. The specification demands 0.80, so the second window wins, except the two numbers came from different calculation standards, different reference sizes, and different spacer assumptions, and the "losing" window may in fact be the better thermal product. Whole-window U-values are outputs of a defined calculation, and reading them without knowing the calculation is how fenestration procurement goes wrong.
@@ -4605,7 +4632,7 @@ Uw = (1.32 × 0.70 + 0.50 × 1.0 + 4.62 × 0.04) / 1.82 = (0.92 + 0.50 + 0.18) /
 
 Three readings of that arithmetic are worth pausing on.
 
-**The glass flatters, but the frame decides.** The glazing contributes 0.92 of the 1.61 W/K total, but it achieves that result at Ug 0.70. Although the frame occupies barely a quarter of the area, its higher U-value means it contributes almost as much heat loss per square meter of window as the much larger glass area. Replace the Uf 1.0 frame with a thermally broken aluminum frame at Uf 1.4, and the same glass delivers Uw ≈ 0.99. The window loses its sub-0.9 rating without any change to the glazing.
+**The glass flatters, but the frame decides.** The glazing contributes 0.92 of the 1.61 W/K total, but it achieves that result at Ug 0.70. Although the frame occupies only 28% of the area, it contributes 0.50 W/K, more than half as much as the glass, because every square meter of frame loses 1.0 W/K against 0.70 for the glass. Replace the Uf 1.0 frame with a thermally broken aluminum frame at Uf 1.4, and the same glass delivers Uw ≈ 0.99. The window loses its sub-0.9 rating without any change to the glazing.
 
 **The spacer is a tenth of the result.** 4.62 m of glass edge at Ψg 0.04 adds 0.10 W/m²K to Uw. Published warm-edge Ψ values run roughly 0.03–0.05 W/m·K against roughly 0.08 for a conventional aluminum box spacer (the German flat-glass association BF publishes representative tables). Spacer choice alone can move a whole-window U-value by about 0.1: the difference between passing and failing a 0.80 specification.
 
@@ -4623,7 +4650,7 @@ The practical consequence: an NFRC U-factor of 0.17 Btu/h·ft²·°F is not simp
 
 ## What this means for frame material
 
-Run the formula in reverse: to hit Uw ≤ 0.80 with realistic triple glazing (Ug 0.60–0.70) on the reference window, the frame must deliver roughly Uf ≤ 1.0–1.3 with a warm-edge spacer. Thermally-broken aluminum reaches Uf 2.5–4.0 in common systems: the formula simply does not close. Insulating frame materials (pultruded GFRP at a bulk conductivity around 0.3 W/m·K, timber, uPVC) are what make the arithmetic work, which is why [Passive House certified windows](/resources/blog/passive-house-window-u-value-requirements) are dominated by them. The material-level comparison is on the [FRP vs aluminum windows page](/technology/frp-vs-aluminum-windows); F1's pultruded GFRP-PU [fenestration systems](/products/frp-window-frames) hold PHI component certificate 2491wi03 with certified whole-window performance to Uw 0.78.
+Run the formula in reverse: to hit Uw ≤ 0.80 on the reference window with a warm-edge spacer (Ψg 0.03–0.04), the frame must deliver roughly Uf ≤ 0.7–0.8 with Ug 0.70 glazing, or about Uf ≤ 1.0 with Ug 0.60. Typical thermally broken aluminum frames sit around Uf 1.4–2.4, so the formula does not close for them; only a few highly insulated aluminum systems hold PHI certificates. Insulating frame materials (pultruded GFRP at a bulk conductivity around 0.3 W/m·K, timber, uPVC) are what make the arithmetic work, which is why [Passive House certified windows](/resources/blog/passive-house-window-u-value-requirements) are dominated by them. The material-level comparison is on the [FRP vs aluminum windows page](/technology/frp-vs-aluminum-windows); F1's pultruded GFRP-PU [fenestration systems](/products/frp-window-frames) hold PHI component certificate 2491wi03 with certified whole-window performance to Uw 0.78.
 
 To run the EN ISO 10077-1 arithmetic on your own frame, glazing, and spacer combination, including the pass/fail against cold-climate program targets, use the free [whole-window U-value calculator](/technology/frp-u-value-calculator). It exposes every term of the formula above, so you can see which zone is costing you the rating.`,
   },
@@ -4633,10 +4660,10 @@ To run the EN ISO 10077-1 arithmetic on your own frame, glazing, and spacer comb
     title: "Passive House Window U-Value Requirements: PHI Climate Zones, Phius, and What Qualifies",
     seoTitle: "Passive House Window U-Value Requirements (PHI & Phius)",
     answerBox:
-      "PHI certifies windows by climate zone: whole-window Uw ≤ 0.40 W/m²K arctic, 0.60 cold, 0.80 cool-temperate (central Europe, with Uw,installed ≤ 0.85), 1.00 warm-temperate, and 1.20 warm, per the Transparent Components criteria v5.6. The limits derive from a comfort rule (interior window surface within 4.2 K of operative room temperature) plus a hygiene (anti-mold) temperature factor. Phius (US) publishes climate-zone-specific verified window data instead of one number, and since 2023 reports whole-window U without penalty. Practical consequence: cool-temperate certification needs triple glazing plus an insulating frame of pultruded fiberglass, timber or uPVC. F1's GFRP-PU system is certified under PHI component certificate 2491wi03.",
+      "PHI certifies windows by climate zone: whole-window Uw ≤ 0.40 W/m²K arctic, 0.60 cold, 0.80 cool-temperate (central Europe, with Uw,installed ≤ 0.85), 1.00 warm-temperate, and 1.20 warm, per the Transparent Components criteria v5.6. The limits derive from a comfort rule (interior window surface within 4.2 K of operative room temperature) plus a hygiene (anti-mold) temperature factor. Phius (US) publishes climate-zone-specific verified window data instead of one number, and since 2023 reports whole-window U without penalty. Practical consequence: cool-temperate certification usually needs triple glazing plus an insulating frame such as pultruded fiberglass, timber or uPVC; only a few highly insulated aluminum systems are certified. F1's GFRP-PU system is certified under PHI component certificate 2491wi03.",
     category: "Thermal Performance",
     date: "2026-07-11",
-    updatedAt: "2026-07-11",
+    updatedAt: "2026-10-26",
     readTime: "10 min",
     excerpt:
       "The 0.80 W/m²K number every passive house designer quotes is real, but it is one row of a seven-zone table. It applies to the whole window rather than the glass, and it comes with an installed-state limit, a comfort criterion, and efficiency classes that decide how a window actually gets certified. Here is the full PHI requirement set, the Phius counterpart, and what frame constructions can meet them.",
@@ -4672,7 +4699,7 @@ To run the EN ISO 10077-1 arithmetic on your own frame, glazing, and spacer comb
       { label: "PHI: Criteria for Certified Transparent Building Components v5.6 (2025)", href: "https://passivehouse.com/downloads/03_certification_criteria_transparent_components_en.pdf" },
       { label: "PHI window certification and climate zones (Passipedia)", href: "https://passipedia.org/planning/thermal_protection/windows/window_certification/start" },
       { label: "Phius Certified Windows program update (Phius)", href: "https://www.phius.org/inside-look-phius-certified-windows-program-update-part-i" },
-      { label: "Phius window performance criteria by climate zone (Phius)", href: "https://www.phius.org/phius-certification-for-buildings-products/phius-verified-window-performance-data-program/performance-criteria-by-climate-zone" },
+      { label: "Phius window and door certification program (Phius)", href: "https://www.phius.org/certifications/products/phius-window-door-certification-program" },
       { label: "PHI component database — certified windows", href: "https://database.passivehouse.com/en/components/list/group_4" },
     ],
     content: `Ask what U-value a passive house window needs and the answer comes back instantly: 0.80. It is the most-quoted number in high-performance fenestration, and it is genuinely in the standard, but as one row of a table, attached to one climate zone, and accompanied by three further criteria that trip up more certification attempts than the headline number does.
@@ -4691,7 +4718,7 @@ The Passive House Institute (PHI, Darmstadt) certifies windows as components aga
 | 6 Hot | ≤ 1.20 | ≤ 1.25 | 1.10 |
 | 7 Very hot | ≤ 1.00 | ≤ 1.05 | 0.90 |
 
-(Certificates are currently issued for the arctic through warm zones; hot-climate criteria are published but in trial.) Central Europe, most of the northern US, southern Canada, Japan's main islands, and much of China's heating-dominated belt fall in cool-temperate, hence 0.80's fame. Move the same project to Oslo or Harbin territory and the requirement tightens to 0.60; an arctic research posting demands 0.40. Warm-temperate Mediterranean and subtropical zones relax to 1.00–1.20.
+(Certificates are currently issued only for the arctic through warm zones, and the warm-temperate and warm criteria are still in a trial phase; the hot and very hot rows are published, but no certificates are issued for them yet.) Central Europe, most of the northern US, southern Canada, Japan's main islands, and much of China's heating-dominated belt fall in cool-temperate, hence 0.80's fame. Move the same project to northern Scandinavia or Harbin and the requirement tightens to 0.60; an arctic research posting demands 0.40. Warm-temperate Mediterranean and subtropical zones relax to 1.00–1.20.
 
 Two columns beside the headline number matter in practice. **Uw,installed** re-runs the calculation with the window mounted in a reference wall, adding the installation thermal bridge. A window that scores 0.80 free-standing but 0.90 installed fails. And the **reference glazing** column pins the Ug each zone's calculation assumes, which stops manufacturers from buying the rating with exotic glass on an uninsulating frame.
 
@@ -4709,17 +4736,17 @@ PHI additionally grades certified windows into efficiency classes, phA+ to phC, 
 
 North American projects mostly certify under Phius, which runs its own window program. Three differences matter for specification:
 
-- Phius publishes **climate-zone-specific performance data and recommendations** (keyed to US climate zones) rather than a single pass/fail Uw: the verified data sheet carries whole-window installed U-factor, center-of-glass U, and SHGC, with zone recommendation checkmarks.
+- Phius publishes **climate-zone-specific performance data and recommendations** (keyed to US climate zones) rather than a single pass/fail Uw: the certificate carries whole-window U-factor, center-of-glass U, and SHGC, with zone recommendation checkmarks.
 - Since the 2023 program update, Phius reports manufacturers' **whole-window U-values without the penalty factor** it previously applied.
-- SHGC is a first-class criterion: warm zones cap it for cooling protection, cold zones treat winter solar gain as a resource. (The U-value/SHGC interaction is [its own topic](/resources/blog/window-u-value-vs-shgc-climate).)
+- SHGC is a first-class criterion: warm zones cap it for cooling protection, and the 2023 criteria set no minimum SHGC for cold zones. (The U-value/SHGC interaction is [its own topic](/resources/blog/window-u-value-vs-shgc-climate).)
 
 A window certified by PHI is not automatically Phius-verified or vice versa; cross-market products get both.
 
 ## What construction actually passes
 
-Run the [EN ISO 10077-1 arithmetic](/resources/blog/en-iso-10077-window-u-value-calculation) against the cool-temperate row and the constraint lands on the frame. With the reference triple glazing at Ug 0.70 and a warm-edge spacer, the frame needs roughly Uf ≤ 1.0–1.3: territory no aluminum system reaches, thermally broken or not. That is why the PHI component database's window list is dominated by timber, timber-aluminum hybrid, uPVC, and pultruded fiberglass frames.
+Run the [EN ISO 10077-1 arithmetic](/resources/blog/en-iso-10077-window-u-value-calculation) against the cool-temperate row and the constraint lands on the frame. With the reference triple glazing at Ug 0.70 and a warm-edge spacer, the frame needs roughly Uf ≤ 0.7–0.8 (about 1.0 with Ug 0.60 glazing): territory only a few highly insulated aluminum systems reach. That is why the PHI component database's window list is dominated by timber, timber-aluminum hybrid, uPVC, and pultruded fiberglass frames.
 
-Pultruded GFRP does it with bulk conductivity around 0.3 W/m·K and adds what the other insulating frames lack: aluminum-class stiffness for large sashes and slim sightlines, no swelling or rot, and stable geometry from −60°C service (proven at [Qinling Station, Antarctica](/case-studies/qinling-station-antarctic-passive-windows)) to desert heat. F1 Composite's GFRP-polyurethane window system holds **PHI component certificate 2491wi03** with certified builds to Uw 0.78: the [pultruded fiberglass window frames](/products/frp-window-frames) page carries the series-by-series data.
+Pultruded GFRP does it with bulk conductivity around 0.3 W/m·K and adds what the other insulating frames lack: higher stiffness than uPVC for large sashes and slim sightlines, no swelling or rot, and stable geometry from a −60°C design low (specified at [Qinling Station, Antarctica](/case-studies/qinling-station-antarctic-passive-windows)) to desert heat. F1 Composite's GFRP-polyurethane window system holds **PHI component certificate 2491wi03** with certified builds to Uw 0.78: the [pultruded fiberglass window frames](/products/frp-window-frames) page carries the series-by-series data.
 
 To test a specific frame + glazing + spacer combination against the PHI zone limits before committing to certification samples, run it through the free [whole-window U-value calculator](/technology/frp-u-value-calculator). It computes Uw per EN ISO 10077-1 and flags the pass/fail against the passive house targets directly. For a guided selection by climate and project type, the [Passive House AI window selector](/ai/passive-house) walks the same logic conversationally.`,
   },
@@ -4732,7 +4759,7 @@ To test a specific frame + glazing + spacer combination against the PHI zone lim
       "U-value (thermal transmittance, W/m²K or Btu/h·ft²·°F) measures how fast a window loses heat by conduction; SHGC (solar heat gain coefficient, 0–1, per NFRC 200) measures what fraction of incident solar energy gets in. They answer different questions: U-value is always-on envelope loss, SHGC is a solar valve. Heating climates want low U with a usefully high SHGC (ENERGY STAR 7.0 Northern zone: U ≤ 0.22 IP ≈ 1.25 W/m²K with SHGC ≥ 0.17 on the prescriptive path); cooling climates flip priorities (Southern zone: SHGC ≤ 0.23). Europe's g-value is the same physics as SHGC but usually quoted glazing-only, while NFRC's SHGC includes the frame: check the basis before comparing datasheets.",
     category: "Thermal Performance",
     date: "2026-07-11",
-    updatedAt: "2026-07-11",
+    updatedAt: "2026-10-26",
     readTime: "9 min",
     excerpt:
       "One number describes how a window leaks heat, the other how it harvests or blocks the sun, and specifying fenestration is largely the art of setting both for your climate. Definitions, the g-value vs SHGC reporting trap, ENERGY STAR 7.0's zone table, and where the frame material quietly shapes both numbers.",
@@ -4767,9 +4794,9 @@ To test a specific frame + glazing + spacer combination against the PHI zone lim
     sourceLinks: [
       { label: "ANSI/NFRC 200 — Solar Heat Gain Coefficient procedure (Intertek summary)", href: "https://www.intertek.com/building/standards/ansi-nfrc-200/" },
       { label: "European g-value vs North American SHGC (GreenBuildingAdvisor)", href: "https://www.greenbuildingadvisor.com/question/european-vs-north-american-shgc-value-comparison" },
-      { label: "ENERGY STAR Version 7.0 Residential WDS Final Specification (EPA)", href: "https://www.energystar.gov/sites/default/files/asset/document/ENERGY%20STAR%20Version%207.0%20Residential%20Windows%2C%20Doors%2C%20and%20Skylights%20Final%20Draft%20Specification.pdf" },
+      { label: "ENERGY STAR Version 7.0 Residential WDS Final Draft Specification, zone criteria tables (EPA)", href: "https://www.energystar.gov/sites/default/files/asset/document/ENERGY%20STAR%20Version%207.0%20Residential%20Windows%2C%20Doors%2C%20and%20Skylights%20Final%20Draft%20Specification.pdf" },
       { label: "ENERGY STAR 7.0 zone criteria overview (Window + Door)", href: "https://www.windowanddoor.com/article/energy-star-version-70" },
-      { label: "Phius window performance criteria by climate zone", href: "https://www.phius.org/phius-certification-for-buildings-products/phius-verified-window-performance-data-program/performance-criteria-by-climate-zone" },
+      { label: "Phius Window & Door Certification Program (climate-zone performance data)", href: "https://www.phius.org/certifications/products/phius-window-door-certification-program" },
     ],
     content: `Every window datasheet leads with two numbers, and they are routinely read as if lower were better for both. For one of them that is true. The other works like a valve rather than a leak, and setting it wrong costs heating or cooling energy every year the building stands.
 
@@ -4787,7 +4814,7 @@ The same physics wears a different label in Europe: the **g-value** (total solar
 
 **Cooling-dominated climates** flip the priorities. ENERGY STAR 7.0's Southern zone allows U ≤ 0.32 IP but caps **SHGC at ≤ 0.23**; South-Central requires U ≤ 0.28 with the same SHGC cap. In Riyadh, Singapore, or Phoenix, solar gain is the enemy and spectrally-selective low-E coatings that pass daylight while rejecting near-infrared do the heavy lifting.
 
-**Mixed climates** are where single-number thinking fails hardest. North-Central ENERGY STAR (U ≤ 0.25, SHGC ≤ 0.40) is a compromise; serious projects go finer-grained: orientation-specific glazing, with higher SHGC on south faces shaded by overhangs and lower on east/west faces where low-angle summer sun is unshadeable. Phius's climate-zone-specific window data takes the same orientation-aware approach.
+**Mixed climates** are where single-number thinking fails hardest. North-Central ENERGY STAR (U ≤ 0.25, SHGC ≤ 0.40) is a compromise; serious projects go finer-grained: orientation-specific glazing, with higher SHGC on south faces shaded by overhangs and lower on east/west faces where low-angle summer sun is unshadeable. Phius window certificates follow the same logic by reporting window performance per climate zone rather than as a single number.
 
 Three practical rules hold across all three cases. Set the U-value according to climate severity and comfort; it also controls the interior surface temperature that determines [condensation behavior](/resources/blog/aluminum-window-condensation-cold-climate). Set SHGC according to cooling load and orientation. Do not optimize one value with a product that undermines the other. A triple-silver coating that reaches SHGC 0.18 in a heating climate reduces a cooling load the building did not have while sacrificing useful solar heat gain.
 
@@ -4806,7 +4833,7 @@ To see both numbers interact on a real build (your frame, glazing package, and s
       "Thermal breaks in aluminum windows are dominated by extruded PA66-GF25 polyamide strips (Technoform, Ensinger insulbar) at ≈0.30 W/m·K conductivity, qualified to EN 14024 with roll-in knurled shear joints rated ≥24 N/mm. Pultruded GFRP thermal break profiles match that 0.30 W/m·K class while roughly doubling tensile strength, absorbing about a tenth of the moisture of PA66, and (because pultrusion handles hollow multi-chamber geometry that strip extrusion cannot) scaling to the deep, foam-filled break zones that wide sliding-door and lift-slide sections need. F1 Composite produces pultruded thermal break profiles in serial volume, with multiple completed system-window projects in China.",
     category: "Thermal Performance",
     date: "2026-07-11",
-    updatedAt: "2026-09-27",
+    updatedAt: "2026-10-26",
     readTime: "10 min",
     excerpt:
       "The polyamide strip is one of the quiet success stories of building products: two extrusions of PA66-GF25 turned thermally hopeless aluminum frames into code-compliant windows, and two European specialists wrote the rulebook. But strip extrusion has geometric and mechanical ceilings, and wide sliding doors sit right at them. Here is what the research from Technoform and Ensinger actually establishes, and where a pultruded GFRP break changes the design space.",
@@ -4872,7 +4899,7 @@ Pultruded GFRP (E-glass in polyester, vinyl ester, or polyurethane matrix) lands
 
 **The CTE question, answered honestly.** Longitudinal CTE of pultruded GFRP is lower than aluminum's: the two do move differently with temperature, and pretending otherwise would be fabrication. The engineering answers are the same ones the polyamide world already uses at its own joints: knurl geometry sized for the differential, joint qualification across EN 14024's temperature range (the curtain-wall version of this argument, where the break also carries glass dead load, is [covered separately](/resources/blog/frp-thermal-break-profiles-curtain-wall)), and in deep-break designs, break lengths short enough per segment that differential strain stays inside the joint's capacity. It is a design constraint to engineer around rather than a reason to rule the material out. It also comes with a benefit polyamide cannot offer: GFRP's stiffness barely changes from −40°C to +80°C, while PA66's modulus drops substantially when warm and wet.
 
-**No melt point.** Thermoset GFRP is cured rather than melted, so it does not soften in the powder-coat cycle, and its glass transition sits above the paint-line temperature window. The 180–200°C filter that eliminated polyamide's cheaper competitors is not a constraint for pultrusion at all.
+**No melt point.** Thermoset GFRP is cured rather than melted, so it does not melt or flow in the powder-coat cycle. The 180–200°C paint-line window does sit above the glass transition of common polyester and polyurethane pultrusion matrices, so the profile softens temporarily during the cure. The break and its rolled joint are therefore qualified through the actual coating cycle, the same EN 14024 gate polyamide has to pass.
 
 ## Serial production, not a lab curiosity
 
@@ -4893,7 +4920,7 @@ To see what a deeper, lower-conductance break zone does to a whole frame, run th
       "Pultruded FRP density typically runs 1.7–2.1 g/cm³ (0.062–0.070 lb/in³ by ASTM D792). The number follows the rule of mixtures: E-glass fiber is 2.54 g/cm³ and cured unfilled polyester resin roughly 1.1–1.2, so a laminate at 65–70% glass by weight (F1 Composite's published EN 13706 grade E23 recipe) computes to 1.83–1.90 g/cm³. Roving-dominant profiles run denser than mat-heavy ones; mineral fillers such as ATH (2.41 g/cm³) push density up; voids pull it down.",
     category: "Material Science",
     date: "2026-07-16",
-    updatedAt: "2026-07-16",
+    updatedAt: "2026-10-26",
     readTime: "9 min",
     excerpt:
       "Steel has one density. A fiberglass profile has a recipe: glass fiber at 2.54 g/cm³, cured resin near 1.2, plus fillers and voids. Where a pultruded profile lands between those poles (and what that single number tells you about the laminate inside) is all arithmetic.",
@@ -5006,7 +5033,7 @@ Density is also a lever. Carbon fiber at 1.80 g/cm³ is lighter than the E-glass
 
 Every F1 datasheet declares the same laminate: 1.9 g/cm³ density, 65–70% E-glass by weight, isophthalic polyester matrix, mechanical minimums to EN 13706 grade E23. Run the check yourself: 70% glass at a 1.20 resin computes to 1.90 g/cm³ on the nose. The numbers close because they describe one real laminate, not a marketing composite of best cases.
 
-If your project needs a different point on the density map (an E-CR glass laminate for acid service, an ATH-filled fire-rated grade, or a carbon-glass hybrid optimized for stiffness per kilogram) we can develop the die and material formulation through our [custom pultrusion](/products/custom-pultruded-profiles) service. Send the section drawing and service conditions to Doris Li at Doris.li@f1composite.com. The resulting quote will include the laminate specification and certified test values, not just a price.`,
+If your project needs a different point on the density map (an E-CR glass laminate for acid service, an ATH-filled fire-rated grade, or a carbon-glass hybrid optimized for stiffness per kilogram) we can develop the die and material formulation through our [custom pultrusion](/products/custom-pultruded-profiles) service. Send the section drawing and service conditions to Doris Li at inquiry@f1composite.com. The resulting quote will include the laminate specification and the test values that apply to it, not just a price.`,
   },
   {
     slug: "frp-handrail-guardrail-requirements-osha-ibc-iso-14122",
@@ -5015,7 +5042,7 @@ If your project needs a different point on the density map (an E-CR glass lamina
     answerBox: "OSHA 1910.29 sets the guardrail top edge at 42 in (107 cm), plus or minus 3 in, and requires it to withstand 200 lb, with midrails that withstand 150 lb and toeboards at least 3.5 in high. EN ISO 14122-3 sets a 1,100 mm minimum height, openings of no more than 500 mm, a toe plate and stanchions no more than 1,500 mm apart. An FRP handrail system meets either rule only as a detailed and verified assembly, so the RFQ should name the governing standard.",
     category: "Access & Safety",
     date: "2026-09-24",
-    updatedAt: "2026-09-24",
+    updatedAt: "2026-10-26",
     readTime: "10 min",
     excerpt: "What OSHA 1910.29, the IBC with ASCE 7 and EN ISO 14122-3 require of guardrails and handrails, and how to specify an FRP system that can be checked against them.",
     authorName: "F1 Composite Editorial Team",
@@ -5073,7 +5100,7 @@ If your project needs a different point on the density map (an E-CR glass lamina
         },
         {
           question: "Does a fiberglass guardrail need a toeboard?",
-          answer: "Where objects could fall onto people below, yes. OSHA 1910.29(k) requires toeboards at least 3.5 in high that withstand 50 lb. EN ISO 14122-3 requires a toe plate set no more than 10 mm above the walking level. FRP kick plates are supplied as part of the handrail system.",
+          answer: "Where objects could fall onto people below, yes. OSHA 1910.29(k) requires toeboards at least 3.5 in high that withstand 50 lb. EN ISO 14122-3 requires a toe plate at least 100 mm high, set no more than 10 mm above the walking level. FRP kick plates are supplied as part of the handrail system.",
         },
         {
           question: "Can FRP handrails be used on stairs?",
@@ -5117,7 +5144,7 @@ The 200 lb load can act anywhere along the run: between posts, at a corner or on
 | --- | --- |
 | Where guards are required | Walking surfaces more than 30 in above the floor or grade below |
 | Guard height | At least 42 in |
-| Openings | No 4 in sphere may pass; at elevated walking surfaces for access to electrical, mechanical or plumbing equipment, no 21 in sphere |
+| Openings | No 4 in sphere may pass up to 36 in, and no 4 3/8 in sphere from 36 to 42 in; at elevated walking surfaces for access to electrical, mechanical or plumbing equipment, no 21 in sphere |
 | Handrail height at stairs | 34 to 38 in above the line of the tread nosings |
 | Design loads (ASCE 7 Section 4.5) | 50 lb/ft (0.73 kN/m) along the top and a 200 lb (0.89 kN) concentrated load, each in any direction |
 | Reduced line load | 20 lb/ft (0.29 kN/m) in Group I-3, F, H and S areas not accessible to the general public with an occupant load under 50 |
@@ -5130,7 +5157,7 @@ The 21 in sphere provision matters for industrial platforms: an equipment-access
 | --- | --- |
 | Guard-rail height | At least 1,100 mm above the walking level |
 | Knee rail | At least one; clear openings above and below it no more than 500 mm |
-| Toe plate | Placed no more than 10 mm above the walking level |
+| Toe plate | At least 100 mm high, placed no more than 10 mm above the walking level |
 | Stanchion spacing | Axes no more than 1,500 mm apart |
 | Load check | 300 N/m multiplied by the stanchion spacing, with deflection of no more than 30 mm |
 
@@ -5288,7 +5315,7 @@ Send the vertical rise; the top and bottom landing geometry and the top exit (th
     answerBox: "A GFRP rebar specification names three things: the design code (ACI CODE-440.11-22 for buildings, the AASHTO GFRP-2 guide specification for bridges, or an owner rule such as UFC 3-301-01), the product standard with its edition (ASTM D7957/D7957M or CSA S807), and the submittals, from qualification reports and lot tests to bent-bar data and handling instructions. Design for serviceability as well as strength: tested GFRP bar moduli of about 40 to 55 GPa are roughly a quarter of steel's.",
     category: "Concrete Reinforcement",
     date: "2026-09-24",
-    updatedAt: "2026-09-24",
+    updatedAt: "2026-10-26",
     readTime: "10 min",
     excerpt: "How to write a GFRP rebar specification: design code, ASTM D7957 or CSA S807 edition control, the submittals to request and the site rules that stay fixed.",
     authorName: "F1 Composite Editorial Team",
@@ -5303,6 +5330,7 @@ Send the vertical rise; the top and bottom landing geometry and the top exit (th
       "AASHTO GFRP-2 (2018)",
       "CSA S807:19 (R2024)",
       "ISO 10406-1:2025",
+      "ISO 10406-4:2025",
     ],
     coverImage: "/images/products/frp-rebar/f1-frp-rebar-sand-coated-helical.webp",
     coverAlt: "Glass-fiber reinforced polymer reinforcing bars with a sand-coated helical surface for bond to concrete",
@@ -5311,7 +5339,7 @@ Send the vertical rise; the top and bottom landing geometry and the top exit (th
     supportingImage: "/images/products/frp-rebar/gfrp-straight-bars.webp",
     supportingAlt: "Straight GFRP reinforcing bars of several diameters",
     supportingImageFit: "contain",
-    supportingCaption: "Straight GFRP bars from the FengDu's catalog. Product illustration only: the grade, surface, dimensions and documents are confirmed for the bar actually offered.",
+    supportingCaption: "Straight GFRP bars from FengDu's catalog. Product illustration only: the grade, surface, dimensions and documents are confirmed for the bar actually offered.",
     highlights: [
       "Name the design code, the product standard and its edition, and the submittals: three layers, not one line item.",
       "ACI CODE-440.11-22 references ASTM D7957-22; a newer ASTM edition does not update the code or an existing test report by itself.",
@@ -5336,10 +5364,11 @@ Send the vertical rise; the top and bottom landing geometry and the top exit (th
       { label: "ACI CODE-440.11-22: building code for GFRP-reinforced concrete", href: "https://www.concrete.org/store/productdetail.aspx?ItemID=44011U22&Language=English&Units=US_Units" },
       { label: "ASTM D7957/D7957M-26: solid round GFRP bars for concrete reinforcement", href: "https://store.astm.org/d7957_d7957m-26.html" },
       { label: "ASTM D7205/D7205M-26: tensile properties of FRP matrix composite bars", href: "https://store.astm.org/d7205_d7205m-26.html" },
-      { label: "ACI SPEC-440.5-22: construction with GFRP reinforcing bars", href: "https://www.concrete.org/store/productdetail.aspx?Format=PROTECTED_PDF&ItemID=4405U22&Language=English&Units=US_Units" },
+      { label: "ACI SPEC-440.5-22: construction with GFRP reinforcing bars (ACI preview)", href: "https://www.concrete.org/Portals/0/Files/PDF/Previews/440.5-22_preview.pdf" },
       { label: "AASHTO LRFD Bridge Design Guide Specifications for GFRP-Reinforced Concrete, 2nd edition", href: "https://store.transportation.org/Item/PublicationDetail?ID=4148" },
-      { label: "CSA S807:19 (R2024): specification for fibre-reinforced polymers", href: "https://www.csagroup.org/store/product/CSA%20S807:19/" },
-      { label: "ISO 10406-1:2025: test methods for FRP bars and grids", href: "https://www.iso.org/standard/84321.html" },
+      { label: "CSA S807:19 (R2024): specification for fibre-reinforced polymers", href: "https://www.csagroup.org/store/product/2426853/" },
+      { label: "ISO 10406-1:2025: test methods for FRP bars", href: "https://www.iso.org/standard/84321.html" },
+      { label: "ISO 10406-4:2025: test methods for FRP grids", href: "https://www.iso.org/standard/86242.html" },
       { label: "UFC 3-301-01 Structural Engineering, Change 5 (2026)", href: "https://www.wbdg.org/FFC/DOD/UFC/ufc_3_301_01_2023_c5.pdf" },
       { label: "Iowa State / MnDOT: Assessment of Bridge Decks with GFRP Reinforcement (2023)", href: "https://rosap.ntl.bts.gov/view/dot/67149" },
       { label: "University of Kentucky / FHWA: GFRP Reinforced Concrete Bridges (2000)", href: "https://rosap.ntl.bts.gov/view/dot/20392/dot_20392_DS1.pdf" },
@@ -5373,7 +5402,7 @@ Send the vertical rise; the top and bottom landing geometry and the top exit (th
 | --- | --- | --- |
 | Design code | ACI CODE-440.11-22 for buildings; AASHTO GFRP-2 (2nd edition, 2018) for bridges; owner rules such as UFC 3-301-01 Appendix G | Strength, serviceability, durability, development, splices and fire provisions |
 | Product standard | ASTM D7957/D7957M; CSA S807:19 (R2024) in Canada | Qualification, production-lot control, physical and mechanical properties, bends |
-| Test methods | ASTM D7205/D7205M for tension; ISO 10406-1:2025 for bars and grids | How the reported values were measured |
+| Test methods | ASTM D7205/D7205M for tension; ISO 10406-1:2025 for bars and ISO 10406-4:2025 for grids | How the reported values were measured |
 | Construction | ACI SPEC-440.5-22 | Submittals, storage, handling, placement, tolerances and inspection |
 
 ACI CODE-440.11-22 is the consensus building-code route for concrete reinforced with qualifying solid, round, vinyl-ester GFRP bars. CSA S807 classifies FRP bars by fiber, strength, modulus and durability, and covers E-CR glass, carbon, aramid and basalt fibers with isophthalic polyester, vinyl ester or epoxy resins. The AASHTO guide specification, first issued in 2009 for decks and railings, now also covers girders, bent caps, substructure and foundation elements.
@@ -5423,7 +5452,7 @@ F1 supplies GFRP straight bars, factory-formed stirrups and reinforcement mesh m
     answerBox: "No: cured fiberglass (GFRP) bars cannot be bent, heated or welded on site, so every stirrup, hook and bend is formed in the factory from an approved drawing before shipment. Schedule each shape with a bar mark, diameter, leg dimensions, inside bend radius and quantity, and request test data for the bent portion, which carries less tensile force than the straight bar. Pre-manufactured mesh is outside ASTM D7957, so it needs its own drawing and test scope.",
     category: "Concrete Reinforcement",
     date: "2026-09-24",
-    updatedAt: "2026-10-23",
+    updatedAt: "2026-10-26",
     readTime: "8 min",
     excerpt: "Can you bend fiberglass rebar? Why GFRP bends are made in the factory, what a bar bending schedule must contain, how bent-bar capacity and mesh are specified, and when to order them.",
     authorName: "F1 Composite Editorial Team",
@@ -5435,6 +5464,7 @@ F1 supplies GFRP straight bars, factory-formed stirrups and reinforcement mesh m
       "ACI CODE-440.11-22",
       "ACI SPEC-440.5-22",
       "ISO 10406-1:2025",
+      "ISO 10406-4:2025",
     ],
     coverImage: "/images/products/frp-rebar/gfrp-rectangular-stirrups.webp",
     coverAlt: "Factory-formed rectangular GFRP stirrups",
@@ -5443,7 +5473,7 @@ F1 supplies GFRP straight bars, factory-formed stirrups and reinforcement mesh m
     supportingImage: "/images/products/frp-rebar/gfrp-reinforcement-mesh.webp",
     supportingAlt: "GFRP reinforcement mesh panel with bars in two directions",
     supportingImageFit: "contain",
-    supportingCaption: "GFRP reinforcement mesh from the FengDu's catalog. Product illustration only: rod diameter, spacing, intersections and test scope are confirmed for the mesh actually offered.",
+    supportingCaption: "GFRP reinforcement mesh from FengDu's catalog. Product illustration only: rod diameter, spacing, intersections and test scope are confirmed for the mesh actually offered.",
     highlights: [
       "Every GFRP bend is made in the factory while the resin cures; nothing is bent, heated or welded on site.",
       "A bend schedule needs bar mark, shape, diameter, leg dimensions, inside radius, quantity and tolerances.",
@@ -5466,8 +5496,9 @@ F1 supplies GFRP straight bars, factory-formed stirrups and reinforcement mesh m
     sourceLinks: [
       { label: "ASTM D7957/D7957M-26: solid round GFRP bars for concrete reinforcement", href: "https://store.astm.org/d7957_d7957m-26.html" },
       { label: "ACI CODE-440.11-22: building code for GFRP-reinforced concrete", href: "https://www.concrete.org/store/productdetail.aspx?ItemID=44011U22&Language=English&Units=US_Units" },
-      { label: "ACI SPEC-440.5-22: construction with GFRP reinforcing bars", href: "https://www.concrete.org/store/productdetail.aspx?Format=PROTECTED_PDF&ItemID=4405U22&Language=English&Units=US_Units" },
-      { label: "ISO 10406-1:2025: test methods for FRP bars and grids", href: "https://www.iso.org/standard/84321.html" },
+      { label: "ACI SPEC-440.5-22: construction with GFRP reinforcing bars (ACI preview)", href: "https://www.concrete.org/Portals/0/Files/PDF/Previews/440.5-22_preview.pdf" },
+      { label: "ISO 10406-1:2025: test methods for FRP bars", href: "https://www.iso.org/standard/84321.html" },
+      { label: "ISO 10406-4:2025: test methods for FRP grids", href: "https://www.iso.org/standard/86242.html" },
       { label: "UFC 3-301-01 Structural Engineering, Change 5 (2026)", href: "https://www.wbdg.org/FFC/DOD/UFC/ufc_3_301_01_2023_c5.pdf" },
     ],
     faq: {
@@ -5487,7 +5518,7 @@ F1 supplies GFRP straight bars, factory-formed stirrups and reinforcement mesh m
         },
         {
           question: "Is GFRP mesh covered by ASTM D7957?",
-          answer: "No. Pre-manufactured mesh is outside the scope of ASTM D7957/D7957M. Specify the rod diameter and spacing in both directions, the sheet size and the intersection detail, and agree the test scope; ISO 10406-1 includes test methods for grids.",
+          answer: "No. Pre-manufactured mesh is outside the scope of ASTM D7957/D7957M. Specify the rod diameter and spacing in both directions, the sheet size and the intersection detail, and agree the test scope; ISO 10406-4:2025 gives test methods for FRP grids.",
         },
         {
           question: "How early should bends and mesh be ordered?",
@@ -5523,7 +5554,7 @@ Closed stirrups need a stated closure: the overlap length or the hook arrangemen
 
 ## Mesh and intersections
 
-Pre-manufactured GFRP mesh is outside the scope of ASTM D7957. A mesh order therefore needs its own specification: rod diameter and center-to-center spacing in both directions, overall sheet dimensions, the intersection type, edge distances, quantity and the approved drawing. FengDu's mesh uses glass fiber with an epoxy resin and custom spacing and sheet sizes, and its properties are confirmed for the configuration offered rather than borrowed from straight-bar data. ISO 10406-1:2025 provides test methods for FRP bars and grids when the project needs its own test scope.
+Pre-manufactured GFRP mesh is outside the scope of ASTM D7957. A mesh order therefore needs its own specification: rod diameter and center-to-center spacing in both directions, overall sheet dimensions, the intersection type, edge distances, quantity and the approved drawing. FengDu's mesh uses glass fiber with an epoxy resin and custom spacing and sheet sizes, and its properties are confirmed for the configuration offered rather than borrowed from straight-bar data. ISO 10406-1:2025 (FRP bars) and ISO 10406-4:2025 (FRP grids) provide test methods when the project needs its own test scope.
 
 ## Timing and logistics
 
@@ -5579,8 +5610,8 @@ Before the schedule goes to production, confirm that every shape has a mark, a s
       { label: "FRP Guardrail Requirements: OSHA, IBC and ISO 14122-3", href: "/resources/blog/frp-handrail-guardrail-requirements-osha-ibc-iso-14122" },
     ],
     sourceLinks: [
-      { label: "Strongwell: fiberglass grating installation guidelines", href: "https://www.strongwell.com/downloads/Offshore-Book-Guide-AOG-0223-c.pdf" },
-      { label: "ASTM F3059: FRP gratings used in marine construction and shipbuilding", href: "https://store.astm.org/f3059-18.html" },
+      { label: "Strongwell: grating field fabrication guide (hold-downs, cut-outs, sealing)", href: "https://www.strongwell.com/wp-content/uploads/2013/04/Grating-Field-Fabrication-Guide.pdf" },
+      { label: "ASTM F3059-24: FRP gratings used in marine construction and shipbuilding", href: "https://store.astm.org/f3059-24.html" },
       { label: "OSHA 29 CFR 1910.22: walking-working surfaces, general requirements", href: "https://www.osha.gov/laws-regs/regulations/standardnumber/1910/1910.22" },
     ],
     faq: {
@@ -5704,7 +5735,7 @@ To choose the grating itself, compare [molded and pultruded fiberglass grating](
       { label: "Pultrusion Resin Systems", href: "/technology/pultrusion-resin-systems" },
     ],
     sourceLinks: [
-      { label: "ASTM F3059: FRP gratings used in marine construction and shipbuilding", href: "https://store.astm.org/f3059-18.html" },
+      { label: "ASTM F3059-24: FRP gratings used in marine construction and shipbuilding", href: "https://store.astm.org/f3059-24.html" },
       { label: "McNichols: bar grating load tables explained", href: "https://www.mcnichols.com/blog/bar-grating-load-tables-explained" },
     ],
     faq: {
@@ -5783,7 +5814,7 @@ Ask for the table for the exact series, depth, mesh and resin; its load definiti
     answerBox: "Space FRP cable tray and ladder supports from the offered system's load table, and put splices about a quarter of the span from a support, never over a support or at midspan. Support each fitting within 600 mm (2 ft) of its ends. On long or outdoor runs, add expansion splices, anchor the support nearest the midpoint between them and let the rest guide. FRP does not conduct, so the grounding path comes from the cables or a separate conductor. Seal cut edges, and never use the tray as a walkway.",
     category: "Electrical Infrastructure",
     date: "2026-09-25",
-    updatedAt: "2026-09-25",
+    updatedAt: "2026-10-26",
     readTime: "9 min",
     excerpt: "A step-by-step FRP cable tray installation guide: support spacing, splice and fitting locations, expansion splices, grounding, cutting and sealing, cable pulling and inspection.",
     authorName: "F1 Composite Editorial Team",
@@ -5791,7 +5822,7 @@ Ask for the table for the exact series, depth, mesh and resin; its load definiti
     authorRole: "Technical content and sourcing guidance",
     reviewedBy: "Editorial source check",
     standards: [
-      "NEMA VE 2",
+      "NEMA BI 50016-2024 (formerly NEMA VE 2)",
       "NFPA 70 (NEC) Article 392",
       "IEC 61537:2023",
     ],
@@ -5822,7 +5853,7 @@ Ask for the table for the exact series, depth, mesh and resin; its load definiti
       { label: "How to Install FRP Grating", href: "/resources/blog/how-to-install-frp-grating" },
     ],
     sourceLinks: [
-      { label: "NEMA VE 2: Cable Tray Installation Guidelines (2013 edition, NEMA)", href: "https://www.nema.org/docs/default-source/standards-document-library/nema-ve-2-2013-errata.pdf?sfvrsn=40550aed_2" },
+      { label: "NEMA VE 2-2013: Cable Tray Installation Guidelines (NEMA; current edition is NEMA BI 50016-2024)", href: "https://www.nema.org/docs/default-source/standards-document-library/nema-ve-2-2013-errata.pdf?sfvrsn=40550aed_2" },
       { label: "Cable Tray Institute: thermal contraction and expansion of cable tray", href: "https://www.cabletrays.org/thermal-contraction-expansion-cable-tray/" },
       { label: "Cable Tray Institute Technical Bulletin 11: equipment grounding conductors for cable tray systems", href: "https://www.cabletrays.org/wp-content/uploads/2019/10/Technical-Bulletin-11.pdf" },
       { label: "Eaton: Cable Tray Manual based on the 2014 NEC", href: "https://www.eaton.com/content/dam/eaton/products/support-systems/cable-management/ct-manual.pdf" },
@@ -5865,7 +5896,7 @@ Keep the tray, ladder, fittings and hardware of one system together. Splice plat
 
 ## Supports, splices and fittings
 
-NEMA VE 2, the industry installation guideline written around metal cable tray, sets out layout rules that FRP manufacturers use as well:
+NEMA VE 2, the industry installation guideline written around metal cable tray and now published as NEMA BI 50016-2024, sets out layout rules that FRP manufacturers use as well:
 
 | Item | Layout rule | Source |
 | --- | --- | --- |
@@ -6060,10 +6091,10 @@ To choose a system, compare the square- and round-tube options on our [fiberglas
     slug: "how-to-install-gfrp-rebar",
     title: "How to Install GFRP Rebar: Handling, Storage, Cutting, Supports, Ties and Concrete Placement",
     seoTitle: "How to Install GFRP Rebar: Handling, Supports and Ties",
-    answerBox: "Handle GFRP bars so their surface is never damaged: lift bundles with a spreader bar at several pick-up points, never drag them, and store them off the ground, shaded and below 120 °F (49 °C). Cut them with a saw, never bend or shear them on site, and replace any bar with visible surface damage. Support mats on dielectric chairs, tie them with coated wire or nylon ties, and tie them down firmly, because a GFRP bar is lighter than fresh concrete and can float during placement.",
+    answerBox: "Handle GFRP bars so their surface is never damaged: lift bundles with a spreader bar at several pick-up points, never drag them, and store them off the ground, shaded and below 120 °F (49 °C). Cut them with a saw, never bend or shear them on site, and replace any bar whose surface damage exceeds the project's acceptance criteria. Support mats on dielectric chairs, tie them with coated wire or nylon ties, and tie them down firmly, because a GFRP bar is lighter than fresh concrete and can float during placement.",
     category: "Concrete Reinforcement",
     date: "2026-09-25",
-    updatedAt: "2026-09-25",
+    updatedAt: "2026-10-26",
     readTime: "6 min",
     excerpt: "A site guide to GFRP rebar: receiving and storage, lifting, cutting, bar supports and ties, preventing flotation during concrete placement, and inspection before the pour.",
     authorName: "F1 Composite Editorial Team",
@@ -6081,7 +6112,7 @@ To choose a system, compare the square- and round-tube options on our [fiberglas
     supportingImage: "/images/products/frp-rebar/gfrp-helical-surface.webp",
     supportingAlt: "Close-up of GFRP reinforcing bars with a helical surface wrap",
     supportingImageFit: "contain",
-    supportingCaption: "Supplier photo of GFRP bars from the FengDu's catalog. Product illustration only: handling, storage and cutting follow the instructions supplied with the bars actually delivered.",
+    supportingCaption: "Supplier photo of GFRP bars from FengDu's catalog. Product illustration only: handling, storage and cutting follow the instructions supplied with the bars actually delivered.",
     highlights: [
       "Lift bundles with a spreader bar at several pick-up points, and never drag or drop bars: surface damage means replacement.",
       "Store bars off the ground and shaded, below 120 °F (49 °C), and cover them with opaque sheeting on long outdoor storage.",
@@ -6103,8 +6134,7 @@ To choose a system, compare the square- and round-tube options on our [fiberglas
     ],
     sourceLinks: [
       { label: "UFC 3-301-01 Structural Engineering, Change 5 (2026), Appendix G", href: "https://www.wbdg.org/FFC/DOD/UFC/ufc_3_301_01_2023_c5.pdf" },
-      { label: "ACI SPEC-440.5-22: construction with GFRP reinforcing bars", href: "https://www.concrete.org/store/productdetail.aspx?ItemID=4405U22&Format=PROTECTED_PDF&Language=English&Units=US_Units" },
-      { label: "ACI SPEC-440.5-22 preview", href: "https://www.concrete.org/Portals/0/Files/PDF/Previews/440.5-22_preview.pdf" },
+      { label: "ACI SPEC-440.5-22 preview: construction with GFRP reinforcing bars", href: "https://www.concrete.org/Portals/0/Files/PDF/Previews/440.5-22_preview.pdf" },
       { label: "UFGS 03 31 29 (May 2024): marine concrete, GFRP bars as a permitted alternative", href: "https://www.wbdg.org/FFC/DOD/UFGS/UFGS%2003%2031%2029.pdf" },
       { label: "ASTM D7957/D7957M-26: solid round GFRP bars for concrete reinforcement", href: "https://store.astm.org/d7957_d7957m-26.html" },
       { label: "University of Kentucky / FHWA: GFRP Reinforced Concrete Bridges (2000)", href: "https://rosap.ntl.bts.gov/view/dot/20392/dot_20392_DS1.pdf" },
@@ -6176,10 +6206,10 @@ For the specification side, see our [GFRP rebar specification guide](/resources/
     slug: "fiberglass-rebar-cost-per-foot",
     title: "Fiberglass Rebar Cost per Foot: How to Compare GFRP Prices on the Same Basis",
     seoTitle: "Fiberglass Rebar Cost per Foot: GFRP Price Guide",
-    answerBox: "Fiberglass (GFRP) rebar is priced by the foot or meter for each bar size, and published US retail listings for 3/8 in to 1/2 in bars fell in a range of roughly $0.30 to $0.50 per foot in October 2026; project prices are confirmed by quotation (RFQ). A price per foot only compares when the size basis matches: divide it by the certified area or the guaranteed tensile load, and add bends, certification, cutting and freight before comparing GFRP with steel.",
+    answerBox: "Fiberglass (GFRP) rebar is priced by the foot or meter for each bar size, and published US retail listings for 3/8 in to 1/2 in bars fell in a range of roughly $0.30 to $0.40 per foot in October 2026; project prices are confirmed by quotation (RFQ). A price per foot only compares when the size basis matches: divide it by the certified area or the guaranteed tensile load, and add bends, certification, cutting and freight before comparing GFRP with steel.",
     category: "Concrete Reinforcement",
     date: "2026-10-23",
-    updatedAt: "2026-10-23",
+    updatedAt: "2026-10-26",
     readTime: "7 min",
     excerpt: "What fiberglass rebar costs per foot, why two bars sold as the same size can differ in price per unit of strength, and how to build a project price comparison with steel.",
     authorName: "F1 Composite Editorial Team",
@@ -6198,7 +6228,7 @@ For the specification side, see our [GFRP rebar specification guide](/resources/
     supportingImageFit: "contain",
     supportingCaption: "Supplier photo of straight GFRP bars. Product illustration only: the certified area, tensile load and surface are confirmed for the bars actually quoted.",
     highlights: [
-      "US retail listings for 3/8 in to 1/2 in bars ran roughly $0.30–$0.50 per foot in October 2026; the project price is confirmed by RFQ.",
+      "US retail listings for 3/8 in to 1/2 in bars ran roughly $0.30–$0.40 per foot in October 2026; the project price is confirmed by RFQ.",
       "A bar named by outside diameter can have a smaller load-bearing core than the nominal size, so compare price per certified area or per guaranteed tensile load.",
       "Bends, certification, cut lists, packing and freight change the delivered price more than the base price per foot.",
       "Compare GFRP and steel on the redesigned reinforcement and the installed, maintained structure, not on bar price alone.",
@@ -6227,7 +6257,7 @@ For the specification side, see our [GFRP rebar specification guide](/resources/
       items: [
         {
           question: "How much does fiberglass rebar cost per foot?",
-          answer: "US retail listings for 3/8 in to 1/2 in bars fell roughly between $0.30 and $0.50 per foot in October 2026, and larger bars cost more in proportion to their area. Project prices depend on the size mix, certification, bends, quantity and delivery, so the actual price is confirmed by quotation against your bar schedule.",
+          answer: "US retail listings for 3/8 in to 1/2 in bars fell roughly between $0.30 and $0.40 per foot in October 2026, and larger bars cost more in proportion to their area. Project prices depend on the size mix, certification, bends, quantity and delivery, so the actual price is confirmed by quotation against your bar schedule.",
         },
         {
           question: "Is fiberglass rebar more expensive than steel?",
@@ -6247,11 +6277,11 @@ For the specification side, see our [GFRP rebar specification guide](/resources/
 
 ## What fiberglass rebar costs per foot
 
-Public retail listings give a reference range. In October 2026, US building-supply listings for 3/8 in and 1/2 in fiberglass rebar, priced by the foot and sold in 20 ft lengths, fell between roughly $0.30 and $0.50 per foot. Larger bars cost more per foot, roughly in proportion to their cross-sectional area.
+Public retail listings give a reference range. In October 2026, a US building-supply retailer listed 3/8 in and 1/2 in fiberglass rebar, priced by the foot and sold in 20 ft lengths, at roughly $0.30 to $0.40 per foot. Other retail and dealer listings vary by brand and region. Larger bars cost more per foot, roughly in proportion to their cross-sectional area.
 
 | What sets the figure | Range or basis |
 | --- | --- |
-| Reference range, 3/8 in to 1/2 in bars, US retail, October 2026 | About $0.30–$0.50 per foot |
+| Reference range, 3/8 in to 1/2 in bars, US retail, October 2026 | About $0.30–$0.40 per foot |
 | Larger bar sizes | Scales roughly with cross-sectional area |
 | Project price | Confirmed by quotation against your bar schedule (RFQ) |
 
@@ -6303,7 +6333,7 @@ Send the bar schedule with diameters or bar numbers, cut lengths, quantities, be
     answerBox: "Cut fiberglass (GFRP) rebar with a diamond or abrasive blade on an angle grinder, circular saw or chop saw, or with a fine-toothed saw for small bars. Support the bar on both sides of the cut, use dust extraction and eye, skin and respiratory protection, and never shear, flame-cut, heat or bend the bar. Follow the supplier's instructions on sealing cut ends, and order bends and long cut lists from the factory.",
     category: "Concrete Reinforcement",
     date: "2026-10-23",
-    updatedAt: "2026-10-23",
+    updatedAt: "2026-10-26",
     readTime: "5 min",
     excerpt: "A site guide to cutting fiberglass rebar: which saws and blades work, why shears and bolt cutters do not, dust and PPE, cut ends, and when to order cut lengths from the factory.",
     authorName: "F1 Composite Editorial Team",
@@ -6342,8 +6372,7 @@ Send the bar schedule with diameters or bar numbers, cut lengths, quantities, be
     ],
     sourceLinks: [
       { label: "UFC 3-301-01 Structural Engineering, Change 5 (2026), Appendix G", href: "https://www.wbdg.org/FFC/DOD/UFC/ufc_3_301_01_2023_c5.pdf" },
-      { label: "ACI SPEC-440.5-22: construction with GFRP reinforcing bars", href: "https://www.concrete.org/store/productdetail.aspx?ItemID=4405U22&Format=PROTECTED_PDF&Language=English&Units=US_Units" },
-      { label: "ACI SPEC-440.5-22 preview", href: "https://www.concrete.org/Portals/0/Files/PDF/Previews/440.5-22_preview.pdf" },
+      { label: "ACI SPEC-440.5-22 preview: construction with GFRP reinforcing bars", href: "https://www.concrete.org/Portals/0/Files/PDF/Previews/440.5-22_preview.pdf" },
     ],
     faq: {
       title: "Cutting fiberglass rebar",
@@ -6354,7 +6383,7 @@ Send the bar schedule with diameters or bar numbers, cut lengths, quantities, be
         },
         {
           question: "Can you cut fiberglass rebar with bolt cutters or rebar shears?",
-          answer: "No. Shears and bolt cutters crush the bar instead of cutting it, splitting the fibers back from the end. UFC 3-301-01 permits field cutting of GFRP bars but not shearing. Use a saw.",
+          answer: "No. Shears and bolt cutters crush the bar instead of cutting it, splitting the fibers back from the end. UFC 3-301-01 permits field cutting of GFRP bars but not field bending, and a saw cut is the method that leaves a sound end. Use a saw.",
         },
         {
           question: "Do you need to seal the cut ends of fiberglass rebar?",
@@ -6381,7 +6410,7 @@ Diamond blades last longer in glass fiber than toothed steel-cutting blades, whi
 
 ## Tools that damage the bar
 
-Rebar shears, bolt cutters and hydraulic cutters crush a GFRP bar instead of cutting it. The fibers split back from the end and the damaged length can no longer be counted on. UFC 3-301-01 permits field cutting but prohibits shearing, and flame cutting is out of the question for a resin-based bar. Keep shears off the GFRP part of the site.
+Rebar shears, bolt cutters and hydraulic cutters crush a GFRP bar instead of cutting it. The fibers split back from the end and the damaged length can no longer be counted on. UFC 3-301-01 permits field cutting (but not field bending); saw cutting is what keeps the end sound, and flame cutting is out of the question for a resin-based bar. Keep shears off the GFRP part of the site.
 
 ## How to make the cut
 
@@ -6413,7 +6442,7 @@ For the rest of the site process, from lifting and storage to ties and flotation
     answerBox: "Basalt (BFRP) and fiberglass (GFRP) rebar are both fiber reinforced polymer bars that do not corrode like steel. The practical difference is the code path: ASTM D7957 and ACI CODE-440.11-22 cover glass fiber bars only, while CSA S807:19 in Canada also covers basalt. Basalt fiber costs more than E-glass, so choose basalt where the governing standard accepts it and certified bar data justify it, and GFRP where the project is designed to ACI 440.11.",
     category: "Concrete Reinforcement",
     date: "2026-10-23",
-    updatedAt: "2026-10-23",
+    updatedAt: "2026-10-26",
     readTime: "6 min",
     excerpt: "How basalt and fiberglass rebar compare on standards and code acceptance, bar properties, durability evidence, cost and availability, and how to choose between them.",
     authorName: "F1 Composite Editorial Team",
@@ -6423,7 +6452,7 @@ For the rest of the site process, from lifting and storage to ties and flotation
     standards: [
       "ASTM D7957/D7957M-26",
       "ACI CODE-440.11-22",
-      "CSA S807:19",
+      "CSA S807:19 (R2024)",
     ],
     coverImage: "/images/covers/blog/basalt-vs-glass-rebar-standards.webp",
     coverAlt: "Table comparing the standards that cover basalt and glass fiber reinforced polymer bars in the US and Canada",
@@ -6455,7 +6484,7 @@ For the rest of the site process, from lifting and storage to ties and flotation
       { label: "ASTM D7957/D7957M-26: solid round glass fiber reinforced polymer bars", href: "https://store.astm.org/d7957_d7957m-26.html" },
       { label: "ACI CODE-440.11-22: structural concrete reinforced with GFRP bars", href: "https://www.concrete.org/store/productdetail.aspx?ItemID=44011U22&Language=English&Units=US_Units" },
       { label: "CSA S807:19: specification for fibre-reinforced polymers", href: "https://www.csagroup.org/store/product/2426853/" },
-      { label: "SINTEF: basalt fiber reinforced polymer rebar compared with steel (2017)", href: "https://sintef.brage.unit.no/sintef-xmlui/handle/11250/2447643" },
+      { label: "SINTEF: basalt fiber reinforced polymer rebar compared with steel (2017)", href: "https://hdl.handle.net/11250/2447643" },
       { label: "Green Building Advisor: basalt rebar", href: "https://www.greenbuildingadvisor.com/article/basalt-rebar" },
     ],
     faq: {
@@ -6564,7 +6593,7 @@ Basalt fiber costs more than E-glass fiber, and glass fiber bars have the larger
       { label: "UFGS 06 73 01 Fiberglass Reinforced Plastic (FRP) Grating (WBDG)", href: "https://www.wbdg.org/dod/ufgs/ufgs-06-73-01" },
       { label: "Strongwell: guide specification for FRP pultruded grating and treads (Section 06 74 13)", href: "https://www.strongwell.com/wp-content/uploads/2014/10/StrongwellSpecs-FRP-Pultruded-Grating-and-Treads.pdf" },
       { label: "Strongwell: guide specification for molded grating and treads", href: "https://www.strongwell.com/wp-content/uploads/2013/03/StrongwellSpecs-Molded-Grating-and-Treads.pdf" },
-      { label: "ASTM E84: surface burning characteristics of building materials", href: "https://www.astm.org/e0084-24.html" },
+      { label: "ASTM E84: surface burning characteristics of building materials", href: "https://store.astm.org/standards/e84" },
     ],
     faq: {
       title: "FRP grating specification questions",
@@ -6632,10 +6661,10 @@ The [F1 FRP grating guide specification](/downloads/f1-frp-grating-guide-specifi
     slug: "gfrp-rebar-manufacturers-how-to-qualify-a-supplier",
     title: "GFRP Rebar Manufacturers: What the Leading Producers Publish and How to Qualify a Supplier",
     seoTitle: "GFRP Rebar Manufacturers: Leaders & Supplier Checklist",
-    answerBox: "The GFRP rebar market is fragmented: analysts put the five leading producers (Dextra, Pultrall, Mateenbar/Pultron, Schöck and Neuvokas) at roughly 15 to 20% combined share of a market worth about USD 0.5 to 0.8 billion in 2025. They win on published guaranteed values, 46 to 60 GPa modulus tiers, resin disclosure and producer-specific approvals (ICC-ES reports, DOT listings, DIBt), not on scale. Qualify any supplier, including an exporter, on the same seven items: size-by-size test reports, modulus tier, resin and glass type, durability data, bent-bar data, lot traceability and a plain statement of approvals held.",
+    answerBox: "The GFRP rebar market is fragmented: MarketsandMarkets puts the top five producers at only about 15 to 20% combined share of a market it sizes at about USD 0.54 billion in 2025, and other analysts' estimates run higher. The most visible producers (Dextra, Pultrall, Mateenbar/Pultron, Schöck and Neuvokas) win on published guaranteed values, 46 to 60 GPa modulus tiers, resin disclosure and producer-specific approvals (ICC-ES reports, DOT listings, DIBt), not on scale. Qualify any supplier, including an exporter, on the same seven items: size-by-size test reports, modulus tier, resin and glass type, durability data, bent-bar data, lot traceability and a plain statement of approvals held.",
     category: "Concrete Reinforcement",
     date: "2026-10-25",
-    updatedAt: "2026-10-25",
+    updatedAt: "2026-10-26",
     readTime: "11 min",
     excerpt: "Who the leading GFRP rebar manufacturers are, how they position and price, what their datasheets and evaluation reports actually contain, and a seven-point checklist to qualify any supplier, including an exporter.",
     authorName: "F1 Composite Editorial Team",
@@ -6677,6 +6706,8 @@ The [F1 FRP grating guide specification](/downloads/f1-frp-grating-guide-specifi
     ],
     sourceLinks: [
       { label: "MarketsandMarkets: GFRP rebar market and company ranking (2025)", href: "https://www.marketsandmarkets.com/ResearchInsight/gfrp-rebar-companies.asp" },
+      { label: "Ruiz Emparanza, Kampmann and De Caso y Basalo, State-of-the-Practice of Global Manufacturing of FRP Rebar and Specifications (ACI SP-327, 2018)", href: "https://www.concrete.org/publications/internationalconcreteabstractsportal/m/details/id/51713366" },
+      { label: "Owens Corning completes sale of glass reinforcements business to Praana Group (May 1, 2026, PDF)", href: "https://s25.q4cdn.com/634282354/files/doc_news/Owens-Corning-Completes-Sale-of-Glass-Reinforcements-Business-to-Praana-Group-2026.pdf" },
       { label: "Dextra Group: ASTEC soft-eyes, more than 500 supplied since 1996", href: "https://dextragroup.com/ground-engineering/tunneling/astec-soft-eyes" },
       { label: "ICC-ES ESR-5751: Dextra Astec Plus GFRP bars (2026)", href: "https://icc-es.org/wp-content/uploads/report-directory/ESR-5751.pdf" },
       { label: "Pultrall V-ROD 46 technical data sheet", href: "https://cdn.shopify.com/s/files/1/0551/8396/6382/files/V-ROD_46.pdf" },
@@ -6695,7 +6726,7 @@ The [F1 FRP grating guide specification](/downloads/f1-frp-grating-guide-specifi
       items: [
         {
           question: "Who are the largest GFRP rebar manufacturers?",
-          answer: "Analysts name Dextra Group (Thailand, China, India), Pultrall (Canada, now also Ohio), Mateenbar and its parent Pultron (New Zealand, United States, UAE, Saudi Arabia), Schöck (Germany) and Neuvokas (United States) among the leaders, with the top five holding only about 15 to 20% of the market between them. Owens Corning's PINKBAR+ line is discontinued and its reinforcements business was sold in 2026.",
+          answer: "Market analysts list Dextra Group (Thailand, China, India), Pultron and its Mateenbar brand (New Zealand, United States, UAE, Saudi Arabia), Schöck (Germany) and Pultrall (Canada, now also Ohio) among the key players, and Neuvokas (United States) is the most visible US flatwork producer. MarketsandMarkets estimates that the top five hold only about 15 to 20% of the market between them. Owens Corning's PINKBAR+ line is discontinued and its reinforcements business was sold in 2026.",
         },
         {
           question: "What modulus should a structural GFRP bar have?",
@@ -6711,7 +6742,7 @@ The [F1 FRP grating guide specification](/downloads/f1-frp-grating-guide-specifi
         },
       ],
     },
-    content: `Glass fiber reinforced polymer (GFRP) rebar is a small industry with a long list of producers. A 2018 review counted 27 manufacturers in 14 countries, and analysts put the five leading companies at only 15 to 20% of a global market worth about USD 0.5 to 0.8 billion in 2025, depending on whether basalt bars are counted. Nobody owns the market. The leaders win on approvals, published data and proximity to the owner, not on tonnage. This guide summarizes what the five most visible producers publish and do, and turns it into a checklist for qualifying any supplier, including an exporter such as F1 Composite.
+    content: `Glass fiber reinforced polymer (GFRP) rebar is a small industry with a long list of producers. A 2018 ACI symposium review counted 27 FRP rebar manufacturers in 14 countries, and MarketsandMarkets puts the five leading companies at only 15 to 20% of a global GFRP rebar market it sizes at about USD 0.54 billion in 2025; other analysts' estimates are higher, depending on scope. Nobody owns the market. The leaders win on approvals, published data and proximity to the owner, not on tonnage. This guide summarizes what the five most visible producers publish and do, and turns it into a checklist for qualifying any supplier, including an exporter such as F1 Composite.
 
 ## The five leading producers and how they position
 
@@ -6746,7 +6777,7 @@ North American producers quote per linear foot by bar size in 20 ft sticks, bend
 1. **Guaranteed force for every size you will buy**, with the laboratory, the test method (ASTM D7205 or ISO 10406-1) and the edition stated, and the mean-minus-three-sigma definition used. A single "tensile strength" without a size is a marketing number.
 2. **Modulus tier.** 46 GPa or 60 GPa, stated as a guaranteed or mean value per size. Design is governed by stiffness, so this is the number that changes the bar area.
 3. **Resin and glass disclosure.** E-CR glass with a vinyl ester or epoxy matrix for permanent works; polyester only where the use is temporary, as Dextra states on its own range. Ontario's specification makes this mandatory.
-4. **Durability data.** Moisture absorption, alkali resistance with retained strength, glass transition temperature and degree of cure to ASTM D7957 or the CSA D1 protocol. These are cheaper than an approval and are what an engineer actually reads.
+4. **Durability data.** Moisture absorption, alkali resistance with retained strength, glass transition temperature and degree of cure to ASTM D7957 or the CSA S807 durability grade (D1 or D2) the project names. These are cheaper than an approval and are what an engineer actually reads.
 5. **Bent-bar data.** Test results for the bent portion to ASTM D7914, shape capability and minimum bend radii. The bent portion only has to reach 60% of the straight bar, and some tests show far less for large diameters.
 6. **Lot traceability.** Bar marking, production-lot certificates with five specimens per lot, and the link from bundle label to certificate.
 7. **A plain statement of approvals.** ICC-ES, DOT, CSA designated source, ETA or DIBt are producer-specific. A supplier should state the report number or say clearly that none is held. Treat an implied approval as a disqualifier.
@@ -6764,7 +6795,7 @@ F1 Composite is the export company of FengDu New Material, which makes GFRP reba
     answerBox: "A tonne of GFRP rebar is about 4,400 m of Ø12 mm bar or 2,500 m of Ø16 mm, four times the length of a tonne of steel, so GFRP is bought per container rather than per tonne. A 40 ft high-cube carries straight bars up to about 11.8 m and, depending on diameter and packing, roughly 12 to 20 tonnes; a 20 ft box takes bars up to 5.8 m. Request a qualification report per size, production-lot certificates, handling instructions and a certificate of origin with the shipping documents; GFRP bars are generally classified under HS heading 3916, and the duty stack is confirmed by your broker.",
     category: "Concrete Reinforcement",
     date: "2026-10-25",
-    updatedAt: "2026-10-25",
+    updatedAt: "2026-10-26",
     readTime: "9 min",
     excerpt: "How to plan a GFRP rebar import: metres per tonne by diameter, what fits a 20 ft and 40 ft container, coils versus straight bars, the documents to request, customs classification, and how MOQ and lead time are set.",
     authorName: "F1 Composite Editorial Team",
@@ -6806,7 +6837,7 @@ F1 Composite is the export company of FengDu New Material, which makes GFRP reba
     sourceLinks: [
       { label: "ASTM D7957/D7957M-26: GFRP bars for concrete reinforcement", href: "https://store.astm.org/d7957_d7957m-26.html" },
       { label: "PINKBAR data sheet (2023): bar weights, bundle counts and truckload quantities", href: "https://cemstonesupply.com/wp-content/uploads/2025/05/PINKBAR-Data-Sheet-2024.pdf" },
-      { label: "US CBP ruling B87240: classification of FRP rebar under heading 3916", href: "https://open-gov.usebase.io/rulings/B87240" },
+      { label: "US CBP ruling NY B87240 (1997): classification of FRP rebar under subheading 3916.90.50", href: "https://rulings.cbp.gov/ruling/b87240" },
       { label: "USITC Harmonized Tariff Schedule: subheading 3916.90.50", href: "https://hts.usitc.gov/reststop/search?keyword=3916.90.50" },
       { label: "Nanni, Concrete International Aug. 2021: lot testing and DOT acceptance of GFRP bars", href: "https://par.nsf.gov/servlets/purl/10353515" },
     ],
@@ -6848,7 +6879,7 @@ A GFRP bar's unit mass is its nominal area times a density of about 1.9 to 2.1 g
 | 25 mm | No. 8 | 491 | 0.98 | 1,000 |
 | 32 mm | No. 10 | 804 | 1.61 | 620 |
 
-A tonne of Ø12 mm GFRP is about 4,400 m of bar; a tonne of Ø12 mm steel is about 1,100 m. A quotation in dollars per tonne therefore looks four times higher than it is per metre, and a quotation per kilogram cannot be compared with a steel price per kilogram at all. Ask for the price per metre by diameter, or per bar at the agreed length, and compare it per certified area as the [cost-per-foot guide](/resources/blog/fiberglass-rebar-cost-per-foot) explains. Imperial weights for every ASTM size are in the [GFRP rebar size chart](/resources/gfrp-rebar-size-chart).
+A tonne of Ø12 mm GFRP is about 4,400 m of bar; a tonne of Ø12 mm steel is about 1,100 m. Set beside a steel price per tonne, a GFRP price per tonne therefore makes GFRP look about four times dearer relative to steel than a comparison per metre of bar would, so per-tonne and per-kilogram prices are the wrong basis for comparing the two. Ask for the price per metre by diameter, or per bar at the agreed length, and compare it per certified area as the [cost-per-foot guide](/resources/blog/fiberglass-rebar-cost-per-foot) explains. Imperial weights for every ASTM size are in the [GFRP rebar size chart](/resources/gfrp-rebar-size-chart).
 
 ## What fits in a 20 ft and a 40 ft container
 
@@ -6890,7 +6921,7 @@ Send the bar schedule or the size mix, the lengths and shapes, the standard and 
     slug: "fiberglass-rebar-for-residential-concrete",
     title: "Fiberglass Rebar for Residential Concrete: Driveways, Slabs, Pool Shells, Footings and ICF Walls",
     seoTitle: "Fiberglass Rebar for Residential Concrete: Slabs to ICF",
-    answerBox: "Residential flatwork is the largest-volume use of fiberglass (GFRP) rebar: a No. 3 bar weighs about 0.16 kg per metre, a quarter of steel, does not rust or stain, and is cut with a grinder. In the United States one producer's No. 3 bar replaces No. 4 steel in prescriptive slabs and walls under ICC-ES report EER-5548, and hardware chains stock 4 ft, 10 ft and 20 ft lengths; for every other bar the engineer designs to ACI 440.11 or ACI 332 using the bar's test data. Bars cannot be bent on site, float in wet concrete until tied down, and vertical use is limited by wall height.",
+    answerBox: "Residential flatwork is the largest-volume use of fiberglass (GFRP) rebar: a No. 3 bar weighs about 0.16 kg per metre, a quarter of steel, does not rust or stain, and is cut with a grinder. In the United States one producer's No. 3 bar replaces No. 4 steel as horizontal reinforcement in prescriptive IRC concrete walls under ICC-ES report EER-5548, and hardware chains stock 4 ft, 10 ft and 20 ft lengths; for every other bar the engineer designs to ACI 440.11 or ACI 332 using the bar's test data. Bars cannot be bent on site, float in wet concrete until tied down, and vertical use is limited by wall height.",
     category: "Concrete Reinforcement",
     date: "2026-10-26",
     updatedAt: "2026-10-26",
@@ -6950,7 +6981,7 @@ Send the bar schedule or the size mix, the lengths and shapes, the standard and 
       items: [
         {
           question: "Can I use No. 3 fiberglass rebar instead of No. 4 steel in my driveway?",
-          answer: "In the United States, yes for one listed product: ICC-ES report EER-5548 lets that producer's No. 3 GFRP bar replace No. 4 steel in prescriptive residential slabs and walls, and the local building official accepts the report. For any other bar, including an imported one, the engineer or the slab designer confirms the bar size and spacing from the bar's own test data under ACI 332 or ACI 440.11. For a plain driveway reinforced against shrinkage cracking, the GFRP bar usually ends up at the same spacing as the steel it replaces.",
+          answer: "Not on the strength of a code table. In the United States, ICC-ES report EER-5548 lets one producer's No. 3 GFRP bar replace No. 4 steel as horizontal reinforcement in prescriptive IRC concrete walls; it does not cover driveways. For a driveway, whatever the bar (including an imported one), the engineer or the slab designer confirms the bar size and spacing from the bar's own test data under ACI 332 or ACI 440.11. For a plain driveway reinforced against shrinkage cracking, the GFRP bar usually ends up at the same spacing as the steel it replaces.",
         },
         {
           question: "Does fiberglass rebar float in concrete?",

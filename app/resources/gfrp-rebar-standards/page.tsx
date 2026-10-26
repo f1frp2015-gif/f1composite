@@ -16,7 +16,7 @@ import { absoluteUrl, buildPageMetadata } from "@/lib/seo";
 // Sources: docs/research/frp-rebar-market-2026-10.md.
 
 const pagePath = "/resources/gfrp-rebar-standards";
-const PAGE_UPDATED = "2026-10-25";
+const PAGE_UPDATED = "2026-10-26";
 // The same contact form as the product page; no rebar-specific entry point (owner decision 2026-10-26).
 const reviewHref = buildRfqHref({ source: "rebar-standards", product: "GFRP rebar", productPath: "/products/frp-rebar", message: "Please tell me which GFRP rebar documents apply to my project: the specification clause, the standard and edition named, and the submittal list. Please contact me to discuss the details and quotation." });
 const pageTitle = "GFRP Rebar Standards: ASTM D7957, CSA S807, ISO 10406";
@@ -32,7 +32,7 @@ const faqs = [
   { question: "Which edition of ASTM D7957 applies?", answer: "The one named in the project specification. ASTM D7957/D7957M-26 is the active edition; ACI CODE-440.11-22 was written around the 2022 edition and the Gulf standards body adopted the 2022 edition in 2025. Qualification reports should state the edition they were run against, and a newer ASTM edition does not update an older report by itself." },
   { question: "What are CSA S807 grades?", answer: "Modulus tiers: Grade I is at least 40 GPa, Grade II at least 50 GPa and Grade III at least 60 GPa, with durability classes D1 and D2 from alkali exposure testing. Ontario's OPSS 1640 requires Grade III, D1, E-CR glass and a vinyl ester or epoxy matrix. ASTM D7957 has a single 44.8 GPa minimum, and ASTM D8505 covers the 60 GPa class for glass and basalt bars." },
   { question: "Does EN 1992-1-1:2023 Annex R certify GFRP rebar?", answer: "No. Annex R is an informative design annex for embedded FRP reinforcement, used where a national annex allows it. CE marking of a bar runs through a European Technical Assessment under EAD 260023-00-0301 and a Declaration of Performance; Germany additionally uses DIBt general technical approvals for named products." },
-  { question: "What does ISO 10406-1 give me?", answer: "Test methods for FRP bars and grids: tension, bond, creep, alkali resistance, transverse shear and more. It is the neutral test basis for projects outside North America and the methods behind European assessments. A report to ISO 10406-1 shows how values were measured; it does not by itself certify conformity to any product standard." },
+  { question: "What does ISO 10406-1 give me?", answer: "Test methods for FRP bars: tension, bond, creep, alkali resistance, transverse shear and more. The current edition is ISO 10406-1:2025; FRP grids now have their own part, ISO 10406-4:2025. It is the neutral test basis for projects outside North America and the methods behind European assessments. A report to ISO 10406-1 shows how values were measured; it does not by itself certify conformity to any product standard." },
   { question: "What should an export specification name?", answer: "Three layers with editions: the product standard (ASTM D7957/D7957M-26 or CSA S807:19), the design code the engineer used (ACI CODE-440.11-22, AASHTO GFRP-2, CSA S806 or S6, EN 1992-1-1:2023 Annex R, AS 5204 with the state agency clauses) and the submittals: a qualification report for each size, production-lot certificates and bent-bar data. The specification guide shows the wording." },
 ];
 
@@ -89,7 +89,7 @@ export default function GfrpRebarStandardsPage() {
             );
           })}
         </div>
-        <p className="mt-[16px] max-w-[860px] text-f14 leading-golden text-t3">Status notes, October 2026: ASTM D7957/D7957M-26 is active and ACI CODE-440.11-22 still cites the 2022 edition; CSA S6:25 superseded S6:19 in October 2025; the reaffirmation status of CSA S806 differs between catalogues; GOST 31938-2022 superseded the 2012 edition. Confirm the edition your project names.</p>
+        <p className="mt-[16px] max-w-[860px] text-f14 leading-golden text-t3">Status notes, October 2026: ASTM D7957/D7957M-26 is active and ACI CODE-440.11-22 still cites the 2022 edition; CSA S6:25 superseded S6:19 in October 2025; CSA S806:26 (third edition) replaced S806-12; GOST 31938-2022 superseded the 2012 edition. Confirm the edition your project names.</p>
       </PageSection>
 
       <PageSection id="d7957-sizes" title="ASTM D7957/D7957M Table 3: minimum guaranteed tensile force" tone="muted" intro="The force a qualifying bar of each size must guarantee, defined as the sample mean minus three standard deviations. Dividing by the nominal area shows why strength per unit area falls with size while the modulus requirement stays at 44.8 GPa. Commercial structural bars exceed these minimums; Ohio and Texas DOT require higher forces and a 7,500 to 8,700 ksi modulus.">
@@ -159,7 +159,7 @@ export default function GfrpRebarStandardsPage() {
         <div className="grid gap-[16px] md:grid-cols-2">
           {[
             { title: "ICC-ES evaluation reports (United States)", body: "AC454 covers bars in structural concrete under ACI 440.11; AC521 covers shrinkage and temperature reinforcement in flatwork. An ESR lists the producer, the plant, the sizes evaluated and the guaranteed values, and it requires ongoing factory inspections. Bends are usually outside the report's scope." },
-            { title: "State DOT producer lists (United States)", body: "Florida, Texas, Ohio, Maine and others qualify production facilities through AASHTO NTPEP or FRP Institute audits and list them for contractors; shipments may be sampled and tested at the contractor's expense. Buy America rules have applied to GFRP on federally funded work since October 2025." },
+            { title: "State DOT producer lists (United States)", body: "Florida, Texas, Ohio, Maine and others qualify production facilities through AASHTO NTPEP or FRP Institute audits and list them for contractors; shipments may be sampled and tested at the contractor's expense. Build America, Buy America (BABA) domestic-content rules apply on federally funded work; confirm with the owner whether the bar is treated as a construction material (the 2 CFR 184 category that includes composite building materials) or a manufactured product." },
             { title: "CSA S807 grades and MTO designated sources (Canada)", body: "Grade and durability class come from CSA-protocol testing; Ontario additionally lists designated sources for its OPSS 1640 work, requiring Grade III, D1, E-CR glass and a vinyl ester or epoxy matrix." },
             { title: "ETA, CE and DIBt (Europe)", body: "CE marking follows a European Technical Assessment under EAD 260023-00-0301 and a Declaration of Performance; only a few GFRP bars hold one. Germany's DIBt issues general technical approvals for named systems, such as the one held by Schöck Combar." },
           ].map((card) => (

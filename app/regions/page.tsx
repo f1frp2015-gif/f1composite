@@ -49,8 +49,8 @@ const markets = [
     title: "FRP pultrusion supplier for USA projects",
     href: "/regions/frp-pultrusion-supplier-usa",
     focus:
-      "ASTM test methods, AAMA 2604 / 2605 finishes, PHI-certified window frames, and DDP quotes with US duties itemized.",
-    standards: ["ASTM", "AAMA 2605", "PHI 2491wi03"],
+      "ASTM test methods, AAMA 624 / 625 finishes, PHI-certified window frames, and DDP quotes with US duties itemized.",
+    standards: ["ASTM", "AAMA 625", "PHI 2491wi03"],
   },
   {
     region: "Canada",
@@ -65,7 +65,7 @@ const markets = [
     title: "FRP passive house windows for Germany",
     href: "/regions/frp-passive-house-windows-germany",
     focus:
-      "PHI-certified 90-series windows (Uw 0.78 W/m²·K) for Passivhaus and GEG projects, outside the EU aluminum duties and CBAM.",
+      "PHI-certified 90-series windows (Uw 0.78 W/m²·K) for Passivhaus and GEG / GModG projects, outside the EU aluminum duties and CBAM.",
     standards: ["PHI 2491wi03", "EN 14351-1"],
   },
   {

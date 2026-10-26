@@ -156,7 +156,7 @@ export default function StandardProfilesPage() {
           })(),
           additionalProperty: [
             { name: "Profile Types", value: "I-beam, channel, angle, square tube, round tube, flat bar, round rod" },
-            { name: "Size Range", value: "12×3 mm to 305×305 mm" },
+            { name: "Size Range", value: "Ø6 mm rod and 12×3 mm flat bar up to I 305×305 mm and U 360×108 mm" },
             { name: "Standard Length", value: "6 m (custom lengths on request)" },
             { name: "Production timing", value: "Confirm in quotation" },
           ],

@@ -5,7 +5,7 @@ export const specialistApplicationPages: ApplicationPage[] = [
   {
     "slug": "frp-wastewater-clarifier-components",
     "calculator": false,
-    "lastModified": "2026-10-03",
+    "lastModified": "2026-10-26",
     "title": "FRP Clarifier Components | Sludge Flights, Weirs & Baffles",
     "shortTitle": "Wastewater clarifier components",
     "description": "Specify pultruded FRP clarifier flights, weirs, scum baffles and supports, with guidance on mechanical interfaces, materials and acceptance standards.",
@@ -66,7 +66,7 @@ export const specialistApplicationPages: ApplicationPage[] = [
   {
     "slug": "frp-pulp-paper-mill-components",
     "calculator": false,
-    "lastModified": "2026-10-03",
+    "lastModified": "2026-10-26",
     "title": "FRP for Pulp & Paper Mills | Access & Support Specification",
     "shortTitle": "Pulp and paper mill components",
     "description": "Plan pultruded FRP access and supports for pulp and paper mills. Review chemical exposure, connections, shutdown work, maintenance and workplace rules.",
@@ -131,7 +131,7 @@ export const specialistApplicationPages: ApplicationPage[] = [
   {
     "slug": "frp-transformer-insulation-supports",
     "calculator": false,
-    "lastModified": "2026-10-03",
+    "lastModified": "2026-10-26",
     "title": "FRP Transformer Insulation Supports | Design & Qualification",
     "shortTitle": "Dry-type transformer insulation supports",
     "description": "Specify pultruded fiberglass winding spacers and supports for dry-type transformers: thermal classes, contact loads, cooling, insulation and RFQ evidence.",
@@ -182,7 +182,7 @@ export const specialistApplicationPages: ApplicationPage[] = [
   {
     "slug": "frp-third-rail-protection",
     "calculator": false,
-    "lastModified": "2026-10-03",
+    "lastModified": "2026-10-26",
     "title": "FRP Third-Rail Protection | Coverboard Design Guide",
     "shortTitle": "Third-rail protection systems",
     "description": "Plan pultruded third-rail coverboards around collector clearance, brackets, weather, fire requirements, electrical protection and operator qualification.",
@@ -233,7 +233,7 @@ export const specialistApplicationPages: ApplicationPage[] = [
   {
     "slug": "frp-live-line-tool-components",
     "calculator": false,
-    "lastModified": "2026-10-03",
+    "lastModified": "2026-10-26",
     "title": "FRP Live-Line Tool Components | Qualification Guide",
     "shortTitle": "Live-line tool component qualification",
     "description": "Develop a specification for fiberglass live-line tool rods and foam-filled tubes, separating component tests, complete-tool qualification and employer duties.",
@@ -284,7 +284,7 @@ export const specialistApplicationPages: ApplicationPage[] = [
   {
     "slug": "cfrp-concrete-strengthening",
     "calculator": false,
-    "lastModified": "2026-10-03",
+    "lastModified": "2026-10-26",
     "title": "CFRP Concrete Strengthening | Pultruded Strip Guide",
     "shortTitle": "CFRP concrete strengthening",
     "description": "Specify pultruded CFRP strips for concrete strengthening: existing-structure assessment, bonding, installation controls, inspection and system qualification.",
@@ -336,7 +336,7 @@ export const specialistApplicationPages: ApplicationPage[] = [
   {
     "slug": "carbon-fiber-industrial-rollers",
     "calculator": false,
-    "lastModified": "2026-10-03",
+    "lastModified": "2026-10-26",
     "title": "Carbon-Fiber Industrial Rollers | Web Handling Guide",
     "shortTitle": "Carbon-fiber industrial rollers",
     "description": "Define carbon roller requirements for film, printing and nonwoven lines: load paths, rotor behavior, surfaces, end fittings, commissioning and qualification.",
@@ -389,7 +389,7 @@ export const specialistApplicationPages: ApplicationPage[] = [
   {
     "slug": "frp-rail-interior-profiles",
     "calculator": false,
-    "lastModified": "2026-10-03",
+    "lastModified": "2026-10-26",
     "title": "FRP Rail Interior Profiles | Fire Qualification Guide",
     "shortTitle": "Rail interior and secondary profiles",
     "description": "Plan railway interior and secondary pultruded profiles with a defined component function, EN 45545 fire evidence, connections, traceability and change control.",
@@ -440,7 +440,7 @@ export const specialistApplicationPages: ApplicationPage[] = [
   {
     "slug": "frp-switchgear-insulation-components",
     "calculator": false,
-    "lastModified": "2026-10-03",
+    "lastModified": "2026-10-26",
     "title": "FRP Switchgear Insulation | Supports & Mechanisms",
     "shortTitle": "Switchgear insulation and mechanism components",
     "description": "Specify pultruded FRP switchgear supports and operating parts: insulation paths, fault loads, cycling, thermal duty, material tests and OEM qualification.",
@@ -499,7 +499,7 @@ export const specialistApplicationPages: ApplicationPage[] = [
   {
     "slug": "composite-overhead-conductor-cores",
     "calculator": false,
-    "lastModified": "2026-10-03",
+    "lastModified": "2026-10-26",
     "title": "Composite Conductor Cores | HTLS Qualification Guide",
     "shortTitle": "Composite cores for overhead conductors",
     "description": "Evaluate composite cores for overhead conductors: material architecture, heat and creep, bending, fittings, sag-tension, installation and qualification.",
@@ -553,7 +553,7 @@ export const specialistApplicationPages: ApplicationPage[] = [
   {
     "slug": "cfrp-robotic-beams-struts",
     "calculator": false,
-    "lastModified": "2026-10-03",
+    "lastModified": "2026-10-26",
     "title": "CFRP Robot Beams & Struts | Engineering Guide",
     "shortTitle": "CFRP robotic beams and struts",
     "description": "Specify carbon-fiber robot beams and struts: stiffness, joints, buckling, fatigue, positioning, machine safety and a staged component qualification plan.",
@@ -606,7 +606,7 @@ export const specialistApplicationPages: ApplicationPage[] = [
   {
     "slug": "composite-mri-patient-supports",
     "calculator": false,
-    "lastModified": "2026-10-03",
+    "lastModified": "2026-10-26",
     "title": "Composite MRI Patient Supports | OEM Design Guide",
     "shortTitle": "Composite MRI patient supports",
     "description": "Define composite MRI patient-support requirements: GFRP or CFRP selection, load paths, MR assessment, cleaning, traceability and OEM device qualification.",
@@ -661,7 +661,7 @@ export const specialistApplicationPages: ApplicationPage[] = [
   {
     "slug": "frp-scrubber-demister-profiles",
     "calculator": false,
-    "lastModified": "2026-10-03",
+    "lastModified": "2026-10-26",
     "title": "FRP Scrubber & Demister Profiles | Application Guide",
     "shortTitle": "Scrubber and demister profiles",
     "description": "Specify FRP scrubber vanes and demister supports: chemistry, flow, drainage, fouling, structural loads, washing, acceptance and regulatory scope.",

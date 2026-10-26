@@ -22,7 +22,7 @@ const seoTarget = getSeoQueryTarget(pagePath);
 const pageTitle = seoTarget.title;
 const pageDescription = seoTarget.description;
 const publishedAt = "2024-03-15";
-const updatedAt = "2026-09-25";
+const updatedAt = "2026-10-26";
 const referencedStandards = ["EN 13706", "ASTM D3917", "ASTM D638", "ASTM D790"];
 
 export const metadata: Metadata = buildPageMetadata({
@@ -161,9 +161,9 @@ const equipmentSpecs = [
   { parameter: "Line speed range", range: "0.2–2.0 m/min", note: "Servo-controlled, ±0.5% accuracy" },
   { parameter: "Die heating range", range: "100–200 °C", note: "Three independent zones, ±2 °C" },
   { parameter: "Maximum pull force", range: "Up to 100 kN", note: "Hydraulic clamp puller" },
-  { parameter: "Profile envelope", range: "500 × 100 mm", note: "Width × depth bounding rectangle" },
+  { parameter: "Profile envelope", range: "Up to 600 × 300 mm", note: "Width × depth bounding rectangle" },
   { parameter: "Minimum wall", range: "1.5 mm", note: "With CFM reinforcement" },
-  { parameter: "Fiber volume range", range: "55–72%", note: "Depends on geometry and resin" },
+  { parameter: "Glass content range", range: "55–72% by weight", note: "Depends on geometry and resin" },
   { parameter: "Injection pressure", range: "3–8 bar", note: "Closed-loop pressure regulation" },
   { parameter: "Cut-off accuracy", range: "±0.5 mm", note: "Flying saw with automatic tracking" },
 ];
@@ -191,7 +191,7 @@ const faqItems = [
   },
   {
     question: "What are the advantages of pultrusion over hand lay-up or filament winding?",
-    answer: "Pultrusion is the most cost-effective method for constant-cross-section profiles: continuous, highly automated, 60–70% fiber volume fraction (vs 30–45% for hand lay-up). Hand lay-up suits complex one-off shapes. Filament winding suits hollow rotational parts (pipes, tanks) but cannot produce open shapes like I-beams or channels.",
+    answer: "Pultrusion is the most cost-effective method for constant-cross-section profiles: continuous, highly automated, 60–70% glass by weight (vs roughly 30–45% for hand lay-up). Hand lay-up suits complex one-off shapes. Filament winding suits hollow rotational parts (pipes, tanks) but cannot produce open shapes like I-beams or channels.",
   },
 ];
 
@@ -317,7 +317,7 @@ export default function PultrusionProcessPage() {
         updated={updatedAt}
         tag="Pultrusion Process"
         title="The fiberglass pultrusion process, step by step"
-        description="Pultrusion is a continuous process: glass or carbon fiber rovings and mats are pulled through a resin bath or injection chamber, then through a steel die heated to about 120–180 °C, where the resin cures into a profile of constant cross-section. A puller draws the cured profile at 0.3–1.5 m/min, and a flying saw cuts it to length without stopping the line. Fiber makes up 60–70% of the profile by volume, which gives pultruded sections high strength along their length."
+        description="Pultrusion is a continuous process: glass or carbon fiber rovings and mats are pulled through a resin bath or injection chamber, then through a steel die heated to about 120–180 °C, where the resin cures into a profile of constant cross-section. A puller draws the cured profile at 0.3–1.5 m/min, and a flying saw cuts it to length without stopping the line. Glass fiber makes up 60–70% of the profile by weight (roughly half by volume), which gives pultruded sections high strength along their length."
         breadcrumbs={[
           { label: "Home", href: "/" },
           { label: "Technology", href: "/technology" },

@@ -15,10 +15,10 @@ const pageDescription =
   "Compare FOB, CIF, DAP and DDP for pultruded FRP exports, including freight ownership, HS/HTSUS classification, Section 301 exposure and landed-cost checks.";
 const pagePath = "/resources/frp-pultrusion-fob-ddp-export-guide";
 const publishedAt = "2026-07-03";
-const updatedAt = "2026-07-03";
+const updatedAt = "2026-10-26";
 const authorName = "Duowei Wang, Ph.D.";
 const reviewedBy = "Yifan Liu, Application Engineer";
-const referencedStandards = ["HTSUS 3926.90", "HTSUS 7019", "Section 301 (USTR)", "Incoterms® 2020"];
+const referencedStandards = ["HTSUS 3916.90", "HTSUS 3925", "HTSUS 3926.90", "HTSUS 7019", "Section 301 (USTR)", "Incoterms® 2020"];
 
 export const metadata: Metadata = buildPageMetadata({
   title: pageTitle,
@@ -38,14 +38,14 @@ interface IncotermRow {
 const incoterms: IncotermRow[] = [
   {
     term: "FOB (Free on Board)",
-    freight: "Buyer books and pays ocean/air freight from the origin port",
+    freight: "Buyer books and pays ocean freight from the loading port (FOB is a sea-freight rule; use FCA for air freight or a container handed over at a terminal)",
     customsClearance: "Buyer clears import customs at destination",
     dutyPaidBy: "Buyer",
     bestFor: "Buyers with an existing customs broker and freight forwarder who want direct control over the import leg",
   },
   {
     term: "CIF (Cost, Insurance & Freight)",
-    freight: "Seller books freight and insurance to the destination port",
+    freight: "Seller books ocean freight and minimum insurance cover to the destination port; risk passes to the buyer once the goods are on board at origin",
     customsClearance: "Buyer clears import customs at destination",
     dutyPaidBy: "Buyer",
     bestFor: "Buyers who want one seller-arranged freight leg but still handle their own import clearance",
@@ -68,9 +68,9 @@ const incoterms: IncotermRow[] = [
 
 const hsCandidates = [
   {
-    application: "Structural pultruded profile (I-beam, channel, angle, tube, flat bar) — no window/door hardware function",
-    heading: "HTSUS 3926.90 or 7019",
-    logic: "Classification turns on the General Rules of Interpretation (GRI) essential-character test: a resin-matrix-dominant plastic article is classified under 3926.90 (other articles of plastics), while an article whose glass-fiber content gives it its essential character can fall under 7019 (glass fibers and articles made from them). The same physical profile can be classified either way depending on its composition, finishing, and the importing country's prior rulings.",
+    application: "Structural pultruded profile (I-beam, channel, angle, tube, flat bar), cut to length but not otherwise worked",
+    heading: "HTSUS 3916.90 (or 7019 in some rulings)",
+    logic: "Heading 3916 covers rods, sticks and profile shapes of plastics, whether or not surface-worked but not otherwise worked. Recent CBP rulings place glass-reinforced pultruded profiles there: NY N353644 (2025, pultruded struts) and NY N357163 (2026, a glass-fiber-reinforced hollow profile from China, where CBP rejected the proposed 3926 classification). Importers sometimes argue for 7019 (glass fibers and articles made from them) when the glass content gives the article its essential character, so the importing country's rulings decide.",
   },
   {
     application: "Window / door frame profile (finished fenestration component)",
@@ -78,9 +78,9 @@ const hsCandidates = [
     logic: "Builders' ware of plastics for windows and doors is its own heading; a finished fenestration profile can be classified here instead of 3926.90 depending on how the importing customs authority treats the finished-component function versus the raw-profile form.",
   },
   {
-    application: "Rod, bar, or linear-section stock of reinforced plastic",
-    heading: "HTSUS 3916 (in some rulings)",
-    logic: "Monofilament, rods, and sticks of plastics have a dedicated heading that some rulings apply to certain linear FRP stock shapes, again subject to essential-character analysis.",
+    application: "Drilled, punched or fabricated profile parts",
+    heading: "HTSUS 3925.90 or 3926.90",
+    logic: "Once a profile is worked beyond cutting and surface finishing, it leaves heading 3916. In NY N353644 CBP classified the same pultruded struts with punched slots as builders' ware of plastics (3925.90); fabricated parts that are not builders' ware fall to 3926.90 (other articles of plastics).",
   },
 ];
 
@@ -88,12 +88,12 @@ const faqs = [
   {
     question: "What HS code applies to pultruded FRP profiles?",
     answer:
-      "There is no single universal HS code for pultruded FRP. Classification depends on the profile's composition, finishing, and end use under the General Rules of Interpretation (GRI) essential-character test. Standard structural profiles most commonly fall under HTSUS 3926.90 (other articles of plastics) or 7019 (glass fibers and articles made from them); finished window and door components sometimes fall under 3925, and certain rod or bar stock falls under 3916. The only reliable answer is a binding ruling for your specific profile from the destination country's customs authority, such as a CBP Binding Ruling in the United States.",
+      "There is no single universal HS code for pultruded FRP. Classification depends on the profile's composition, finishing, and end use under the General Rules of Interpretation (GRI) essential-character test. Recent CBP rulings place standard structural profiles that are cut to length but not otherwise worked under HTSUS 3916.90 (profile shapes of plastics); drilled or punched parts move to 3925 (builders' ware) or 3926.90 (other articles of plastics), finished window and door frames fall under 3925.20, and some importers argue for 7019 (glass fibers and articles made from them) where the glass content dominates. The only reliable answer is a binding ruling for your specific profile from the destination country's customs authority, such as a CBP Binding Ruling in the United States.",
   },
   {
     question: "Does Section 301 apply to all FRP profiles imported from China?",
     answer:
-      "Section 301 tariffs are applied by HTSUS heading against China-origin goods broadly, not against \"FRP\" as a product category — so if your profile's HTSUS heading is on an active Section 301 list, the tariff applies regardless of whether it is a bulk commodity shape or an engineered custom section. This is distinct from anti-dumping/countervailing duty (AD/CVD) measures, which historically have targeted glass fiber itself (HTSUS 7019) and a narrower set of finished glass-fiber products more specifically than they target pultruded structural profiles generally. Because both regimes are HS-code and origin specific and change over time, always confirm current exposure for your exact classification and shipment date via your customs broker or the current USTR/CBP published lists rather than assuming a blanket rate.",
+      "Section 301 tariffs are applied by HTSUS heading against China-origin goods broadly, not against \"FRP\" as a product category — so if your profile's HTSUS heading is on an active Section 301 list, the tariff applies regardless of whether it is a bulk commodity shape or an engineered custom section. This is distinct from anti-dumping/countervailing duty (AD/CVD) measures, which are written for named products. In the United States, AD/CVD orders on fiberglass door panels from China took effect in 2026 (91 FR 50797); in the EU, anti-dumping and anti-subsidy duties apply to Chinese glass-fiber inputs such as continuous filament glass fiber and woven or stitched glass fiber fabrics. Neither targets pultruded structural profiles as a category. Because both regimes are HS-code and origin specific and change over time, always confirm current exposure for your exact classification and shipment date via your customs broker or the current USTR/CBP published lists rather than assuming a blanket rate.",
   },
   {
     question: "What is DDP and why does it matter when importing FRP profiles?",
@@ -220,7 +220,7 @@ export default function DdpTariffHsCodeGuidePage() {
       <PageSection id="section-301" title="Two different regimes, often conflated" tone="muted">
         <div className="max-w-[860px] space-y-[12px] text-f16 leading-golden text-t2">
           <p>
-            Section 301 tariffs apply by HTSUS heading against China-origin goods on the active USTR lists: if your profile&rsquo;s heading is listed, the tariff applies to the shipment regardless of what the part is used for. Anti-dumping and countervailing duty (AD/CVD) measures are a separate regime that, for the composites industry, has historically targeted glass fiber itself (HTSUS 7019) and a narrower set of finished glass-fiber products more specifically than pultruded structural profiles as a category.
+            Section 301 tariffs apply by HTSUS heading against China-origin goods on the active USTR lists: if your profile&rsquo;s heading is listed, the tariff applies to the shipment regardless of what the part is used for. Anti-dumping and countervailing duty (AD/CVD) measures are a separate regime written for named products. In the United States, orders on fiberglass door panels and sidelites from China took effect in 2026 (91 FR 50797); in the EU, duties apply to Chinese glass-fiber inputs such as continuous filament glass fiber and woven or stitched fabrics. Neither covers pultruded structural profiles as a category.
           </p>
           <p>
             In practice: assume Section 301 exposure applies to most China-origin FRP profile headings, and check AD/CVD exposure for your specific HS classification and origin rather than assuming it applies to every FRP product. Both lists change, so confirm current rates for your exact heading and shipment date with your customs broker or the current USTR and CBP publications before you finalize a purchase order.

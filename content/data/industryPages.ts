@@ -62,7 +62,7 @@ export const industryPages = {
     slug: "energy",
     path: "/industries/energy",
     name: "Energy & power",
-    updated: "2026-10-03",
+    updated: "2026-10-26",
     h1: "FRP Composite Profiles for Energy & Electric Power",
     intro:
       "Pultruded FRP profiles for substations, cable routes, solar mounting and wind energy. Glass FRP is non-conductive and does not rust, so it suits equipment areas where steel needs grounding, bonding or recoating; the laminate and the assembly are confirmed for each project.",
@@ -77,9 +77,9 @@ export const industryPages = {
       { area: "Overhead distribution lines", exposure: "Timber crossarms can decay and steel hardware can corrode in wet or coastal service", parts: "Pultruded fiberglass crossarm members with agreed drilling and assembly scope", check: "Conductor load cases, pole mount and brace capacity, clearances, tracking, UV and water ingress" },
       { area: "Substations and switchyards", exposure: "Steel frames need grounding and bonding, and corrode in coastal or industrial air", parts: "Equipment stands, frames and trench covers from standard profiles", check: "Clearances, dielectric data for the specified laminate, UV exposure and any fire classification" },
       { area: "Cable routes in plants", exposure: "Steel trays and supports rust in damp, chemical or coastal areas", parts: "Channels, angles and brackets for cable supports; custom tray sections", check: "Cable weight, support spacing, fire-retardant resin where required, the electrical design basis" },
-      { area: "Solar mounting", exposure: "Zinc coatings wear on coastal, agricultural and floating sites; many roofs have little spare capacity", parts: "Rails, posts, clamps and PV module frame profiles", check: "Wind and snow loads, UV-stabilised resin and surface veil, connections and roof capacity" },
+      { area: "Solar mounting", exposure: "Zinc coatings wear on coastal, agricultural and floating sites; many roofs have little spare capacity", parts: "Rails, posts, clamps and PV module frame profiles", check: "Wind and snow loads, UV-stabilized resin and surface veil, connections and roof capacity" },
       { area: "Wind energy", exposure: "Blade reinforcement needs light laminates with documented fatigue behavior", parts: "Pultruded spar-cap panels in glass, carbon or hybrid laminates", check: "The laminate data sheet and the blade designer's qualification route" },
-      { area: "Transformers and switchgear", exposure: "Metal parts near high-current conductors can heat by induction", parts: "Custom insulating spacers, standoffs and supports", check: "Temperature class of the resin, and dielectric and thermal test data for the specific part" },
+      { area: "Transformers and switchgear", exposure: "Metal parts near high-current conductors can heat by induction", parts: "Custom insulating spacers, standoffs and supports", check: "The insulation-system thermal class set by the equipment maker, and dielectric and thermal test data for the specific part" },
     ],
     products: [
       { label: "Standard structural profiles", href: "/products/fiberglass-structural-shapes", glyph: "i_beam", reason: "Frames, equipment stands and supports from 114 catalog sizes." },
@@ -109,7 +109,7 @@ export const industryPages = {
     documentPaths: ["/products/wind-turbine-blade-panels", "/products/frp-solar-mounting-systems", "/products/fiberglass-structural-shapes"],
     faqs: [
       { question: "Is FRP non-conductive enough for electrical applications?", answer: "Glass-fiber FRP is an electrical insulator, which is why it is used for supports near energized equipment. Its dielectric performance depends on the resin, glass content, surface condition, moisture and contamination. Request the dielectric test data for the specified laminate, and design the assembly, including any metal hardware, to your electrical standard." },
-      { question: "Can FRP be used outdoors on solar and substation sites?", answer: "Yes, with a UV-stabilised resin and surface veil and, where specified, a compatible coating. Appearance and property retention depend on the resin, pigment, climate and exposure time, so state the location and design life and ask for the applicable weathering evidence." },
+      { question: "Can FRP be used outdoors on solar and substation sites?", answer: "Yes, with a UV-stabilized resin and surface veil and, where specified, a compatible coating. Appearance and property retention depend on the resin, pigment, climate and exposure time, so state the location and design life and ask for the applicable weathering evidence." },
       { question: "Are FRP profiles fire-retardant?", answer: "Fire-retardant polyester, vinyl ester and phenolic laminates are available; the standard polyester laminate is not fire-retardant. Fire test reports are issued for a specified formulation and profile, so list the classification your project requires in the RFQ." },
       { question: "What operating temperature can FRP profiles take?", answer: "Standard laminates are used well below the resin's glass transition; the structural pages treat continuous service above about 60 °C as a reason to review the resin. Parts near transformers or other hot equipment need a resin selected and tested for the operating and peak temperatures you send." },
     ],
@@ -124,7 +124,7 @@ export const industryPages = {
     slug: "industrial",
     path: "/industries/industrial",
     name: "Industrial & chemical",
-    updated: "2026-09-27",
+    updated: "2026-10-26",
     h1: "FRP for Chemical & Industrial Facilities",
     intro:
       "Fiber-reinforced polymer (FRP) profiles, grating and access systems for processing plants and manufacturing sites where steel corrodes. The resin is chosen for the chemicals on site, with fire-retardant grades where the plant requires them.",
@@ -136,7 +136,7 @@ export const industryPages = {
     areasIntro: "Corrosion, wash-down and access needs differ across a plant. Resin compatibility is confirmed per chemical, and safety requirements apply to the complete assembly.",
     areas: [
       { area: "Chemical processing", exposure: "Acids, alkalis and solvents corrode steel and attack its coatings", parts: "Platforms, grating, handrails, ladders and equipment frames", check: "Each chemical with its concentration and temperature; vinyl ester is the usual starting resin" },
-      { area: "Access around equipment", exposure: "Steel access routes need recoating, and changes need hot-work permits", parts: "Molded or pultruded grating, stair treads, handrail systems, fixed ladders", check: "Loads, spans and openings, and guard and ladder requirements such as OSHA 1910.29 for the complete assembly" },
+      { area: "Access around equipment", exposure: "Steel access routes need recoating, and changes need hot-work permits", parts: "Molded or pultruded grating, stair treads, handrail systems, fixed ladders", check: "Loads, spans and openings, and guard and ladder requirements such as OSHA 1910.23 and 1910.29 for the complete assembly" },
       { area: "Wash-down areas", exposure: "Constant moisture and cleaning agents in food, beverage and pharmaceutical plants", parts: "Grating, stair treads, covers and frames", check: "Cleaning agents and temperatures; any food-contact or hygiene requirement is confirmed for the specific resin and surface" },
       { area: "Cooling towers", exposure: "Humidity, chlorides, biocides and wet-dry cycling", parts: "Beams, tubes, angles, louvers and grating supports", check: "Water chemistry, temperature, loads and any fire requirement" },
       { area: "Cable routes and instrument areas", exposure: "Metal supports corrode and need grounding", parts: "Channels, angles and brackets for cable supports; instrument stands", check: "Cable weight, support spacing and fire-retardant resin where required" },
@@ -172,7 +172,7 @@ export const industryPages = {
       { question: "When should a plant use molded rather than pultruded grating?", answer: "Molded panels are a useful starting point for layouts with frequent openings or support in two directions. Pultruded panels have a defined bearing-bar direction and suit span-led layouts. Both need a panel-specific load and deflection check, suitable edge support, hold-downs, surface and openings." },
       { question: "Can an FRP beam replace a steel beam of the same size?", answer: "Not directly. FRP can be sized for the same loads, usually as a deeper section, because its modulus is about a tenth of steel's. Compare the complete assembly against its load cases, deflection limit, buckling, connection bearing and exposure, using the span tables and the profile calculator, then confirm with the project calculation. Retrofitted anchors and the remaining structure also need review." },
       { question: "Is every FRP profile fire rated or suitable for a hazardous area?", answer: "No. Specify the flame, smoke, structural fire, static-control and hazardous-area requirements for the installed component or assembly, then request reports for the offered laminate and test configuration. A resin label or small-sample rating alone does not establish project acceptance." },
-      { question: "Do FRP ladders and handrails meet OSHA requirements?", answer: "Compliance belongs to the complete assembly: rails, posts, fittings, anchors and the supporting structure. OSHA 1910.29 sets the requirements for guardrails and fixed ladders in general industry, and the design and installation are checked against it for the project." },
+      { question: "Do FRP ladders and handrails meet OSHA requirements?", answer: "Compliance belongs to the complete assembly: rails, posts, fittings, anchors and the supporting structure. In U.S. general industry, OSHA 1910.23 covers fixed-ladder design and OSHA 1910.29 covers guardrail systems and ladder fall-protection systems; the design and installation are checked against them for the project." },
       { question: "Can these products be used in food or pharmaceutical production areas?", answer: "FRP may be evaluated for non-product-contact access and service areas exposed to frequent washdown. Direct food contact, cleanroom use and validated hygiene performance require separate review of the finished product, surface, joints, cleaning chemicals and the site's acceptance criteria. Do not infer those approvals from a resin ingredient." },
     ],
     request: [
@@ -357,7 +357,7 @@ export const industryPages = {
     slug: "water-wastewater",
     path: "/industries/water-wastewater",
     name: "Water & wastewater",
-    updated: "2026-09-26",
+    updated: "2026-10-26",
     h1: "FRP profiles for water & wastewater facilities",
     intro:
       "Water and wastewater projects use pultruded profiles and grating for cable supports, equipment access and walking surfaces. F1 supplies the specified profiles, panels and agreed fabricated components; treatment equipment and complete civil works are separate scopes.",
@@ -370,7 +370,7 @@ export const industryPages = {
     areas: [
       { area: "Headworks and screening", exposure: "Hydrogen sulfide, high humidity and wash-down", parts: "Walkway grating, covers, cable supports", check: "Vinyl ester resin and a surface veil are the usual starting point where H₂S builds up under covers" },
       { area: "Aeration and biological basins", exposure: "Constant splash and humidity, outdoor UV", parts: "Access walkways, handrails, pipe and cable supports", check: "Long runs along basin edges make weight and no recoating the main reasons to use FRP" },
-      { area: "Clarifiers and settling tanks", exposure: "Immersion or splash at the water line", parts: "Baffles and plates cut from solid sheet, walkway grating", check: "Parts that sit in the water need the resin and cut-edge sealing checked for immersion" },
+      { area: "Clarifiers and settling tanks", exposure: "Immersion or splash at the water line", parts: "Sludge collector flights, weir plates and scum baffles, walkway grating", check: "Parts that sit in the water need the resin and cut-edge sealing checked for immersion" },
       { area: "Chemical dosing rooms", exposure: "Sodium hypochlorite, ferric chloride, caustic, acids", parts: "Platforms, grating, cable trays, equipment frames", check: "The chemical list with concentrations and temperatures; compatibility is confirmed per chemical" },
       { area: "Sludge handling and digesters", exposure: "Hydrogen sulfide, methane, heat", parts: "Cable trays and ladders, access frames, grating", check: "Non-conductive trays and supports help where electrical isolation near equipment matters" },
     ],
@@ -396,7 +396,7 @@ export const industryPages = {
     documentPaths: ["/products/grating", "/products/fiberglass-structural-shapes"],
     faqs: [
       { question: "Which resin suits a wastewater plant?", answer: "Do not select a resin from the word wastewater alone. Provide the chemicals and concentrations, temperature, immersion or splash conditions, cleaning agents and outdoor exposure; resin compatibility, reinforcement, surface veil and cut-edge protection are reviewed together. A material suitable for one treatment zone may not suit another." },
-      { question: "Can FRP parts sit in the water?", answer: "Baffles and plates in clarifiers and settling tanks are cut from solid sheet. Parts that sit in the water need the resin and cut-edge sealing checked for immersion, so state which parts are immersed and which only see splash." },
+      { question: "Can FRP parts sit in the water?", answer: "Yes, within a checked exposure. In clarifiers and settling tanks, collector flights are pultruded profiles, while weir plates and scum baffles are machined from flat pultrusions or solid sheet, or are matched-die-molded where a specification invokes AWWA F102. Parts that sit in the water need the resin and cut-edge sealing checked for immersion, so state which parts are immersed and which only see splash." },
       { question: "What does F1 supply for a treatment plant?", answer: "The specified profiles, grating panels and agreed fabricated components: raw lengths, cut and drilled profiles, panels, fixing hardware and any agreed assemblies, listed on the bill of materials. Treatment equipment and complete civil works are separate scopes, and the quote states who designs and installs the final structure." },
       { question: "Do fire and electrical requirements apply?", answer: "They belong to the offered material and assembly, rather than to fiberglass as a universal category. List the fire and electrical requirements in the RFQ with the operating and maintenance loads, panel support and attachment details." },
     ],

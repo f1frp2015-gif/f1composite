@@ -17,7 +17,7 @@ export const fallbackDownloads: DownloadItem[] = [
     title: "Pultruded FRP Pipe — Mining & Oilfield Catalog (Edition 2026.06)",
     format: "PDF",
     size: "991 KB",
-    description: "3-page product catalog for F1 Composite serial-production pultruded FRP pipe in two qualified families. Series 01 — Oilfield Surface Gathering: DN50–DN300, 0.7–3.5 MPa, −40 °C to +140 °C continuous (short-term peak +160 °C), vinyl-ester / epoxy / polyurethane matrices with 0.5–2.5 mm resin-rich liner (novolac VE for sour H₂S / CO₂ service), ≥25-year life, qualified to API 15LR, ISO 14692, NORSOK M-622, ASTM D2992, SY/T 6266. Series 02 — Mine Methane Drainage: DN25–DN300, 0.6–1.6 MPa, surface resistance ≤3×10⁸ Ω, LOI ≥28%, UL 94 V-0, ≥50-year design life, qualified to MT 558.2, GB 16413, MT 113, ISO 4589-2, ASTM E84 Class I. Edition 2026.06, Rev v1.3.",
+    description: "3-page product catalog for F1 Composite serial-production pultruded FRP pipe in two product families. Series 01 — Oilfield Surface Gathering: DN50–DN300, 0.7–3.5 MPa, −40 °C to +140 °C continuous (short-term peak +160 °C), vinyl-ester / epoxy / polyurethane matrices with 0.5–2.5 mm resin-rich liner (novolac VE for sour H₂S / CO₂ service); reference standards API 15LR, ISO 14692, NORSOK M-622, ASTM D2992, SY/T 6266. Series 02 — Mine Methane Drainage: DN25–DN300, 0.6–1.6 MPa, surface resistance ≤3×10⁸ Ω, LOI ≥28%, UL 94 V-0; reference standards MT/T 558.3, GB 16413, MT 113, ISO 4589-2, ASTM E84. Qualification reports, holders and scope are provided on request. Edition 2026.06, Rev v1.3.",
     file: "/downloads/f1composite-oilfield-mine-pipe-catalog-2026-06.pdf",
   },
   {
@@ -73,14 +73,14 @@ export const fallbackDownloads: DownloadItem[] = [
     title: "3-Star Green Building Material Certificate — Pultruded GFRP Windows",
     format: "PDF",
     size: "115 KB",
-    description: "Certificate No. CABR-01(02)-(2025)-CGP-035. 3-Star (highest tier) rating under the Chinese Green Building Material assessment framework T/CECS 10026-2019 and CABR/CC-TD-CGP-09:2024. Covers F1 Composite 65/70/80/90-series tilt-and-turn pultruded GFRP-polyurethane windows for cold, hot-summer-cold-winter, and hot-summer-warm-winter climate zones. Issued by China Academy of Building Research Co., Ltd. (CABR), valid 2025-06-05 to 2030-06-04.",
+    description: "Certificate No. CABR-01(02)-(2025)-CGP-035. 3-Star (highest tier) rating under the Chinese Green Building Material assessment framework T/CECS 10026-2019 and CABR/CC-TD-CGP-09:2024. Unofficial English summary of the CABR certificate for 65/70/80/90-series tilt-and-turn pultruded GFRP-polyurethane windows for cold, hot-summer-cold-winter, and hot-summer-warm-winter climate zones. Issued by China Academy of Building Research Co., Ltd. (CABR), valid 2025-06-05 to 2030-06-04. The original Chinese certificate, with its holder and scope, is provided on request.",
     file: "/downloads/f1composite-3star-green-building-cert-frp-windows-2025.pdf",
   },
   {
     title: "EPD & Carbon Footprint — Pultruded GFRP Composite Profiles",
     format: "PDF",
     size: "142 KB",
-    description: "Environmental Product Declaration and product carbon footprint analysis for F1 Composite pultruded GFRP composite profile products, with 1 m² functional unit. Calculation reference CABR-CFC-01(02)-2025(20030)1, cradle-to-gate 33,934.34 g CO₂e/m², distribution 254.59 g, cradle-to-grave 36,099.32 g. Standards: GB/T 24025-2009 (ISO 14025-aligned Type III EPD), GB/T 32161-2015, ISO 14067, PAS 2050. Issued by China Academy of Building Research Co., Ltd. (CABR) Certification Center on April 30, 2025.",
+    description: "Unofficial English summary of the environmental product declaration and carbon footprint analysis for pultruded GFRP composite profile products, with 1 m² functional unit. Calculation reference CABR-CFC-01(02)-2025(20030)1, cradle-to-gate 33,934.34 g CO₂e/m², distribution 254.59 g, cradle-to-grave 36,099.32 g. Standards: GB/T 24025-2009 (ISO 14025-aligned Type III EPD), GB/T 32161-2015, ISO 14067, PAS 2050. Issued by China Academy of Building Research Co., Ltd. (CABR) Certification Center on April 30, 2025. The original Chinese documents, with the holder and scope, are provided on request.",
     file: "/downloads/f1composite-epd-carbon-footprint-frp-profiles-2025.pdf",
   },
   {
@@ -96,10 +96,10 @@ export const fallbackDownloads: DownloadItem[] = [
     description: "Project-specific window and door information; use the nine-series purchasing catalog for the current range.",
   },
   {
-    title: "ISO 9001:2015 Certificate",
+    title: "ISO 9001 Certificate",
     format: "PDF",
     size: "0.5 MB",
-    description: "Request the current quality-management certificate holder, validity and scope for your proposed supply.",
+    description: "Request the current quality-management certificate with its edition (ISO 9001:2015, or ISO 9001:2026 after transition), holder, validity and scope for your proposed supply.",
   },
   {
     title: "CE Declaration of Performance",

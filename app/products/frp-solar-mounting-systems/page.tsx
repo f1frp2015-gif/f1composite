@@ -80,7 +80,7 @@ const faqItems = [
   {
     question: "Can FRP solar mounting rails be used on existing industrial roofs?",
     answer:
-      "Yes. Rooftop retrofit is a strong fit where the original roof has limited dead-load reserve. A typical pultruded GFRP rail weighs about 1.0–1.5 kg/m, compared with roughly 4–6 kg/m for a galvanized-steel rail. Final suitability still requires a project-specific roof survey and structural check for wind uplift, snow, seismic load and connection pull-out.",
+      "Yes. Rooftop retrofit is a strong fit where the original roof has limited dead-load reserve. From section area at about 2.1 g/cm³, the catalog rails weigh roughly 1.1 kg/m (30 × 60 mm light rail) to about 2.9 kg/m (80 × 80 mm H-section); compare that with the line mass of the steel or aluminum rail being replaced. Final suitability still requires a project-specific roof survey and structural check for wind uplift, snow, seismic load and connection pull-out.",
   },
   {
     question: "How are panels and rails connected?",

@@ -187,7 +187,7 @@ export default function LaminateMicrograph() {
         fibers carrying axial load; everything amber is the resin matrix — transferring
         shear between fibers, stopping buckling, and forming the corrosion barrier at the
         surface. Drag the slider: more fiber means more stiffness but less matrix to
-        protect and bind it — pultrusion typically runs 55–72% fiber by volume in the core.
+        protect and bind it. Pultruded profiles typically run about 45–60% fiber by volume (roughly 60–75% by weight), highest in unidirectional cores.
       </figcaption>
     </figure>
   );

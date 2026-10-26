@@ -1,3 +1,5 @@
+import { supplyTerms, weeks } from "./company";
+
 export type GlossaryTerm = {
   /** URL anchor slug, also used as the DefinedTerm @id fragment. */
   id: string;
@@ -86,21 +88,21 @@ export const glossaryTerms: GlossaryTerm[] = [
     term: "Vinyl ester resin",
     category: "Materials & constituents",
     definition:
-      "A matrix with superior resistance to acids, chlorides, hydrolysis, and osmotic blistering, specified for marine and aggressive chemical environments. Heat deflection temperature roughly 105–120 °C; typically adds 15–30% to profile cost.",
+      "A matrix with superior resistance to acids, chlorides, hydrolysis, and osmotic blistering, specified for marine and aggressive chemical environments. Heat deflection temperature roughly 105–120 °C; typically adds about 10–25% to profile cost.",
   },
   {
     id: "polyurethane-resin",
     term: "Polyurethane (PU) resin",
     category: "Materials & constituents",
     definition:
-      "A tough, fast-curing matrix with 3–5× the flexural toughness of polyester, used where impact resistance matters — for example rail interiors and EV battery trays.",
+      "A tough, fast-curing matrix with markedly higher toughness than polyester, used where impact resistance matters, for example rail interiors and EV battery trays.",
   },
   {
     id: "phenolic-resin",
     term: "Phenolic resin",
     category: "Materials & constituents",
     definition:
-      "A fire-performance matrix achieving Class 1 surface spread of flame (BS 476 Part 7) with low smoke and low toxicity. Specified for offshore platforms, tunnels, and rail interiors governed by EN 45545-2.",
+      "A fire-performance matrix with low smoke and low toxicity; phenolic laminates can reach Class 1 surface spread of flame under BS 476 Part 7, confirmed by a report for the specific laminate. Specified for offshore platforms, tunnels, and rail interiors governed by EN 45545-2.",
   },
   {
     id: "fiber-volume-fraction",
@@ -123,7 +125,7 @@ export const glossaryTerms: GlossaryTerm[] = [
     term: "Pultruded profile",
     category: "The pultrusion process",
     definition:
-      "A constant-cross-section FRP shape produced by pultrusion — I-beam, channel, angle, tube, flat bar, rod, window section, or custom geometry. Because the cross-section is constant, profiles can be made in effectively unlimited lengths (cut to 6 m or 12 m for shipping).",
+      `A constant-cross-section FRP shape produced by pultrusion — I-beam, channel, angle, tube, flat bar, rod, window section, or custom geometry. Because the cross-section is constant, profiles can be made in effectively unlimited lengths; the standard cut length is ${supplyTerms.standardLengthM} m, and other lengths are cut to order.`,
   },
   {
     id: "creel",
@@ -151,14 +153,14 @@ export const glossaryTerms: GlossaryTerm[] = [
     term: "Tooling lead time",
     category: "The pultrusion process",
     definition:
-      "The time to design and machine a new steel die for a custom profile — typically 4–8 weeks, after which production samples follow within 6–10 weeks. Tooling is a one-off cost amortized across the first production run.",
+      `The time to design and machine a new steel die for a custom profile, typically ${weeks(supplyTerms.dieManufactureWeeks)}. From approved drawing to first delivery, a new-die profile typically takes ${weeks(supplyTerms.newDieLeadTimeWeeks)}, including the die, trial run and first production. Tooling is a one-off cost amortized across the first production run.`,
   },
   {
     id: "extrusion-plastics",
     term: "Extrusion (plastics)",
     category: "The pultrusion process",
     definition:
-      "A process that pushes heated, unreinforced (or short-fiber-filled) thermoplastic through a die under pressure — used for PVC, aluminum, and short-glass-filled plastic profiles. Unlike pultrusion, extrusion does not pull continuous fiber reinforcement through the die, so extruded profiles cannot match the longitudinal tensile strength or stiffness of pultruded FRP. See a full process and property comparison at /technology/pultrusion-vs-extrusion-filament-winding.",
+      "A process that pushes heated material through a die under pressure: unreinforced or short-fiber-filled thermoplastics such as PVC, and metals such as aluminum. Unlike pultrusion, extrusion does not pull continuous fiber reinforcement through the die, so extruded profiles cannot match the longitudinal tensile strength or stiffness of pultruded FRP. See a full process and property comparison at /technology/pultrusion-vs-extrusion-filament-winding.",
   },
   {
     id: "filament-winding",
@@ -181,14 +183,14 @@ export const glossaryTerms: GlossaryTerm[] = [
     term: "Flexural modulus (stiffness)",
     category: "Mechanical & physical properties",
     definition:
-      "A measure of resistance to bending deflection — typically 12–20 GPa for pultruded FRP, roughly one tenth of steel's 200 GPa. Because modulus is low, deflection (not strength) usually governs FRP structural design. Measured per ASTM D790.",
+      "A measure of resistance to bending deflection. Longitudinal modulus for pultruded glass FRP is typically about 17–30 GPa (EN 13706-3 sets minimums of 23 GPa and 17 GPa for its two structural grades), roughly one ninth to one tenth of steel's 200 GPa. Because modulus is low, deflection (not strength) usually governs FRP structural design. Measured per ASTM D790.",
   },
   {
     id: "interlaminar-shear-strength",
     term: "Interlaminar shear strength (ILSS)",
     category: "Mechanical & physical properties",
     definition:
-      "The resistance to shear failure between the composite's layers, an indicator of fiber-resin bond quality — typically 20–30 MPa. Low ILSS shows up as delamination. Measured by the short-beam method, ASTM D2344.",
+      "The resistance to shear failure between the composite's layers, an indicator of fiber-resin bond quality. EN 13706-3 sets minimums of 25 MPa and 15 MPa for its two structural grades. Low ILSS shows up as delamination. Measured by the short-beam method, ASTM D2344.",
   },
   {
     id: "barcol-hardness",
@@ -209,14 +211,14 @@ export const glossaryTerms: GlossaryTerm[] = [
     term: "Creep",
     category: "Mechanical & physical properties",
     definition:
-      "Slow deformation under sustained load over time. Polyester-matrix FRP creeps under long-term high stress, so design codes apply a reduction factor (typically 0.25–0.35) to allowable stresses for permanent loads.",
+      "Slow deformation under sustained load over time, increasing with stress level and temperature. Design methods limit it: LRFD design of pultruded FRP applies a time-effect factor λ as low as 0.4 for permanent loads, and ACI CODE-440.11-22 limits sustained stress in GFRP bars to 0.30 of their design tensile strength.",
   },
   {
     id: "dielectric-strength",
     term: "Dielectric strength",
     category: "Mechanical & physical properties",
     definition:
-      "The voltage a material insulates before electrical breakdown — 10–14 kV/mm for FRP. Combined with its non-conductivity, this is why FRP is specified for substations, rail insulators, and RF-transparent structures.",
+      "The electric field a material withstands before breakdown, measured to ASTM D149 or IEC 60243-1. Published pultruded-profile references are around 7.9 kV/mm (200 V/mil) through the thickness; resin, glass content, thickness, moisture and test method change the value. Combined with its non-conductivity, this is why FRP is specified for substations, rail insulators, and RF-transparent structures.",
   },
   {
     id: "hdt-tg",
@@ -232,7 +234,7 @@ export const glossaryTerms: GlossaryTerm[] = [
     term: "Standard profile",
     category: "Products & forms",
     definition:
-      "A stock pultruded shape in a catalog size — I-beam, channel, angle, square/round tube, flat bar, or rod — available without custom tooling and with short lead times (typically 2–4 weeks).",
+      `A catalog pultruded shape (I-beam, channel, angle, square or round tube, flat bar, or rod) made on an existing die, so no custom tooling is needed. Catalog sections are produced to order and ship in ${weeks(supplyTerms.catalogLeadTimeWeeks)}.`,
   },
   {
     id: "custom-pultrusion",
@@ -253,7 +255,7 @@ export const glossaryTerms: GlossaryTerm[] = [
     term: "Pultruded grating",
     category: "Products & forms",
     definition:
-      "Grating assembled from pultruded I-bar or T-bar bearing bars, giving high unidirectional load capacity and long spans (up to ~5 m). Chosen over molded grating where higher load rating or longer span is required.",
+      "Grating assembled from pultruded I-bar or T-bar bearing bars, giving high load capacity in the bearing-bar direction and longer spans than molded grating of the same depth. Chosen over molded grating where a higher load rating or longer span is required; the clear span is read from the load table for the chosen depth and load.",
   },
   {
     id: "structural-deck-panel",
@@ -267,7 +269,7 @@ export const glossaryTerms: GlossaryTerm[] = [
     term: "AASHTO H-20 load rating",
     category: "Products & forms",
     definition:
-      "A US highway bridge loading classification (a 20-ton design truck) used to rate FRP deck panels for vehicular traffic. H-5 and H-10 cover lighter loads; H-20 is the heavy-vehicle rating.",
+      "A US highway loading classification (a two-axle, 20-ton design truck) used to rate FRP deck panels for vehicular traffic. H-5 and H-10 cover lighter loads. The H trucks come from the legacy AASHTO Standard Specifications; new highway bridges are designed to the HL-93 live load of the AASHTO LRFD specifications, so state which basis the project uses.",
   },
 
   // ── Fenestration ────────────────────────────────────────────────────────
@@ -276,7 +278,7 @@ export const glossaryTerms: GlossaryTerm[] = [
     term: "U-value (thermal transmittance)",
     category: "Fenestration",
     definition:
-      "The rate of heat loss through a window or frame, in W/m²·K — lower is better. F1 Composite FRP windows reach whole-window U-values down to 0.78 W/m²·K. Calculated per EN ISO 10077-1.",
+      "The rate of heat loss through a window or frame, in W/m²·K; lower is better. The PHI certificate for the 90-series GFRP window gives a whole-window U_w of 0.78 W/m²·K for the standard test size with 0.70 W/m²·K glazing. Calculated per EN ISO 10077-1, with frame values per EN ISO 10077-2.",
   },
   {
     id: "thermal-break",
@@ -290,7 +292,7 @@ export const glossaryTerms: GlossaryTerm[] = [
     term: "Passive House / PHI certification",
     category: "Fenestration",
     definition:
-      "A rigorous low-energy building standard from the Passive House Institute (PHI). F1 Composite's 90-series FRP window frame is PHI-certified, qualifying it for Passivhaus and ultra-low-energy buildings.",
+      "A rigorous low-energy building standard from the Passive House Institute (PHI). The 90-series GFRP window made by Chongqing Xianju New Material holds PHI component certificate 2491wi03 (efficiency class phB, cool-temperate climate), so it can be used in Passivhaus and ultra-low-energy buildings.",
   },
 
   // ── Standards & design codes ────────────────────────────────────────────
@@ -306,13 +308,13 @@ export const glossaryTerms: GlossaryTerm[] = [
     term: "ASTM D3917",
     category: "Standards & design codes",
     definition:
-      "The US standard specification for dimensional tolerance of thermosetting glass-reinforced pultruded shapes (typically ±0.25 mm). Often cited alongside EN 13706 to define acceptable profile geometry.",
+      "The US standard specification for dimensional tolerance of thermosetting glass-reinforced pultruded shapes. Its tolerances vary by feature and size (wall thickness, overall dimensions, angles, flatness, straightness, twist and length). Often cited alongside EN 13706 to define acceptable profile geometry.",
   },
   {
     id: "asce-sei-74-23",
     term: "ASCE/SEI 74-23",
     category: "Standards & design codes",
     definition:
-      "The US Pre-Standard for Load and Resistance Factor Design (LRFD) of pultruded FRP structures. It provides the design procedures — including essential buckling checks — for using FRP as primary structure. EN 13706 and the EUROCOMP Design Code are the European counterparts.",
+      "The ASCE standard for Load and Resistance Factor Design (LRFD) of pultruded FRP structures, published in 2023 to replace the 2010 ASCE/ACMA pre-standard. It provides the design procedures for members and connections, including buckling checks, for using FRP as primary structure. In Europe, CEN/TS 19101:2022 is the design counterpart, while EN 13706 specifies the profiles.",
   },
 ];
