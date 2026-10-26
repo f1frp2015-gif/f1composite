@@ -7,7 +7,8 @@ import InnerCTA from "@/components/sections/InnerCTA";
 import RelatedLinks from "@/components/sections/RelatedLinks";
 import { FAQList } from "@/components/ui/FAQ";
 import JsonLd from "@/components/seo/JsonLd";
-import { buildRebarRfqHref } from "@/lib/rebarInquiry";
+import RebarSegmentIcon, { isRebarSegmentId } from "@/components/products/RebarSegmentIcon";
+import { buildRfqHref } from "@/lib/rfq";
 import { absoluteUrl, buildPageMetadata } from "@/lib/seo";
 
 // Application guide for GFRP rebar: why each segment specifies a nonmetallic bar, the
@@ -18,6 +19,8 @@ import { absoluteUrl, buildPageMetadata } from "@/lib/seo";
 
 const pagePath = "/resources/gfrp-rebar-applications";
 const PAGE_UPDATED = "2026-10-26";
+// The same contact form as the product page; no rebar-specific entry point (owner decision 2026-10-26).
+const reviewHref = buildRfqHref({ source: "rebar-applications", product: "GFRP rebar", productPath: "/products/frp-rebar", message: "Please review a GFRP rebar application with me: the element, the exposure, the governing code and the bar sizes under consideration. Please contact me to discuss the details and quotation." });
 const pageTitle = "GFRP Rebar Applications: Marine, Slabs, Bridges, Buildings";
 const pageDescription =
   "Where GFRP rebar is specified: seawalls, precast, slabs, bridges, buildings, flood channels, walls, MRI and rail, soft-eyes and water plants, by market.";
@@ -246,12 +249,12 @@ export default function GfrpRebarApplicationsPage() {
           { label: "Design basis", value: "ACI 440.11 · AASHTO GFRP-2 · CSA S6" },
         ]}
         breadcrumbs={[{ label: "Home", href: "/" }, { label: "Resources", href: "/resources" }, { label: "GFRP rebar applications" }]}
-        actions={{ primary: { label: "Request a technical review", href: buildRebarRfqHref("technical") }, secondary: { label: "GFRP rebar supply", href: "/products/frp-rebar", variant: "secondary" } }}
+        actions={{ primary: { label: "Request a technical review", href: reviewHref }, secondary: { label: "GFRP rebar supply", href: "/products/frp-rebar", variant: "secondary" } }}
       />
       <PageNav items={[...applications.map((app) => ({ id: app.id, label: app.label })), { id: "faq", label: "FAQ" }]} />
 
       {applications.map((app, index) => (
-        <PageSection key={app.id} id={app.id} title={app.title} tone={index % 2 === 0 ? "white" : "muted"} intro={app.why}>
+        <PageSection key={app.id} id={app.id} title={isRebarSegmentId(app.id) ? <span className="flex items-start gap-[14px]"><span className="mt-[2px] flex h-[44px] w-[44px] shrink-0 items-center justify-center rounded-control bg-teal-bg text-teal-text"><RebarSegmentIcon id={app.id} className="h-[30px] w-[30px]" /></span><span>{app.title}</span></span> : app.title} tone={index % 2 === 0 ? "white" : "muted"} intro={app.why}>
           <div className="grid gap-[24px] lg:grid-cols-[1.2fr_1fr]">
             <div>
               <h3 className="text-f16 font-bold text-t1">What changes in the detailing</h3>
@@ -265,7 +268,7 @@ export default function GfrpRebarApplicationsPage() {
                 <div><dt className="font-semibold text-teal-text">Approval route by market</dt><dd className="mt-[4px] text-t2">{app.route}</dd></div>
                 <div><dt className="font-semibold text-teal-text">What to send</dt><dd className="mt-[4px] text-t2">{app.send}</dd></div>
               </dl>
-              <Link href={buildRebarRfqHref("technical")} className="mt-[16px] inline-flex min-h-[44px] items-center text-f14 font-bold text-teal-text hover:underline">Review this application with us →</Link>
+              <Link href={reviewHref} className="mt-[16px] inline-flex min-h-[44px] items-center text-f14 font-bold text-teal-text hover:underline">Review this application with us →</Link>
             </div>
           </div>
         </PageSection>
@@ -298,7 +301,7 @@ export default function GfrpRebarApplicationsPage() {
       />
       <InnerCTA
         title="Bring the exposure, the code and the drawings"
-        quoteHref={buildRebarRfqHref("technical")}
+        quoteHref={reviewHref}
         text="Send the application, the governing specification and a bar schedule or element drawings. We confirm the bar forms, sizes and evidence available before you fix the design."
       />
     </>

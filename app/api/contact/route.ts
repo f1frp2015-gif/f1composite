@@ -8,7 +8,6 @@ import { ACQUISITION_MAX_BYTES, acquisitionReferrer, parseAcquisition } from "@/
 
 import { MAX_ATTACHMENT_BYTES, ALLOWED_ATTACHMENT_EXTENSIONS, validateContactAttachment } from "@/lib/contactAttachment";
 import { parseWindowInquiry, mergeWindowContext, windowInquirySummary } from "@/lib/windowInquiry";
-import { parseRebarInquiry, rebarInquirySummary } from "@/lib/rebarInquiry";
 import { parseProfileSnapshot } from "@/lib/profileCalculationSnapshot";
 
 export const runtime = "nodejs";
@@ -93,19 +92,11 @@ export async function POST(request: NextRequest) {
   } catch (error) {
     return NextResponse.json({ message: error instanceof SyntaxError ? "Invalid window inquiry data." : error instanceof Error ? error.message : "Please review your window requirements." }, { status: 400 });
   }
-  let rebarInquiry;
-  try {
-    const raw = text("rebar_inquiry");
-    rebarInquiry = parseRebarInquiry(raw ? JSON.parse(raw) : null);
-    if (rebarInquiry) context = { ...(context && typeof context === "object" && !Array.isArray(context) ? context : { inheritedContext: context }), rebarInquiry };
-  } catch (error) {
-    return NextResponse.json({ message: error instanceof SyntaxError ? "Invalid rebar inquiry data." : error instanceof Error ? error.message : "Please review your rebar requirements." }, { status: 400 });
-  }
   const name = text("name");
   const email = text("email");
   const country = text("country");
   const inquiryType = text("inquiry_type")?.trim() || "rfq";
-  const message = [text("message"), windowInquiry ? windowInquirySummary(windowInquiry) : "", rebarInquiry ? rebarInquirySummary(rebarInquiry) : ""].filter(part => part?.trim()).join("\n\n") || "Initial inquiry — no requirements provided yet. Please contact the customer to discuss their needs.";
+  const message = [text("message"), windowInquiry ? windowInquirySummary(windowInquiry) : ""].filter(part => part?.trim()).join("\n\n") || "Initial inquiry — no requirements provided yet. Please contact the customer to discuss their needs.";
   const company = text("company");
   const phone = text("phone");
   const attachmentEntry = formData.get("attachment");

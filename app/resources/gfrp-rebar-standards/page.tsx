@@ -8,7 +8,7 @@ import RelatedLinks from "@/components/sections/RelatedLinks";
 import { FAQList } from "@/components/ui/FAQ";
 import JsonLd from "@/components/seo/JsonLd";
 import { ASTM_D7957_REQUIREMENTS, ASTM_D7957_SIZE_MINIMUMS, GFRP_STANDARDS_CROSSWALK, astmMinTensileStressMPa } from "@/lib/gfrpRebar";
-import { buildRebarRfqHref } from "@/lib/rebarInquiry";
+import { buildRfqHref } from "@/lib/rfq";
 import { absoluteUrl, buildPageMetadata } from "@/lib/seo";
 
 // Crosswalk of the standards, codes and approvals that govern GFRP rebar in each market. The
@@ -17,6 +17,8 @@ import { absoluteUrl, buildPageMetadata } from "@/lib/seo";
 
 const pagePath = "/resources/gfrp-rebar-standards";
 const PAGE_UPDATED = "2026-10-25";
+// The same contact form as the product page; no rebar-specific entry point (owner decision 2026-10-26).
+const reviewHref = buildRfqHref({ source: "rebar-standards", product: "GFRP rebar", productPath: "/products/frp-rebar", message: "Please tell me which GFRP rebar documents apply to my project: the specification clause, the standard and edition named, and the submittal list. Please contact me to discuss the details and quotation." });
 const pageTitle = "GFRP Rebar Standards: ASTM D7957, CSA S807, ISO 10406";
 const pageDescription =
   "GFRP rebar standards by market: ASTM D7957 minimums, ACI 440.11, CSA S807 grades, ISO 10406-1, EN 1992 Annex R, AS 5204, GB/T 26743, and what to ask for.";
@@ -49,7 +51,7 @@ export default function GfrpRebarStandardsPage() {
           { label: "Minimum modulus", value: "44.8 GPa (ASTM) · 40/50/60 GPa (CSA)" },
         ]}
         breadcrumbs={[{ label: "Home", href: "/" }, { label: "Resources", href: "/resources" }, { label: "GFRP rebar standards" }]}
-        actions={{ primary: { label: "Ask which documents apply", href: buildRebarRfqHref("technical") }, secondary: { label: "GFRP rebar supply", href: "/products/frp-rebar", variant: "secondary" } }}
+        actions={{ primary: { label: "Ask which documents apply", href: reviewHref }, secondary: { label: "GFRP rebar supply", href: "/products/frp-rebar", variant: "secondary" } }}
       />
       <PageNav items={[{ id: "crosswalk", label: "Crosswalk" }, { id: "d7957-sizes", label: "D7957 forces" }, { id: "d7957-properties", label: "D7957 properties" }, { id: "approvals", label: "Approvals" }, { id: "faq", label: "FAQ" }]} />
 
@@ -199,7 +201,7 @@ export default function GfrpRebarStandardsPage() {
       />
       <InnerCTA
         title="Tell us the standard, edition and documents your project names"
-        quoteHref={buildRebarRfqHref("technical")}
+        quoteHref={reviewHref}
         text="Send the specification clause and the submittal list. We confirm the evidence available for the offered grade and identify any further testing before supply."
       />
     </>

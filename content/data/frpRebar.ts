@@ -4,6 +4,8 @@
  * Grades are modulus tiers (45 and 60 GPa); guaranteed values per size come from the qualification report.
  * Sources: docs/research/frp-rebar-market-2026-10.md (market, leading producers, standards, pricing;
  * §2b Pultron/Mateenbar benchmark 2026-10-26 for the segment, form and FAQ additions).
+ * Inquiries use the site's standard contact form like every other family (owner decision
+ * 2026-10-26); the rebar-only schedule builder and stage-specific entry points were retired.
  */
 export const rebarCatalog = {
   path: "/products/frp-rebar",
@@ -22,6 +24,12 @@ export const rebarCatalog = {
     bends: "/images/products/frp-rebar/gfrp-rectangular-stirrups.webp",
     mesh: "/images/products/frp-rebar/gfrp-reinforcement-mesh.webp",
     surface: "/images/products/frp-rebar/gfrp-helical-surface.webp",
+    // Schematic figures drawn by scripts/covers/draw-gfrp-rebar-product-figures.mjs (not to scale).
+    gradesChart: "/images/products/frp-rebar/gfrp-rebar-grades-stress-strain.webp",
+    sizeLadder: "/images/products/frp-rebar/gfrp-rebar-size-ladder.webp",
+    bendGeometry: "/images/products/frp-rebar/gfrp-rebar-bend-geometry.webp",
+    accessories: "/images/products/frp-rebar/gfrp-rebar-nonmetallic-accessories.webp",
+    rockBolt: "/images/products/frp-rebar/gfrp-rock-bolt-section.webp",
   },
   forms: [
     { id: "straight", anchor: "straight-bars", title: "Straight GFRP rebar", subtitle: "Schedule by diameter, length and quantity", body: "Glass-fiber reinforcing bars with an enhanced bond surface in two modulus grades, GFRP 45 and GFRP 60. FengDu lists 15 metric diameters in 6 m and 12 m lengths, with 10 ft, 20 ft, 30 ft and 40 ft schedules cut to order; confirm the grade, resin, surface profile and cut length for your order.", inputs: "Diameter or bar designation · cut length · number of bars · surface requirement", action: "Quote straight bars" },
@@ -50,17 +58,10 @@ export const rebarCatalog = {
    * rod and threaded-rod products F1 already supplies; the rest are confirmed per inquiry.
    */
   companions: [
-    { title: "Smooth GFRP dowels for slab joints", text: "Plain pultruded rod cut to length for load transfer across pavement, warehouse-floor and port-slab joints. Dowels are specified to ASTM D8444 and need a larger diameter than steel for the same joint stiffness; typical spacing is 300 to 450 mm.", href: "/products/fiberglass-structural-shapes/frp-rod", label: "FRP rod sizes" },
-    { title: "GFRP form ties and threaded rod", text: "Threaded fiberglass rod with nylon or FRP nuts stays in the wall and is cut flush after the pour, so there is no rust spot to patch. Used on water tanks, single-sided formwork and architectural concrete.", href: "/products/frp-fasteners-fittings", label: "Threaded rods and nuts" },
-    { title: "Nonmetallic chairs, ties and couplers", text: "Plastic chairs, composite or nylon ties and FRP-to-steel couplers keep an MRI or rail mat fully nonmetallic. Raised as part of the inquiry; sourced with the bars where the project requires them.", href: "/products/frp-rebar#request-quote", label: "Add to the schedule" },
-    { title: "Rock bolts and soil nails", text: "Threaded GFRP bolts for tunnelling and ground retention are a separate product family with their own test basis. Raise them as a technical inquiry with the ground conditions and the bolt specification.", href: "/products/frp-rebar#buying-routes", label: "Ask a technical question" },
-  ],
-  /** How buyers reach a quotation; each route maps to a contact stage. */
-  supplyRoutes: [
-    { stage: "quote", title: "Project supply", text: "A bar schedule or BOQ for one structure: diameters, cut lengths, shapes, quantities, standard and destination. Quoted per metre or per bar, with bends and mesh on separate lines." },
-    { stage: "distributor", title: "Distributor or precaster program", text: "A repeating size mix, usually Ø10–Ø16 mm in 6 m or 12 m lengths, or 10 ft and 20 ft retail lengths with barcoded bundle labels, with agreed bundle counts and a shipment rhythm. Quoted per tonne or per container with the packing list fixed." },
-    { stage: "sample", title: "Sample and qualification lot", text: "A small lot of the sizes your engineer wants tested, with the test scope agreed in advance: ASTM D7205 tension, D7617 shear, D7913 bond, D7705 alkali exposure, or the ISO 10406-1 equivalents." },
-    { stage: "technical", title: "Technical review", text: "An application, exposure and code question before any schedule exists. Suitability, documents and samples are discussed first; the schedule follows." },
+    { title: "Smooth GFRP dowels for slab joints", text: "Plain pultruded rod cut to length for load transfer across pavement, warehouse-floor and port-slab joints. Dowels are specified to ASTM D8444 and need a larger diameter than steel for the same joint stiffness; typical spacing is 300 to 450 mm.", href: "/products/fiberglass-structural-shapes/frp-rod", label: "FRP rod sizes", image: "/images/covers/frp-rod.webp", alt: "Smooth pultruded fiberglass round rod, the stock a GFRP slab dowel is cut from", note: "Product render" },
+    { title: "GFRP form ties and threaded rod", text: "Threaded fiberglass rod with nylon or FRP nuts stays in the wall and is cut flush after the pour, so there is no rust spot to patch. Used on water tanks, single-sided formwork and architectural concrete.", href: "/products/frp-fasteners-fittings", label: "Threaded rods and nuts", image: "/images/products/frp-fasteners-fittings/vinyl-ester-threaded-rods.webp", alt: "Two vinyl ester fiberglass threaded rods used as stay-in-place concrete form ties", note: "Catalog photo" },
+    { title: "Nonmetallic chairs, ties and couplers", text: "Plastic chairs, composite or nylon ties and FRP-to-steel couplers keep an MRI or rail mat fully nonmetallic. Raised as part of the inquiry; sourced with the bars where the project requires them.", href: "/products/frp-rebar#quote", label: "Add them to the inquiry", image: "/images/products/frp-rebar/gfrp-rebar-nonmetallic-accessories.webp", alt: "Schematic of a plastic chair under a GFRP bar, a nylon tie at a bar crossing and a coupler splicing GFRP to steel outside the nonmetallic zone", note: "Schematic" },
+    { title: "Rock bolts and soil nails", text: "Threaded GFRP bolts for tunnelling and ground retention are a separate product family with their own test basis. Raise them with the ground conditions and the bolt specification.", href: "/products/frp-rock-bolts", label: "FRP rock bolts", image: "/images/products/frp-rebar/gfrp-rock-bolt-section.webp", alt: "Section schematic of a fully grouted threaded GFRP rock bolt with plate and nut at the excavation face", note: "Schematic" },
   ],
   /**
    * Price basis. Ranges are public retail references on one date, not quotations; the project price
