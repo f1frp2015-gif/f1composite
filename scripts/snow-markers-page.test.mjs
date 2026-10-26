@@ -1,4 +1,4 @@
-import { publicSurface } from "./load-project-module.mjs";
+import { loadProjectModule, publicSurface } from "./load-project-module.mjs";
 import assert from "node:assert/strict";
 import { readFile, stat } from "node:fs/promises";
 import path from "node:path";
@@ -19,7 +19,8 @@ const applicationImagePath =
 test("snow-marker page owns a complete, quote-ready product specification", async () => {
   const page = await read(pagePath);
 
-  assert.match(page, /Fiberglass Snow Markers & Driveway Stakes Manufacturer/);
+  const { getSeoQueryTarget } = loadProjectModule("content/data/seoQueryTargets.ts");
+  assert.match(getSeoQueryTarget(route).title, /Fiberglass Driveway Markers & Snow Stakes/);
   assert.match(page, /6\.35 mm \(1\/4 in\)/);
   assert.match(page, /7\.9 mm \(5\/16 in\)/);
   assert.match(page, /610, 914, 1,219, 1,524 and 1,829 mm/);
@@ -68,7 +69,12 @@ test("canonical snow-marker route is discoverable across buyer and crawler surfa
     ].map(read),
   );
 
-  for (const source of sources) {
+  // The navigation links to the product hub, which renders the shared taxonomy.
+  const { mainNav } = loadProjectModule("content/data/navigation.ts");
+  const { applicationGroups } = loadProjectModule("content/data/productTaxonomy.ts");
+  assert.ok(mainNav.some((item) => item.href === "/products/product-lines"));
+  assert.ok(applicationGroups.some((group) => group.links.some((link) => link.href === route)));
+  for (const source of sources.slice(1)) {
     assert.match(source, new RegExp(route.replaceAll("/", "\\/")));
   }
 });

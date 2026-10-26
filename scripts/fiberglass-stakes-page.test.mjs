@@ -25,7 +25,7 @@ test("fiberglass stakes page owns a complete, bounded commercial intent", async 
     read("app/products/fiberglass-stakes/opengraph-image.tsx"),
   ]);
 
-  assert.match(page, /Fiberglass stakes for plants, trees, vineyards and marking/);
+  assert.match(page, /Fiberglass tree stakes and plant supports/);
   assert.match(page, /Common fiberglass stake sizes for RFQ planning/);
   assert.match(page, /FRP plant stakes, fiberglass tree stakes and visible marker rods/);
   assert.match(page, /These two applications show how the same solid round pultrusion/);
@@ -68,7 +68,7 @@ test("fiberglass stakes route is discoverable across every buyer and AI surface"
   for (const [index, source] of sources.entries()) {
     if (index !== 0 && index !== 5) assert.match(source, new RegExp(route.replaceAll("/", "\\/")));
   }
-  assert.match(sources[2], /primaryQuery: "fiberglass stakes manufacturer"/);
+  assert.match(sources[2], /primaryQuery: "fiberglass tree stakes"/);
   assert.match(sources[6], /Public wholesale planning band only/);
   assert.match(sources[7], /Never present that band as certified F1 stock or design data/);
 });

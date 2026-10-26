@@ -176,7 +176,7 @@ const applicationProducts = [
   { href: "/products/frp-ladders", title: "Ladders" },
   { href: "/products/frp-sound-barrier-wall", title: "Sound barrier profiles" },
   { href: "/products/fiberglass-stakes", title: "Fiberglass stakes" },
-  { href: "/products/fiberglass-snow-markers", title: "Snow markers" },
+  { href: "/products/fiberglass-snow-markers", title: "Fiberglass driveway markers" },
 ] as const;
 
 const resinOptions: Array<{ system: string; use: string; notes: string }> = [

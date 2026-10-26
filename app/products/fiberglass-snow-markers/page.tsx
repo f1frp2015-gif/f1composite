@@ -9,13 +9,15 @@ import RelatedLinks from "@/components/sections/RelatedLinks";
 import JsonLd from "@/components/seo/JsonLd";
 import { FAQList } from "@/components/ui/FAQ";
 import Figure from "@/components/ui/Figure";
+import { getSeoQueryTarget } from "@/content/data/seoQueryTargets";
 import { buildRfqHref } from "@/lib/rfq";
 import { buildPageMetadata, buildProductFamilyPageSchema } from "@/lib/seo";
 
 const pagePath = "/products/fiberglass-snow-markers";
-const pageTitle = "Fiberglass Snow Markers & Driveway Stakes Manufacturer";
-const pageDescription =
-  "Wholesale fiberglass snow markers and reflective driveway stakes in solid or hollow 6.35–7.9 mm profiles, multiple lengths, colors and tape layouts.";
+const seoTarget = getSeoQueryTarget(pagePath);
+const pageTitle = seoTarget.title;
+const pageDescription = seoTarget.description;
+const updatedAt = "2026-10-26";
 const heroImage =
   "/images/products/fiberglass-snow-markers/fiberglass-snow-markers-reflective-stakes.webp";
 const applicationImage =
@@ -30,13 +32,13 @@ export const metadata: Metadata = buildPageMetadata({
 
 const quoteHref = buildRfqHref({
   source: "fiberglass-snow-markers",
-  product: "Fiberglass snow markers",
+  product: "Fiberglass driveway markers and snow stakes",
   productPath: pagePath,
-  message: "Please quote fiberglass snow markers. I will send the construction, diameter, length, color, reflective bands, pack count and quantity.",
+  message: "Please quote fiberglass driveway markers and snow stakes.\nSite and expected snowbank height:\nOverall length, exposed height and ground conditions:\nSolid or hollow, diameter, tip and cap:\nRod color and reflective-band grade, width and position:\nPack count, total quantity and private label:\nDestination and required delivery date:",
 });
 
 const requestItems = [
-  { title: "Marker", text: "Solid or hollow, outside diameter, cut length, color, tip and cap detail." },
+  { title: "Marker and site", text: "Solid or hollow, diameter, overall and exposed length, snowbank height, ground condition, color, tip and cap." },
   { title: "Reflective bands", text: "Band count, width and position, and the tape grade or sheeting standard if one is required." },
   { title: "Packing", text: "Pack count, private label or barcode, carton and pallet limits." },
   { title: "Quantity and delivery", text: "Total quantity by size, destination and the date the markers must be on site or in store." },
@@ -182,6 +184,18 @@ const comparisonRows = [
 
 const faqItems = [
   {
+    question: "Are fiberglass driveway markers the same as snow stakes?",
+    answer: "The names often describe the same rod or tube used to show driveway edges and obstacles during snow removal. Specify the complete marker: overall and exposed length, diameter, solid or hollow construction, color, reflective treatment and ground installation. A plain fiberglass stake does not include a reflector unless the order says so.",
+  },
+  {
+    question: "Should I choose 4 ft, 5 ft or 6 ft driveway markers?",
+    answer: "Choose from the exposed height needed at the site, then add the embedment required by the soil and installation method. The reflective area must remain visible above the expected snowbank, including plowed snow. A 4 ft, 5 ft or 6 ft overall length is not the installed height; confirm the layout and clearance before ordering.",
+  },
+  {
+    question: "Are orange fiberglass driveway markers reflective?",
+    answer: "Orange identifies the rod color. Night visibility depends on the specified reflective bands or reflector and the approach direction. Order the tape color, grade, width and position separately, and evaluate a finished sample on the intended driveway layout.",
+  },
+  {
     question: "What is a fiberglass snow marker?",
     answer:
       "A fiberglass snow marker is a slender pultruded rod or tube installed before snowfall to keep driveways, curbs, hydrants, drains and other boundaries visible. It is also called a snow stake, driveway marker, snow pole or plow guide.",
@@ -211,6 +225,10 @@ const faqItems = [
     answer:
       "State solid or hollow construction, diameter, cut length, color, tip and cap detail, reflective-band count and position, tape grade, pack count, total quantity, private-label or barcode requirements, pallet limits, destination and required delivery date.",
   },
+  {
+    question: "Can a damaged fiberglass driveway marker be repaired?",
+    answer: "Replace a split rod, cracked tube or marker with exposed fibers instead of relying on a taped structural repair. If only the reflective band is damaged, inspect the substrate and follow the replacement tape supplier's preparation and application instructions. Recheck visibility and attachment before returning the marker to use.",
+  },
 ];
 
 export default function FiberglassSnowMarkersPage() {
@@ -218,7 +236,7 @@ export default function FiberglassSnowMarkersPage() {
     <>
       <JsonLd
         data={buildProductFamilyPageSchema({
-          name: "Fiberglass Snow Markers and Reflective Driveway Stakes",
+          name: "Fiberglass Driveway Markers and Snow Stakes",
           description: pageDescription,
           path: pagePath,
           image: heroImage,
@@ -230,15 +248,16 @@ export default function FiberglassSnowMarkersPage() {
           ],
           schemaType: "ItemPage",
           datePublished: "2026-08-30",
-          dateModified: "2026-08-30",
+          dateModified: updatedAt,
         })}
       />
 
       <PageHeader
-        tag="Snow markers"
+        tag="Driveway markers & snow stakes"
         line={{ name: "Winter visibility", label: "Snow markers", mark: false }}
-        title="Fiberglass snow markers for wholesale and project programs"
-        description="Solid and hollow reflective driveway stakes configured by diameter, length, color, tape layout and pack count. Built for snow-removal contractors, property managers, retailers and seasonal infrastructure programs."
+        title="Fiberglass driveway markers and snow stakes"
+        description="Fiberglass driveway markers help identify pavement edges, curbs and obstacles during snow removal. Configure solid or hollow stakes by height, color, reflective bands and pack count for contractor, property and wholesale programs."
+        updated={updatedAt}
         facts={[
           { label: "Diameter", value: "1/4 or 5/16 in" },
           { label: "Length", value: "2–6 ft" },
@@ -246,7 +265,7 @@ export default function FiberglassSnowMarkersPage() {
           { label: "Reflective bands", value: "1–3" },
         ]}
         actions={{
-          primary: { label: "Request a snow-marker quote", href: quoteHref },
+          primary: { label: "Request a marker quote", href: quoteHref },
           secondary: { label: "Review reference sizes", href: "#reference-sizes", variant: "secondary" },
           stickyMobile: true,
         }}
@@ -274,6 +293,8 @@ export default function FiberglassSnowMarkersPage() {
         items={[
           { id: "overview", label: "Overview" },
           { id: "reference-sizes", label: "Reference sizes" },
+          { id: "driveway-markers", label: "Height & visibility" },
+          { id: "installation", label: "Installation" },
           { id: "construction", label: "Solid or hollow" },
           { id: "applications", label: "Applications" },
           { id: "release", label: "Specification" },
@@ -286,7 +307,7 @@ export default function FiberglassSnowMarkersPage() {
         <div className="grid grid-cols-1 items-start gap-[28px] lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] lg:gap-[48px]">
           <div className="space-y-[14px] text-f16 leading-golden text-t2">
             <p className="text-f18 text-t1">
-              F1 Composite supplies pultruded fiberglass snow stakes as solid rods or hollow tubes for wholesale packs and project quantities. A useful order defines the section, cut length, color, insertion tip, reflective-band layout and packaging together.
+              F1 Composite supplies fiberglass driveway markers and snow stakes as pultruded solid rods or hollow tubes for wholesale packs and project quantities. A useful order defines the section, cut length, color, insertion tip, reflective-band layout and packaging together.
             </p>
             <p>
               Send the target sample or specification before pricing. We return a size-by-size offer with construction, tolerances, tape details, pack count, inspection points and delivery basis clearly separated.
@@ -297,7 +318,7 @@ export default function FiberglassSnowMarkersPage() {
             <p className="mt-[8px] text-f16 leading-golden text-t1">Snow stakes, driveway markers, snow poles and plow guides.</p>
             <p className="mt-[10px] text-f14 leading-golden text-t2">
               For horticulture, the same pultruded rod construction is supplied as{" "}
-              <Link href="/products/fiberglass-stakes" className="font-semibold text-teal-text underline underline-offset-4 hover:text-teal">plant and tree stakes</Link>.
+              <Link href="/products/fiberglass-stakes#tree-stakes" className="font-semibold text-teal-text underline underline-offset-4 hover:text-teal">fiberglass tree stakes and plant supports</Link>.
             </p>
           </aside>
         </div>
@@ -333,6 +354,42 @@ export default function FiberglassSnowMarkersPage() {
         <p className="mt-[16px] max-w-[900px] text-f14 leading-golden text-t3">
           These dimensions and configurations are sourcing references, not an automatic stock commitment. The quotation and approved sample control the order-specific product.
         </p>
+      </PageSection>
+
+      <PageSection id="driveway-markers" title="Choose driveway marker height and reflective bands" intro="Start with what the driver needs to see after snow has been plowed. Overall rod length, exposed height and reflective-band position are separate dimensions.">
+        <div className="grid gap-[16px] md:grid-cols-3">
+          <article className={card}>
+            <h3 className="text-f20 font-bold text-t1">4 ft, 5 ft or 6 ft?</h3>
+            <p className="mt-[10px] text-f16 leading-golden text-t2">Compare the available lengths against the planned embedment and expected snowbank height. Include piled snow at turns and entrances. A longer marker also needs a suitable diameter, construction and ground support.</p>
+            <p className="mt-[12px] text-f14 font-semibold text-t1">Exposed height = overall length − embedment.</p>
+          </article>
+          <article className={card}>
+            <h3 className="text-f20 font-bold text-t1">Orange color and night visibility</h3>
+            <p className="mt-[10px] text-f16 leading-golden text-t2">Orange fiberglass driveway markers provide a recognizable daytime reference. For reflective driveway markers, also specify band color, grade, width and height above ground. Color alone does not define the reflective treatment.</p>
+          </article>
+          <article className={card}>
+            <h3 className="text-f20 font-bold text-t1">A finished sample to approve</h3>
+            <p className="mt-[10px] text-f16 leading-golden text-t2">Check tape adhesion on the curved rod, cap and tip details, and visibility from the vehicle approach. A wraparound tape marker and a pole with a separate reflector head require different drawings and acceptance checks.</p>
+          </article>
+        </div>
+        <p className="mt-[18px] max-w-[960px] text-f14 leading-golden text-t2">Specify any required sheeting standard separately. <a href="https://store.astm.org/standards/d4956" className="font-semibold text-teal-text underline underline-offset-4">ASTM D4956 covers retroreflective sheeting</a>; its scope excludes minimum performance requirements for devices already in service. Approval of the complete marker and its placement remains a project decision.</p>
+      </PageSection>
+
+      <PageSection id="installation" title="How to install fiberglass driveway markers" tone="muted" intro="Use the site layout and the supplied marker's installation instructions. Spacing and embedment depend on soil, approach direction, snow accumulation and the hazards being marked.">
+        <ol className="grid gap-[16px] md:grid-cols-2">
+          {[
+            { title: "Plan the edge before snowfall", body: "Walk the driveway with the property or snow-removal team. Identify bends, culverts, curbs and obstacles, check buried-service locations, and choose positions clear of the planned vehicle and plow path." },
+            { title: "Match the tool to the ground", body: "For hard or rocky ground, use the installation method approved for the marker, such as a pilot hole or suitable tool. Support the rod during insertion and avoid striking an unsupported hollow tube." },
+            { title: "Check the installed sightline", body: "Confirm that the marker is secure and the reflective area is above the expected snowbank. Review visibility from each approach, including bends and changes in grade, before finalizing the layout." },
+            { title: "Inspect through the season", body: "After plowing or impact, check for loose rods, cracks, exposed fibers, missing caps and lifting tape. Replace damaged structural parts and inspect reusable markers before storage and the next installation." },
+          ].map((item, index) => (
+            <li key={item.title} className={card}>
+              <p className="font-mono text-f12 text-t3">Step {index + 1}</p>
+              <h3 className="mt-[8px] text-f20 font-bold text-t1">{item.title}</h3>
+              <p className="mt-[10px] text-f16 leading-golden text-t2">{item.body}</p>
+            </li>
+          ))}
+        </ol>
       </PageSection>
 
       <PageSection id="construction" title="Solid rod and hollow tube solve different buying priorities">
@@ -418,7 +475,7 @@ export default function FiberglassSnowMarkersPage() {
         </aside>
       </PageSection>
 
-      <PageSection id="faq" title="Snow marker questions" tone="muted">
+      <PageSection id="faq" title="Fiberglass driveway marker and snow stake questions" tone="muted">
         <FAQList items={faqItems} />
       </PageSection>
 
@@ -431,7 +488,7 @@ export default function FiberglassSnowMarkersPage() {
               { href: "/products/fiberglass-structural-shapes/frp-rod", label: "Pultruded fiberglass round rod" },
               { href: "/products/fiberglass-structural-shapes/frp-tube", label: "Pultruded fiberglass round tube" },
               { href: "/products/custom-pultruded-profiles", label: "Custom pultruded profiles" },
-              { href: "/products/fiberglass-stakes", label: "Fiberglass plant and tree stakes" },
+              { href: "/products/fiberglass-stakes#tree-stakes", label: "Fiberglass tree stakes and plant supports" },
               { href: "/products/frp-rebar", label: "FRP rebar" },
               { href: "/pultruded-frp-profiles", label: "All FRP products" },
             ],
@@ -457,14 +514,14 @@ export default function FiberglassSnowMarkersPage() {
         ]}
       />
 
-      <PageSection id="quote" title="Send your snow-marker size, tape and pack specification" tone="deep">
+      <PageSection id="quote" title="Request bulk fiberglass driveway markers" tone="deep">
         <ProductRfq
-          product="Fiberglass snow markers"
+          product="Fiberglass driveway markers and snow stakes"
           productPath={pagePath}
           quoteHref={quoteHref}
           items={requestItems}
           intro="Send the target sample or specification. We return a size-by-size offer with construction, tolerances, tape details, pack count and delivery basis."
-          advisorPrompt="I need fiberglass snow markers: [solid/hollow], diameter [1/4 or 5/16 in], length [ft], colors [list], reflective bands [count and position], pack count [pcs], quantity [pcs] and destination [country]. Build the RFQ checklist and flag anything I have not specified."
+          advisorPrompt="I need fiberglass driveway markers and snow stakes: site and snowbank height [ ], overall and exposed length [ ], ground condition [ ], solid/hollow [ ], diameter [ ], color [ ], reflective-band grade, width and position [ ], pack count [ ], quantity [ ], destination and delivery date [ ]. Build the RFQ checklist and flag anything I have not specified."
         />
       </PageSection>
     </>

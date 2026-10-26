@@ -169,7 +169,8 @@ export default async function RodPage() {
           <UseList
             title="Purpose-specific rod inquiries"
             items={[
-              { label: "Fiberglass stakes for plants and trees", href: "/products/fiberglass-stakes" },
+              { label: "Fiberglass tree stakes and plant supports", href: "/products/fiberglass-stakes" },
+              { label: "Fiberglass driveway markers and snow stakes", href: "/products/fiberglass-snow-markers" },
               { label: "FRP rebar for concrete", href: "/products/frp-rebar" },
               { label: "FRP rock bolts and anchoring", href: "/products/frp-rock-bolts" },
               { label: "Live-line tool rods and tubes", href: "/products/fiberglass-live-line-tool-tubes-rods" },

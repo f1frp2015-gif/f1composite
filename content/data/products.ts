@@ -36,7 +36,7 @@ export const productCategories: ProductCategory[] = [
   },
   {
     slug: "fiberglass-snow-markers",
-    title: "Fiberglass Snow Markers",
+    title: "Fiberglass Driveway Markers & Snow Stakes",
     description: "Solid and hollow reflective driveway stakes in wholesale size, color, tape-layout and pack-count programs.",
     icon: "profiles",
     href: "/products/fiberglass-snow-markers",
@@ -47,7 +47,7 @@ export const productCategories: ProductCategory[] = [
   },
   {
     slug: "fiberglass-stakes",
-    title: "Fiberglass Stakes & Marker Rods",
+    title: "Fiberglass Tree Stakes & Plant Supports",
     description: "Pultruded FRP plant, tree, vineyard, nursery and general marker stakes with quote-controlled diameter, length, color, end and surface options.",
     icon: "profiles",
     href: "/products/fiberglass-stakes",

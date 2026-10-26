@@ -100,3 +100,15 @@ export const frpStakePublicSources = [
     href: "https://www.wellcowholesale.com/3-8-x-6-50pcs-dark-green-frp-stakes.html",
   },
 ] as const;
+
+/** Tree-care guidance, separate from the wholesale size references above. */
+export const frpTreeStakeGuidanceSources = [
+  {
+    label: "UC IPM: when to stake, flexible ties and removal",
+    href: "https://ipm.ucanr.edu/home-and-landscape/staking/",
+  },
+  {
+    label: "Iowa State Extension: care of newly planted trees",
+    href: "https://yardandgarden.extension.iastate.edu/how-to/care-newly-planted-trees",
+  },
+] as const;
