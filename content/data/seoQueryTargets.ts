@@ -338,14 +338,14 @@ export const seoQueryTargets = [
     intent: "commercial",
     title: "FRP Rebar Supplier | GFRP Bars, Stirrups & Mesh Export",
     description: "GFRP rebar Ø6–36 mm (No. 2–No. 10): straight bars, factory stirrups and mesh for marine, precast, slab and MRI concrete. ASTM D7957 data, export packing, RFQ.",
-    supportingUrls: ["/technology/fiberglass-rebar-vs-steel", "/products/product-lines", "/resources/gfrp-rebar-applications", "/resources/gfrp-rebar-standards", "/resources/gfrp-rebar-size-chart", "/tools/gfrp-rebar-calculator"],
+    supportingUrls: ["/technology/fiberglass-rebar-vs-steel", "/products/product-lines", "/resources/gfrp-rebar-applications", "/resources/gfrp-rebar-standards", "/resources/gfrp-rebar-size-chart", "/tools/gfrp-rebar-calculator", "/resources/blog/fiberglass-rebar-for-residential-concrete"],
   },
   {
     targetUrl: "/resources/gfrp-rebar-applications",
     primaryQuery: "GFRP rebar applications",
     intent: "guide",
-    title: "GFRP Rebar Applications: Marine, Precast, Slabs, MRI",
-    description: "Where GFRP rebar is specified: seawalls, precast, slabs and pools, bridge decks, MRI rooms, soft-eyes and water plants, with the approval route in each market.",
+    title: "GFRP Rebar Applications: Marine, Slabs, Bridges, Buildings",
+    description: "Where GFRP rebar is specified: seawalls, precast, slabs, bridges, buildings, flood channels, walls, MRI and rail, soft-eyes and water plants, by market.",
     supportingUrls: ["/products/frp-rebar", "/resources/gfrp-rebar-standards"],
   },
   {

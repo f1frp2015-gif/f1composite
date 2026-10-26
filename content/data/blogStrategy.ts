@@ -1,7 +1,7 @@
 import { blogPosts, blogPostsBySlug, type BlogPost } from "@/content/data/blogPosts";
 
 // Collection navigation revision; original article dates remain content-owned.
-export const blogLibraryUpdated = "2026-10-25";
+export const blogLibraryUpdated = "2026-10-26";
 
 export type BlogTopicSlug =
   | "materials-and-process"
@@ -121,7 +121,7 @@ export const blogTopics: BlogTopic[] = [
     description: "Prepare a GFRP rebar specification with guides to standards, bent bars, stirrups, schedules, handling and installation before concrete placement.",
     intro: "Move from design requirements to a bar schedule and an installation plan. The articles separate product qualification from structural design and explain why bends, handling and site changes must be agreed before delivery.",
     questions: ["Which product standards and design documents apply to the rebar?", "How should factory-formed bends, stirrups and mesh be scheduled?", "What handling and placement checks are needed before concrete is poured?"],
-    startHere: ["gfrp-rebar-specification-guide-aci-440-astm-d7957", "gfrp-bent-bars-stirrups-mesh-ordering-guide", "how-to-install-gfrp-rebar"],
+    startHere: ["gfrp-rebar-specification-guide-aci-440-astm-d7957", "gfrp-bent-bars-stirrups-mesh-ordering-guide", "how-to-install-gfrp-rebar", "fiberglass-rebar-for-residential-concrete"],
     nextLinks: [
       { label: "GFRP rebar supply and RFQ", href: "/products/frp-rebar" },
       { label: "Compare fiberglass rebar and steel", href: "/technology/fiberglass-rebar-vs-steel" },
@@ -438,6 +438,11 @@ export const blogKeywordTargets: BlogKeywordTarget[] = [
     slug: "importing-gfrp-rebar-container-loading-documents", topic: "gfrp-rebar",
     primaryQuery: "importing GFRP rebar", secondaryQueries: ["gfrp rebar container loading", "fiberglass rebar HS code", "gfrp rebar MOQ and lead time", "fiberglass rebar price per ton"], intent: "guide",
     nextStep: { label: "Request a GFRP rebar quotation", href: "/products/frp-rebar" },
+  },
+  {
+    slug: "fiberglass-rebar-for-residential-concrete", topic: "gfrp-rebar",
+    primaryQuery: "fiberglass rebar for residential concrete", secondaryQueries: ["fiberglass rebar for driveway", "fiberglass rebar for slab on grade", "fiberglass rebar for pool", "fiberglass rebar footings", "fiberglass rebar ICF walls", "#3 fiberglass rebar vs #4 steel"], intent: "guide",
+    nextStep: { label: "Set up a distributor or project supply of flatwork bars", href: "/products/frp-rebar" },
   },
   {
     slug: "frp-grating-specification-guide", topic: "grating-and-access",
