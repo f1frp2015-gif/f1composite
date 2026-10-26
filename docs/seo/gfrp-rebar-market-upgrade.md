@@ -54,3 +54,18 @@ Source: `docs/research/frp-rebar-market-2026-10.md` §2b. The leading flatwork-a
 | `scripts/gfrp-rebar-market-pages.test.mjs` | Guards extended: 10 segments, companion items, dowel FAQ, the three new section ids, the new article's sources and FAQ, and the approval-claim scan now covers it. |
 
 Rules unchanged: price ranges only; no approval, listing, domestic-content or service-life claim; competitor projects attributed to the producer that supplied them.
+
+## Third pass: one inquiry route and a picture-led page (2026-10-26, PDCA A024)
+
+Owner decision: rebar inquiries use the same contact form as every other family; no rebar-only entry point. PR #177 (`ec3fb81`).
+
+| Change | Where |
+|---|---|
+| Removed the on-page schedule builder, the four stage-specific entry cards and the per-form / per-section stage buttons; every CTA is the standard `buildRfqHref` product RFQ | `app/products/frp-rebar/page.tsx` |
+| Removed the contact-form rebar fields, the API parser and `lib/rebarInquiry.ts`; footer, applications and standards pages link the standard form | `components/ContactForm.tsx`, `app/api/contact/route.ts`, `lib/rfq.ts`, `components/layout/Footer.tsx` |
+| Segment line icons shared by the product and applications pages | `components/products/RebarSegmentIcon.tsx` |
+| Five new schematic figures (grades stress-strain, 15-size ladder, bent-bar geometry, nonmetallic accessories, rock bolt section) plus the existing cost-basis, container, placement and cutting drawings placed in their sections | `scripts/covers/draw-gfrp-rebar-product-figures.mjs`, `public/images/products/frp-rebar/` |
+| FAQ in its own section; the ICC-ES / DOT / CE non-claim on the approvals card | product page |
+| Gate test forbids the retired inquiry code on the three rebar pages and requires images for every companion | `scripts/gfrp-rebar-market-pages.test.mjs` |
+
+The CSV bar-schedule template download stays: the articles and the size chart still link it, and it is a document, not an entry point.
