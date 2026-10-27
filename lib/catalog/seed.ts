@@ -6,6 +6,7 @@
 // The public website deliberately exposes no catalog-management or seed endpoint.
 
 import postgres from "postgres";
+import { cableTrayLadderCatalog } from "../../content/data/downloads";
 // Shared with /resources/technical-data via lib/catalog/en13706.ts — the one
 // source for the EN 13706 grade minimums; do not redefine them here.
 import { E23_MIN, E17_MIN, TYP_NOTE } from "./en13706";
@@ -278,6 +279,7 @@ const downloads: {
   title: string; format: string; size: string; category: string;
   file_url: string | null; description: string;
 }[] = [
+  { title: cableTrayLadderCatalog.title, format: cableTrayLadderCatalog.format, size: cableTrayLadderCatalog.size, category: "catalog", file_url: cableTrayLadderCatalog.file, description: cableTrayLadderCatalog.description },
   { title: "Pultruded FRP Pipe — Mining & Oilfield Catalog (Edition 2026.06)", format: "PDF", size: "991 KB", category: "catalog", file_url: "/downloads/f1composite-oilfield-mine-pipe-catalog-2026-06.pdf", description: "3-page product catalog for F1 Composite serial-production pultruded FRP pipe in two product families. Series 01 — Oilfield Surface Gathering: DN50–DN300, 0.7–3.5 MPa, −40 °C to +140 °C continuous (short-term peak +160 °C), vinyl-ester / epoxy / polyurethane matrices with 0.5–2.5 mm resin-rich liner (novolac VE for sour H₂S / CO₂ service); reference standards API 15LR, ISO 14692, NORSOK M-622, ASTM D2992, SY/T 6266. Series 02 — Mine Methane Drainage: DN25–DN300, 0.6–1.6 MPa, surface resistance ≤3×10⁸ Ω, LOI ≥28%, UL 94 V-0; reference standards MT/T 558.3, GB 16413, MT 113, ISO 4589-2, ASTM E84. Qualification reports, holders and scope are provided on request. Edition 2026.06, Rev v1.3." },
   { title: "FRP Profile Design Manual — DOC-PF-2026-EN Rev. B", format: "PDF", size: "3 MB", category: "catalog", file_url: "/downloads/f1composite-frp-profile-design-manual-2026-rev-b.pdf", description: "46-page engineering reference for F1 Composite pultruded structural profiles, generated from the same data as the website. EN 13706 E23 laminate values with grade minimums and test methods, resin systems, design basis (ASCE/SEI 74-23, CEN/TS 19101 and GB 50608 screening factors, time-effect and environment factors), section properties of all 114 catalog sizes, allowable uniform-load tables over 1–6 m spans, application guides, handrail and ladder data, durability by resin formulation, fabrication, inspection and ordering. Doc no. DOC-PF-2026-EN Rev. B, October 2026; supersedes the withdrawn Rev. A." },
   { title: "Nine-Series FRP Window & Door Purchasing Catalog", format: "PDF", size: "2026 edition", category: "catalog", file_url: "/downloads/f1composite-frp-window-door-catalog.pdf", description: "Nine series, two purchasing paths: system profiles for local fabrication and finished units for local installation. Updated 50/55/90-sliding/140 profile codes, configuration review, BOM and window-schedule requirements." },

@@ -1,6 +1,8 @@
 import type { ReactNode } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import DocumentCard, { libraryCard } from "@/components/downloads/DocumentCard";
+import { cableTrayLadderCatalog } from "@/content/data/downloads";
 import PageHeader from "@/components/layout/PageHeader";
 import PageNav from "@/components/layout/PageNav";
 import PageSection from "@/components/layout/PageSection";
@@ -13,6 +15,7 @@ import { FAQList } from "@/components/ui/FAQ";
 import Figure from "@/components/ui/Figure";
 import type { ApplicationPage } from "@/lib/applicationPages";
 import { buildRfqHref } from "@/lib/rfq";
+import { classifyDocument } from "@/lib/documents";
 
 const rfqHref = buildRfqHref({
   source: "cable-tray-application",
@@ -141,7 +144,7 @@ export default function CableTrayApplication({ page }: { page: ApplicationPage }
       description={page.description}
       figure={<Figure number={1} title="Cable ladder at a treatment plant" note="Application illustration" caption="Illustrative route: cables bear on rungs; side rails transfer load through brackets into the supporting structure. Rung pitch, spans, splice positions and cable restraints follow the qualified system design." bleed><Image src="/images/applications/frp-cable-ladder-water-treatment-pultruded-texture.webp" alt="Illustration of cables resting on ladder rungs between pultruded side rails, supported beside treatment basins" width={1672} height={941} sizes="(max-width: 1023px) 94vw, 44vw" className="h-auto w-full" preload /></Figure>}
       breadcrumbs={[{ label: "Home", href: "/" }, { label: "Applications", href: "/applications" }, { label: "FRP cable trays & cable ladders" }]}
-      actions={{ primary: { label: "Discuss your cable route", href: rfqHref }, secondary: { label: "Specification checklist", href: "#specification", variant: "secondary" }, note: "Start with your name and email. Route drawings and details can follow.", stickyMobile: true }}
+      actions={{ primary: { label: "Discuss your cable route", href: rfqHref }, secondary: { label: "Product catalog (PDF)", href: cableTrayLadderCatalog.file, variant: "secondary" }, note: "Start with your name and email. Route drawings and details can follow.", stickyMobile: true }}
     />
     <PageNav items={navigation.map(([id, label]) => ({ id, label }))} />
 
@@ -357,7 +360,8 @@ export default function CableTrayApplication({ page }: { page: ApplicationPage }
       <p className="text-f14">You can start with your name and email. This checklist helps refine the technical scope; it is not a requirement to complete every field before contacting us.</p>
     </Section>
 
-    <Section id="submittals" title="Agree the documents and inspection points before production" muted>
+    <Section id="submittals" title="Product catalog and project documents" muted>
+      <DocumentCard card={libraryCard({ ...cableTrayLadderCatalog, ...classifyDocument(cableTrayLadderCatalog) })} />
       <Table caption="Suggested project submittal and quality plan" headers={["Stage", "Deliverable to agree", "Acceptance point"]} rows={[
         ["Quotation", "Itemized BOM, proposed series / resin, dimensions, hardware, exclusions and lead time.", "Each straight, fitting, cover and support has a traceable item reference and quantity."],
         ["Engineering review", "General arrangement, support / splice layout, fitting drawings and system load evidence.", "Match width, rail / rung detail, span, joint arrangement, exposure and required test edition to the supplied configuration."],

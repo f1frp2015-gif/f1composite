@@ -335,7 +335,7 @@ export const applicationPages: ApplicationPage[] = [
   },
   {
     slug: "frp-cable-tray-supports",
-    lastModified: "2026-10-25",
+    lastModified: "2026-10-27",
     title: "FRP Cable Trays & Ladders | Sizes, Fittings & Selection",
     shortTitle: "FRP cable trays & ladders",
     description:
