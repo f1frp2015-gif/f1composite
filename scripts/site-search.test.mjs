@@ -115,3 +115,19 @@ test("the document library classifies every document by type, issuer and product
   assert.equal(byTitle("ISO 9001").issuer, null, "no issuer is invented for on-request certificates");
   for (const document of documents) assert.ok(document.type && document.product, `${document.title} is classified`);
 });
+
+test("the cable catalog stays discoverable with existing database downloads and duplicate rows", () => {
+  const { assembleDocuments } = loadProjectModule("lib/documents.ts");
+  const { cableTrayLadderCatalog } = loadProjectModule("content/data/downloads.ts");
+  const existing = { title: "Existing database document", format: "PDF", size: "1 MB", description: "Existing document", file: "/downloads/existing.pdf" };
+  for (const loaded of [[existing], [existing, { ...cableTrayLadderCatalog, title: "Old database label" }]]) {
+    const documents = assembleDocuments(loaded);
+    const matches = documents.filter((item) => item.file === cableTrayLadderCatalog.file);
+    assert.equal(matches.length, 1);
+    assert.equal(matches[0].title, cableTrayLadderCatalog.title);
+    assert.deepEqual([matches[0].type, matches[0].issuer, matches[0].productHref], ["Catalog", "F1 Composite", "/applications/frp-cable-tray-supports"]);
+    assert.ok(documents.some((item) => item.file === existing.file));
+  }
+  assert.ok(existsSync(join(root, "public", cableTrayLadderCatalog.file)));
+  assert.ok(search(index, "cable tray ladder").groups.find((group) => group.kind === "document")?.hits.some((hit) => hit.entry.url === cableTrayLadderCatalog.file));
+});

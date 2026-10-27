@@ -1,6 +1,6 @@
 /**
  * Documents listed on /resources/downloads when the catalog database has no
- * rows (or is unreachable), plus the window templates the page always shows.
+ * rows (or is unreachable), plus the catalog and templates the page always shows.
  * The site search indexes the same list (lib/documents.ts).
  */
 
@@ -12,7 +12,16 @@ export interface DownloadItem {
   file?: string;
 }
 
+export const cableTrayLadderCatalog = {
+  title: "FRP Cable Tray & Ladder Product Catalog (Edition 2026.10)",
+  format: "PDF",
+  size: "1.3 MB",
+  description: "6-page English catalog covering pultruded FRP cable ladders, CT50/CT80/CT110 trays, covers, routing fittings, resin and colour options, application examples and project inquiry requirements. Dimensions are selection options; availability, load/span ratings and supporting test documents are confirmed with the quotation.",
+  file: "/downloads/f1composite-cable-tray-ladder-catalog-2026-10.pdf",
+} satisfies DownloadItem;
+
 export const fallbackDownloads: DownloadItem[] = [
+  cableTrayLadderCatalog,
   {
     title: "Pultruded FRP Pipe — Mining & Oilfield Catalog (Edition 2026.06)",
     format: "PDF",

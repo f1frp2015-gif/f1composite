@@ -1,12 +1,12 @@
 // The document library behind /resources/downloads and the site search:
 // catalog rows (or the static fallback) plus the pinned E40 reports and
-// window files, each classified by type, issuer and product so both can be
+// cable-management catalog and window files, each classified by type, issuer and product so both can be
 // filtered. Evidence records supply the issuer, scope and date where they
 // exist; the rest is read from the title.
 
 import { e40Reports, e40ReportScope } from "@/content/data/e40Evidence";
 import { engineeringEvidence, reportedResults, withdrawnDownloads } from "@/content/data/engineeringEvidence";
-import { fallbackDownloads, windowTemplates, type DownloadItem } from "@/content/data/downloads";
+import { cableTrayLadderCatalog, fallbackDownloads, windowTemplates, type DownloadItem } from "@/content/data/downloads";
 import type { DocumentType, LibraryDocument } from "@/lib/documentTypes";
 
 export { DOCUMENT_TYPES, DOCUMENT_TYPE_LABELS, type DocumentType, type LibraryDocument } from "@/lib/documentTypes";
@@ -41,6 +41,7 @@ function typeOf(item: DownloadItem, evidenceKind?: string): DocumentType {
 
 // Product families named in titles, for documents the evidence index does not list.
 const PRODUCTS: [RegExp, string, string][] = [
+  [/cable (tray|ladder)/i, "FRP cable trays and ladders", "/applications/frp-cable-tray-supports"],
   [/window|door|fenestration/i, "FRP windows and doors", "/products/frp-window-frames"],
   [/pipe/i, "Pultruded FRP pipe", "/pultruded-frp-profiles"],
   [/wind (energy|turbine)/i, "Wind turbine blade panels", "/products/wind-turbine-blade-panels"],
@@ -72,7 +73,7 @@ export function classifyDocument(item: DownloadItem): Omit<LibraryDocument, keyo
 }
 
 /**
- * The downloads page's list: pinned E40 reports and window files first, then
+ * The downloads page's list: pinned E40 reports, cable catalog and window files first, then
  * the loaded rows without duplicates or withdrawn files. Evidence scope notes
  * replace catalog descriptions where both exist.
  */
@@ -86,6 +87,7 @@ export function assembleDocuments(loaded: readonly DownloadItem[] = fallbackDown
       description: `${report.reference}. ${e40ReportScope(report)}`,
       file: report.file,
     })),
+    cableTrayLadderCatalog,
     ...(windowCatalog ? [windowCatalog] : []),
     ...windowTemplates,
   ];
