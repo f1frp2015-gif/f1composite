@@ -139,9 +139,9 @@ export const seoQueryTargets = [
     targetUrl: "/pultruded-frp-profiles",
     primaryQuery: "pultruded FRP profiles",
     intent: "commercial",
-    title: "Pultruded FRP & GRP Profiles | Product Range",
+    title: "Pultruded FRP Profiles: Standard Sizes & Custom Sections",
     description:
-      "Explore pultruded FRP and GRP profiles: structural shapes, tubes, gratings, window frames and custom sections. Select a product family and request a quote.",
+      "Pultruded FRP (GRP) profiles direct from a 370-line manufacturer: I-beams, channels, angles, tubes, rods and flat bars to EN 13706 E23. Sizes in mm and inches.",
     supportingUrls: [
       "/products/fiberglass-structural-shapes",
       "/products/custom-pultruded-profiles",
