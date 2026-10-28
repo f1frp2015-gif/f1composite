@@ -7,7 +7,7 @@ import { loadProjectModule } from "./load-project-module.mjs";
 // page, the applications and standards reference pages, and the two supporting articles.
 
 const rebar = loadProjectModule("lib/gfrpRebar.ts");
-const { rebarCatalog } = loadProjectModule("content/data/frpRebar.ts");
+const { rebarCatalog, rebarScenePhotos } = loadProjectModule("content/data/frpRebar.ts");
 const { blogPosts } = loadProjectModule("content/data/blogPosts.ts");
 const { seoQueryTargets } = loadProjectModule("content/data/seoQueryTargets.ts");
 const read = (path) => readFileSync(new URL(`../${path}`, import.meta.url), "utf8");
@@ -65,6 +65,25 @@ test("the catalog describes segments, supply routes, price basis and export pack
   // Owner rule 2026-10-23: price ranges only, RFQ decides.
   assert.match(rebarCatalog.pricing.retailRange, /roughly \$0\.25 to \$0\.85 per foot/);
   for (const text of [rebarCatalog.pricing.retailRange, ...rebarCatalog.faqs.map((f) => f.answer)]) assert.doesNotMatch(text, /\$\d+\.\d{2} per (foot|metre|meter)(?! for)/i);
+});
+
+test("the picture-led page credits every open-licensed photograph it shows", () => {
+  // Fourth pass 2026-10-27: performance, segments and site photos from Wikimedia Commons.
+  const product = read(PRODUCT);
+  for (const segment of rebarCatalog.segments) assert.ok(segment.photo in rebarScenePhotos, `${segment.title} names an unknown photo`);
+  for (const [id, photo] of Object.entries(rebarScenePhotos)) {
+    assert.ok(existsSync(new URL(`../public${photo.src}`, import.meta.url)), photo.src);
+    assert.ok(photo.alt.length > 30 && photo.shows.length > 20, id);
+    assert.match(photo.credit.sourceHref, /^https:\/\/commons\.wikimedia\.org\/wiki\/File:/, id);
+    assert.ok(photo.credit.author && photo.credit.license, id);
+    if (!/public domain/i.test(photo.credit.license)) assert.match(photo.credit.licenseHref ?? "", /^https:\/\/creativecommons\.org\//, `${id} needs a license link`);
+    // No photo of a steel-reinforced structure may be captioned as a GFRP or F1 installation.
+    assert.doesNotMatch(photo.shows, /F1 (project|installation)|FengDu/, id);
+  }
+  assert.ok(product.includes('id="photo-credits"') && product.includes("creditedPhotos.map"), "credits block");
+  assert.ok(product.includes("catalog.properties.map") && rebarCatalog.properties.length >= 10, "property comparison table");
+  assert.ok(product.includes('id="performance"') && product.includes("scenes[item.photo]"), "performance section and segment photos");
+  assert.doesNotMatch(product, /note="Illustrative photo"/, "open-licensed photos are not stock images");
 });
 
 test("the rebar pages link each other and the owner page", () => {

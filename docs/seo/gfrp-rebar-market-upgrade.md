@@ -69,3 +69,18 @@ Owner decision: rebar inquiries use the same contact form as every other family;
 | Gate test forbids the retired inquiry code on the three rebar pages and requires images for every companion | `scripts/gfrp-rebar-market-pages.test.mjs` |
 
 The CSV bar-schedule template download stays: the articles and the size chart still link it, and it is a document, not an entry point.
+
+## Fourth pass: performance, applications and benefits with open-licensed photography (2026-10-27)
+
+Owner request: rewrite the product page in depth, picture-led, so that performance, application scenarios and benefits are clear to a first-time reader, using openly licensed online photographs.
+
+| Change | Where |
+|---|---|
+| New first section `#performance`: three corrosion photographs (bridge parapet spalling, slab soffit spalling, steel bars rusting on site) against the F1 bar photo; four "reasons" cards (no corrosion, a quarter of the weight, nonmagnetic and non-conductive, insulating and cuttable) each with its proof line; an 11-row property table GFRP 45/60 vs Grade 60 steel (`rebarCatalog.properties`); the stress-strain figure beside four design-limit cards (stiffness governs, no yield, bent value, fire/seismic/creep by code) | `app/products/frp-rebar/page.tsx`, `content/data/frpRebar.ts` |
+| Segment cards now open with a photograph of the element (seawall barge, GFRP mesh sample, pool shotcrete, bridge deck, MRI suite, TBM breakthrough, foundation slab, building slab mat, box culvert, wall cage) with a one-line "what this shows" caption; each segment carries a `photo` key | same |
+| Installation section retitled "On site" with a bridge-deck pour photograph beside the placing and cutting schematics | same |
+| 14 photographs from Wikimedia Commons (public domain, CC0, CC BY, CC BY-SA), cropped to 8:5, ≤ 1280 px, 2.0 MB in total; attribution in a "Photo credits" block at the end of the FAQ section and in `docs/research/gfrp-rebar-page-photo-sources.md` | `public/images/products/frp-rebar/scenes/` |
+| H1 now leads with the benefit ("corrosion-free GFRP bars, stirrups and mesh"); header fact "Price basis" replaced by "Weight: about ¼ of steel"; secondary header action jumps to the comparison; title and meta description unchanged | page |
+| Gate test extended: every segment names an existing scene photo, every scene photo has alt, "shows" and a credit with a Commons source link, and the page renders the credits block | `scripts/gfrp-rebar-market-pages.test.mjs` |
+
+Rules unchanged: price ranges only; no approval, listing, domestic-content or service-life claim; captions say the construction scenes are steel-reinforced and not F1 projects.
