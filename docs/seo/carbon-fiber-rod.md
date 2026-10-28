@@ -28,3 +28,19 @@ Ahrefs keyword overview was requested for US terms after consulting the API docu
 The page offers a drawing-led inquiry. Diameter availability, fiber/resin grade, length, tolerance, tooling, samples, MOQ, price and lead time are quotation-controlled. No numerical CFRP strength, modulus, temperature rating, inventory or certification is asserted. Existing GFRP catalog values and other CFRP product evidence are explicitly excluded from rod qualification. Applications are discussion examples, not approved end uses.
 
 The original SVG is a labeled section illustration, not a product photograph or a dimensional manufacturing drawing.
+
+## Picture-led rewrite (2026-10-28)
+
+Owner request: the same depth of rewrite as the GFRP rebar page (A028) for the carbon fiber tube and rod pages, picture-led, with openly licensed photographs, explaining performance, application scenarios and benefits.
+
+| Change | Where |
+|---|---|
+| New first section `#performance` on both pages: specific-stiffness figure, a photo of the pultruded material (plate edge, roving, carbonization line), four reason cards with proof lines, an 11-row class-value table CFRP vs E23 GFRP vs aluminium 6061-T6 vs structural steel (`carbonProperties`), and four limit cards beside the broken-pole and drilled-hole photographs | `app/products/pultruded-carbon-fiber-tubes/page.tsx`, `app/products/fiberglass-structural-shapes/frp-rod/carbon-fiber-rod/page.tsx`, `content/data/carbonFiberScenes.ts` |
+| Hollow vs solid section drawn to scale with I and A (Ø10 rod, Ø14 × Ø10 tube at the same mass, Ø10 × Ø7 tube at the same OD); fiber-direction figure (pultruded 0° against roll-wrapped 0/±45/90) with "choose pultruded when / wrap when" lists on the tube page | `scripts/covers/draw-carbon-fiber-figures.mjs`, `public/images/products/carbon-fiber/figures/` |
+| Application cards with photographs: tubes (UAV arms, parallel robots, optics and metrology, booms and masts, research and model aircraft, frames, flexible poles, metal replacement); rods (linkages, delta robots, model aircraft, drones, poles and spars, concrete strengthening); each with typical sizes and what to send | both pages |
+| Connections and fabrication sections keep the three rules and add the drilled-hole photograph and the galvanic-isolation detail | both pages |
+| Hero photographs replace the SVG concept diagrams (hexacopter arms; delta robot linkages); H1 and header facts lead with stiffness per kilogram; three FAQs added (stiffness and mass class values, price basis, pultruded vs wrapped or machined) | both pages, `content/data/carbonFiberRod.ts` |
+| 18 photographs from Wikimedia Commons (public domain, CC BY, CC BY-SA), cropped to 8:5 at ≤ 1280 px, 1.2 MB in total; credits block at the end of each FAQ section; sources and property basis in `docs/research/carbon-fiber-pages-photo-sources.md` | `public/images/products/carbon-fiber/scenes/` |
+| New gate test `scripts/carbon-fiber-pages.test.mjs` added to `npm test` | scripts |
+
+Editorial decision: the 2026-10-25 pages carried no numbers at all. The rewrite states published class values for unidirectional pultruded carbon (ACI 440.1R ranges, supplier datasheets) and labels them as such in the table footnote, the figure footers and the FAQ, with the offered laminate's qualification report named as the design basis. No F1 CFRP datasheet, certificate, stock size, tolerance, MOQ or lead time is asserted. Titles and meta descriptions are unchanged.
