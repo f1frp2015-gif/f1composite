@@ -3,7 +3,7 @@ export const carbonFiberRod = {
   parentPath: "/products/fiberglass-structural-shapes/frp-rod",
   title: "Carbon Fiber Rod | Solid Pultruded CFRP Round Bars",
   description: "Specify solid pultruded carbon fiber rods, including 3/8 inch (9.525 mm) inquiries. Compare CFRP and fiberglass rods, cut lengths, tolerances and end details.",
-  updated: "2026-10-26",
+  updated: "2026-10-28",
   image: "/images/products/carbon-fiber-rod/carbon-fiber-solid-rod.svg",
   specifications: [
     ["Section", "Solid circular CFRP rod; also called a carbon fiber round bar."],
@@ -27,6 +27,8 @@ export const carbonFiberRod = {
   ],
   faq: [
     { question: "What is a pultruded carbon fiber rod?", answer: "It is a solid composite round bar made by drawing continuous carbon fibers and resin through a forming and curing die. The main reinforcement runs along the rod, making load direction and end-connection design important when specifying the component." },
+    { question: "How stiff and how light is a carbon fiber rod?", answer: "Class values for unidirectional pultruded carbon at about 60% fiber volume are a longitudinal modulus of 120–150 GPa at a density of about 1.55 g/cm³: 3.4 times the stiffness per unit mass of aluminium or steel and about seven times that of an E23 fiberglass rod. Across the fibers the rod is resin-dominated and far weaker. These are published ranges, not an F1 datasheet; the qualification report of the offered rod states what a delivered bar achieves." },
+    { question: "Why choose a pultruded carbon rod over a machined or wrapped one?", answer: "Pultrusion makes the rod continuously, with no mandrel and no lay-up, so it is the lowest-cost carbon product per metre and the only practical way to make small diameters. The price is a purely longitudinal laminate: a pultruded rod is for axial load and bending, not torque or side load, and its ends are bonded rather than threaded or clamped hard." },
     { question: "Can I request a 3/8 inch carbon fiber rod?", answer: "Yes. Send an inquiry for a nominal 3/8 inch (9.525 mm) solid rod with your diameter tolerance, cut lengths and quantity. F1 Composite confirms the proposed material, tooling, samples, minimum order and delivery in the quotation; this size reference is not a stock listing." },
     { question: "Is a 3/8 inch carbon fiber rod the same as a 10 mm rod?", answer: "No. A 3/8 inch diameter is 9.525 mm. A nominal 10 mm rod is 0.475 mm larger, which can change fit and section properties. Specify the intended units and tolerance on the drawing." },
     { question: "How does a solid carbon fiber rod differ from a tube?", answer: "A solid rod has no bore; a hollow carbon fiber rod is a tube. At the same outside diameter and longitudinal modulus, the solid rod has greater bending stiffness and mass. At equal mass and length with the same material, a larger-diameter tube can provide greater bending stiffness. Compare bore, wall stability, loads and end fittings before choosing a section." },
