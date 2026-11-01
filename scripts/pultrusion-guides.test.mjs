@@ -6,6 +6,7 @@ import { loadProjectModule } from "./load-project-module.mjs";
 const { pultrusionGuides } = loadProjectModule("content/data/pultrusionGuides.ts");
 const { pultrusionGuidePath } = loadProjectModule("content/data/pultrusionGuideTypes.ts");
 const { specialistProductIndex } = loadProjectModule("content/data/pultrusionGuideIndex.ts");
+const { dedicatedProductPages } = loadProjectModule("content/data/pultrusionGuideTypes.ts");
 const { applicationPages } = loadProjectModule("lib/applicationPages.ts");
 const { applicationGroups } = loadProjectModule("content/data/productTaxonomy.ts");
 const { buildPageMetadata } = loadProjectModule("lib/seo.ts");
@@ -30,7 +31,9 @@ test("every specialist page has a unique discoverable route and current compact 
       assert.equal(applicationPages.filter((item) => item.slug === page.slug).length, 1);
       assert.ok(applicationGroups.some((item) => item.href === route), `${route}: orphaned application`);
     } else {
-      assert.ok(!existsSync(new URL(`../app/products/${page.slug}/page.tsx`, import.meta.url)), `${route}: shadows another product page`);
+      const dedicated = existsSync(new URL(`../app/products/${page.slug}/page.tsx`, import.meta.url));
+      if (dedicatedProductPages.includes(page.slug)) assert.ok(dedicated, `${route}: listed as a dedicated page but has no route`);
+      else assert.ok(!dedicated, `${route}: shadows another product page; list it in dedicatedProductPages if that is intended`);
     }
     assert.doesNotThrow(() => buildPageMetadata({ title: page.title, description: page.description, path: route }));
   }

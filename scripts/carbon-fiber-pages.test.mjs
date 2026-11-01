@@ -13,9 +13,10 @@ const TUBES = "app/products/pultruded-carbon-fiber-tubes/page.tsx";
 const RODS = "app/products/fiberglass-structural-shapes/frp-rod/carbon-fiber-rod/page.tsx";
 const PLATES = "app/products/pultruded-carbon-fiber-plates/page.tsx";
 const HUB = "app/products/pultrusion-carbon-fiber/page.tsx";
+const STRIPS = "app/products/pultruded-cfrp-strengthening-strips/page.tsx";
 
 test("every carbon scene photo exists, is described and carries its license", () => {
-  assert.ok(Object.keys(carbonScenePhotos).length >= 20);
+  assert.ok(Object.keys(carbonScenePhotos).length >= 26);
   for (const [id, photo] of Object.entries(carbonScenePhotos)) {
     assert.ok(existsSync(new URL(`../public${photo.src}`, import.meta.url)), photo.src);
     assert.ok(photo.alt.length > 30 && photo.shows.length > 20, id);
@@ -46,6 +47,11 @@ test("all four carbon pages render the property table, the figures and a credits
   // The hub keeps its #plates, #tubes and #rods anchors (docs/pultrusion-carbon-fiber-images.md) and links all three product pages.
   for (const href of ["/products/pultruded-carbon-fiber-plates", "/products/pultruded-carbon-fiber-tubes", "/products/fiberglass-structural-shapes/frp-rod/carbon-fiber-rod"]) assert.ok(read(HUB).includes(href), `hub links ${href}`);
   assert.ok(read(HUB).includes("carbonProfileFormats.map") && read(HUB).includes("carbonFigures.fiberDirection"), "hub form sections and fiber-direction figure");
+  // The strengthening strip page keeps the sourced guide sections and adds the placement figure, the bond figure and a credits block.
+  const strips = read(STRIPS);
+  for (const token of ["carbonFigures.strengtheningSections", "carbonFigures.bondLine", 'id="photo-credits"', "creditedPhotos.map", "GuideSection", "GuideStandards", "GuideSources", "/applications/cfrp-concrete-strengthening", "/products/pultruded-carbon-fiber-plates", "dateModified: updated"]) assert.ok(strips.includes(token), `strip page: ${token}`);
+  assert.doesNotMatch(strips, /note="Illustrative photo"/);
+  assert.doesNotMatch(strips, /(F1|we|our)[^.]{0,40}(assessed kit|ETA|approved system)[^.]{0,20}(hold|holds|have|has|supply|supplies)/i, "the strip page must not claim an assessed kit");
   assert.ok(read(PLATES).includes("carbonFigures.plateOrientation") && read(PLATES).includes("carbonFigures.bondLine"), "plate page figures");
   assert.ok(read(PLATES).includes("/products/pultruded-carbon-fiber-tubes") && read(PLATES).includes("/products/fiberglass-structural-shapes/frp-rod/carbon-fiber-rod"), "the plate page links the tube and rod pages");
   assert.ok(read(TUBES).includes("/products/fiberglass-structural-shapes/frp-rod/carbon-fiber-rod") && read(RODS).includes("/products/pultruded-carbon-fiber-tubes"), "the two pages link each other");

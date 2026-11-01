@@ -27,7 +27,7 @@ function inSentence(name: string) {
   return /^[A-Z][a-z]/.test(name) ? name[0].toLowerCase() + name.slice(1) : name;
 }
 
-function SourceRefs({ page, ids }: { page: PultrusionGuide; ids: string[] }) {
+export function SourceRefs({ page, ids }: { page: PultrusionGuide; ids: string[] }) {
   if (!ids.length) return null;
   return (
     <p className="mt-[16px] flex flex-wrap gap-x-[16px] gap-y-[8px] text-f12 leading-relaxed">
@@ -37,6 +37,64 @@ function SourceRefs({ page, ids }: { page: PultrusionGuide; ids: string[] }) {
         return source ? <a key={id} href={source.url} className={sourceLink}>{source.title}</a> : null;
       })}
     </p>
+  );
+}
+
+/** One guide section: paragraphs, optional points and table, and its references. */
+export function GuideSection({ page, section, tone }: { page: PultrusionGuide; section: PultrusionGuide["sections"][number]; tone: "muted" | "white" }) {
+  return (
+    <PageSection id={section.id} title={section.title} tone={tone}>
+      <div className="max-w-[880px] space-y-[16px] text-f16 leading-relaxed text-t2">
+        {section.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
+        {section.points?.length ? <ul className="list-disc space-y-[10px] pl-[22px]">{section.points.map((point) => <li key={point}>{point}</li>)}</ul> : null}
+      </div>
+      {section.table ? (
+        <div className="mt-[24px] overflow-x-auto rounded-card border border-border-default" role="region" aria-label={`${section.title} comparison`} tabIndex={0}>
+          <table className="w-full min-w-[640px] border-collapse text-left text-f14 leading-relaxed">
+            <caption className="sr-only">{section.title}</caption>
+            <thead className="bg-deep text-white"><tr>{section.table.columns.map((column) => <th key={column} scope="col" className="px-[20px] py-[14px] font-semibold">{column}</th>)}</tr></thead>
+            <tbody className="bg-white text-t2">{section.table.rows.map((row) => (
+              <tr key={row[0]} className="border-t border-border-default">{row.map((cell, i) => i === 0
+                ? <th key={i} scope="row" className="px-[20px] py-[16px] align-top font-semibold text-t1">{cell}</th>
+                : <td key={i} className="px-[20px] py-[16px] align-top">{cell}</td>)}</tr>
+            ))}</tbody>
+          </table>
+        </div>
+      ) : null}
+      <SourceRefs page={page} ids={section.sourceIds} />
+    </PageSection>
+  );
+}
+
+/** The standards cards. */
+export function GuideStandards({ page }: { page: PultrusionGuide }) {
+  return (
+    <div className="grid gap-[16px] lg:grid-cols-2">
+      {page.standards.map((standard) => (
+        <article key={standard.name} className="rounded-card border border-border-default bg-white p-[24px]">
+          <p className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">{standard.category} · {standard.jurisdiction}</p>
+          <h3 className="mt-[8px] text-f20 font-bold text-t1">{standard.name}</h3>
+          <p className="mt-[12px] text-f14 leading-relaxed text-t2">{standard.applies}</p>
+          <p className="mt-[12px] border-t border-border-default pt-[12px] text-f14 leading-relaxed text-t2"><strong className="font-semibold text-t1">Application boundary: </strong>{standard.limits}</p>
+          <SourceRefs page={page} ids={standard.sourceIds} />
+        </article>
+      ))}
+    </div>
+  );
+}
+
+/** The sources list. */
+export function GuideSources({ page }: { page: PultrusionGuide }) {
+  return (
+    <ol className="grid gap-[12px] lg:grid-cols-2">
+      {page.sources.map((source) => (
+        <li id={`source-${source.id}`} key={source.id} className="min-w-0 rounded-card border border-border-default bg-white p-[20px]">
+          <p className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">{source.kind === "authority" ? "Standard or public authority" : "Industry application evidence"}</p>
+          <a href={source.url} className={`mt-[8px] inline-block text-f16 ${sourceLink}`}>{source.title}</a>
+          <p className="mt-[8px] text-f14 leading-relaxed text-t2">{source.note}</p>
+        </li>
+      ))}
+    </ol>
   );
 }
 
@@ -118,41 +176,10 @@ export default function PultrusionGuidePage({ page }: { page: PultrusionGuide })
         </div>
       </PageSection>
 
-      {page.sections.map((section, index) => (
-        <PageSection key={section.id} id={section.id} title={section.title} tone={index % 2 === 0 ? "muted" : "white"}>
-          <div className="max-w-[880px] space-y-[16px] text-f16 leading-relaxed text-t2">
-            {section.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
-            {section.points?.length ? <ul className="list-disc space-y-[10px] pl-[22px]">{section.points.map((point) => <li key={point}>{point}</li>)}</ul> : null}
-          </div>
-          {section.table ? (
-            <div className="mt-[24px] overflow-x-auto rounded-card border border-border-default" role="region" aria-label={`${section.title} comparison`} tabIndex={0}>
-              <table className="w-full min-w-[640px] border-collapse text-left text-f14 leading-relaxed">
-                <caption className="sr-only">{section.title}</caption>
-                <thead className="bg-deep text-white"><tr>{section.table.columns.map((column) => <th key={column} scope="col" className="px-[20px] py-[14px] font-semibold">{column}</th>)}</tr></thead>
-                <tbody className="bg-white text-t2">{section.table.rows.map((row) => (
-                  <tr key={row[0]} className="border-t border-border-default">{row.map((cell, i) => i === 0
-                    ? <th key={i} scope="row" className="px-[20px] py-[16px] align-top font-semibold text-t1">{cell}</th>
-                    : <td key={i} className="px-[20px] py-[16px] align-top">{cell}</td>)}</tr>
-                ))}</tbody>
-              </table>
-            </div>
-          ) : null}
-          <SourceRefs page={page} ids={section.sourceIds} />
-        </PageSection>
-      ))}
+      {page.sections.map((section, index) => <GuideSection key={section.id} page={page} section={section} tone={index % 2 === 0 ? "muted" : "white"} />)}
 
       <PageSection id="standards" title="Standards, regulations and acceptance evidence" intro="The project authority determines the governing jurisdiction and adopted edition. The scope of each reference matters: a material test, an equipment requirement and a workplace rule answer different questions." tone="muted">
-        <div className="grid gap-[16px] lg:grid-cols-2">
-          {page.standards.map((standard) => (
-            <article key={standard.name} className="rounded-card border border-border-default bg-white p-[24px]">
-              <p className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">{standard.category} · {standard.jurisdiction}</p>
-              <h3 className="mt-[8px] text-f20 font-bold text-t1">{standard.name}</h3>
-              <p className="mt-[12px] text-f14 leading-relaxed text-t2">{standard.applies}</p>
-              <p className="mt-[12px] border-t border-border-default pt-[12px] text-f14 leading-relaxed text-t2"><strong className="font-semibold text-t1">Application boundary: </strong>{standard.limits}</p>
-              <SourceRefs page={page} ids={standard.sourceIds} />
-            </article>
-          ))}
-        </div>
+        <GuideStandards page={page} />
         <p className="mt-[20px] max-w-[880px] text-f14 leading-relaxed text-t3">Public source scopes were reviewed on <time dateTime={pultrusionGuideReviewed}>{formatShortDate(pultrusionGuideReviewed)}</time>. These references do not establish certification of an F1 product. Agree the offered grade, finished component, test specimen and acceptance criteria in the project specification.</p>
       </PageSection>
 
@@ -161,15 +188,7 @@ export default function PultrusionGuidePage({ page }: { page: PultrusionGuide })
       </PageSection>
 
       <PageSection id="sources" title="Technical sources and further reading" tone="muted" intro="Industry sources establish where the application is used. Authority sources define the published scope of standards and regulations. The design and procurement checklists above are an original engineering synthesis for project review.">
-        <ol className="grid gap-[12px] lg:grid-cols-2">
-          {page.sources.map((source) => (
-            <li id={`source-${source.id}`} key={source.id} className="min-w-0 rounded-card border border-border-default bg-white p-[20px]">
-              <p className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">{source.kind === "authority" ? "Standard or public authority" : "Industry application evidence"}</p>
-              <a href={source.url} className={`mt-[8px] inline-block text-f16 ${sourceLink}`}>{source.title}</a>
-              <p className="mt-[8px] text-f14 leading-relaxed text-t2">{source.note}</p>
-            </li>
-          ))}
-        </ol>
+        <GuideSources page={page} />
       </PageSection>
 
       <PageSection id="quote" title="Prepare a component qualification brief" tone="deep">

@@ -75,3 +75,20 @@ Owner request: the same picture-led rewrite for `/products/pultrusion-carbon-fib
 | Credits block; gate test extended to the hub (property table, credits, links to all three forms, anchors) | `scripts/carbon-fiber-pages.test.mjs` |
 
 No new photographs: the hub reuses the shared library in `content/data/carbonFiberScenes.ts` and the owned hall photo. Title, description and the product-directory cover unchanged.
+
+## Strengthening strip page rewrite (2026-10-31)
+
+Owner request: the same picture-led rewrite for the specialist page `/products/pultruded-cfrp-strengthening-strips`. The page was served by the generic guide template (`app/products/[slug]`), so it now has its own route that keeps the sourced guide data and adds the picture-led material in front of it.
+
+| Change | Where |
+|---|---|
+| Dedicated route with its own OG image; the sourced specification sections, standards cards, sources list, FAQs, brief items and related links still come from the shared guide data and render through `GuideSection`, `GuideStandards` and `GuideSources`, newly exported from the guide template | `app/products/pultruded-cfrp-strengthening-strips/page.tsx`, `components/sections/PultrusionGuidePage.tsx` |
+| Hero: a 5 mm strip being pressed onto a beam soffit; H1 and facts lead with "a steel plate's tension at a tenth of the weight" and the EB strip size class | page |
+| `#performance`: strip-in-hand photo, specific-stiffness figure, slab-strip photo; four reason cards (steel-plate tension at a tenth of the weight, no added depth, no rust at the bond line, installed overnight) with proof lines; four limit cards (the bond is the capacity, fire and impact, strain limits cap the gain, one part of an assessed kit) | page |
+| `#placement`: drawn figure of a beam strengthened three ways (EB strip, NSM strip or bar, bonded steel plate) with size ranges and governing failures; EB / NSM / wet lay-up cards | `scripts/covers/draw-cfrp-strip-figures.mjs` |
+| `#bond`: the shared bond-line figure, the peel-ply plate photo and a "who owns what" card (engineer of record, system supplier, installer, F1) | page |
+| `#applications`: four photo cards (beams and slabs under new load, new openings, corroded reinforcement, NSM strips and bars) with typical sections and what to send | page |
+| `#product`: wet lay-up fabric photo for contrast, coiled strips photo, an "on the order" list; three FAQs added ahead of the guide's four | page |
+| 6 more Commons photographs (CC BY 4.0, one contractor's site and product shots), 1 drawn figure; credits block; sources in `docs/research/carbon-fiber-pages-photo-sources.md`; gate test extended | `public/images/products/carbon-fiber/`, `scripts/carbon-fiber-pages.test.mjs` |
+
+Boundary kept from the 2026-10-25 page: strip only, not the kit; no assessed-system, ETA or approval claim; class values labelled; adhesive and strengthening design belong to the system supplier and the engineer of record. Title and description unchanged.
