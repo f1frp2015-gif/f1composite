@@ -341,6 +341,12 @@ export const seoQueryTargets = [
     supportingUrls: ["/technology/fiberglass-rebar-vs-steel", "/products/product-lines", "/resources/gfrp-rebar-applications", "/resources/gfrp-rebar-standards", "/resources/gfrp-rebar-size-chart", "/tools/gfrp-rebar-calculator", "/resources/blog/fiberglass-rebar-for-residential-concrete"],
   },
   {
+    targetUrl: "/products/basalt-frp-rebar", primaryQuery: "basalt rebar supplier", intent: "commercial",
+    title: "Basalt FRP Rebar (BFRP) Supplier | Bars Ø3–Ø25 mm & Manual",
+    description: "Basalt FRP (BFRP) rebar Ø3–25 mm: 1,100 MPa and 50 GPa classes, 1.9 g/cm³. Published values, sizes, standards, export packing and a downloadable product manual.",
+    supportingUrls: ["/products/frp-rebar", "/resources/blog/basalt-rebar-vs-fiberglass-rebar"],
+  },
+  {
     targetUrl: "/resources/gfrp-rebar-applications",
     primaryQuery: "GFRP rebar applications",
     intent: "guide",

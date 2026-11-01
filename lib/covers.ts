@@ -61,6 +61,7 @@ export const productCovers = {
   "/products/molded-frp-grating": product("molded-frp-grating.webp", "Yellow molded fiberglass grating panel with a square mesh"),
   "/products/frp-gratings": product("pultruded-frp-grating.webp", "Yellow pultruded fiberglass grating with I-bar bearing bars and cross rods"),
   "/products/frp-rebar": product("frp-rebar.webp", "GFRP reinforcing bars in several diameters with helical surfaces"),
+  "/products/basalt-frp-rebar": { ...product("basalt-frp-rebar.webp", "Cut pieces of basalt FRP rebar with a helical bond surface"), note: "Supplier photo" },
   "/products/frp-fasteners-fittings": product("frp-fasteners-fittings.webp", "Yellow molded fiberglass handrail fittings"),
   "/products/window-door-profiles": product("window-profile-samples.webp", "Five pultruded fiberglass window and door profiles showing their cross-sections"),
   "/products/fiberglass-windows-doors": product("finished-window.webp", "Corner of a finished fiberglass window with triple glazing"),

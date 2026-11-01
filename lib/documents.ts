@@ -42,6 +42,8 @@ function typeOf(item: DownloadItem, evidenceKind?: string): DocumentType {
 // Product families named in titles, for documents the evidence index does not list.
 const PRODUCTS: [RegExp, string, string][] = [
   [/cable (tray|ladder)/i, "FRP cable trays and ladders", "/applications/frp-cable-tray-supports"],
+  [/basalt|\bBFRP\b/i, "Basalt FRP rebar", "/products/basalt-frp-rebar"],
+  [/rebar|\bGFRP bar/i, "GFRP rebar", "/products/frp-rebar"],
   [/window|door|fenestration/i, "FRP windows and doors", "/products/frp-window-frames"],
   [/pipe/i, "Pultruded FRP pipe", "/pultruded-frp-profiles"],
   [/wind (energy|turbine)/i, "Wind turbine blade panels", "/products/wind-turbine-blade-panels"],

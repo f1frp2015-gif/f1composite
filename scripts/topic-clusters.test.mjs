@@ -19,7 +19,7 @@ const clusters = [
   { slug: "how-to-install-gfrp-rebar", owner: "/products/frp-rebar", backlinks: ["app/products/frp-rebar/page.tsx"] },
   { slug: "fiberglass-rebar-cost-per-foot", owner: "/products/frp-rebar", backlinks: ["app/products/frp-rebar/page.tsx", "app/resources/gfrp-rebar-size-chart/page.tsx"] },
   { slug: "how-to-cut-fiberglass-rebar", owner: "/products/frp-rebar", backlinks: ["app/products/frp-rebar/page.tsx", "content/data/blogPosts.ts"] },
-  { slug: "basalt-rebar-vs-fiberglass-rebar", owner: "/products/frp-rebar", backlinks: ["app/products/frp-rebar/page.tsx", "app/resources/gfrp-rebar-size-chart/page.tsx"] },
+  { slug: "basalt-rebar-vs-fiberglass-rebar", owner: "/products/frp-rebar", backlinks: ["app/products/frp-rebar/page.tsx", "app/resources/gfrp-rebar-size-chart/page.tsx", "app/products/basalt-frp-rebar/page.tsx"] },
   { slug: "frp-grating-specification-guide", owner: "/products/grating", backlinks: ["app/products/grating/page.tsx", "app/products/frp-gratings/page.tsx", "app/products/molded-frp-grating/page.tsx"] },
 ];
 

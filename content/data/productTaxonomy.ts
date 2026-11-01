@@ -130,7 +130,7 @@ export const productFamilies = [
       { label: "Straight Bars", href: "/products/frp-rebar#straight-bars" },
       { label: "Stirrups & Bends", href: "/products/frp-rebar#stirrups-bends" },
       { label: "Reinforcement Mesh", href: "/products/frp-rebar#mesh" },
-      { label: "Build a Rebar Schedule", href: "/products/frp-rebar#request-quote" },
+      { label: "Basalt FRP Rebar", href: "/products/basalt-frp-rebar" },
     ],
   },
   {
