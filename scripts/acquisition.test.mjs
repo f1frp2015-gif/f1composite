@@ -137,7 +137,8 @@ test("RFQ conversion carries only SHA-256 user data, and only with advertising c
     globalThis.window = { location: { pathname: "/contact" }, localStorage: storage(), gtag: (...args) => calls.push(args) };
     consent.setVisitConsent({ analytics: true, ads });
     analytics.trackInquirySuccess(receipt, "contact", "/products/frp-rebar", "rfq", undefined, { email: "Buyer@Example.com", phone: "+1 415 555 0100" });
-    await new Promise(resolve => setTimeout(resolve, 20));
+    // Hashing is asynchronous; wait for the single conversion rather than a fixed delay.
+    for (let waited = 0; !calls.some(call => call[1] === "conversion") && waited < 5000; waited += 10) await new Promise(resolve => setTimeout(resolve, 10));
     return calls;
   };
   const granted = await run(true, "receipt-ads-1");
