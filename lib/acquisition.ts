@@ -5,11 +5,15 @@ export const SESSION_IDLE_MS = 30 * 60 * 1000;
 export const ACQUISITION_MAX_BYTES = 6000;
 const UTM_KEYS = ["source", "medium", "campaign", "id", "content", "term"] as const;
 type UtmKey = typeof UTM_KEYS[number];
+// Google Ads click IDs let a qualified inquiry be uploaded back as an offline conversion.
+const CLICK_ID_KEYS = ["gclid", "gbraid", "wbraid"] as const;
+type ClickIdKey = typeof CLICK_ID_KEYS[number];
 export interface AcquisitionTouch {
   capturedAt: string;
   landingPath: string;
   referrerOrigin: string | null;
   utm: Partial<Record<UtmKey, string>>;
+  clickIds?: Partial<Record<ClickIdKey, string>>;
 }
 export interface Acquisition {
   version: 1;
@@ -49,6 +53,29 @@ function campaignToken(value: unknown): string | null {
   return typeof value === "string" && /^[a-zA-Z0-9_.~-]{1,100}$/.test(value) && !/\d{7,}/.test(value) ? value : null;
 }
 
+function clickIdToken(value: unknown): string | null {
+  // Opaque ad-click identifiers only; never free text, emails or URLs.
+  return typeof value === "string" && /^[a-zA-Z0-9_-]{8,256}$/.test(value) ? value : null;
+}
+
+function sanitizeClickIds(value: unknown): AcquisitionTouch["clickIds"] | null {
+  if (!record(value)) return null;
+  const clickIds: AcquisitionTouch["clickIds"] = {};
+  for (const key of CLICK_ID_KEYS) {
+    const token = clickIdToken(value[key]);
+    if (token) clickIds[key] = token;
+  }
+  return Object.keys(clickIds).length ? clickIds : null;
+}
+
+/** Drop ad-click identifiers when advertising consent is absent or withdrawn. */
+export function withoutClickIds(touch: AcquisitionTouch): AcquisitionTouch {
+  if (!touch.clickIds) return touch;
+  const rest = { ...touch };
+  delete rest.clickIds;
+  return rest;
+}
+
 function sanitizeTouch(value: unknown, now: number): AcquisitionTouch | null {
   if (!record(value)) return null;
   const landingPath = acquisitionPath(value.landingPath);
@@ -59,7 +86,8 @@ function sanitizeTouch(value: unknown, now: number): AcquisitionTouch | null {
     const token = campaignToken(value.utm[key]);
     if (token) utm[key] = token;
   }
-  return { capturedAt: new Date(timestamp).toISOString(), landingPath, referrerOrigin: acquisitionReferrer(value.referrerOrigin), utm };
+  const clickIds = sanitizeClickIds(value.clickIds);
+  return { capturedAt: new Date(timestamp).toISOString(), landingPath, referrerOrigin: acquisitionReferrer(value.referrerOrigin), utm, ...(clickIds ? { clickIds } : {}) };
 }
 
 /** Revalidate untrusted optional metadata at the API boundary; ignore invalid metadata. */
@@ -77,7 +105,7 @@ export function parseAcquisition(value: unknown, now = Date.now()): Acquisition 
   } catch { return null; }
 }
 
-export function createAcquisitionTouch(href: string, referrer: string, now = Date.now()): AcquisitionTouch | null {
+export function createAcquisitionTouch(href: string, referrer: string, now = Date.now(), includeClickIds = false): AcquisitionTouch | null {
   try {
     const url = new URL(href);
     const utm: AcquisitionTouch["utm"] = {};
@@ -85,6 +113,7 @@ export function createAcquisitionTouch(href: string, referrer: string, now = Dat
       const token = campaignToken(url.searchParams.get(`utm_${key}`));
       if (token) utm[key] = token;
     }
-    return sanitizeTouch({ landingPath: url.pathname, capturedAt: new Date(now).toISOString(), referrerOrigin: acquisitionReferrer(referrer, url.origin), utm }, now);
+    const clickIds = includeClickIds ? Object.fromEntries(CLICK_ID_KEYS.map(key => [key, url.searchParams.get(key)])) : null;
+    return sanitizeTouch({ landingPath: url.pathname, capturedAt: new Date(now).toISOString(), referrerOrigin: acquisitionReferrer(referrer, url.origin), utm, clickIds }, now);
   } catch { return null; }
 }
