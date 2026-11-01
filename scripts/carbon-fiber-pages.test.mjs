@@ -12,6 +12,7 @@ const read = (path) => readFileSync(new URL(`../${path}`, import.meta.url), "utf
 const TUBES = "app/products/pultruded-carbon-fiber-tubes/page.tsx";
 const RODS = "app/products/fiberglass-structural-shapes/frp-rod/carbon-fiber-rod/page.tsx";
 const PLATES = "app/products/pultruded-carbon-fiber-plates/page.tsx";
+const HUB = "app/products/pultrusion-carbon-fiber/page.tsx";
 
 test("every carbon scene photo exists, is described and carries its license", () => {
   assert.ok(Object.keys(carbonScenePhotos).length >= 20);
@@ -27,21 +28,24 @@ test("every carbon scene photo exists, is described and carries its license", ()
   for (const figure of Object.values(carbonFigures)) assert.ok(existsSync(new URL(`../public${figure.src}`, import.meta.url)), figure.src);
 });
 
-test("all three pages render the property table, the figures and a credits block", () => {
+test("all four carbon pages render the property table, the figures and a credits block", () => {
   assert.ok(carbonProperties.length >= 10);
   for (const row of carbonProperties) assert.ok(row.cfrp && row.gfrp && row.aluminium && row.steel && row.note, row.property);
-  for (const file of [TUBES, RODS, PLATES]) {
+  for (const file of [TUBES, RODS, PLATES, HUB]) {
     const page = read(file);
     assert.ok(page.includes("carbonProperties.map"), `${file} property table`);
     assert.ok(page.includes('id="photo-credits"') && page.includes("creditedPhotos.map"), `${file} credits`);
     assert.ok(page.includes('id="performance"') && page.includes("applications.map"), `${file} performance and applications`);
     assert.ok(page.includes("carbonFigures.specificStiffness"), `${file} specific-stiffness figure`);
-    if (file !== PLATES) assert.ok(page.includes("carbonFigures.hollowVsSolid"), `${file} hollow-vs-solid figure`);
+    if (file !== PLATES && file !== HUB) assert.ok(page.includes("carbonFigures.hollowVsSolid"), `${file} hollow-vs-solid figure`);
     assert.doesNotMatch(page, /note="Illustrative photo"/, "open-licensed photos are not stock images");
     // The class values stay class values: no page may present them as an F1 datasheet or certificate.
     assert.doesNotMatch(page, /(F1|our|we)[^.]{0,40}(datasheet|certified|guarantee[sd]?)[^.]{0,40}(120|150) GPa/i, `${file} claims a CFRP datasheet`);
   }
   assert.ok(read(TUBES).includes("carbonFigures.fiberDirection"));
+  // The hub keeps its #plates, #tubes and #rods anchors (docs/pultrusion-carbon-fiber-images.md) and links all three product pages.
+  for (const href of ["/products/pultruded-carbon-fiber-plates", "/products/pultruded-carbon-fiber-tubes", "/products/fiberglass-structural-shapes/frp-rod/carbon-fiber-rod"]) assert.ok(read(HUB).includes(href), `hub links ${href}`);
+  assert.ok(read(HUB).includes("carbonProfileFormats.map") && read(HUB).includes("carbonFigures.fiberDirection"), "hub form sections and fiber-direction figure");
   assert.ok(read(PLATES).includes("carbonFigures.plateOrientation") && read(PLATES).includes("carbonFigures.bondLine"), "plate page figures");
   assert.ok(read(PLATES).includes("/products/pultruded-carbon-fiber-tubes") && read(PLATES).includes("/products/fiberglass-structural-shapes/frp-rod/carbon-fiber-rod"), "the plate page links the tube and rod pages");
   assert.ok(read(TUBES).includes("/products/fiberglass-structural-shapes/frp-rod/carbon-fiber-rod") && read(RODS).includes("/products/pultruded-carbon-fiber-tubes"), "the two pages link each other");
