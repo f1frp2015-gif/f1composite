@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import PultrusionGuidePage from "@/components/sections/PultrusionGuidePage";
 import { getPultrusionGuide, specialistProducts } from "@/content/data/pultrusionGuides";
-import { pultrusionGuidePath } from "@/content/data/pultrusionGuideTypes";
+import { dedicatedProductPages, pultrusionGuidePath } from "@/content/data/pultrusionGuideTypes";
 import { buildPageMetadata } from "@/lib/seo";
 
 type Props = { params: Promise<{ slug: string }> };
@@ -10,7 +10,7 @@ type Props = { params: Promise<{ slug: string }> };
 export const dynamicParams = false;
 
 export function generateStaticParams() {
-  return specialistProducts.map((page) => ({ slug: page.slug }));
+  return specialistProducts.filter((page) => !dedicatedProductPages.includes(page.slug)).map((page) => ({ slug: page.slug }));
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {

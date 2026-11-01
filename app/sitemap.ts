@@ -7,7 +7,7 @@ import { customProductUpdated } from "@/content/data/customProductPages";
 import { carbonFiberRod } from "@/content/data/carbonFiberRod";
 import { applicationPages } from "@/lib/applicationPages";
 import { specialistProductIndex } from "@/content/data/pultrusionGuideIndex";
-import { pultrusionGuideReviewed } from "@/content/data/pultrusionGuideTypes";
+import { pultrusionGuideReviewed, dedicatedProductPages } from "@/content/data/pultrusionGuideTypes";
 import { performanceReviewed } from "@/content/data/pultrudedPerformance";
 import { INDEXED_DATASHEET_SLUGS } from "@/lib/datasheetContent";
 
@@ -52,7 +52,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: "monthly" as const,
       priority: 0.65,
     })),
-    ...specialistProductIndex.map((page) => ({ url: `${BASE}/products/${page.slug}`, lastModified: pultrusionGuideReviewed, changeFrequency: "monthly" as const, priority: 0.75 })),
+    ...specialistProductIndex.filter((page) => !dedicatedProductPages.includes(page.slug)).map((page) => ({ url: `${BASE}/products/${page.slug}`, lastModified: pultrusionGuideReviewed, changeFrequency: "monthly" as const, priority: 0.75 })),
+    // Specialist pages with their own picture-led route (content/data/pultrusionGuideTypes.ts).
+    { url: `${BASE}/products/pultruded-cfrp-strengthening-strips`, lastModified: "2026-10-31", changeFrequency: "monthly", priority: 0.78 },
     { url: `${BASE}/sourcing/equipment`, lastModified: "2026-10-02", changeFrequency: "monthly", priority: 0.7 },
     { url: `${BASE}/sourcing/materials`, lastModified: "2026-10-02", changeFrequency: "monthly", priority: 0.7 },
     { url: `${BASE}/sourcing/pultrusion-machines`, lastModified: "2026-10-02", changeFrequency: "monthly", priority: 0.7 },

@@ -54,3 +54,10 @@ export const pultrusionGuideReviewed = "2026-10-26";
 export function pultrusionGuidePath(page: Pick<PultrusionGuide, "kind" | "slug">) {
   return `/${page.kind === "application" ? "applications" : "products"}/${page.slug}`;
 }
+
+/**
+ * Specialist product slugs that have their own route under app/products/<slug>/ instead of the
+ * generic guide template. The dedicated page must still render the guide's sourced sections,
+ * standards and sources (see app/products/pultruded-cfrp-strengthening-strips/page.tsx).
+ */
+export const dedicatedProductPages: readonly string[] = ["pultruded-cfrp-strengthening-strips"];
