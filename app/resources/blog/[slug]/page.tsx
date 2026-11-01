@@ -15,6 +15,7 @@ import { blogPosts, blogPostsBySlug } from "@/content/data/blogPosts";
 import { getBlogTarget, getBlogTopic, getRelatedBlogPosts } from "@/content/data/blogStrategy";
 import { parseBlogContent } from "@/lib/blogContent";
 import { absoluteUrl, buildPageMetadata } from "@/lib/seo";
+import { buildImageObject, primaryImageObject } from "@/lib/imageSeo";
 import { authorSlugByName, authorsBySlug } from "@/lib/authors";
 import { prefillForBlog } from "@/lib/aiPrefill";
 
@@ -95,8 +96,11 @@ export default async function BlogPostPage({ params }: PageProps) {
     headline: post.title,
     datePublished: post.date,
     dateModified: post.updatedAt,
+    // Cover and supporting picture as ImageObjects (alt as caption, licence
+    // for the group's own photos), then the generated social card.
     image: [
-      absoluteUrl(post.coverImage),
+      primaryImageObject({ src: post.coverImage, alt: post.coverAlt, pagePath: `/resources/blog/${slug}` }),
+      ...(post.supportingImage !== post.coverImage ? [buildImageObject({ src: post.supportingImage, alt: post.supportingAlt, caption: post.supportingCaption, pagePath: `/resources/blog/${slug}` })] : []),
       absoluteUrl(`/resources/blog/${slug}/opengraph-image`),
     ],
     author: post.authorType === "Organization" ? {

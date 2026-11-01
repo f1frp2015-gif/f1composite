@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { customerReviews } from "@/content/data/reviews";
 import { company, companyStatements } from "@/content/data/company";
+import { primaryImageObject } from "@/lib/imageSeo";
 
 const SITE_URL = "https://www.f1composite.com";
 
@@ -67,6 +68,10 @@ interface ProductFamilyPageSchemaOptions {
   description: string;
   path: string;
   image: string;
+  /** The lead figure's alt text, so the ImageObject caption matches the markup; defaults to the page name. */
+  imageAlt?: string;
+  /** The lead figure's caption, when the page shows one. */
+  imageCaption?: string;
   category: string;
   material?: string | string[];
   additionalProperty?: Array<{ name: string; value: string }>;
@@ -205,6 +210,8 @@ export function buildProductFamilyPageSchema({
   description,
   path,
   image,
+  imageAlt,
+  imageCaption,
   category,
   material,
   productLine,
@@ -226,10 +233,9 @@ export function buildProductFamilyPageSchema({
     name,
     description,
     url: absoluteUrl(path),
-    primaryImageOfPage: {
-      "@type": "ImageObject",
-      url: absoluteUrl(image),
-    },
+    // Full ImageObject (contentUrl, caption, licensing for the group's own
+    // photos) so Google Images ties the lead picture to this page.
+    primaryImageOfPage: primaryImageObject({ src: image, alt: imageAlt ?? name, caption: imageCaption, pagePath: path }),
     isPartOf: { "@id": `${SITE_URL}/#website` },
     about: {
       "@type": "Thing",

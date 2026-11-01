@@ -6,6 +6,7 @@ import PageSection from "@/components/layout/PageSection";
 import ProductRfq from "@/components/products/ProductRfq";
 import RelatedLinks from "@/components/sections/RelatedLinks";
 import JsonLd from "@/components/seo/JsonLd";
+import { primaryImageObject } from "@/lib/imageSeo";
 import { FAQList } from "@/components/ui/FAQ";
 import Figure from "@/components/ui/Figure";
 import { pultrusionGuidePath, pultrusionGuideReviewed, type PultrusionGuide } from "@/content/data/pultrusionGuideTypes";
@@ -127,7 +128,7 @@ export default function PultrusionGuidePage({ page }: { page: PultrusionGuide })
         url: absoluteUrl(path),
         mainEntityOfPage: absoluteUrl(path),
         dateModified: pultrusionGuideReviewed,
-        image: absoluteUrl(page.image),
+        image: primaryImageObject({ src: page.image, alt: page.imageAlt, caption: page.imageCaption, pagePath: path }),
         publisher: { "@id": "https://www.f1composite.com/#organization" },
         citation: page.sources.map((source) => source.url),
       }} />

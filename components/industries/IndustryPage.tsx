@@ -9,6 +9,7 @@ import ProductDocuments from "@/components/products/ProductDocuments";
 import ProductRfq from "@/components/products/ProductRfq";
 import RelatedLinks from "@/components/sections/RelatedLinks";
 import JsonLd from "@/components/seo/JsonLd";
+import { primaryImageObject } from "@/lib/imageSeo";
 import CoverCard from "@/components/ui/CoverCard";
 import { FAQList } from "@/components/ui/FAQ";
 import Figure from "@/components/ui/Figure";
@@ -69,6 +70,7 @@ export default function IndustryPage({ industry, description, guide, supplement 
     description,
     url: absoluteUrl(industry.path),
     dateModified: industry.updated,
+    primaryImageOfPage: primaryImageObject({ src: industry.image.src, alt: industry.image.alt, caption: industry.image.caption, pagePath: industry.path }),
     about: { "@type": "Thing", name: `FRP profiles for ${industry.name.toLowerCase()}` },
     isPartOf: { "@id": "https://www.f1composite.com/#website" },
     provider: { "@id": "https://www.f1composite.com/#organization" },
