@@ -136,6 +136,7 @@ const IMAGE_ASSET_REDIRECTS = [
   ["/images/technology/f1-composite-pultrusion-hall-krauss-maffei-lines.webp", "/images/f1-photos/f1-composite-pultrusion-hall-krauss-maffei-lines.webp"],
   ["/images/technology/f1-composite-pultrusion-plant-floor.webp", "/images/f1-photos/f1-composite-pultrusion-plant-floor.webp"],
   ["/images/technology/f1-composite-pultrusion-production-line-aerial.webp", "/images/f1-photos/f1-composite-pultrusion-production-line-aerial.webp"],
+  ["/images/technology/f1-composite-pultrusion-hall-krauss-maffei-rows.jpg", "/images/f1-photos/f1-composite-pultrusion-hall-krauss-maffei-rows.webp"],
   ["/images/case-studies/frp-factory-access-staircase-hero.webp", "/images/f1-photos/frp-factory-access-staircase-hero.webp"],
   ["/images/case-studies/frp-factory-staircase-assembly-detail.webp", "/images/f1-photos/frp-factory-staircase-assembly-detail.webp"],
   ["/images/case-studies/frp-factory-staircase-grating-treads.webp", "/images/f1-photos/frp-factory-staircase-grating-treads.webp"],

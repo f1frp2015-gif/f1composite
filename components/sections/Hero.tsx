@@ -96,10 +96,10 @@ export default function Hero() {
         <figure className="relative pb-[28px] lg:col-start-2 lg:row-start-1 lg:pb-0 lg:pl-[10px]">
           <div className="relative aspect-[1.38] overflow-hidden rounded-card border border-white/15 bg-deep shadow-pop sm:aspect-[1.5] lg:aspect-[1.2]">
             <Image
-              src="/images/f1-photos/f1-composite-pultrusion-production-line-aerial.webp"
-              alt="Rows of pultrusion production lines at the FengDu manufacturing base in Chongqing"
+              src="/images/f1-photos/f1-composite-pultrusion-hall-krauss-maffei-rows.webp"
+              alt="Rows of KraussMaffei pultrusion lines with pullers and profile take-off tables in a FengDu production hall in Chongqing"
               width={2000}
-              height={788}
+              height={1500}
               fetchPriority="high"
               loading="eager"
               sizes="(max-width: 640px) calc(100vw - 40px), (max-width: 1024px) calc(100vw - 56px), 48vw"
