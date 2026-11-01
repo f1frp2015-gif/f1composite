@@ -213,6 +213,18 @@ const nextConfig: NextConfig = {
         destination: "/products/fiberglass-stakes",
         permanent: true,
       })),
+      // Product-style cable tray URLs (guessable, and used as ad destinations)
+      // consolidate into the single cable management owner page.
+      ...[
+        "/products/frp-cable-tray",
+        "/products/frp-cable-trays",
+        "/products/fiberglass-cable-tray",
+        "/products/grp-cable-tray",
+      ].map((source) => ({
+        source,
+        destination: "/applications/frp-cable-tray-supports",
+        permanent: true,
+      })),
       // Preserve the legacy name used in older audits and external links. The
       // live, indexable estimator owns the more specific commercial query.
       {
