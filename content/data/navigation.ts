@@ -1,4 +1,4 @@
-import { applicationNavigation, specialistProductCategories } from "./applicationNavigation";
+import { applicationNavigation } from "./applicationNavigation";
 import type { GlyphShape } from "@/components/ui/SectionGlyph";
 
 export type NavLink = {
@@ -39,6 +39,12 @@ export const pultrudedOverviewLink = {
  */
 export const productShortcuts = {
   finder: { label: "Profile finder", href: "/tools/profile-finder" },
+  /** The three tools buyers click most (Search Console, 12 months to 2026-10-25); also listed under Tools. */
+  tools: [
+    { label: "Span tables", href: "/frp-span-tables" },
+    { label: "Profile calculator", href: "/frp-profile-calculator" },
+    { label: "Window U-value calculator", href: "/technology/frp-u-value-calculator" },
+  ],
   links: [
     { label: "All datasheets", href: "/datasheets" },
     { label: "Downloads & CAD", href: "/resources/downloads" },
@@ -75,18 +81,11 @@ export const mainNav = [
           { label: "Deck Panels", href: "/products/frp-deck-panels", glyph: "multicell" },
         ],
       },
-      {
-        id: "grating",
-        label: "Grating & stair treads",
-        href: "/products/grating",
-        line: "F1-GRID",
-        glyph: "grating",
-        links: [
-          { label: "Molded FRP Grating", href: "/products/molded-frp-grating" },
-          { label: "Pultruded FRP Grating", href: "/products/frp-gratings" },
-          { label: "Stair Treads & Covers", href: "/products/frp-stair-treads" },
-        ],
-      },
+      // Product families in the order buyers look for them (Search Console, 12 months to
+      // 2026-10-25, bot queries excluded): windows took 44% of named-query clicks on 14% of the
+      // impressions; grating, handrails and ladders are one access-systems purchase; custom and
+      // carbon profiles are one drawing-led route; rebar, fasteners and solar mounting are bought
+      // by name; site and civil items are the long tail. Specialist components stay one link.
       {
         id: "windows-doors",
         label: "Windows & doors",
@@ -95,31 +94,58 @@ export const mainNav = [
         glyph: "window",
         links: [
           { label: "Profiles for Fabricators", href: "/products/window-door-profiles" },
-          { label: "Window Reinforcement", href: "/products/frp-window-reinforcement" },
+          { label: "Finished Windows & Doors", href: "/products/fiberglass-windows-doors" },
           { label: "Door Frame Profiles", href: "/products/frp-door-frames" },
           { label: "Door Thresholds", href: "/products/fiberglass-door-thresholds" },
-          { label: "Finished Windows & Doors", href: "/products/fiberglass-windows-doors" },
+          { label: "Window Reinforcement", href: "/products/frp-window-reinforcement" },
+        ],
+      },
+      {
+        id: "grating-access",
+        label: "Grating, handrails & ladders",
+        href: "/products/grating",
+        line: "F1-GRID",
+        glyph: "grating",
+        links: [
+          { label: "Molded FRP Grating", href: "/products/molded-frp-grating" },
+          { label: "Pultruded FRP Grating", href: "/products/frp-gratings" },
+          { label: "Stair Treads & Covers", href: "/products/frp-stair-treads" },
+          { label: "Handrail Systems", href: "/products/frp-handrail-systems" },
+          { label: "Fixed Ladders", href: "/products/frp-ladders" },
+        ],
+      },
+      {
+        id: "custom-profiles",
+        label: "Custom & carbon fiber profiles",
+        href: "/products/custom-pultruded-profiles",
+        line: "F1-FORM",
+        glyph: "custom",
+        links: [
+          { label: "Carbon Fiber Tubes", href: "/products/pultruded-carbon-fiber-tubes" },
+          { label: "Carbon Fiber Rods", href: "/products/fiberglass-structural-shapes/frp-rod/carbon-fiber-rod" },
+          { label: "Carbon Fiber Plates", href: "/products/pultruded-carbon-fiber-plates" },
+          { label: "Carbon Fiber Pultrusion", href: "/products/pultrusion-carbon-fiber" },
+          { label: "T Profiles", href: "/products/fiberglass-t-profiles" },
+          { label: "Square Rods", href: "/products/fiberglass-square-rods" },
         ],
       },
       { id: "rebar", label: "GFRP rebar & mesh", href: "/products/frp-rebar", glyph: "rebar", links: [] },
       { id: "fasteners", label: "Fasteners & fittings", href: "/products/frp-fasteners-fittings", glyph: "fastener", links: [] },
-      { id: "custom-profiles", label: "Custom profiles", href: "/products/custom-pultruded-profiles", line: "F1-FORM", glyph: "custom", links: [
-        { label: "Carbon Fiber Pultrusion", href: "/products/pultrusion-carbon-fiber" },
-        { label: "Carbon Fiber Plates", href: "/products/pultruded-carbon-fiber-plates" },
-        { label: "Carbon Fiber Tubes", href: "/products/pultruded-carbon-fiber-tubes" },
-        { label: "Square Rods", href: "/products/fiberglass-square-rods" },
-        { label: "T Profiles", href: "/products/fiberglass-t-profiles" },
-        { label: "Sheet Piling", href: "/products/frp-sheet-piling" },
-        { label: "Rock Bolts", href: "/products/frp-rock-bolts" },
-        { label: "Fencing", href: "/products/frp-fencing" },
-      ] },
+      { id: "solar", label: "Solar mounting systems", href: "/products/frp-solar-mounting-systems", glyph: "channel", links: [] },
       {
-        id: "specialist-components", label: "Specialist components",
-        href: "/products/product-lines#specialist-components", glyph: "custom",
-        links: specialistProductCategories.map((category) => ({
-          label: category.label, href: `/products/product-lines#${category.id}`,
-        })),
+        id: "site-civil",
+        label: "Site & civil works",
+        href: "/products/product-lines#custom-components",
+        glyph: "rod",
+        links: [
+          { label: "Sheet Piling", href: "/products/frp-sheet-piling" },
+          { label: "Rock Bolts", href: "/products/frp-rock-bolts" },
+          { label: "Fencing", href: "/products/frp-fencing" },
+          { label: "Tree & Plant Stakes", href: "/products/fiberglass-stakes" },
+          { label: "Snow & Driveway Markers", href: "/products/fiberglass-snow-markers" },
+        ],
       },
+      { id: "specialist-components", label: "Specialist components", href: "/products/product-lines#specialist-components", glyph: "custom", links: [] },
     ],
   },
   {
@@ -161,23 +187,31 @@ export const mainNav = [
     label: "Tools",
     href: "/tools",
     sections: [
+      // Tools are the site's strongest click asset (26% of clicks on 7% of impressions), so
+      // every live tool is listed, the most-used first.
       {
         id: "engineering-tools",
         label: "Profiles & materials",
         links: [
-          { label: "Profile Finder", href: "/tools/profile-finder" },
-          { label: "FRP Profile Calculator", href: "/frp-profile-calculator" },
           { label: "FRP Span Tables", href: "/frp-span-tables" },
+          { label: "FRP Profile Calculator", href: "/frp-profile-calculator" },
+          { label: "Profile Finder", href: "/tools/profile-finder" },
+          { label: "Column Buckling Calculator", href: "/tools/frp-column-calculator" },
           { label: "Density & Weight Calculator", href: "/frp-density-calculator" },
+          { label: "Thermal Expansion Calculator", href: "/tools/thermal-expansion-calculator" },
+          { label: "Unit Converter", href: "/tools/frp-unit-converter" },
         ],
       },
       {
         id: "application-tools",
-        label: "Access, windows & quotes",
+        label: "Systems, costs & quotes",
         links: [
+          { label: "Window U-Value Calculator", href: "/technology/frp-u-value-calculator" },
+          { label: "GFRP Rebar Calculator", href: "/tools/gfrp-rebar-calculator" },
           { label: "Handrail Load Check", href: "/tools/handrail-load-calculator" },
           { label: "Ladder, Stair & Walkway Checker", href: "/tools/access-geometry-checker" },
-          { label: "Window U-Value Calculator", href: "/technology/frp-u-value-calculator" },
+          { label: "Life-Cycle Cost Calculator", href: "/tools/frp-life-cycle-cost-calculator" },
+          { label: "Cut List Optimizer", href: "/tools/frp-cut-list-optimizer" },
           { label: "Price Estimator", href: "/fiberglass-pultruded-profile-price" },
           { label: "Engineering Assistant", href: "/ask" },
         ],
@@ -252,10 +286,10 @@ export const footerNav = {
   products: [
     { label: "All Products", href: "/products/product-lines" },
     { label: "Pultruded FRP Profiles", href: "/pultruded-frp-profiles" },
-    { label: "Specialist Components", href: "/products/product-lines#specialist-components" },
     { label: "Windows & Doors", href: "/products/frp-window-frames" },
-    { label: "FRP Grating", href: "/products/grating" },
-    { label: "FRP Rebar", href: "/products/frp-rebar" },
+    { label: "Grating, Handrails & Ladders", href: "/products/grating" },
+    { label: "Custom & Carbon Fiber Profiles", href: "/products/custom-pultruded-profiles" },
+    { label: "GFRP Rebar", href: "/products/frp-rebar" },
   ],
   industries: [
     { label: "Industries", href: "/industries" },
