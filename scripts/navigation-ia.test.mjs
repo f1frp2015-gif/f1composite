@@ -27,21 +27,25 @@ test("six menus separate product families, applications and industries", async (
   assert.equal(pultrudedOverviewLink.href, "/pultruded-frp-profiles");
   assert.deepEqual(mainNav.map(item => item.label), ["Products", "Applications", "Industries", "Tools", "Resources", "Company"]);
   assert.equal(mainNav[0].href, "/products/product-lines");
-  assert.deepEqual(mainNav[0].sections.map(section => section.label), ["Standard profiles", "Grating & stair treads", "Windows & doors", "GFRP rebar & mesh", "Fasteners & fittings", "Custom profiles", "Specialist components"]);
+  // Families in the order buyers look for them (Search Console, 12 months to 2026-10-25; docs/seo/navigation-priority-2026-10-31.md).
+  assert.deepEqual(mainNav[0].sections.map(section => section.label), ["Standard profiles", "Windows & doors", "Grating, handrails & ladders", "Custom & carbon fiber profiles", "GFRP rebar & mesh", "Fasteners & fittings", "Solar mounting systems", "Site & civil works", "Specialist components"]);
   const destinations = (sections) => sections.flatMap(section => [...(section.href ? [section.href] : []), ...section.links.map(link => link.href)]);
   const productLinks = destinations(mainNav[0].sections);
-  for (const route of ["/products/frp-rebar", "/products/window-door-profiles", "/products/frp-door-frames", "/products/fiberglass-windows-doors", "/products/frp-gratings", "/products/molded-frp-grating", "/products/fiberglass-structural-shapes/frp-rod"]) assert.ok(productLinks.includes(route));
-  for (const route of ["/products/frp-solar-mounting-systems", "/products/frp-ladders"]) assert.ok(!productLinks.includes(route), `${route} belongs in a use-specific directory`);
+  for (const route of ["/products/frp-rebar", "/products/window-door-profiles", "/products/frp-door-frames", "/products/fiberglass-windows-doors", "/products/frp-gratings", "/products/molded-frp-grating", "/products/fiberglass-structural-shapes/frp-rod", "/products/frp-handrail-systems", "/products/frp-ladders", "/products/frp-solar-mounting-systems", "/products/fiberglass-structural-shapes/frp-rod/carbon-fiber-rod", "/products/fiberglass-stakes"]) assert.ok(productLinks.includes(route), `${route} is a product buyers look for by name`);
+  // Every family heading is a link and the three best-converting families come first.
+  for (const section of mainNav[0].sections) assert.ok(section.href, `${section.id} needs a page`);
+  assert.deepEqual(mainNav[0].sections.slice(1, 4).map(section => section.id), ["windows-doors", "grating-access", "custom-profiles"]);
   assert.ok(mainNav[0].sections[0].links.every(link => link.glyph), "every standard profile shows its section glyph");
   const allLinks = [pultrudedOverviewLink.href, ...mainNav.flatMap(item => [item.href, ...destinations(item.sections)])];
   assert.equal(new Set(allLinks).size, allLinks.length, "menu destinations should not repeat");
   // Bound each menu while giving every application a named, grouped entry.
-  assert.ok(allLinks.length <= 115, "keep a bounded desktop and mobile menu");
+  assert.ok(allLinks.length <= 125, "keep a bounded desktop and mobile menu");
   for (const item of mainNav) assert.ok(destinations(item.sections).length <= 40, item.id);
   // The Products side panel repeats a few libraries as shortcuts; they must also have their own place.
-  for (const shortcut of [productShortcuts.finder, ...productShortcuts.links]) assert.ok(allLinks.includes(shortcut.href), `${shortcut.href} is a shortcut to a page the menus list`);
+  for (const shortcut of [productShortcuts.finder, ...productShortcuts.tools, ...productShortcuts.links]) assert.ok(allLinks.includes(shortcut.href), `${shortcut.href} is a shortcut to a page the menus list`);
   const tools = mainNav.find(item => item.id === "tools").sections.flatMap(section => section.links.map(link => link.href));
-  for (const route of ["/tools/profile-finder", "/frp-profile-calculator", "/frp-span-tables", "/frp-density-calculator"]) assert.ok(tools.includes(route));
+  for (const route of ["/frp-span-tables", "/frp-profile-calculator", "/tools/profile-finder", "/frp-density-calculator", "/tools/gfrp-rebar-calculator", "/tools/frp-column-calculator", "/tools/frp-life-cycle-cost-calculator"]) assert.ok(tools.includes(route), `${route} is a live tool`);
+  assert.deepEqual(tools.slice(0, 2), ["/frp-span-tables", "/frp-profile-calculator"], "the two most-clicked tools lead the Tools menu");
   const resources = destinations(mainNav.find(item => item.id === "resources").sections);
   for (const route of ["/technology/pultrusion-process", "/resources/blog", "/resources/evidence"]) assert.ok(resources.includes(route), `${route} belongs in Resources`);
 });

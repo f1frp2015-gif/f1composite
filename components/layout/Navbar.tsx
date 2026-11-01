@@ -77,14 +77,19 @@ function ProductsMenu({ item, pathname, onNavigate }: { item: NavItem; pathname:
             </Link>
           ))}
         </div>
-        <Link href={pultrudedOverviewLink.href} prefetch={false} onClick={onNavigate} className="mt-[14px] inline-block text-f14 font-semibold text-teal-text hover:underline">
-          {pultrudedOverviewLink.label} overview <span aria-hidden>→</span>
-        </Link>
+        <div className="mt-[14px] flex flex-wrap items-center gap-x-[16px] gap-y-[4px] text-f14 font-semibold">
+          <Link href={standard.href!} prefetch={false} onClick={onNavigate} className="text-teal-text hover:underline">
+            All standard sizes <span aria-hidden>→</span>
+          </Link>
+          <Link href={pultrudedOverviewLink.href} prefetch={false} onClick={onNavigate} className="text-t2 hover:text-teal-text hover:underline">
+            {pultrudedOverviewLink.label} overview <span aria-hidden>→</span>
+          </Link>
+        </div>
       </section>
 
       <section aria-labelledby="desktop-section-systems" className="border-l border-border-default p-[22px]">
         <h2 id="desktop-section-systems" className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">
-          Systems
+          Product families
         </h2>
         <ul className="mt-[8px] grid gap-[4px]">
           {systems.map((section) => (
@@ -121,7 +126,18 @@ function ProductsMenu({ item, pathname, onNavigate }: { item: NavItem; pathname:
             Open the finder
           </Link>
         </div>
-        <ul className="mt-[14px] grid gap-[2px]">
+        <p className="mt-[14px] font-mono text-f12 uppercase tracking-[0.06em] text-t3">Engineering tools</p>
+        <ul className="mt-[4px] grid gap-[2px]">
+          {productShortcuts.tools.map((link) => (
+            <li key={link.href}>
+              <Link href={link.href} prefetch={false} onClick={onNavigate} className="block rounded-control px-[6px] py-[5px] text-f14 font-semibold text-t1 hover:text-teal-text">
+                {link.label} <span aria-hidden>→</span>
+              </Link>
+            </li>
+          ))}
+        </ul>
+        <p className="mt-[12px] font-mono text-f12 uppercase tracking-[0.06em] text-t3">Documents</p>
+        <ul className="mt-[4px] grid gap-[2px]">
           {productShortcuts.links.map((link) => (
             <li key={link.href}>
               <Link href={link.href} prefetch={false} onClick={onNavigate} className="block rounded-control px-[6px] py-[6px] text-f14 font-semibold text-t1 hover:text-teal-text">
@@ -226,6 +242,15 @@ function MobileProducts({ item, pathname, onNavigate }: { item: NavItem; pathnam
         <span className="block font-mono text-f12 font-normal uppercase tracking-[0.06em] text-lime">{productShortcuts.finder.label}</span>
         Filter every standard size <span aria-hidden>→</span>
       </Link>
+      <ul className="flex flex-wrap gap-x-[14px] gap-y-[2px] text-f14 font-semibold">
+        {productShortcuts.tools.map((link) => (
+          <li key={link.href}>
+            <Link href={link.href} prefetch={false} onClick={onNavigate} className="inline-flex min-h-[40px] items-center text-teal-text">
+              {link.label} <span aria-hidden className="ml-[4px]">→</span>
+            </Link>
+          </li>
+        ))}
+      </ul>
     </>
   );
 }
