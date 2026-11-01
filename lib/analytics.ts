@@ -82,21 +82,58 @@ export function procurementEvent(interaction: ProcurementInteraction): { name: s
 }
 
 /** Same preference/region rule as acquisition; never grants consent or stores data. */
-function procurementConsentAllowed(): boolean {
+function consentAllowed(kind: "analytics" | "ads"): boolean {
   let choice = getVisitConsent();
   try { choice ??= parseConsent(window.localStorage.getItem(CONSENT_STORAGE_KEY)); } catch { /* Storage may be unavailable. */ }
-  if (choice) return choice.analytics;
+  if (choice) return choice[kind];
   try { return !isConsentTimeZone(Intl.DateTimeFormat().resolvedOptions().timeZone); }
   catch { return false; }
 }
 
+/** Google's enhanced-conversion normalization; null when the value cannot be matched reliably. */
+export function normalizeEnhancedEmail(value: unknown): string | null {
+  if (typeof value !== "string") return null;
+  const email = value.trim().toLowerCase();
+  if (email.length > 254 || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return null;
+  const [local, domain] = email.split("@");
+  return domain === "gmail.com" || domain === "googlemail.com" ? `${local.replace(/\./g, "")}@${domain}` : email;
+}
+
+/** E.164 only: a number typed without its country code is not guessed. */
+export function normalizeEnhancedPhone(value: unknown): string | null {
+  if (typeof value !== "string") return null;
+  const phone = value.trim().replace(/[\s().-]/g, "").replace(/^00/, "+");
+  return /^\+[1-9]\d{7,14}$/.test(phone) ? phone : null;
+}
+
+async function sha256Hex(value: string): Promise<string> {
+  const digest = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(value));
+  return Array.from(new Uint8Array(digest), byte => byte.toString(16).padStart(2, "0")).join("");
+}
+
+/**
+ * Enhanced conversions for leads: only SHA-256 hashes leave the page, and only
+ * with ad_user_data consent. Hashing failures never block the conversion itself.
+ */
+async function enhancedUserData(customer: { email?: unknown; phone?: unknown } | undefined): Promise<Record<string, string> | null> {
+  if (!customer || !consentAllowed("ads") || typeof crypto === "undefined" || !crypto.subtle) return null;
+  try {
+    const email = normalizeEnhancedEmail(customer.email);
+    const phone = normalizeEnhancedPhone(customer.phone);
+    const data: Record<string, string> = {};
+    if (email) data.sha256_email_address = await sha256Hex(email);
+    if (phone) data.sha256_phone_number = await sha256Hex(phone);
+    return Object.keys(data).length ? data : null;
+  } catch { return null; }
+}
+
 export function trackProcurement(interaction: ProcurementInteraction): void {
-  if (typeof window === "undefined" || !procurementConsentAllowed()) return;
+  if (typeof window === "undefined" || !consentAllowed("analytics")) return;
   const event = procurementEvent(interaction);
   if (event) trackEvent(event.name, event.params);
 }
 
-export function trackInquirySuccess(receiptId: string | null | undefined, source: string, productPath = "", inquiryType = "rfq", windowContext?: { mode?: string; series?: string; stage?: string }) {
+export function trackInquirySuccess(receiptId: string | null | undefined, source: string, productPath = "", inquiryType = "rfq", windowContext?: { mode?: string; series?: string; stage?: string }, customer?: { email?: unknown; phone?: unknown }) {
   if (!receiptId || sentReceipts.has(receiptId)) return;
   sentReceipts.add(receiptId);
   const params = {
@@ -116,9 +153,14 @@ export function trackInquirySuccess(receiptId: string | null | undefined, source
     trackEvent("rfq_submit_success", params);
     // The Ads conversion is sent only after /api/contact accepted the RFQ.
     // The receipt ID prevents a re-render or retry from double-counting it.
-    trackEvent("conversion", {
-      send_to: RFQ_ADS_CONVERSION,
-      transaction_id: receiptId,
+    void enhancedUserData(customer).then(userData => {
+      if (userData) {
+        try { (window as TrackingWindow).gtag?.("set", "user_data", userData); } catch { /* Analytics never blocks a customer action. */ }
+      }
+      trackEvent("conversion", {
+        send_to: RFQ_ADS_CONVERSION,
+        transaction_id: receiptId,
+      });
     });
   }
 }

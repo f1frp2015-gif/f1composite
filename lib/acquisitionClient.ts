@@ -1,7 +1,7 @@
 "use client";
 
 import { CONSENT_STORAGE_KEY, getVisitConsent, isConsentTimeZone, parseConsent } from "@/lib/consent";
-import { createAcquisitionTouch, FIRST_TOUCH_MAX_AGE_MS, parseAcquisition, SESSION_IDLE_MS, type Acquisition } from "@/lib/acquisition";
+import { createAcquisitionTouch, FIRST_TOUCH_MAX_AGE_MS, parseAcquisition, SESSION_IDLE_MS, withoutClickIds, type Acquisition } from "@/lib/acquisition";
 
 export const ACQUISITION_FIRST_KEY = "f1c_acquisition_first";
 export const ACQUISITION_SESSION_KEY = "f1c_acquisition_session";
@@ -25,20 +25,24 @@ export function clearAcquisition(): void {
 }
 
 /** Mirrors the site's analytics preference. Unknown time zones default to denied. */
-function consentBasis(): Acquisition["consent"] | null {
+function consentBasis(): { consent: Acquisition["consent"]; ads: boolean } | null {
   const choice = getVisitConsent() ?? parseConsent(read(CONSENT_STORAGE_KEY));
-  if (choice) return choice.analytics ? "explicit" : null;
-  try { return isConsentTimeZone(Intl.DateTimeFormat().resolvedOptions().timeZone) ? null : "regional_default"; }
+  if (choice) return choice.analytics ? { consent: "explicit", ads: choice.ads } : null;
+  try { return isConsentTimeZone(Intl.DateTimeFormat().resolvedOptions().timeZone) ? null : { consent: "regional_default", ads: true }; }
   catch { return null; }
 }
 
-/** Safe to call before a form POST. No identifiers, raw queries or hash data are stored. */
+/**
+ * Safe to call before a form POST. No personal identifiers, raw queries or hash
+ * data are stored; Google Ads click IDs are kept only with advertising consent.
+ */
 export function getAcquisition(): Acquisition | null {
   if (typeof window === "undefined") return null;
-  const consent = consentBasis();
-  if (!consent) { clearAcquisition(); return null; }
+  const basis = consentBasis();
+  if (!basis) { clearAcquisition(); return null; }
+  const { consent, ads } = basis;
   const now = Date.now();
-  const touch = createAcquisitionTouch(window.location.href, document.referrer, now);
+  const touch = createAcquisitionTouch(window.location.href, document.referrer, now, ads);
   if (!touch) return null;
   let firstTouch = touch;
   let sessionTouch = touch;
@@ -54,6 +58,7 @@ export function getAcquisition(): Acquisition | null {
     if (now - memory.lastSeen < SESSION_IDLE_MS) sessionTouch = memory.acquisition.sessionTouch;
   }
   if (sessionTouch.capturedAt < firstTouch.capturedAt) firstTouch = sessionTouch;
+  if (!ads) { firstTouch = withoutClickIds(firstTouch); sessionTouch = withoutClickIds(sessionTouch); }
   const acquisition: Acquisition = { version: 1, consent, firstTouch, sessionTouch };
   memory = { acquisition, lastSeen: now };
   write(ACQUISITION_FIRST_KEY, { ...acquisition, sessionTouch: firstTouch });

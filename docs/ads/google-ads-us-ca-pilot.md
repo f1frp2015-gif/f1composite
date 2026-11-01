@@ -11,7 +11,11 @@ Status: configuration specification; do not enable either campaign until the RFQ
 
 Both campaigns: Search only; Google Search partners and Display Network off; English; location option **Presence** (people in or regularly in the target country); AI Max, text customization, and final-URL expansion off. Use Maximize Clicks with the stated CPC limit during the measurement pilot. Keep campaigns paused. Daily budget is an average, not a hard daily spending cap.
 
-The only primary conversion is **RFQ submitted — website**, fired after `/api/contact` accepts a request with `inquiry_type=rfq`. Page views are not a bidding goal. Do not import the same RFQ event from GA4 as a second primary conversion. Calculator usage, gated downloads, and email/phone clicks may be added later as secondary observations only after their triggers are verified.
+The only primary conversion is **RFQ submitted — website**, fired after `/api/contact` accepts a request with `inquiry_type=rfq`. Page views are not a bidding goal. Do not import the same RFQ event from GA4 as a second primary conversion. Set the conversion action to count **One** per click with a 90-day click-through window.
+
+Enhanced conversions for leads: after `/api/contact` accepts an RFQ, the page sets `user_data` with SHA-256 hashes of the normalized email and an E.164 phone number (only when one was typed with its country code), then sends the conversion. Nothing is set without advertising consent, and plain email or phone values are never passed to gtag. Turn on enhanced conversions for leads (Google tag method) in the Ads conversion settings, then confirm the diagnostics show hashed user-provided data.
+
+Tracking template: enable auto-tagging and use `{lpurl}?utm_source=google&utm_medium=cpc&utm_campaign={campaignid}&utm_content={adgroupid}`. Only numeric IDs go into UTMs because the attribution layer rejects free text. The `gclid`/`gbraid`/`wbraid` click identifier is stored with the inquiry under advertising consent for later offline-conversion upload of qualified RFQs. Calculator usage, gated downloads, and email/phone clicks may be added later as secondary observations only after their triggers are verified.
 
 ## Ad groups (repeat in each country campaign)
 

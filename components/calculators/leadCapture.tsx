@@ -45,7 +45,7 @@ export function ResultLeadCapture({
       const res = await fetch("/api/contact", { method: "POST", body: fd });
       const j = await res.json().catch(() => ({}));
       if (res.ok && j.accepted === true && j.receiptId) {
-        trackInquirySuccess(j.receiptId, source, "", inquiryType);
+        trackInquirySuccess(j.receiptId, source, "", inquiryType, undefined, { email });
         setStatus("ok");
         track("calculator_lead", { source });
       } else {

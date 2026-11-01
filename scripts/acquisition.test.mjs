@@ -107,6 +107,52 @@ test("API sanitizer rejects unsupported consent and strips PII-like campaign val
   assert.equal(acquisition.acquisitionPath("/people/person%40example.com"), null);
 });
 
+test("Google Ads click IDs are kept only with advertising consent and survive the API sanitizer", () => {
+  const gclid = "Cj0KCQjw1234567890abcDEF_-xyz";
+  browser(`/products/frp-rebar?utm_source=google&utm_medium=cpc&gclid=${gclid}&gbraid=0AAAAA-bad%40example.com`);
+  assert.equal(client.getAcquisition().firstTouch.clickIds, undefined, "analytics-only consent drops click IDs");
+  consent.setVisitConsent({ analytics: true, ads: true });
+  client.clearAcquisition();
+  const tagged = client.getAcquisition();
+  assert.deepEqual(tagged.firstTouch.clickIds, { gclid });
+  assert.deepEqual(acquisition.parseAcquisition(tagged, now).sessionTouch.clickIds, { gclid });
+  // Withdrawing ads consent removes the stored identifier from the next submission.
+  consent.setVisitConsent({ analytics: true, ads: false });
+  window.location.href = "https://www.f1composite.com/contact";
+  const fd = new FormData(); client.appendAcquisition(fd);
+  assert.doesNotMatch(fd.get("acquisition"), /gclid|Cj0KCQ/);
+  const spoofed = { ...tagged.firstTouch, clickIds: { gclid: "https://evil.example/?q=1", wbraid: "short", unknown: gclid } };
+  assert.equal(acquisition.parseAcquisition({ ...tagged, firstTouch: spoofed, sessionTouch: spoofed }, now).firstTouch.clickIds, undefined);
+});
+
+test("RFQ conversion carries only SHA-256 user data, and only with advertising consent", async () => {
+  const analytics = loadProjectModule("lib/analytics.ts");
+  assert.equal(analytics.normalizeEnhancedEmail("  John.Smith@GMAIL.com "), "johnsmith@gmail.com");
+  assert.equal(analytics.normalizeEnhancedEmail("Buyer.Name@Example.com"), "buyer.name@example.com");
+  assert.equal(analytics.normalizeEnhancedPhone("+1 (415) 555-0100"), "+14155550100");
+  assert.equal(analytics.normalizeEnhancedPhone("0044 20 7946 0000"), "+442079460000");
+  assert.equal(analytics.normalizeEnhancedPhone("415 555 0100"), null, "no country code is guessed");
+  const run = async (ads, receipt) => {
+    const calls = [];
+    globalThis.window = { location: { pathname: "/contact" }, localStorage: storage(), gtag: (...args) => calls.push(args) };
+    consent.setVisitConsent({ analytics: true, ads });
+    analytics.trackInquirySuccess(receipt, "contact", "/products/frp-rebar", "rfq", undefined, { email: "Buyer@Example.com", phone: "+1 415 555 0100" });
+    await new Promise(resolve => setTimeout(resolve, 20));
+    return calls;
+  };
+  const granted = await run(true, "receipt-ads-1");
+  const set = granted.find(call => call[0] === "set" && call[1] === "user_data");
+  assert.ok(set, "user_data is set before the conversion");
+  assert.match(set[2].sha256_email_address, /^[0-9a-f]{64}$/);
+  assert.match(set[2].sha256_phone_number, /^[0-9a-f]{64}$/);
+  assert.ok(granted.findIndex(call => call === set) < granted.findIndex(call => call[1] === "conversion"));
+  assert.equal(granted.filter(call => call[1] === "conversion").length, 1);
+  assert.doesNotMatch(JSON.stringify(granted), /buyer|example|415/i);
+  const denied = await run(false, "receipt-ads-2");
+  assert.equal(denied.some(call => call[0] === "set"), false);
+  assert.equal(denied.filter(call => call[1] === "conversion").length, 1, "the conversion itself still fires");
+});
+
 test("RFQ snapshot uses fragment and safely round-trips; legacy query links remain supported", () => {
   const context = { catalogSelections: [{ sectionId: "section-1", model: "I152" }], calculatorSnapshot: { version: 1 } };
   const href = rfq.buildRfqHref({ source: "catalog", product: "FRP I-beam", context, message: "Please review this selection" });

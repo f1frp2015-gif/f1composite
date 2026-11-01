@@ -72,7 +72,7 @@ async function submitForm(_prev: FormState, formData: FormData): Promise<FormSta
     if (success) {
       let windowContext: WindowInquiry | null = null;
       try { windowContext = parseWindowInquiry(JSON.parse(String(formData.get("window_inquiry") || "null"))); } catch { /* Invalid client context must not affect an accepted receipt. */ }
-      trackInquirySuccess(data.receiptId, String(formData.get("source") ?? "contact"), String(formData.get("product_path") ?? ""), String(formData.get("inquiry_type") ?? "general"), windowContext || undefined);
+      trackInquirySuccess(data.receiptId, String(formData.get("source") ?? "contact"), String(formData.get("product_path") ?? ""), String(formData.get("inquiry_type") ?? "general"), windowContext || undefined, { email: formData.get("email"), phone: formData.get("phone") });
     }
     return { success, message: data.message, receiptId: data.receiptId };
   } catch {
