@@ -129,7 +129,7 @@ export const mainNav = [
           { label: "Square Rods", href: "/products/fiberglass-square-rods" },
         ],
       },
-      { id: "rebar", label: "GFRP rebar & mesh", href: "/products/frp-rebar", glyph: "rebar", links: [] },
+      { id: "rebar", label: "FRP rebar & mesh", href: "/products/frp-rebar", glyph: "rebar", links: [] },
       { id: "fasteners", label: "Fasteners & fittings", href: "/products/frp-fasteners-fittings", glyph: "fastener", links: [] },
       { id: "solar", label: "Solar mounting systems", href: "/products/frp-solar-mounting-systems", glyph: "channel", links: [] },
       {

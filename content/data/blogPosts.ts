@@ -6442,7 +6442,7 @@ For the rest of the site process, from lifting and storage to ties and flotation
     answerBox: "Basalt (BFRP) and fiberglass (GFRP) rebar are both fiber reinforced polymer bars that do not corrode like steel. The practical difference is the code path: ASTM D7957 and ACI CODE-440.11-22 cover glass fiber bars only, while CSA S807:19 in Canada also covers basalt. Basalt fiber costs more than E-glass, so choose basalt where the governing standard accepts it and certified bar data justify it, and GFRP where the project is designed to ACI 440.11.",
     category: "Concrete Reinforcement",
     date: "2026-10-23",
-    updatedAt: "2026-10-26",
+    updatedAt: "2026-11-01",
     readTime: "6 min",
     excerpt: "How basalt and fiberglass rebar compare on standards and code acceptance, bar properties, durability evidence, cost and availability, and how to choose between them.",
     authorName: "F1 Composite Editorial Team",
@@ -6541,7 +6541,7 @@ Basalt fiber costs more than E-glass fiber, and glass fiber bars have the larger
 
 **Consider BFRP** when the governing standard covers it (for example CSA S807 in Canada), the owner wants it, and the certified bar data show a benefit for the design.
 
-**In both cases,** keep bends to factory-formed shapes, specify the standard and edition, and request lot certificates. The [GFRP rebar specification guide](/resources/blog/gfrp-rebar-specification-guide-aci-440-astm-d7957) lists the submittal documents, and the [fiberglass rebar vs steel review](/technology/fiberglass-rebar-vs-steel) covers the comparison with steel. F1 supplies [GFRP straight bars, stirrups and mesh](/products/frp-rebar) against a project schedule.`,
+**In both cases,** keep bends to factory-formed shapes, specify the standard and edition, and request lot certificates. The [GFRP rebar specification guide](/resources/blog/gfrp-rebar-specification-guide-aci-440-astm-d7957) lists the submittal documents, and the [fiberglass rebar vs steel review](/technology/fiberglass-rebar-vs-steel) covers the comparison with steel. F1 supplies [GFRP straight bars, stirrups and mesh](/products/frp-rebar) and, since November 2026, [basalt FRP straight bars](/products/basalt-frp-rebar) with their published classes and a downloadable product manual, against a project schedule.`,
   },
   {
     slug: "frp-grating-specification-guide",

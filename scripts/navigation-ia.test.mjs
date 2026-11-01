@@ -28,7 +28,7 @@ test("six menus separate product families, applications and industries", async (
   assert.deepEqual(mainNav.map(item => item.label), ["Products", "Applications", "Industries", "Tools", "Resources", "Company"]);
   assert.equal(mainNav[0].href, "/products/product-lines");
   // Families in the order buyers look for them (Search Console, 12 months to 2026-10-25; docs/seo/navigation-priority-2026-10-31.md).
-  assert.deepEqual(mainNav[0].sections.map(section => section.label), ["Standard profiles", "Windows & doors", "Grating, handrails & ladders", "Custom & carbon fiber profiles", "GFRP rebar & mesh", "Fasteners & fittings", "Solar mounting systems", "Site & civil works", "Specialist components"]);
+  assert.deepEqual(mainNav[0].sections.map(section => section.label), ["Standard profiles", "Windows & doors", "Grating, handrails & ladders", "Custom & carbon fiber profiles", "FRP rebar & mesh", "Fasteners & fittings", "Solar mounting systems", "Site & civil works", "Specialist components"]);
   const destinations = (sections) => sections.flatMap(section => [...(section.href ? [section.href] : []), ...section.links.map(link => link.href)]);
   const productLinks = destinations(mainNav[0].sections);
   for (const route of ["/products/frp-rebar", "/products/window-door-profiles", "/products/frp-door-frames", "/products/fiberglass-windows-doors", "/products/frp-gratings", "/products/molded-frp-grating", "/products/fiberglass-structural-shapes/frp-rod", "/products/frp-handrail-systems", "/products/frp-ladders", "/products/frp-solar-mounting-systems", "/products/fiberglass-structural-shapes/frp-rod/carbon-fiber-rod", "/products/fiberglass-stakes"]) assert.ok(productLinks.includes(route), `${route} is a product buyers look for by name`);
