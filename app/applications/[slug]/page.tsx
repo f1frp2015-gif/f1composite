@@ -13,6 +13,7 @@ import UtilityCrossarmApplication from "@/components/sections/UtilityCrossarmApp
 import PedestrianBridgeGuide, { bridgeFaqs, bridgeRfqHref } from "@/components/sections/PedestrianBridgeGuide";
 import RelatedLinks from "@/components/sections/RelatedLinks";
 import JsonLd from "@/components/seo/JsonLd";
+import { primaryImageObject } from "@/lib/imageSeo";
 import CoverLink from "@/components/ui/CoverLink";
 import { FAQList } from "@/components/ui/FAQ";
 import Figure from "@/components/ui/Figure";
@@ -85,7 +86,7 @@ export default async function ApplicationDetailPage({ params }: PageProps) {
     publisher: { "@id": "https://www.f1composite.com/#organization" },
     mainEntityOfPage: absoluteUrl(path),
     dateModified: page.lastModified,
-    image: absoluteUrl(page.image),
+    image: primaryImageObject({ src: page.image, alt: page.imageAlt, caption: page.imageCaption, width: page.imageSize?.width, height: page.imageSize?.height, pagePath: path }),
   };
 
   if (page.slug === "frp-cable-tray-supports") {

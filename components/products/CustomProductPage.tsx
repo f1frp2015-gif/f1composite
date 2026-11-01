@@ -6,6 +6,7 @@ import PageSection from "@/components/layout/PageSection";
 import Figure from "@/components/ui/Figure";
 import ProductRfq from "@/components/products/ProductRfq";
 import JsonLd from "@/components/seo/JsonLd";
+import { primaryImageObject } from "@/lib/imageSeo";
 import { customProductUpdated, type CustomProductPage as ProductPage } from "@/content/data/customProductPages";
 import { buildRfqHref } from "@/lib/rfq";
 import { absoluteUrl } from "@/lib/seo";
@@ -15,7 +16,7 @@ export default function CustomProductPage({ page }: { page: ProductPage }) {
   const quoteHref = buildRfqHref({ source: page.slug, product: page.name, productPath: path });
   return (
     <>
-      <JsonLd data={{ "@context": "https://schema.org", "@type": "WebPage", name: page.title, description: page.description, url: absoluteUrl(path), image: absoluteUrl(page.image), dateModified: customProductUpdated, publisher: { "@id": "https://www.f1composite.com/#organization" } }} />
+      <JsonLd data={{ "@context": "https://schema.org", "@type": "WebPage", name: page.title, description: page.description, url: absoluteUrl(path), primaryImageOfPage: primaryImageObject({ src: page.image, alt: page.imageAlt, caption: page.imageCaption, pagePath: path }), dateModified: customProductUpdated, publisher: { "@id": "https://www.f1composite.com/#organization" } }} />
       <PageHeader tag="Custom product inquiry" title={page.name} description={page.intro}
         breadcrumbs={[{ label: "Home", href: "/" }, { label: "Products", href: "/products/product-lines" }, { label: page.name }]}
         updated={customProductUpdated}

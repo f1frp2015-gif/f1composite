@@ -10,6 +10,7 @@ import { specialistProductIndex } from "@/content/data/pultrusionGuideIndex";
 import { pultrusionGuideReviewed, dedicatedProductPages } from "@/content/data/pultrusionGuideTypes";
 import { performanceReviewed } from "@/content/data/pultrudedPerformance";
 import { INDEXED_DATASHEET_SLUGS } from "@/lib/datasheetContent";
+import { imagesForRoute } from "@/lib/pageImages";
 
 const BASE = "https://www.f1composite.com";
 
@@ -43,7 +44,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // Only content records with a real, content-owned update field emit
   // <lastmod>. Static routes intentionally omit it: a guessed or deploy-time
   // date is less useful than no date and quickly becomes inaccurate.
-  return [
+  const entries: MetadataRoute.Sitemap = [
     { url: `${BASE}/products/frp-grating-bunnings`, lastModified: "2026-10-25", changeFrequency: "monthly", priority: 0.75 },
     { url: `${BASE}/products/fiberglass-structural-shapes/frp-rod/carbon-fiber-rod`, lastModified: carbonFiberRod.updated, changeFrequency: "monthly", priority: 0.75 },
     ...blogTopics.map((topic) => ({
@@ -167,20 +168,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${BASE}/applications`, changeFrequency: "monthly", priority: 0.85 },
     ...applicationEntries,
     { url: `${BASE}/case-studies`, changeFrequency: "weekly", priority: 0.8 },
-    {
-      url: `${BASE}/case-studies/beam-bridge`,
-      lastModified: "2026-09-08",
-      changeFrequency: "monthly",
-      priority: 0.9,
-      images: [
-        `${BASE}/images/case-studies/beam-bridge/pedestrian-cycle-beam-bridge-load-path.svg`,
-        `${BASE}/images/case-studies/beam-bridge/pedestrian-cycle-bridge-section.svg`,
-        `${BASE}/images/case-studies/beam-bridge/footbridge-vibration-serviceability.svg`,
-        `${BASE}/images/case-studies/beam-bridge/moggill-road-cycle-bridge-case-study.svg`,
-        `${BASE}/images/case-studies/beam-bridge/coronation-drive-frp-cycleway-case-study.svg`,
-        `${BASE}/images/case-studies/beam-bridge/sao-silvestre-gfrp-footbridge-case-study.svg`,
-      ],
-    },
+    { url: `${BASE}/case-studies/beam-bridge`, lastModified: "2026-09-08", changeFrequency: "monthly", priority: 0.9 },
     { url: `${BASE}/case-studies/european-bridge-deck`, changeFrequency: "monthly", priority: 0.7 },
     { url: `${BASE}/case-studies/coastal-marina-walkway`, changeFrequency: "monthly", priority: 0.7 },
     { url: `${BASE}/case-studies/baotou-industrial-gfrp-pu-windows`, changeFrequency: "monthly", priority: 0.7 },
@@ -223,4 +211,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${BASE}/regions/grp-windows-uk`, changeFrequency: "monthly", priority: 0.92 },
     { url: `${BASE}/contact`, changeFrequency: "yearly", priority: 0.8 },
   ];
+
+  // Image sitemap: each page lists the static images it claims
+  // (lib/pageImages.ts), so Google Images ties the image to this page and
+  // links the result here. Absolute URLs, as the protocol requires.
+  return entries.map((entry) => {
+    const images = imagesForRoute(entry.url.replace(BASE, "") || "/").map((src) => `${BASE}${src}`);
+    return images.length ? { ...entry, images } : entry;
+  });
 }
