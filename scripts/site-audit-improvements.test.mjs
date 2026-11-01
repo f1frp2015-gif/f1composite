@@ -50,3 +50,13 @@ test("public machine surfaces share document scopes and quotation boundaries", (
   assert.doesNotMatch(serialized + llms, /phA arctic|PHI Class A\+/);
   assert.doesNotMatch(serialized + llms, /priceBandUSDPerMeter|priceBandUSDPerM2|recoatingCycleYears/);
 });
+
+test("product-style cable tray URLs redirect permanently to the cable management owner page", async () => {
+  const redirects = await loadProjectModule("next.config.ts").default.redirects();
+  for (const source of ["/products/frp-cable-tray", "/products/frp-cable-trays", "/products/fiberglass-cable-tray", "/products/grp-cable-tray"]) {
+    const rule = redirects.find((entry) => entry.source === source && !entry.has);
+    assert.equal(rule?.destination, "/applications/frp-cable-tray-supports", source);
+    assert.equal(rule.permanent, true);
+  }
+  assert.ok(existsSync("app/applications/[slug]/page.tsx") || existsSync("app/applications/frp-cable-tray-supports/page.tsx"));
+});
