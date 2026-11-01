@@ -258,6 +258,11 @@
     "description": "A pultruded carbon beam sized for the same tip stiffness as a steel tube weighs about a quarter as much and settles after a move in half the time. That is what a gantry cross beam, a delta-robot rod or a reach extension buys: a faster cycle from the same drive, or the same cycle from a smaller one, with no thermal growth through the shift and no fatigue allowance. F1 Composite pultrudes beam blanks, tubes and rods to the OEM's section and length, machines interface zones to the drawing, and supplies the laminate data and inspection records the qualification needs. The joint design, the assembled-member tests and the machine's safety validation remain the OEM's."
   },
   {
+    "path": "/products/carbon-fiber-roller-tubes",
+    "title": "Carbon-fiber roller tubes: a fifth of the mass, a third of the sag, 1.8 times the critical speed",
+    "description": "A pultruded carbon shell at the same diameter and wall as a steel roll weighs a fifth as much, sags a third as much under its own weight and runs to 1.8 times the critical speed. That is what a long idler, guide or spreader roll in a paper machine, press or converting line buys: a wider or faster web without a bigger diameter, and a roll that follows the web instead of slipping on it. F1 Composite pultrudes roller shells and shell blanks to the drawing, with controlled machining allowances and the laminate data the roller builder needs; the journals, bond, surface, balance and finished-rotor acceptance remain the roller builder's."
+  },
+  {
     "path": "/products/custom-pultruded-profiles",
     "title": "Custom Pultruded Profiles",
     "description": "Develop the section, material and delivery scope around your application. Confirm tooling, critical dimensions, secondary machining and first-article requirements before series production.",

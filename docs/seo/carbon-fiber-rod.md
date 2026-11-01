@@ -108,3 +108,19 @@ Owner request: the same picture-led rewrite for the specialist page `/products/c
 | 6 Commons photographs (public domain, CC BY, CC BY-SA), 1 drawn figure; sources in `docs/research/carbon-fiber-pages-photo-sources.md` §Robotic beam page additions | `public/images/products/carbon-fiber/` |
 
 Boundary kept from the 2026-10-25 page: no stock arm series, no robot safety approval, no completed joint qualification implied; class values labelled; joint design, assembled-member tests and machine validation belong to the OEM. Title and description unchanged.
+
+## Roller tube page rewrite (2026-11-01)
+
+Owner request: the same picture-led rewrite for the last carbon specialist page, `/products/carbon-fiber-roller-tubes`, done like the strip and beam pages: a dedicated route that keeps the sourced guide data and adds the picture-led material in front.
+
+| Change | Where |
+|---|---|
+| Dedicated route and OG image; `dedicatedProductPages` lists the slug; sitemap entry; the four sourced specification sections, two balancing-standard cards, nine sources, three FAQs, six brief items and related links still come from the shared guide data through `GuideSection`, `GuideStandards` and `GuideSources` | `app/products/carbon-fiber-roller-tubes/`, `content/data/pultrusionGuideTypes.ts`, `app/sitemap.ts` |
+| Hero: webs over guide rolls on a newspaper press; H1 and facts lead with "a fifth of the mass, a third of the sag, 1.8 × the critical speed" | page |
+| `#performance`: new drawn figure of the same shell in steel, aluminium and carbon (mass 1.0 / 0.34 / 0.20, sag 1.0 / 1.0 / 0.30, critical speed 1.0 / 1.0 / 1.81, derived from E/ρ in the sources doc); the rubber-mill steel roll as the roll carbon does not replace; shared specific-stiffness figure; four reason cards; four limit cards (the shell is not the roller, fibers along not around, the face is the process, balance is measured on the rotor) with the broken-pole photo; the shared class-value table | `scripts/covers/draw-roller-tube-figures.mjs`, page |
+| `#rolls`: four line-type cards with photographs (paper machines and winders, web presses, film and converting, textile/nonwoven/battery), each naming the rolls that go to carbon and the ones that stay steel | page |
+| `#anatomy`: the exploded calender-roll illustration with a who-does-what list (shell: F1; journals: roller builder; surface: coater; balance: rotor owner); `#construction`: shared fiber-direction figure, pultruded / pull-wound / steel cards, delivered-condition list | page |
+| Three FAQs added (how much longer or faster, why not aluminium, can the shell be the face); credits block; gate test extended with a negation-aware "no balanced or stock roller" guard | page, `scripts/carbon-fiber-pages.test.mjs` |
+| 6 Commons photographs (CC0, CC BY, CC BY-SA), 1 drawn figure; sources in `docs/research/carbon-fiber-pages-photo-sources.md` §Roller tube page additions | `public/images/products/carbon-fiber/` |
+
+Boundary kept from the 2026-10-25 page: shell only, not the rotor; no balance grade, stock roller or finished-roller acceptance implied; pull-wound or hybrid constructions flagged as subject to manufacturing-scope confirmation; class values labelled. Title and description unchanged. With this page every carbon-fiber product page on the site (plates, tubes, rods, hub, strips, beams, rollers) is picture-led.

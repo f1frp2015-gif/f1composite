@@ -89,3 +89,20 @@ Six more photographs for `/products/carbon-fiber-robotic-beams`, verified 2026-1
 Candidates not used: `File:2 komponenten einfachdosierer auf portal.jpg` (CC BY 2.5 but no author recorded on the file page), `File:Macchina di misura 3D.jpg` and `File:TBG-25 ISO Cartesian Gantry Robot.jpg` (manufacturer product renders with brand lettering), `File:Rolumac Robotics SD3-B Delta Robot.jpg` (marketing image with logos), `File:Robot de tri.jpg` (gantry barely visible through a fence).
 
 Figure (`scripts/covers/draw-robot-beam-figures.mjs`): a 1 m cantilever square tube at equal tip stiffness. Steel 60 × 60 × 3 (I = 3.71 × 10⁵ mm⁴, E 200 GPa, 5.37 kg/m); aluminium 80 × 80 × 4 (I = 1.17 × 10⁶, E 69 GPa, EI 1.09 ×, 3.28 kg/m = 0.61 ×); pultruded carbon 70 × 70 × 3 (I = 6.03 × 10⁵, E 130 GPa class, EI 1.05 ×, 1.25 kg/m at 1.55 g/cm³ = 0.23 ×). First natural frequency of a uniform cantilever ∝ √(EI/m): aluminium 1.34 ×, carbon 2.13 × the steel beam.
+
+## Roller tube page additions (2026-11-01)
+
+Six more photographs for `/products/carbon-fiber-roller-tubes`, verified 2026-11-01; cropped to 8:5 at ≤ 1280 px. None shows a carbon roller: they show the machines and the steel rolls, and the captions say which rolls a carbon shell replaces and which stay steel.
+
+| Published file | Source | Author | License | Original size |
+| --- | --- | --- | --- | --- |
+| `web-press-cylinder-stack-newspaper.webp` | [File:Web-fed offset press printing newspapers.jpg](https://commons.wikimedia.org/wiki/File:Web-fed_offset_press_printing_newspapers.jpg), 2009, Flickr | Tom T | [CC BY 2.0](https://creativecommons.org/licenses/by/2.0/) | 2232 × 2984, cropped to 2232 × 1395 |
+| `paper-machine-reel-section.webp` | [File:PM-52 Dryer section.JPG](https://commons.wikimedia.org/wiki/File:PM-52_Dryer_section.JPG), 2014 | Work With Sounds | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) | 5184 × 3456 |
+| `web-press-folder-rollers.webp` | [File:Centro Stampa Quotidiani (7899487130).jpg](https://commons.wikimedia.org/wiki/File:Centro_Stampa_Quotidiani_(7899487130).jpg), 2006, Flickr | Sesaab | [CC BY 2.0](https://creativecommons.org/licenses/by/2.0/) | 4500 × 3000 |
+| `steel-calender-rolls-seven-tonnes.webp` | [File:Calander - Pressing Machine.JPG](https://commons.wikimedia.org/wiki/File:Calander_-_Pressing_Machine.JPG), 2012 | RudolfSimon | [CC BY 3.0](https://creativecommons.org/licenses/by/3.0/) | 3857 × 2882 |
+| `rubber-mill-steel-roll.webp` | [File:Calender machine.jpg](https://commons.wikimedia.org/wiki/File:Calender_machine.jpg), 2008 | Cjp24 | [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/) | 1541 × 1080 |
+| `heated-steel-calender-roll.webp` | [File:Displacer Type Calender Roll.jpg](https://commons.wikimedia.org/wiki/File:Displacer_Type_Calender_Roll.jpg), 2023 (illustration) | Michael Zaoralek | [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/) | 3653 × 1717, cropped to 2747 × 1717 |
+
+Candidates not used: `File:Slitter Rewinder from Atlas Titan c.2019.jpg` and `File:Soma Venus III - slitter rewinder.jpg` (manufacturer renders with model lettering), `File:Rodolfo Comerio - Calandra 5 cil. 870x5000.jpg` (a crowd in front of the machine), `File:Wasserloser Offsetdruck von Zeitungen.jpg` (a person reading a newspaper), `File:Fourdrinier paper machine, Frogmore Mills` (640 px).
+
+Figure (`scripts/covers/draw-roller-tube-figures.mjs`): the same thin-wall shell in three materials, so EI/m ∝ E/ρ. Mass ∝ ρ: aluminium 2.70/7.85 = 0.34, carbon 1.55/7.85 = 0.20. Self-weight sag ∝ ρ/E: aluminium (2.70/69)/(7.85/200) = 1.00, carbon (1.55/130)/(7.85/200) = 0.30. First critical speed ∝ √(E/ρ): aluminium √(69/2.70)/√(200/7.85) = 1.00, carbon √(130/1.55)/√(200/7.85) = 1.81. Class values; no journal mass.
