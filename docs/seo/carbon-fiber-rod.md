@@ -59,3 +59,19 @@ Owner request: the same picture-led rewrite for `/products/pultruded-carbon-fibe
 | 5 more Commons photographs (CC BY, CC BY-SA), 2 drawn figures; credits block; sources in `docs/research/carbon-fiber-pages-photo-sources.md` §Plate page additions; gate test extended to the plate page | `public/images/products/carbon-fiber/`, `scripts/carbon-fiber-pages.test.mjs` |
 
 Class values labelled as such; strengthening design named as the engineer of record's and the system supplier's. Title and description unchanged.
+
+## Hub page rewrite (2026-10-31)
+
+Owner request: the same picture-led rewrite for `/products/pultrusion-carbon-fiber`. The hub's job is to route the reader to the right form, so it does not repeat the three product pages.
+
+| Change | Where |
+|---|---|
+| Hero photo (carbon roving on a creel) replaces the SVG family illustration; H1 and facts lead with stiffness per kilogram and "which form your load case needs" | `app/products/pultrusion-carbon-fiber/page.tsx` |
+| New first section `#profiles`: three form cards with photographs (plate edge, hexacopter tube arms, delta-robot rod linkages), when each is the answer and typical sizes, then a seven-row **load case → form** decision table that also routes torque/pressure cases to custom profiles and insulation/cost cases to fiberglass | page |
+| New `#performance`: shared specific-stiffness figure, broken-pole photo, "what carbon gives / what it takes" (3 + 3), the shared 11-row class-value table | page |
+| `#plates`, `#tubes`, `#rods` anchors kept; each now carries a photograph, the typical range and the same specify/links/RFQ block | page |
+| `#process`: carbonization and tows photographs plus the FengDu KraussMaffei hall production photo (honestly captioned: glass runs on these lines) before the existing process schematic and five steps | page |
+| `#selection`: shared fiber-direction figure beside the three existing cards; `#applications`: six photo cards routed to the form or specialist page | page |
+| Credits block; gate test extended to the hub (property table, credits, links to all three forms, anchors) | `scripts/carbon-fiber-pages.test.mjs` |
+
+No new photographs: the hub reuses the shared library in `content/data/carbonFiberScenes.ts` and the owned hall photo. Title, description and the product-directory cover unchanged.

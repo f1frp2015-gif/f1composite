@@ -6,11 +6,14 @@ export default function CollectionSchema({
   description,
   path,
   links,
+  dateModified,
 }: {
   name: string;
   description: string;
   path: string;
   links: readonly { label: string; href: string }[];
+  /** YYYY-MM-DD of the last content review; keep equal to the PageHeader's `updated`. */
+  dateModified?: string;
 }) {
   return (
     <JsonLd
@@ -21,6 +24,7 @@ export default function CollectionSchema({
         url: absoluteUrl(path),
         name,
         description,
+        ...(dateModified ? { dateModified } : {}),
         isPartOf: { "@id": `${absoluteUrl("/")}#website` },
         publisher: { "@id": `${absoluteUrl("/")}#organization` },
         mainEntity: {
