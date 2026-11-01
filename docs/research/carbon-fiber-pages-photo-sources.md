@@ -72,3 +72,20 @@ Six more photographs for `/products/pultruded-cfrp-strengthening-strips`, all by
 | `cfrp-bars-for-nsm-grooves.webp` | [File:Углепластиковая арматура.jpg](https://commons.wikimedia.org/wiki/File:%D0%A3%D0%B3%D0%BB%D0%B5%D0%BF%D0%BB%D0%B0%D1%81%D1%82%D0%B8%D0%BA%D0%BE%D0%B2%D0%B0%D1%8F_%D0%B0%D1%80%D0%BC%D0%B0%D1%82%D1%83%D1%80%D0%B0.jpg), 2022-04-17 | Arslan864 | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) | 960 × 1280, cropped to 960 × 600 to exclude the camera date stamp |
 
 Figure (`scripts/covers/draw-cfrp-strip-figures.mjs`): three beam sections, EB strip / NSM strip or bar / bonded steel plate, with the size ranges strengthening systems publish (EB strips 50–120 × 1.2–1.4 mm; NSM strips 10–20 × 2–3 mm or Ø6–Ø10 bars; steel plates 6–10 mm) and the governing failure for each. Strip class values on the page: 150–170 GPa modulus, 2,500–3,000 MPa strength at 65–70% fiber volume (ACI 440.2R Table, supplier datasheets for CarboDur-class strips); "a 50 × 1.4 mm strip ≈ the ultimate tension of a 50 × 8 mm mild-steel plate" from 70 mm² × 2,800 MPa ≈ 196 kN against 400 mm² × 490 MPa ≈ 196 kN.
+
+## Robotic beam page additions (2026-11-01)
+
+Six more photographs for `/products/carbon-fiber-robotic-beams`, verified 2026-11-01; cropped to 8:5 at ≤ 1280 px. They show machine types, not carbon parts: the captions say which member on each machine is the one a carbon beam blank or strut replaces.
+
+| Published file | Source | Author | License | Original size |
+| --- | --- | --- | --- | --- |
+| `gantry-robot-crate-handling.webp` | [File:Robot Portico tecno-840.jpg](https://commons.wikimedia.org/wiki/File:Robot_Portico_tecno-840.jpg), 2010 | www.tecnowey.com | [CC BY 3.0](https://creativecommons.org/licenses/by/3.0/) | 1200 × 998 |
+| `palletizing-cell-gantry-and-arm.webp` | [File:Celula paletizado con robot antropomorfico y portico tecno-840.jpg](https://commons.wikimedia.org/wiki/File:Celula_paletizado_con_robot_antropomorfico_y_portico_tecno-840.jpg), 2013 | Tecnowey | [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/) | 1181 × 791 |
+| `kuka-palletizing-robots-bakery.webp` | [File:Factory Automation Robotics Palettizing Bread.jpg](https://commons.wikimedia.org/wiki/File:Factory_Automation_Robotics_Palettizing_Bread.jpg), 2005 | KUKA Roboter GmbH, Bachmann | Public domain (released by the author) | 3417 × 2563 |
+| `delta-robots-row-conveyor.webp` | [File:TOSY Parallel Robot.JPG](https://commons.wikimedia.org/wiki/File:TOSY_Parallel_Robot.JPG), 2010 | Humanrobo | [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/) | 2246 × 1498 |
+| `portal-robot-linear-axes-hall.webp` | [File:REIS Portalroboter RL130.jpg](https://commons.wikimedia.org/wiki/File:REIS_Portalroboter_RL130.jpg), 2013 | MatRudolf | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) | 2360 × 3543, cropped to 2360 × 1475 |
+| `articulated-arm-polishing-cell.webp` | [File:Robotic Arm Polishing Guitars at Martin Guitar Factory.jpg](https://commons.wikimedia.org/wiki/File:Robotic_Arm_Polishing_Guitars_at_Martin_Guitar_Factory.jpg), 2024 | Henrysz | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) | 4000 × 6000, cropped to 3840 × 2400 |
+
+Candidates not used: `File:2 komponenten einfachdosierer auf portal.jpg` (CC BY 2.5 but no author recorded on the file page), `File:Macchina di misura 3D.jpg` and `File:TBG-25 ISO Cartesian Gantry Robot.jpg` (manufacturer product renders with brand lettering), `File:Rolumac Robotics SD3-B Delta Robot.jpg` (marketing image with logos), `File:Robot de tri.jpg` (gantry barely visible through a fence).
+
+Figure (`scripts/covers/draw-robot-beam-figures.mjs`): a 1 m cantilever square tube at equal tip stiffness. Steel 60 × 60 × 3 (I = 3.71 × 10⁵ mm⁴, E 200 GPa, 5.37 kg/m); aluminium 80 × 80 × 4 (I = 1.17 × 10⁶, E 69 GPa, EI 1.09 ×, 3.28 kg/m = 0.61 ×); pultruded carbon 70 × 70 × 3 (I = 6.03 × 10⁵, E 130 GPa class, EI 1.05 ×, 1.25 kg/m at 1.55 g/cm³ = 0.23 ×). First natural frequency of a uniform cantilever ∝ √(EI/m): aluminium 1.34 ×, carbon 2.13 × the steel beam.
