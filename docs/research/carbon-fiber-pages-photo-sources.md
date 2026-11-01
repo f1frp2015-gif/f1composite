@@ -43,3 +43,17 @@ Candidates reviewed and not used: `File:Composite rebar.jpg` and the ORNL open-h
 - Specific stiffness E/ρ: 130/1.55 ≈ 84 (87 on the figure at 135 GPa), 69/2.70 ≈ 26, 200/7.85 ≈ 25, 23/1.9 ≈ 12.
 
 Editorial boundary carried over from 2026-10-25: no F1 CFRP datasheet, certificate, stock size, tolerance, MOQ or lead time is asserted. The numbers on the pages are labelled as published class values and the offered laminate's qualification report is named as the design basis.
+
+## Plate page additions (2026-10-31)
+
+Five more photographs for `/products/pultruded-carbon-fiber-plates`, found and verified the same way on 2026-10-31; cropped to 8:5 at ≤ 1280 px.
+
+| Published file | Source | Author | License | Original size |
+| --- | --- | --- | --- | --- |
+| `wind-blade-factory-root-section.webp` | [File:LMGlasfiberBlade.jpg](https://commons.wikimedia.org/wiki/File:LMGlasfiberBlade.jpg), 2006-12-24, Flickr | Tuey | [CC BY 2.0](https://creativecommons.org/licenses/by/2.0/) | 2308 × 1644 |
+| `wind-blade-road-transport.webp` | [File:Wind turbine blade in transport, southern Idaho.jpg](https://commons.wikimedia.org/wiki/File:Wind_turbine_blade_in_transport,_southern_Idaho.jpg), 2009, Flickr | Greg Goebel | [CC BY-SA 2.0](https://creativecommons.org/licenses/by-sa/2.0/) | 2122 × 1474 |
+| `carbon-running-blades-workshop.webp` | [File:Paralympic carbon fibre running blades.jpg](https://commons.wikimedia.org/wiki/File:Paralympic_carbon_fibre_running_blades.jpg), 2012-08-31 | Hawkeye7 | [CC BY 3.0](https://creativecommons.org/licenses/by/3.0/) | 1536 × 2048, cropped to 1536 × 960 |
+| `cfrp-strips-bonded-slab-surface.webp` | [File:Усиление верха ЖБ углеродными лентами.jpg](https://commons.wikimedia.org/wiki/File:%D0%A3%D1%81%D0%B8%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5_%D0%B2%D0%B5%D1%80%D1%85%D0%B0_%D0%96%D0%91_%D1%83%D0%B3%D0%BB%D0%B5%D1%80%D0%BE%D0%B4%D0%BD%D1%8B%D0%BC%D0%B8_%D0%BB%D0%B5%D0%BD%D1%82%D0%B0%D0%BC%D0%B8.jpg) | Arslan864 | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) | 2048 × 1536 |
+| `woven-carbon-fabric-roll.webp` | [File:Ready to use carbon fiber sheet.jpg](https://commons.wikimedia.org/wiki/File:Ready_to_use_carbon_fiber_sheet.jpg), 2021-12-14 | Duboyong | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) | 6720 × 4480 |
+
+Plate figures (`scripts/covers/draw-carbon-plate-figures.mjs`): orientation of a 50 × 3 mm strip (I = b·h³/12: flat 112.5 mm⁴, on edge 31,250 mm⁴, three bonded strips 50 × 9 mm 3,037.5 mm⁴) and the bonded-strip detail. Strengthening design codes named on the figure: ACI 440.2R, fib Bulletin 90, Concrete Society TR55.
