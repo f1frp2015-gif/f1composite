@@ -11,8 +11,8 @@ Figures and photographs are the PNG copies written by
 
     node scripts/covers/draw-basalt-rebar-figures.mjs <assets-dir>
 
-and passed here as `--assets <assets-dir>`. The manufacturer is not named
-(owner decision pending, as for the GFRP family before 2026-10-26).
+and passed here as `--assets <assets-dir>`. Manufacturer: FengDu New Material
+(owner decision 2026-11-01); the data source is on file and not named.
 """
 
 import argparse
@@ -116,14 +116,14 @@ def build(output: Path, assets: Path):
     f.append(Paragraph("CONCRETE REINFORCEMENT · PRODUCT MANUAL · EDITION 2026.11", s["eye"]))
     f.append(Paragraph("Basalt FRP Rebar", s["title"]))
     f.append(Paragraph("Basalt fiber reinforced polymer (BFRP) reinforcing bars, Ø3 to Ø25 mm, straight or coiled. Published classes, sizes, standards, handling and the ordering checklist.", s["subtitle"]))
-    f.append(figure(assets / "bfrp-rebar-cut-pieces.png", 120, "Fig. 1 · Cut pieces of basalt FRP rebar with the helical bond surface (manufacturer's photograph).", s))
+    f.append(figure(assets / "bfrp-rebar-cut-pieces.png", 120, "Fig. 1 · Cut pieces of basalt FRP rebar with the helical bond surface (supplier photograph).", s))
     meta_rows = [
         ["Document", f"{DOC_ID}  ·  Rev. {REV}"],
         ["Product", "Pultruded basalt fiber reinforced polymer (BFRP) bars for concrete reinforcement"],
         ["Fiber / matrix", "Continuous basalt filament drawn from basalt rock; vinyl ester or epoxy resin"],
         ["Classes", "1,100 MPa (Ø3–Ø12), 1,000 MPa (Ø25); 50 GPa modulus class; 1.9–2.1 g/cm³"],
         ["Standards", "ASTM D8505/D8505M-23 · CSA S807:19 · ISO 10406-1:2015 · GB/T 26743-2011 · JG/T 406-2013"],
-        ["Supply", "Made by a dedicated basalt-fiber producer in Sichuan, China; exported by F1 Composite against a project schedule"],
+        ["Supply", "Made by FengDu New Material (Chongqing, China); exported by F1 Composite against a project schedule"],
     ]
     meta_label = ParagraphStyle("metalabel", parent=s["cell"], fontName="Helvetica-Bold", fontSize=9, leading=12, textColor=INK_2)
     meta_value = ParagraphStyle("metavalue", parent=s["cell"], fontSize=9, leading=12)
@@ -132,7 +132,7 @@ def build(output: Path, assets: Path):
                               ("BOTTOMPADDING", (0, 0), (-1, -1), 4), ("TOPPADDING", (0, 0), (-1, -1), 4), ("LINEBELOW", (0, 0), (-1, -2), 0.3, BORDER)]))
     f.append(meta)
     f.append(Spacer(1, 5 * mm))
-    f.append(Paragraph("<b>Reading this manual.</b> Every value in it is a class restated from the manufacturer's published typical values. None is a guaranteed value, a design value or a certification. ASTM D8505 and CSA S807 guarantee tensile force, modulus, bond and durability per size from a qualification report, and that report, issued for the size actually offered, is what the engineer designs with. It travels with the quotation.", s["body"]))
+    f.append(Paragraph("<b>Reading this manual.</b> Every value in it is a class restated from published typical values. None is a guaranteed value, a design value or a certification. ASTM D8505 and CSA S807 guarantee tensile force, modulus, bond and durability per size from a qualification report, and that report, issued for the size actually offered, is what the engineer designs with. It travels with the quotation.", s["body"]))
     f.append(PageBreak())
 
     # 1 Scope
@@ -141,7 +141,7 @@ def build(output: Path, assets: Path):
     f.append(Paragraph("Factory-formed bends, hooks and mesh are not part of the standard basalt product and are raised as an inquiry; where a project needs shapes, F1's GFRP family supplies factory bends and mesh that a designer may pair with straight basalt bars.", s["body"]))
 
     f.append(Paragraph("2. From basalt rock to a reinforcing bar", s["h2"]))
-    f.append(Paragraph("Basalt fiber is the only reinforcement fiber made from one raw material. Volcanic rock is crushed, washed and graded, melted at about 1,450 °C in a single furnace with no batch chemistry to formulate, and drawn through platinum bushings into continuous filament, which is sized and wound as roving. The roving is wetted in vinyl ester or epoxy resin, pulled through a heated die, wrapped and cured, then cut to length or coiled. The manufacturer behind this bar melts its own rock and pultrudes in the same group, so fiber lot and bar lot stay traceable to each other.", s["body"]))
+    f.append(Paragraph("Basalt fiber is the only reinforcement fiber made from one raw material. Volcanic rock is crushed, washed and graded, melted at about 1,450 °C in a single furnace with no batch chemistry to formulate, and drawn through platinum bushings into continuous filament, which is sized and wound as roving. The roving is wetted in vinyl ester or epoxy resin, pulled through a heated die, wrapped and cured, then cut to length or coiled. FengDu New Material pultrudes the bar from bought-in continuous basalt roving, and the fiber lot is recorded against each bar lot on the production record.", s["body"]))
     f.append(figure(assets / "basalt-rebar-rock-to-bar.png", 170, "Fig. 2 · Seven stations from quarry to bundle. Stations 1 to 4 are the fiber producer's, 5 to 7 the pultruder's.", s))
     f.append(Paragraph("Basalt filament is stiffer and stronger than E-glass filament and keeps its properties to a higher temperature, which is where the bar's 1,100 MPa and 50 GPa classes come from. Fiber volume, resin, surface and process decide how much of that reaches the bar, and the resin, not the fiber, sets the bar's temperature limit: the matrix softens above its glass transition (100 °C class), so fire-rated members are designed by cover and detailing, as for GFRP.", s["body"]))
 
@@ -149,11 +149,11 @@ def build(output: Path, assets: Path):
     f.append(Paragraph("3. Published properties, as classes", s["h2"]))
     f.append(grid([
         ["Property", "Published class", "Basis and what it means"],
-        ["Tensile strength", "1,100 MPa (Ø3–Ø12) · 1,000 MPa (Ø25)", "Manufacturer's published typical values. Guaranteed tensile force per size comes from the qualification report; strength rarely sets the bar."],
+        ["Tensile strength", "1,100 MPa (Ø3–Ø12) · 1,000 MPa (Ø25)", "Published typical values. Guaranteed tensile force per size comes from the qualification report; strength rarely sets the bar."],
         ["Tensile modulus", "50 GPa class (52–55 GPa published)", "Above the 44.8 GPa ASTM D8505 floor and the CSA S807 Grade I threshold of 50 GPa. A quarter of steel: crack width and deflection govern."],
         ["Elongation at rupture", "about 2.6% (Ø3–Ø12)", "Linear to rupture; no yield plateau. Sections are proportioned for concrete crushing with the bar kept elastic."],
         ["Density", "1.9–2.1 g/cm³", "Published unit masses reconcile to 1.9 g/cm³. A Ø16 mm bar is about 0.38 kg/m against 1.58 kg/m in steel."],
-        ["Alkali and seawater exposure", "75–80% strength retained after 900 days immersion", "Manufacturer's durability statement. Ask for the test method, specimen scope and report; ASTM D8505 and CSA S807 set their own exposure tests."],
+        ["Alkali and seawater exposure", "75–80% strength retained after 900 days immersion", "Published durability statement. Ask for the test method, specimen scope and report; ASTM D8505 and CSA S807 set their own exposure tests."],
         ["Electrical and magnetic", "Non-conductive, nonmagnetic", "MRI suites, rail detection loops, substations, data centers."],
         ["Thermal conductivity", "below 1 W/m·K", "No thermal bridge through an insulated element; steel is about 50 W/m·K."],
         ["Temperature", "Resin Tg 100 °C class", "The fiber tolerates far more heat than the resin; the bar is not a fire-rated bar."],
@@ -168,18 +168,18 @@ def build(output: Path, assets: Path):
         ["Tensile modulus", "50 GPa class", "45 or 60 GPa class", "200 GPa"],
         ["Behaviour to failure", "Linear to rupture, about 2.6%", "Linear to rupture, 1.1% or more", "Yields at about 0.2%, then stretches"],
         ["Density", "1.9–2.1 g/cm³", "1.9–2.1 g/cm³", "7.85 g/cm³"],
-        ["Corrosion", "None; 75–80% retained, 900 days (manufacturer)", "None; 80% retained after ASTM D7705 exposure", "Rusts once chlorides or carbonation reach the bar"],
+        ["Corrosion", "None; 75–80% retained, 900 days (published)", "None; 80% retained after ASTM D7705 exposure", "Rusts once chlorides or carbonation reach the bar"],
         ["Product standard", "ASTM D8505-23; CSA S807:19; ISO 10406-1", "ASTM D7957-26; CSA S807:19", "ASTM A615; EN 10080"],
         ["US building code", "None of its own: ACI 440.11 covers glass bars only", "ACI CODE-440.11-22", "ACI 318"],
         ["Shapes", "Straight bars and coils; bends by inquiry", "Factory-formed stirrups, bends, mesh", "Bent, cut and welded on site"],
     ], [32, 46, 50, 42], s))
-    f.append(Paragraph("Class values, not a datasheet. BFRP values are the manufacturer's published typical values; GFRP values are ASTM D7957 minimums and F1's modulus classes; steel is ASTM A615 Grade 60.", s["caption"]))
+    f.append(Paragraph("Class values, not a datasheet. BFRP values are published typical values; GFRP values are ASTM D7957 minimums and F1's modulus classes; steel is ASTM A615 Grade 60.", s["caption"]))
     f.append(Spacer(1, 2 * mm))
     f.append(figure(assets / "basalt-rebar-stress-strain.png", 118, "Fig. 3 · Basalt, glass and steel in tension (schematic). Both FRP bars are linear to rupture above steel's yield; the slope sets crack widths and deflections.", s))
 
     # 4 Sizes
     f.append(Paragraph("4. Sizes: area, mass and nominal capacity", s["h2"]))
-    f.append(Paragraph("Eleven inquiry diameters, one modulus class. Mass is calculated at 1.9 g/cm³, which matches the manufacturer's published g/m. Nominal capacity is nominal area multiplied by the published strength class (1,000 MPa taken for Ø14 and above pending the size report); it is not a guaranteed force and not a design value.", s["body"]))
+    f.append(Paragraph("Eleven inquiry diameters, one modulus class. Mass is calculated at 1.9 g/cm³, which matches the published g/m. Nominal capacity is nominal area multiplied by the published strength class (1,000 MPa taken for Ø14 and above pending the size report); it is not a guaranteed force and not a design value.", s["body"]))
     rows = [["Ø mm", "Area mm²", "Mass kg/m", "Metres per tonne", "Class MPa", "Nominal capacity kN", "Form"]]
     for d in DIAMETERS:
         area = math.pi * d * d / 4
@@ -193,7 +193,7 @@ def build(output: Path, assets: Path):
 
     # 5 Substitution
     f.append(Paragraph("5. Steel substitution guide, and why not to use it alone", s["h2"]))
-    f.append(Paragraph("The manufacturer publishes the BFRP diameter whose nominal tensile capacity at the published class matches the yield capacity of a steel bar. It is reproduced here because buyers ask for it, with the caveat that matters more than the table.", s["body"]))
+    f.append(Paragraph("The published guide gives the BFRP diameter whose nominal tensile capacity at the published class matches the yield capacity of a steel bar. It is reproduced here because buyers ask for it, with the caveat that matters more than the table.", s["body"]))
     f.append(grid([["Steel bar", "BFRP bar of equal nominal tensile capacity"]] + [
         ["Ø10", "Ø6–Ø8"], ["Ø12", "Ø8"], ["Ø14–Ø16", "Ø10"], ["Ø18", "Ø12"], ["Ø20–Ø22", "Ø14"], ["Ø24", "Ø16"], ["Ø26", "Ø18"], ["Ø28–Ø30", "Ø20"],
     ], [50, 120], s))
@@ -203,7 +203,7 @@ def build(output: Path, assets: Path):
     f.append(Paragraph("6. Where basalt rebar is specified", s["h2"]))
     f.append(grid([
         ["Element", "Why", "Usual sizes"],
-        ["Marine, seawalls and coastal concrete", "Chloride corrosion is the failure mode; the manufacturer's seawater immersion data speaks to this exposure.", "Ø10–Ø25 mm"],
+        ["Marine, seawalls and coastal concrete", "Chloride corrosion is the failure mode; the published seawater immersion data speaks to this exposure.", "Ø10–Ø25 mm"],
         ["Bridge decks, barriers and highways", "De-icing salt and traffic disruption justify a corrosion-free deck; the 50 GPa class helps on deflection-governed spans.", "Ø14–Ø25 mm"],
         ["Slabs, pavements and industrial floors", "Crack control over a large thin area, no rust staining, bars light enough to place by hand.", "Ø6–Ø12 mm, coils for Ø≤10"],
         ["Foundations in aggressive soils", "Chloride or sulfate groundwater; rafts and pile caps that are expensive to repair.", "Ø12–Ø25 mm"],
@@ -219,9 +219,9 @@ def build(output: Path, assets: Path):
     f.append(Paragraph("7. Standards and documents", s["h2"]))
     f.append(grid([
         ["Layer", "Documents", "What to ask for"],
-        ["Product standards", "ASTM D8505/D8505M-23 (basalt and glass FRP bars); CSA S807:19 (R2024), basalt included, modulus grades I–III; ISO 10406-1:2015 test methods; GB/T 26743-2011 and JG/T 406-2013 (manufacturer's home standards)", "The standard and edition the qualification report was tested to, per size."],
+        ["Product standards", "ASTM D8505/D8505M-23 (basalt and glass FRP bars); CSA S807:19 (R2024), basalt included, modulus grades I–III; ISO 10406-1:2015 test methods; GB/T 26743-2011 and JG/T 406-2013 (Chinese product standards)", "The standard and edition the qualification report was tested to, per size."],
         ["Design codes", "ACI CODE-440.11-22 covers glass bars only: a US building using basalt needs the engineer's design to ACI 440.1R guidance and the authority's acceptance. CSA S806 and S6 accept S807 bars of either fiber. EN 1992-1-1:2023 Annex R where the national annex adopts it.", "Which code the designer will use, so the right properties are certified."],
-        ["Approvals and listings", "ICC-ES AC454 and state DOT lists cover named GFRP producers. F1 holds no ICC-ES, DOT, CE or ETA listing for basalt bars and claims none.", "The documents your authority requires, so we can say what the manufacturer can evidence."],
+        ["Approvals and listings", "ICC-ES AC454 and state DOT lists cover named GFRP producers. F1 holds no ICC-ES, DOT, CE or ETA listing for basalt bars and claims none.", "The documents your authority requires, so we can say what FengDu can evidence."],
     ], [30, 90, 50], s))
     f.append(Spacer(1, 3 * mm))
     f.append(Paragraph("7.1 Documents that travel with an order", s["h3"]))
@@ -240,7 +240,7 @@ def build(output: Path, assets: Path):
         ("Tie it down and inspect", "Nonmetallic chairs set the cover; tie the light mat so it cannot float. Check spacing, cover and laps against the FRP design before the pour."),
     ], start=1):
         f.append(Paragraph(f"<b>Step {n} · {title}.</b> {text}", s["body"]))
-    f.append(figure(assets / "bfrp-rebar-helical-surface.png", 70, "Fig. 5 · The helical fiber wrap over the basalt core (manufacturer's photograph).", s))
+    f.append(figure(assets / "bfrp-rebar-helical-surface.png", 70, "Fig. 5 · The helical fiber wrap over the basalt core (supplier photograph).", s))
 
     # 9 Ordering
     f.append(Paragraph("9. Price basis and ordering checklist", s["h2"]))
@@ -271,7 +271,7 @@ def build(output: Path, assets: Path):
         f.append(Paragraph(f"<b>Step {n} · {title}.</b> {text}", s["body"]))
 
     f.append(Paragraph("10. Disclaimer", s["h2"]))
-    f.append(Paragraph("This manual is published by F1 Composite as product reference for specifiers and buyers. Values are the manufacturer's published typical values restated as classes; they are not guaranteed values, design values or certifications, and nothing here is an ICC-ES, DOT, CE or ETA approval. Project compliance is established by the qualification report for the offered size, the production-lot certificate and any project-specific testing agreed in the order. Photographs of concrete work on the product page show steel-reinforced projects and illustrate the element, not a basalt installation.", s["caption"]))
+    f.append(Paragraph("This manual is published by F1 Composite as product reference for specifiers and buyers. Values are published typical values restated as classes; they are not guaranteed values, design values or certifications, and nothing here is an ICC-ES, DOT, CE or ETA approval. Project compliance is established by the qualification report for the offered size, the production-lot certificate and any project-specific testing agreed in the order. Photographs of concrete work on the product page show steel-reinforced projects and illustrate the element, not a basalt installation.", s["caption"]))
     f.append(Spacer(1, 4 * mm))
     contact = Table([["F1 Composite", "sales@f1composite.com  ·  www.f1composite.com/products/basalt-frp-rebar"]], colWidths=[40 * mm, 130 * mm])
     contact.setStyle(TableStyle([("FONTNAME", (0, 0), (0, 0), "Helvetica-Bold"), ("FONTSIZE", (0, 0), (-1, 0), 10), ("TEXTCOLOR", (0, 0), (0, 0), TEAL), ("TEXTCOLOR", (1, 0), (1, 0), INK_2),

@@ -23,9 +23,9 @@ Data: `content/data/basaltRebar.ts` (photos with credits, catalog, published val
 - Values: the manufacturer's published typical values restated as classes, labelled as such in every table and in the manual; "the qualification report per size governs". The supplier's yield-strength row, "370% lighter" and contradictory cost-saving tables were not carried over; its Ø22 tensile figure (a copy error) was recomputed from area × class.
 - Prices: ranges only with the observation date (owner rule 2026-10-23); the supplier's per-tonne and per-metre price tables are not reproduced.
 - Approvals: no ICC-ES, DOT, CE or ETA claim; "F1 holds no listing for basalt bars" stated where a buyer would look. ACI CODE-440.11-22 is stated as glass-only; basalt routes through ASTM D8505 / CSA S807 and the engineer.
-- Manufacturer: not named on the page or in the manual until the owner confirms (as for FengDu before 2026-10-26); identity recorded in `docs/research/basalt-rebar-sources.md`.
+- Manufacturer: FengDu New Material (owner decision 2026-11-01), as for the GFRP family; the basalt-fiber producer whose published data and photographs the page uses is not named and its "own fiber" narrative is not carried over (`docs/research/basalt-rebar-sources.md`).
 - Photos: supplier photographs labelled "Supplier photo" and cropped clear of the watermark; Commons photographs credited with title, author and license link; captions say the construction scenes are steel-reinforced and none is an F1 or manufacturer project or quarry. No "Illustrative photo".
-- Guarded by `scripts/basalt-rebar-page.test.mjs` (photos and figures exist and are credited, classes labelled, no unit price or approval claim, manufacturer unnamed, manual registered and present, registrations in place).
+- Guarded by `scripts/basalt-rebar-page.test.mjs` (photos and figures exist and are credited, classes labelled, no unit price or approval claim, FengDu named and the data source not, manual registered and present, registrations in place).
 
 ## Validation
 

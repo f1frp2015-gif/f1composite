@@ -61,7 +61,7 @@ function rockToBar() {
     ["Why the fiber matters, and why it is not the whole story", INK, true],
     ["Basalt filament is stiffer and stronger than E-glass and keeps its properties to a higher temperature: that is where the 1,100 MPa and 50 GPa classes come from.", INK],
     ["Fiber volume, resin, surface and process set what a bar guarantees, and the resin sets its temperature limit. The report per size, not the fiber, is what the engineer designs with.", INK],
-    ["Stations 1 to 4 belong to the fiber producer, 5 to 7 to the pultruder. This manufacturer runs both, which keeps the fiber lot and the bar lot traceable to each other.", AMBER],
+    ["Stations 1 to 4 belong to the fiber producer, 5 to 7 to FengDu New Material's pultrusion line; the fiber lot is recorded against each bar lot.", AMBER],
     ["Bends and mesh are not on this line: they are raised as an inquiry, and a project may pair straight basalt bars with GFRP shapes where the designer allows.", INK],
   ];
   body += `<rect x="90" y="496" width="1020" height="176" rx="8" fill="#f3f6f7"/>`;
@@ -95,7 +95,7 @@ function stressStrain() {
   <text x="${nx + 16}" y="${ny + 30}" ${font} font-size="16" font-weight="700" fill="${INK}">Linear to rupture, no yield plateau</text>
   <text x="${nx + 16}" y="${ny + 54}" ${font} font-size="15" fill="${MUTED}">The slope sets crack width and deflection; a 50 GPa</text>
   <text x="${nx + 16}" y="${ny + 76}" ${font} font-size="15" fill="${MUTED}">class sits between GFRP 45 and GFRP 60.</text>`;
-  return frame("BASALT, GLASS AND STEEL IN TENSION", "The manufacturer's published classes for BFRP against the GFRP 45 class and Grade 60 steel.", axes + steel + g45 + bfrp + note, "Schematic, not to scale. BFRP 1,100 MPa / 50 GPa (published classes); GFRP 45 about 900 MPa; steel ASTM A615 Grade 60. The report per size governs.");
+  return frame("BASALT, GLASS AND STEEL IN TENSION", "The published classes for FengDu's BFRP bar against the GFRP 45 class and Grade 60 steel.", axes + steel + g45 + bfrp + note, "Schematic, not to scale. BFRP 1,100 MPa / 50 GPa (published classes); GFRP 45 about 900 MPa; steel ASTM A615 Grade 60. The report per size governs.");
 }
 
 // Figure: the 11 inquiry diameters to one scale with calculated unit mass.
@@ -117,7 +117,7 @@ function sizeLadder() {
   });
   const left = (W - total) / 2;
   body += `<line x1="${left}" y1="${base + 8}" x2="${(W + total) / 2}" y2="${base + 8}" stroke="${LINE}"/>
-  <text x="${left}" y="${base + 118}" ${font} font-size="16" fill="${INK}">Ø mm (top) · calculated unit mass at 1.9 g/cm³ (below), which matches the manufacturer's published g/m. Ø6–Ø10 mm also coiled.</text>
+  <text x="${left}" y="${base + 118}" ${font} font-size="16" fill="${INK}">Ø mm (top) · calculated unit mass at 1.9 g/cm³ (below), which matches the published g/m. Ø6–Ø10 mm also coiled.</text>
   <text x="${left}" y="${base + 146}" ${font} font-size="16" fill="${INK}">Nominal tensile capacity at the published class: Ø8 about 55 kN, Ø10 86 kN, Ø16 201 kN, Ø20 314 kN (area × 1,100 or 1,000 MPa).</text>
   <text x="${left}" y="${base + 174}" ${font} font-size="16" fill="${AMBER}">Nominal values from area and class, not guaranteed forces. ASTM D8505 and CSA S807 guarantee per size from the qualification report.</text>`;
   return frame("11 DIAMETERS · Ø3 TO Ø25 MM", "One inquiry list from micro-bars for thin precast to Ø25 mm cage bars; one modulus class across the range.", body, "Schematic, drawn to one scale. Inquiry sizes, not a stock list; measured area, tolerance and unit mass come from the quotation.");

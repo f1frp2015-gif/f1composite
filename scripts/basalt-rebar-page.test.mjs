@@ -34,13 +34,15 @@ test("the page is picture-led, credited and dated", () => {
   assert.ok(page.includes("dateModified: catalog.revision") && page.includes("updated={catalog.revision}"), "dates");
   assert.ok(page.includes('href="/products/frp-rebar"') && page.includes("/resources/blog/basalt-rebar-vs-fiberglass-rebar"), "family links");
   assert.doesNotMatch(page, /Illustrative photo/, "open-licensed photos are not stock photos");
-  assert.doesNotMatch(page, /HSLG|Hesheng|hslg-tech/i, "the manufacturer is not named until the owner confirms");
+  assert.doesNotMatch(page, /HSLG|Hesheng|hslg-tech|Sichuan/i, "the data source is not named (owner decision 2026-11-01)");
+  assert.ok(page.includes("FengDu New Material"), "FengDu is named as the manufacturer");
 });
 
 test("values stay published classes; no unit price, approval or stock claim", () => {
   const text = `${read(PAGE)} ${read("content/data/basaltRebar.ts")}`;
   assert.match(text, /qualification report/i);
   assert.match(text, /published (typical )?values/i);
+  assert.doesNotMatch(text, /manufacturer's published|melts its own rock|30,000 t/i, "the data source's own narrative is not attributed to FengDu");
   // Ranges with one decimal and an observation date are allowed (owner rule 2026-10-23); a quoted unit price is not.
   assert.doesNotMatch(text, /\$\s?\d+\.\d{2}\s*(per|\/)|\$\s?\d[\d,]*\s*(per|\/)\s*(kg|t\b|ton|tonne)|USD\s?\d/i, "a specific unit price");
   assert.doesNotMatch(text, /(?<!no |not |hold no |claim an? |claims an? )(ICC-ES listed|ESR-\d|DOT approved|CE marked|ETA-\d)/i, "an approval claim");

@@ -4,11 +4,11 @@ Data basis for `/products/basalt-frp-rebar` (`content/data/basaltRebar.ts`), the
 
 ## Manufacturer
 
-Chongqing Hesheng Longgang Technology Co., Ltd. (hslg-tech.com), factory in Guang'an, Sichuan; draws its own basalt fiber (published capacity about 30,000 t/yr, phase II 60,000 t) and pultrudes bars, meshes and profiles. Owner's instruction 2026-10-31: add the supplier's basalt rebar to f1composite.com and rewrite its product manual as an F1 manual. **Not named on the page or in the manual** until the owner confirms (the GFRP family named FengDu only after owner confirmation on 2026-10-26); the page says "a dedicated basalt-fiber producer in Sichuan, China".
+**Owner decision 2026-11-01: the product is offered as made by FengDu New Material** (the GFRP family's manufacturer), and the page, manual and figures say so. The data and product photographs come from Chongqing Hesheng Longgang Technology Co., Ltd. (hslg-tech.com), factory in Guang'an, Sichuan, a basalt-fiber producer (published capacity about 30,000 t/yr) that pultrudes bars from its own fiber; its name, location, capacity and "own fiber" narrative are **not** used on the site. Owner's instruction 2026-10-31: add the supplier's basalt rebar to f1composite.com and rewrite its product manual as an F1 manual.
 
 Supplier pages read 2026-10-31: `/products/basalt-fiber-rebar.html`, `/products/basalt-fiber-rebar-new-material-to-replace-reinforcement.html`, `/download.html` (verification-code gated; no PDF URL exposed, so the manual was written from the product pages, not from a supplier PDF).
 
-## What the supplier publishes, and how the page restates it
+## What the data source publishes, and how the page restates it (as "published values", not attributed to a named maker)
 
 | Supplier statement | Page / manual |
 | --- | --- |

@@ -24,7 +24,7 @@ export const basaltRebarManual = {
   title: "Basalt FRP Rebar — Product Manual (Edition 2026.11)",
   format: "PDF",
   size: "1.1 MB",
-  description: "8-page product manual for F1 Composite basalt fiber reinforced polymer (BFRP) rebar: how the bar is made from rock, the manufacturer's published values as classes (1,100 MPa, 50 GPa, 1.9–2.1 g/cm³), 11 sizes from Ø3 to Ø25 mm with area, mass and nominal capacity, the steel substitution guide with its caveats, ASTM D8505 / CSA S807 / ISO 10406-1, handling and the ordering checklist. Classes, not guaranteed values; the qualification report per size governs.",
+  description: "8-page product manual for F1 Composite basalt fiber reinforced polymer (BFRP) rebar: how the bar is made from rock, FengDu New Material as manufacturer, published values as classes (1,100 MPa, 50 GPa, 1.9–2.1 g/cm³), 11 sizes from Ø3 to Ø25 mm with area, mass and nominal capacity, the steel substitution guide with its caveats, ASTM D8505 / CSA S807 / ISO 10406-1, handling and the ordering checklist. Classes, not guaranteed values; the qualification report per size governs.",
   file: "/downloads/f1composite-basalt-frp-rebar-manual-2026-11.pdf",
 } satisfies DownloadItem;
 
