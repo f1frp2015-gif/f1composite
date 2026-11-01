@@ -44,3 +44,18 @@ Owner request: the same depth of rewrite as the GFRP rebar page (A028) for the c
 | New gate test `scripts/carbon-fiber-pages.test.mjs` added to `npm test` | scripts |
 
 Editorial decision: the 2026-10-25 pages carried no numbers at all. The rewrite states published class values for unidirectional pultruded carbon (ACI 440.1R ranges, supplier datasheets) and labels them as such in the table footnote, the figure footers and the FAQ, with the offered laminate's qualification report named as the design basis. No F1 CFRP datasheet, certificate, stock size, tolerance, MOQ or lead time is asserted. Titles and meta descriptions are unchanged.
+
+## Plate page rewrite (2026-10-31)
+
+Owner request: the same picture-led rewrite for `/products/pultruded-carbon-fiber-plates`.
+
+| Change | Where |
+|---|---|
+| New first section `#performance`: plate-edge hero photo; tows, specific-stiffness figure and a wind-blade transport photo; four reason cards (bondable stiffness, thin and continuous, no fatigue/corrosion/creep, a broad face for the adhesive); the shared 11-row class-value table; four limit cards (flat is not stiff, the joint fails first, weak across the thickness, conductive and noble) beside the broken-pole photo | `app/products/pultruded-carbon-fiber-plates/page.tsx` |
+| New `#orientation` section with a drawn figure of a 50 × 3 mm strip flat / on edge / stacked (I = 113 / 31,250 / 3,038 mm⁴) and three cards; new `#bonding` section with a bonded-strip figure (bond line, anchorage, end peel, seven drawing items) beside the slab-strip photo and a "what F1 supplies" card | `scripts/covers/draw-carbon-plate-figures.mjs`, `content/data/carbonFiberScenes.ts` |
+| Application cards with photographs: wind-blade spar caps, concrete/masonry/timber strengthening, springs and orthoses, bonded stiffeners and spars, each with typical sections and what to send | page |
+| Plate-vs-sheet section keeps the construction schematic and adds the woven-fabric photo, the drilled-hole photo and four fabrication rules | page |
+| Three FAQs added (stiffness and strength class values, why pultruded, plate vs adhesive) | `content/data/carbonFiberPlates.ts` |
+| 5 more Commons photographs (CC BY, CC BY-SA), 2 drawn figures; credits block; sources in `docs/research/carbon-fiber-pages-photo-sources.md` §Plate page additions; gate test extended to the plate page | `public/images/products/carbon-fiber/`, `scripts/carbon-fiber-pages.test.mjs` |
+
+Class values labelled as such; strengthening design named as the engineer of record's and the system supplier's. Title and description unchanged.
