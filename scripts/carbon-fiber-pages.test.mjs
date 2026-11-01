@@ -14,9 +14,10 @@ const RODS = "app/products/fiberglass-structural-shapes/frp-rod/carbon-fiber-rod
 const PLATES = "app/products/pultruded-carbon-fiber-plates/page.tsx";
 const HUB = "app/products/pultrusion-carbon-fiber/page.tsx";
 const STRIPS = "app/products/pultruded-cfrp-strengthening-strips/page.tsx";
+const BEAMS = "app/products/carbon-fiber-robotic-beams/page.tsx";
 
 test("every carbon scene photo exists, is described and carries its license", () => {
-  assert.ok(Object.keys(carbonScenePhotos).length >= 26);
+  assert.ok(Object.keys(carbonScenePhotos).length >= 32);
   for (const [id, photo] of Object.entries(carbonScenePhotos)) {
     assert.ok(existsSync(new URL(`../public${photo.src}`, import.meta.url)), photo.src);
     assert.ok(photo.alt.length > 30 && photo.shows.length > 20, id);
@@ -52,6 +53,13 @@ test("all four carbon pages render the property table, the figures and a credits
   for (const token of ["carbonFigures.strengtheningSections", "carbonFigures.bondLine", 'id="photo-credits"', "creditedPhotos.map", "GuideSection", "GuideStandards", "GuideSources", "/applications/cfrp-concrete-strengthening", "/products/pultruded-carbon-fiber-plates", "dateModified: updated"]) assert.ok(strips.includes(token), `strip page: ${token}`);
   assert.doesNotMatch(strips, /note="Illustrative photo"/);
   assert.doesNotMatch(strips, /(F1|we|our)[^.]{0,40}(assessed kit|ETA|approved system)[^.]{0,20}(hold|holds|have|has|supply|supplies)/i, "the strip page must not claim an assessed kit");
+  // The robotic beam page: equal-stiffness figure, the shared table, machine cards, credits, and no robot-approval or stock-arm claim.
+  const beams = read(BEAMS);
+  for (const token of ["carbonFigures.robotBeamStiffness", "carbonFigures.fiberDirection", "carbonProperties.map", "machines.map", 'id="photo-credits"', "creditedPhotos.map", "GuideSection", "GuideStandards", "GuideSources", "/applications/cfrp-robotic-beams-struts", "/products/carbon-fiber-roller-tubes", "/products/pultruded-carbon-fiber-tubes", "dateModified: updated"]) assert.ok(beams.includes(token), `beam page: ${token}`);
+  assert.doesNotMatch(beams, /note="Illustrative photo"/);
+  // A sentence that says "not an F1 … stock arm series" is the disclaimer, not a claim.
+  assert.doesNotMatch(beams, /(?<!\b(?:not|never|no)\b[^.]{0,60})(F1|we|our)(?![^.]{0,60}\b(?:not|never|no)\b)[^.]{0,40}(certified|approved|stock)[^.]{0,20}(robot|arm series)/i, "the beam page must not claim a certified or stock arm");
+  assert.match(beams, /not an F1 datasheet, a stock arm series or a robot safety approval/);
   assert.ok(read(PLATES).includes("carbonFigures.plateOrientation") && read(PLATES).includes("carbonFigures.bondLine"), "plate page figures");
   assert.ok(read(PLATES).includes("/products/pultruded-carbon-fiber-tubes") && read(PLATES).includes("/products/fiberglass-structural-shapes/frp-rod/carbon-fiber-rod"), "the plate page links the tube and rod pages");
   assert.ok(read(TUBES).includes("/products/fiberglass-structural-shapes/frp-rod/carbon-fiber-rod") && read(RODS).includes("/products/pultruded-carbon-fiber-tubes"), "the two pages link each other");

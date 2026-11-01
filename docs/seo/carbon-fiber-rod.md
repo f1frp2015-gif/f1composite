@@ -92,3 +92,19 @@ Owner request: the same picture-led rewrite for the specialist page `/products/p
 | 6 more Commons photographs (CC BY 4.0, one contractor's site and product shots), 1 drawn figure; credits block; sources in `docs/research/carbon-fiber-pages-photo-sources.md`; gate test extended | `public/images/products/carbon-fiber/`, `scripts/carbon-fiber-pages.test.mjs` |
 
 Boundary kept from the 2026-10-25 page: strip only, not the kit; no assessed-system, ETA or approval claim; class values labelled; adhesive and strengthening design belong to the system supplier and the engineer of record. Title and description unchanged.
+
+## Robotic beam page rewrite (2026-11-01)
+
+Owner request: the same picture-led rewrite for the specialist page `/products/carbon-fiber-robotic-beams`, done the way the strengthening strip page was: a dedicated route that keeps the sourced guide data and adds the picture-led material in front.
+
+| Change | Where |
+|---|---|
+| Dedicated route and OG image; `dedicatedProductPages` lists the slug; sitemap entry; the five sourced specification sections, four standards cards, eleven sources, three FAQs, seven brief items and related links still come from the shared guide data through `GuideSection`, `GuideStandards` and `GuideSources` | `app/products/carbon-fiber-robotic-beams/`, `content/data/pultrusionGuideTypes.ts`, `app/sitemap.ts` |
+| Hero: delta pickers over a conveyor; H1 and facts lead with "a quarter of the moving mass at the same stiffness" and "twice the first frequency" | page |
+| `#performance`: new drawn figure of a 1 m cantilever square tube at equal tip stiffness in steel, aluminium and carbon (mass 1.0 / 0.61 / 0.23 ×, f₁ 1.0 / 1.34 / 2.13 ×, numbers checked in `docs/research/carbon-fiber-pages-photo-sources.md`); KUKA palletising photo; shared specific-stiffness figure; four reason cards (moving mass, first frequency, no thermal growth, no fatigue allowance); four limit cards (fibers along the beam, the joint is the member, thin walls buckle, conductive and noble) with the broken-pole photo; the shared class-value table | `scripts/covers/draw-robot-beam-figures.mjs`, page |
+| `#machines`: six machine-type cards with photographs, each naming the member a carbon blank replaces (gantry beam and Z column, delta rods, palletising gantries and forks, forearm and reach extensions, linear-axis beams, metrology arms) with typical sections and what to send | page |
+| `#joints`: delta ball-joint photo, drilled-hole photo and four rules (spread the load, bond then bolt, isolate aluminium, test the member); `#forms`: shared fiber-direction figure, tube / beam blank / rod cards, delivered-condition list | page |
+| Three FAQs added ahead of the guide's three; credits block; gate test extended | page, `scripts/carbon-fiber-pages.test.mjs` |
+| 6 Commons photographs (public domain, CC BY, CC BY-SA), 1 drawn figure; sources in `docs/research/carbon-fiber-pages-photo-sources.md` §Robotic beam page additions | `public/images/products/carbon-fiber/` |
+
+Boundary kept from the 2026-10-25 page: no stock arm series, no robot safety approval, no completed joint qualification implied; class values labelled; joint design, assembled-member tests and machine validation belong to the OEM. Title and description unchanged.

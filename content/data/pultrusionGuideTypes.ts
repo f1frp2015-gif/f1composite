@@ -60,4 +60,4 @@ export function pultrusionGuidePath(page: Pick<PultrusionGuide, "kind" | "slug">
  * generic guide template. The dedicated page must still render the guide's sourced sections,
  * standards and sources (see app/products/pultruded-cfrp-strengthening-strips/page.tsx).
  */
-export const dedicatedProductPages: readonly string[] = ["pultruded-cfrp-strengthening-strips"];
+export const dedicatedProductPages: readonly string[] = ["pultruded-cfrp-strengthening-strips", "carbon-fiber-robotic-beams"];

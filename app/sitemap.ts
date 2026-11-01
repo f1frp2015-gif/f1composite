@@ -55,6 +55,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...specialistProductIndex.filter((page) => !dedicatedProductPages.includes(page.slug)).map((page) => ({ url: `${BASE}/products/${page.slug}`, lastModified: pultrusionGuideReviewed, changeFrequency: "monthly" as const, priority: 0.75 })),
     // Specialist pages with their own picture-led route (content/data/pultrusionGuideTypes.ts).
     { url: `${BASE}/products/pultruded-cfrp-strengthening-strips`, lastModified: "2026-10-31", changeFrequency: "monthly", priority: 0.78 },
+    { url: `${BASE}/products/carbon-fiber-robotic-beams`, lastModified: "2026-11-01", changeFrequency: "monthly", priority: 0.78 },
     { url: `${BASE}/sourcing/equipment`, lastModified: "2026-10-02", changeFrequency: "monthly", priority: 0.7 },
     { url: `${BASE}/sourcing/materials`, lastModified: "2026-10-02", changeFrequency: "monthly", priority: 0.7 },
     { url: `${BASE}/sourcing/pultrusion-machines`, lastModified: "2026-10-02", changeFrequency: "monthly", priority: 0.7 },
