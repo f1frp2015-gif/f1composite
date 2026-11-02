@@ -17,7 +17,7 @@ import { prefillForWhatIsFRP } from "@/lib/aiPrefill";
 import { supplyTerms, weeks } from "@/content/data/company";
 
 // Last content review; shown in the page header and used as dateModified.
-const updatedAt = "2026-10-26";
+const updatedAt = "2026-11-02";
 
 const pagePath = "/what-is-frp";
 const seoTarget = getSeoQueryTarget(pagePath);
@@ -205,11 +205,12 @@ export default function WhatIsFrpPage() {
 
       {/* Definition */}
       <PageSection id="definition" title="What is glass fiber reinforced plastic?" tone="white">
-        {/* P0: snippet-optimized definition block — targets "frp definition" / "define frp" (pos ~9.5) */}
+        {/* P0: snippet-optimized definition block — targets "frp meaning" / "frp full form" / "frp definition" (GSC 2026-10: pos 4.5–6.3) */}
         <div className="max-w-[820px] rounded-card border-l-4 border-l-teal bg-bg2 p-[20px]">
           <p className="text-f16 leading-golden text-t1">
-            <strong>FRP definition:</strong> FRP (fiber-reinforced polymer or
-            fiber-reinforced plastic) is a composite material made from
+            <strong>FRP meaning and full form:</strong> FRP stands for
+            fiber-reinforced polymer, also called fiber-reinforced plastic. It
+            is a composite material made from
             reinforcing fibers—most commonly glass—embedded in a polymer
             resin. The fibers provide strength and stiffness, while the resin
             binds and protects them. Glass-fiber FRP is also known as GFRP,
