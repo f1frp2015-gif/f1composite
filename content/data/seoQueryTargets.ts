@@ -84,9 +84,9 @@ export const seoQueryTargets = [
     targetUrl: "/what-is-frp",
     primaryQuery: "what is FRP",
     intent: "guide",
-    title: "What Is FRP? FRP vs Fiberglass, GRP & Materials",
+    title: "What Is FRP? Meaning, Full Form & Material Guide",
     description:
-      "Understand FRP vs fiberglass and GRP: compare material names, fibers, resins and uses, then find tubing and solid sheet specifications for your project.",
+      "FRP stands for fiber reinforced polymer (or plastic): glass or carbon fibers bonded in resin. Compare FRP vs fiberglass and GRP, properties and uses.",
     supportingUrls: [
       "/resources/blog/fiberglass-reinforced-plastic",
       "/resources/blog/frp-material",
@@ -403,7 +403,7 @@ export const seoQueryTargets = [
     intent: "commercial",
     title: "Custom Pultruded Profiles | FRP Pultrusion Manufacturer",
     description:
-      "Develop custom pultruded FRP profiles with drawing review, resin selection, tooling, agreed tolerances, first-article inspection and machining.",
+      "Custom pultruded FRP profiles made to your drawing: resin, color and cut-length options, steel tooling, agreed tolerances, first-article checks and machining.",
     supportingUrls: ["/pultruded-frp-profiles", "/technology/pultrusion-process", "/technology/frp-profile-machining", "/technology/quality-testing"],
   },
   {
