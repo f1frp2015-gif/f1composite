@@ -74,6 +74,10 @@ export const fastenerFaqs = [
     answer: "GRP means glass-reinforced plastic. The FRP fasteners on this page use glass reinforcement, so fiberglass fasteners, GRP fasteners and GFRP fasteners refer to the same material family here. The resin, reinforcement and finished component still need to be specified.",
   },
   {
+    question: "Do you supply FRP bolts?",
+    answer: "Yes, as matched connection sets. A fiberglass threaded rod serves as the stud bolt and is supplied with hex nuts and washers in the listed UNC (3/8″–16 to 1″–8) or metric (M8 to M24) series. Custom lengths and headed bolt-and-nut sets are reviewed against your drawing and joint requirements.",
+  },
+  {
     question: "What is the tensile strength of fiberglass threaded rod?",
     answer: "It depends on the rod diameter, resin, reinforcement and thread, and the thread engagement with the nut often governs the assembly. Ask for the ultimate tensile load of the rod and nut together and the thread shear strength for each size quoted, with the test method. Design the joint with those values and the factors your code applies to composite connections.",
   },

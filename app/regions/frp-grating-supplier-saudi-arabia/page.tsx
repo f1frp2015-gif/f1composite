@@ -14,9 +14,9 @@ import { company, supplyTerms, weeks } from "@/content/data/company";
 import { coverFor, regionCovers } from "@/lib/covers";
 
 const pageTitle =
-  "FRP Grating Supplier Saudi Arabia — Petrochemical & Coastal";
+  "FRP & GRP Grating Supplier in Saudi Arabia | Jeddah, Dammam";
 const pageDescription =
-  "FRP grating for Riyadh, Jeddah, Dammam and Jubail: vinyl ester molded and pultruded panels, CIF or DAP delivery, fire test reports on request.";
+  "FRP and GRP grating supplier for KSA: Riyadh, Jeddah, Dammam and Jubail. Vinyl ester molded and pultruded panels, CIF or DAP, fire test reports on request.";
 const pagePath = "/regions/frp-grating-supplier-saudi-arabia";
 
 const cover = regionCovers[pagePath];

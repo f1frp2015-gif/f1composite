@@ -206,7 +206,7 @@ export const seoQueryTargets = [
     primaryQuery: "fiberglass channel",
     intent: "commercial",
     title: "Fiberglass Channel — Pultruded FRP C & U Channels",
-    description: "Compare pultruded fiberglass C and U channel sizes and catalog weights. Specify cut lengths, drilled supports and connection details for a project quote.",
+    description: "Compare fiberglass C and U channel from 38 to 360 mm deep (1.5 to 14 in) with catalog weights. Pultruded FRP channel in 6 m lengths, cut and drilled to order.",
     supportingUrls: [
       "/products/fiberglass-structural-shapes"
     ]
@@ -226,7 +226,7 @@ export const seoQueryTargets = [
     primaryQuery: "fiberglass flat bar",
     intent: "commercial",
     title: "Fiberglass Flat Bar — Pultruded FRP Bar Stock Manufacturer",
-    description: "Compare fiberglass flat bar sizes and catalog weights. Specify cut lengths, fit and machining for spacers, stiffeners and fabricated parts; request a quote.",
+    description: "Fiberglass flat bar 12 to 305 mm wide (0.5 to 12 in) with catalog weights. Pultruded FRP bar stock in 6 m lengths or cut to size for spacers and stiffeners.",
     supportingUrls: [
       "/products/fiberglass-structural-shapes"
     ]
@@ -374,8 +374,8 @@ export const seoQueryTargets = [
     targetUrl: "/products/frp-fasteners-fittings",
     primaryQuery: "FRP fasteners and fittings",
     intent: "commercial",
-    title: "FRP Fasteners & Fittings | Threaded Rods, Nuts & Washers",
-    description: "Explore fiberglass threaded rods, nuts, washers and molded fittings. Compare UNC and metric sizes and request matched components for your FRP assembly.",
+    title: "FRP Fasteners: Threaded Rods, Bolts, Nuts & Washers",
+    description: "FRP bolts and fiberglass threaded rods with matched nuts and washers: 3/8″ to 1″ UNC and M8 to M24 metric, plus molded fittings. Request a matched set.",
     supportingUrls: ["/products/product-lines", "/products/frp-handrail-systems", "/products/frp-gratings", "/products/molded-frp-grating"],
   },
   {

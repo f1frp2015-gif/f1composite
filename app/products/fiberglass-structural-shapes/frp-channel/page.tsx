@@ -29,7 +29,7 @@ export const revalidate = 3600;
 
 const pageTitle = "Fiberglass Channel — Pultruded FRP C & U Channels";
 const pageDescription =
-  "Compare pultruded fiberglass C and U channel sizes and catalog weights. Specify cut lengths, drilled supports and connection details for a project quote.";
+  "Compare fiberglass C and U channel from 38 to 360 mm deep (1.5 to 14 in) with catalog weights. Pultruded FRP channel in 6 m lengths, cut and drilled to order.";
 const pagePath = "/products/fiberglass-structural-shapes/frp-channel";
 
 const LAST_UPDATED = "2026-10-11";

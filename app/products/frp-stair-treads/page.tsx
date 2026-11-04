@@ -18,12 +18,12 @@ import {
 import { authorsBySlug, reviewerCredit } from "@/lib/authors";
 import { buildPageMetadata, buildProductFamilyPageSchema } from "@/lib/seo";
 
-const pageTitle = "FRP Stair Treads & Fiberglass Stair Tread Covers";
+const pageTitle = "FRP Stair Treads & Grit Tread Covers | Fiberglass Supplier";
 const pageDescription =
-  "Compare FRP stair tread covers, molded grating treads and pultruded T-bar treads. See reference sizes, surfaces, measurement inputs and release checks.";
+  "FRP and fiberglass stair treads from a factory supplier: coarse-grit tread covers with yellow nosing, molded grating and T-bar treads. Quote by flight schedule.";
 const pagePath = "/products/frp-stair-treads";
 const publishedAt = "2026-04-04";
-const updatedAt = "2026-08-30";
+const updatedAt = "2026-11-04";
 const author = authorsBySlug["yifan-liu"];
 const reviewer = authorsBySlug["haifeng-gong"];
 
@@ -165,7 +165,7 @@ export default function StairTreadCoversPage() {
         tag="Stair treads"
         line={{ name: "F1-GRID", label: "Stair treads" }}
         title="FRP stair treads and fiberglass stair tread covers"
-        description="Choose a thin anti-slip cover for a sound existing stair, a molded grating tread for drainage and bidirectional layouts, or a pultruded T-bar tread for longer one-way spans. Reference sizes, decision gates and RFQ inputs are organized below."
+        description="Choose a thin coarse-grit cover with a yellow nosing for a sound existing stair, a molded grating tread for drainage and bidirectional layouts, or a pultruded T-bar tread for longer one-way spans. Reference sizes, decision gates and RFQ inputs are organized below."
         facts={[
           { label: "Tread families", value: "Cover, molded, T-bar" },
           { label: "Cover reference", value: "305 or 343 mm deep" },

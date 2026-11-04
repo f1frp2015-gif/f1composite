@@ -28,7 +28,7 @@ export const revalidate = 3600;
 
 const pageTitle = "Fiberglass Flat Bar — Pultruded FRP Bar Stock Manufacturer";
 const pageDescription =
-  "Compare fiberglass flat bar sizes and catalog weights. Specify cut lengths, fit and machining for spacers, stiffeners and fabricated parts; request a quote.";
+  "Fiberglass flat bar 12 to 305 mm wide (0.5 to 12 in) with catalog weights. Pultruded FRP bar stock in 6 m lengths or cut to size for spacers and stiffeners.";
 const pagePath = "/products/fiberglass-structural-shapes/frp-flat-bar";
 
 const LAST_UPDATED = "2026-10-11";
