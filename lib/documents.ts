@@ -6,7 +6,7 @@
 
 import { e40Reports, e40ReportScope } from "@/content/data/e40Evidence";
 import { engineeringEvidence, reportedResults, withdrawnDownloads } from "@/content/data/engineeringEvidence";
-import { cableTrayLadderCatalog, fallbackDownloads, windowTemplates, type DownloadItem } from "@/content/data/downloads";
+import { cableTrayLadderCatalog, fallbackDownloads, finishedWindowCatalogDownload, windowTemplates, type DownloadItem } from "@/content/data/downloads";
 import type { DocumentType, LibraryDocument } from "@/lib/documentTypes";
 
 export { DOCUMENT_TYPES, DOCUMENT_TYPE_LABELS, type DocumentType, type LibraryDocument } from "@/lib/documentTypes";
@@ -41,6 +41,7 @@ function typeOf(item: DownloadItem, evidenceKind?: string): DocumentType {
 
 // Product families named in titles, for documents the evidence index does not list.
 const PRODUCTS: [RegExp, string, string][] = [
+  [/finished fiberglass windows/i, "Finished fiberglass windows and doors", "/products/fiberglass-windows-doors"],
   [/cable (tray|ladder)/i, "FRP cable trays and ladders", "/applications/frp-cable-tray-supports"],
   [/basalt|\bBFRP\b/i, "Basalt FRP rebar", "/products/basalt-frp-rebar"],
   [/rebar|\bGFRP bar/i, "GFRP rebar", "/products/frp-rebar"],
@@ -90,6 +91,7 @@ export function assembleDocuments(loaded: readonly DownloadItem[] = fallbackDown
       file: report.file,
     })),
     cableTrayLadderCatalog,
+    finishedWindowCatalogDownload,
     ...(windowCatalog ? [windowCatalog] : []),
     ...windowTemplates,
   ];

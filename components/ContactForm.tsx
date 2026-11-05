@@ -3,7 +3,7 @@
 import { startTransition, useActionState, useEffect, useRef, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import WindowInquiryFields from "./WindowInquiryFields";
-import { WINDOW_FIELDS, WINDOW_OPTION_LABELS, parseWindowInquiry, type WindowInquiry, windowInquirySummary } from "@/lib/windowInquiry";
+import { windowInquiryFromSearchParams, WINDOW_OPTION_LABELS, parseWindowInquiry, type WindowInquiry, windowInquirySummary } from "@/lib/windowInquiry";
 import { SUMMARY_KEY } from "@/lib/gratingProjectStorage";
 import dynamic from "next/dynamic";
 const GratingInquiryReview = dynamic(() => import("./GratingInquiryReview"));
@@ -115,16 +115,7 @@ function ContactFormContent({ fragment }: { fragment: string }) {
   useEffect(() => { mountedAt.current = Date.now(); }, []);
   const [submittedMessage, setSubmittedMessage] = useState("");
   const searchParams = useSearchParams();
-  const windowMode = searchParams.get("window_mode");
-  const [windowInquiry, setWindowInquiry] = useState<WindowInquiry | null>(() => {
-    if (windowMode !== "profiles" && windowMode !== "finished") return null;
-    const data: WindowInquiry = { mode: windowMode };
-    for (const key of ["series", "stage", "role"]) {
-      const value = searchParams.get(`window_${key}`);
-      if (value && WINDOW_FIELDS[key].values?.includes(value)) data[key] = value;
-    }
-    return data;
-  });
+  const [windowInquiry, setWindowInquiry] = useState<WindowInquiry | null>(() => windowInquiryFromSearchParams(searchParams));
   const prefillRef = searchParams.get("ref");
   const prefillCompany = searchParams.get("company") ?? "";
   const prefillCountry = searchParams.get("country") ?? "";
@@ -186,7 +177,7 @@ function ContactFormContent({ fragment }: { fragment: string }) {
       <input type="hidden" name="context" value={context} />
       <input type="hidden" name="product_path" value={productPath} />
       <input type="hidden" name="inquiry_type" value={inquiryTypes.some(type => type.value === prefillInquiryType) ? prefillInquiryType : "rfq"} />
-      {windowInquiry && <p className="rounded-control bg-teal-bg px-4 py-3 text-f14 text-t1">Included: {WINDOW_OPTION_LABELS[windowInquiry.mode]}{windowInquiry.series ? ` · Series ${windowInquiry.series}` : ""}{windowInquiry.stage ? ` · ${WINDOW_OPTION_LABELS[windowInquiry.stage] || windowInquiry.stage}` : ""}</p>}
+      {windowInquiry && <p className="rounded-control bg-teal-bg px-4 py-3 text-f14 text-t1">Included: {WINDOW_OPTION_LABELS[windowInquiry.mode]}{windowInquiry.series ? ` · ${WINDOW_OPTION_LABELS[windowInquiry.series] || `Series ${windowInquiry.series}`}` : ""}{windowInquiry.stage ? ` · ${WINDOW_OPTION_LABELS[windowInquiry.stage] || windowInquiry.stage}` : ""}</p>}
       {gratingProject && <details><summary className="cursor-pointer py-2 text-f14 font-semibold">Your grating configuration is included · View details</summary><GratingInquiryReview /></details>}
       {!gratingProject && (product || specification || evidenceId) && <div className="rounded-control border border-teal-border bg-teal-bg p-[12px] text-f14 text-t1"><p className="font-bold">Included with your inquiry</p>{product && <p>Product: {product}</p>}{specification && <p>Specification: {specification}</p>}{evidenceId && <p>Document reference: {evidenceId}</p>}<p className="mt-[4px]">Your product selection is included automatically. Add a note if you wish.</p></div>}
       {isFromAiSourcing && (

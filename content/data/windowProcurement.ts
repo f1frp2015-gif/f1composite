@@ -72,15 +72,15 @@ export const windowProcurement = {
   },
   finished: {
     path: "/products/fiberglass-windows-doors",
-    title: "Finished Fiberglass Windows & Doors | F1 Composite",
+    title: "Finished Fiberglass Windows & Doors: 11 Systems",
     description:
-      "Specify finished fiberglass windows and doors by opening schedule, glazing, hardware and project requirements. Review assembly scope, reports and packing.",
+      "Compare 11 finished fiberglass window and door systems, glazing and catalogue performance. Download the F1 catalog and send your opening schedule.",
     h1: "Finished fiberglass windows & doors",
     intro:
-      "F1 Composite supplies finished windows and doors built with pultruded FRP profiles. This route is for project buyers who need assembled units rather than lineals. Frame series, glazing, hardware, accessories and delivery scope are confirmed against the opening schedule.",
+      "Eight window formats and three door systems built with glass-fiber-reinforced polyurethane profiles. Explore casement, flush, tilt-and-turn, micro-vent and facade windows, plus insulated entrance, lift-and-slide and side-pressure doors. Configure each unit to your opening schedule.",
     image:
-      "/images/products/window-systems/70.jpg",
-    imageAlt: "70 series glazed window corner assembly",
+      "/images/products/finished-windows/114-curtain-wall.webp",
+    imageAlt: "Complete 114 curtain-wall-style fiberglass window with a broad central light and side opening sections",
     buyer:
       "Building-project procurement teams, contractors and window distributors",
     supply:
@@ -97,8 +97,8 @@ export const windowProcurement = {
         "Choose opening direction and handing, ventilation requirements, hardware and restrictors. Confirm allowable unit size and the applicable test configuration during specification review.",
       ],
       [
-        "90 sliding windows and 140 compression-seal sliding doors",
-        "Select the opening system first, then state panel arrangement, clear opening, threshold detail, operating hardware and glass weight. The 140 series uses side-pressure sealing; review the offered assembly and transport constraints for the project.",
+        "132 lift-and-slide and 145 side-pressure doors",
+        "Select the door system first, then state panel arrangement, clear opening, threshold detail, operating hardware and glass weight. Review the offered assembly and transport constraints for the project.",
       ],
       [
         "Entrance doors",
@@ -117,8 +117,18 @@ export const windowProcurement = {
       "Please review my finished window and door schedule.\nProject location:\nOpening types, dimensions and quantities:\nGlass and hardware requirements:\nThermal / air / water / wind requirements:\nInstallation interface and accessories:\nDelivery destination:",
     action: "Request Finished Units",
     evidence:
-      "Review each original report against the offered opening type, size, glass, hardware and test conditions. The historical lift-sliding door report does not automatically cover the current 140 compression-seal series. Whole-window Uw differs from glass-only Ug and frame-only Uf; documentation coverage must be checked for the specific configuration.",
+      "Request the test or calculation basis for the selected opening type, size, glazing and hardware. The catalogue values do not establish independent certification. Reports for earlier profile systems, including the 90-series PHI component and historical AS 2047 specimens, do not automatically cover these 11 finished-unit families.",
     faq: [
+      {
+        question: "Which finished window and door systems can I compare?",
+        answer:
+          "The finished-unit catalog covers 65, 72, 83 flush, 85, 95, 103 tilt-and-turn, 103 micro-vent and 114 curtain-wall-style windows, plus an insulated entrance door, 132 lift-and-slide door and 145 side-pressure door. Series numbers are product identifiers; confirm dimensions on the selected drawing.",
+      },
+      {
+        question: "Are these the same systems as the profile-supply catalog?",
+        answer:
+          "The finished-unit range has its own configurations and catalog. A matching number such as 65 does not establish interchangeability with a profile-supply series. Specify the purchasing route and full product name; confirm drawings, interfaces and scope for the proposed assembly.",
+      },
       {
         question: "What is included in a finished-unit quotation?",
         answer:
@@ -133,6 +143,11 @@ export const windowProcurement = {
         question: "What should I send before requesting a price?",
         answer:
           "Start with the opening schedule, project location, required performance, glazing and hardware preferences. Drawings and quantities allow the unit configuration and documentation requirements to be reviewed before a formal quote.",
+      },
+      {
+        question: "What do paired U-values and performance classes mean?",
+        answer:
+          "The tables retain the catalogue U-value pairs, but the conditions for each value are not defined in the reference data. Wind, water and air classes have no stated test standard, and the sound figures have no stated Rw or STC method. Request configuration-specific documentation before using them as project acceptance criteria.",
       },
     ],
   },
