@@ -19,11 +19,11 @@ import { buildPageMetadata, buildProductFamilyPageSchema } from "@/lib/seo";
 import { buildWindowRfqHref } from "@/lib/windowInquiry";
 
 // Last content review; shown in the page header and used as dateModified.
-const updatedAt = "2026-09-27";
+const updatedAt = "2026-11-04";
 
 const pagePath = "/products/frp-window-frames";
-const description = "Compare nine FRP window and door systems. Source fiberglass profiles for local fabrication or finished units, with separate procurement guides and RFQs.";
-export const metadata: Metadata = buildPageMetadata({ title: "FRP Window Frames & System Profiles | F1 Composite", description, path: pagePath, image: "/products/frp-window-frames/opengraph-image" });
+const description = "Nine FRP window and door systems, 50–140 mm frame depth; the 90 series is PHI-certified at Uw 0.78. Source fiberglass profiles to fabricate, or finished units.";
+export const metadata: Metadata = buildPageMetadata({ title: "FRP Window Frames & Profiles: 9 Fiberglass Window Systems", description, path: pagePath, image: "/products/frp-window-frames/opengraph-image" });
 
 const profileQuote = buildWindowRfqHref({ mode: "profiles", source: "window-hub", productPath: pagePath });
 const finishedQuote = buildWindowRfqHref({ mode: "finished", source: "window-hub", productPath: pagePath });

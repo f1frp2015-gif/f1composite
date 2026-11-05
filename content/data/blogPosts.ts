@@ -540,7 +540,7 @@ For further material background, explore [pultruded FRP profiles](/pultruded-frp
       "Fiberglass reinforced plastic is a composite made from load-carrying glass fibers embedded in a polymer resin. The glass provides strength and stiffness; the resin holds the fibers in position, transfers load, and protects them from moisture and chemicals. Pultruded structural profiles are one form of fiberglass reinforced plastic, alongside molded panels, tanks, pipes, and laminated parts.",
     category: "FRP Fundamentals",
     date: "2026-07-30",
-    updatedAt: "2026-07-30",
+    updatedAt: "2026-11-04",
     readTime: "10 min",
     excerpt:
       "A practical guide to what fiberglass reinforced plastic is, how glass and resin work together, which manufacturing forms exist, and where structural GFRP is a better fit than metal or unreinforced plastic.",
@@ -605,7 +605,7 @@ For published laminate values and test methods, use the [FRP technical data page
 
 ## Where fiberglass reinforced plastic is used
 
-GFRP is valuable where corrosion, weight, electrical isolation, or thermal bridging creates a lifecycle penalty for metal. Structural shapes and gratings support chemical plants, wastewater facilities, cooling towers, marine walkways, pedestrian bridges, rooftop equipment, and substations. Pultruded window profiles combine structural stability with low thermal conductivity. Custom pultrusions create cable-tray supports, façade components, solar rails, transportation parts, and reinforcement inserts that consolidate several metal pieces into one section.
+GFRP is valuable where corrosion, weight, electrical isolation, or thermal bridging creates a lifecycle penalty for metal. [Structural shapes](/products/fiberglass-structural-shapes) and [gratings](/products/frp-gratings) support chemical plants, wastewater facilities, cooling towers, marine walkways, pedestrian bridges, rooftop equipment, and substations, usually with [stair treads](/products/frp-stair-treads) and [handrails](/products/frp-handrail-systems) on the same access routes. Pultruded window profiles combine structural stability with low thermal conductivity. Custom pultrusions create [cable-tray supports](/applications/frp-cable-tray-supports), façade components, solar rails, transportation parts, and reinforcement inserts that consolidate several metal pieces into one section.
 
 The material is not automatically the best answer for every project. Steel remains efficient where stiffness, very high temperature, or established fabrication infrastructure dominates. Aluminum may be preferable when ductility and familiar recycling routes control. The useful question is not “is fiberglass reinforced plastic better?” but “which service requirement creates enough value to justify this laminate and process?”
 
@@ -624,7 +624,7 @@ If the project needs a catalog shape, compare the dimensions and section propert
       "FRP material is an engineered combination of reinforcing fibers and polymer resin. Engineers select it as a system: fiber type and orientation establish directional strength and stiffness; resin chemistry controls environmental, temperature, and fire performance; manufacturing method controls geometry, repeatability, and fiber architecture. There is no single set of properties that represents every FRP laminate.",
     category: "Engineering Guide",
     date: "2026-07-30",
-    updatedAt: "2026-07-30",
+    updatedAt: "2026-11-04",
     readTime: "11 min",
     excerpt:
       "How to read FRP material data and select the right fiber, resin, manufacturing process, test values, and design checks for a structural or industrial application.",
@@ -668,7 +668,7 @@ The second is **fiber architecture**. Unidirectional rovings maximize properties
 
 The third is **resin chemistry**. Polyester serves general structural environments. Vinyl ester is commonly chosen for aggressive chemical, marine, and wet service. Polyurethane improves toughness and cross-direction performance in suitable pultrusion systems. Phenolic resin supports demanding flame, smoke, and toxicity requirements. Epoxy can provide high mechanical and fatigue performance where the process and economics justify it.
 
-The fourth is **manufacturing method**. Pultrusion fits long constant-section members; molded grating and compression molding support panels or complex parts; filament winding creates pipe and tanks; infusion makes large shells. Process and material cannot be separated because the process establishes fiber placement, void control, surface condition, and dimensional repeatability.
+The fourth is **manufacturing method**. Pultrusion fits long constant-section members such as [I-beams](/products/fiberglass-structural-shapes/frp-i-beam), [channels](/products/fiberglass-structural-shapes/frp-channel) and [square tubes](/products/fiberglass-structural-shapes/frp-square-tube); [molded grating](/products/molded-frp-grating) and compression molding support panels or complex parts; filament winding creates pipe and tanks; infusion makes large shells. Process and material cannot be separated because the process establishes fiber placement, void control, surface condition, and dimensional repeatability.
 
 ## How to read FRP material properties
 
@@ -2889,12 +2889,12 @@ For specifiers weighing FRP against traditional materials on lifecycle grounds, 
   {
     slug: "frp-fire-resistance-ratings-guide",
     title: "Does Fiberglass Burn? Is Fibreglass Flammable?",
-    seoTitle: "Does Fiberglass Burn? Is Fibreglass Flammable?",
+    seoTitle: "Is Fiberglass Flammable? Does It Burn? FRP Fire Ratings",
     answerBox:
       "Glass fibers themselves do not burn, but fiberglass products can contain combustible resin, binder or facing. Fibreglass is the British spelling of the same material. For FRP or GRP profiles, assess the complete product: ASTM E84 measures surface burning, while BS EN 13501-1 classifies reaction to fire. Neither establishes a structural fire-resistance duration.",
     category: "Technical Guide",
     date: "2026-04-06",
-    updatedAt: "2026-10-26",
+    updatedAt: "2026-11-04",
     readTime: "10 min",
     excerpt:
       "Does fiberglass burn, and is fibreglass flammable? Compare glass fibers, insulation and FRP resin, then learn what fire ratings actually prove.",
@@ -2926,7 +2926,7 @@ For specifiers weighing FRP against traditional materials on lifecycle grounds, 
       "Match the test report to the formulation, thickness and installation being supplied.",
     ],
     ogDescription:
-      "Does fiberglass burn, and is fibreglass flammable? Compare glass fibers, insulation and FRP resin, then learn what fire ratings actually prove.",
+      "Glass fibers do not burn; resin, binder and facings can. See what ASTM E84 and EN 13501-1 classify for FRP and GRP profiles, and what neither test proves.",
     ogChips: ["Glass vs resin", "Insulation vs FRP", "Fire test scope"],
     relatedLinks: [
       { label: "What is FRP? Fiberglass and GRP explained", href: "/what-is-frp" },
@@ -3071,7 +3071,7 @@ For reaction-to-fire classifications, identify the applicable BS EN 13501-1 repo
 
 ## Specifying pultruded fiberglass profiles for a project
 
-For a fiberglass structural shape, FRP grating or custom section, begin with the required fire performance and the drawing. Do not choose a resin name first and assume the rating will follow. The procurement review should answer these questions:
+For a fiberglass structural shape, [FRP grating](/products/frp-gratings) or custom section, begin with the required fire performance and the drawing. Do not choose a resin name first and assume the rating will follow. The procurement review should answer these questions:
 
 - **Product identity:** Does the report identify the formulation, reinforcement, thickness, surface treatment and product being offered?
 - **Test scope:** Are the method, edition, laboratory, specimen arrangement and reported result visible?
@@ -3081,7 +3081,7 @@ For a fiberglass structural shape, FRP grating or custom section, begin with the
 
 These questions help distinguish a useful report from a rating copied into a sales table. They also make comparisons between quotations more meaningful: two offers with the same resin-family label may describe different materials and different evidence.
 
-F1 Composite supplies [pultruded fiberglass structural shapes](/products/fiberglass-structural-shapes) and [custom pultruded profiles](/products/custom-pultruded-profiles). For a project with fire requirements, send the section drawing, intended use, installation details and required classification for review. Available documents must be checked against the proposed product; this article assigns no blanket fire rating to the F1 range.
+F1 Composite supplies [pultruded fiberglass structural shapes](/products/fiberglass-structural-shapes), [custom pultruded profiles](/products/custom-pultruded-profiles), [FRP grating](/products/frp-gratings), [FRP stair treads](/products/frp-stair-treads) and [FRP cable tray supports](/applications/frp-cable-tray-supports). For a project with fire requirements, send the section drawing, intended use, installation details and required classification for review. Available documents must be checked against the proposed product; this article assigns no blanket fire rating to the F1 range.
 
 [Review the product evidence index](/resources/evidence)
 

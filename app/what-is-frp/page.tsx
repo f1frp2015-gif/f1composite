@@ -17,7 +17,7 @@ import { prefillForWhatIsFRP } from "@/lib/aiPrefill";
 import { supplyTerms, weeks } from "@/content/data/company";
 
 // Last content review; shown in the page header and used as dateModified.
-const updatedAt = "2026-11-02";
+const updatedAt = "2026-11-04";
 
 const pagePath = "/what-is-frp";
 const seoTarget = getSeoQueryTarget(pagePath);
@@ -124,11 +124,24 @@ const decisionPaths = [
   },
 ] as const;
 
+// Product owners that rank on page two or three; linked from the definition traffic.
+const productShortcuts = [
+  { href: "/products/frp-gratings", label: "FRP grating" },
+  { href: "/products/frp-stair-treads", label: "FRP stair treads" },
+  { href: "/products/frp-handrail-systems", label: "FRP handrails" },
+  { href: "/applications/frp-cable-tray-supports", label: "FRP cable tray supports" },
+  { href: "/products/fiberglass-structural-shapes/frp-i-beam", label: "FRP I-beams" },
+  { href: "/products/fiberglass-structural-shapes/frp-channel", label: "FRP channels" },
+  { href: "/products/fiberglass-structural-shapes/frp-square-tube", label: "FRP square tubes" },
+  { href: "/products/frp-fasteners-fittings", label: "FRP bolts and threaded rod" },
+  { href: "/products/frp-rebar", label: "GFRP rebar" },
+] as const;
+
 const applicationGroups = [
-  { href: "/industries/infrastructure", title: "Infrastructure and transport", examples: "Pedestrian bridges and deck panels, rail platform canopies, cable trays and pipe supports in utility corridors, and highway noise barriers.", products: [{ href: "/products/frp-sound-barrier-wall", label: "FRP noise barriers" }] },
+  { href: "/industries/infrastructure", title: "Infrastructure and transport", examples: "Pedestrian bridges and deck panels, rail platform canopies, cable trays and pipe supports in utility corridors, and highway noise barriers.", products: [{ href: "/applications/frp-cable-tray-supports", label: "FRP cable tray supports" }, { href: "/products/frp-sound-barrier-wall", label: "FRP noise barriers" }] },
   { href: "/industries/energy", title: "Energy and utilities", examples: "Overhead distribution crossarms and substation equipment, solar mounting frames, wind-turbine secondary structures, and oil and gas access platforms.", products: [{ href: "/products/frp-solar-mounting-systems", label: "FRP solar profiles" }, { href: "/applications/frp-utility-crossarms", label: "Crossarm application guide" }] },
-  { href: "/industries/industrial", title: "Chemical and marine", examples: "Chemical plant walkways and handrails, cooling tower structures, wastewater and desalination gratings, and offshore platforms and floating docks.", products: [{ href: "/products/molded-frp-grating", label: "Molded grating" }] },
-  { href: "/industries/construction", title: "Building and construction", examples: "Window profiles for passive-house and low-energy buildings, facade supports and curtain-wall mullions, rooftop platforms, and rebar for concrete in corrosive service.", products: [{ href: "/products/frp-window-frames", label: "Window profiles" }] },
+  { href: "/industries/industrial", title: "Chemical and marine", examples: "Chemical plant walkways and handrails, cooling tower structures, wastewater and desalination gratings, and offshore platforms and floating docks.", products: [{ href: "/products/frp-gratings", label: "Pultruded grating" }, { href: "/products/molded-frp-grating", label: "Molded grating" }, { href: "/products/frp-stair-treads", label: "Stair treads" }, { href: "/products/frp-handrail-systems", label: "Handrails" }] },
+  { href: "/industries/construction", title: "Building and construction", examples: "Window profiles for passive-house and low-energy buildings, facade supports and curtain-wall mullions, rooftop platforms, and rebar for concrete in corrosive service.", products: [{ href: "/products/frp-window-frames", label: "Window profiles" }, { href: "/products/frp-rebar", label: "GFRP rebar" }] },
 ] as const;
 
 export default function WhatIsFrpPage() {
@@ -273,6 +286,16 @@ export default function WhatIsFrpPage() {
             ) : null;
           })}
         </ul>
+        <nav aria-label="Common FRP products" className="mt-[20px]">
+          <p className="text-f14 font-semibold text-t1">Looking for a finished FRP product?</p>
+          <ul className="mt-[6px] flex flex-wrap gap-x-[18px] gap-y-[4px]">
+            {productShortcuts.map((item) => (
+              <li key={item.href}>
+                <Link href={item.href} className="inline-flex min-h-[36px] items-center text-f14 font-semibold text-teal-text underline underline-offset-4 hover:text-teal">{item.label}</Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
       </PageSection>
 
       <PageSection id="frp-vs-fiberglass" title="FRP vs fiberglass: what is the difference?" tone="white">

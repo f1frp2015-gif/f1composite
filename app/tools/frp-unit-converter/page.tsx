@@ -14,10 +14,10 @@ import { absoluteUrl, buildPageMetadata } from "@/lib/seo";
 
 const pagePath = "/tools/frp-unit-converter";
 const pageDescription =
-  "Convert FRP engineering units between metric and US: MPa, ksi, GPa, Msi, kN/m, plf, psf, kg/m, lb/ft, in⁴, U-values and R-values, and inch profile sizes.";
+  "1 Msi = 6.895 GPa = 1,000 ksi. Convert FRP modulus and stress, kN/m to plf, kg/m to lb/ft and U-values, with E23 and E17 grade values in both unit systems.";
 
 export const metadata: Metadata = buildPageMetadata({
-  title: "FRP Unit Converter | MPa, ksi, Msi, kg/m, lb/ft",
+  title: "Msi to GPa, MPa & ksi Converter + FRP Unit Table",
   description: pageDescription,
   path: pagePath,
 });
@@ -34,6 +34,11 @@ const REFERENCE: { label: string; quantity: string; value: number; from: string;
   { label: "FRP lengthwise thermal expansion", quantity: "expansion", value: 8, from: "1e-6/K", fromLabel: "× 10⁻⁶/K", to: "1e-6/F", toLabel: "× 10⁻⁶/°F" },
   { label: "Window U-value", quantity: "u-value", value: 0.8, from: "W/m2K", fromLabel: "W/(m²·K)", to: "Btu/hft2F", toLabel: "Btu/(h·ft²·°F)" },
 ];
+
+// Msi quick table: the GPa, MPa and ksi columns come from the converter's own factors.
+const MSI_ROWS = [1, 2, 2.47, 3, 3.34, 4, 5, 10, 29];
+const msiTo = (value: number, unit: string) => convertAll("modulus", value, "Msi").find((item) => item.unit.id === unit)?.value ?? NaN;
+const MSI_NOTES: Record<number, string> = { 2.47: "EN 13706 E17 minimum, 17 GPa", 3.34: "EN 13706 E23 minimum, 23 GPa", 29: "Structural steel, about 200 GPa" };
 
 const faqs = [
   {
@@ -86,11 +91,39 @@ export default function UnitConverterPage() {
         breadcrumbs={[{ label: "Home", href: "/" }, { label: "Tools", href: "/tools" }, { label: "Unit converter" }]}
       />
 
-      <PageNav items={[{ id: "tool", label: "Converter" }, { id: "reference", label: "Common values" }, { id: "faq", label: "FAQ" }]} />
+      <PageNav items={[{ id: "tool", label: "Converter" }, { id: "msi-gpa", label: "Msi to GPa" }, { id: "reference", label: "Common values" }, { id: "faq", label: "FAQ" }]} />
 
       <ToolSection label="FRP engineering unit converter">
         <UnitConverter />
       </ToolSection>
+
+      <PageSection id="msi-gpa" title="Msi to GPa, MPa and ksi" intro="1 Msi is one million psi: 6.895 GPa, 6,895 MPa or 1,000 ksi. Divide GPa by 6.895 to go back to Msi." tone="white">
+        <div className="relative overflow-x-auto rounded-card border border-border-default bg-white">
+          <table className="w-full min-w-[560px] border-collapse text-left text-f14">
+            <caption className="sr-only">Modulus conversion from Msi to GPa, MPa and ksi</caption>
+            <thead>
+              <tr className="border-b border-border-default bg-bg2">
+                <th scope="col" className="px-[14px] py-[8px] text-right font-semibold text-t1">Msi</th>
+                <th scope="col" className="px-[14px] py-[8px] text-right font-semibold text-t1">GPa</th>
+                <th scope="col" className="px-[14px] py-[8px] text-right font-semibold text-t1">MPa</th>
+                <th scope="col" className="px-[14px] py-[8px] text-right font-semibold text-t1">ksi</th>
+                <th scope="col" className="px-[14px] py-[8px] font-semibold text-t1">Reference</th>
+              </tr>
+            </thead>
+            <tbody>
+              {MSI_ROWS.map((msi) => (
+                <tr key={msi} className="border-b border-border-default last:border-b-0">
+                  <th scope="row" className="px-[14px] py-[8px] text-right font-semibold tabular-nums text-t1">{msi}</th>
+                  <td className="px-[14px] py-[8px] text-right tabular-nums text-t1">{formatValue(Number(msiTo(msi, "GPa").toPrecision(4)))}</td>
+                  <td className="px-[14px] py-[8px] text-right tabular-nums text-t1">{formatValue(Math.round(msiTo(msi, "MPa")))}</td>
+                  <td className="px-[14px] py-[8px] text-right tabular-nums text-t1">{formatValue(Math.round(msiTo(msi, "ksi")))}</td>
+                  <td className="px-[14px] py-[8px] text-t2">{MSI_NOTES[msi] ?? ""}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </PageSection>
 
       <PageSection id="reference" title="Common FRP values in both systems" intro="Values that come up in FRP specifications and codes, converted with the same factors as the tool." tone="muted">
         <div className="relative overflow-x-auto rounded-card border border-border-default bg-white">
