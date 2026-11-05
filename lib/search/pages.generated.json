@@ -1131,6 +1131,14 @@
     ]
   },
   {
+    "path": "/tools/frp-grating-selector",
+    "title": "FRP Grating Selector: Molded & Pultruded Sizes and Weights",
+    "description": "Compare the published molded and pultruded FRP grating configurations by depth, open area, top opening and weight, total the weight for a floor area, and send the chosen row for a quotation.",
+    "aliases": [
+      "FRP grating selector"
+    ]
+  },
+  {
     "path": "/tools/frp-life-cycle-cost-calculator",
     "title": "FRP vs Steel Life-Cycle Cost Calculator",
     "description": "Compare the life-cycle cost of FRP with galvanized or painted steel as present values, with galvanizing life from ISO 9223 corrosion rates and your own quotes.",

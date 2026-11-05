@@ -93,6 +93,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${BASE}/tools`, changeFrequency: "monthly", priority: 0.7 },
     { url: `${BASE}/tools/profile-finder`, changeFrequency: "monthly", priority: 0.8 },
     { url: `${BASE}/tools/thermal-expansion-calculator`, changeFrequency: "monthly", priority: 0.75 },
+    { url: `${BASE}/tools/frp-grating-selector`, lastModified: "2026-11-04", changeFrequency: "monthly", priority: 0.75 },
     { url: `${BASE}/tools/handrail-load-calculator`, changeFrequency: "monthly", priority: 0.75 },
     { url: `${BASE}/tools/access-geometry-checker`, changeFrequency: "monthly", priority: 0.75 },
     { url: `${BASE}/tools/gfrp-rebar-calculator`, changeFrequency: "monthly", priority: 0.75 },

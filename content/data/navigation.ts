@@ -210,6 +210,7 @@ export const mainNav = [
           { label: "GFRP Rebar Calculator", href: "/tools/gfrp-rebar-calculator" },
           { label: "Handrail Load Check", href: "/tools/handrail-load-calculator" },
           { label: "Ladder, Stair & Walkway Checker", href: "/tools/access-geometry-checker" },
+          { label: "Grating Selector", href: "/tools/frp-grating-selector" },
           { label: "Life-Cycle Cost Calculator", href: "/tools/frp-life-cycle-cost-calculator" },
           { label: "Cut List Optimizer", href: "/tools/frp-cut-list-optimizer" },
           { label: "Price Estimator", href: "/fiberglass-pultruded-profile-price" },
