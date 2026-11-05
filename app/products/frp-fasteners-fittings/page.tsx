@@ -16,7 +16,7 @@ import { fastenerInquiryHref } from "@/lib/fastenerInquiry";
 import { buildPageMetadata, buildProductFamilyPageSchema } from "@/lib/seo";
 
 // Last content review; shown in the page header and used as dateModified.
-const updatedAt = "2026-10-23";
+const updatedAt = "2026-11-04";
 
 const target = getSeoQueryTarget(fastenersPath);
 const imageBase = "/images/products/frp-fasteners-fittings/";
