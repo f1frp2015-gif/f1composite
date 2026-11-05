@@ -336,8 +336,8 @@ export const seoQueryTargets = [
     targetUrl: "/products/frp-rebar",
     primaryQuery: "FRP rebar supplier",
     intent: "commercial",
-    title: "FRP Rebar Supplier | GFRP Bars, Stirrups & Mesh Export",
-    description: "GFRP rebar Ø6–36 mm (No. 2–No. 10): straight bars, factory stirrups and mesh for marine, precast, slab and MRI concrete. ASTM D7957 data, export packing, RFQ.",
+    title: "Fiberglass GFRP Rebar Supplier | 45 & 60 GPa, ASTM D7957",
+    description: "GFRP rebar Ø6–36 mm in 45 and 60 GPa grades, benchmarked against the listed Grade III bars: straight bars, stirrups, mesh, test reports per size, export RFQ.",
     supportingUrls: ["/technology/fiberglass-rebar-vs-steel", "/products/product-lines", "/resources/gfrp-rebar-applications", "/resources/gfrp-rebar-standards", "/resources/gfrp-rebar-size-chart", "/tools/gfrp-rebar-calculator", "/resources/blog/fiberglass-rebar-for-residential-concrete"],
   },
   {

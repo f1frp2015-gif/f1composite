@@ -43,9 +43,9 @@ export type RebarSceneId = keyof typeof rebarScenePhotos;
 
 export const rebarCatalog = {
   path: "/products/frp-rebar",
-  revision: "2026-11-01",
-  title: "FRP Rebar Supplier | GFRP Bars, Stirrups & Mesh Export",
-  description: "GFRP rebar Ø6–36 mm (No. 2–No. 10): straight bars, factory stirrups and mesh for marine, precast, slab and MRI concrete. ASTM D7957 data, export packing, RFQ.",
+  revision: "2026-11-04",
+  title: "Fiberglass GFRP Rebar Supplier | 45 & 60 GPa, ASTM D7957",
+  description: "GFRP rebar Ø6–36 mm in 45 and 60 GPa grades, benchmarked against the listed Grade III bars: straight bars, stirrups, mesh, test reports per size, export RFQ.",
   diameters: [6, 8, 10, 12, 14, 16, 18, 20, 22, 25, 28, 30, 32, 34, 36],
   scope: "GFRP straight bars, factory-formed stirrups and reinforcement mesh made by FengDu New Material and supplied by F1 Composite against a project schedule. Grade, resin, dimensions, evidence and delivery are confirmed for the offered product.",
   /**
@@ -71,6 +71,8 @@ export const rebarCatalog = {
     { id: "60", name: "GFRP 60", modulus: "Tensile modulus 60 GPa class", positioning: "The structural grade for bridge decks, barriers, soft-eyes and deflection-governed members, and for owners that call for CSA S807 Grade III or a 60 GPa class bar.", note: "Matches the tier Ontario, Texas and Ohio owners specify; crack-width and deflection checks use the certified modulus." },
   ],
   images: {
+    // Supplier photograph, 1254 px: three sand-coated, helically wrapped bars (hero since 2026-11-04).
+    hero: "/images/products/frp-rebar/f1-frp-rebar-sand-coated-helical.webp",
     straight: "/images/products/frp-rebar/gfrp-straight-bars.webp",
     bends: "/images/products/frp-rebar/gfrp-rectangular-stirrups.webp",
     mesh: "/images/products/frp-rebar/gfrp-reinforcement-mesh.webp",
@@ -81,6 +83,35 @@ export const rebarCatalog = {
     bendGeometry: "/images/products/frp-rebar/gfrp-rebar-bend-geometry.webp",
     accessories: "/images/products/frp-rebar/gfrp-rebar-nonmetallic-accessories.webp",
     rockBolt: "/images/products/frp-rebar/gfrp-rock-bolt-section.webp",
+    // Drawn by scripts/covers/draw-gfrp-rebar-benchmark-figures.mjs (2026-11-04).
+    modulusBenchmark: "/images/products/frp-rebar/gfrp-rebar-modulus-benchmark.webp",
+    anatomy: "/images/products/frp-rebar/gfrp-rebar-anatomy.webp",
+    lineEvidence: "/images/products/frp-rebar/gfrp-rebar-line-and-evidence.webp",
+  },
+  /**
+   * The four producers that recur across ICC-ES, US DOT producer lists, Ontario MTO and Queensland
+   * TMR (vault research 2026-11-04, "FRP筋材全球市场定价与成本深度调研" v2), with the values their
+   * own documents publish, read on 2026-11-04. Sources: docs/research/gfrp-rebar-benchmark-2026-11.md.
+   * The F1 row states grade classes and what is not held; it is not a measured value.
+   */
+  benchmark: {
+    checked: "2026-11-04",
+    rows: [
+      { bar: "Mateenbar 60", maker: "Mateenbar Composite Reinforcements · Concord, North Carolina", modulus: "60 GPa", shear: "180 MPa guaranteed transverse shear", materials: "E-CR glass, epoxy-backboned vinyl ester", standards: "ASTM D8505, CSA S807 Grade III", listing: "ICC-ES ESR-5548; Texas DOT producer list", sizes: "No. 2–No. 10", source: { label: "Technical data, Aug 2024", href: "https://mateenbar.com/" }, listingHref: "https://cdn-v2.icc-es.org/wp-content/uploads/report-directory/ESR-5548.pdf" },
+      { bar: "Pultrall V-ROD 60", maker: "Pultrall · Thetford Mines, Québec; Edon, Ohio", modulus: "60 GPa minimum", shear: "180 MPa guaranteed transverse shear; 1,100 MPa guaranteed tensile to No. 8", materials: "Vinyl ester", standards: "CSA S807 Grade III, MTO Grade III, ASTM D7957", listing: "Texas DOT producer list (60 GPa product); Ontario MTO DSM", sizes: "No. 2–No. 10", source: { label: "V-ROD 60 product data sheet", href: "https://www.vrod.ca/" }, listingHref: "https://www.txdot.gov/content/dam/docs/division/mtd/mpl/gfrpman.pdf" },
+      { bar: "MST-BAR", maker: "MST Rebar · Woodbridge, Ontario; Bladenboro, North Carolina", modulus: "60 GPa high-modulus bar; 65.0 GPa mean for 4EQ No. 3 (ESR-4664)", shear: "220 MPa transverse shear; 21 MPa guaranteed bond", materials: "Glass fibers in a resin matrix (per ESR)", standards: "CSA S807 Grade III", listing: "ICC-ES ESR-4664; Texas DOT list; Ontario MTO DSM; Queensland TMR register", sizes: "No. 3 under the ESR; larger sizes on the data sheet", source: { label: "MST-BAR high-modulus sheet", href: "https://ernestmaier.com/wp-content/uploads/2024/11/MSTBar_HiModSheet_25.pdf" }, listingHref: "https://icc-es.org/wp-content/uploads/report-directory/ESR-4664.pdf" },
+      { bar: "Dextra Astec Plus", maker: "Dextra Building Products (Guangdong) · Zengcheng, Guangzhou", modulus: "64.8–67.8 GPa mean (No. 8 and No. 4, ESR-5751)", shear: "14.6–21.9 MPa guaranteed bond", materials: "E-CR glass, vinyl ester (Astec data sheet)", standards: "Evaluated to ICC-ES AC454", listing: "ICC-ES ESR-5751, the first structural ESR for a plant in China", sizes: "No. 4 and No. 8 under the ESR; Ø6–41 mm range", source: { label: "Astec data sheet PDS-021", href: "https://www.dextragroup.com/" }, listingHref: "https://icc-es.org/wp-content/uploads/report-directory/ESR-5751.pdf" },
+      { bar: "FengDu GFRP 60 (F1 Composite)", maker: "FengDu New Material, China · exported by F1 Composite", modulus: "60 GPa class, measured per size", shear: "Transverse shear and bond stated in the qualification report", materials: "Glass and resin stated in writing with each offer", standards: "Offered for ASTM D7957 and CSA S807 Grade III specifications", listing: "None held: no ICC-ES, DOT, CSA designated-source, ETA or DIBt listing", sizes: "Ø6–36 mm (No. 2–No. 10)", ours: true },
+    ],
+    /** What every listed producer publishes, and what an F1 offer carries instead or as well. */
+    parity: [
+      { item: "Guaranteed tensile force for every size (mean minus three standard deviations)", leaders: "On the data sheet and in the ESR", ours: "In the third-party qualification report of the offered grade, size by size" },
+      { item: "Modulus tier", leaders: "60 GPa Grade III bars for bridges and structures, 45–47 GPa for flatwork", ours: "The same two tiers: GFRP 60 and GFRP 45" },
+      { item: "Glass and resin named", leaders: "E-CR glass and vinyl ester printed on the data sheet", ours: "Named in writing in the offer; where an owner requires E-CR glass and vinyl ester, as Ontario does for Grade III, the offer states both" },
+      { item: "Bent-bar values separate from straight bars", leaders: "Separate bent-bar data sheets; bends are outside the ESRs", ours: "Bent-section data to ASTM D7914 for the shapes on your schedule" },
+      { item: "Lot traceability", leaders: "Lot number on the bar or bundle, as the ESR labeling clause requires", ours: "Lot certificate shipped with the bars, matched to bundle labels" },
+      { item: "Product listing (ICC-ES, DOT, ETA)", leaders: "Held, naming the plant", ours: "Not held, and stated before a project relies on one" },
+    ],
   },
   forms: [
     { id: "straight", anchor: "straight-bars", title: "Straight GFRP rebar", subtitle: "Schedule by diameter, length and quantity", body: "Glass-fiber reinforcing bars with an enhanced bond surface in two modulus grades, GFRP 45 and GFRP 60. FengDu lists 15 metric diameters in 6 m and 12 m lengths, with 10 ft, 20 ft, 30 ft and 40 ft schedules cut to order; confirm the grade, resin, surface profile and cut length for your order.", inputs: "Diameter or bar designation · cut length · number of bars · surface requirement", action: "Quote straight bars" },
@@ -167,6 +198,7 @@ export const rebarCatalog = {
     { question: "Is a No. 3 GFRP bar a replacement for No. 4 steel in a slab or wall?", answer: "Only where a document says so for a named product. In the United States, ICC-ES evaluation reports let one producer's No. 3 bar replace No. 4 steel in prescriptive residential walls and slabs, and those tables apply to that product alone. For any other bar, including FengDu's, the engineer designs the slab or wall to ACI 440.11, ACI 332 or the local code using the bar's own test data; shrinkage-controlled flatwork often lands on the same spacing as steel, structural walls usually do not." },
     { question: "Can GFRP rebar be used in masonry, ICF and basement walls?", answer: "Yes, as an engineered design. TMS 402/602-22 added an appendix for GFRP in grouted masonry, and ACI 440.11 covers cast-in-place and ICF walls; vertical bars in a basement or retaining wall act in flexure, so deflection and crack width at service load set the bar size. Starter bars from the footing and corner bars are factory-formed L-shapes because the bar cannot be bent on site. The prescriptive tables some US producers publish are tied to their listed product." },
     { question: "Do you supply GFRP dowels, form ties, rock bolts or accessories?", answer: "Smooth dowels are plain pultruded rod cut to length and sized to ASTM D8444, and threaded fiberglass rod with nonmetallic nuts serves as form ties; both come from product lines F1 already exports. Nonmetallic chairs, ties and couplers are sourced with the bars when a project needs a fully nonmetallic mat. Rock bolts and soil nails are a separate product family and are quoted after a technical review of the ground conditions and the bolt specification." },
+    { question: "How does GFRP 60 compare with Mateenbar 60, V-ROD 60, MST-BAR and Astec Plus?", answer: "On the property that sets the tier, it sits in the same place: those bars publish 60 GPa or more, the CSA S807 Grade III floor, and GFRP 60 is a 60 GPa class bar. The difference is the evidence. The four leading producers hold ICC-ES evaluation reports or DOT listings that name their plants; FengDu's bar is supplied with a third-party qualification report for each offered size and holds no product listing. Where a project needs a listed product, such as US federal or DOT work or the prescriptive residential tables, buy a listed bar. Where the specification accepts a test package, which covers most export markets and private owners, compare the reports size by size." },
     { question: "Why two grades at 45 and 60 GPa, and nothing higher?", answer: "Because the fiber sets the ceiling. E-glass and E-CR glass have a modulus of about 72 to 81 GPa, and a bar at the 70 to 80% fiber mass fraction typical of standard-compliant bars (ASTM D7957 sets a 70% minimum) lands between about 45 and 65 GPa; the leading producers sell the same two tiers. A stiffer bar needs carbon or a hybrid fiber at several times the cost, which is why deflection-governed members are designed around a 60 GPa class bar rather than a stiffer one." },
   ],
 } as const;

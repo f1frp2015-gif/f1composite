@@ -131,3 +131,27 @@ test("no page claims an approval, listing or domestic-content status F1 does not
   }
   assert.match(sources, /do not hold ICC-ES/);
 });
+
+test("the benchmark names the four listed producers with sourced values and states what F1 does not hold", () => {
+  // Benchmark upgrade 2026-11-04 against the four producers in the vault research v2.
+  const { rows, parity } = rebarCatalog.benchmark;
+  const product = read(PRODUCT);
+  for (const name of ["Mateenbar 60", "Pultrall V-ROD 60", "MST-BAR", "Dextra Astec Plus"]) {
+    const row = rows.find((r) => r.bar === name);
+    assert.ok(row, name);
+    assert.match(row.listingHref, /^https:\/\//, `${name} links its listing`);
+    assert.match(row.source.href, /^https:\/\//, `${name} links its data source`);
+  }
+  const ours = rows.find((r) => r.ours);
+  assert.ok(ours && /None held/.test(ours.listing), "F1 row must state that no listing is held");
+  assert.doesNotMatch(ours.modulus + ours.standards, /certified|approved|listed/i);
+  assert.ok(parity.length >= 6 && parity.every((p) => p.leaders && p.ours));
+  assert.ok(product.includes('id="benchmark"') && product.includes('id="quality"'));
+  assert.ok(product.includes("ASTM_D7957_REQUIREMENTS.map"), "qualification table reuses the lib requirements");
+  assert.match(product, /trademarks of their owners/);
+  for (const key of ["hero", "modulusBenchmark", "anatomy", "lineEvidence"]) assert.ok(rebarCatalog.images[key], key);
+  // Figures stay numbered in page order.
+  const numbers = [...product.matchAll(/<Figure number=\{(\d+)\}/g)].map((m) => Number(m[1]));
+  assert.deepEqual(numbers, numbers.map((_, i) => i + 1));
+  assert.ok(rebarCatalog.faqs.some((f) => /Mateenbar 60, V-ROD 60, MST-BAR and Astec Plus/.test(f.question)));
+});
