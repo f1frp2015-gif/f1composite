@@ -570,11 +570,10 @@
   },
   {
     "path": "/products/frp-window-frames",
-    "title": "FRP Window Frames & System Profiles",
-    "description": "Compare nine FRP window and door systems. Source fiberglass profiles for local fabrication or finished units, with separate procurement guides and RFQs.",
+    "title": "FRP Window Frames & Profiles: 9 Fiberglass Window Systems",
+    "description": "Nine FRP window and door systems, 50–140 mm frame depth; the 90 series is PHI-certified at Uw 0.78. Source fiberglass profiles to fabricate, or finished units.",
     "aliases": [
-      "FRP window & door systems",
-      "FRP Window Frames & System Profiles | F1 Composite"
+      "FRP window & door systems"
     ]
   },
   {
@@ -1026,7 +1025,7 @@
   },
   {
     "path": "/technology/frp-vs-traditional-materials",
-    "title": "FRP vs Steel vs Aluminum — Engineering Comparison",
+    "title": "FRP vs Steel vs Aluminum: Strength & Stiffness Compared",
     "description": "Compare materials for the same job: span, loads, deflection, exposure, connections and service period. Use the designed member and installed cost to choose an option; a material property or density ratio is only one input.",
     "aliases": [
       "FRP vs steel, aluminum, timber and concrete"
@@ -1042,7 +1041,7 @@
   },
   {
     "path": "/technology/polyurethane-pultrusion-windows",
-    "title": "Polyurethane Pultrusion Windows — GFRP-PU Technology",
+    "title": "Polyurethane Pultrusion Windows: GFRP-PU Profiles & Units",
     "description": "Why polyurethane resin is displacing polyester in high-performance pultruded fiberglass window frames: higher cross-fiber strength, thinner walls, deep-cold toughness, and the certified passive-house results it delivers.",
     "aliases": [
       "Polyurethane pultrusion windows (GFRP-PU)"
@@ -1141,11 +1140,10 @@
   },
   {
     "path": "/tools/frp-unit-converter",
-    "title": "FRP Unit Converter",
-    "description": "Convert FRP engineering units between metric and US: MPa, ksi, GPa, Msi, kN/m, plf, psf, kg/m, lb/ft, in⁴, U-values and R-values, and inch profile sizes.",
+    "title": "Msi to GPa, MPa & ksi Converter + FRP Unit Table",
+    "description": "1 Msi = 6.895 GPa = 1,000 ksi. Convert FRP modulus and stress, kN/m to plf, kg/m to lb/ft and U-values, with E23 and E17 grade values in both unit systems.",
     "aliases": [
-      "FRP engineering unit converter",
-      "FRP Unit Converter | MPa, ksi, Msi, kg/m, lb/ft"
+      "FRP engineering unit converter"
     ]
   },
   {

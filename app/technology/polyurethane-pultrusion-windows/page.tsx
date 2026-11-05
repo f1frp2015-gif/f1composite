@@ -20,7 +20,7 @@ const seoTarget = getSeoQueryTarget(pagePath);
 const pageTitle = seoTarget.title;
 const pageDescription = seoTarget.description;
 const publishedAt = "2026-07-07";
-const updatedAt = "2026-10-26";
+const updatedAt = "2026-11-04";
 const referencedStandards = ["EN 14351-1", "EN ISO 10077-1", "EN ISO 10077-2", "PHI Component Criteria (2491wi03)"];
 
 export const metadata: Metadata = buildPageMetadata({

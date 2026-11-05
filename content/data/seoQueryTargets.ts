@@ -410,9 +410,9 @@ export const seoQueryTargets = [
     targetUrl: "/products/frp-window-frames",
     primaryQuery: "FRP window frames",
     intent: "commercial",
-    title: "FRP Window Frames & System Profiles | F1 Composite",
+    title: "FRP Window Frames & Profiles: 9 Fiberglass Window Systems",
     description:
-      "Compare nine FRP window and door systems. Source fiberglass profiles for local fabrication or finished units, with separate procurement guides and RFQs.",
+      "Nine FRP window and door systems, 50–140 mm frame depth; the 90 series is PHI-certified at Uw 0.78. Source fiberglass profiles to fabricate, or finished units.",
     supportingUrls: [
       "/resources/frp-windows-guide",
       "/technology/polyurethane-pultrusion-windows",
@@ -438,9 +438,9 @@ export const seoQueryTargets = [
     targetUrl: "/technology/polyurethane-pultrusion-windows",
     primaryQuery: "polyurethane pultrusion windows",
     intent: "technical",
-    title: "Polyurethane Pultrusion Windows — GFRP-PU Technology",
+    title: "Polyurethane Pultrusion Windows: GFRP-PU Profiles & Units",
     description:
-      "Learn how GFRP-PU window frames are pultruded, why polyurethane improves toughness and thin-wall performance, and where the technology fits.",
+      "How GFRP-PU window frames are pultruded and when PU is worth it. Nine series as profile sets or finished units; the 90 series is PHI-certified at Uw 0.78.",
     supportingUrls: ["/products/frp-window-frames", "/resources/frp-windows-guide"],
   },
   {
@@ -460,9 +460,9 @@ export const seoQueryTargets = [
     targetUrl: "/technology/frp-vs-traditional-materials",
     primaryQuery: "FRP vs steel vs aluminum",
     intent: "comparison",
-    title: "FRP vs Steel vs Aluminum — Engineering Comparison",
+    title: "FRP vs Steel vs Aluminum: Strength & Stiffness Compared",
     description:
-      "Compare FRP, steel and aluminum by strength, stiffness, weight, corrosion, conductivity, installation and lifecycle cost for structural projects.",
+      "Is FRP stronger than steel? Compare EN 13706 E23 FRP (23 GPa, 240 MPa) with steel and aluminum, and see why equal stiffness needs about 8.7× the steel I.",
     supportingUrls: [
       "/resources/blog/frp-vs-steel-structural-profiles",
       "/technology/frp-vs-aluminum-windows",
