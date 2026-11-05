@@ -12,6 +12,14 @@ export interface DownloadItem {
   file?: string;
 }
 
+export const finishedWindowCatalogDownload = {
+  title: "Finished Fiberglass Windows & Doors Catalog (Edition 2026.11)",
+  format: "PDF",
+  size: "4.7 MB · 16 pages",
+  description: "Eleven finished window and door families: casement, flush, tilt-and-turn, micro-vent, curtain-wall-style, insulated entrance, lift-and-slide and side-pressure systems. Includes glazing build-ups, catalogue-stated U-values, performance notes and an opening-schedule checklist. Confirm configuration-specific test evidence before ordering.",
+  file: "/downloads/f1composite-finished-windows-doors-catalog-2026-11.pdf",
+} satisfies DownloadItem;
+
 export const cableTrayLadderCatalog = {
   title: "FRP Cable Tray & Ladder Product Catalog (Edition 2026.10)",
   format: "PDF",
@@ -29,6 +37,7 @@ export const basaltRebarManual = {
 } satisfies DownloadItem;
 
 export const fallbackDownloads: DownloadItem[] = [
+  finishedWindowCatalogDownload,
   cableTrayLadderCatalog,
   basaltRebarManual,
   {

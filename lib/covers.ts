@@ -64,7 +64,7 @@ export const productCovers = {
   "/products/basalt-frp-rebar": { ...product("basalt-frp-rebar.webp", "Cut pieces of basalt FRP rebar with a helical bond surface"), note: "Supplier photo" },
   "/products/frp-fasteners-fittings": product("frp-fasteners-fittings.webp", "Yellow molded fiberglass handrail fittings"),
   "/products/window-door-profiles": product("window-profile-samples.webp", "Five pultruded fiberglass window and door profiles showing their cross-sections"),
-  "/products/fiberglass-windows-doors": product("finished-window.webp", "Corner of a finished fiberglass window with triple glazing"),
+  "/products/fiberglass-windows-doors": { src: "/images/products/finished-windows/114-curtain-wall.webp", alt: "Complete 114 curtain-wall-style fiberglass window with a broad central light and side opening sections", fit: "contain" },
   "/products/frp-door-frames": product("door-frame.webp", "Three pultruded fiberglass door frame profiles with continuous raised stops"),
   "/products/fiberglass-door-thresholds": product("door-threshold.webp", "Pultruded fiberglass door threshold with hollow chambers and a stepped top"),
   "/products/wind-turbine-blade-panels": { ...product("wind-blade-panel.webp", "Pultruded fiberglass wind blade panel samples"), note: "Supplier photo" },

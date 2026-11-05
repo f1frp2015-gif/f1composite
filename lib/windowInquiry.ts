@@ -1,9 +1,37 @@
 import { attributionPath, attributionToken } from "./rfq";
 
-export const WINDOW_SERIES = ["50", "55", "60", "65", "70", "80", "90-casement", "90-sliding", "140"] as const;
+export const PROFILE_WINDOW_SERIES = ["50", "55", "60", "65", "70", "80", "90-casement", "90-sliding", "140"] as const;
+export const FINISHED_WINDOW_SERIES = ["pu-65", "pu-72", "pu-83", "pu-85", "pu-95", "pu-103", "pu-103-microvent", "pu-114", "pu-entry", "pu-132", "pu-145"] as const;
+// Legacy profile IDs remain valid for existing finished-window links.
+export const WINDOW_SERIES = [...PROFILE_WINDOW_SERIES, ...FINISHED_WINDOW_SERIES] as const;
+export function windowSeriesOptions(mode: WindowMode): readonly string[] {
+  return mode === "profiles" ? PROFILE_WINDOW_SERIES : [...FINISHED_WINDOW_SERIES, ...PROFILE_WINDOW_SERIES];
+}
+export function isWindowSeriesAllowed(mode: WindowMode, series: string): boolean {
+  return series === "unknown" || windowSeriesOptions(mode).includes(series);
+}
+export function changeWindowInquiryMode(inquiry: WindowInquiry, mode: WindowMode): WindowInquiry {
+  const result: WindowInquiry = { ...inquiry, mode };
+  if (result.series && !isWindowSeriesAllowed(mode, result.series)) delete result.series;
+  return result;
+}
+export function windowInquiryFromSearchParams(params: { get(name: string): string | null }): WindowInquiry | null {
+  const mode = params.get("window_mode");
+  if (mode !== "profiles" && mode !== "finished") return null;
+  const result: WindowInquiry = { mode };
+  for (const key of ["series", "stage", "role"]) {
+    const value = params.get(`window_${key}`);
+    if (value && WINDOW_FIELDS[key].values?.includes(value) && (key !== "series" || isWindowSeriesAllowed(mode, value))) result[key] = value;
+  }
+  return result;
+}
 export const WINDOW_STAGES = ["sample", "budget", "quote", "technical"] as const;
 export const WINDOW_ROLES = ["fabricator", "oem", "profile-distributor", "finished-distributor", "contractor", "specifier", "architect", "owner", "other", "distributor"] as const;
 export const WINDOW_OPTION_LABELS: Record<string, string> = {
+  "pu-65": "65 Casement Window", "pu-72": "72 Casement Window", "pu-83": "83 Flush Window",
+  "pu-85": "85 Casement Window", "pu-95": "95 Casement Window", "pu-103": "103 Tilt-and-Turn Window",
+  "pu-103-microvent": "103 Micro-Vent Window", "pu-114": "114 Curtain-Wall Window",
+  "pu-entry": "Insulated Entrance Door", "pu-132": "132 Lift-and-Slide Door", "pu-145": "145 Side-Pressure Door",
   "90-casement": "90 casement", "90-sliding": "90 sliding (CP001–CP005)", "140": "140 compression-seal sliding door (CP006–CP011)",
   "profile-distributor": "Profile distributor", "finished-distributor": "Finished window / door distributor", oem: "OEM manufacturer", specifier: "Specifier / consultant",
   fabricator: "Fabricator", contractor: "Contractor", architect: "Architect", owner: "Building owner", other: "Other", distributor: "Distributor",
@@ -49,6 +77,7 @@ export function parseWindowInquiry(raw: unknown): WindowInquiry | null {
     if (typeof input[key] !== "string") throw new Error(`Invalid ${spec.label.toLowerCase()}.`);
     const value = input[key].trim();
     if (value.length > spec.max || /[\u0000-\u0008\u000b\u000c\u000e-\u001f]/.test(value) || (spec.values && !spec.values.includes(value))) throw new Error(`Please check ${spec.label.toLowerCase()}.`);
+    if (key === "series" && !isWindowSeriesAllowed(input.mode, value)) throw new Error("Please check system series for the selected buying mode.");
     result[key] = value;
   }
   return result;
@@ -57,7 +86,7 @@ export function windowInquirySummary(input: WindowInquiry): string {
   // The preview must remain renderable even when pasted input needs server-side
   // correction. POST validates strictly before using this same summary builder.
   const data = input;
-  return [data.mode === "profiles" ? "WINDOW RFQ — Profiles for fabrication" : "WINDOW RFQ — Finished windows / doors", ...Object.entries(WINDOW_FIELDS).filter(([key]) => data[key] && !(data.mode === "profiles" ? finishedOnly : profileOnly).has(key)).map(([key, spec]) => `${spec.label}: ${spec.values ? WINDOW_OPTION_LABELS[data[key]] || data[key] : data[key]}`), "Unspecified technical details: to be confirmed during review."].join("\n");
+  return [data.mode === "profiles" ? "WINDOW RFQ — Profiles for fabrication" : "WINDOW RFQ — Finished windows / doors", ...Object.entries(WINDOW_FIELDS).filter(([key]) => data[key] && (key !== "series" || isWindowSeriesAllowed(data.mode, data[key])) && !(data.mode === "profiles" ? finishedOnly : profileOnly).has(key)).map(([key, spec]) => `${spec.label}: ${spec.values ? WINDOW_OPTION_LABELS[data[key]] || data[key] : data[key]}`), "Unspecified technical details: to be confirmed during review."].join("\n");
 }
 export function mergeWindowContext(context: unknown, inquiry: WindowInquiry): Record<string, unknown> {
   return { ...(context && typeof context === "object" && !Array.isArray(context) ? context : { inheritedContext: context }), windowInquiry: inquiry };
@@ -66,7 +95,7 @@ export function buildWindowRfqHref(selection: { mode: WindowMode; series?: strin
   const params = new URLSearchParams({ window_mode: selection.mode, source: attributionToken(selection.source || "window-system"), inquiry_type: "rfq" });
   for (const key of ["series", "stage", "role"] as const) {
     const value = selection[key];
-    if (value && WINDOW_FIELDS[key].values?.includes(value)) params.set(`window_${key}`, value);
+    if (value && WINDOW_FIELDS[key].values?.includes(value) && (key !== "series" || isWindowSeriesAllowed(selection.mode, value))) params.set(`window_${key}`, value);
   }
   const path = attributionPath(selection.productPath) || (selection.mode === "profiles" ? "/products/window-door-profiles" : "/products/fiberglass-windows-doors");
   if (path) params.set("product_path", path);

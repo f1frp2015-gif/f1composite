@@ -14,6 +14,7 @@ import WindowProjects from "@/components/sections/WindowProjects";
 import { FAQList } from "@/components/ui/FAQ";
 import Figure from "@/components/ui/Figure";
 import { windowRequestItems } from "@/content/data/windowBuying";
+import { finishedWindowCatalog } from "@/content/data/finishedWindowSystems";
 import { assembleDocuments } from "@/lib/documents";
 import { buildPageMetadata, buildProductFamilyPageSchema } from "@/lib/seo";
 import { buildWindowRfqHref } from "@/lib/windowInquiry";
@@ -22,7 +23,7 @@ import { buildWindowRfqHref } from "@/lib/windowInquiry";
 const updatedAt = "2026-11-04";
 
 const pagePath = "/products/frp-window-frames";
-const description = "Nine FRP window and door systems, 50–140 mm frame depth; the 90 series is PHI-certified at Uw 0.78. Source fiberglass profiles to fabricate, or finished units.";
+const description = "Compare nine FRP window profile systems and 11 finished window and door families. Review configurations, catalogs and project supply scope.";
 export const metadata: Metadata = buildPageMetadata({ title: "FRP Window Frames & Profiles: 9 Fiberglass Window Systems", description, path: pagePath, image: "/products/frp-window-frames/opengraph-image" });
 
 const profileQuote = buildWindowRfqHref({ mode: "profiles", source: "window-hub", productPath: pagePath });
@@ -31,7 +32,7 @@ const finishedQuote = buildWindowRfqHref({ mode: "finished", source: "window-hub
 const faq = [
   { question: "Do you sell FRP profiles or finished windows and doors?", answer: "Both, through separate supply routes. Choose system profiles when you will fabricate locally. Choose finished units when you need an agreed assembly built to a window schedule. Glass, hardware, accessories, machining, packing and delivery are defined in the quotation." },
   { question: "What are fiberglass window lineals?", answer: "Lineals are the pultruded profile lengths used to make the window frame, sash, mullion and other constant-section components. A compatible set of lineals and accessories is cut, joined, glazed and fitted with hardware to form a finished window." },
-  { question: "Which window and door systems are available for review?", answer: "The catalog covers 50, 55, 60, 65, 70, 80 and 90 casement systems, a distinct 90 sliding system, and the 140 compression-seal sliding door. Review the current section drawings, opening configuration and supply availability before ordering." },
+  { question: "Which window and door systems are available for review?", answer: "The profile catalog covers 50, 55, 60, 65, 70, 80 and 90 casement systems, a distinct 90 sliding system, and the 140 compression-seal sliding door. The separate finished-unit catalog presents 11 complete window and door families. Matching series numbers do not establish interchangeable parts; review the selected route and drawings." },
   { question: "Is the 140 series a lift-and-slide door?", answer: "The current 140 range is a compression-seal (side-pressure) sliding door system, with section references CP006–CP011. The historical Intertek lift-sliding report retains its original specimen name. Its results do not automatically apply to the current compression-seal configuration." },
   { question: "Can the same U-value be used for every size and series?", answer: "No. Uf describes the frame, Ug the glazing and Uw the whole window. Window size, frame, glass, spacer and assembly affect the result. The 90-series PHI certificate covers its stated configuration, not every unit assembled from FRP profiles." },
   { question: "What should I send if I do not have complete drawings?", answer: "Start with your role, destination, intended opening or application and expected quantity if known. Choose technical selection, budget pricing or sample evaluation. We can clarify the section list or window schedule before a formal quote." },
@@ -39,7 +40,7 @@ const faq = [
   { question: "Who handles local installation and warranty?", answer: "Agree installation information, local labor, unloading, spare parts and after-sales responsibilities in the supply scope. Warranty terms depend on the contracted product and configuration. Shipping complete units does not by itself include on-site installation." },
 ];
 
-const windowFiles = ["/downloads/f1composite-frp-window-door-catalog.pdf", "/downloads/f1-window-profile-bom-template.csv", "/downloads/f1-window-schedule-template.csv"];
+const windowFiles = [finishedWindowCatalog, "/downloads/f1composite-frp-window-door-catalog.pdf", "/downloads/f1-window-profile-bom-template.csv", "/downloads/f1-window-schedule-template.csv"];
 
 const link = "inline-flex min-h-[44px] items-center text-f14 font-semibold text-teal-text hover:text-teal";
 
@@ -53,7 +54,7 @@ export default function FenestrationSystemsPage() {
       line={{ name: "F1-THERM", label: "Windows & doors" }}
       title="FRP window & door systems"
       description="Pultruded fiberglass system profiles for local fabrication, with finished windows and doors available for project supply. Find your series, define the scope and start the right conversation."
-      facts={[{ label: "Systems", value: "9 series" }, { label: "Frame depth", value: "50–140 mm" }, { label: "PHI certificate", value: "90 series" }, { label: "Test reports", value: "AS 2047" }]}
+      facts={[{ label: "Profile systems", value: "9 series" }, { label: "Finished units", value: "11 families" }, { label: "Profile depth", value: "50–140 mm" }, { label: "Supply routes", value: "Profiles / units" }]}
       figure={<Figure number={1} title="90 series corner section" note={null}><Image src="/images/products/window-door/frp-window-frame-90-series-corner-section.webp" alt="Corner section of a 90-series FRP window frame with triple glazing" width={800} height={800} sizes="(max-width: 1023px) 90vw, 360px" preload className="mx-auto h-auto w-full max-w-[320px] object-contain" /></Figure>}
       breadcrumbs={[{ label: "Home", href: "/" }, { label: "Products", href: "/products/product-lines" }, { label: "Windows & Doors" }]}
       actions={{ primary: { label: "Request a profile quote", href: buildWindowRfqHref({ mode: "profiles", source: "window-hub-hero", productPath: pagePath }) }, secondary: { label: "Request a finished-unit quote", href: buildWindowRfqHref({ mode: "finished", source: "window-hub-hero", productPath: pagePath }), variant: "secondary" }, note: "Start with your name and email · Technical details can follow", stickyMobile: true }}
@@ -62,6 +63,7 @@ export default function FenestrationSystemsPage() {
 
     <PageSection id="supply" title="Two ways to buy: profiles or finished units" intro="Fabricators buy the profile set and build locally; project buyers specify complete units against a window schedule. Each route has its own guide and its own quotation.">
       <WindowSupplyRoutes />
+      <p className="mt-[20px] text-f16 leading-relaxed text-t2">The finished-unit range includes eight window systems and three door systems, with complete product images and glazing configurations. <Link href="/products/fiberglass-windows-doors#series" className="font-semibold text-teal-text underline underline-offset-4">Explore the 11 finished window and door families →</Link></p>
     </PageSection>
 
     <PageSection id="series" title="Find your starting system" count="9 systems" tone="muted" intro="Compare casement, tilt-and-turn, sliding and compression-seal systems, then review the matching sections before you ask for samples or a quotation." aside={<Link href="/products/fiberglass-windows-doors#series" className="font-semibold text-teal-text underline underline-offset-4 hover:text-teal">Compare for finished units</Link>}>
@@ -94,7 +96,7 @@ export default function FenestrationSystemsPage() {
     <PageSection id="evidence" title="Match the evidence to the proposed assembly" tone="muted" intro="A certificate or report covers the configuration that was tested. Check each document against the series, size, glass and hardware you are buying.">
       <WindowEvidenceCards />
       <h3 className="mt-[40px] text-f20 font-bold text-t1">Catalog and RFQ templates</h3>
-      <ul className="mt-[16px] grid grid-cols-1 gap-[12px] md:grid-cols-3">
+      <ul className="mt-[16px] grid grid-cols-1 gap-[12px] md:grid-cols-2">
         {documents.map((document) => <li key={document.file}><DocumentCard card={libraryCard(document)} compact /></li>)}
       </ul>
     </PageSection>

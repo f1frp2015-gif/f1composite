@@ -1,7 +1,7 @@
 "use client";
 
 import { attributionPath, attributionToken } from "@/lib/rfq";
-import { WINDOW_SERIES, WINDOW_STAGES } from "@/lib/windowInquiry";
+import { WINDOW_SERIES, WINDOW_STAGES, isWindowSeriesAllowed } from "@/lib/windowInquiry";
 import { CONSENT_STORAGE_KEY, getVisitConsent, isConsentTimeZone, parseConsent } from "@/lib/consent";
 
 type TrackingWindow = Window & { gtag?: (...args: unknown[]) => void };
@@ -144,7 +144,7 @@ export function trackInquirySuccess(receiptId: string | null | undefined, source
     inquiry_type: attributionToken(inquiryType),
     ...(windowContext?.mode === "profiles" || windowContext?.mode === "finished" ? {
       window_mode: windowContext.mode,
-      ...(WINDOW_SERIES.some(series => series === windowContext.series) ? { window_series: windowContext.series } : {}),
+      ...(WINDOW_SERIES.some(series => series === windowContext.series) && isWindowSeriesAllowed(windowContext.mode, windowContext.series!) ? { window_series: windowContext.series } : {}),
       ...(WINDOW_STAGES.some(stage => stage === windowContext.stage) ? { window_stage: windowContext.stage } : {}),
     } : {}),
   };

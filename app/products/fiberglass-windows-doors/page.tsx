@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import WindowProcurementPage from "@/components/sections/WindowProcurementPage";
+import FinishedWindowPage from "@/components/sections/FinishedWindowPage";
 import { windowProcurement } from "@/content/data/windowProcurement";
 import { buildPageMetadata } from "@/lib/seo";
 
@@ -9,7 +9,8 @@ export const metadata: Metadata = buildPageMetadata({
   description: page.description,
   path: page.path,
   image: page.image,
+  imageSize: { width: 1200, height: 522 },
 });
 export default function Page() {
-  return <WindowProcurementPage mode="finished" />;
+  return <FinishedWindowPage />;
 }

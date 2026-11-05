@@ -1,6 +1,6 @@
 "use client";
 
-import { WINDOW_FIELDS, WINDOW_OPTION_LABELS, type WindowInquiry } from "@/lib/windowInquiry";
+import { WINDOW_FIELDS, WINDOW_OPTION_LABELS, PROFILE_WINDOW_SERIES, FINISHED_WINDOW_SERIES, windowSeriesOptions, changeWindowInquiryMode, type WindowInquiry } from "@/lib/windowInquiry";
 
 const input = "mt-2 w-full rounded-control border border-border-default bg-white px-3 py-3 text-f14 text-t1 focus:border-teal";
 const labels = WINDOW_OPTION_LABELS;
@@ -8,17 +8,17 @@ export default function WindowInquiryFields({ value, onChange }: { value: Window
   const field = (key: string, placeholder?: string) => {
     const spec = WINDOW_FIELDS[key];
     const preferredRoles = value.mode === "profiles" ? ["fabricator", "oem", "profile-distributor", "specifier"] : ["contractor", "finished-distributor", "architect", "specifier", "owner"];
-    const options = key === "role" ? [...preferredRoles, ...spec.values!.filter(option => !preferredRoles.includes(option))] : spec.values;
-    return <label key={key} className="block text-f14 font-semibold text-t1">{spec.label}{spec.values ? <select className={input} value={value[key] || ""} onChange={e => onChange({ ...value, [key]: e.target.value })}><option value="">To be confirmed</option>{options!.map(option => <option key={option} value={option}>{labels[option] || option}</option>)}</select> : <textarea className={input} rows={key === "sections" || key === "schedule" ? 4 : 2} value={value[key] || ""} maxLength={spec.max} placeholder={placeholder || "Optional — leave blank if not yet known"} onChange={e => onChange({ ...value, [key]: e.target.value })} />}</label>;
+    const options = key === "role" ? [...preferredRoles, ...spec.values!.filter(option => !preferredRoles.includes(option))] : key === "series" ? [...windowSeriesOptions(value.mode), "unknown"] : spec.values;
+    return <label key={key} className="block text-f14 font-semibold text-t1">{spec.label}{spec.values ? <select className={input} value={value[key] || ""} onChange={e => onChange({ ...value, [key]: e.target.value })}><option value="">To be confirmed</option>{key === "series" && value.mode === "finished" ? <><optgroup label="Finished windows and doors">{FINISHED_WINDOW_SERIES.map(option => <option key={option} value={option}>{labels[option]}</option>)}</optgroup><optgroup label="Legacy system references">{PROFILE_WINDOW_SERIES.map(option => <option key={option} value={option}>{labels[option] || option}</option>)}</optgroup><option value="unknown">{labels.unknown}</option></> : options!.map(option => <option key={option} value={option}>{labels[option] || option}</option>)}</select> : <textarea className={input} rows={key === "sections" || key === "schedule" ? 4 : 2} value={value[key] || ""} maxLength={spec.max} placeholder={placeholder || "Optional — leave blank if not yet known"} onChange={e => onChange({ ...value, [key]: e.target.value })} />}</label>;
   };
   return <section aria-label="Window project inquiry" className="space-y-5">
     <input type="hidden" name="window_inquiry" value={JSON.stringify(value)} />
     <details className="rounded-card border border-border-default px-4">
       <summary className="cursor-pointer py-3 text-f14 font-semibold">Edit product selection or add technical details (optional)</summary>
       <div className="space-y-4 pb-4">
-      <fieldset><legend className="mb-2 font-semibold">I am buying</legend><div className="grid gap-3 sm:grid-cols-2">{(["profiles", "finished"] as const).map(mode => <label key={mode} className={`cursor-pointer rounded-control border p-4 ${value.mode === mode ? "border-teal bg-teal-bg" : "border-border-default"}`}><input type="radio" name="window_mode_ui" checked={value.mode === mode} onChange={() => onChange({ ...value, mode })} className="mr-2" />{labels[mode]}</label>)}</div></fieldset>
+      <fieldset><legend className="mb-2 font-semibold">I am buying</legend><div className="grid gap-3 sm:grid-cols-2">{(["profiles", "finished"] as const).map(mode => <label key={mode} className={`cursor-pointer rounded-control border p-4 ${value.mode === mode ? "border-teal bg-teal-bg" : "border-border-default"}`}><input type="radio" name="window_mode_ui" checked={value.mode === mode} onChange={() => onChange(changeWindowInquiryMode(value, mode))} className="mr-2" />{labels[mode]}</label>)}</div></fieldset>
       <div className="grid gap-4 sm:grid-cols-2">{field("role")}{field("stage")}{field("series")}</div>
-      <p className="text-f14 text-t2">Select any known details. A sample request or early discussion does not require completed drawings. Series 140 is a compression-seal sliding door system.</p>
+      <p className="text-f14 text-t2">Select any known details. A sample request or early discussion does not require completed drawings.{value.mode === "profiles" ? " Series 140 is a compression-seal sliding door system." : " Legacy system references are available for earlier inquiries."}</p>
     </div>
     <details className="pb-4"><summary className="cursor-pointer py-2 text-f14 font-semibold">Add specifications (optional)</summary><div className="space-y-4 pt-3">
       <p className="text-f14 text-t2">{labels[value.mode]} · Series {labels[value.series] || value.series || "to be confirmed"}. All requirements below are optional; we will clarify missing specifications.</p>

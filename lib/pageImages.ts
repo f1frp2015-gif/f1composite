@@ -1,6 +1,7 @@
 import { blogPosts } from "@/content/data/blogPosts";
 import { caseStudyContentImages, caseStudyImages } from "@/content/data/caseStudyImages";
 import { OWNED_PHOTO_DIR } from "@/content/data/ownedPhotos";
+import { finishedWindowSystems } from "@/content/data/finishedWindowSystems";
 import {
   applicationCovers,
   caseStudyCovers,
@@ -101,6 +102,7 @@ export function routeImages(): Map<string, string[]> {
   for (const [slug, src] of Object.entries(caseStudyImages)) add(`/case-studies/${slug}`, [src]);
   for (const [slug, figures] of Object.entries(caseStudyContentImages)) add(`/case-studies/${slug}`, figures.map((figure) => figure.src));
   add("/case-studies/beam-bridge", beamBridgeDrawings);
+  add("/products/fiberglass-windows-doors", [...finishedWindowSystems.map((system) => system.image), "/images/products/finished-windows/pu-profile-section.webp"]);
   for (const [path, sources] of Object.entries(ownedPhotoPlacements)) add(path, sources);
 
   cache = map;
