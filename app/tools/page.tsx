@@ -34,6 +34,7 @@ const groups: { id: string; title: string; intro: string; tools: { href: ToolHre
     intro: "Guardrail loads, access geometry, movement and reinforcement, checked before the drawings are detailed.",
     tools: [
       { href: "/tools/handrail-load-calculator", kind: "Load check", title: "Handrail load check", text: "Posts and rails against OSHA, IBC, EN ISO 14122-3, BS 6180, NBC and AS 1657 loads, with base reactions for the anchors." },
+      { href: "/tools/frp-grating-selector", kind: "Selector", title: "Grating selector", text: "Molded and pultruded grating rows by depth, open area, top opening and weight, with the total weight for a floor area." },
       { href: "/tools/access-geometry-checker", kind: "Checker", title: "Ladder, stair and walkway checker", text: "Rung spacing, clear width, fall protection, risers and grating openings against OSHA, EN ISO 14122, AS 1657 and the IBC." },
       { href: "/tools/thermal-expansion-calculator", kind: "Calculator", title: "Thermal expansion", text: "Movement of FRP members between fixings, the difference against steel, concrete or glass, and sealed joint widths." },
       { href: "/tools/gfrp-rebar-calculator", kind: "Calculator", title: "GFRP rebar calculator", text: "Steel bar sizes matched to GFRP bars, ACI CODE-440.11-22 design values and the standards for each market." },

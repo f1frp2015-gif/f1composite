@@ -108,6 +108,7 @@ export const toolCovers = {
   "/frp-span-tables": tool("span-tables.webp", "Span table of allowable loads for FRP I-beams from 1 to 2.5 m"),
   "/frp-density-calculator": tool("density-calculator.webp", "Density calculator with calculation modes, section inputs and the material balance"),
   "/fiberglass-pultruded-profile-price": tool("price-estimator.webp", "Price estimator showing an indicative price per meter"),
+  "/tools/frp-grating-selector": tool("grating-selector.webp", "Grating selector table of molded and pultruded FRP grating rows by depth, open area and weight"),
   "/tools/thermal-expansion-calculator": tool("thermal-expansion.webp", "Thermal expansion calculator inputs for an FRP member"),
   "/tools/handrail-load-calculator": tool("handrail-load.webp", "Handrail load check inputs for posts and top rails"),
   "/tools/access-geometry-checker": tool("access-geometry.webp", "Ladder, stair and walkway geometry checker"),
