@@ -132,6 +132,8 @@ export const resourceCovers = {
   "/resources/evidence": resource("evidence.webp", "Table of reported results from SGS, PHI and Intertek test reports"),
   "/resources/downloads": resource("downloads.webp", "Document library with type filters and test report cards"),
   "/resources/design-guides": resource("design-guides.webp", "List of FRP design guides available on request"),
+  "/resources/frp-profile-design-manual": { src: "/images/covers/resources/frp-profile-design-manual-rev-b-cover.webp", alt: "Cover of the F1 Composite FRP Profile Design Manual, Rev. B, October 2026, with the eight section families", fit: "contain" },
+  "/resources/cad-library": { src: "/images/sections/fiberglass-i-beam-76x38x6-4-mm-cross-section.webp", alt: "Dimensioned cross-section drawing of a 76 × 38 × 6.4 mm pultruded fiberglass I-beam", fit: "contain" },
   "/resources/glossary": resource("glossary.webp", "Glossary entries for FRP, GRP and fiberglass"),
   "/resources/frp-pultrusion-fob-ddp-export-guide": resource("export-guide.webp", "Table comparing FOB, CIF, DAP and DDP responsibilities"),
   "/resources/how-to-choose-frp-pultrusion-supplier": resource("supplier-guide.webp", "Checklist cards for vetting an FRP pultrusion supplier"),

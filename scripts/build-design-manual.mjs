@@ -28,16 +28,9 @@ import { loadProjectModule } from "./load-project-module.mjs";
 const root = resolve(import.meta.dirname, "..");
 
 // ── document identity ───────────────────────────────────────────────────────
-export const MANUAL = {
-  code: "DOC-PF-2026-EN",
-  revision: "B",
-  issued: "2026-10",
-  issuedLabel: "October 2026",
-  supersedes: "Rev. A, April 2026 (withdrawn September 2026)",
-  file: "/downloads/f1composite-frp-profile-design-manual-2026-rev-b.pdf",
-  title: "FRP Profile Design Manual",
-  subtitle: "Pultruded structural profiles · EN 13706 grade E23",
-};
+// Identity lives in content/data/designManual.ts so the landing page
+// (/resources/frp-profile-design-manual) shows the same code, revision and file.
+export const MANUAL = loadProjectModule("content/data/designManual.ts").DESIGN_MANUAL;
 
 // ── data ────────────────────────────────────────────────────────────────────
 const { company, companyStatements, supplyTerms, weeks, usdRange } = loadProjectModule("content/data/company.ts");
@@ -216,7 +209,8 @@ function glyph(shape, size = 12, stroke = "#007a74", fill = "rgba(10,155,145,0.1
 
 // ── page machinery ──────────────────────────────────────────────────────────
 const pages = [];
-const toc = [];
+/** Chapter number, title and start page, filled while laying out; checked against DESIGN_MANUAL_CONTENTS. */
+export const toc = [];
 /** Running-header labels: the full titles wrap the header line. */
 const SHORT_TITLES = { "01": "Company and range", "02": "Material", "03": "Design basis", "04": "Section tables", "05": "Allowable load tables", "06": "Applications and systems", "07": "Durability", "08": "Fabrication and maintenance", "09": "Ordering and contact" };
 let section = "";

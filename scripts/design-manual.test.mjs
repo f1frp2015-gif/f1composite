@@ -9,7 +9,7 @@ import { existsSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { loadProjectModule } from "./load-project-module.mjs";
-import { MANUAL, build } from "./build-design-manual.mjs";
+import { MANUAL, build, toc } from "./build-design-manual.mjs";
 
 const root = fileURLToPath(new URL("../", import.meta.url));
 const { htmlPath, pages } = build({ htmlOnly: true });
@@ -102,4 +102,11 @@ test("the PDF the site links to exists and is this revision", () => {
   assert.ok(record.reference.includes(`Rev. ${MANUAL.revision}`));
   const { fallbackDownloads } = loadProjectModule("content/data/downloads.ts");
   assert.ok(fallbackDownloads.some((item) => item.file === MANUAL.file), "the manual is in the downloads list");
+});
+
+test("the landing page contents list matches the chapters the build lays out", () => {
+  const { DESIGN_MANUAL_CONTENTS, DESIGN_MANUAL } = loadProjectModule("content/data/designManual.ts");
+  assert.deepEqual(toc.map(({ number, title, page }) => ({ number, title, page })), DESIGN_MANUAL_CONTENTS.map(({ number, title, page }) => ({ number, title, page })));
+  assert.equal(pages, DESIGN_MANUAL.pages, "page count on the landing page");
+  assert.equal(MANUAL, DESIGN_MANUAL);
 });

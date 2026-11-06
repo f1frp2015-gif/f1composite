@@ -54,7 +54,15 @@ const guides: Array<{
     description:
       "Reference compiled from the website's data: material references, resin systems, the calculator's screening basis, catalog section properties, uniform-load examples, applications, fabrication and inspection. Read the assumptions and evidence scope alongside every table; a catalog reference is not a report for each listed configuration. Supersedes the withdrawn Rev. A.",
     status: "Available",
+    href: "/resources/frp-profile-design-manual",
     file: "/downloads/f1composite-frp-profile-design-manual-2026-rev-b.pdf",
+  },
+  {
+    title: "FRP profile CAD library (DXF)",
+    description:
+      "Dimensioned DXF cross-sections of the catalog I-beams, channels, angles, tubes, rods and flat bars, drawn in millimeters from the nominal section, with the grating clip drawings. Free, no login.",
+    status: "Available",
+    href: "/resources/cad-library",
   },
   {
     title: "FRP profile selection guide",
