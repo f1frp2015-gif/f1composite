@@ -43,7 +43,7 @@ test("the sitemap emits the registry for every page it lists, with absolute imag
   assert.deepEqual(imagesForRoute("/case-studies/beam-bridge").filter((src) => src.endsWith(".svg")), beamBridgeDrawings);
   // Every registered route must be a sitemap URL, or the images are claimed by nothing.
   const listed = new Set([...sitemapSource.matchAll(/\$\{BASE\}(\/[^`]*)`/g)].map((match) => match[1]));
-  const dynamic = [/^\/resources\/blog\//, /^\/applications\//, /^\/products\//, /^\/case-studies\//, /^\/industries\//, /^\/sourcing\//, /^\/tools\//, /^\/regions\//, /^\/technology\//, /^\/resources\//];
+  const dynamic = [/^\/datasheets\//, /^\/resources\/blog\//, /^\/applications\//, /^\/products\//, /^\/case-studies\//, /^\/industries\//, /^\/sourcing\//, /^\/tools\//, /^\/regions\//, /^\/technology\//, /^\/resources\//];
   for (const route of routeImages().keys()) {
     assert.ok(listed.has(route) || dynamic.some((pattern) => pattern.test(route)), `${route} carries images but is not in the sitemap`);
   }
