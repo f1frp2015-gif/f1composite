@@ -194,6 +194,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${BASE}/resources/downloads`, changeFrequency: "monthly", priority: 0.6 },
     { url: `${BASE}/about`, changeFrequency: "monthly", priority: 0.6 },
     { url: `${BASE}/about/authors`, changeFrequency: "monthly", priority: 0.7 },
+    { url: `${BASE}/about/photos`, changeFrequency: "monthly", priority: 0.5 },
     { url: `${BASE}/about/authors/yifan-liu`, changeFrequency: "monthly", priority: 0.65 },
     { url: `${BASE}/about/authors/haifeng-gong`, changeFrequency: "monthly", priority: 0.65 },
     { url: `${BASE}/about/authors/duowei-wang`, changeFrequency: "monthly", priority: 0.65 },

@@ -9,6 +9,7 @@ import { buildRfqHref } from "@/lib/rfq";
 // partial catalog import; truly unknown slugs still 404.
 
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import PageHeader from "@/components/layout/PageHeader";
@@ -39,6 +40,7 @@ import { computeProperties, designation, dimensionRows } from "@/lib/catalog/sha
 import { sig } from "@/lib/catalog/section";
 import { CAD_SLUGS } from "@/lib/cadManifest";
 import { matchesStandardGeometry } from "@/lib/catalog/drawingGeometry";
+import { SECTION_DRAWING_SIZE, sectionDrawingAlt, sectionDrawingPath } from "@/lib/sectionDrawings";
 import type { FormulationRow } from "@/lib/catalog/db";
 import { catalogRfqContext, catalogEvidenceHref } from "@/lib/catalog/identity";
 
@@ -150,13 +152,19 @@ export default async function DatasheetPage({
   // "offers/review/aggregateRating required" rule instead of erroring.
   const computedW = props?.massPerMetre != null ? Math.round(props.massPerMetre * 100) / 100 : null;
   const weightForOffer = publishedW ?? computedW;
+  // Catalog sizes have a dimensioned drawing file (Google Images can index it;
+  // the inline SVG cannot). A database geometry that differs from the
+  // reference keeps the live inline drawing.
+  const drawing = geometryMatchesReference ? sectionDrawingPath(product.model, shape) : null;
+  const drawingAlt = sectionDrawingAlt(product.model, shape);
   const faq = datasheetFaq({ model: product.model, shape, weightKgPerM: publishedW, hasCad, row: spanRow });
 
   const schema = buildProductFamilyPageSchema({
     name: `${product.model} pultruded FRP profile`,
     description: buildDesc(product.model, formulation?.en13706_grade ?? null),
     path: `/datasheets/${slug}`,
-    image: "/opengraph-image",
+    image: drawing ?? "/opengraph-image",
+    ...(drawing && { imageAlt: drawingAlt, imageCaption: `Cross-section of ${product.model}, drawn to scale from the nominal dimensions.` }),
     category: category?.name ?? "Pultruded FRP profile",
     material: "Glass fiber reinforced polymer (GFRP)",
     // Same-SKU weight fed through both ends of the standard-profile USD/kg
@@ -243,7 +251,17 @@ export default async function DatasheetPage({
         <div className="grid gap-[32px] lg:grid-cols-2">
           <div>
             <Figure number={1} title={desig ?? product.model} note="Drawn to scale">
-              {product.geometry ? (
+              {drawing ? (
+                <Image
+                  src={drawing}
+                  alt={drawingAlt}
+                  width={SECTION_DRAWING_SIZE.width}
+                  height={SECTION_DRAWING_SIZE.height}
+                  sizes="(min-width: 1024px) 560px, 100vw"
+                  priority
+                  className="mx-auto h-auto w-full"
+                />
+              ) : product.geometry ? (
                 <SectionSvg geometry={product.geometry} size={260} className="mx-auto h-auto max-w-full" />
               ) : (
                 <p className="py-[40px] text-center text-f14 text-t3">Geometry pending. Contact engineering for the drawing.</p>

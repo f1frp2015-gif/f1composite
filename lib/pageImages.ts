@@ -1,6 +1,6 @@
 import { blogPosts } from "@/content/data/blogPosts";
 import { caseStudyContentImages, caseStudyImages } from "@/content/data/caseStudyImages";
-import { OWNED_PHOTO_DIR } from "@/content/data/ownedPhotos";
+import { OWNED_PHOTO_DIR, ownedPhotoPath, ownedPhotos } from "@/content/data/ownedPhotos";
 import { finishedWindowSystems } from "@/content/data/finishedWindowSystems";
 import {
   applicationCovers,
@@ -13,6 +13,10 @@ import {
   toolCovers,
   type Cover,
 } from "@/lib/covers";
+import { buildProducts } from "@/lib/catalog/standardProfiles";
+import { catalogIdentity } from "@/lib/catalog/identity";
+import { INDEXED_DATASHEET_SLUGS } from "@/lib/datasheetContent";
+import { sectionDrawingPath } from "@/lib/sectionDrawings";
 
 /**
  * Which images each page claims for the image sitemap (<image:image> entries
@@ -26,8 +30,9 @@ import {
  *
  * Sources, in order: the registered cover of every page (lib/covers.ts: a
  * page's cover is its own lead figure), blog cover and supporting images,
- * the case-study figures, the beam-bridge drawings and the group's own photos
- * where they are placed. Only static /images paths are listed; generated
+ * the case-study figures, the beam-bridge drawings, the group's own photos
+ * where they are placed, and the dimensioned section drawing that leads each
+ * indexed datasheet (lib/sectionDrawings.ts). Only static /images paths are listed; generated
  * social cards (/opengraph-image) are text and stay out.
  */
 
@@ -86,6 +91,15 @@ function coverSources(): Map<string, string[]> {
   return map;
 }
 
+/** Indexed datasheet route → its section drawing (noindex datasheets stay out of the sitemap). */
+function datasheetDrawings(): [string, string][] {
+  const indexed = new Set(INDEXED_DATASHEET_SLUGS);
+  return buildProducts()
+    .map((product) => [catalogIdentity(product.model, product.cat, product.geometry.dims).slug, product] as const)
+    .filter(([slug]) => indexed.has(slug))
+    .map(([slug, product]) => [`/datasheets/${slug}`, sectionDrawingPath(product.model, product.geometry.shape)]);
+}
+
 let cache: Map<string, string[]> | undefined;
 
 /** Every route with the static images it claims, deduplicated and in page order. */
@@ -104,6 +118,9 @@ export function routeImages(): Map<string, string[]> {
   add("/case-studies/beam-bridge", beamBridgeDrawings);
   add("/products/fiberglass-windows-doors", [...finishedWindowSystems.map((system) => system.image), "/images/products/finished-windows/pu-profile-section.webp"]);
   for (const [path, sources] of Object.entries(ownedPhotoPlacements)) add(path, sources);
+  for (const [path, src] of datasheetDrawings()) add(path, [src]);
+  // The photo library renders every owned photo from the same registry.
+  add("/about/photos", ownedPhotos.map(ownedPhotoPath));
 
   cache = map;
   return map;

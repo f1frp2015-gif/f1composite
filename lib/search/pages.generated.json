@@ -24,6 +24,15 @@
     ]
   },
   {
+    "path": "/about/photos",
+    "title": "Factory & Project Photos",
+    "description": "Photos taken in FengDu pultrusion halls and F1 Composite's Chongqing plant: production lines, pultruded profiles, sheets and an FRP access staircase.",
+    "aliases": [
+      "Factory and project photos",
+      "Factory & Project Photos | F1 Composite"
+    ]
+  },
+  {
     "path": "/ai/passive-house",
     "title": "AI Passive House Window Selector — PHI Window Tool",
     "description": "Free AI tool for Passive House windows: match climate, target U-value, and opening type to PHI-certified FRP frame series, calculators, and case studies.",

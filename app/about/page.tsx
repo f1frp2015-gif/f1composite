@@ -255,7 +255,8 @@ export default function AboutPage() {
               <a href={company.sameAs[0]} target="_blank" rel="noopener noreferrer" className={link}>
                 F1 Composite YouTube channel
               </a>
-              .
+              , and the group&apos;s own factory and project photos are in the{" "}
+              <Link href="/about/photos" className={link}>photo library</Link>.
             </p>
           </div>
         </div>
