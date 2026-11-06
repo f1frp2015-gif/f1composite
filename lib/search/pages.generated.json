@@ -769,6 +769,14 @@
     ]
   },
   {
+    "path": "/resources/cad-library",
+    "title": "FRP Profile CAD Library: Free DXF Cross-Sections",
+    "description": "Free DXF cross-section drawings of pultruded FRP I-beams, channels, angles, tubes, rods and flat bars, plus grating clips. No login; opens in AutoCAD, LibreCAD.",
+    "aliases": [
+      "FRP profile CAD library"
+    ]
+  },
+  {
     "path": "/resources/design-guides",
     "title": "FRP Design Guides, Load Tables & Connection Details",
     "description": "Engineering design guidance for FRP structural applications. Connection details, load tables, and best practices from F1 Composite.",
@@ -790,6 +798,14 @@
     "description": "Original FRP test reports and certificates with scope notes: SGS modulus and UL 94 tests, a PHI window certificate, Intertek AS 2047 and TÜV PV frame reports.",
     "aliases": [
       "Find the document that matches your product"
+    ]
+  },
+  {
+    "path": "/resources/frp-profile-design-manual",
+    "title": "FRP Profile Design Manual (PDF): Section & Load Tables",
+    "description": "Free 46-page FRP profile design manual (PDF): EN 13706 E23 laminate data, ASCE/SEI 74-23 design basis, 114 section property rows and 1–6 m load tables.",
+    "aliases": [
+      "FRP profile design manual"
     ]
   },
   {

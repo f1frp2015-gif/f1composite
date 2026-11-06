@@ -189,6 +189,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${BASE}/resources/frp-windows-guide`, changeFrequency: "weekly", priority: 0.85 },
     { url: `${BASE}/resources/frp-pultrusion-fob-ddp-export-guide`, changeFrequency: "monthly", priority: 0.78 },
     { url: `${BASE}/resources/design-guides`, changeFrequency: "monthly", priority: 0.6 },
+    { url: `${BASE}/resources/frp-profile-design-manual`, changeFrequency: "monthly", priority: 0.7 },
+    { url: `${BASE}/resources/cad-library`, changeFrequency: "monthly", priority: 0.6 },
     { url: `${BASE}/resources/glossary`, changeFrequency: "monthly", priority: 0.7 },
     { url: `${BASE}/resources/gfrp-rebar-size-chart`, lastModified: "2026-10-23", changeFrequency: "monthly", priority: 0.75 },
     { url: `${BASE}/resources/blog`, lastModified: latestBlogUpdate > blogLibraryUpdated ? latestBlogUpdate : blogLibraryUpdated, changeFrequency: "weekly", priority: 0.7 },
