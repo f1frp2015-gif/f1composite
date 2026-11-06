@@ -13,10 +13,19 @@ const tileLabel = "font-mono text-f12 uppercase tracking-[0.06em] text-t3";
 
 const pct = (value: number) => `${value >= 0 ? "+" : ""}${(value * 100).toFixed(1)}%`;
 
-export default function UnitConverter() {
-  const [quantityId, setQuantityId] = useState("stress");
-  const [value, setValue] = useState("240");
-  const [fromId, setFromId] = useState("MPa");
+export default function UnitConverter({
+  initialQuantity = "stress",
+  initialFrom = "MPa",
+  initialValue = "240",
+}: {
+  /** Opening state for a conversion page such as /tools/frp-unit-converter/msi-to-gpa. */
+  initialQuantity?: string;
+  initialFrom?: string;
+  initialValue?: string;
+} = {}) {
+  const [quantityId, setQuantityId] = useState(initialQuantity);
+  const [value, setValue] = useState(initialValue);
+  const [fromId, setFromId] = useState(initialFrom);
   const [shape, setShape] = useState<InchShape>("square-tube");
   const [depth, setDepth] = useState("4");
   const [width, setWidth] = useState("4");
