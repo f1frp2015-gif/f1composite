@@ -11,6 +11,7 @@ import { pultrusionGuideReviewed, dedicatedProductPages } from "@/content/data/p
 import { performanceReviewed } from "@/content/data/pultrudedPerformance";
 import { INDEXED_DATASHEET_SLUGS } from "@/lib/datasheetContent";
 import { imagesForRoute } from "@/lib/pageImages";
+import { UNIT_CONVERSION_PAGES, conversionPath } from "@/lib/unitConversionPages";
 
 const BASE = "https://www.f1composite.com";
 
@@ -100,6 +101,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${BASE}/tools/frp-cut-list-optimizer`, changeFrequency: "monthly", priority: 0.75 },
     { url: `${BASE}/tools/frp-column-calculator`, changeFrequency: "monthly", priority: 0.75 },
     { url: `${BASE}/tools/frp-unit-converter`, changeFrequency: "monthly", priority: 0.7 },
+    ...UNIT_CONVERSION_PAGES.map((page) => ({ url: `${BASE}${conversionPath(page.slug)}`, changeFrequency: "yearly" as const, priority: 0.5 })),
     { url: `${BASE}/tools/frp-life-cycle-cost-calculator`, changeFrequency: "monthly", priority: 0.75 },
     { url: `${BASE}/products/fiberglass-structural-shapes/frp-i-beam`, changeFrequency: "monthly", priority: 0.7 },
     { url: `${BASE}/products/fiberglass-structural-shapes/frp-angle`, changeFrequency: "monthly", priority: 0.7 },

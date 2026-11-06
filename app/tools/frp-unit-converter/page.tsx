@@ -11,6 +11,7 @@ import RelatedLinks from "@/components/sections/RelatedLinks";
 import UnitConverter from "@/components/tools/UnitConverter";
 import { QUANTITIES, convertAll, formatValue } from "@/lib/unitConverter";
 import { absoluteUrl, buildPageMetadata } from "@/lib/seo";
+import { UNIT_CONVERSION_PAGES, conversionLabels, conversionPath } from "@/lib/unitConversionPages";
 
 const pagePath = "/tools/frp-unit-converter";
 const pageDescription =
@@ -70,6 +71,7 @@ export default function UnitConverterPage() {
         data={{
           "@context": "https://schema.org",
           "@type": "WebApplication",
+          "@id": `${absoluteUrl(pagePath)}#webapp`,
           name: "FRP Engineering Unit Converter",
           url: absoluteUrl(pagePath),
           description: pageDescription,
@@ -123,6 +125,12 @@ export default function UnitConverterPage() {
             </tbody>
           </table>
         </div>
+        <p className="mt-[16px] text-f16">
+          Full tables for one pair: <Link href={conversionPath("msi-to-gpa")} className="font-semibold text-teal-text hover:underline">Msi to GPa</Link>,{" "}
+          <Link href={conversionPath("gpa-to-msi")} className="font-semibold text-teal-text hover:underline">GPa to Msi</Link>,{" "}
+          <Link href={conversionPath("ksi-to-mpa")} className="font-semibold text-teal-text hover:underline">ksi to MPa</Link> and{" "}
+          <Link href={conversionPath("mpa-to-ksi")} className="font-semibold text-teal-text hover:underline">MPa to ksi</Link>.
+        </p>
       </PageSection>
 
       <PageSection id="reference" title="Common FRP values in both systems" intro="Values that come up in FRP specifications and codes, converted with the same factors as the tool." tone="muted">
@@ -164,6 +172,7 @@ export default function UnitConverterPage() {
       <RelatedLinks
         background="bg2"
         groups={[
+          { title: "Single conversions", links: UNIT_CONVERSION_PAGES.map((page) => { const l = conversionLabels(page); return { href: conversionPath(page.slug), label: `${l.from} to ${l.to} table` }; }) },
           { title: "Other tools", links: [
             { href: "/tools", label: "All engineering tools" },
             { href: "/tools/profile-finder", label: "Profile finder" },
