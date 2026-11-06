@@ -4,6 +4,7 @@ import { moldedGratingSpecGroups } from "@/content/data/moldedGratingSpecs";
 import { pultrudedGratingSpecGroups } from "@/content/data/pultrudedGratingSpecs";
 import { commercialFacts } from "@/content/data/engineeringEvidence";
 import { gratingInquiryHref, gratingProducts, type GratingFamily } from "@/lib/gratingInquiry";
+import { datasetFile } from "@/lib/datasetFiles";
 
 const supply = [
   { title: "Quantity & samples", body: "Send panel quantities or total area, your preferred configuration and sample needs. Minimum production quantity and sample arrangements are confirmed with the quotation." },
@@ -21,7 +22,7 @@ export default function GratingBuyingGuide({ family, tones = ["muted", "white"] 
           <article className="rounded-card border border-border-default bg-white p-[20px] sm:p-[24px]">
             <div aria-label="Selection data preview" className="mb-4 overflow-hidden rounded-control border border-border-default bg-bg2 p-3 text-f12"><p className="mb-2 font-mono text-f12 uppercase tracking-[0.06em] text-t3">Inside the selection CSV</p><table className="w-full text-left"><thead><tr><th>Depth</th><th>Weight</th><th>Open area</th></tr></thead><tbody>{(family === 'pultruded' ? pultrudedGratingSpecGroups[0].rows : moldedGratingSpecGroups[0].rows).slice(0,3).map((r,i) => <tr key={i} className="border-t border-border-default"><td className="py-2">{r.depth} mm</td><td>{r.weight} kg/m²</td><td>{r.openArea}</td></tr>)}</tbody></table><p className="mt-2 text-t3">Nominal selection data · not a load table</p></div><h3 className="text-f18 font-bold">Panel selection data</h3>
             <p className="mt-[10px] text-f14 leading-relaxed text-t2">Spreadsheet-ready CSV with the same dimensions, nominal weights and open areas shown on our product pages. Selection reference, not a load table.</p>
-            {families.map(item => <a key={item} className="mt-[14px] block min-h-[36px] text-f14 font-bold text-teal-text underline underline-offset-4" href={`/api/grating-specifications?family=${item}`} download>Download {item} specifications (CSV) ↓</a>)}
+            {families.map(item => <a key={item} className="mt-[14px] block min-h-[36px] text-f14 font-bold text-teal-text underline underline-offset-4" href={datasetFile(item === "molded" ? "molded-grating" : "pultruded-grating").path} download>Download {item} specifications (CSV) ↓</a>)}
           </article>
           <article className="rounded-card border border-border-default bg-white p-[20px] sm:p-[24px]">
             <h3 className="text-f18 font-bold text-t1">Fixing clips & CAD</h3>
