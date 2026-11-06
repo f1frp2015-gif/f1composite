@@ -15,6 +15,7 @@ import { approximateInches } from "@/lib/productInquiry";
 import GratingClipGuide from "@/components/sections/GratingClipGuide";
 import RelatedLinks from "@/components/sections/RelatedLinks";
 import JsonLd from "@/components/seo/JsonLd";
+import { datasetSchema } from "@/lib/datasetFiles";
 import CoverLink from "@/components/ui/CoverLink";
 import { FAQList } from "@/components/ui/FAQ";
 import Figure from "@/components/ui/Figure";
@@ -110,6 +111,7 @@ const th = "px-[14px] py-[8px] font-semibold text-t1";
 export default function MoldedFrpGratingPage() {
   return (
     <>
+      <JsonLd data={datasetSchema("molded-grating")} />
       <JsonLd
         data={buildProductFamilyPageSchema({
           name: "Molded FRP Grating",

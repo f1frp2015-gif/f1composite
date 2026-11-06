@@ -7,6 +7,7 @@ import InnerCTA from "@/components/sections/InnerCTA";
 import RelatedLinks from "@/components/sections/RelatedLinks";
 import { FAQList } from "@/components/ui/FAQ";
 import JsonLd from "@/components/seo/JsonLd";
+import { datasetFile, datasetSchema } from "@/lib/datasetFiles";
 import {
   GFRP_CHART_DENSITY_GCM3,
   STEEL_DENSITY_GCM3,
@@ -75,6 +76,7 @@ export default function GfrpRebarSizeChartPage() {
           about: ["GFRP rebar", "ASTM D7957", "Fiberglass rebar sizes"],
         }}
       />
+      <JsonLd data={datasetSchema("gfrp-rebar-size-chart")} />
       <PageHeader
         tag="Technical reference"
         title="GFRP rebar size chart"
@@ -251,6 +253,7 @@ export default function GfrpRebarSizeChartPage() {
               { href: "/products/frp-rebar", label: "GFRP bars, stirrups and mesh" },
               { href: "/resources/gfrp-rebar-applications", label: "GFRP rebar applications" },
               { href: "/downloads/f1-rebar-schedule-template.csv", label: "Bar schedule template (CSV)" },
+              { href: datasetFile("gfrp-rebar-size-chart").path, label: "This size chart as data (CSV)" },
             ],
           },
           {

@@ -10,6 +10,7 @@ import PageNav from "@/components/layout/PageNav";
 import PageSection from "@/components/layout/PageSection";
 import InnerCTA from "@/components/sections/InnerCTA";
 import JsonLd from "@/components/seo/JsonLd";
+import { datasetFile, datasetSchema } from "@/lib/datasetFiles";
 import { FAQList } from "@/components/ui/FAQ";
 import EmbedCode from "@/components/tools/EmbedCode";
 import ToolCitationBlock from "@/components/tools/ToolCitationBlock";
@@ -17,7 +18,7 @@ import SpanTablesContent from "@/components/tools/SpanTablesContent";
 import RelatedLinks from "@/components/sections/RelatedLinks";
 import { ToolNextSteps } from "@/components/tools/ToolNextSteps";
 import { getSeoQueryTarget } from "@/content/data/seoQueryTargets";
-import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
+import { buildPageMetadata } from "@/lib/seo";
 import { buildSpanTables, DESIGN_BASIS } from "@/lib/spanTables";
 import { datasheetHrefForModel } from "@/lib/datasheetContent";
 
@@ -60,7 +61,6 @@ const spanTableFaqs = [
 
 export default function SpanTablesPage() {
   const families = buildSpanTables();
-  const totalRows = families.reduce((n, f) => n + f.rows.length, 0);
   const datasheetHrefs = Object.fromEntries(
     families.flatMap((family) => family.rows.flatMap((row) => {
       const href = datasheetHrefForModel(row.model);
@@ -70,29 +70,7 @@ export default function SpanTablesPage() {
 
   return (
     <>
-      <JsonLd
-        data={{
-          "@context": "https://schema.org",
-          "@type": "Dataset",
-          name: "FRP Profile Span Tables — Allowable Uniform Load (EN 13706 E23)",
-          description:
-            `Precomputed allowable uniform load for ${totalRows} pultruded FRP profiles (I-beam, channel, square/rectangular tube, round tube) across spans of 1–6 m. Basis: EN 13706 E23, LRFD ASCE/SEI 74-23 (φ 0.65, λ 0.8, γ_Q 1.6), outdoor knockdown 0.85, simply supported UDL, deflection L/250 with Timoshenko shear correction.`,
-          url: absoluteUrl("/frp-span-tables"),
-          creator: { "@id": "https://www.f1composite.com/#organization" },
-          license: absoluteUrl("/terms"),
-          isAccessibleForFree: true,
-          keywords: [
-            "FRP span table",
-            "fiberglass beam span chart",
-            "pultruded profile load table",
-            "FRP I-beam span table",
-            "FRP channel load capacity",
-            "fiberglass tube span chart",
-            "EN 13706 E23 design data",
-            "ASCE/SEI 74-23 LRFD FRP",
-          ],
-        }}
-      />
+      <JsonLd data={datasetSchema("span-tables")} />
       <PageHeader
         tag="Tools"
         title="FRP span tables and load charts"
@@ -208,6 +186,12 @@ export default function SpanTablesPage() {
             medium="Data set"
           />
         </div>
+        <p className="mt-[16px] text-f16">
+          <a href={datasetFile("span-tables").path} download className="font-semibold text-teal-text underline underline-offset-4">
+            Download every table as CSV ↓
+          </a>{" "}
+          <span className="text-t3">(one row per profile: dimensions, Ix, Wx, published mass, allowable load and governing check at each span)</span>
+        </p>
       </PageSection>
 
       <PageSection id="faq" title="Frequently asked questions" tone="muted">
