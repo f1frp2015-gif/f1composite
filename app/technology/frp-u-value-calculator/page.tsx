@@ -41,6 +41,11 @@ const uValueFaqs = [
       "Yes, for numerical screening. The target panel compares Uw with the PHI criteria, the England Approved Document L 2021 limits, the German limit for replaced windows, US ENERGY STAR v7.0 and IECC 2024 U-factor limits, ENERGY STAR Canada and the NBC 2020 prescriptive values, the New Zealand H1/AS1 values and selected Chinese GB limits. The EU itself sets no window U-value; member states do. The panel does not determine compliance: NFRC, CSA A440.2 and AFRC use different rating procedures, ENERGY STAR also requires SHGC, and Chinese acceptance depends on the project zone, window-to-wall ratio, and test evidence.",
   },
   {
+    question: "How do I convert a U-value from metric to imperial?",
+    answer:
+      "Multiply the metric value by 0.1761: 1 W/m²·K equals 0.1761 BTU/(h·ft²·°F). A Uw of 0.78 W/m²·K is therefore about 0.14 BTU/(h·ft²·°F). The conversion changes the units only; an EN ISO 10077-1 result is still not an NFRC U-factor.",
+  },
+  {
     question: "How does this compare with NFRC simulation in the US/Canada?",
     answer:
       "NFRC 100 (US) and CSA A440.2 (Canada) use 2D thermal simulation with WINDOW/THERM at fixed model sizes and their own boundary conditions, rather than the simplified EN ISO 10077-1 approach. The two results can differ by more than rounding and the ratings are not interchangeable: an EN ISO 10077-1 value cannot be quoted as an NFRC U-factor. For NFRC certification, F1 Composite supplies frames with NFRC-compliant simulations on request.",
@@ -170,7 +175,7 @@ export default function UValueCalculatorPage() {
       <PageHeader
         tag="Tools"
         title="Window U-value calculator"
-        description="Calculate the whole-window U-value (Uw) with the EN ISO 10077-1 simplified method. Compare FRP, aluminum, PVC and timber frames against clearly labeled numeric targets, or load the locked PHI certificate reference."
+        description="Calculate the whole-window U-value (Uw) from the frame, the double or triple glazing (Ug) and the edge seal, with the EN ISO 10077-1 simplified method. Compare FRP, aluminum, PVC and timber frames against clearly labeled numeric targets, or load the locked PHI certificate reference."
         facts={[
           { label: "Method", value: "EN ISO 10077-1" },
           { label: "Frames compared", value: String(frameSystems.length) },
@@ -183,7 +188,7 @@ export default function UValueCalculatorPage() {
         items={[
           { id: "tool", label: "Calculator" },
           { id: "next-steps", label: "Next steps" },
-          { id: "how-to", label: "How to use" },
+          { id: "how-to", label: "How to calculate" },
           { id: "mistakes", label: "Specification mistakes" },
           { id: "frames", label: "Frame values" },
           { id: "targets", label: "Reference targets" },
@@ -220,8 +225,8 @@ export default function UValueCalculatorPage() {
 
       <PageSection
         id="how-to"
-        title="How to use the U-value calculator"
-        intro={<>The whole-window U-value (U<sub>w</sub>) is the heat loss through a window assembly in W/m²·K. It combines the frame U<sub>f</sub>, the glazing U<sub>g</sub> and the edge term Ψ<sub>g</sub> where the frame meets the glass. This tool uses the EN ISO 10077-1 simplified formula; its result must not be relabeled as an NFRC, NRCan, GB/T 8484 or project certification result, since those procedures use their own model sizes, boundary conditions or physical tests.</>}
+        title="How to calculate the U-value of a window"
+        intro={<>The whole-window U-value (U<sub>w</sub>) is the heat loss through a window assembly in W/m²·K. It combines the frame U<sub>f</sub>, the glazing U<sub>g</sub> and the edge term Ψ<sub>g</sub> where the frame meets the glass, weighted by area and edge length: U<sub>w</sub> = (A<sub>g</sub>·U<sub>g</sub> + A<sub>f</sub>·U<sub>f</sub> + l<sub>g</sub>·Ψ<sub>g</sub>) ÷ (A<sub>g</sub> + A<sub>f</sub>). This tool uses that EN ISO 10077-1 simplified formula; its result must not be relabeled as an NFRC, NRCan, GB/T 8484 or project certification result, since those procedures use their own model sizes, boundary conditions or physical tests.</>}
         tone="muted"
       >
         <div className="grid gap-[24px] lg:grid-cols-2">

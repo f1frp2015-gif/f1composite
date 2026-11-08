@@ -55,7 +55,7 @@ const spanTableFaqs = [
   {
     question: "Can I use these span tables for FRP grating?",
     answer:
-      "No. Molded and pultruded gratings are plate-like panels with their own load-deflection tables per panel type and bearing-bar pitch. These tables cover single pultruded structural profiles in bending. For grating, see the FRP gratings product page or ask engineering for panel load tables against your support spacing.",
+      "No. Molded and pultruded gratings are plate-like panels with their own load-deflection tables per panel type and bearing-bar pitch. These tables cover single pultruded structural profiles in bending. For grating, use the span and load tables in the FRP grating selector, or ask engineering for panel load tables against your support spacing.",
   },
 ];
 
@@ -110,6 +110,7 @@ export default function SpanTablesPage() {
           Local buckling, lateral-torsional buckling, connections and long-term creep are not covered; review them to
           ASCE/SEI 74-23 or CEN/TS 19101. For a different deflection limit, point loads, cantilevers or another code, use the{" "}
           <Link href="/frp-profile-calculator" className="font-semibold text-teal-text hover:underline">FRP profile calculator</Link>.
+          {" "}New to the material? Read <Link href="/what-is-frp#engineering" className="font-semibold text-teal-text hover:underline">what FRP is and why stiffness governs its design</Link>.
         </p>
       </PageSection>
 
@@ -212,6 +213,7 @@ export default function SpanTablesPage() {
           {
             title: "Use the selected section",
             links: [
+              { href: "/pultruded-frp-profiles", label: "All pultruded FRP profiles" },
               { href: "/products/fiberglass-structural-shapes", label: "Fiberglass structural shapes" },
               { href: "/products/fiberglass-structural-shapes/frp-square-tube", label: "Fiberglass square tube sizes" },
               { href: "/products/fiberglass-structural-shapes/frp-tube", label: "Fiberglass round tube sizes" },
@@ -223,6 +225,7 @@ export default function SpanTablesPage() {
             title: "Other tools",
             links: [
               { href: "/tools/profile-finder", label: "Profile finder" },
+              { href: "/tools/frp-grating-selector", label: "FRP grating span and load tables" },
               { href: "/tools/frp-cut-list-optimizer", label: "Cut list optimizer" },
               { href: "/frp-density-calculator", label: "Density and weight calculator" },
               { href: "/tools", label: "All engineering tools" },

@@ -17,7 +17,7 @@ import { prefillForWhatIsFRP } from "@/lib/aiPrefill";
 import { supplyTerms, weeks } from "@/content/data/company";
 
 // Last content review; shown in the page header and used as dateModified.
-const updatedAt = "2026-11-04";
+const updatedAt = "2026-11-08";
 
 const pagePath = "/what-is-frp";
 const seoTarget = getSeoQueryTarget(pagePath);
@@ -39,12 +39,18 @@ const toc = [
   { id: "properties", label: "Properties" },
   { id: "advantages", label: "Advantages" },
   { id: "limitations", label: "Limitations" },
+  { id: "engineering", label: "Engineering" },
   { id: "standards", label: "Standards" },
   { id: "applications", label: "Applications" },
   { id: "faq", label: "FAQ" },
 ];
 
 const faqItems = [
+  {
+    question: "What does FRP stand for?",
+    answer:
+      "FRP stands for fiber-reinforced polymer, also written fiber-reinforced plastic or, in British English, fibre-reinforced plastic. It names a composite of strong fibers (usually glass, sometimes carbon, aramid or basalt) held in a polymer resin. In construction and industrial buying, FRP usually means glass-fiber products such as pultruded profiles, grating and panels.",
+  },
   {
     question: "What is glass fiber reinforced plastic (GFRP)?",
     answer:
@@ -195,7 +201,7 @@ export default function WhatIsFrpPage() {
         updated={updatedAt}
         tag="FRP Guide"
         title="What is FRP? Definition, materials, properties, and uses"
-        description="FRP means fiber reinforced polymer or plastic. Glass-reinforced FRP is called GFRP or GRP; carbon-reinforced FRP is CFRP. Compare the terminology, composition, properties, applications and design limits before selecting a material."
+        description="FRP stands for fiber-reinforced polymer, also called fiber-reinforced plastic (fibre-reinforced plastic in British English). Glass-reinforced FRP is called GFRP or GRP; carbon-reinforced FRP is CFRP. Compare the terminology, composition, properties, applications and design limits before selecting a material."
         breadcrumbs={[
           { label: "Home", href: "/" },
           { label: "What is FRP?" },
@@ -299,7 +305,7 @@ export default function WhatIsFrpPage() {
       </PageSection>
 
       <PageSection id="frp-vs-fiberglass" title="FRP vs fiberglass: what is the difference?" tone="white">
-        <p className="max-w-[860px] text-f16 leading-golden text-t2"><strong className="text-t1">FRP is the material family; fiberglass describes glass fibers or a glass-reinforced product.</strong> Glass fibers combined with a polymer resin make GFRP, also called GRP. Carbon-fiber reinforced polymer is FRP too, but it is not fiberglass. In a supplier catalog, a fiberglass tube commonly means a finished glass-and-resin composite tube.</p>
+        <p className="max-w-[860px] text-f16 leading-golden text-t2"><strong className="text-t1">Is FRP the same as fiberglass? Not exactly: fiberglass is FRP made with glass fibers, while FRP is the wider family that also uses carbon, aramid or basalt fibers.</strong> Glass fibers combined with a polymer resin make GFRP, also called GRP. Carbon-fiber reinforced polymer is FRP too, but it is not fiberglass. In a supplier catalog, a fiberglass tube commonly means a finished glass-and-resin composite tube.</p>
         <div className="mt-[24px] grid gap-[12px] md:grid-cols-3">
           {[
             { title: "FRP", text: "Fiber-reinforced polymer (or plastic). The reinforcement and resin must still be specified." },
@@ -670,8 +676,37 @@ export default function WhatIsFrpPage() {
         </ul>
       </PageSection>
 
+      {/* Engineering: design checks and the two meanings of "FRP system" */}
+      <PageSection id="engineering" title="FRP in engineering: design checks and FRP systems" tone="white">
+        <p className="max-w-[860px] text-f16 leading-golden text-t2">
+          <strong className="text-t1">&ldquo;FRP system&rdquo; means two different things in engineering.</strong> In
+          building and bridge repair it usually refers to externally bonded FRP strengthening: carbon or glass fabric
+          and laminates bonded to concrete, designed with ACI 440.2R. In structures and industrial access it refers to
+          pultruded FRP members (beams, channels, tubes, grating and handrail) assembled with bolts or adhesive. This
+          guide and our products cover the second meaning.
+        </p>
+        <p className="mt-[16px] max-w-[860px] text-f16 leading-golden text-t2">
+          FRP design for pultruded members follows ASCE/SEI 74-23 in the US and CEN/TS 19101:2022 in Europe. Because
+          the elastic modulus is about one tenth of steel, deflection and buckling usually govern before strength, so
+          start with stiffness: check the span against an allowable-load chart, then confirm the section in a
+          calculator before detailing connections.
+        </p>
+        <ul className="mt-[12px] flex flex-wrap gap-x-[24px] gap-y-[4px] text-f14 font-semibold">
+          {[
+            { href: "/frp-span-tables", label: "FRP span tables for I-beams, channels and tubes" },
+            { href: "/frp-profile-calculator", label: "FRP beam and section calculator" },
+          ].map((link) => (
+            <li key={link.href}>
+              <Link href={link.href} className="inline-flex min-h-[44px] items-center text-teal-text hover:underline">
+                {link.label} <span aria-hidden="true" className="ml-[4px]">→</span>
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </PageSection>
+
       {/* Standards */}
-      <PageSection id="standards" title="FRP composites: key standards and certification" tone="white">
+      <PageSection id="standards" title="FRP composites: key standards and certification" tone="muted">
         <div className="relative overflow-x-auto rounded-card border border-border-default bg-white">
           <table className="w-full min-w-[560px] border-collapse text-left text-f14">
             <thead>
@@ -715,7 +750,7 @@ export default function WhatIsFrpPage() {
 </PageSection>
 
       {/* Applications */}
-      <PageSection id="applications" title="Where advanced FRP composites are specified" tone="muted">
+      <PageSection id="applications" title="Where advanced FRP composites are specified" tone="white">
         <ul className="grid grid-cols-1 gap-[12px] sm:grid-cols-2 lg:grid-cols-4 lg:gap-[16px]">
           {applicationGroups.map((group) => (
             <li key={group.href}>
@@ -756,7 +791,7 @@ export default function WhatIsFrpPage() {
         </p>
       </PageSection>
 
-      <PageSection id="faq" title="Frequently asked questions" tone="white">
+      <PageSection id="faq" title="Frequently asked questions" tone="muted">
         <FAQList items={faqItems} />
         <p className="mt-[20px] text-f16 leading-golden text-t2">
           For glass fibers, insulation and resin-bonded profiles, read{" "}
