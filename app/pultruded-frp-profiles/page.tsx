@@ -236,12 +236,17 @@ const topicLinks = [
   { href: "/resources/glossary", title: "Pultrusion glossary", text: "Roving, mat, veil, Barcol hardness and the other terms on a profile datasheet." },
 ] as const;
 
-// Five purchasing questions, each answered in under 50 words.
+// Six purchasing questions, each answered in under 50 words.
 const faqItems = [
   {
     question: "What are pultruded FRP profiles?",
     answer:
       "Continuous fiberglass structural shapes made by pulling glass reinforcement through a resin bath and a heated steel die. The cross-section is constant along the length: I-beams, channels, angles, tubes, rods and flat bars, with 65–70% glass fiber by weight.",
+  },
+  {
+    question: "How do pultruded profiles differ from extruded profiles?",
+    answer:
+      "Extrusion pushes one material, such as aluminum or PVC, through a die. Pultrusion pulls continuous glass fibers through resin and a heated die, so the fibers run the full length of the profile. That is why pultruded fiberglass profiles can carry structural loads while staying non-conductive and corrosion resistant.",
   },
   {
     question: "Which standards do the profiles meet?",
@@ -262,7 +267,7 @@ const faqItems = [
   },
 ];
 
-const LAST_UPDATED = "2026-10-27";
+const LAST_UPDATED = "2026-11-08";
 const REVIEWER = { name: "Yifan Liu", title: "Application Engineer", slug: "yifan-liu" };
 const AUTHOR = { name: "Dr. Haifeng Gong", title: "R&D Lead, Materials & Standards", slug: "haifeng-gong" };
 const quoteHref = buildRfqHref({ source: "pultruded-profiles-hub", product: "Pultruded FRP profiles", productPath: pagePath });
@@ -347,7 +352,7 @@ export default async function PultrudedFRPProfilesHubPage() {
         reviewer={reviewerCredit(authorsBySlug[REVIEWER.slug])}
         tag="Pultruded profiles"
         title="Pultruded FRP profiles"
-        description={`Fiberglass (GRP) structural sections, standard and custom: ${sizeCount} catalog sizes in seven shapes, plus sheets, hollow plates, deck panels, window lineals and custom dies. Made to EN 13706 E23 and ASTM D3917, sized in mm and inches, shipped FOB or DDP to ${company.exportCountries} countries.`}
+        description={`FRP/GRP pultruded profiles, also called pultrusions or composite structural profiles, standard and custom: ${sizeCount} catalog sizes in seven shapes, plus sheets, hollow plates, deck panels, window lineals and custom dies. Made to EN 13706 E23 and ASTM D3917, sized in mm and inches, shipped FOB or DDP to ${company.exportCountries} countries.`}
         facts={[
           { label: "Catalog sizes", value: String(sizeCount) },
           { label: "Standards", value: "EN 13706 E23 · ASTM D3917" },

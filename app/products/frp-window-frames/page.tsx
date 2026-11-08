@@ -20,7 +20,7 @@ import { buildPageMetadata, buildProductFamilyPageSchema } from "@/lib/seo";
 import { buildWindowRfqHref } from "@/lib/windowInquiry";
 
 // Last content review; shown in the page header and used as dateModified.
-const updatedAt = "2026-11-04";
+const updatedAt = "2026-11-08";
 
 const pagePath = "/products/frp-window-frames";
 const description = "Compare nine FRP window profile systems and 11 finished window and door families. Review configurations, catalogs and project supply scope.";
@@ -53,7 +53,7 @@ export default function FenestrationSystemsPage() {
       tag="Windows & Doors · F1-THERM"
       line={{ name: "F1-THERM", label: "Windows & doors" }}
       title="FRP window & door systems"
-      description="Pultruded fiberglass system profiles for local fabrication, with finished windows and doors available for project supply. Find your series, define the scope and start the right conversation."
+      description="Pultruded fiberglass window profiles, supplied as complete systems for local fabrication, with finished windows and doors available for project supply. Find your series, define the scope and start the right conversation."
       facts={[{ label: "Profile systems", value: "9 series" }, { label: "Finished units", value: "11 families" }, { label: "Profile depth", value: "50–140 mm" }, { label: "Supply routes", value: "Profiles / units" }]}
       figure={<Figure number={1} title="90 series corner section" note={null}><Image src="/images/products/window-door/frp-window-frame-90-series-corner-section.webp" alt="Corner section of a 90-series FRP window frame with triple glazing" width={800} height={800} sizes="(max-width: 1023px) 90vw, 360px" preload className="mx-auto h-auto w-full max-w-[320px] object-contain" /></Figure>}
       breadcrumbs={[{ label: "Home", href: "/" }, { label: "Products", href: "/products/product-lines" }, { label: "Windows & Doors" }]}
@@ -68,6 +68,8 @@ export default function FenestrationSystemsPage() {
 
     <PageSection id="series" title="Find your starting system" count="9 systems" tone="muted" intro="Compare casement, tilt-and-turn, sliding and compression-seal systems, then review the matching sections before you ask for samples or a quotation." aside={<Link href="/products/fiberglass-windows-doors#series" className="font-semibold text-teal-text underline underline-offset-4 hover:text-teal">Compare for finished units</Link>}>
       <WindowSystemExplorer productPath={pagePath} />
+      <p className="mt-[20px] text-f16 leading-relaxed text-t2">Several series are also supplied as GFRP-PU profiles, also written GFRPU or PU fiberglass: glass fiber in a polyurethane resin matrix, used for the 65 to 90-series windows in the Baotou and Yantai projects below. <Link href="/technology/polyurethane-pultrusion-windows" className="font-semibold text-teal-text underline underline-offset-4">How polyurethane pultrusion changes a window profile →</Link></p>
+      <p className="mt-[12px] text-f16 leading-relaxed text-t2">Reinforcing PVC windows rather than building fiberglass frames? See <Link href="/products/frp-window-reinforcement" className="font-semibold text-teal-text underline underline-offset-4">pultruded fiberglass window reinforcements</Link>.</p>
     </PageSection>
 
     <PageSection id="components" title="Specify the system, not single lineals" intro="Frame, sash and mullion sections only work with their beads, gaskets, connectors and hardware. The table shows what each supply route quotes.">
