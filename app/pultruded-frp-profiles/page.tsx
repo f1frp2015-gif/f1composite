@@ -236,7 +236,7 @@ const topicLinks = [
   { href: "/resources/glossary", title: "Pultrusion glossary", text: "Roving, mat, veil, Barcol hardness and the other terms on a profile datasheet." },
 ] as const;
 
-// Six purchasing questions, each answered in under 50 words.
+// Eight purchasing questions, each answered in under 50 words.
 const faqItems = [
   {
     question: "What are pultruded FRP profiles?",
@@ -247,6 +247,11 @@ const faqItems = [
     question: "How do pultruded profiles differ from extruded profiles?",
     answer:
       "Extrusion pushes one material, such as aluminum or PVC, through a die. Pultrusion pulls continuous glass fibers through resin and a heated die, so the fibers run the full length of the profile. That is why pultruded fiberglass profiles can carry structural loads while staying non-conductive and corrosion resistant.",
+  },
+  {
+    question: "Can you make pull-wound (pullwinding) profiles?",
+    answer:
+      "Yes. Pull-winding adds hoop-wound fibers to the pultruded axial fibers, which raises hoop strength and crush resistance in tubes and poles. Send the diameter, wall, length and the load or pressure the tube must take; the winding angle and layup are confirmed in the quotation.",
   },
   {
     question: "Which standards do the profiles meet?",
@@ -260,6 +265,11 @@ const faqItems = [
   {
     question: "Is there a minimum order quantity?",
     answer: `Catalog sections have no fixed minimum. Custom profiles start at ${supplyTerms.customMoqMeters.firstRun} linear meters for the first production run and ${supplyTerms.customMoqMeters.repeat} m for repeat orders; tooling is quoted separately.`,
+  },
+  {
+    question: "Do you supply pultruded fibreglass profiles to the UK?",
+    answer:
+      "Yes. We ship GRP and FRP pultruded profiles to the UK, FOB China or DDP to your site, with sizes and drawings in millimeters. Ask for the EN 13706 grade E23 data and the test reports your project needs with the quotation.",
   },
   {
     question: "Can I order in inches and buy direct?",
