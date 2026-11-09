@@ -12,6 +12,10 @@
 // and flat bars stay noindex until they have span tables of their own.
 // Compare both batches in Search Console before widening the list again.
 //
+// Third batch (2026-11-09): one angle and two flat bars with Bing impressions
+// while noindex. Sizes without a span-table row get a title and description
+// that promise the DXF drawing and section data, not span loads.
+//
 // scripts/submit-indexnow.mjs reads INDEXED_DATASHEET_SLUGS from this file's
 // source, so keep it a plain array of string literals.
 
@@ -68,6 +72,12 @@ export const INDEXED_DATASHEET_SLUGS: readonly string[] = [
   "chs-38x3-2",
   "chs-89x6-4",
   "chs-114x6-4",
+  // Third batch, 2026-11-09: sizes without a span table (angles and flat
+  // bars) that Bing already showed in search while they were noindex. They
+  // carry their DXF drawing, section data and size answers instead of loads.
+  "l-50x50x6",
+  "fb-200x15",
+  "fb-100x6",
 ];
 
 const indexedSlugs = new Set(INDEXED_DATASHEET_SLUGS);
@@ -187,7 +197,8 @@ export function approximateInchSize(model: string): string | null {
 }
 
 export function datasheetSeoTitle(model: string, shape: string | undefined): string {
-  return `${datasheetFamily(shape).label} ${dimensionLabel(model)} mm: Specs, Weight & Span Loads`;
+  const promise = spanRowForModel(model) ? "Specs, Weight & Span Loads" : "Specs, Weight & DXF Drawing";
+  return `${datasheetFamily(shape).label} ${dimensionLabel(model)} mm: ${promise}`;
 }
 
 /** 120–160 characters, as buildPageMetadata requires. */
@@ -202,11 +213,16 @@ export function datasheetSeoDescription(
   const inches = approximateInchSize(model);
   const weight = weightKgPerM == null ? "" : `${weightKgPerM} kg/m, `;
   const cad = hasCad ? "free DXF drawing and " : "";
-  const tail = `${weight}allowable loads at 1–6 m spans, ${cad}EN 13706 E23 section data.`;
+  const hasLoads = spanRowForModel(model) != null;
+  const tail = hasLoads
+    ? `${weight}allowable loads at 1–6 m spans, ${cad}EN 13706 E23 section data.`
+    : `${weight}${cad}EN 13706 E23 section properties and mechanical data.`;
   const candidates = [
     `${noun} ${dimensionLabel(model)} mm${inches ? ` (≈ ${inches} in)` : ""}: ${tail}`,
     `${noun} ${dimensionLabel(model)} mm: ${tail}`,
-    `${noun} ${dimensionLabel(model)} mm: ${weight}allowable loads at 1–6 m spans and EN 13706 E23 section data.`,
+    hasLoads
+      ? `${noun} ${dimensionLabel(model)} mm: ${weight}allowable loads at 1–6 m spans and EN 13706 E23 section data.`
+      : `${noun} ${dimensionLabel(model)} mm${inches ? ` (≈ ${inches} in)` : ""}: ${tail} Standard 6 m lengths.`,
   ];
   return candidates.find((text) => text.length >= 120 && text.length <= 160) ?? candidates[candidates.length - 1];
 }

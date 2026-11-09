@@ -10,14 +10,21 @@ const { CAD_SLUGS } = loadProjectModule("lib/cadManifest.ts");
 const read = (path) => readFileSync(new URL(`../${path}`, import.meta.url), "utf8");
 const productsBySlug = new Map(buildProducts().map((product) => [modelToSlug(product.model), product]));
 
-test("the indexed list is 44 published sizes, each with a span table and a CAD drawing", () => {
-  assert.equal(ds.INDEXED_DATASHEET_SLUGS.length, 44);
-  assert.equal(new Set(ds.INDEXED_DATASHEET_SLUGS).size, 44);
+// Sizes indexed without a span table (third batch, 2026-11-09).
+const WITHOUT_SPAN_TABLE = new Set(["l-50x50x6", "fb-200x15", "fb-100x6"]);
+
+test("the indexed list is 47 published sizes with a CAD drawing; all but the third batch have a span table", () => {
+  assert.equal(ds.INDEXED_DATASHEET_SLUGS.length, 47);
+  assert.equal(new Set(ds.INDEXED_DATASHEET_SLUGS).size, 47);
   for (const slug of ds.INDEXED_DATASHEET_SLUGS) {
     const product = productsBySlug.get(slug);
     assert.ok(product, `${slug} is not in the catalog`);
-    assert.ok(ds.spanRowForModel(product.model), `${slug} has no span-table row`);
-    assert.ok(ds.spanLoads(ds.spanRowForModel(product.model)).length > 0, `${slug} has no usable span load`);
+    if (WITHOUT_SPAN_TABLE.has(slug)) {
+      assert.equal(ds.spanRowForModel(product.model), null, `${slug} now has a span row; move it to the span-table batches`);
+    } else {
+      assert.ok(ds.spanRowForModel(product.model), `${slug} has no span-table row`);
+      assert.ok(ds.spanLoads(ds.spanRowForModel(product.model)).length > 0, `${slug} has no usable span load`);
+    }
     assert.ok(CAD_SLUGS.has(slug), `${slug} has no DXF`);
     assert.ok(ds.isIndexedDatasheet(slug));
   }
@@ -31,7 +38,12 @@ test("pilot titles and descriptions meet the SEO length limits", () => {
     const description = ds.datasheetSeoDescription(product.model, product.geometry.shape, product.weight, true);
     assert.ok(title.length <= 60, `${slug} title is ${title.length} chars`);
     assert.ok(description.length >= 120 && description.length <= 160, `${slug} description is ${description.length} chars`);
-    assert.match(title, /mm: Specs, Weight & Span Loads$/);
+    if (WITHOUT_SPAN_TABLE.has(slug)) {
+      assert.match(title, /mm: Specs, Weight & DXF Drawing$/);
+      assert.doesNotMatch(description, /span/i);
+    } else {
+      assert.match(title, /mm: Specs, Weight & Span Loads$/);
+    }
   }
 });
 
