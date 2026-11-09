@@ -185,6 +185,18 @@ const nextConfig: NextConfig = {
         destination: "/downloads/f1composite-frp-profile-design-manual-2026-rev-b.pdf",
         permanent: true,
       },
+      // Bing reported these two URLs as 404 (2026-11-08). Neither page ever
+      // existed in this repo; send them to the pages they were reaching for.
+      {
+        source: "/downloads",
+        destination: `${CANONICAL_ORIGIN}/resources/downloads`,
+        statusCode: 301,
+      },
+      {
+        source: "/resources/blog/frp-vs-steel-grating-lifecycle-cost",
+        destination: `${CANONICAL_ORIGIN}/resources/blog/frp-grating-vs-steel-grating-cost-comparison`,
+        statusCode: 301,
+      },
       // Normalize every other apex-host URL to www. Vercel's production domain
       // must also use www as primary so HTTP apex requests do not receive an
       // additional platform-level HTTPS hop in front of this rule.
