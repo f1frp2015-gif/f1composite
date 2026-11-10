@@ -41,7 +41,7 @@ export default function Hero() {
           </p>
 
           <h1 className="mt-[18px] text-[clamp(36px,9.8vw,56px)] font-extrabold leading-[1.02] tracking-[-0.02em] text-white">
-            Standard & Custom Pultruded FRP Profiles
+            FRP Pultrusion Manufacturer for Standard & Custom Profiles
           </h1>
 
           <p className="mt-[18px] max-w-[650px] text-[clamp(16px,1.8vw,18px)] leading-[1.6] text-white/76">

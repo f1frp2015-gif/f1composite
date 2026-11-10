@@ -68,11 +68,11 @@ export const seoQueryTargets = [
   },
   {
     targetUrl: "/",
-    primaryQuery: "FRP profiles manufacturer",
+    primaryQuery: "FRP pultrusion manufacturer",
     intent: "commercial",
-    title: "Pultruded FRP Profiles Manufacturer | F1 Composite",
+    title: "FRP Pultrusion Manufacturer in China | F1 Composite",
     description:
-      "Standard and custom pultruded FRP profiles from F1 Composite. Explore fiberglass structural shapes, grating, window and door profiles, and finished units.",
+      "Factory-direct FRP pultrusion from FengDu's network in China, exported by F1 Composite: standard and custom pultruded profiles, grating and window profiles.",
     supportingUrls: [
       "/pultruded-frp-profiles",
       "/products/fiberglass-structural-shapes",
@@ -401,7 +401,7 @@ export const seoQueryTargets = [
     targetUrl: "/products/custom-pultruded-profiles",
     primaryQuery: "custom pultrusion manufacturer",
     intent: "commercial",
-    title: "Custom Pultruded Profiles | FRP Pultrusion Manufacturer",
+    title: "Custom Pultruded Profiles: Custom Pultrusion to Your Drawing",
     description:
       "Custom pultruded FRP profiles made to your drawing: resin, color and cut-length options, steel tooling, agreed tolerances, first-article checks and machining.",
     supportingUrls: ["/pultruded-frp-profiles", "/technology/pultrusion-process", "/technology/frp-profile-machining", "/technology/quality-testing"],
@@ -422,9 +422,9 @@ export const seoQueryTargets = [
   },
   {
     targetUrl: "/products/frp-pultrusion-manufacturer-factory-direct",
-    primaryQuery: "FRP pultrusion manufacturer factory direct",
+    primaryQuery: "FRP pultrusion manufacturing capabilities",
     intent: "commercial",
-    title: "FRP Pultrusion Manufacturer — Factory-Direct Supply",
+    title: "Pultrusion Manufacturing Capabilities: Lines, Dies & QC",
     description:
       "Source pultruded FRP factory-direct with documented capacity, tooling, quality control, FOB or DDP delivery, and engineering support for global projects.",
     supportingUrls: [

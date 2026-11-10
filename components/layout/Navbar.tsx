@@ -56,12 +56,12 @@ function ProductsMenu({ item, pathname, onNavigate }: { item: NavItem; pathname:
   return (
     <div className="grid w-[min(1180px,calc(100vw-48px))] max-h-[calc(100dvh-96px)] grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)_minmax(0,0.8fr)] overflow-y-auto overscroll-contain rounded-card border border-border-default bg-white shadow-pop">
       <section aria-labelledby="desktop-section-standard-profiles" className="p-[22px]">
-        <h2 id="desktop-section-standard-profiles" className="flex items-center gap-[10px]">
+        <p id="desktop-section-standard-profiles" className="flex items-center gap-[10px]">
           <Link href={standard.href!} prefetch={false} onClick={onNavigate} className="text-f16 font-bold text-t1 hover:text-teal-text">
             {standard.label}
           </Link>
           <LineTag line={standard.line!} />
-        </h2>
+        </p>
         <div className="mt-[14px] grid grid-cols-4 gap-[8px] xl:grid-cols-5">
           {standard.links.map((link) => (
             <Link
@@ -88,9 +88,9 @@ function ProductsMenu({ item, pathname, onNavigate }: { item: NavItem; pathname:
       </section>
 
       <section aria-labelledby="desktop-section-systems" className="border-l border-border-default p-[22px]">
-        <h2 id="desktop-section-systems" className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">
+        <p id="desktop-section-systems" className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">
           Product families
-        </h2>
+        </p>
         <ul className="mt-[8px] grid gap-[4px]">
           {systems.map((section) => (
             <li key={section.id} className="grid grid-cols-[30px_minmax(0,1fr)] gap-[10px] rounded-control p-[6px]">
@@ -165,7 +165,7 @@ function SectionsMenu({ item, pathname, onNavigate }: { item: NavItem; pathname:
       {sections.map((section) => (
         <section key={section.id} aria-labelledby={isMegaMenu ? `desktop-section-${section.id}` : undefined}>
           {isMegaMenu ? (
-            <h2 id={`desktop-section-${section.id}`} className="mb-[7px] px-[9px] font-mono text-f12 uppercase tracking-[0.06em] text-t3">
+            <p id={`desktop-section-${section.id}`} className="mb-[7px] px-[9px] font-mono text-f12 uppercase tracking-[0.06em] text-t3">
               {section.href ? (
                 <Link href={section.href} prefetch={false} onClick={onNavigate} className="hover:text-teal-text">
                   {section.label} <span aria-hidden>→</span>
@@ -173,7 +173,7 @@ function SectionsMenu({ item, pathname, onNavigate }: { item: NavItem; pathname:
               ) : (
                 section.label
               )}
-            </h2>
+            </p>
           ) : null}
           <div className="space-y-[2px]">
             {section.links.map((link) => (
