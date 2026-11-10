@@ -6,7 +6,7 @@ export const contentType = ogContentType;
 export default function OpenGraphImage() {
   return renderOgImage({
     eyebrow: "F1 Composite",
-    title: "Pultruded FRP Profiles Manufacturer for Global Projects",
+    title: "FRP Pultrusion Manufacturer for Global Projects",
     description:
       "Structural shapes, custom sections, window and door profiles and grating from FengDu's 370-line production network, exported by F1 Composite.",
     accent: "#0d9a92",
