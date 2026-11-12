@@ -10,6 +10,9 @@ import { FAQList } from "@/components/ui/FAQ";
 import RelatedLinks from "@/components/sections/RelatedLinks";
 import AccessGeometryChecker from "@/components/tools/AccessGeometryChecker";
 import { absoluteUrl, buildPageMetadata } from "@/lib/seo";
+import { pageDates } from "@/content/data/pageDates";
+
+const updatedAt = pageDates["/tools/access-geometry-checker"];
 
 const pagePath = "/tools/access-geometry-checker";
 const pageDescription =
@@ -51,6 +54,7 @@ export default function AccessGeometryCheckerPage() {
         data={{
           "@context": "https://schema.org",
           "@type": "WebApplication",
+          dateModified: updatedAt,
           name: "Ladder, Stair and Walkway Checker",
           url: absoluteUrl(pagePath),
           description: pageDescription,
@@ -61,6 +65,7 @@ export default function AccessGeometryCheckerPage() {
         }}
       />
       <PageHeader
+        updated={updatedAt}
         tag="Tools"
         title="Ladder, stair and walkway checker"
         description="Enter the dimensions of a fixed ladder, a stair or a walkway and see each requirement of the chosen rule, with its clause, before the FRP ladder, stair treads or grating are detailed."

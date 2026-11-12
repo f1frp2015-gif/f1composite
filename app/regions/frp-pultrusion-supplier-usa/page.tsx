@@ -13,6 +13,9 @@ import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
 import { company, supplyTerms, usdRange, weeks } from "@/content/data/company";
 import { blogPostsBySlug } from "@/content/data/blogPosts";
 import { blogCover, regionCovers } from "@/lib/covers";
+import { pageDates } from "@/content/data/pageDates";
+
+const updatedAt = pageDates["/regions/frp-pultrusion-supplier-usa"];
 
 const pageTitle = "FRP Pultrusion Supplier USA — ASTM-Compliant Profiles";
 const pageDescription =
@@ -94,6 +97,7 @@ export default function UsaRegionPage() {
   const webPageSchema = {
     "@context": "https://schema.org",
     "@type": "WebPage",
+    dateModified: updatedAt,
     name: pageTitle,
     description: pageDescription,
     url: absoluteUrl(pagePath),
@@ -109,6 +113,7 @@ export default function UsaRegionPage() {
       <JsonLd data={webPageSchema} />
 
       <PageHeader
+        updated={updatedAt}
         tag="United States"
         title="FRP pultrusion supplier for USA projects"
         description="Custom and standard pultruded FRP profiles, grating and PHI-certified window frames from F1 Composite, with ASTM test documentation and US duties itemized in every DDP quote."

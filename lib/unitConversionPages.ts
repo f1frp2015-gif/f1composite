@@ -19,6 +19,13 @@ export interface UnitConversionPage {
   context: string;
 }
 
+/**
+ * Content date of the single-pair pages (all six were published together on
+ * 2026-11-06, #206). Feeds the visible date, the JSON-LD dateModified and the
+ * sitemap <lastmod>; change it when the pages or their values change.
+ */
+export const unitConversionPagesUpdated = "2026-11-06";
+
 export const UNIT_CONVERSION_PAGES: readonly UnitConversionPage[] = [
   {
     slug: "msi-to-gpa",

@@ -11,6 +11,9 @@ import RelatedLinks from "@/components/sections/RelatedLinks";
 import ColumnCalculator from "@/components/tools/ColumnCalculator";
 import { COLUMN_PRODUCTS, END_CONDITIONS } from "@/lib/frpColumn";
 import { absoluteUrl, buildPageMetadata } from "@/lib/seo";
+import { pageDates } from "@/content/data/pageDates";
+
+const updatedAt = pageDates["/tools/frp-column-calculator"];
 
 const pagePath = "/tools/frp-column-calculator";
 const pageDescription =
@@ -58,6 +61,7 @@ export default function ColumnCalculatorPage() {
         data={{
           "@context": "https://schema.org",
           "@type": "WebApplication",
+          dateModified: updatedAt,
           name: "FRP Column Buckling Calculator",
           url: absoluteUrl(pagePath),
           description: pageDescription,
@@ -68,6 +72,7 @@ export default function ColumnCalculatorPage() {
         }}
       />
       <PageHeader
+        updated={updatedAt}
         tag="Tools"
         title="FRP column buckling calculator"
         description="Check a pultruded I-beam, square or rectangular tube or round tube as a column: global buckling, local buckling of the flanges, web or walls, and crushing, with the lightest catalog sizes that pass."

@@ -9,6 +9,9 @@ import JsonLd from "@/components/seo/JsonLd";
 import { absoluteUrl, buildPageMetadata } from "@/lib/seo";
 import { productCovers } from "@/lib/covers";
 import { australiaContact as contact, australiaInquiryHref } from "@/content/data/australia";
+import { pageDates } from "@/content/data/pageDates";
+
+const updatedAt = pageDates["/regions/frp-supplier-australia"];
 
 const title = "FRP Supplier Australia | Gold Coast Contact | F1 Composite";
 const description = "Source fibreglass FRP/GRP profiles, grating and window sections for Australian projects. Contact Mason Liu in Southport, Gold Coast, via our enquiry form.";
@@ -39,6 +42,7 @@ export default function AustraliaRegionPage() {
       data={{
         "@context": "https://schema.org",
         "@type": "WebPage",
+        dateModified: updatedAt,
         "@id": `${absoluteUrl(contact.path)}#webpage`,
         name: title,
         description,
@@ -75,6 +79,7 @@ export default function AustraliaRegionPage() {
       }}
     />
     <PageHeader
+      updated={updatedAt}
       tag="Australia · Queensland · Gold Coast"
       title="FRP supplier for Australian projects"
       description="Fibreglass FRP/GRP structural profiles, grating, window and door sections, and custom pultrusions. Discuss your Australian project with F1 Composite through our website enquiry form."

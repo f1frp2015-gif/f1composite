@@ -24,6 +24,7 @@ import {
   approximateInchSize,
   datasheetFamily,
   datasheetFaq,
+  datasheetUpdated,
   familyInSentence,
   datasheetSeoDescription,
   datasheetSeoTitle,
@@ -158,11 +159,13 @@ export default async function DatasheetPage({
   const drawing = geometryMatchesReference ? sectionDrawingPath(product.model, shape) : null;
   const drawingAlt = sectionDrawingAlt(product.model, shape);
   const faq = datasheetFaq({ model: product.model, shape, weightKgPerM: publishedW, hasCad, row: spanRow });
+  const updatedAt = datasheetUpdated(slug);
 
   const schema = buildProductFamilyPageSchema({
     name: `${product.model} pultruded FRP profile`,
     description: buildDesc(product.model, formulation?.en13706_grade ?? null),
     path: `/datasheets/${slug}`,
+    dateModified: updatedAt,
     image: drawing ?? "/opengraph-image",
     ...(drawing && { imageAlt: drawingAlt, imageCaption: `Cross-section of ${product.model}, drawn to scale from the nominal dimensions.` }),
     category: category?.name ?? "Pultruded FRP profile",
@@ -219,6 +222,7 @@ export default async function DatasheetPage({
       <JsonLd data={schema} />
       {/* A "Products" breadcrumb gives the header the product quote, advisor and WhatsApp actions. */}
       <PageHeader
+        updated={updatedAt}
         tag="Datasheet"
         title={`Fiberglass ${titleNoun} ${sizeLabel}`}
         description={`Dimensions, section properties computed from the geometry${hasLoads ? ", allowable loads by span" : ""} and ${grade ? `EN 13706 ${grade}` : "laminate"} mechanical data for the ${product.model} pultruded profile.`}

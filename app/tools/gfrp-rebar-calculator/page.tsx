@@ -11,6 +11,9 @@ import RelatedLinks from "@/components/sections/RelatedLinks";
 import GfrpRebarCalculator from "@/components/tools/GfrpRebarCalculator";
 import { BAR_SIZES, BAR_SYSTEMS, GFRP_STANDARDS_BY_MARKET, matchGfrpSize, type BarSystem } from "@/lib/gfrpRebar";
 import { absoluteUrl, buildPageMetadata } from "@/lib/seo";
+import { pageDates } from "@/content/data/pageDates";
+
+const updatedAt = pageDates["/tools/gfrp-rebar-calculator"];
 
 const pagePath = "/tools/gfrp-rebar-calculator";
 const pageDescription =
@@ -54,6 +57,7 @@ export default function GfrpRebarCalculatorPage() {
         data={{
           "@context": "https://schema.org",
           "@type": "WebApplication",
+          dateModified: updatedAt,
           name: "GFRP Rebar Size and Design Value Calculator",
           url: absoluteUrl(pagePath),
           description: pageDescription,
@@ -64,6 +68,7 @@ export default function GfrpRebarCalculatorPage() {
         }}
       />
       <PageHeader
+        updated={updatedAt}
         tag="Tools"
         title="GFRP rebar calculator"
         description="Read a steel bar size from any drawing standard and find the closest GFRP bar, work out the ACI CODE-440.11-22 design values from the bar's certificate, and estimate the shipping weight."

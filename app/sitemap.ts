@@ -9,9 +9,10 @@ import { applicationPages } from "@/lib/applicationPages";
 import { specialistProductIndex } from "@/content/data/pultrusionGuideIndex";
 import { pultrusionGuideReviewed, dedicatedProductPages } from "@/content/data/pultrusionGuideTypes";
 import { performanceReviewed } from "@/content/data/pultrudedPerformance";
-import { INDEXED_DATASHEET_SLUGS } from "@/lib/datasheetContent";
+import { INDEXED_DATASHEET_SLUGS, datasheetUpdated } from "@/lib/datasheetContent";
 import { imagesForRoute } from "@/lib/pageImages";
-import { UNIT_CONVERSION_PAGES, conversionPath } from "@/lib/unitConversionPages";
+import { UNIT_CONVERSION_PAGES, conversionPath, unitConversionPagesUpdated } from "@/lib/unitConversionPages";
+import { pageDateFor } from "@/content/data/pageDates";
 
 const BASE = "https://www.f1composite.com";
 
@@ -31,6 +32,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // Datasheet indexing pilot: only these sizes are indexable (lib/datasheetContent.ts).
   const datasheetEntries = INDEXED_DATASHEET_SLUGS.map((slug) => ({
     url: `${BASE}/datasheets/${slug}`,
+    lastModified: datasheetUpdated(slug),
     changeFrequency: "monthly" as const,
     priority: 0.6,
   }));
@@ -44,7 +46,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   // Only content records with a real, content-owned update field emit
   // <lastmod>. Static routes intentionally omit it: a guessed or deploy-time
-  // date is less useful than no date and quickly becomes inaccurate.
+  // date is less useful than no date and quickly becomes inaccurate. Routes
+  // listed in content/data/pageDates.ts take their date from there (applied
+  // at the end), the same value the page shows and declares as dateModified.
   const entries: MetadataRoute.Sitemap = [
     { url: `${BASE}/products/frp-grating-bunnings`, lastModified: "2026-10-25", changeFrequency: "monthly", priority: 0.75 },
     { url: `${BASE}/products/fiberglass-structural-shapes/frp-rod/carbon-fiber-rod`, lastModified: carbonFiberRod.updated, changeFrequency: "monthly", priority: 0.75 },
@@ -87,21 +91,21 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${BASE}/products/fiberglass-door-thresholds`, changeFrequency: "monthly", priority: 0.75 },
     { url: `${BASE}/products/frp-door-frames`, changeFrequency: "monthly", priority: 0.8 },
     { url: `${BASE}/products/fiberglass-windows-doors`, lastModified: "2026-11-04", changeFrequency: "monthly", priority: 0.8 },
-    { url: `${BASE}/products/grating`, lastModified: "2026-09-20", changeFrequency: "monthly", priority: 0.8 },
+    { url: `${BASE}/products/grating`, changeFrequency: "monthly", priority: 0.8 },
     { url: `${BASE}/industries/water-wastewater`, lastModified: "2026-09-12", changeFrequency: "monthly", priority: 0.8 },
     // /products permanently redirects to /products/product-lines (see next.config.ts)
     { url: `${BASE}/products/fiberglass-structural-shapes`, changeFrequency: "monthly", priority: 0.8 },
     { url: `${BASE}/tools`, changeFrequency: "monthly", priority: 0.7 },
     { url: `${BASE}/tools/profile-finder`, changeFrequency: "monthly", priority: 0.8 },
     { url: `${BASE}/tools/thermal-expansion-calculator`, changeFrequency: "monthly", priority: 0.75 },
-    { url: `${BASE}/tools/frp-grating-selector`, lastModified: "2026-11-04", changeFrequency: "monthly", priority: 0.75 },
+    { url: `${BASE}/tools/frp-grating-selector`, changeFrequency: "monthly", priority: 0.75 },
     { url: `${BASE}/tools/handrail-load-calculator`, changeFrequency: "monthly", priority: 0.75 },
     { url: `${BASE}/tools/access-geometry-checker`, changeFrequency: "monthly", priority: 0.75 },
     { url: `${BASE}/tools/gfrp-rebar-calculator`, changeFrequency: "monthly", priority: 0.75 },
     { url: `${BASE}/tools/frp-cut-list-optimizer`, changeFrequency: "monthly", priority: 0.75 },
     { url: `${BASE}/tools/frp-column-calculator`, changeFrequency: "monthly", priority: 0.75 },
     { url: `${BASE}/tools/frp-unit-converter`, changeFrequency: "monthly", priority: 0.7 },
-    ...UNIT_CONVERSION_PAGES.map((page) => ({ url: `${BASE}${conversionPath(page.slug)}`, changeFrequency: "yearly" as const, priority: 0.5 })),
+    ...UNIT_CONVERSION_PAGES.map((page) => ({ url: `${BASE}${conversionPath(page.slug)}`, lastModified: unitConversionPagesUpdated, changeFrequency: "yearly" as const, priority: 0.5 })),
     { url: `${BASE}/tools/frp-life-cycle-cost-calculator`, changeFrequency: "monthly", priority: 0.75 },
     { url: `${BASE}/products/fiberglass-structural-shapes/frp-i-beam`, changeFrequency: "monthly", priority: 0.7 },
     { url: `${BASE}/products/fiberglass-structural-shapes/frp-angle`, changeFrequency: "monthly", priority: 0.7 },
@@ -223,6 +227,11 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // links the result here. Absolute URLs, as the protocol requires.
   return entries.map((entry) => {
     const images = imagesForRoute(entry.url.replace(BASE, "") || "/").map((src) => `${BASE}${src}`);
-    return images.length ? { ...entry, images } : entry;
+    const lastModified = pageDateFor(entry.url.replace(BASE, "") || "/");
+    return {
+      ...entry,
+      ...(lastModified ? { lastModified } : {}),
+      ...(images.length ? { images } : {}),
+    };
   });
 }

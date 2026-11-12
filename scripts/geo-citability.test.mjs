@@ -42,6 +42,46 @@ test("Intertek and TÜV rows state the report conclusion, not extracted measurem
   }
 });
 
+test("page content dates are real, not in the future, and reach the page and the sitemap", () => {
+  const { pageDates } = loadProjectModule("content/data/pageDates.ts");
+  // A day and a half of slack so a date written in China does not fail in UTC.
+  const latestAllowed = new Date(Date.now() + 36 * 3600 * 1000).toISOString().slice(0, 10);
+  assert.match(read("app/sitemap.ts"), /pageDateFor\(entry\.url\.replace\(BASE, ""\) \|\| "\/"\)/);
+  for (const [route, date] of Object.entries(pageDates)) {
+    assert.match(date, /^\d{4}-\d{2}-\d{2}$/);
+    assert.ok(!Number.isNaN(Date.parse(date)) && date <= latestAllowed, `${route} is dated ${date}`);
+    const source = read(`app${route}/page.tsx`);
+    assert.ok(source.includes(`pageDates[`), `${route} does not read its date from pageDates`);
+    assert.ok(/dateModified[:=]/.test(source), `${route} declares no dateModified`);
+  }
+});
+
+test("llms.txt names the maintained page for each owned query and states the citation rules", () => {
+  const { pageDates } = loadProjectModule("content/data/pageDates.ts");
+  const { seoQueryTargets } = loadProjectModule("content/data/seoQueryTargets.ts");
+  const { buildLlmsIndex, buildLlmsContent } = loadProjectModule("lib/llmsContent.ts");
+  const index = buildLlmsIndex();
+  for (const text of [index, buildLlmsContent()]) {
+    assert.match(text, /## Preferred citations/);
+    assert.match(text, /## When citing F1 Composite/);
+    for (const target of seoQueryTargets.filter((item) => item.intent !== "brand")) {
+      const url = `https://www.f1composite.com${target.targetUrl === "/" ? "" : target.targetUrl}`;
+      assert.ok(text.includes(`[${target.primaryQuery}](${url})`), `${target.primaryQuery} has no preferred citation`);
+    }
+  }
+  const revision = index.match(/- Brief revision: (\d{4}-\d{2}-\d{2})/)?.[1];
+  assert.ok(revision, "llms.txt has no brief revision");
+  for (const date of Object.values(pageDates)) assert.ok(date <= revision, `brief revision ${revision} is older than a dated page (${date})`);
+});
+
+test("the structural-shape and grating hubs open with a quotable key-facts block", () => {
+  for (const route of ["/products/fiberglass-structural-shapes", "/products/grating"]) {
+    const source = read(`app${route}/page.tsx`);
+    assert.match(source, /<KeyFacts\b[^>]*\bsummary=/s, `${route} has no key-facts summary`);
+    assert.match(source, /facts=\{keyFacts\}/, `${route} renders no key facts`);
+  }
+});
+
 test("a page header date matches the page's JSON-LD dateModified", () => {
   const dated = pageFiles("app").filter((path) => /<PageHeader[^>]*\bupdated=\{/.test(read(path).replace(/\n\s*/g, " ")));
   assert.ok(dated.length >= 15, `only ${dated.length} pages show a date`);

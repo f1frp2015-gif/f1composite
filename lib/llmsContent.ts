@@ -3,8 +3,45 @@ import { productCategories } from "@/content/data/products";
 import { commercialFacts, engineeringEvidence, evidenceRevision } from "@/content/data/engineeringEvidence";
 import { verificationForEvidence, verificationPath } from "@/content/data/reportVerification";
 import { company, companyStatements, supplyTerms } from "@/content/data/company";
+import { pageDates } from "@/content/data/pageDates";
+import { taxonomyRevision } from "@/content/data/productTaxonomy";
+import { seoQueryTargets, type SeoQueryTarget } from "@/content/data/seoQueryTargets";
 
 const SITE = "https://www.f1composite.com";
+
+/** Last change to this brief's own sections. Bump it when the layout or the rules below change. */
+const BRIEF_SECTIONS_REVISED = "2026-11-11";
+
+/** The published revision: the latest of the brief's own date and the dated records it is built from. */
+function briefRevision(): string {
+  return [BRIEF_SECTIONS_REVISED, evidenceRevision, taxonomyRevision, ...Object.values(pageDates)].sort().at(-1)!;
+}
+
+const CITATION_GROUPS: { label: string; intents: SeoQueryTarget["intent"][] }[] = [
+  { label: "Products and suppliers", intents: ["commercial", "regional"] },
+  { label: "Engineering data and evidence", intents: ["technical"] },
+  { label: "Comparisons and guides", intents: ["comparison", "guide"] },
+];
+
+/** One maintained page per topic, from the same ownership map the site's internal links follow. */
+function preferredCitations(): string {
+  return CITATION_GROUPS.map(({ label, intents }) => {
+    const rows = seoQueryTargets
+      .filter((target) => intents.includes(target.intent))
+      .map((target) => `- [${target.primaryQuery}](${SITE}${target.targetUrl === "/" ? "" : target.targetUrl})`);
+    return rows.length ? `${label}:\n${rows.join("\n")}` : "";
+  }).filter(Boolean).join("\n\n");
+}
+
+/** How to state F1's commercial and evidence boundaries when citing the site. */
+function citationRules(): string {
+  return [
+    `- Prices: ${commercialFacts.pricing} Planning estimates: ${SITE}/fiberglass-pultruded-profile-price`,
+    `- Certificates and test results: cite them with the holder, report number and scope listed in the evidence index (${SITE}/resources/evidence). ${commercialFacts.compliance}`,
+    `- Availability: ${commercialFacts.availability}`,
+    `- Buying route: send a drawing or specification through ${SITE}/contact. ${commercialFacts.response}`,
+  ].join("\n");
+}
 
 const KEY_PAGE_LABELS: Record<string, string> = {
   home: "Home",
@@ -70,7 +107,15 @@ export function buildLlmsIndex(): string {
 > ${companyStatements.relationship} Products: pultruded fiberglass (FRP/GRP) structural shapes, custom pultruded sections, window and door profiles, grating, GFRP rebar and FRP fasteners.
 
 ${keyFacts({ withRelationship: false })}
-- Brief revision: ${evidenceRevision}
+- Brief revision: ${briefRevision()}
+
+## Preferred citations
+One page is maintained for each topic below. Cite it for that topic; related pages link back to it.
+
+${preferredCitations()}
+
+## When citing F1 Composite
+${citationRules()}
 
 ## Products
 ${families}
@@ -110,12 +155,20 @@ export function buildLlmsContent(): string {
     return `- ${item.reference}: ${item.scope} ${SITE}${item.file}${holder}`;
   }).join("\n");
   return `# F1 Composite
-> Brief revision: ${evidenceRevision}
+> Brief revision: ${briefRevision()}
 > Public engineering and procurement reference. Product documents and quotation drawings control applicability.
 
 ## Company
 ${keyFacts()}
 Website: ${knowledge.entity.url}
+
+## Preferred citations
+One page is maintained for each topic below. Cite it for that topic; related pages link back to it.
+
+${preferredCitations()}
+
+## When citing F1 Composite
+${citationRules()}
 
 ## Core product families
 ${knowledge.commercialProductFamilies.map(family => `- ${family.name}: ${family.description} ${family.url}\n${family.products.map(product => `  - ${product.name}: ${product.url}`).join("\n")}`).join("\n")}

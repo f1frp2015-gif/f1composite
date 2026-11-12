@@ -7,6 +7,9 @@ import CoverCard from "@/components/ui/CoverCard";
 import JsonLd from "@/components/seo/JsonLd";
 import { toolCovers } from "@/lib/covers";
 import { absoluteUrl, buildPageMetadata } from "@/lib/seo";
+import { pageDates } from "@/content/data/pageDates";
+
+const updatedAt = pageDates["/tools"];
 
 const pagePath = "/tools";
 const pageDescription =
@@ -73,6 +76,7 @@ export default function ToolsPage() {
         data={{
           "@context": "https://schema.org",
           "@type": "CollectionPage",
+          dateModified: updatedAt,
           name: "FRP engineering tools",
           url: absoluteUrl(pagePath),
           description: pageDescription,
@@ -80,6 +84,7 @@ export default function ToolsPage() {
         }}
       />
       <PageHeader
+        updated={updatedAt}
         tag="Tools"
         title="Engineering tools"
         description="Find a standard size, check it as a beam or a column, work out cut lists, weight, price and life-cycle cost, and prepare the details a quotation needs. The tools are free and need no login."

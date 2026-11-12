@@ -14,6 +14,9 @@ import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
 import { supplyTerms, weeks } from "@/content/data/company";
 import { blogPostsBySlug } from "@/content/data/blogPosts";
 import { blogCover, coverFor, regionCovers } from "@/lib/covers";
+import { pageDates } from "@/content/data/pageDates";
+
+const updatedAt = pageDates["/regions/grp-windows-uk"];
 
 const pageTitle = "GRP Windows UK — Pultruded Fiberglass Frames Supplier";
 const pageDescription =
@@ -93,6 +96,7 @@ export default function UkRegionPage() {
   const webPageSchema = {
     "@context": "https://schema.org",
     "@type": "WebPage",
+    dateModified: updatedAt,
     name: pageTitle,
     description: pageDescription,
     url: absoluteUrl(pagePath),
@@ -108,6 +112,7 @@ export default function UkRegionPage() {
       <JsonLd data={webPageSchema} />
 
       <PageHeader
+        updated={updatedAt}
         tag="United Kingdom"
         title="GRP windows for UK projects"
         description="Pultruded GRP (fiberglass) window frames and complete window units for Part L, Passivhaus and EnerPHit projects, with PHI certificate 2491wi03 (Uw 0.78 W/m²·K), no metal thermal break or steel stiffeners, and DDP quotes that itemize UK duty and VAT."

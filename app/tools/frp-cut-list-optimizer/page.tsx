@@ -11,6 +11,9 @@ import RelatedLinks from "@/components/sections/RelatedLinks";
 import CutListOptimizer from "@/components/tools/CutListOptimizer";
 import { STOCK_OPTIONS } from "@/lib/cutList";
 import { absoluteUrl, buildPageMetadata } from "@/lib/seo";
+import { pageDates } from "@/content/data/pageDates";
+
+const updatedAt = pageDates["/tools/frp-cut-list-optimizer"];
 
 const pagePath = "/tools/frp-cut-list-optimizer";
 const pageDescription =
@@ -57,6 +60,7 @@ export default function CutListOptimizerPage() {
         data={{
           "@context": "https://schema.org",
           "@type": "WebApplication",
+          dateModified: updatedAt,
           name: "FRP Profile Cut List Optimizer",
           url: absoluteUrl(pagePath),
           description: pageDescription,
@@ -67,6 +71,7 @@ export default function CutListOptimizerPage() {
         }}
       />
       <PageHeader
+        updated={updatedAt}
         tag="Tools"
         title="FRP cut list optimizer"
         description="Enter the piece lengths from your drawing and see how many stock bars of pultruded FRP profile to order, how to cut each bar, and how much ends up as offcut."

@@ -11,6 +11,9 @@ import RelatedLinks from "@/components/sections/RelatedLinks";
 import HandrailLoadCalculator from "@/components/tools/HandrailLoadCalculator";
 import { GUARD_LOAD_CASES } from "@/lib/guardrailLoads";
 import { absoluteUrl, buildPageMetadata } from "@/lib/seo";
+import { pageDates } from "@/content/data/pageDates";
+
+const updatedAt = pageDates["/tools/handrail-load-calculator"];
 
 const pagePath = "/tools/handrail-load-calculator";
 const pageDescription =
@@ -52,6 +55,7 @@ export default function HandrailLoadCalculatorPage() {
         data={{
           "@context": "https://schema.org",
           "@type": "WebApplication",
+          dateModified: updatedAt,
           name: "FRP Handrail and Guardrail Load Calculator",
           url: absoluteUrl(pagePath),
           description: pageDescription,
@@ -62,6 +66,7 @@ export default function HandrailLoadCalculatorPage() {
         }}
       />
       <PageHeader
+        updated={updatedAt}
         tag="Tools"
         title="FRP handrail and guardrail load check"
         description="Pick the rule for the site, the post and rail tubes and the spacing. The check returns the post and rail utilization, the top-rail deflection and the base reactions for the anchors."
