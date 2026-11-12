@@ -7,12 +7,15 @@ import PageSection from "@/components/layout/PageSection";
 import ProductRfq from "@/components/products/ProductRfq";
 import AnswerBlocks from "@/components/sections/AnswerBlocks";
 import { E40EvidenceLink } from "@/components/sections/E40TestEvidence";
+import KeyFacts from "@/components/sections/KeyFacts";
 import RelatedLinks from "@/components/sections/RelatedLinks";
 import JsonLd from "@/components/seo/JsonLd";
 import CoverCard from "@/components/ui/CoverCard";
 import Figure from "@/components/ui/Figure";
 import { supplyTerms } from "@/content/data/company";
 import { commercialFacts } from "@/content/data/engineeringEvidence";
+import { e40EvidenceHref, e40Reports, e40TestMethod } from "@/content/data/e40Evidence";
+import { pageDates } from "@/content/data/pageDates";
 import { getSeoQueryTarget } from "@/content/data/seoQueryTargets";
 import { authorsBySlug, reviewerCredit } from "@/lib/authors";
 import { productCovers, toolCovers } from "@/lib/covers";
@@ -29,7 +32,7 @@ const CATALOG_TOTAL_SKUS = "114";
 const pagePath = "/products/fiberglass-structural-shapes";
 const seoTarget = getSeoQueryTarget(pagePath);
 const publishedAt = "2026-04-04";
-const updatedAt = "2026-10-11";
+const updatedAt = pageDates[pagePath];
 const author = authorsBySlug["yifan-liu"];
 const reviewer = authorsBySlug["haifeng-gong"];
 
@@ -83,6 +86,29 @@ const profileTypes = [
   { slug: "frp-rod", name: "Solid rods", sizes: "Ø6 to Ø50 mm", brief: "Smooth solid sections for stakes, spacers and component blanks; specify end connections separately." },
   { slug: "frp-flat-bar", name: "Flat bars", sizes: "12×3 to 305×25 mm", brief: "Stiffeners, splice plates, wear strips and spacers." },
 ] as const;
+
+// Quotable facts for the top of the page. Every value restates data or vetted
+// wording already on this page (profileTypes, supplyTerms, commercialFacts,
+// the E40 evidence records); keep them in step when those change.
+const textLink = "font-semibold text-teal-text underline underline-offset-4 hover:text-teal";
+const keyFacts = [
+  { label: "Section families", value: "I-beams and wide flanges, channels, angles, square and rectangular tubes, round tubes, flat bars and solid rods." },
+  { label: "Catalog sizes", value: `${CATALOG_TOTAL_SKUS} sizes, from a Ø6 mm rod and a 12 × 3 mm flat bar up to 305 × 305 mm I-beams and 360 × 108 mm channels. Each family page lists dimensions, weights and section drawings.` },
+  { label: "Weight per meter", value: `${CATALOG_WEIGHT_EXTREMES_KG_PER_M[0]} kg/m for the Ø6 mm rod up to ${CATALOG_WEIGHT_EXTREMES_KG_PER_M[1]} kg/m for the 240 × 240 × 12 mm square tube.` },
+  { label: "Supply forms", value: `${supplyTerms.standardLengthM} m standard lengths, a cut list, or processed parts with drawing-controlled cutting, holes and end details. A section the catalog does not cover is developed from your drawing, up to 600 × 300 mm.` },
+  { label: "Material", value: "E-glass reinforcement in polyester, vinyl ester or polyurethane resin. Chemical resistance depends on the resin and the exposure, so confirm compatibility for the service conditions." },
+  { label: "Specification references", value: "EN 13706 grades E17 and E23, and ASTM D3917. They are specification references, not proof of blanket certification; confirm the report and scope that apply to the offered section." },
+  {
+    label: "Full-section test evidence",
+    value: (
+      <>
+        For the 40 GPa-class (E40) tier, two SGS reports record full-section averages of {e40Reports.map((report) => report.average).join(" and ")} GPa to {e40TestMethod}. They are measured sample results, not design values for every catalog section.{" "}
+        <Link href={e40EvidenceHref} className={textLink}>Review the reports and their scope</Link>.
+      </>
+    ),
+  },
+  { label: "Availability", value: commercialFacts.availability },
+];
 
 const quoteHref = buildRfqHref({
   source: "standard-profiles-hub",
@@ -194,6 +220,7 @@ export default function StandardProfilesPage() {
       />
       <PageNav
         items={[
+          { id: "key-facts", label: "Key facts" },
           { id: "families", label: "Families" },
           { id: "selection", label: "Choose a family" },
           { id: "supply", label: "Supply options" },
@@ -201,6 +228,13 @@ export default function StandardProfilesPage() {
           { id: "faq", label: "FAQ" },
           { id: "quote", label: "Quote" },
         ]}
+      />
+
+      <KeyFacts
+        title="Fiberglass structural shapes: key facts"
+        tone="muted"
+        summary={`Fiberglass structural shapes are constant cross-section FRP members made by pultrusion, which pulls resin-wet glass reinforcement through a heated steel die. F1 Composite supplies them in ${profileTypes.length} section families and ${CATALOG_TOTAL_SKUS} catalog sizes, made in FengDu New Material's pultrusion network in China.`}
+        facts={keyFacts}
       />
 
       <PageSection id="families" title="Browse fiberglass structural shapes by section family" count={`${profileTypes.length} families · ${CATALOG_TOTAL_SKUS} sizes`}>

@@ -8,16 +8,19 @@ import GratingProjectPlanner from "@/components/sections/GratingProjectPlanner";
 import GratingVisualGuide from "@/components/sections/GratingVisualGuide";
 import GratingSelectionCriteria from "@/components/sections/GratingSelectionCriteria";
 import GratingBuyingGuide from "@/components/sections/GratingBuyingGuide";
+import KeyFacts from "@/components/sections/KeyFacts";
 import CollectionSchema from "@/components/seo/CollectionSchema";
 import CoverCard from "@/components/ui/CoverCard";
 import CoverLink from "@/components/ui/CoverLink";
 import { FAQList } from "@/components/ui/FAQ";
 import { coverFor, productCovers } from "@/lib/covers";
 import { getSeoQueryTarget } from "@/content/data/seoQueryTargets";
+import { pageDates } from "@/content/data/pageDates";
 import { buildPageMetadata } from "@/lib/seo";
 import { gratingInquiryHref, gratingRequestItems } from "@/lib/gratingInquiry";
 
 const path = "/products/grating";
+const updatedAt = pageDates[path];
 const seo = getSeoQueryTarget(path);
 const links = [
   { label: "Molded FRP Grating", href: "/products/molded-frp-grating", image: "/images/products/molded-frp-grating/molded-grating-grit-mesh-closeup.webp", tag: "One-piece mesh", body: "Square, mini and rectangular mesh panels with reinforcement in both directions. Start here for layouts with frequent cutouts or multidirectional support requirements.", details: "13–65 mm listed depths · M/C/J clips" },
@@ -48,10 +51,39 @@ const applicationLinks = [
 const th = "px-[14px] py-[8px] font-semibold text-t1";
 const link = "font-semibold text-teal-text underline underline-offset-4 hover:text-teal";
 
+// Quotable facts for the top of the page. Each value restates the comparison
+// table, the listed configurations or the FAQ answers on this page and the
+// two grating pages; keep them in step when those change.
+const keyFacts = [
+  { label: "Constructions", value: "Molded grating is an integral grid of glass reinforcement and resin formed in a mold. Pultruded grating joins continuous pultruded I-bar or T-bar bearing bars with cross-rods." },
+  { label: "Span direction", value: "Square-mesh molded panels can support two-direction layouts. In pultruded grating the bearing bars carry the main span; the cross-rods are not an equivalent load-bearing direction." },
+  { label: "Listed depths", value: "13 to 65 mm for molded grating and 25 to 76 mm for pultruded grating." },
+  { label: "Fixing clips", value: "316 stainless steel clips matched to the panel: M, C and J clips for molded grating; M, J and T clips for pultruded grating." },
+  {
+    label: "Selection data",
+    value: (
+      <>
+        The molded page lists mesh, depth, panel size, weight and open area; the pultruded page lists I-bar and T-bar series, depths and bar spacing. The{" "}
+        <Link className={link} href="/tools/frp-grating-selector">grating selector</Link> compares both by geometry, open area and weight; it does not select by load or span.
+      </>
+    ),
+  },
+  { label: "Load tables", value: "The downloadable CSV gives geometry and nominal weights, not allowable loads. For a load and deflection table, send the series or mesh, clear span, support width, load type and footprint, deflection limit, resin and service conditions." },
+  { label: "Names and units", value: "Fiberglass, fibreglass, FRP and GRP grating name the same glass-reinforced panel family. Catalog values are metric; inch equivalents are approximate, so a 25 mm panel is about 0.984 in." },
+  { label: "Quotation inputs", value: "Panel type, geometry, resin, surface, quantity, cutting, fixing kits, packing and destination set the price. Send panel quantities or total area and the delivery port or postcode." },
+];
+
 export default function GratingPage() {
   return <>
-    <CollectionSchema name="Fiberglass & FRP Grating" description={seo.description} path={path} links={links} />
+    <CollectionSchema name="Fiberglass & FRP Grating" description={seo.description} path={path} links={links} dateModified={updatedAt} />
     <GratingHero title="Fiberglass grating for industrial projects" description="Choose molded mesh or pultruded bearing-bar panels for walkways, platforms and access systems. Compare configurations, review the engineering inputs and send a panel schedule for quotation." image="/images/products/grating/grating-panel-comparison.webp" imageAlt="Green molded square-mesh and yellow pultruded grating samples side by side" caption="Molded mesh and pultruded bearing bars, the two grating constructions." facts={[{ label: "Constructions", value: "Molded & pultruded" }, { label: "Selection data", value: "Dimensions & weights" }, { label: "Fixing systems", value: "Matched 316SS clips" }, { label: "Procurement", value: "Project & bulk enquiries" }]} />
+    <KeyFacts
+      title="Fiberglass grating: key facts"
+      tone="muted"
+      summary="F1 Composite supplies fiberglass (FRP/GRP) grating in two constructions: molded one-piece mesh panels and pultruded bearing-bar panels. Choose the construction by how the panel must span and fit around openings, then confirm the load and deflection data for the selected panel."
+      facts={keyFacts}
+      updated={updatedAt}
+    />
     <GratingApplicationCards />
 
     <PageSection id="grating-types" title="Two ways to build your walking surface" tone="muted" intro="Fiberglass grating is also called fibreglass or GRP grating. The important choice is how the panel carries the load and fits the layout.">

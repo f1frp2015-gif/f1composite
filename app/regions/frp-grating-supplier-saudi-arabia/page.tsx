@@ -12,6 +12,9 @@ import JsonLd from "@/components/seo/JsonLd";
 import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
 import { company, supplyTerms, weeks } from "@/content/data/company";
 import { coverFor, regionCovers } from "@/lib/covers";
+import { pageDates } from "@/content/data/pageDates";
+
+const updatedAt = pageDates["/regions/frp-grating-supplier-saudi-arabia"];
 
 const pageTitle =
   "FRP & GRP Grating Supplier in Saudi Arabia | Jeddah, Dammam";
@@ -119,6 +122,7 @@ export default function SaudiGratingPage() {
   const webPageSchema = {
     "@context": "https://schema.org",
     "@type": "WebPage",
+    dateModified: updatedAt,
     name: pageTitle,
     description: pageDescription,
     url: absoluteUrl(pagePath),
@@ -134,6 +138,7 @@ export default function SaudiGratingPage() {
       <JsonLd data={webPageSchema} />
 
       <PageHeader
+        updated={updatedAt}
         tag="Saudi Arabia"
         title="FRP grating supplier for Saudi Arabia"
         description="Molded and pultruded FRP grating for Riyadh, Jeddah, Dammam and Jubail, shipped CIF Jebel Ali or DAP to site, with fire and chemical test reports on request."

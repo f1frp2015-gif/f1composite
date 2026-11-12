@@ -227,6 +227,25 @@ export function datasheetSeoDescription(
   return candidates.find((text) => text.length >= 120 && text.length <= 160) ?? candidates[candidates.length - 1];
 }
 
+/**
+ * Last content change to the datasheet template, by variant: dimensioned
+ * section drawings on every size (2026-11-06, #204), then a new title and
+ * description for sizes without a span-table row (2026-11-08). One value
+ * feeds the visible date, the JSON-LD dateModified and the sitemap <lastmod>;
+ * change it with the template or the published data, never on a redeploy.
+ */
+export const DATASHEET_UPDATED = { withSpanTable: "2026-11-06", withoutSpanTable: "2026-11-08" } as const;
+
+let spanTableSlugs: Set<string> | null = null;
+
+/** The content date for a datasheet URL slug. */
+export function datasheetUpdated(slug: string): string {
+  if (!spanTableSlugs) {
+    spanTableSlugs = new Set(buildSpanTables().flatMap((family) => family.rows.map((row) => modelToSlug(row.model))));
+  }
+  return spanTableSlugs.has(slug) ? DATASHEET_UPDATED.withSpanTable : DATASHEET_UPDATED.withoutSpanTable;
+}
+
 let spanRowsByModel: Map<string, SpanRow> | null = null;
 
 /** The published span-table row for a model, when its family has one. */

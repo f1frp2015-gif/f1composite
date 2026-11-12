@@ -14,6 +14,9 @@ import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
 import { company, supplyTerms, weeks } from "@/content/data/company";
 import { blogPostsBySlug } from "@/content/data/blogPosts";
 import { blogCover, coverFor, regionCovers } from "@/lib/covers";
+import { pageDates } from "@/content/data/pageDates";
+
+const updatedAt = pageDates["/regions/frp-passive-house-windows-canada"];
 
 const pageTitle = "FRP Passive House Windows — Canada Supplier";
 const pageDescription =
@@ -94,6 +97,7 @@ export default function CanadaRegionPage() {
   const webPageSchema = {
     "@context": "https://schema.org",
     "@type": "WebPage",
+    dateModified: updatedAt,
     name: pageTitle,
     description: pageDescription,
     url: absoluteUrl(pagePath),
@@ -109,6 +113,7 @@ export default function CanadaRegionPage() {
       <JsonLd data={webPageSchema} />
 
       <PageHeader
+        updated={updatedAt}
         tag="Canada"
         title="FRP passive house windows for Canadian projects"
         description="Pultruded fiberglass window frames for Canada's Passive House, net-zero and Step Code buildings, with PHI certificate 2491wi03 (Uw 0.78) and NAFS / CSA A440 reports on request."

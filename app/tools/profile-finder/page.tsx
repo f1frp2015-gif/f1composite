@@ -10,6 +10,9 @@ import ProfileFinder from "@/components/tools/ProfileFinder";
 import { finderRows } from "@/lib/profileFinder";
 import { getPublishedCatalog } from "@/lib/catalog/published";
 import { absoluteUrl, buildPageMetadata } from "@/lib/seo";
+import { pageDates } from "@/content/data/pageDates";
+
+const updatedAt = pageDates["/tools/profile-finder"];
 
 const pagePath = "/tools/profile-finder";
 const pageTitle = "FRP Profile Finder — Compare Standard Sizes";
@@ -47,6 +50,7 @@ export default async function ProfileFinderPage({ searchParams }: { searchParams
         data={{
           "@context": "https://schema.org",
           "@type": "WebApplication",
+          dateModified: updatedAt,
           name: "FRP Profile Finder",
           url: absoluteUrl(pagePath),
           description: pageDescription,
@@ -57,6 +61,7 @@ export default async function ProfileFinderPage({ searchParams }: { searchParams
         }}
       />
       <PageHeader
+        updated={updatedAt}
         tag="Tools"
         line={{ name: "F1-STRUX", label: "Profile finder" }}
         title="FRP profile finder"

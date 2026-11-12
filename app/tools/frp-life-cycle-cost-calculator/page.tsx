@@ -12,6 +12,9 @@ import LifeCycleCostCalculator from "@/components/tools/LifeCycleCostCalculator"
 import { GALVANIZING_THICKNESS, ZINC_CORROSIVITY, calculateLcc } from "@/lib/lifeCycleCost";
 import { lifeCycleCostExample } from "@/content/data/lifeCycleCostExample";
 import { absoluteUrl, buildPageMetadata } from "@/lib/seo";
+import { pageDates } from "@/content/data/pageDates";
+
+const updatedAt = pageDates["/tools/frp-life-cycle-cost-calculator"];
 
 const pagePath = "/tools/frp-life-cycle-cost-calculator";
 const pageDescription =
@@ -59,6 +62,7 @@ export default function LifeCycleCostPage() {
         data={{
           "@context": "https://schema.org",
           "@type": "WebApplication",
+          dateModified: updatedAt,
           name: "FRP vs Steel Life-Cycle Cost Calculator",
           url: absoluteUrl(pagePath),
           description: pageDescription,
@@ -69,6 +73,7 @@ export default function LifeCycleCostPage() {
         }}
       />
       <PageHeader
+        updated={updatedAt}
         tag="Tools"
         title="FRP vs steel life-cycle cost calculator"
         description="Put your quotes for an FRP and a steel option side by side over the life of the project: installed cost, maintenance, inspection, replacement and shutdowns, as present values."

@@ -11,6 +11,9 @@ import RelatedLinks from "@/components/sections/RelatedLinks";
 import ThermalExpansionCalculator from "@/components/tools/ThermalExpansionCalculator";
 import { THERMAL_MATERIALS } from "@/lib/thermalMovement";
 import { absoluteUrl, buildPageMetadata } from "@/lib/seo";
+import { pageDates } from "@/content/data/pageDates";
+
+const updatedAt = pageDates["/tools/thermal-expansion-calculator"];
 
 const pagePath = "/tools/thermal-expansion-calculator";
 const pageDescription =
@@ -57,6 +60,7 @@ export default function ThermalExpansionPage() {
         data={{
           "@context": "https://schema.org",
           "@type": "WebApplication",
+          dateModified: updatedAt,
           name: "FRP Thermal Expansion Calculator",
           url: absoluteUrl(pagePath),
           description: pageDescription,
@@ -67,6 +71,7 @@ export default function ThermalExpansionPage() {
         }}
       />
       <PageHeader
+        updated={updatedAt}
         tag="Tools"
         title="FRP thermal expansion calculator"
         description="How far a pultruded FRP member grows and shrinks between its fixings, how that compares with the steel, concrete or glass it is fixed to, and how wide a sealed joint must be."

@@ -13,6 +13,7 @@ import UnitConverter from "@/components/tools/UnitConverter";
 import { absoluteUrl, buildPageMetadata } from "@/lib/seo";
 import {
   UNIT_CONVERSION_PAGES,
+  unitConversionPagesUpdated,
   conversionDescription,
   conversionFactor,
   conversionLabels,
@@ -90,9 +91,11 @@ export default async function UnitConversionPage({ params }: PageProps) {
           isAccessibleForFree: true,
           isPartOf: { "@id": `${absoluteUrl("/tools/frp-unit-converter")}#webapp` },
           publisher: { "@id": "https://www.f1composite.com/#organization" },
+          dateModified: unitConversionPagesUpdated,
         }}
       />
       <PageHeader
+        updated={unitConversionPagesUpdated}
         tag="Unit conversion"
         title={`${from} to ${to}`}
         description={`${page.context} Multiply ${from} by ${factor.forward} to get ${to}.`}

@@ -11,6 +11,9 @@ import RelatedLinks from "@/components/sections/RelatedLinks";
 import GratingSelector from "@/components/tools/GratingSelector";
 import { buildGratingRows } from "@/lib/gratingSelector";
 import { absoluteUrl, buildPageMetadata } from "@/lib/seo";
+import { pageDates } from "@/content/data/pageDates";
+
+const updatedAt = pageDates["/tools/frp-grating-selector"];
 
 const pagePath = "/tools/frp-grating-selector";
 const rows = buildGratingRows();
@@ -60,6 +63,7 @@ export default function GratingSelectorPage() {
         data={{
           "@context": "https://schema.org",
           "@type": "WebApplication",
+          dateModified: updatedAt,
           name: "FRP Grating Selector",
           url: absoluteUrl(pagePath),
           description: pageDescription,
@@ -70,6 +74,7 @@ export default function GratingSelectorPage() {
         }}
       />
       <PageHeader
+        updated={updatedAt}
         tag="Tools"
         title="FRP grating selector"
         description="Compare the published molded and pultruded FRP grating configurations by depth, open area, top opening and weight, total the weight for a floor area, and send the chosen row for a quotation."

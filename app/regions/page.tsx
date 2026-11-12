@@ -8,6 +8,9 @@ import JsonLd from "@/components/seo/JsonLd";
 import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
 import { company } from "@/content/data/company";
 import { regionCovers } from "@/lib/covers";
+import { pageDates } from "@/content/data/pageDates";
+
+const updatedAt = pageDates["/regions"];
 
 /**
  * Hub for the country / market landing pages.
@@ -109,6 +112,7 @@ export default function RegionsHubPage() {
         data={{
           "@context": "https://schema.org",
           "@type": "CollectionPage",
+          dateModified: updatedAt,
           name: "FRP Supplier by Market",
           url: absoluteUrl("/regions"),
           hasPart: markets.map((m) => ({
@@ -119,6 +123,7 @@ export default function RegionsHubPage() {
         }}
       />
       <PageHeader
+        updated={updatedAt}
         tag="Markets"
         title="FRP supply by market"
         description="Standards, import duties and site conditions differ from one market to the next. Each page below covers the standards and documents a market asks for, how we ship there, and the FRP products we supply to it most often."

@@ -13,6 +13,9 @@ import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
 import { supplyTerms } from "@/content/data/company";
 import { blogPostsBySlug } from "@/content/data/blogPosts";
 import { blogCover, coverFor, regionCovers, type Cover } from "@/lib/covers";
+import { pageDates } from "@/content/data/pageDates";
+
+const updatedAt = pageDates["/regions/frp-cable-tray-uae-oil-gas"];
 
 const pageTitle =
   "FRP Cable Tray Supplier UAE — Oil & Gas Projects";
@@ -97,6 +100,7 @@ export default function UAECableTrayPage() {
   const webPageSchema = {
     "@context": "https://schema.org",
     "@type": "WebPage",
+    dateModified: updatedAt,
     name: pageTitle,
     description: pageDescription,
     url: absoluteUrl(pagePath),
@@ -112,6 +116,7 @@ export default function UAECableTrayPage() {
       <JsonLd data={webPageSchema} />
 
       <PageHeader
+        updated={updatedAt}
         tag="United Arab Emirates"
         title="FRP cable tray supplier for UAE oil and gas"
         description="Prepare a UAE oil and gas RFQ for FRP supports, tray components or an agreed cable-ladder package. Define the route, loads, exposure and required evidence, then confirm supply and delivery scope for the offered configuration."

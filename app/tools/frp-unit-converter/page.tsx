@@ -12,6 +12,9 @@ import UnitConverter from "@/components/tools/UnitConverter";
 import { QUANTITIES, convertAll, formatValue } from "@/lib/unitConverter";
 import { absoluteUrl, buildPageMetadata } from "@/lib/seo";
 import { UNIT_CONVERSION_PAGES, conversionLabels, conversionPath } from "@/lib/unitConversionPages";
+import { pageDates } from "@/content/data/pageDates";
+
+const updatedAt = pageDates["/tools/frp-unit-converter"];
 
 const pagePath = "/tools/frp-unit-converter";
 const pageDescription =
@@ -71,6 +74,7 @@ export default function UnitConverterPage() {
         data={{
           "@context": "https://schema.org",
           "@type": "WebApplication",
+          dateModified: updatedAt,
           "@id": `${absoluteUrl(pagePath)}#webapp`,
           name: "FRP Engineering Unit Converter",
           url: absoluteUrl(pagePath),
@@ -82,6 +86,7 @@ export default function UnitConverterPage() {
         }}
       />
       <PageHeader
+        updated={updatedAt}
         tag="Tools"
         title="FRP engineering unit converter"
         description="Convert strengths, moduli, loads, section properties, weights and thermal values between metric and US units, and find the metric catalog size closest to an inch profile on a US drawing."

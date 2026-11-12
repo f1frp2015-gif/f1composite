@@ -13,6 +13,9 @@ import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
 import { company, supplyTerms, weeks } from "@/content/data/company";
 import { blogPostsBySlug } from "@/content/data/blogPosts";
 import { blogCover, coverFor, regionCovers } from "@/lib/covers";
+import { pageDates } from "@/content/data/pageDates";
+
+const updatedAt = pageDates["/regions/pultruded-frp-solar-mounting-australia"];
 
 const pageTitle =
   "FRP Solar Mounting Australia — Fiberglass Racking Supplier";
@@ -100,6 +103,7 @@ export default function AustraliaSolarPage() {
   const webPageSchema = {
     "@context": "https://schema.org",
     "@type": "WebPage",
+    dateModified: updatedAt,
     name: pageTitle,
     description: pageDescription,
     url: absoluteUrl(pagePath),
@@ -115,6 +119,7 @@ export default function AustraliaSolarPage() {
       <JsonLd data={webPageSchema} />
 
       <PageHeader
+        updated={updatedAt}
         tag="Australia"
         title="Pultruded FRP solar mounting for Australian projects"
         description="Fiberglass solar rails and mounting profiles for Australian utility, commercial and rooftop solar, in UV-stabilized resin and checked against AS/NZS 1170.2 wind loads for each project. CIF or DAP to the major Australian ports."

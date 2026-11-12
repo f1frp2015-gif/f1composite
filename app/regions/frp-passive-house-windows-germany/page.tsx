@@ -13,6 +13,9 @@ import CalculatorCTA from "@/components/calculators/CalculatorCTA";
 import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
 import { company, supplyTerms, weeks } from "@/content/data/company";
 import { coverFor, regionCovers } from "@/lib/covers";
+import { pageDates } from "@/content/data/pageDates";
+
+const updatedAt = pageDates["/regions/frp-passive-house-windows-germany"];
 
 const pageTitle = "FRP Passive House Windows — Germany Supplier";
 const pageDescription =
@@ -93,6 +96,7 @@ export default function GermanyRegionPage() {
   const webPageSchema = {
     "@context": "https://schema.org",
     "@type": "WebPage",
+    dateModified: updatedAt,
     name: pageTitle,
     description: pageDescription,
     url: absoluteUrl(pagePath),
@@ -108,6 +112,7 @@ export default function GermanyRegionPage() {
       <JsonLd data={webPageSchema} />
 
       <PageHeader
+        updated={updatedAt}
         tag="Germany"
         title="FRP passive house windows for German projects"
         description="Pultruded fiberglass (GFK) window frames for Passivhaus, Effizienzhaus and GEG projects, with PHI certificate 2491wi03 (Uw 0.78, phB) from the Passive House Institute in Darmstadt. FRP frames fall outside the EU anti-dumping duties on Chinese aluminum and outside CBAM."

@@ -9,6 +9,9 @@ import JsonLd from "@/components/seo/JsonLd";
 import { absoluteUrl, buildPageMetadata } from "@/lib/seo";
 import { productCovers } from "@/lib/covers";
 import { losAngelesContact as contact, losAngelesInquiryHref } from "@/content/data/losAngeles";
+import { pageDates } from "@/content/data/pageDates";
+
+const updatedAt = pageDates["/regions/frp-supplier-los-angeles-usa"];
 
 const title = "FRP Supplier Los Angeles | Chino Contact | F1 Composite";
 const description = "Source fiberglass profiles, grating and custom FRP for Los Angeles and Southern California projects. Contact Kevin Tang in Chino through our inquiry form.";
@@ -68,6 +71,7 @@ export default function LosAngelesRegionPage() {
       <JsonLd data={{
         "@context": "https://schema.org",
         "@type": "WebPage",
+        dateModified: updatedAt,
         "@id": `${absoluteUrl(contact.path)}#webpage`,
         name: title,
         description,
@@ -102,6 +106,7 @@ export default function LosAngelesRegionPage() {
         },
       }} />
       <PageHeader
+        updated={updatedAt}
         tag="Los Angeles & Southern California"
         title="FRP supplier for Los Angeles projects"
         description="Fiberglass structural profiles, grating, window and door sections, and custom pultrusions for Southern California projects. Connect with Kevin Tang through our official inquiry form."
