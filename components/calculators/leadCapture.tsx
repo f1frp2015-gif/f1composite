@@ -13,11 +13,15 @@ export function ResultLeadCapture({
   summary,
   source,
   inquiryType = "Calculator quote request",
+  heading = "Send this calculation for engineering review",
+  hint = "The calculation details attach to your request. Add your email for the team’s reply; quotation follows specification review.",
 }: {
   context: Record<string, unknown>;
   summary: string;
   source: string;
   inquiryType?: string;
+  heading?: string;
+  hint?: string;
 }) {
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState<"idle" | "sending" | "ok" | "error">("idle");
@@ -68,8 +72,8 @@ export function ResultLeadCapture({
 
   return (
     <form onSubmit={submit} className="rounded-control border border-teal-border bg-teal-bg p-[13px]">
-      <div className="text-f14 font-semibold text-t1">Send this calculation for engineering review</div>
-      <p className="mt-[3px] text-f12 text-t3">The calculation details attach to your request. Add your email for the team’s reply; quotation follows specification review.</p>
+      <div className="text-f14 font-semibold text-t1">{heading}</div>
+      <p className="mt-[3px] text-f12 text-t3">{hint}</p>
       <div className="mt-[8px] flex gap-[8px]">
         <input
           type="email"

@@ -147,6 +147,10 @@ export default async function RodPage() {
             <Link href="/products/fiberglass-square-rods" className="font-semibold text-teal-text underline underline-offset-4 hover:text-teal">
               fiberglass square rods
             </Link>
+            . For threaded rod with matching nuts and washers, see{" "}
+            <Link href="/products/frp-fasteners-fittings#thread-sizes" className="font-semibold text-teal-text underline underline-offset-4 hover:text-teal">
+              FRP threaded rod sizes (UNC and metric)
+            </Link>
             .
           </p>
         </div>

@@ -4,6 +4,8 @@ import { useState } from "react";
 import Link from "next/link";
 import PageSection from "@/components/layout/PageSection";
 import { SPANS_MM, type GoverningCheck, type SpanFamily } from "@/lib/spanTables";
+import { buildRfqHref } from "@/lib/rfq";
+import { trackEvent } from "@/lib/analytics";
 
 const SITE_URL = "https://www.f1composite.com";
 const GOVERNS_MARK = { deflection: "d", bending: "b", shear: "v" } as const;
@@ -75,7 +77,7 @@ export default function SpanTablesContent({
                       {formatSpan(L)} m
                     </th>
                   ))}
-                  <th scope="col" className="px-[12px] py-[8px]"><span className="sr-only">Calculator</span></th>
+                  <th scope="col" className="px-[12px] py-[8px]"><span className="sr-only">Calculator and quotation</span></th>
                 </tr>
               </thead>
               <tbody>
@@ -122,6 +124,22 @@ export default function SpanTablesContent({
                     <td className="whitespace-nowrap px-[12px] py-[8px] text-right">
                       <Link href={row.calculatorHref} target="_blank" rel="noopener" className="font-semibold text-teal-text hover:underline">
                         Check <span aria-hidden="true">→</span>
+                      </Link>
+                      <Link
+                        href={buildRfqHref({
+                          source: "tool-span-tables",
+                          product: `${row.model} pultruded FRP profile`,
+                          productPath: "/frp-span-tables",
+                          specification: `${row.model}, ${row.weightKgPerM} kg/m`,
+                          message: `Section from the span tables: ${row.model} (${row.weightKgPerM} kg/m).\nSpan, support condition and load (please add): ____\nQuantity, cut lengths and destination (please add): ____`,
+                        })}
+                        target="_blank"
+                        rel="noopener"
+                        onClick={() => trackEvent("span_table_quote_click", { family: family.id })}
+                        aria-label={`Request a quotation for ${row.model}`}
+                        className="ml-[12px] font-semibold text-teal-text hover:underline"
+                      >
+                        Quote
                       </Link>
                     </td>
                   </tr>

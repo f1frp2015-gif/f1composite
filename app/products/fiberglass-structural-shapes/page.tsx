@@ -324,6 +324,7 @@ export default function StandardProfilesPage() {
           {
             title: "Product range",
             links: [
+              { href: "/products/frp-fasteners-fittings", label: "FRP threaded rods, nuts and fittings for bolted joints" },
               { href: "/products/frp-rebar", label: "FRP rebar for concrete reinforcement" },
               { href: "/products/fiberglass-sheets", label: "Fiberglass sheets (solid flat stock)" },
               { href: "/products/fiberglass-plates", label: "Fiberglass plate profiles (hollow and multi-cell)" },
