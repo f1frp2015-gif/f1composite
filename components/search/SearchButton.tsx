@@ -66,11 +66,10 @@ export default function SearchButton({ variant, onOpen }: { variant: "header" | 
       onClick={open}
       aria-label="Search the site"
       aria-keyshortcuts={apple ? "Meta+K" : "Control+K"}
-      className="inline-flex min-h-[40px] items-center gap-[8px] rounded-control border border-border-default bg-bg2 px-[10px] text-f14 text-t3 transition-colors hover:border-teal-border hover:text-t1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal xl:min-w-[210px]"
+      className="inline-flex min-h-[40px] items-center gap-[8px] rounded-control border border-border-default bg-bg2 px-[10px] text-f14 text-t3 transition-colors hover:border-teal-border hover:text-t1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal"
     >
       <MagnifierIcon className="h-[18px] w-[18px] shrink-0" />
-      <span className="xl:hidden">Search</span>
-      <span className="hidden xl:inline">Search sizes, products…</span>
+      <span>Search</span>
       <kbd className="ml-auto rounded-tag border border-border-default bg-white px-[5px] font-mono text-f12 text-t3">{apple ? "⌘K" : "Ctrl K"}</kbd>
     </button>
   );

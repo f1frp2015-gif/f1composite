@@ -351,7 +351,7 @@ export default function HandrailLoadCalculator() {
               <a
                 href={buildRfqHref({ source: "handrail-load-calculator", product: "FRP handrail systems", productPath: "/products/frp-handrail-systems", message: summary + "\nLayout, substrate and quantities (please add): ____" })}
                 onClick={() => track("handrail_quote_click", { rule: caseId })}
-                className="rounded-control bg-teal px-[16px] py-[10px] text-center text-f14 font-bold text-white transition-colors hover:bg-teal-text"
+                className="rounded-control bg-teal-text px-[16px] py-[10px] text-center text-f14 font-bold text-white transition-colors hover:bg-teal"
               >
                 Send to engineering
               </a>

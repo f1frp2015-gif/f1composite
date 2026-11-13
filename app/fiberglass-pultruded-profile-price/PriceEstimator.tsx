@@ -270,7 +270,7 @@ export default function PriceEstimator() {
         </p>
         <Link
           href="/contact?source=price-estimator&inquiry_type=rfq"
-          className="mt-[12px] inline-block rounded-control bg-teal px-[20px] py-[10px] text-f14 font-bold text-white hover:opacity-90"
+          className="mt-[12px] inline-block rounded-control bg-teal-text px-[20px] py-[10px] text-f14 font-bold text-white hover:bg-teal"
         >
           Get a firm quote &rarr;
         </Link>

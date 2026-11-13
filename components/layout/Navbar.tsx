@@ -375,17 +375,22 @@ export default function Navbar() {
       >
         <Link
           href="/"
-          className="rounded-control focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal focus-visible:ring-offset-4"
+          className="flex items-center gap-[10px] rounded-control focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal focus-visible:ring-offset-4"
           aria-label="F1 Composite home"
           aria-current={pathname === "/" ? "page" : undefined}
           onClick={closeNavigation}
         >
+          {/* The mark alone, with the name set as live text beside it: the
+              full logo's built-in wordmark is unreadable at header size. */}
           <Image
-            src="/brand/f1-logo.png"
-            alt="F1 Composite"
-            width={58}
-            height={40}
+            src="/brand/f1-mark.png"
+            alt=""
+            width={59}
+            height={36}
           />
+          <span className="hidden whitespace-nowrap text-f16 font-extrabold leading-none tracking-[-0.01em] text-t1 min-[390px]:inline lg:text-f18 lg:max-xl:hidden">
+            F1 Composite
+          </span>
         </Link>
 
         <div className="hidden h-full items-center gap-[3px] lg:flex">

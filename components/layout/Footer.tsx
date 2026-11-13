@@ -76,14 +76,17 @@ export default function Footer() {
             <Link
               href="/"
               aria-label="F1 Composite home"
-              className="inline-block rounded-control focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal"
+              className="inline-flex items-center gap-[10px] rounded-control focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal"
             >
               <Image
-                src="/brand/f1-logo.png"
-                alt="F1 Composite"
-                width={57}
-                height={39}
+                src="/brand/f1-mark.png"
+                alt=""
+                width={59}
+                height={36}
               />
+              <span className="whitespace-nowrap text-f18 font-extrabold leading-none tracking-[-0.01em] text-t1">
+                F1 Composite
+              </span>
             </Link>
             <p className="mt-[11px] max-w-[300px] text-f14 leading-relaxed text-t2">
               Standard and custom pultruded FRP profiles, grating, window and door profiles, finished windows and doors, and GFRP concrete reinforcement.

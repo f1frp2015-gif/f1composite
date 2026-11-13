@@ -47,7 +47,7 @@ export function AnimatedConcept({ children, label }: { children: ReactNode; labe
   return (
     <div ref={container}>
       {children}
-      <button type="button" onClick={toggle} aria-label={`${playing ? "Pause" : "Play"} ${label}`}
+      <button type="button" onClick={toggle} aria-label={`${playing ? "Pause animation" : "Play animation"}: ${label}`}
         aria-pressed={playing}
         className="mt-[12px] rounded-control border border-border-default px-[12px] py-[6px] text-f12 font-semibold text-t1 focus-visible:outline-2 focus-visible:outline-offset-4">
         {playing ? "Pause animation" : "Play animation"}

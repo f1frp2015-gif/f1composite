@@ -411,13 +411,13 @@ export default function ProfileCalculator() {
         <div className="calculator-mode-tabs mb-[20px] flex gap-[8px]">
           <button
             onClick={() => setMode("beam")}
-            className={`rounded-control px-[20px] py-[8px] text-f14 font-semibold transition-colors ${mode === "beam" ? "bg-teal text-white" : "bg-bg2 text-t2 hover:bg-teal-bg"}`}
+            className={`rounded-control px-[20px] py-[8px] text-f14 font-semibold transition-colors ${mode === "beam" ? "bg-teal-text text-white" : "bg-bg2 text-t2 hover:bg-teal-bg"}`}
           >
             Beam analysis
           </button>
           <button
             onClick={() => setMode("equivalence")}
-            className={`rounded-control px-[20px] py-[8px] text-f14 font-semibold transition-colors ${mode === "equivalence" ? "bg-teal text-white" : "bg-bg2 text-t2 hover:bg-teal-bg"}`}
+            className={`rounded-control px-[20px] py-[8px] text-f14 font-semibold transition-colors ${mode === "equivalence" ? "bg-teal-text text-white" : "bg-bg2 text-t2 hover:bg-teal-bg"}`}
           >
             Steel or aluminum to FRP
           </button>

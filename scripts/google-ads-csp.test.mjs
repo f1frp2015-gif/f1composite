@@ -9,8 +9,8 @@ test("CSP allows the Google Ads conversion requests sent by gtag", async () => {
   const directives = Object.fromEntries(csp.split("; ").map((d) => [d.split(" ")[0], d.split(" ").slice(1)]));
   const required = {
     "script-src": ["https://www.googletagmanager.com", "https://www.googleadservices.com", "https://www.google.com"],
-    "img-src": ["https://www.googleadservices.com", "https://*.google.com", "https://*.g.doubleclick.net"],
-    "connect-src": ["https://www.googleadservices.com", "https://*.google.com", "https://pagead2.googlesyndication.com", "https://*.google-analytics.com"],
+    "img-src": ["https://www.googleadservices.com", "https://*.google.com", "https://*.g.doubleclick.net", "https://ad.doubleclick.net"],
+    "connect-src": ["https://ad.doubleclick.net", "https://www.googleadservices.com", "https://*.google.com", "https://pagead2.googlesyndication.com", "https://*.google-analytics.com"],
     "frame-src": ["https://td.doubleclick.net", "https://bid.g.doubleclick.net", "https://www.googletagmanager.com"],
   };
   for (const [directive, hosts] of Object.entries(required)) {

@@ -191,7 +191,7 @@ export default function GfrpRebarCalculator() {
         <a
           href={buildRfqHref({ source: "gfrp-rebar-calculator", product: "GFRP rebar", productPath: "/products/frp-rebar", message: `${summary}Project standard and edition, bar schedule and destination (please add): ____` })}
           onClick={() => track("gfrp_quote_click", { diameter: gfrpDiameter })}
-          className="block rounded-control bg-teal px-[16px] py-[10px] text-center text-f14 font-bold text-white transition-colors hover:bg-teal-text"
+          className="block rounded-control bg-teal-text px-[16px] py-[10px] text-center text-f14 font-bold text-white transition-colors hover:bg-teal"
         >
           Send to engineering
         </a>

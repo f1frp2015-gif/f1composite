@@ -197,7 +197,7 @@ export default function UnitConverter({
               <a
                 href={buildRfqHref({ source: "unit-converter", product: match.product ? `${match.product.model} pultruded profile` : "Pultruded FRP profile", productPath: "/products/fiberglass-structural-shapes", message: `Inch size on our drawing: ${inchLabel} (${match.mm.h.toFixed(1)} × ${match.mm.b.toFixed(1)} × ${match.mm.t.toFixed(2)} mm).\nClosest catalog size shown: ${match.product?.model ?? "none"}.\nQuantity, lengths and destination (please add): ____` })}
                 onClick={() => track("units_quote_click", { shape })}
-                className="rounded-control bg-teal px-[16px] py-[10px] text-center text-f14 font-bold text-white transition-colors hover:bg-teal-text"
+                className="rounded-control bg-teal-text px-[16px] py-[10px] text-center text-f14 font-bold text-white transition-colors hover:bg-teal"
               >
                 Ask about this size
               </a>

@@ -54,7 +54,9 @@ export default function MobileActionBar({
       className={`fixed inset-x-0 bottom-0 z-[60] border-t border-border-default bg-white/95 px-[12px] pb-[max(10px,env(safe-area-inset-bottom))] pt-[10px] shadow-bar backdrop-blur-md transition-transform duration-200 md:hidden ${
         visible ? "translate-y-0" : "pointer-events-none translate-y-full"
       }`}
-      aria-hidden={!visible}
+      // inert, not aria-hidden: the hidden bar still holds links, and
+      // aria-hidden alone leaves them reachable by keyboard.
+      inert={!visible}
     >
       {/* Two actions fit a phone without wrapping: the quote link and WhatsApp.
           The header above keeps every other action. */}

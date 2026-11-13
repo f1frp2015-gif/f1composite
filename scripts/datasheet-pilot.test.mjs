@@ -70,7 +70,7 @@ test("answers come from the size's own data and the supply terms", () => {
 
 test("only the pilot overrides the datasheet noindex, and the sitemap lists the pilot", () => {
   const page = read("app/datasheets/[slug]/page.tsx");
-  assert.match(page, /if \(isIndexedDatasheet\(slug\)\) \{[\s\S]*robots: \{ index: true, follow: true/);
+  assert.match(page, /if \(isIndexedDatasheet\(slug\)\) \{[\s\S]*robots: indexableRobots/);
   assert.match(read("app/datasheets/layout.tsx"), /index: false/);
   const sitemap = read("app/sitemap.ts");
   assert.match(sitemap, /INDEXED_DATASHEET_SLUGS\.map\(\(slug\) => \(\{\s*url: `\$\{BASE\}\/datasheets\/\$\{slug\}`/);
