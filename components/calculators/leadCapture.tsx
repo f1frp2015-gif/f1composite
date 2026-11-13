@@ -83,7 +83,7 @@ export function ResultLeadCapture({
         <button
           type="submit"
           disabled={status === "sending"}
-          className="whitespace-nowrap rounded-control bg-teal px-[16px] py-[8px] text-f14 font-bold text-white transition-colors hover:bg-teal-text disabled:opacity-60"
+          className="whitespace-nowrap rounded-control bg-teal-text px-[16px] py-[8px] text-f14 font-bold text-white transition-colors hover:bg-teal disabled:opacity-60"
         >
           {status === "sending" ? "Sending…" : "Request review"}
         </button>

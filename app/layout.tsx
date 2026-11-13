@@ -13,7 +13,7 @@ import ContactClickTracker from "@/components/contact/ContactClickTracker";
 import MobileContactBar from "@/components/contact/MobileContactBar";
 import JsonLd from "@/components/seo/JsonLd";
 import { consentBootstrapScript } from "@/lib/consent";
-import { organizationSchema } from "@/lib/seo";
+import { indexableRobots, organizationSchema } from "@/lib/seo";
 import "./globals.css";
 
 // Self-hosted DM Sans (variable, wght 400-800) — next/font/google fetched
@@ -57,6 +57,7 @@ export const metadata: Metadata = {
   description:
     "Pultruded FRP profiles from FengDu's 370-line production network: fiberglass structural shapes, custom sections, window and door profiles, grating and rebar.",
   metadataBase: new URL("https://www.f1composite.com"),
+  robots: indexableRobots,
   openGraph: {
     type: "website",
     locale: "en_US",

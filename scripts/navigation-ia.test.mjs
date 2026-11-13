@@ -113,7 +113,7 @@ test("desktop and mobile navigation use controlled, route-aware disclosures", as
   assert.match(navbar, /hoverSuppressedForRef\.current = itemId/);
   assert.match(navbar, /max-h-\[calc\(100dvh-96px\)\]/);
   assert.match(navbar, /max-h-\[calc\(100dvh-72px\)\] overflow-y-auto overscroll-contain/);
-  assert.match(navbar, /width=\{58\}[\s\S]{0,80}height=\{40\}/);
+  assert.match(navbar, /f1-mark\.png[\s\S]{0,80}width=\{59\}[\s\S]{0,80}height=\{36\}/);
   assert.doesNotMatch(navbar, /onFocus=\{\(\) => setDesktopOpen/);
   assert.doesNotMatch(navbar, /onMouseEnter|onMouseLeave/);
   assert.doesNotMatch(navbar, /invisible absolute|group-hover:visible|group-focus-within:visible/);

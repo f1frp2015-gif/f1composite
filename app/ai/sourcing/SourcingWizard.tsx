@@ -262,7 +262,7 @@ export default function SourcingWizard({ examples }: SourcingWizardProps) {
                   <Link
                     key={`${step.label}-${step.href}`}
                     href={step.href}
-                    className="rounded-card bg-teal px-[20px] py-[10px] text-f14 font-bold text-white transition-colors hover:bg-teal-text"
+                    className="rounded-card bg-teal-text px-[20px] py-[10px] text-f14 font-bold text-white transition-colors hover:bg-teal"
                   >
                     {step.label} →
                   </Link>

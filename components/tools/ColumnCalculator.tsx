@@ -348,7 +348,7 @@ export default function ColumnCalculator() {
               <a
                 href={buildRfqHref({ source: "column-calculator", product: product ? `${product.model} pultruded profile` : "Pultruded FRP column", productPath: "/products/fiberglass-structural-shapes", message: summary + "\nConnections, bracing and quantity (please add): ____" })}
                 onClick={() => track("column_quote_click", { profile })}
-                className="rounded-control bg-teal px-[16px] py-[10px] text-center text-f14 font-bold text-white transition-colors hover:bg-teal-text"
+                className="rounded-control bg-teal-text px-[16px] py-[10px] text-center text-f14 font-bold text-white transition-colors hover:bg-teal"
               >
                 Send to engineering
               </a>

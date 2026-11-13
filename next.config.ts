@@ -25,9 +25,9 @@ const CONTENT_SECURITY_POLICY = [
   "form-action 'self'",
   "script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://*.googletagmanager.com https://www.google-analytics.com https://www.googleadservices.com https://www.google.com https://googleads.g.doubleclick.net https://pagead2.googlesyndication.com https://analytics.ahrefs.com",
   "style-src 'self' 'unsafe-inline'",
-  `img-src 'self' data: blob: https://*.google-analytics.com https://*.googletagmanager.com https://*.g.doubleclick.net https://www.googleadservices.com https://pagead2.googlesyndication.com https://*.google.com ${GOOGLE_REGIONAL_HOSTS}`,
+  `img-src 'self' data: blob: https://*.google-analytics.com https://*.googletagmanager.com https://*.g.doubleclick.net https://ad.doubleclick.net https://www.googleadservices.com https://pagead2.googlesyndication.com https://*.google.com ${GOOGLE_REGIONAL_HOSTS}`,
   "font-src 'self'",
-  `connect-src 'self' https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com https://*.g.doubleclick.net https://www.googleadservices.com https://*.google.com https://pagead2.googlesyndication.com ${GOOGLE_REGIONAL_HOSTS} https://analytics.ahrefs.com https://vitals.vercel-insights.com`,
+  `connect-src 'self' https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com https://*.g.doubleclick.net https://ad.doubleclick.net https://www.googleadservices.com https://*.google.com https://pagead2.googlesyndication.com ${GOOGLE_REGIONAL_HOSTS} https://analytics.ahrefs.com https://vitals.vercel-insights.com`,
   "frame-src 'self' https://www.youtube.com https://www.youtube-nocookie.com https://td.doubleclick.net https://bid.g.doubleclick.net https://www.googletagmanager.com",
   "manifest-src 'self'",
   // Keep local HTTP previews usable while preserving automatic upgrades on the

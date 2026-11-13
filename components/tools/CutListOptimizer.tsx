@@ -223,7 +223,7 @@ export default function CutListOptimizer() {
                 type="button"
                 aria-pressed={unit === option}
                 onClick={() => switchUnit(option)}
-                className={`rounded-full px-[12px] py-[3px] transition-colors ${unit === option ? "bg-teal text-white" : "text-t2 hover:text-teal-text"}`}
+                className={`rounded-full px-[12px] py-[3px] transition-colors ${unit === option ? "bg-teal-text text-white" : "text-t2 hover:text-teal-text"}`}
               >
                 {option}
               </button>
@@ -277,7 +277,7 @@ export default function CutListOptimizer() {
               />
               <p className="text-f12 text-t3">Columns copied from a spreadsheet work too. The pasted list replaces the lines above.</p>
               <div className="flex items-center gap-[10px]">
-                <button type="button" onClick={applyPaste} className="rounded-control bg-teal px-[14px] py-[6px] text-f12 font-bold text-white transition-colors hover:bg-teal-text">Use this list</button>
+                <button type="button" onClick={applyPaste} className="rounded-control bg-teal-text px-[14px] py-[6px] text-f12 font-bold text-white transition-colors hover:bg-teal">Use this list</button>
                 {pasteNote && <span className="text-f12 text-t2" role="status">{pasteNote}</span>}
               </div>
             </div>
@@ -428,7 +428,7 @@ export default function CutListOptimizer() {
               <a
                 href={buildRfqHref({ source: "cut-list-optimizer", product: product ? `${product.model} pultruded profile` : "Pultruded FRP profiles", productPath: "/products/fiberglass-structural-shapes", message: summary + "\nResin, color and delivery address (please add): ____" })}
                 onClick={() => track("cutlist_quote_click", { bars: result.bars })}
-                className="rounded-control bg-teal px-[16px] py-[10px] text-center text-f14 font-bold text-white transition-colors hover:bg-teal-text"
+                className="rounded-control bg-teal-text px-[16px] py-[10px] text-center text-f14 font-bold text-white transition-colors hover:bg-teal"
               >
                 Quote these bars
               </a>

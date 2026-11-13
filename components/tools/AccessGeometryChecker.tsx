@@ -125,7 +125,7 @@ export default function AccessGeometryChecker() {
             role="tab"
             aria-selected={tab === item.id}
             onClick={() => { setTab(item.id); track("access_tab", { tab: item.id }); }}
-            className={`rounded-control px-[20px] py-[8px] text-f14 font-semibold transition-colors ${tab === item.id ? "bg-teal text-white" : "bg-bg2 text-t2 hover:bg-teal-bg"}`}
+            className={`rounded-control px-[20px] py-[8px] text-f14 font-semibold transition-colors ${tab === item.id ? "bg-teal-text text-white" : "bg-bg2 text-t2 hover:bg-teal-bg"}`}
           >
             {item.label}
           </button>
@@ -257,7 +257,7 @@ export default function AccessGeometryChecker() {
           <a
             href={buildRfqHref({ source: "access-geometry-checker", product: product.name, productPath: product.href, message: `${summary}\nDrawing, jurisdiction and quantities (please add): ____` })}
             onClick={() => track("access_quote_click", { tab })}
-            className="block rounded-control bg-teal px-[16px] py-[10px] text-center text-f14 font-bold text-white transition-colors hover:bg-teal-text"
+            className="block rounded-control bg-teal-text px-[16px] py-[10px] text-center text-f14 font-bold text-white transition-colors hover:bg-teal"
           >
             Send to engineering
           </a>

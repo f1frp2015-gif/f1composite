@@ -59,7 +59,7 @@ export default function SectionPreview({
 
   const tabClass = (active: boolean) =>
     `rounded-tag px-[10px] py-[3px] text-f12 font-bold uppercase tracking-wide transition-colors ${
-      active ? "bg-teal text-white" : "bg-bg2 text-t3 hover:text-teal-text"
+      active ? "bg-teal-text text-white" : "bg-bg2 text-t3 hover:text-teal-text"
     }`;
 
   return (

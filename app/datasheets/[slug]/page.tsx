@@ -35,7 +35,7 @@ import {
   spanRowForModel,
 } from "@/lib/datasheetContent";
 import { DESIGN_BASIS } from "@/lib/spanTables";
-import { buildPageMetadata, buildProductFamilyPageSchema, priceRangeFromWeights } from "@/lib/seo";
+import { buildPageMetadata, buildProductFamilyPageSchema, indexableRobots, priceRangeFromWeights } from "@/lib/seo";
 import { getAllDatasheetPages, getDatasheetPage } from "@/lib/catalog/public";
 import { computeProperties, designation, dimensionRows } from "@/lib/catalog/shapes";
 import { sig } from "@/lib/catalog/section";
@@ -89,7 +89,7 @@ export async function generateMetadata({
         description: datasheetSeoDescription(data.product.model, shape, weight, CAD_SLUGS.has(slug) && matchesStandardGeometry(slug, data.product.geometry)),
         path: `/datasheets/${slug}`,
       }),
-      robots: { index: true, follow: true, googleBot: { index: true, follow: true } },
+      robots: indexableRobots,
     };
   }
   return buildPageMetadata({

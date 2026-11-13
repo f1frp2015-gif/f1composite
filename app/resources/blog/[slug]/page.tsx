@@ -177,6 +177,14 @@ export default async function BlogPostPage({ params }: PageProps) {
       <section className="bg-white py-[40px] md:py-[56px]">
         <div className="site-container grid gap-[40px] lg:grid-cols-[minmax(0,800px)_minmax(0,1fr)] lg:gap-[56px]">
           <div className="min-w-0">
+            {/* The short answer sits above the cover: a reader who arrives with a
+                question sees it on the first phone screen, not two screens down. */}
+            {post.answerBox ? (
+              <aside aria-label="Article summary" className="mb-[24px] rounded-card border-l-4 border-l-teal bg-teal-bg px-[20px] py-[16px]">
+                <p className={mono}>Short answer</p>
+                <blockquote className="mt-[8px] text-f16 leading-golden text-t1">{post.answerBox}</blockquote>
+              </aside>
+            ) : null}
             <figure className="overflow-hidden rounded-card border border-border-default bg-white">
               <div className="relative aspect-[1.618] bg-bg2">
                 <Image
@@ -212,12 +220,6 @@ export default async function BlogPostPage({ params }: PageProps) {
               ) : null}
             </figure>
 
-            {post.answerBox ? (
-              <aside aria-label="Article summary" className="mt-[24px] rounded-card border-l-4 border-l-teal bg-teal-bg px-[20px] py-[16px]">
-                <p className={mono}>Short answer</p>
-                <blockquote className="mt-[8px] text-f16 leading-golden text-t1">{post.answerBox}</blockquote>
-              </aside>
-            ) : null}
 
             {post.masterComparison ? (
               <aside aria-label="Master comparison page" className="mt-[12px] rounded-card border border-teal-border bg-white p-[20px]">

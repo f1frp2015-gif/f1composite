@@ -3,6 +3,28 @@ import { customerReviews } from "@/content/data/reviews";
 import { company, companyStatements } from "@/content/data/company";
 import { primaryImageObject } from "@/lib/imageSeo";
 
+/**
+ * Robots directives for every indexable page. Without max-image-preview:large
+ * Google may only show a small thumbnail in results and keeps the page out of
+ * large-image surfaces such as Discover; max-snippet:-1 lets it quote as much
+ * of the answer text as it needs. A page that sets its own `robots` replaces
+ * this object, so an indexable page that does so should spread it.
+ */
+export const indexableRobots: NonNullable<Metadata["robots"]> = {
+  index: true,
+  follow: true,
+  "max-image-preview": "large",
+  "max-snippet": -1,
+  "max-video-preview": -1,
+  googleBot: {
+    index: true,
+    follow: true,
+    "max-image-preview": "large",
+    "max-snippet": -1,
+    "max-video-preview": -1,
+  },
+};
+
 const SITE_URL = "https://www.f1composite.com";
 
 export const organizationSchema = {
@@ -15,7 +37,7 @@ export const organizationSchema = {
   url: SITE_URL,
   logo: {
     "@type": "ImageObject",
-    url: `${SITE_URL}/brand/f1-logo.png`,
+    url: `${SITE_URL}/brand/f1-logo-square.png`,
     width: 512,
     height: 512,
   },

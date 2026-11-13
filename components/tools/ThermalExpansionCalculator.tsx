@@ -276,7 +276,7 @@ export default function ThermalExpansionCalculator() {
               <a
                 href={buildRfqHref({ source: "thermal-expansion-calculator", product: preset?.product, productPath: preset?.href, message: summary + "\nApplication and fixing details (please add): ____" })}
                 onClick={() => track("thermal_quote_click", { member })}
-                className="rounded-control bg-teal px-[16px] py-[10px] text-center text-f14 font-bold text-white transition-colors hover:bg-teal-text"
+                className="rounded-control bg-teal-text px-[16px] py-[10px] text-center text-f14 font-bold text-white transition-colors hover:bg-teal"
               >
                 Send to engineering
               </a>

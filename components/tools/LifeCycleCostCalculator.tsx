@@ -366,7 +366,7 @@ function LccResults({ result, studyYears, rfqHref, onRfq, share, shareState }: {
           <a
             href={rfqHref}
             onClick={onRfq}
-            className="rounded-control bg-teal px-[16px] py-[10px] text-center text-f14 font-bold text-white transition-colors hover:bg-teal-text"
+            className="rounded-control bg-teal-text px-[16px] py-[10px] text-center text-f14 font-bold text-white transition-colors hover:bg-teal"
           >
             Get an FRP quote to compare
           </a>
