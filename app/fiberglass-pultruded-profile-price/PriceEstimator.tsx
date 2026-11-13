@@ -7,6 +7,8 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import Link from "next/link";
+import { ResultLeadCapture, track } from "@/components/calculators/leadCapture";
+import { buildRfqHref } from "@/lib/rfq";
 
 type ProfileType = "i_beam" | "channel" | "angle" | "square" | "rect" | "round";
 
@@ -80,6 +82,9 @@ const inputClass =
 const selectClass = inputClass;
 const labelClass = "mb-[4px] block font-mono text-f12 uppercase tracking-[0.06em] text-t3";
 
+const FIBER_LABELS: Record<string, string> = { e_glass: "E-glass", ecr_glass: "ECR-glass", carbon: "Carbon fiber" };
+const RESIN_LABELS: Record<string, string> = { up: "Polyester", ve: "Vinyl ester", epoxy: "Epoxy", pu: "Polyurethane", phenolic: "Phenolic" };
+
 function fmtUsd(n: number): string {
   return n.toLocaleString("en-US", { maximumFractionDigits: n < 100 ? 2 : 0 });
 }
@@ -147,6 +152,24 @@ export default function PriceEstimator() {
       if (timer.current) clearTimeout(timer.current);
     };
   }, [fetchEstimate]);
+
+  // Carry the estimated section into the inquiry so sales quotes the same inputs.
+  const dimensionText = DIM_FIELDS[profileType].map((f) => `${f.label.replace(" (mm)", "")} ${dims[f.key] ?? 0} mm`).join(", ");
+  const options = [fireRetardant && "fire-retardant resin", weatherproof && "UV / weathering package", surfaceVeil && "surface veil"].filter(Boolean).join(", ") || "none";
+  const specification = `${PROFILE_LABELS[profileType]}: ${dimensionText}; ${FIBER_LABELS[fiber] ?? fiber} / ${RESIN_LABELS[resin] ?? resin}`;
+  const summary = [
+    `Section: ${PROFILE_LABELS[profileType]} (${dimensionText})`,
+    `Material: ${FIBER_LABELS[fiber] ?? fiber} fiber, ${RESIN_LABELS[resin] ?? resin} resin`,
+    `Options: ${options}`,
+    `Quantity: ${totalMeters.toLocaleString("en-US")} m`,
+    result ? `Indicative range shown on the website: USD ${fmtUsd(result.usdPerMeterLow)}–${fmtUsd(result.usdPerMeterHigh)} per meter, FOB China (${result.engineVersion})` : "",
+    "Cut lengths, destination and required date (please add): ____",
+  ].filter(Boolean).join("\n");
+  const estimateContext = {
+    tool: "price-estimator", profileType, dimensionsMm: dims, fiber, resin, fireRetardant, weatherproof, surfaceVeil, totalMeters,
+    ...(result ? { indicativeUsdPerMeter: [result.usdPerMeterLow, result.usdPerMeterHigh], kgPerMeter: result.kgPerMeter, weightBasis: result.weightBasis, matchedProfileModel: result.matchedProfileModel ?? null, engineVersion: result.engineVersion } : {}),
+  };
+  const quoteHref = buildRfqHref({ source: "price-estimator", product: "Pultruded FRP profile", productPath: "/fiberglass-pultruded-profile-price", specification, message: summary });
 
   return (
     <div className="grid gap-[20px] lg:grid-cols-[1fr_380px]">
@@ -269,11 +292,24 @@ export default function PriceEstimator() {
           Firm pricing comes from a written quotation against your drawing and quantity.
         </p>
         <Link
-          href="/contact?source=price-estimator&inquiry_type=rfq"
+          href={quoteHref}
+          onClick={() => track("price_estimate_quote_click", { profile_type: profileType })}
           className="mt-[12px] inline-block rounded-control bg-teal-text px-[20px] py-[10px] text-f14 font-bold text-white hover:bg-teal"
         >
-          Get a firm quote &rarr;
+          Get a firm quote for this section &rarr;
         </Link>
+        {result && !error ? (
+          <div className="mt-[12px]">
+            <ResultLeadCapture
+              source="price-estimator-email"
+              inquiryType="Price estimate review"
+              summary={summary}
+              context={estimateContext}
+              heading="Or send this estimate to our team"
+              hint="The section, material and quantity above attach to your request. Add your email and the team replies with a written quotation after review."
+            />
+          </div>
+        ) : null}
       </div>
     </div>
   );

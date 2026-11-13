@@ -50,7 +50,14 @@ export default function RelatedProfiles({ current }: { current: string }) {
           </Link>
         </li>
       </ul>
-      <p className="mt-[16px] text-f14 font-semibold text-teal-text">
+      <p className="mt-[16px] text-f14 text-t2">
+        Bolting these sections together?{" "}
+        <Link href="/products/frp-fasteners-fittings" className="font-semibold text-teal-text underline underline-offset-4 hover:text-teal">
+          FRP threaded rods, nuts and fittings
+        </Link>{" "}
+        keep the joint non-metallic.
+      </p>
+      <p className="mt-[8px] text-f14 font-semibold text-teal-text">
         <Link href="/products/fiberglass-structural-shapes" className="underline underline-offset-4 hover:text-teal">
           Compare all standard profiles
         </Link>

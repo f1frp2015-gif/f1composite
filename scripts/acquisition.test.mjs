@@ -232,3 +232,19 @@ test("canonical aliases and the current Preview origin never become external ref
   assert.equal(api.firstTouch.referrerOrigin, null);
   assert.equal(api.sessionTouch.referrerOrigin, null);
 });
+
+test("reporting channel keeps declined measurement apart from direct visits", () => {
+  const channel = acquisition.acquisitionChannel;
+  assert.equal(channel({ recorded: false }), "not_recorded");
+  assert.equal(channel({ recorded: true }), "direct");
+  assert.equal(channel({ recorded: true, referrerOrigin: "https://www.google.com" }), "organic_search");
+  assert.equal(channel({ recorded: true, referrerOrigin: "https://www.bing.com" }), "organic_search");
+  assert.equal(channel({ recorded: true, referrerOrigin: "https://www.google.com", hasClickId: true }), "paid_search");
+  assert.equal(channel({ recorded: true, utmSource: "google", utmMedium: "CPC" }), "paid_search");
+  assert.equal(channel({ recorded: true, referrerOrigin: "https://gemini.google.com" }), "ai_assistant");
+  assert.equal(channel({ recorded: true, referrerOrigin: "https://chatgpt.com" }), "ai_assistant");
+  assert.equal(channel({ recorded: true, utmSource: "chatgpt.com" }), "ai_assistant");
+  assert.equal(channel({ recorded: true, utmSource: "newsletter", utmMedium: "email" }), "campaign");
+  assert.equal(channel({ recorded: true, referrerOrigin: "https://www.4specs.com" }), "referral");
+  assert.equal(channel({ recorded: true, referrerOrigin: "not a url" }), "direct");
+});

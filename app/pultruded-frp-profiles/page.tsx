@@ -461,7 +461,8 @@ export default async function PultrudedFRPProfilesHubPage() {
         </div>
         <p className="mt-[14px] max-w-[900px] text-f14 leading-golden text-t3">
           Dimensions are nominal catalog values in millimeters with approximate inches; mass is the published catalog value. {supplyTerms.standardLengthM} m standard length, cut to length on request. A size not listed is quoted as a{" "}
-          <Link href="/products/custom-pultruded-profiles" className={link}>custom pultruded profile</Link>.
+          <Link href="/products/custom-pultruded-profiles" className={link}>custom pultruded profile</Link>. Bolted connections can stay non-metallic with{" "}
+          <Link href="/products/frp-fasteners-fittings" className={link}>FRP threaded rods, nuts and fittings</Link>.
         </p>
       </PageSection>
 

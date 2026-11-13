@@ -80,3 +80,19 @@ test("authenticated inquiry API preserves acquisition/ID and supports qualificat
     if (previous === undefined) delete process.env.INQUIRY_API_TOKEN; else process.env.INQUIRY_API_TOKEN = previous;
   }
 });
+
+test("landing attribution folds raw touches into one row per landing page and channel", () => {
+  const db = evaluate("lib/db.ts", { postgres: () => async () => [], "@/lib/acquisition": loadProjectModule("lib/acquisition.ts") });
+  const row = (landing_path, extra, counts) => ({ landing_path, recorded: true, referrer_origin: null, utm_source: null, utm_medium: null, has_click_id: false, qualified: 0, quotable: 0, not_fit: 0, won: 0, ...extra, ...counts });
+  const folded = db.foldLandingAttribution([
+    row("/frp-span-tables", { referrer_origin: "https://www.google.com" }, { total: 2, qualified: 1 }),
+    row("/frp-span-tables", { referrer_origin: "https://www.google.co.uk" }, { total: 1, qualified: 1, quotable: 1 }),
+    row("/frp-span-tables", { referrer_origin: "https://www.google.com", has_click_id: true }, { total: 1 }),
+    row(null, { recorded: false }, { total: 4, not_fit: 3 }),
+  ]);
+  assert.deepEqual(folded, [
+    { landing_path: null, channel: "not_recorded", total: 4, qualified: 0, quotable: 0, not_fit: 3, won: 0 },
+    { landing_path: "/frp-span-tables", channel: "organic_search", total: 3, qualified: 2, quotable: 1, not_fit: 0, won: 0 },
+    { landing_path: "/frp-span-tables", channel: "paid_search", total: 1, qualified: 0, quotable: 0, not_fit: 0, won: 0 },
+  ]);
+});

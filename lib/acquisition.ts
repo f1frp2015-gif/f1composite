@@ -117,3 +117,30 @@ export function createAcquisitionTouch(href: string, referrer: string, now = Dat
     return sanitizeTouch({ landingPath: url.pathname, capturedAt: new Date(now).toISOString(), referrerOrigin: acquisitionReferrer(referrer, url.origin), utm, clickIds }, now);
   } catch { return null; }
 }
+
+export type AcquisitionChannel = "paid_search" | "organic_search" | "ai_assistant" | "campaign" | "referral" | "direct" | "not_recorded";
+const SEARCH_HOST = /(^|\.)(google|bing|duckduckgo|yahoo|baidu|yandex|ecosia|startpage|naver)\.[a-z.]+$|(^|\.)search\.brave\.com$/;
+const AI_HOST = /(^|\.)(chatgpt\.com|openai\.com|perplexity\.ai|claude\.ai|gemini\.google\.com|copilot\.microsoft\.com|you\.com|phind\.com|deepseek\.com)$/;
+const PAID_MEDIUM = /^(cpc|ppc|paid|paidsearch|paid_search|sem|display|paid_social)$/;
+
+/**
+ * One reporting channel per inquiry, from the session touch that led to the submission.
+ * `not_recorded` covers visitors who declined measurement: it is unknown, not direct.
+ */
+export function acquisitionChannel(touch: {
+  recorded: boolean;
+  referrerOrigin?: string | null;
+  utmSource?: string | null;
+  utmMedium?: string | null;
+  hasClickId?: boolean;
+}): AcquisitionChannel {
+  if (!touch.recorded) return "not_recorded";
+  if (touch.hasClickId || PAID_MEDIUM.test((touch.utmMedium ?? "").toLowerCase())) return "paid_search";
+  let host = "";
+  try { host = touch.referrerOrigin ? new URL(touch.referrerOrigin).hostname.toLowerCase() : ""; } catch { host = ""; }
+  // AI hosts first: gemini.google.com would otherwise read as a Google search.
+  if (AI_HOST.test(host) || /^(chatgpt|openai|perplexity|claude|gemini|copilot)/.test((touch.utmSource ?? "").toLowerCase())) return "ai_assistant";
+  if (touch.utmSource) return "campaign";
+  if (SEARCH_HOST.test(host)) return "organic_search";
+  return host ? "referral" : "direct";
+}

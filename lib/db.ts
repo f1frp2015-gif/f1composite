@@ -1,5 +1,5 @@
 import postgres from "postgres";
-import { acquisitionReferrer, parseAcquisition, type Acquisition } from "@/lib/acquisition";
+import { acquisitionChannel, acquisitionReferrer, parseAcquisition, type Acquisition, type AcquisitionChannel } from "@/lib/acquisition";
 
 // Lazy, build-safe DB access.
 //
@@ -221,6 +221,28 @@ export interface InquiryMetrics {
   by_source: { source: string | null; total: number; won: number; lost: number; win_rate: number | null }[];
   by_acquisition: { utm_source: string | null; referrer_origin: string | null; total: number; qualified: number; quotable: number; won: number }[];
   qualification: { status: string; total: number }[];
+  /** Inquiries inside the `weeks` window by the page the visitor first landed on and the channel that brought the converting session. */
+  attribution: {
+    weeks: number;
+    by_landing: { landing_path: string | null; channel: AcquisitionChannel; total: number; qualified: number; quotable: number; not_fit: number; won: number }[];
+    by_entry: { source: string | null; total: number; qualified: number; quotable: number; not_fit: number; won: number }[];
+  };
+}
+
+type LandingCounts = { total: number; qualified: number; quotable: number; not_fit: number; won: number };
+type LandingRow = LandingCounts & { landing_path: string | null; recorded: boolean; referrer_origin: string | null; utm_source: string | null; utm_medium: string | null; has_click_id: boolean };
+
+/** Fold raw first-landing rows into one row per landing page and reporting channel. */
+export function foldLandingAttribution(rows: LandingRow[]): InquiryMetrics["attribution"]["by_landing"] {
+  const folded = new Map<string, InquiryMetrics["attribution"]["by_landing"][number]>();
+  for (const row of rows) {
+    const channel = acquisitionChannel({ recorded: row.recorded, referrerOrigin: row.referrer_origin, utmSource: row.utm_source, utmMedium: row.utm_medium, hasClickId: row.has_click_id });
+    const key = `${row.landing_path ?? ""}|${channel}`;
+    const entry = folded.get(key) ?? { landing_path: row.landing_path, channel, total: 0, qualified: 0, quotable: 0, not_fit: 0, won: 0 };
+    for (const field of ["total", "qualified", "quotable", "not_fit", "won"] as const) entry[field] += Number(row[field]) || 0;
+    folded.set(key, entry);
+  }
+  return [...folded.values()].sort((a, b) => b.total - a.total || (a.landing_path ?? "").localeCompare(b.landing_path ?? ""));
 }
 
 const winRate = (won: number, lost: number): number | null =>
@@ -290,7 +312,36 @@ export async function inquiryMetrics(opts: { weeks?: number } = {}): Promise<Inq
     FROM f1composite_inquiries GROUP BY 1 ORDER BY total DESC
   `) as InquiryMetrics["qualification"];
 
+  // First landing page answers "which page earned the visit"; the session touch answers "which channel converted".
+  const landingRows = (await sql`
+    SELECT acquisition->'firstTouch'->>'landingPath' AS landing_path,
+           (acquisition IS NOT NULL) AS recorded,
+           acquisition->'sessionTouch'->>'referrerOrigin' AS referrer_origin,
+           acquisition->'sessionTouch'->'utm'->>'source' AS utm_source,
+           acquisition->'sessionTouch'->'utm'->>'medium' AS utm_medium,
+           (acquisition->'sessionTouch'->'clickIds' IS NOT NULL) AS has_click_id,
+           count(*)::int AS total,
+           count(*) FILTER (WHERE qualification_status IN ('qualified', 'quotable'))::int AS qualified,
+           count(*) FILTER (WHERE qualification_status = 'quotable')::int AS quotable,
+           count(*) FILTER (WHERE qualification_status = 'not-fit')::int AS not_fit,
+           count(*) FILTER (WHERE outcome = 'won')::int AS won
+    FROM f1composite_inquiries
+    WHERE created_at >= now() - make_interval(weeks => ${weeks})
+    GROUP BY 1, 2, 3, 4, 5, 6
+  `) as unknown as LandingRow[];
+  const entryRows = (await sql`
+    SELECT source, count(*)::int AS total,
+           count(*) FILTER (WHERE qualification_status IN ('qualified', 'quotable'))::int AS qualified,
+           count(*) FILTER (WHERE qualification_status = 'quotable')::int AS quotable,
+           count(*) FILTER (WHERE qualification_status = 'not-fit')::int AS not_fit,
+           count(*) FILTER (WHERE outcome = 'won')::int AS won
+    FROM f1composite_inquiries
+    WHERE created_at >= now() - make_interval(weeks => ${weeks})
+    GROUP BY source ORDER BY total DESC LIMIT 100
+  `) as unknown as InquiryMetrics["attribution"]["by_entry"];
+
   return {
+    attribution: { weeks, by_landing: foldLandingAttribution(landingRows), by_entry: entryRows },
     decided: totals.won + totals.lost,
     won: totals.won,
     lost: totals.lost,
