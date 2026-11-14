@@ -8,15 +8,31 @@ import RelatedLinks from "@/components/sections/RelatedLinks";
 import { FAQList } from "@/components/ui/FAQ";
 import JsonLd from "@/components/seo/JsonLd";
 import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
+import { citationMetaTags, type CitationInput } from "@/lib/citation";
+import ArticleCitationBlock from "@/components/sections/ArticleCitationBlock";
 
 const pagePath = "/resources/how-to-choose-frp-pultrusion-supplier";
+// First published 2026-06-23; last content change 2026-10-26 (ISO 9001:2026 transition note).
+const publishedAt = "2026-06-23";
+const updatedAt = "2026-10-26";
+const authorName = "Duowei Wang, Ph.D.";
 
-export const metadata: Metadata = buildPageMetadata({
-  title: "How to Choose an FRP Pultrusion Supplier (Buyer Guide)",
-  description:
-    "How to choose and vet a pultruded FRP profile supplier or Chinese FRP manufacturer: standards, QA, test data, export record, and an RFQ checklist.",
+const citation: CitationInput = {
+  title: "How to choose an FRP pultrusion supplier",
   path: pagePath,
-});
+  authorName,
+  publishedAt,
+};
+
+export const metadata: Metadata = {
+  ...buildPageMetadata({
+    title: "How to Choose an FRP Pultrusion Supplier (Buyer Guide)",
+    description:
+      "How to choose and vet a pultruded FRP profile supplier or Chinese FRP manufacturer: standards, QA, test data, export record, and an RFQ checklist.",
+    path: pagePath,
+  }),
+  other: citationMetaTags(citation),
+};
 
 const checklist: Array<{ title: string; body: string }> = [
   {
@@ -91,6 +107,10 @@ export default function ChooseSupplierGuidePage() {
     description:
       "A buyer's checklist for selecting a pultruded FRP profile supplier or Chinese FRP manufacturer — verifying manufacturing, standards, test data, process control, export capability, and commercial terms.",
     url: absoluteUrl(pagePath),
+    datePublished: publishedAt,
+    dateModified: updatedAt,
+    author: { "@type": "Person", name: authorName, url: absoluteUrl("/about/authors/duowei-wang") },
+    publisher: { "@id": "https://www.f1composite.com/#organization" },
     step: checklist.map((item, i) => ({
       "@type": "HowToStep",
       position: i + 1,
@@ -105,6 +125,7 @@ export default function ChooseSupplierGuidePage() {
       <PageHeader
         tag="Buyer Guide"
         title="How to choose an FRP pultrusion supplier"
+        updated={updatedAt}
         description="A practical checklist for engineers and procurement teams evaluating a pultruded FRP profile supplier — or vetting a Chinese FRP manufacturer — before requesting a quote. Verify on specification, not just unit price."
         breadcrumbs={[
           { label: "Home", href: "/" },
@@ -195,6 +216,7 @@ export default function ChooseSupplierGuidePage() {
         <FAQList items={faqItems} />
       </PageSection>
 
+      <ArticleCitationBlock variant="standalone" {...citation} />
       <RelatedLinks
         title="Verify F1 Composite against this list"
         groups={[

@@ -57,6 +57,8 @@ const citablePages = [
   "app/technology/frp-profile-machining/page.tsx",
   "app/what-is-frp/page.tsx",
   "app/resources/gfrp-rebar-size-chart/page.tsx",
+  "app/resources/gfrp-rebar-applications/page.tsx",
+  "app/resources/how-to-choose-frp-pultrusion-supplier/page.tsx",
 ];
 
 test("blog articles and authored guide pages render the citation block and tags", () => {
