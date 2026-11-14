@@ -4,6 +4,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import PageHeader from "@/components/layout/PageHeader";
 import ArticleSignals from "@/components/sections/ArticleSignals";
+import ArticleCitationBlock from "@/components/sections/ArticleCitationBlock";
 import InnerCTA from "@/components/sections/InnerCTA";
 import RelatedLinks from "@/components/sections/RelatedLinks";
 import ArticleSummarizer from "@/components/ai/ArticleSummarizer";
@@ -15,6 +16,7 @@ import { blogPosts, blogPostsBySlug } from "@/content/data/blogPosts";
 import { getBlogTarget, getBlogTopic, getRelatedBlogPosts } from "@/content/data/blogStrategy";
 import { parseBlogContent } from "@/lib/blogContent";
 import { absoluteUrl, buildPageMetadata } from "@/lib/seo";
+import { citationMetaTags } from "@/lib/citation";
 import { buildImageObject, primaryImageObject } from "@/lib/imageSeo";
 import { authorSlugByName, authorsBySlug } from "@/lib/authors";
 import { prefillForBlog } from "@/lib/aiPrefill";
@@ -38,7 +40,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const target = getBlogTarget(slug);
   const topic = target ? getBlogTopic(target.topic) : undefined;
 
-  return buildPageMetadata({
+  const metadata = buildPageMetadata({
     title: post.seoTitle ?? post.title,
     description: post.ogDescription ?? post.excerpt,
     path: `/resources/blog/${slug}`,
@@ -50,6 +52,10 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       section: topic?.label ?? post.category,
     },
   });
+  return {
+    ...metadata,
+    other: citationMetaTags({ title: post.title, authorName: post.authorName, publishedAt: post.date }),
+  };
 }
 
 // The article's related links, grouped by where they lead.
@@ -321,6 +327,13 @@ export default async function BlogPostPage({ params }: PageProps) {
                 </ul>
               </div>
             ) : null}
+
+            <ArticleCitationBlock
+              title={post.title}
+              path={`/resources/blog/${slug}`}
+              authorName={post.authorName}
+              publishedAt={post.date}
+            />
           </div>
 
           <aside aria-label="On this page" className="hidden lg:block">
