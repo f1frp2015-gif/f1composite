@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { machiningLimits } from "@/lib/machiningTolerance";
+import { ResultLeadCapture } from "@/components/calculators/leadCapture";
 import { buildRfqHref } from "@/lib/rfq";
 import { trackProcurement } from "@/lib/analytics";
 
@@ -15,12 +16,14 @@ export default function MachiningTolerancePlanner() {
   const filled = [nominal, lower, upper].every(value => value.trim() !== "");
   const limits = filled ? machiningLimits(Number(nominal), Number(lower), Number(upper)) : null;
   const fieldClass = "mt-[6px] min-h-[44px] w-full rounded-control border border-border-default bg-white px-[12px] py-[8px] text-f16 text-t1";
-  const href = limits ? buildRfqHref({
+  const machiningMessage = limits ? `Please review this requested machining requirement (not a confirmed capability).\nFeature: ${feature}\nNominal: ${nominal} mm\nLower / upper deviation: ${lower} / ${upper} mm\nRequested limits: ${limits.lower} to ${limits.upper} mm\nDatum / measurement state: ${datum || "To be defined"}\nProfile / material: \nDrawing revision: \nQuantity / cut list: \nMating component: \nEdge treatment: \nFirst-article and inspection records: ` : "";
+  const machiningContext = limits ? { version: "machining-requirement-v1", status: "buyer-request-unconfirmed", feature, units: "mm", nominal: Number(nominal), lowerDeviation: Number(lower), upperDeviation: Number(upper), limits, datum: datum || null } : null;
+  const href = limits && machiningContext ? buildRfqHref({
     source: "machining-tolerance-planner",
     product: "Machined FRP profiles",
     productPath: "/technology/frp-profile-machining",
-    message: `Please review this requested machining requirement (not a confirmed capability).\nFeature: ${feature}\nNominal: ${nominal} mm\nLower / upper deviation: ${lower} / ${upper} mm\nRequested limits: ${limits.lower} to ${limits.upper} mm\nDatum / measurement state: ${datum || "To be defined"}\nProfile / material: \nDrawing revision: \nQuantity / cut list: \nMating component: \nEdge treatment: \nFirst-article and inspection records: `,
-    context: { version: "machining-requirement-v1", status: "buyer-request-unconfirmed", feature, units: "mm", nominal: Number(nominal), lowerDeviation: Number(lower), upperDeviation: Number(upper), limits, datum: datum || null },
+    message: machiningMessage,
+    context: machiningContext,
   }) : null;
   return <div className="rounded-card border border-border-default bg-bg2 p-[20px] sm:p-[28px]">
     <h3 className="text-f20 font-bold text-t1">Prepare a dimension for your RFQ</h3>
@@ -37,5 +40,6 @@ export default function MachiningTolerancePlanner() {
     </div>
     <p className="mt-[12px] text-f14 leading-relaxed text-t2">Formula: lower/upper limit = nominal + lower/upper deviation. For example, 100 mm with −0.5 / +0.5 mm deviations gives 99.5–100.5 mm. Geometric position, angular tolerances and measurement uncertainty need separate review.</p>
     {href ? <Link href={href} onClick={() => trackProcurement({ action: "machining_rfq", feature })} className="mt-[20px] inline-flex min-h-[44px] items-center rounded-control bg-teal-text px-[18px] py-[10px] text-f14 font-semibold text-white hover:bg-teal">Include this requirement in an RFQ →</Link> : null}
+    {machiningContext ? <div className="mt-[16px] max-w-[560px]"><ResultLeadCapture source="machining-tolerance-planner" inquiryType="Machining requirement review" summary={machiningMessage} context={{ product: "Machined FRP profiles", productPath: "/technology/frp-profile-machining", ...machiningContext }} heading="Or send this requirement to our team" /></div> : null}
   </div>;
 }

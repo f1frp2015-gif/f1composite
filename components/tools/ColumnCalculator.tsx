@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { track } from "@/components/calculators/leadCapture";
+import { track, ResultLeadCapture } from "@/components/calculators/leadCapture";
 import {
   COLUMN_PRODUCTS,
   END_CONDITIONS,
@@ -356,6 +356,7 @@ export default function ColumnCalculator() {
                 {shareState === "copied" ? "Link copied" : shareState === "error" ? "Link is in the address bar" : "Copy share link"}
               </button>
             </div>
+            <ResultLeadCapture source="column-calculator" inquiryType="Tool result review" summary={summary} context={{ product: product ? `${product.model} pultruded profile` : "Pultruded FRP column", productPath: "/products/fiberglass-structural-shapes" }} />
             <Link href="/frp-profile-calculator" className="block rounded-control border border-teal/30 bg-white p-[12px] text-f14 text-t2 transition-colors hover:border-teal">
               <span className="block font-mono text-f12 uppercase tracking-[0.06em] text-t3">Beams</span>
               Bending, shear and deflection in the FRP profile calculator <span aria-hidden>→</span>

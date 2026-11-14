@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { useState, useRef, useEffect, useMemo } from "react";
 import { getAcquisition } from "@/lib/acquisitionClient";
+import { ResultLeadCapture } from "@/components/calculators/leadCapture";
 
 function renderMarkdown(text: string) {
   const out: string[] = [];
@@ -168,6 +169,10 @@ export default function ChatPanel({ fullPage = false, initialPrompt, suggestions
   );
 
   const { messages, sendMessage, status, stop, error } = useChat({ transport });
+  // The conversation as text, for the visitor to send to the team as an inquiry.
+  const transcript = messages.some((m) => m.role === "assistant") && messages.some((m) => m.role === "user")
+    ? `AI chat on f1composite.com\n\n${messages.slice(-14).map((m) => `${m.role === "user" ? "Visitor" : "AI"}: ${(m.parts ?? []).map((part) => (part.type === "text" ? part.text : "")).join("").trim()}`).join("\n\n")}`.slice(0, 6000)
+    : "";
   const panelRef = useRef<HTMLDivElement>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLTextAreaElement>(null);
@@ -333,6 +338,21 @@ export default function ChatPanel({ fullPage = false, initialPrompt, suggestions
 
       {/* Input */}
       <div className="border-t border-border-default bg-white p-[12px]">
+        {transcript && !isLoading ? (
+          <details className="mb-[8px] text-f14">
+            <summary className="cursor-pointer font-semibold text-teal-text">Send this conversation to the F1 team for a reply by email</summary>
+            <div className="mt-[8px]">
+              <ResultLeadCapture
+                source="ai-chat-email"
+                inquiryType="AI chat follow-up"
+                summary={transcript}
+                context={{ page: typeof window === "undefined" ? "" : window.location.pathname }}
+                heading="Send this conversation to our team"
+                hint="The questions and answers above go to the F1 team as one inquiry. Add your email for the reply."
+              />
+            </div>
+          </details>
+        ) : null}
         <form onSubmit={handleSubmit} className="flex items-end gap-[8px]">
           <textarea
             ref={inputRef}

@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { track } from "@/components/calculators/leadCapture";
+import { track, ResultLeadCapture } from "@/components/calculators/leadCapture";
 import { ENV_FACTORS, type DesignMethod } from "@/lib/frpDesignBasis";
 import {
   GUARD_LOAD_CASES,
@@ -363,6 +363,7 @@ export default function HandrailLoadCalculator() {
                 {shareState === "copied" ? "Link copied" : shareState === "error" ? "Link is in the address bar" : "Copy share link"}
               </button>
             </div>
+            <ResultLeadCapture source="handrail-load-calculator" inquiryType="Tool result review" summary={summary} context={{ product: "FRP handrail systems", productPath: "/products/frp-handrail-systems" }} />
           </>
         )}
       </div>

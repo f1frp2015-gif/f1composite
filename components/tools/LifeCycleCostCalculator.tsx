@@ -12,6 +12,8 @@ import {
   type CostOption,
   type LccResult,
 } from "@/lib/lifeCycleCost";
+import { ResultLeadCapture } from "@/components/calculators/leadCapture";
+import type { ReactNode } from "react";
 import { lifeCycleCostRfqHref } from "@/lib/lifeCycleCostInquiry";
 import { buildToolStateHref, readToolStateParams } from "@/lib/toolStateUrl";
 import { lifeCycleCostExample } from "@/content/data/lifeCycleCostExample";
@@ -258,13 +260,13 @@ export default function LifeCycleCostCalculator() {
           {error ?? "Check the inputs."}
         </div>
       ) : (
-        <LccResults result={result} studyYears={studyYears} rfqHref={lifeCycleCostRfqHref(input, { steelType, corrosivity, coatingMicrons: microns }, summary)} onRfq={() => trackProcurement({ action: "lcc_rfq", steelType })} share={share} shareState={shareState} />
+        <LccResults result={result} studyYears={studyYears} rfqHref={lifeCycleCostRfqHref(input, { steelType, corrosivity, coatingMicrons: microns }, summary)} lead={<ResultLeadCapture source="life-cycle-cost-calculator" inquiryType="Tool result review" summary={summary} context={{ product: "FRP profiles, grating or handrail", productPath: "/products", input, steelBasis: steelType === "galvanized" ? { steelType, corrosivity, coatingMicrons: microns } : { steelType } }} heading="Send this comparison for an FRP quote" />} onRfq={() => trackProcurement({ action: "lcc_rfq", steelType })} share={share} shareState={shareState} />
       )}
     </div>
   );
 }
 
-function LccResults({ result, studyYears, rfqHref, onRfq, share, shareState }: { result: LccResult; studyYears: number; rfqHref: string; onRfq: () => void; share: () => void; shareState: "idle" | "copied" | "error" }) {
+function LccResults({ result, studyYears, rfqHref, lead, onRfq, share, shareState }: { result: LccResult; studyYears: number; rfqHref: string; lead: ReactNode; onRfq: () => void; share: () => void; shareState: "idle" | "copied" | "error" }) {
   const frpLower = result.saving >= 0;
   const rows: { label: string; key: "initial" | "maintenance" | "annual" | "replacement" | "downtime" | "residual" }[] = [
     { label: "Installed cost", key: "initial" },
@@ -374,6 +376,7 @@ function LccResults({ result, studyYears, rfqHref, onRfq, share, shareState }: {
             {shareState === "copied" ? "Link copied" : shareState === "error" ? "Link is in the address bar" : "Copy share link"}
           </button>
         </div>
+        {lead}
         <Link href="/fiberglass-pultruded-profile-price" className="block rounded-control border border-teal/30 bg-white p-[12px] text-f14 text-t2 transition-colors hover:border-teal">
           <span className="block font-mono text-f12 uppercase tracking-[0.06em] text-t3">FRP installed cost</span>
           Planning price ranges per meter in the price estimator <span aria-hidden>→</span>
