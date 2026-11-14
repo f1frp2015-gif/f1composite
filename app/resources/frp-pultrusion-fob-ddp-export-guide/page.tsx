@@ -9,6 +9,8 @@ import { FAQList } from "@/components/ui/FAQ";
 import JsonLd from "@/components/seo/JsonLd";
 import { authorsBySlug, reviewerCredit } from "@/lib/authors";
 import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
+import { citationMetaTags, type CitationInput } from "@/lib/citation";
+import ArticleCitationBlock from "@/components/sections/ArticleCitationBlock";
 
 const pageTitle = "FRP Pultrusion FOB & DDP Export Guide — HS Codes";
 const pageDescription =
@@ -20,12 +22,22 @@ const authorName = "Duowei Wang, Ph.D.";
 const reviewedBy = "Yifan Liu, Application Engineer";
 const referencedStandards = ["HTSUS 3916.90", "HTSUS 3925", "HTSUS 3926.90", "HTSUS 7019", "Section 301 (USTR)", "Incoterms® 2020"];
 
-export const metadata: Metadata = buildPageMetadata({
+const citation: CitationInput = {
+  title: "FRP pultrusion FOB and DDP export guide",
+  path: pagePath,
+  authorName: authorName,
+  publishedAt: publishedAt,
+};
+
+export const metadata: Metadata = {
+  ...buildPageMetadata({
   title: pageTitle,
   description: pageDescription,
   path: pagePath,
   image: `${pagePath}/opengraph-image`,
-});
+}),
+  other: citationMetaTags(citation),
+};
 
 interface IncotermRow {
   term: string;
@@ -232,6 +244,7 @@ export default function DdpTariffHsCodeGuidePage() {
         <FAQList items={faqs} />
       </PageSection>
 
+      <ArticleCitationBlock variant="standalone" {...citation} />
       <RelatedLinks
         background="bg2"
         groups={[

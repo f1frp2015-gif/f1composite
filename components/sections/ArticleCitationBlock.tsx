@@ -9,7 +9,13 @@ type Style = "IEEE" | "APA" | "BibTeX";
  * "How to cite this article": reference-list entries that name the article's
  * own URL, author and date, for student papers and design reports.
  */
-export default function ArticleCitationBlock(props: CitationInput) {
+export default function ArticleCitationBlock({
+  variant = "inline",
+  ...props
+}: CitationInput & {
+  /** "inline" sits inside an article column; "standalone" is its own full-width page band. */
+  variant?: "inline" | "standalone";
+}) {
   const citations = buildArticleCitations(props);
   const [copyState, setCopyState] = useState<"idle" | Style | "error">("idle");
 
@@ -23,10 +29,10 @@ export default function ArticleCitationBlock(props: CitationInput) {
     }
   }
 
-  return (
-    <section aria-labelledby="cite-this-article" className="mt-[40px] rounded-card border border-border-default bg-bg2 p-[20px] md:p-[24px]">
+  const card = (
+    <section aria-labelledby="cite-this-article" className={`${variant === "inline" ? "mt-[40px] " : ""}rounded-card border border-border-default bg-bg2 p-[20px] md:p-[24px]`}>
       <p className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">Citable engineering resource</p>
-      <h2 id="cite-this-article" className="mt-[4px] text-f20 font-bold text-t1">How to cite this article</h2>
+      <h2 id="cite-this-article" className="mt-[4px] text-f20 font-bold text-t1">{variant === "inline" ? "How to cite this article" : "How to cite this page"}</h2>
       <p className="mt-[8px] text-f14 leading-golden text-t2">
         For a thesis, journal paper or design report. Cite this page&apos;s URL rather than the home page, and add the
         date you accessed it if your style requires one.
@@ -56,5 +62,12 @@ export default function ArticleCitationBlock(props: CitationInput) {
         {copyState === "error" ? "Clipboard access was blocked. Select the citation text and copy it manually." : ""}
       </p>
     </section>
+  );
+
+  if (variant === "inline") return card;
+  return (
+    <div className="border-t border-border-default bg-white py-[40px] md:py-[56px]">
+      <div className="site-container"><div className="max-w-[960px]">{card}</div></div>
+    </div>
   );
 }

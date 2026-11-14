@@ -12,6 +12,8 @@ import { FAQList } from "@/components/ui/FAQ";
 import JsonLd from "@/components/seo/JsonLd";
 import { getSeoQueryTarget } from "@/content/data/seoQueryTargets";
 import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
+import { citationMetaTags, type CitationInput } from "@/lib/citation";
+import ArticleCitationBlock from "@/components/sections/ArticleCitationBlock";
 import { coverFor, industryCovers } from "@/lib/covers";
 import { prefillForWhatIsFRP } from "@/lib/aiPrefill";
 import { supplyTerms, weeks } from "@/content/data/company";
@@ -24,11 +26,21 @@ const seoTarget = getSeoQueryTarget(pagePath);
 const pageTitle = seoTarget.title;
 const pageDescription = seoTarget.description;
 
-export const metadata: Metadata = buildPageMetadata({
+const citation: CitationInput = {
+  title: "What is FRP? Definition, materials, properties, and uses",
+  path: pagePath,
+  authorName: "F1 Composite",
+  publishedAt: "2026-04-14",
+};
+
+export const metadata: Metadata = {
+  ...buildPageMetadata({
   title: pageTitle,
   description: pageDescription,
   path: pagePath,
-});
+}),
+  other: citationMetaTags(citation),
+};
 
 const toc = [
   { id: "definition", label: "Definition" },
@@ -801,6 +813,7 @@ export default function WhatIsFrpPage() {
         </p>
       </PageSection>
 
+      <ArticleCitationBlock variant="standalone" {...citation} />
       <RelatedLinks background="bg2"
         groups={[
           {

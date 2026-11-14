@@ -12,6 +12,8 @@ import ReadMore from "@/components/ui/ReadMore";
 import JsonLd from "@/components/seo/JsonLd";
 import { getSeoQueryTarget } from "@/content/data/seoQueryTargets";
 import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
+import { citationMetaTags, type CitationInput } from "@/lib/citation";
+import ArticleCitationBlock from "@/components/sections/ArticleCitationBlock";
 
 /* ═══════════════════════════════════════════════════════
    Page metadata
@@ -25,12 +27,22 @@ const publishedAt = "2024-03-15";
 const updatedAt = "2026-10-26";
 const referencedStandards = ["EN 13706", "ASTM D3917", "ASTM D638", "ASTM D790"];
 
-export const metadata: Metadata = buildPageMetadata({
+const citation: CitationInput = {
+  title: "The fiberglass pultrusion process, step by step",
+  path: pagePath,
+  authorName: "F1 Composite",
+  publishedAt: publishedAt,
+};
+
+export const metadata: Metadata = {
+  ...buildPageMetadata({
   title: pageTitle,
   description: pageDescription,
   path: pagePath,
   image: "/technology/pultrusion-process/opengraph-image",
-});
+}),
+  other: citationMetaTags(citation),
+};
 
 /* ═══════════════════════════════════════════════════════
    §1  Process Stages — data
@@ -451,6 +463,7 @@ export default function PultrusionProcessPage() {
         <FAQList items={faqItems} />
       </PageSection>
 
+      <ArticleCitationBlock variant="standalone" {...citation} />
       <RelatedLinks background="white"
         groups={[
           {

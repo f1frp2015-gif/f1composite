@@ -11,6 +11,8 @@ import { prefillForProduct } from "@/lib/aiPrefill";
 import JsonLd from "@/components/seo/JsonLd";
 import { FAQList } from "@/components/ui/FAQ";
 import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
+import { citationMetaTags, type CitationInput } from "@/lib/citation";
+import ArticleCitationBlock from "@/components/sections/ArticleCitationBlock";
 import ResinSelector from "./ResinSelector";
 import LaminateMicrograph from "./LaminateMicrograph";
 import { MatrixFormationFigure, LoadTransferFigure } from "./MatrixFigures";
@@ -20,7 +22,17 @@ const publishedAt = "2026-07-08";
 const updatedAt = "2026-10-26";
 const pagePath = "/technology/pultrusion-resin-systems";
 const description = "Vinyl ester vs polyester resin for pultruded FRP, plus PU, epoxy and phenolic: define chemical exposure, UV protection, temperature and formulation evidence.";
-export const metadata: Metadata = buildPageMetadata({ title: "Vinyl Ester vs Polyester Resin: Pultrusion Resin Guide", description, path: pagePath });
+const citation: CitationInput = {
+  title: "Vinyl ester vs polyester and other pultrusion resin systems",
+  path: pagePath,
+  authorName: "Haifeng Gong, Ph.D.",
+  publishedAt: publishedAt,
+};
+
+export const metadata: Metadata = {
+  ...buildPageMetadata({ title: "Vinyl Ester vs Polyester Resin: Pultrusion Resin Guide", description, path: pagePath }),
+  other: citationMetaTags(citation),
+};
 
 const resinFaqs = [
   { question: "What is the difference between polyester and vinyl ester in pultrusion?", answer: "They are different resin families with many formulations. Isophthalic polyester is a starting option for general structural service; vinyl ester is often considered for chemical exposure. Select between actual offered formulations using the chemical, concentration, temperature and exposure conditions. Neither the family name nor a higher resin price establishes compatibility." },
@@ -79,6 +91,7 @@ export default function PultrusionResinSystemsPage() {
       <FAQList items={resinFaqs} />
       <p className="mt-[20px] text-f16 leading-golden text-t2">For the difference between noncombustible glass fibres and a resin-bonded product, read <Link href="/resources/blog/frp-fire-resistance-ratings-guide" className="font-semibold text-teal-text hover:underline">Is fibreglass flammable? Glass, resin and fire-test scope</Link>.</p>
     </PageSection>
+    <ArticleCitationBlock variant="standalone" {...citation} />
     <RelatedLinks background="white" groups={[{ title: "Evidence and process", links: [{ href: "/resources/evidence", label: "Product evidence and applicability" }, { href: "/technology/quality-testing", label: "Inspection and release records" }, { href: "/technology/pultrusion-process", label: "Pultrusion process" }] }, { title: "Select a product", links: [{ href: "/products/fiberglass-sheets", label: "Solid fiberglass sheets" }, { href: "/products/fiberglass-structural-shapes", label: "Standard structural profiles" }, { href: "/products/custom-pultruded-profiles", label: "Custom formulation and section review" }, { href: "/products/frp-gratings", label: "Pultruded grating" }, { href: "/products/molded-frp-grating", label: "Molded grating" }] }, { title: "Compare alternatives", links: [{ href: "/technology/frp-vs-traditional-materials", label: "FRP, steel and aluminum" }, { href: "/tools/frp-life-cycle-cost-calculator", label: "Life-cycle cost assumptions" }] }]} />
     <InnerCTA title="Send the exposure schedule and the part drawing for a material review" advisorPrompt={prefillForProduct({ name: "Pultrusion resin systems", path: pagePath, question: "Review a candidate formulation for my section and chemical composition, concentration, normal/upset temperatures, contact mode, duration, cleaning, loads and UV/fire requirements. Identify applicable evidence and unresolved inputs before recommending it." })} />
   </>;

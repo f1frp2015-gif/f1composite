@@ -10,6 +10,8 @@ import RelatedLinks from "@/components/sections/RelatedLinks";
 import { FAQList } from "@/components/ui/FAQ";
 import JsonLd from "@/components/seo/JsonLd";
 import { absoluteUrl, buildPageMetadata } from "@/lib/seo";
+import { citationMetaTags, type CitationInput } from "@/lib/citation";
+import ArticleCitationBlock from "@/components/sections/ArticleCitationBlock";
 import { getSeoQueryTarget } from "@/content/data/seoQueryTargets";
 
 const pagePath = "/technology/fiberglass-rebar-vs-steel";
@@ -42,12 +44,22 @@ const sources = {
   astmA615: "https://store.astm.org/a0615_a0615m-26.html",
 } as const;
 
-export const metadata: Metadata = buildPageMetadata({
+const citation: CitationInput = {
+  title: "Fiberglass rebar vs steel",
+  path: pagePath,
+  authorName: "F1 Composite",
+  publishedAt: publishedAt,
+};
+
+export const metadata: Metadata = {
+  ...buildPageMetadata({
   title: pageTitle,
   description: pageDescription,
   path: pagePath,
   image: `${pagePath}/opengraph-image`,
-});
+}),
+  other: citationMetaTags(citation),
+};
 
 interface SourceLinkProps {
   href: string;
@@ -627,6 +639,7 @@ export default function FiberglassRebarVsSteelPage() {
         <FAQList items={faqItems} />
       </PageSection>
 
+      <ArticleCitationBlock variant="standalone" {...citation} />
       <RelatedLinks background="bg2"
         
         groups={[

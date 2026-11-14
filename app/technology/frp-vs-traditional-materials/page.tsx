@@ -11,12 +11,24 @@ import { FAQList } from "@/components/ui/FAQ";
 import JsonLd from "@/components/seo/JsonLd";
 import { getSeoQueryTarget } from "@/content/data/seoQueryTargets";
 import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
+import { citationMetaTags, type CitationInput } from "@/lib/citation";
+import ArticleCitationBlock from "@/components/sections/ArticleCitationBlock";
 import { materialComparisonContext as comparison, equalStiffnessExample as example, equalStiffnessResults as result } from "@/content/data/materialComparison";
 
 const pagePath = "/technology/frp-vs-traditional-materials";
 const seoTarget = getSeoQueryTarget(pagePath);
 const updatedAt = "2026-11-04";
-export const metadata: Metadata = buildPageMetadata({ title: seoTarget.title, description: seoTarget.description, path: pagePath, image: `${pagePath}/opengraph-image` });
+const citation: CitationInput = {
+  title: "FRP vs steel, aluminum, timber and concrete",
+  path: pagePath,
+  authorName: "F1 Composite",
+  publishedAt: "2024-03-22",
+};
+
+export const metadata: Metadata = {
+  ...buildPageMetadata({ title: seoTarget.title, description: seoTarget.description, path: pagePath, image: `${pagePath}/opengraph-image` }),
+  other: citationMetaTags(citation),
+};
 
 const materials = ["Pultruded glass FRP", "Steel", "Aluminum", "Timber", "Concrete"];
 const comparisonRows = [
@@ -77,6 +89,7 @@ export default function FrpVsTraditionalPage() {
       <p className="mt-[12px] text-f16 leading-golden text-t2">For carbon, compare compatible EPD or LCA data per equivalent installed function, using the same boundaries and service period. Manufacturing, transport, replacement and end-of-life assumptions can change the outcome. This page assigns no generic carbon footprint or environmental winner.</p>
     </PageSection>
     <PageSection id="faq" title="Frequently asked questions" tone="muted"><FAQList items={faqItems} /></PageSection>
+    <ArticleCitationBlock variant="standalone" {...citation} />
     <RelatedLinks background="white" groups={[{ title: "By application", links: [{ href: "/technology/frp-vs-aluminum-windows", label: "Window assembly comparison" }, { href: "/technology/frp-vs-steel-gratings", label: "Grating selection and load evidence" }, { href: "/technology/fiberglass-rebar-vs-steel", label: "Reinforcement comparison" }] }, { title: "Material and evidence", links: [{ href: "/what-is-frp", label: "FRP, fiberglass and GRP explained" }, { href: "/technology/pultrusion-resin-systems", label: "Chemical and UV review" }, { href: "/resources/technical-data", label: "Published laminate data" }, { href: "/resources/evidence", label: "Report applicability" }] }, { title: "Choose an option", links: [{ href: "/products/fiberglass-structural-shapes", label: "Standard structural shapes" }, { href: "/tools/frp-life-cycle-cost-calculator", label: "Life-cycle cost assumptions" }, { href: "/products/custom-pultruded-profiles", label: "Custom section review" }] }]} />
     <InnerCTA title="Send the same loads, exposure and supply scope for a comparable quotation" />
   </>;

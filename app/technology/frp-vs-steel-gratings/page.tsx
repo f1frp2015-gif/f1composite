@@ -10,13 +10,25 @@ import { FAQList } from "@/components/ui/FAQ";
 import JsonLd from "@/components/seo/JsonLd";
 import { productCovers } from "@/lib/covers";
 import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
+import { citationMetaTags, type CitationInput } from "@/lib/citation";
+import ArticleCitationBlock from "@/components/sections/ArticleCitationBlock";
 import { getSeoQueryTarget } from "@/content/data/seoQueryTargets";
 
 const pagePath = "/technology/frp-vs-steel-gratings";
 const seoTarget = getSeoQueryTarget(pagePath);
 const updatedAt = "2026-10-11";
 const slipSource = "https://www.hse.gov.uk/pubns/geis2.pdf";
-export const metadata: Metadata = buildPageMetadata({ title: seoTarget.title, description: seoTarget.description, path: pagePath, image: `${pagePath}/opengraph-image` });
+const citation: CitationInput = {
+  title: "FRP grating vs steel grating",
+  path: pagePath,
+  authorName: "F1 Composite",
+  publishedAt: "2026-04-15",
+};
+
+export const metadata: Metadata = {
+  ...buildPageMetadata({ title: seoTarget.title, description: seoTarget.description, path: pagePath, image: `${pagePath}/opengraph-image` }),
+  other: citationMetaTags(citation),
+};
 
 const comparisonData = [
   ["Load and deflection", "Match a load table to the exact molded mesh or pultruded bearing-bar series, resin, span and support arrangement.", "Match the bearing-bar size, spacing, grade, span and support arrangement to the supplier's load table."],
@@ -75,6 +87,7 @@ export default function FrpVsSteelGratingsPage() {
     </PageSection>
     <PageSection id="faq" title="Frequently asked questions" tone="muted"><FAQList items={faqs} /></PageSection>
     <PageSection id="products" title="Select a candidate F1 grating configuration" tone="white" intro="Start with a published specification row, then confirm resin, surface, supports, clips and the available project evidence."><ul className="grid gap-[16px] md:grid-cols-2"><li><CoverCard href="/products/molded-frp-grating" cover={productCovers["/products/molded-frp-grating"]} title="Molded FRP grating" text="Compare mesh, depth, nominal panel sizes and weights; define cutouts and support requirements." action="View molded grating" sizes="(max-width: 767px) 94vw, 46vw" /></li><li><CoverCard href="/products/frp-gratings" cover={productCovers["/products/frp-gratings"]} title="Pultruded FRP grating" text="Compare bearing-bar series, depth, spacing and nominal weight for a defined span direction." action="View pultruded grating" sizes="(max-width: 767px) 94vw, 46vw" /></li></ul></PageSection>
+    <ArticleCitationBlock variant="standalone" {...citation} />
     <RelatedLinks background="bg2" groups={[{ title: "Evidence and environment", links: [{ href: "/resources/evidence", label: "Published evidence and scope" }, { href: "/technology/quality-testing", label: "Inspection and release requirements" }, { href: "/technology/pultrusion-resin-systems", label: "Chemical and UV selection" }] }, { title: "Design and cost", links: [{ href: "/resources/blog/how-to-read-frp-grating-load-table", label: "Read a grating load table" }, { href: "/technology/frp-vs-traditional-materials", label: "Equivalent-function material comparison" }, { href: "/tools/frp-life-cycle-cost-calculator", label: "Compare life-cycle assumptions" }] }, { title: "Project scope", links: [{ href: "/applications/frp-chemical-plant-platforms", label: "Platform components and procurement" }, { href: "/products/fiberglass-structural-shapes/frp-i-beam", label: "Individual support beams" }, { href: "/products/fiberglass-structural-shapes/frp-channel", label: "Individual support channels" }] }]} />
     <InnerCTA title="Send a panel layout, load schedule and exposure conditions for review" />
   </>;
