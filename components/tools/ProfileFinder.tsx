@@ -7,6 +7,7 @@ import SectionGlyph from "@/components/ui/SectionGlyph";
 import { FAMILY_ORDER, PROFILE_FAMILIES } from "@/lib/catalog/profileFamilies";
 import type { ShapeId } from "@/lib/catalog/shapes";
 import type { FinderRow } from "@/lib/profileFinder";
+import { ResultLeadCapture } from "@/components/calculators/leadCapture";
 import { buildRfqHref } from "@/lib/rfq";
 import { catalogRfqContext, catalogEvidenceHref } from "@/lib/catalog/identity";
 import { trackProcurement } from "@/lib/analytics";
@@ -417,6 +418,19 @@ export default function ProfileFinder({ rows, initialSearch = "" }: { rows: Find
       ) : null}
 
       {selected.length ? (
+        <section id="finder-send" aria-label="Send the selected sizes by email" className="mt-[32px] max-w-[620px] scroll-mt-[96px]">
+          <ResultLeadCapture
+            source="profile-finder"
+            inquiryType="Standard profile quote request"
+            summary={`Standard profiles selected in the profile finder:\n${selected.map((row) => `- ${row.model} (${row.family}; ${row.configuration.formulationCode ?? "material to confirm"}${row.mass ? `; ${row.mass} kg/m` : ""})`).join("\n")}`}
+            context={{ product: "Standard FRP profiles", productPath: "/tools/profile-finder", models: selected.map((row) => row.model), formulations: selected.map((row) => row.configuration.formulationCode ?? "to confirm") }}
+            heading={`Send ${selected.length === 1 ? "this size" : `these ${selected.length} sizes`} for a quote`}
+            hint="The selected sizes attach to your request. Add your email, and the length per piece and quantity in the note if you have them."
+          />
+        </section>
+      ) : null}
+
+      {selected.length ? (
         <div data-page-bottom-bar className="fixed inset-x-0 bottom-0 z-[56] border-t border-border-default bg-white/95 px-[12px] pb-[max(10px,env(safe-area-inset-bottom))] pt-[10px] shadow-bar backdrop-blur-md">
           <div className="site-container flex flex-wrap items-center gap-[8px]">
             <span className="font-mono text-f12 text-t3">
@@ -433,6 +447,9 @@ export default function ProfileFinder({ rows, initialSearch = "" }: { rows: Find
                   Compare
                 </a>
               ) : null}
+              <a href="#finder-send" className="rounded-control border border-border-default bg-white px-[14px] py-[8px] text-f14 font-bold text-t1 hover:border-teal-border hover:text-teal-text">
+                Send by email
+              </a>
               <Link href={quoteHref} onClick={() => trackSelection("profile_rfq")} className="rounded-control bg-teal-text px-[14px] py-[8px] text-f14 font-bold text-white hover:bg-teal">
                 Quote {selected.length === 1 ? "this size" : "selected"}
               </Link>
