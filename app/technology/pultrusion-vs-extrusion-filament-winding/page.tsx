@@ -4,12 +4,14 @@ import PageHeader from "@/components/layout/PageHeader";
 import PageNav from "@/components/layout/PageNav";
 import PageSection from "@/components/layout/PageSection";
 import InnerCTA from "@/components/sections/InnerCTA";
+import ArticleCitationBlock from "@/components/sections/ArticleCitationBlock";
 import RelatedLinks from "@/components/sections/RelatedLinks";
 import { FAQList } from "@/components/ui/FAQ";
 import JsonLd from "@/components/seo/JsonLd";
 import { ProcessTrio } from "@/components/sections/ConceptAnimations";
 import Figure from "@/components/ui/Figure";
 import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
+import { citationMetaTags } from "@/lib/citation";
 
 const pageTitle = "Pultrusion vs Extrusion vs Filament Winding";
 const pageDescription =
@@ -21,12 +23,15 @@ const authorName = "Haifeng Gong, Ph.D.";
 const reviewedBy = "Yifan Liu, Application Engineer";
 const referencedStandards = ["ASTM D3917", "ASTM D638", "ASTM D2996"];
 
-export const metadata: Metadata = buildPageMetadata({
-  title: pageTitle,
-  description: pageDescription,
-  path: pagePath,
-  image: `${pagePath}/opengraph-image`,
-});
+export const metadata: Metadata = {
+  ...buildPageMetadata({
+    title: pageTitle,
+    description: pageDescription,
+    path: pagePath,
+    image: `${pagePath}/opengraph-image`,
+  }),
+  other: citationMetaTags({ title: pageTitle, authorName, publishedAt }),
+};
 
 interface CompRow {
   property: string;
@@ -223,6 +228,7 @@ export default function PultrusionVsExtrusionFilamentWindingPage() {
 
       <PageSection id="faq" title="Frequently asked questions" tone="white">
         <FAQList items={faqs} />
+        <ArticleCitationBlock title={pageTitle} path={pagePath} authorName={authorName} publishedAt={publishedAt} />
       </PageSection>
 
       <RelatedLinks background="bg2"
