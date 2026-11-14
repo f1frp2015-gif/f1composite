@@ -11,9 +11,21 @@ import InnerCTA from "@/components/sections/InnerCTA";
 import MachiningTolerancePlanner from "@/components/tools/MachiningTolerancePlanner";
 import { machiningGuide as guide, machiningOperations, machiningControlLevels, machiningSources, machiningFaqs } from "@/content/data/frpMachining";
 import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
+import { citationMetaTags, type CitationInput } from "@/lib/citation";
+import ArticleCitationBlock from "@/components/sections/ArticleCitationBlock";
 import { buildRfqHref } from "@/lib/rfq";
 
-export const metadata: Metadata = buildPageMetadata({ title: guide.title, description: guide.description, path: guide.path, image: `${guide.path}/opengraph-image` });
+const citation: CitationInput = {
+  title: "FRP profile machining: from cut length to inspected part",
+  path: guide.path,
+  authorName: "F1 Composite",
+  publishedAt: guide.updated,
+};
+
+export const metadata: Metadata = {
+  ...buildPageMetadata({ title: guide.title, description: guide.description, path: guide.path, image: `${guide.path}/opengraph-image` }),
+  other: citationMetaTags(citation),
+};
 const imageRoot = "/images/technology/frp-machining";
 const linkStyle = "font-semibold text-teal-text underline underline-offset-4 hover:text-teal";
 const rfqHref = buildRfqHref({ source: "frp-profile-machining", product: "FRP profile machining", productPath: guide.path, message: "Please review my FRP profile machining requirements.\nStage (trial / first article / production): \nProfile / material / resin: \nDrawing revision and units: \nCut list and quantity: \nHole / slot / notch schedule: \nCritical dimensions and datums: \nMating part or fit gauge: \nService environment and edge treatment: \nInspection records / sampling: \nPart identification and packing: " });
@@ -121,6 +133,7 @@ export default function FrpProfileMachiningPage() {
     <PageSection id="sources" title="Technical sources and scope" intro="This guide synthesizes representative manufacturers' public fabrication guidance. Source-specific tolerances, machinery, certifications and production claims remain with their original suppliers. All drawings on this page are original explanatory schematics.">
       <ul className="grid gap-[16px] md:grid-cols-2">{machiningSources.map(source => <li key={source.href} className="border-t border-border-default pt-[12px]"><a href={source.href} className={linkStyle}>{source.name}</a><p className="mt-[6px] text-f14 leading-relaxed text-t2">{source.scope}</p></li>)}</ul>
     </PageSection>
+    <ArticleCitationBlock variant="standalone" {...citation} />
     <div id="quote" className="scroll-mt-[128px]"><InnerCTA title="Send the part requirements that control fit" text="Share the profile, material, drawing revision, cut list, hole and slot schedule, critical tolerances and inspection needs. Use the tolerance planner to carry a dimension and its limits into the RFQ, then add the remaining drawing and order requirements. We will review what requires a trial or additional evidence." quoteHref={rfqHref} links={[{ label: "Add a dimension to the RFQ", href: "#tolerance-planner" }, { label: "Quality and evidence", href: "/technology/quality-testing" }, { label: "Custom pultruded profiles", href: "/products/custom-pultruded-profiles" }]} /></div>
   </>;
 }

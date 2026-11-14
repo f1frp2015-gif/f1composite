@@ -13,6 +13,8 @@ import CalculatorCTA from "@/components/calculators/CalculatorCTA";
 import { HeatFlowFrameComparison } from "@/components/sections/ConceptAnimations";
 import Figure from "@/components/ui/Figure";
 import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
+import { citationMetaTags, type CitationInput } from "@/lib/citation";
+import ArticleCitationBlock from "@/components/sections/ArticleCitationBlock";
 
 const pageTitle = "FRP vs Aluminum Windows: Thermal, Cost & U-Value Data";
 const pageDescription =
@@ -22,12 +24,22 @@ const publishedAt = "2026-04-15";
 const updatedAt = "2026-10-26";
 const referencedStandards = ["EN ISO 10077-1", "EN ISO 10077-2", "EN 14024", "NFRC 100", "PHI certified components"];
 
-export const metadata: Metadata = buildPageMetadata({
+const citation: CitationInput = {
+  title: "FRP vs aluminum window frames",
+  path: pagePath,
+  authorName: "F1 Composite",
+  publishedAt: publishedAt,
+};
+
+export const metadata: Metadata = {
+  ...buildPageMetadata({
   title: pageTitle,
   description: pageDescription,
   path: pagePath,
   image: `${pagePath}/opengraph-image`,
-});
+}),
+  other: citationMetaTags(citation),
+};
 
 interface CompRow {
   property: string;
@@ -210,6 +222,7 @@ export default function FrpVsAluminumWindowsPage() {
         </div>
       </PageSection>
 
+      <ArticleCitationBlock variant="standalone" {...citation} />
       <RelatedLinks background="white"
         groups={[
           {

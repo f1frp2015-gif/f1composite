@@ -15,6 +15,8 @@ import {
   metricGfrpChartRows,
 } from "@/lib/gfrpRebar";
 import { absoluteUrl, buildPageMetadata } from "@/lib/seo";
+import { citationMetaTags, type CitationInput } from "@/lib/citation";
+import ArticleCitationBlock from "@/components/sections/ArticleCitationBlock";
 
 // Size and weight reference for GFRP bars. Diameters and areas are the nominal
 // values in lib/gfrpRebar.ts; masses are calculated from the nominal area at
@@ -26,11 +28,21 @@ const pageTitle = "GFRP Rebar Size Chart: Diameters, Areas & Weights";
 const pageDescription =
   "GFRP rebar size chart for ASTM D7957 No. 2 to No. 10 and metric Ø6–Ø36 bars: nominal diameter, area and calculated weight per foot and meter, next to steel.";
 
-export const metadata: Metadata = buildPageMetadata({
+const citation: CitationInput = {
+  title: "GFRP rebar size chart",
+  path: pagePath,
+  authorName: "F1 Composite",
+  publishedAt: "2026-10-23",
+};
+
+export const metadata: Metadata = {
+  ...buildPageMetadata({
   title: pageTitle,
   description: pageDescription,
   path: pagePath,
-});
+}),
+  other: citationMetaTags(citation),
+};
 
 const astmRows = astmGfrpChartRows();
 const metricRows = metricGfrpChartRows();
@@ -244,6 +256,7 @@ export default function GfrpRebarSizeChartPage() {
         <FAQList items={faqs} />
       </PageSection>
 
+      <ArticleCitationBlock variant="standalone" {...citation} />
       <RelatedLinks
         title="GFRP rebar resources"
         groups={[

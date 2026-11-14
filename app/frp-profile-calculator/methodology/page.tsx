@@ -8,17 +8,29 @@ import InnerCTA from "@/components/sections/InnerCTA";
 import JsonLd from "@/components/seo/JsonLd";
 import { BEAM_LOAD_CASES, ENV_FACTORS, MARKET_CODES } from "@/lib/frpDesignBasis";
 import { absoluteUrl, buildPageMetadata } from "@/lib/seo";
+import { citationMetaTags, type CitationInput } from "@/lib/citation";
+import ArticleCitationBlock from "@/components/sections/ArticleCitationBlock";
 
 const pagePath = "/frp-profile-calculator/methodology";
 const publishedAt = "2026-07-30";
 const updatedAt = "2026-10-26";
 
-export const metadata: Metadata = buildPageMetadata({
+const citation: CitationInput = {
+  title: "FRP profile calculator methodology",
+  path: pagePath,
+  authorName: "Yifan Liu",
+  publishedAt: publishedAt,
+};
+
+export const metadata: Metadata = {
+  ...buildPageMetadata({
   title: "FRP Profile Calculator Methodology | F1 Composite",
   description:
     "See the equations, design assumptions, material inputs, load factors, shear correction, standards scope, and limits behind F1 Composite's FRP calculator.",
   path: pagePath,
-});
+}),
+  other: citationMetaTags(citation),
+};
 
 const prose = "max-w-[820px] space-y-[16px] text-f16 leading-golden text-t2";
 const link = "font-semibold text-teal-text hover:underline";
@@ -284,6 +296,7 @@ export default function CalculatorMethodologyPage() {
         </div>
       </PageSection>
 
+      <ArticleCitationBlock variant="standalone" {...citation} />
       <RelatedLinks
         background="bg2"
         groups={[

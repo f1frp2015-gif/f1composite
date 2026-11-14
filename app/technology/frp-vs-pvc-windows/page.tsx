@@ -11,6 +11,8 @@ import JsonLd from "@/components/seo/JsonLd";
 import { productCovers } from "@/lib/covers";
 import CalculatorCTA from "@/components/calculators/CalculatorCTA";
 import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
+import { citationMetaTags, type CitationInput } from "@/lib/citation";
+import ArticleCitationBlock from "@/components/sections/ArticleCitationBlock";
 
 const pageTitle = "FRP vs PVC Windows: Thermal, Durability, Structural";
 const pageDescription =
@@ -20,12 +22,22 @@ const publishedAt = "2026-04-15";
 const updatedAt = "2026-10-26";
 const referencedStandards = ["EN ISO 10077-1", "EN 12608-1", "EN 13501-1", "BS 7412", "ASTM D4216"];
 
-export const metadata: Metadata = buildPageMetadata({
+const citation: CitationInput = {
+  title: "FRP vs PVC window frames",
+  path: pagePath,
+  authorName: "F1 Composite",
+  publishedAt: publishedAt,
+};
+
+export const metadata: Metadata = {
+  ...buildPageMetadata({
   title: pageTitle,
   description: pageDescription,
   path: pagePath,
   image: `${pagePath}/opengraph-image`,
-});
+}),
+  other: citationMetaTags(citation),
+};
 
 interface CompRow {
   property: string;
@@ -219,6 +231,7 @@ export default function FrpVsPvcWindowsPage() {
         </div>
       </PageSection>
 
+      <ArticleCitationBlock variant="standalone" {...citation} />
       <RelatedLinks background="white"
         groups={[
           {

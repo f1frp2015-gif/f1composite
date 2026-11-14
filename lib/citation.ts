@@ -82,7 +82,10 @@ export function buildArticleCitations({ title, path, authorName, publishedAt }: 
 
   return {
     IEEE: `${ieeeAuthor}, “${title},” ${SITE_NAME}, ${MONTHS_IEEE[month - 1]} ${day}, ${year}. [Online]. Available: ${url}`,
-    APA: `${apaAuthor} (${year}, ${MONTHS_FULL[month - 1]} ${day}). ${title}. ${SITE_NAME}. ${url}`,
+    // APA drops the site name when the author is the site itself.
+    APA: `${apaAuthor} (${year}, ${MONTHS_FULL[month - 1]} ${day}). ${title}.${
+      author.kind === "organization" && author.name === SITE_NAME ? "" : ` ${SITE_NAME}.`
+    } ${url}`,
     BibTeX: [
       `@misc{f1composite-${slugKey(path)}-${year},`,
       `  author       = {${bibAuthor}},`,

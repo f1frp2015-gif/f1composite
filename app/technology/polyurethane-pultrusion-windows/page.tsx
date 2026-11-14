@@ -13,6 +13,8 @@ import JsonLd from "@/components/seo/JsonLd";
 import { caseStudyCovers, productCovers } from "@/lib/covers";
 import CalculatorCTA from "@/components/calculators/CalculatorCTA";
 import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
+import { citationMetaTags, type CitationInput } from "@/lib/citation";
+import ArticleCitationBlock from "@/components/sections/ArticleCitationBlock";
 import { getSeoQueryTarget } from "@/content/data/seoQueryTargets";
 
 const pagePath = "/technology/polyurethane-pultrusion-windows";
@@ -23,12 +25,22 @@ const publishedAt = "2026-07-07";
 const updatedAt = "2026-11-04";
 const referencedStandards = ["EN 14351-1", "EN ISO 10077-1", "EN ISO 10077-2", "PHI Component Criteria (2491wi03)"];
 
-export const metadata: Metadata = buildPageMetadata({
+const citation: CitationInput = {
+  title: "Polyurethane pultrusion windows (GFRP-PU)",
+  path: pagePath,
+  authorName: "F1 Composite",
+  publishedAt: publishedAt,
+};
+
+export const metadata: Metadata = {
+  ...buildPageMetadata({
   title: pageTitle,
   description: pageDescription,
   path: pagePath,
   image: `${pagePath}/opengraph-image`,
-});
+}),
+  other: citationMetaTags(citation),
+};
 
 interface ResinRow {
   property: string;
@@ -286,6 +298,7 @@ export default function PolyurethanePultrusionWindowsPage() {
         </div>
       </PageSection>
 
+      <ArticleCitationBlock variant="standalone" {...citation} />
       <RelatedLinks background="white"
         groups={[
           {
