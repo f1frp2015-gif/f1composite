@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import PageSection from "@/components/layout/PageSection";
 import { SPANS_MM, type GoverningCheck, type SpanFamily } from "@/lib/spanTables";
+import { ResultLeadCapture } from "@/components/calculators/leadCapture";
 import { buildRfqHref } from "@/lib/rfq";
 import { trackEvent } from "@/lib/analytics";
 
@@ -47,6 +48,8 @@ export default function SpanTablesContent({
 }) {
   const [copiedValue, setCopiedValue] = useState<{ key: string; citation: string } | null>(null);
   const [copyError, setCopyError] = useState(false);
+  // The row whose "Email" button was pressed; its send form opens under that family's table.
+  const [picked, setPicked] = useState<{ familyId: string; model: string } | null>(null);
 
   async function copyValueCitation(model: string, spanMm: number, load: number, governs: GoverningCheck) {
     const key = valueAnchor(model, spanMm);
@@ -64,7 +67,7 @@ export default function SpanTablesContent({
   return (
     <>
       {families.map((family, index) => {
-        const table = (
+        const tableOnly = (
           <div className="relative overflow-x-auto rounded-card border border-border-default bg-white">
             <table className="w-full min-w-[1200px] border-collapse text-left text-f14">
               <thead>
@@ -141,12 +144,40 @@ export default function SpanTablesContent({
                       >
                         Quote
                       </Link>
+                      <button
+                        type="button"
+                        onClick={() => { setPicked({ familyId: family.id, model: row.model }); trackEvent("span_table_email_click", { family: family.id }); }}
+                        aria-label={`Send ${row.model} to the F1 team by email`}
+                        aria-expanded={picked?.model === row.model}
+                        className="ml-[12px] font-semibold text-teal-text hover:underline"
+                      >
+                        Email
+                      </button>
                     </td>
                   </tr>
                 ))}
               </tbody>
             </table>
           </div>
+        );
+        const pickedRow = picked?.familyId === family.id ? family.rows.find((row) => row.model === picked.model) : undefined;
+        const table = (
+          <>
+            {tableOnly}
+            {pickedRow ? (
+              <div className="mt-[12px] max-w-[620px]">
+                <ResultLeadCapture
+                  key={pickedRow.model}
+                  source="span-tables"
+                  inquiryType="Span table quote request"
+                  summary={`Section from the span tables: ${pickedRow.model} (${pickedRow.weightKgPerM} kg/m), ${family.title}.\nAllowable uniform load by span: ${pickedRow.cells.map((cell, i) => (cell.w < 0.05 ? "" : `${formatSpan(SPANS_MM[i])} m ${formatLoad(cell.w)} kN/m`)).filter(Boolean).join("; ")}.`}
+                  context={{ product: `${pickedRow.model} pultruded FRP profile`, productPath: "/frp-span-tables", specification: `${pickedRow.model}, ${pickedRow.weightKgPerM} kg/m` }}
+                  heading={`Send ${pickedRow.model} for a quote`}
+                  hint="The section and its table values attach to your request. Add your email, and the span, load and quantity in the note if you have them."
+                />
+              </div>
+            ) : null}
+          </>
         );
         return variant === "page" ? (
           <PageSection key={family.id} id={family.id} title={family.title} intro={family.intro} tone={index % 2 === 0 ? "muted" : "white"}>

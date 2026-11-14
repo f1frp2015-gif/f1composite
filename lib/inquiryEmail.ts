@@ -34,6 +34,8 @@ const SOURCE_LABELS: Record<string, string> = {
   "span-tables": "Span tables",
   "machining-tolerance-planner": "Machining tolerance planner",
   "grating-selector": "Grating selector",
+  "tool-grating-selector": "Grating selector",
+  "tool-span-tables": "Span tables",
   "grating-project": "Grating project planner",
   "grating-quote": "Grating quote request",
   "grating-drawing": "Grating drawing request",

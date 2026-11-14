@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useMemo, useState } from "react";
+import { ResultLeadCapture } from "@/components/calculators/leadCapture";
 import { buildGratingRows, filterGratingRows, gratingAreaWeight, KG_M2_TO_LB_FT2, M2_PER_FT2, type GratingFilter, type GratingRow } from "@/lib/gratingSelector";
 
 const inputClass = "w-full rounded-control border border-border-default bg-white px-[12px] py-[8px] text-f14 text-t1 outline-none focus:border-teal";
@@ -50,6 +51,8 @@ export default function GratingSelector() {
   const allRows = useMemo(() => buildGratingRows(), []);
   const [form, setForm] = useState<FormState>(DEFAULTS);
   const [presetId, setPresetId] = useState<string | null>(null);
+  // The row whose "Email this spec" button was pressed; its send form opens under the table.
+  const [pickedId, setPickedId] = useState<string | null>(null);
   const set = (patch: Partial<FormState>) => { setForm((current) => ({ ...current, ...patch })); setPresetId(null); };
 
   const rows = useMemo(() => {
@@ -67,6 +70,12 @@ export default function GratingSelector() {
 
   const areaInput = value(form.area);
   const areaM2 = areaInput !== undefined && Number.isFinite(areaInput) && areaInput > 0 ? (form.areaUnit === "m2" ? areaInput : areaInput * M2_PER_FT2) : null;
+
+  const pickedRow = rows.find((row) => row.id === pickedId);
+  const pickedName = pickedRow?.family === "molded" ? "Molded FRP grating" : "Pultruded FRP grating";
+  const pickedSpec = pickedRow
+    ? [pickedRow.family === "molded" ? pickedRow.group : `${pickedRow.type} (${pickedRow.group})`, `depth ${pickedRow.depthMm} mm`, `open area ${pickedRow.openAreaPct}%`, `nominal weight ${pickedRow.weightKgM2} kg/m²`, pickedRow.bearingBarCenterMm ? `bearing bars at ${pickedRow.bearingBarCenterMm} mm` : "", pickedRow.barThickness ? `bar ${pickedRow.barThickness} mm` : "", pickedRow.panelSizes ? `panel options ${pickedRow.panelSizes} mm` : ""].filter(Boolean).join("; ")
+    : "";
 
   return (
     <div className="grid gap-[20px]">
@@ -179,6 +188,9 @@ export default function GratingSelector() {
                       <Link href={row.quoteHref} className="relative inline-flex min-h-[44px] items-center whitespace-nowrap text-f14 font-bold text-teal-text underline underline-offset-4">
                         Quote this spec<span className="sr-only">: {row.family === "molded" ? `${row.group}, ${row.depthMm} mm` : `${row.type}, ${row.depthMm} mm`}</span>
                       </Link>
+                      <button type="button" onClick={() => setPickedId(row.id)} aria-expanded={pickedId === row.id} className="ml-[12px] inline-flex min-h-[44px] items-center whitespace-nowrap text-f14 font-bold text-teal-text underline underline-offset-4">
+                        Email this spec<span className="sr-only">: {row.family === "molded" ? `${row.group}, ${row.depthMm} mm` : `${row.type}, ${row.depthMm} mm`}</span>
+                      </button>
                     </td>
                   </tr>
                 );
@@ -187,6 +199,19 @@ export default function GratingSelector() {
           </table>
           {rows.length === 0 ? <p className="px-[14px] py-[16px] text-f14 text-t2">No published configuration matches. Widen a filter, or send the requirement for a project-specific selection.</p> : null}
         </div>
+        {pickedRow ? (
+          <div className="mt-[12px] max-w-[620px]">
+            <ResultLeadCapture
+              key={pickedRow.id}
+              source="grating-selector"
+              inquiryType="Grating quote request"
+              summary={`${pickedName} from the grating selector: ${pickedSpec}.${areaM2 !== null ? `\nArea: ${fmt(areaM2, 1)} m², about ${fmt(gratingAreaWeight(pickedRow.weightKgM2, areaM2).kg, 0)} kg.` : ""}`}
+              context={{ product: pickedName, productPath: pickedRow.family === "molded" ? "/products/molded-frp-grating" : "/products/frp-gratings", specification: pickedSpec, ...(areaM2 !== null ? { areaM2: Math.round(areaM2 * 10) / 10 } : {}) }}
+              heading="Send this grating spec for a quote"
+              hint="The configuration attaches to your request. Add your email, and the span, loads, panel sizes and quantity in the note if you have them."
+            />
+          </div>
+        ) : null}
         <p className="mt-[12px] max-w-[860px] text-f12 leading-golden text-t3">
           Nominal catalog values. This list does not rate load or span: send the clear span, support width, loads and deflection limit with the quotation so the applicable load table can be checked.
         </p>

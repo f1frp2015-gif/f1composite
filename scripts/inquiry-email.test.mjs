@@ -61,7 +61,7 @@ test("every calculator and AI tool can send its result as an inquiry directly", 
   const files = [
     ...readdirSync(new URL("../components/tools/", import.meta.url)).filter(name => /(Calculator|Checker|Optimizer|Converter|Planner)\.tsx$/.test(name)).map(name => `components/tools/${name}`),
     "app/frp-profile-calculator/ProfileCalculator.tsx", "app/fiberglass-pultruded-profile-price/PriceEstimator.tsx", "app/technology/frp-u-value-calculator/UValueCalculator.tsx",
-    "app/ai/sourcing/SourcingWizard.tsx", "app/ai/passive-house/PassiveHouseWizard.tsx", "components/chat/ChatPanel.tsx",
+    "components/tools/ProfileFinder.tsx", "components/tools/SpanTablesContent.tsx", "components/tools/GratingSelector.tsx", "app/ai/sourcing/SourcingWizard.tsx", "app/ai/passive-house/PassiveHouseWizard.tsx", "components/chat/ChatPanel.tsx",
   ];
   assert.ok(files.length >= 14);
   for (const file of files) assert.match(read(file), /<ResultLeadCapture/, file);
