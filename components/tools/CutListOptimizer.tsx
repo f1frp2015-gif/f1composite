@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { track } from "@/components/calculators/leadCapture";
+import { track, ResultLeadCapture } from "@/components/calculators/leadCapture";
 import { buildProducts } from "@/lib/catalog/standardProfiles";
 import { CUT_LIST_LIMITS, STOCK_OPTIONS, calculateCutList, cutListError, parsePieceList, type BarPattern, type CutListInput, type CutPiece } from "@/lib/cutList";
 import { buildRfqHref } from "@/lib/rfq";
@@ -439,6 +439,7 @@ export default function CutListOptimizer() {
                 {shareState === "copied" ? "Link copied" : shareState === "error" ? "Link is in the address bar" : "Copy share link"}
               </button>
             </div>
+            <ResultLeadCapture source="cut-list-optimizer" inquiryType="Tool result review" summary={summary} context={{ product: product ? `${product.model} pultruded profile` : "Pultruded FRP profiles", productPath: "/products/fiberglass-structural-shapes" }} heading="Send this cut list for a quote" />
             <details className="rounded-control bg-white p-[12px] text-f12 text-t2">
               <summary className="cursor-pointer font-semibold text-t1">Cut list as text</summary>
               <pre className="mt-[8px] overflow-x-auto whitespace-pre-wrap font-mono text-f12 text-t2">{cutListText}</pre>

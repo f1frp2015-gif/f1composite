@@ -20,6 +20,7 @@ function mockRoute({ db = null, mail = null, dbThrows = false, mailThrows = fals
     "@/lib/windowInquiry": loadProjectModule("lib/windowInquiry.ts"),
     "@/lib/contactAttachment": loadProjectModule("lib/contactAttachment.ts"),
     "@/lib/acquisition": loadProjectModule("lib/acquisition.ts"),
+    "@/lib/inquiryEmail": loadProjectModule("lib/inquiryEmail.ts"),
     "@/lib/profileCalculationSnapshot": loadProjectModule("lib/profileCalculationSnapshot.ts"),
   };
   const exports = {};

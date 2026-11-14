@@ -9,6 +9,7 @@ import { ACQUISITION_MAX_BYTES, acquisitionReferrer, parseAcquisition } from "@/
 import { MAX_ATTACHMENT_BYTES, ALLOWED_ATTACHMENT_EXTENSIONS, validateContactAttachment } from "@/lib/contactAttachment";
 import { parseWindowInquiry, mergeWindowContext, windowInquirySummary } from "@/lib/windowInquiry";
 import { parseProfileSnapshot } from "@/lib/profileCalculationSnapshot";
+import { inquiryAcquisitionLines, inquiryContextRows, inquirySourceLabel } from "@/lib/inquiryEmail";
 
 export const runtime = "nodejs";
 
@@ -174,6 +175,23 @@ export async function POST(request: NextRequest) {
     console.error("Inquiry DB insert failed:", dbErr);
   }
 
+  // The email shows the stored JSON as labelled lines; the database keeps the structure.
+  const source = String(formData.get("source") ?? "") || "contact";
+  const sourceLabel = inquirySourceLabel(source);
+  const details = inquiryContextRows(context);
+  const detailRows = details.rows;
+  const journey = inquiryAcquisitionLines(acquisition);
+  const productName = context && typeof context === "object" && !Array.isArray(context) && typeof (context as { product?: unknown }).product === "string" ? (context as { product: string }).product.trim() : "";
+  const subject = [`[Inquiry] ${inquiryType}`, productName || (source === "contact" ? "" : sourceLabel), `${name?.trim() ?? ""}${country?.trim() ? ` (${country.trim()})` : ""}`].filter(Boolean).join(" — ").replace(/[\r\n]+/g, " ").slice(0, 200);
+  const textBody = [
+    `New inquiry from f1composite.com${inquiryId == null ? "" : ` (F1-${inquiryId})`}`,
+    `Name: ${name}`, `Company: ${company || "—"}`, `Email: ${email}`, `Phone: ${phone || "—"}`, `Country: ${country || "—"}`, `Type: ${inquiryType}`,
+    `Attachment: ${attachmentName || "—"}`, `Sent from: ${sourceLabel}`,
+    ...(detailRows.length ? ["", "Selection details:", ...detailRows.map(([label, value]) => `- ${label}: ${value}`)] : []),
+    "", "How they found us:", ...journey.map(line => `- ${line}`),
+    "", "Message:", message,
+  ].join("\n");
+
   // Either persistence or the mail provider must acknowledge the submission.
   let emailId: string | null = null;
   try {
@@ -181,7 +199,8 @@ export async function POST(request: NextRequest) {
       from: "F1 Composite Inquiry <inquiry@f1composite.com>",
       to: NOTIFY_EMAILS,
       replyTo: email!,
-      subject: `[Inquiry] ${inquiryType ?? ""} from ${name ?? ""} — ${country ?? ""}`.slice(0, 200),
+      subject,
+      text: textBody,
       attachments: attachmentName && attachmentContent
         ? [{
             filename: attachmentName,
@@ -201,8 +220,9 @@ export async function POST(request: NextRequest) {
             <tr><td style="padding: 8px 12px; font-weight: 600; vertical-align: top;">Country</td><td style="padding: 8px 12px;">${esc(country)}</td></tr>
             <tr style="background: #f9fafb;"><td style="padding: 8px 12px; font-weight: 600; vertical-align: top;">Type</td><td style="padding: 8px 12px;">${esc(inquiryType)}</td></tr>
             <tr><td style="padding: 8px 12px; font-weight: 600; vertical-align: top;">Attachment</td><td style="padding: 8px 12px;">${esc(attachmentName)}</td></tr>
-            <tr><td style="padding: 8px 12px; font-weight: 600; vertical-align: top;">Source / context</td><td style="padding: 8px 12px; white-space: pre-wrap;">${esc(String(formData.get("source") ?? "contact"))}<br />${esc(context == null ? "" : JSON.stringify(context))}</td></tr>
-            <tr><td style="padding: 8px 12px; font-weight: 600; vertical-align: top;">Acquisition</td><td style="padding: 8px 12px; white-space: pre-wrap;">${esc(acquisition ? JSON.stringify(acquisition) : "Unknown / unavailable")}</td></tr>
+            <tr><td style="padding: 8px 12px; font-weight: 600; vertical-align: top;">Sent from</td><td style="padding: 8px 12px;">${esc(sourceLabel)}</td></tr>
+            ${detailRows.length ? `<tr style="background: #f9fafb;"><td style="padding: 8px 12px; font-weight: 600; vertical-align: top;">Selection details</td><td style="padding: 8px 12px;">${detailRows.map(([label, value]) => `<div style="margin-bottom: 4px;"><span style="color: #666;">${esc(label)}:</span> ${esc(value)}</div>`).join("")}${details.omitted ? `<div style="color: #888;">+ ${details.omitted} more values kept with the inquiry record.</div>` : ""}</td></tr>` : ""}
+            <tr><td style="padding: 8px 12px; font-weight: 600; vertical-align: top;">How they found us</td><td style="padding: 8px 12px;">${journey.map(line => `<div style="margin-bottom: 4px;">${esc(line)}</div>`).join("")}</td></tr>
             <tr style="background: #f9fafb;"><td style="padding: 8px 12px; font-weight: 600; vertical-align: top;">Message</td><td style="padding: 8px 12px; white-space: pre-wrap;">${esc(message)}</td></tr>
           </table>
           <p style="margin-top: 24px; font-size: 13px; color: #888;">Submitted at ${esc(timestamp)} via f1composite.com contact form</p>

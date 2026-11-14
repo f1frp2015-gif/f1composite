@@ -1,20 +1,23 @@
 "use client";
 
-import { useState, type FormEvent } from "react";
+import { useEffect, useRef, useState, type FormEvent } from "react";
 import { trackEvent, trackInquirySuccess } from "@/lib/analytics";
 import { appendAcquisition } from "@/lib/acquisitionClient";
+import { forgetToolResult, rememberToolResult } from "@/lib/toolResultMemory";
 
 export const track = trackEvent;
 
-/* Send a review request with the calculator context through the inquiry pipeline.
-   Acceptance does not mean an automated result email or quotation was sent. */
+/* Send a review request with the tool result through the inquiry pipeline: the
+   visitor adds an email and the result reaches the team as an inquiry email.
+   Acceptance does not mean an automated result email or quotation was sent.
+   The result is also kept for this tab, so the contact form can include it. */
 export function ResultLeadCapture({
   context,
   summary,
   source,
   inquiryType = "Calculator quote request",
-  heading = "Send this calculation for engineering review",
-  hint = "The calculation details attach to your request. Add your email for the team’s reply; quotation follows specification review.",
+  heading = "Send this result to our team",
+  hint = "The result above attaches to your request. Add your email for the team’s reply; quotation follows specification review.",
 }: {
   context: Record<string, unknown>;
   summary: string;
@@ -26,6 +29,14 @@ export function ResultLeadCapture({
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState<"idle" | "sending" | "ok" | "error">("idle");
   const [err, setErr] = useState("");
+  const [note, setNote] = useState("");
+  // Keep the result only once the visitor has used the page, not the default example.
+  const firstSummary = useRef(summary);
+  const contextJson = JSON.stringify(context);
+  useEffect(() => {
+    const used = summary !== firstSummary.current || (typeof navigator !== "undefined" && navigator.userActivation?.hasBeenActive);
+    if (used) rememberToolResult({ source, summary, context: JSON.parse(contextJson) });
+  }, [source, summary, contextJson]);
 
   async function submit(e: FormEvent) {
     e.preventDefault();
@@ -38,11 +49,10 @@ export function ResultLeadCapture({
     setErr("");
     try {
       const fd = new FormData();
-      fd.set("name", "Calculator lead");
+      fd.set("name", email.split("@")[0].slice(0, 80) || "Tool user");
       fd.set("email", email);
-      fd.set("country", "(via calculator)");
       fd.set("inquiry_type", inquiryType);
-      fd.set("message", summary);
+      fd.set("message", note.trim() ? `${note.trim()}\n\n${summary}` : summary);
       fd.set("source", source);
       fd.set("context", JSON.stringify(context));
       appendAcquisition(fd);
@@ -51,6 +61,7 @@ export function ResultLeadCapture({
       if (res.ok && j.accepted === true && j.receiptId) {
         trackInquirySuccess(j.receiptId, source, "", inquiryType, undefined, { email });
         setStatus("ok");
+        forgetToolResult();
         track("calculator_lead", { source });
       } else {
         setStatus("error");
@@ -92,6 +103,15 @@ export function ResultLeadCapture({
           {status === "sending" ? "Sending…" : "Request review"}
         </button>
       </div>
+      <input
+        type="text"
+        value={note}
+        onChange={(e) => setNote(e.target.value)}
+        maxLength={1000}
+        placeholder="Quantity, destination or a note (optional)"
+        aria-label="Quantity, destination or a note (optional)"
+        className="mt-[8px] w-full rounded-control border border-border-default bg-white px-[13px] py-[8px] text-f14 text-t1 outline-none focus:border-teal"
+      />
       {status === "error" && <p className="mt-[5px] text-f12 text-fail">{err}</p>}
     </form>
   );

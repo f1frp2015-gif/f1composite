@@ -5,6 +5,7 @@ import { useState } from "react";
 import { experimental_useObject as useObject } from "@ai-sdk/react";
 import { sourcingRecommendationSchema } from "@/lib/sourcingSchema";
 import { getAcquisition } from "@/lib/acquisitionClient";
+import { ResultLeadCapture } from "@/components/calculators/leadCapture";
 
 interface Example {
   label: string;
@@ -22,7 +23,7 @@ type SourcingObject = Partial<{
   standards: Array<string | null | undefined>;
 }>;
 
-function buildContactPrefillHref(userPrompt: string, object: SourcingObject | undefined) {
+function buildSourcingMessage(userPrompt: string, object: SourcingObject | undefined) {
   const lines: string[] = [];
   lines.push("=== From AI Sourcing Assistant ===");
   lines.push("");
@@ -48,7 +49,11 @@ function buildContactPrefillHref(userPrompt: string, object: SourcingObject | un
   }
   lines.push("");
   lines.push("Please send a formal DDP USA quote with Section 301 pre-quoted inline.");
-  const message = lines.join("\n");
+  return lines.join("\n");
+}
+
+function buildContactPrefillHref(userPrompt: string, object: SourcingObject | undefined) {
+  const message = buildSourcingMessage(userPrompt, object);
   const params = new URLSearchParams({
     ref: "ai-sourcing",
     source: "ai-sourcing",
@@ -282,6 +287,16 @@ export default function SourcingWizard({ examples }: SourcingWizardProps) {
               >
                 Send formal RFQ to F1 team →
               </Link>
+              <div className="mt-[16px] max-w-[560px]">
+                <ResultLeadCapture
+                  source="ai-sourcing-email"
+                  inquiryType="AI sourcing"
+                  summary={buildSourcingMessage(value, object)}
+                  context={{ product: object?.profileFamily?.name ?? "", resin: object?.resinSystem?.recommended ?? "", standards: (object?.standards ?? []).filter((s): s is string => typeof s === "string") }}
+                  heading="Or send it now with only your email"
+                  hint="Your project description and this recommendation go to the F1 team as one inquiry. The team replies to your email."
+                />
+              </div>
               <p className="mt-[12px] text-f12 italic text-t3">
                 AI-generated recommendation. Verify critical engineering data with the F1 Composite team.
               </p>

@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { track } from "@/components/calculators/leadCapture";
+import { track, ResultLeadCapture } from "@/components/calculators/leadCapture";
 import { buildRfqHref } from "@/lib/rfq";
 import { buildToolStateHref, readToolStateParams } from "@/lib/toolStateUrl";
 import {
@@ -288,6 +288,7 @@ export default function ThermalExpansionCalculator() {
                 {shareState === "copied" ? "Link copied" : shareState === "error" ? "Link is in the address bar" : "Copy share link"}
               </button>
             </div>
+            <ResultLeadCapture source="thermal-expansion-calculator" inquiryType="Tool result review" summary={summary} context={{ product: preset?.product ?? "", productPath: preset?.href ?? "" }} />
           </>
         )}
       </div>

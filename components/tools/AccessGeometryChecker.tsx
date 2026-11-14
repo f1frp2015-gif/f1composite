@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { track } from "@/components/calculators/leadCapture";
+import { track, ResultLeadCapture } from "@/components/calculators/leadCapture";
 import {
   LADDER_CODES,
   STAIR_CODES,
@@ -261,6 +261,7 @@ export default function AccessGeometryChecker() {
           >
             Send to engineering
           </a>
+          <ResultLeadCapture source="access-geometry-checker" inquiryType="Tool result review" summary={summary} context={{ product: product.name, productPath: product.href, check: tab }} />
           <p className="text-f12 text-t3">
             A geometry check against the listed clauses only. Loads, fixings, the fall protection system and the complete
             drawing are reviewed for the rule adopted on the site.

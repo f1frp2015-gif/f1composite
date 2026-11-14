@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { track } from "@/components/calculators/leadCapture";
+import { track, ResultLeadCapture } from "@/components/calculators/leadCapture";
 import {
   ACI_440_11,
   BAR_SIZES,
@@ -195,6 +195,7 @@ export default function GfrpRebarCalculator() {
         >
           Send to engineering
         </a>
+        <ResultLeadCapture source="gfrp-rebar-calculator" inquiryType="Tool result review" summary={summary} context={{ product: "GFRP rebar", productPath: "/products/frp-rebar" }} />
       </div>
     </div>
   );

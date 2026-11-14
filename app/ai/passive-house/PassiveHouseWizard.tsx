@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { ResultLeadCapture } from "@/components/calculators/leadCapture";
 
 type Climate = "arctic" | "cold" | "cool" | "warm" | "hot" | "";
 type WindowType = "casement" | "tilt-turn" | "sliding" | "compression-seal" | "fixed-facade" | "";
@@ -49,6 +50,8 @@ Please shortlist an appropriate F1 Composite series (50, 55, 60, 65, 70, 80, 90 
   };
 
   const selectedType = typeOptions.find((t) => t.value === windowType);
+  const selectedClimate = climateOptions.find((c) => c.value === climate);
+  const selectionSummary = `Passive House window selection (F1 Composite tool)\nClimate class: ${selectedClimate?.label ?? ""}\nWindow type: ${selectedType?.label ?? ""}\nInitial series shortlist: ${selectedType?.seriesFit ?? ""}\nTarget Uw: ${targetU} W/m²K\nProject size: ${units || "not yet determined"} units`;
 
   return (
     <div className="rounded-card border border-border-default bg-bg2 p-[20px]">
@@ -145,6 +148,16 @@ Please shortlist an appropriate F1 Composite series (50, 55, 60, 65, 70, 80, 90 
         >
           Get an AI-matched FRP series
         </button>
+        {canLaunch ? (
+          <ResultLeadCapture
+            source="passive-house-selector"
+            inquiryType="Window selection review"
+            summary={selectionSummary}
+            context={{ product: "FRP window and door systems", productPath: "/products/frp-window-frames", climate: selectedClimate?.label ?? "", windowType: selectedType?.label ?? "", seriesShortlist: selectedType?.seriesFit ?? "", targetUw: targetU, units }}
+            heading="Or send this selection to our window team"
+            hint="The four answers above attach to your request. Add your email and the team replies with a series proposal."
+          />
+        ) : null}
       </div>
     </div>
   );

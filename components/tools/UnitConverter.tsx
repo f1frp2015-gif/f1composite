@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { track } from "@/components/calculators/leadCapture";
+import { track, ResultLeadCapture } from "@/components/calculators/leadCapture";
 import { buildRfqHref } from "@/lib/rfq";
 import { readToolStateParams } from "@/lib/toolStateUrl";
 import { INCH_SHAPES, QUANTITIES, convertAll, formatValue, inchSizeToCatalog, parseInches, quantity, type InchShape } from "@/lib/unitConverter";
@@ -205,6 +205,7 @@ export default function UnitConverter({
                 Compare in the profile finder
               </Link>
             </div>
+            <ResultLeadCapture source="unit-converter" inquiryType="Tool result review" summary={`Inch size on our drawing: ${inchLabel} (${match.mm.h.toFixed(1)} × ${match.mm.b.toFixed(1)} × ${match.mm.t.toFixed(2)} mm).\nClosest catalog size shown: ${match.product?.model ?? "none"}.`} context={{ product: match.product ? `${match.product.model} pultruded profile` : "Pultruded FRP profile", productPath: "/products/fiberglass-structural-shapes" }} heading="Ask about this size by email" />
           </div>
         )}
         <p className="text-f12 text-t3">

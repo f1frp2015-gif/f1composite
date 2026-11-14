@@ -11,6 +11,8 @@ import Button from "@/components/ui/Button";
 import { trackEvent, trackInquirySuccess } from "@/lib/analytics";
 import { attributionPath, attributionToken, parseRfqFragment, applyRfqFragment, contactPrefillKey } from "@/lib/rfq";
 import { appendAcquisition } from "@/lib/acquisitionClient";
+import { forgetToolResult, recallToolResult, type ToolResultMemory } from "@/lib/toolResultMemory";
+import { inquirySourceLabel } from "@/lib/inquiryEmail";
 
 const countries = [
   "United States",
@@ -70,6 +72,7 @@ async function submitForm(_prev: FormState, formData: FormData): Promise<FormSta
     }));
     const success = res.ok && data.accepted === true && Boolean(data.receiptId);
     if (success) {
+      forgetToolResult();
       let windowContext: WindowInquiry | null = null;
       try { windowContext = parseWindowInquiry(JSON.parse(String(formData.get("window_inquiry") || "null"))); } catch { /* Invalid client context must not affect an accepted receipt. */ }
       trackInquirySuccess(data.receiptId, String(formData.get("source") ?? "contact"), String(formData.get("product_path") ?? ""), String(formData.get("inquiry_type") ?? "general"), windowContext || undefined, { email: formData.get("email"), phone: formData.get("phone") });
@@ -141,7 +144,13 @@ function ContactFormContent({ fragment }: { fragment: string }) {
   if (!inheritedContext && !fragmentPrefill.error) {
     try { inheritedContext = prefillContext ? JSON.parse(prefillContext) : null; } catch { inheritedContext = { raw: prefillContext }; }
   }
-  const context = JSON.stringify({ ...(inheritedContext && typeof inheritedContext === "object" && !Array.isArray(inheritedContext) ? inheritedContext : { inheritedContext }), product, productPath, specification, evidenceId });
+  // A result from a tool used earlier in this tab, when the link here carried no selection of its own.
+  const acceptsToolResult = !fragmentPrefill.context && !prefillMessage && !prefillContext && !gratingProject && !windowInquiry && !product && !specification && !evidenceId;
+  const [toolResult, setToolResult] = useState<ToolResultMemory | null>(null);
+  useEffect(() => { if (acceptsToolResult) startTransition(() => setToolResult(recallToolResult())); }, [acceptsToolResult]);
+  const includedTool = acceptsToolResult ? toolResult : null;
+  const toolLabel = includedTool ? inquirySourceLabel(includedTool.source).replace(/ \(.*\)$/, "") : "";
+  const context = JSON.stringify({ ...(includedTool ? { toolResult: { tool: toolLabel, source: includedTool.source, toolPath: includedTool.path, ...includedTool.context } } : {}), ...(inheritedContext && typeof inheritedContext === "object" && !Array.isArray(inheritedContext) ? inheritedContext : { inheritedContext }), product, productPath, specification, evidenceId });
   const isFromAiSourcing = prefillRef === "ai-sourcing";
 
   if (state.success) {
@@ -164,7 +173,9 @@ function ContactFormContent({ fragment }: { fragment: string }) {
       event.preventDefault();
       const data = new FormData(event.currentTarget);
       if (mountedAt.current) data.set("form_elapsed_ms", String(Date.now() - mountedAt.current));
-      setSubmittedMessage([messageRef.current?.value || "", windowInquiry ? windowInquirySummary(windowInquiry) : ""].filter(Boolean).join("\n\n"));
+      const toolText = includedTool ? `Result from the ${toolLabel}:\n${includedTool.summary}` : "";
+      if (toolText) data.set("message", [String(data.get("message") ?? "").trim(), toolText].filter(Boolean).join("\n\n"));
+      setSubmittedMessage([messageRef.current?.value || "", toolText, windowInquiry ? windowInquirySummary(windowInquiry) : ""].filter(Boolean).join("\n\n"));
       startTransition(() => formAction(data));
     }} onFocusCapture={() => { if (!started.current) { started.current = true; trackEvent("rfq_start", { source: attributionToken(prefillSource), product_path: productPath }); } }} className="space-y-[20px] rounded-card border border-border-default bg-white p-[20px] sm:p-[28px]">
       {fragmentPrefill.error && <p role="alert" className="rounded-control border border-warn-border bg-warn-bg p-4 text-f14 text-t1">Shared details were not included. {fragmentPrefill.error} Any details you already typed have been kept; review them before sending.</p>}
@@ -180,6 +191,7 @@ function ContactFormContent({ fragment }: { fragment: string }) {
       {windowInquiry && <p className="rounded-control bg-teal-bg px-4 py-3 text-f14 text-t1">Included: {WINDOW_OPTION_LABELS[windowInquiry.mode]}{windowInquiry.series ? ` · ${WINDOW_OPTION_LABELS[windowInquiry.series] || `Series ${windowInquiry.series}`}` : ""}{windowInquiry.stage ? ` · ${WINDOW_OPTION_LABELS[windowInquiry.stage] || windowInquiry.stage}` : ""}</p>}
       {gratingProject && <details><summary className="cursor-pointer py-2 text-f14 font-semibold">Your grating configuration is included · View details</summary><GratingInquiryReview /></details>}
       {!gratingProject && (product || specification || evidenceId) && <div className="rounded-control border border-teal-border bg-teal-bg p-[12px] text-f14 text-t1"><p className="font-bold">Included with your inquiry</p>{product && <p>Product: {product}</p>}{specification && <p>Specification: {specification}</p>}{evidenceId && <p>Document reference: {evidenceId}</p>}<p className="mt-[4px]">Your product selection is included automatically. Add a note if you wish.</p></div>}
+      {includedTool && <div className="rounded-control border border-teal-border bg-teal-bg p-[12px] text-f14 text-t1"><p className="font-bold">Included: your {toolLabel} result</p><details><summary className="cursor-pointer py-[4px] font-semibold">View the result</summary><pre className="max-h-60 overflow-auto whitespace-pre-wrap break-words font-sans text-f14">{includedTool.summary}</pre></details><button type="button" className="mt-[4px] font-semibold underline" onClick={() => { forgetToolResult(); setToolResult(null); }}>Do not include it</button></div>}
       {isFromAiSourcing && (
         <div className="rounded-control border border-teal-border bg-teal-bg p-[12px] text-f14 leading-golden text-t1">
           <span className="font-bold text-teal-text">Pre-filled from the sourcing assistant.</span> Your project details are included. Just add your name and email to get started.
