@@ -189,7 +189,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${BASE}/resources/evidence`, lastModified: evidenceRevision, changeFrequency: "monthly", priority: 0.8 },
     ...reportVerifications.map((item) => ({ url: `${BASE}${verificationPath(item.slug)}`, lastModified: evidenceRevision, changeFrequency: "monthly" as const, priority: 0.6 })),
     { url: `${BASE}/resources/technical-data`, changeFrequency: "monthly", priority: 0.7 },
-    { url: `${BASE}/resources/how-to-choose-frp-pultrusion-supplier`, changeFrequency: "monthly", priority: 0.75 },
+    { url: `${BASE}/resources/how-to-choose-frp-pultrusion-supplier`, lastModified: "2026-10-26", changeFrequency: "monthly", priority: 0.75 },
     { url: `${BASE}/resources/frp-windows-guide`, changeFrequency: "weekly", priority: 0.85 },
     { url: `${BASE}/resources/frp-pultrusion-fob-ddp-export-guide`, changeFrequency: "monthly", priority: 0.78 },
     { url: `${BASE}/resources/design-guides`, changeFrequency: "monthly", priority: 0.6 },

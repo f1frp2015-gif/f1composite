@@ -10,6 +10,8 @@ import JsonLd from "@/components/seo/JsonLd";
 import RebarSegmentIcon, { isRebarSegmentId } from "@/components/products/RebarSegmentIcon";
 import { buildRfqHref } from "@/lib/rfq";
 import { absoluteUrl, buildPageMetadata } from "@/lib/seo";
+import { citationMetaTags, type CitationInput } from "@/lib/citation";
+import ArticleCitationBlock from "@/components/sections/ArticleCitationBlock";
 
 // Application guide for GFRP rebar: why each segment specifies a nonmetallic bar, the
 // approval route in each market, typical sizes and public reference projects. Reference
@@ -18,6 +20,8 @@ import { absoluteUrl, buildPageMetadata } from "@/lib/seo";
 // taxonomy that the buildings, flood and walls sections answer).
 
 const pagePath = "/resources/gfrp-rebar-applications";
+// First published 2026-10-25 (#174); last content change 2026-10-26.
+const PAGE_PUBLISHED = "2026-10-25";
 const PAGE_UPDATED = "2026-10-26";
 // The same contact form as the product page; no rebar-specific entry point (owner decision 2026-10-26).
 const reviewHref = buildRfqHref({ source: "rebar-applications", product: "GFRP rebar", productPath: "/products/frp-rebar", message: "Please review a GFRP rebar application with me: the element, the exposure, the governing code and the bar sizes under consideration. Please contact me to discuss the details and quotation." });
@@ -25,7 +29,17 @@ const pageTitle = "GFRP Rebar Applications: Marine, Slabs, Bridges, Buildings";
 const pageDescription =
   "Where GFRP rebar is specified: seawalls, precast, slabs, bridges, buildings, flood channels, walls, MRI and rail, soft-eyes and water plants, by market.";
 
-export const metadata: Metadata = buildPageMetadata({ title: pageTitle, description: pageDescription, path: pagePath });
+const citation: CitationInput = {
+  title: "GFRP rebar applications",
+  path: pagePath,
+  authorName: "F1 Composite",
+  publishedAt: PAGE_PUBLISHED,
+};
+
+export const metadata: Metadata = {
+  ...buildPageMetadata({ title: pageTitle, description: pageDescription, path: pagePath }),
+  other: citationMetaTags(citation),
+};
 
 interface Application {
   id: string;
@@ -237,7 +251,7 @@ const faqs = [
 export default function GfrpRebarApplicationsPage() {
   return (
     <>
-      <JsonLd data={{ "@context": "https://schema.org", "@type": "TechArticle", headline: pageTitle, description: pageDescription, url: absoluteUrl(pagePath), mainEntityOfPage: absoluteUrl(pagePath), dateModified: PAGE_UPDATED, publisher: { "@id": "https://www.f1composite.com/#organization" }, about: { "@type": "Thing", name: "GFRP rebar applications" } }} />
+      <JsonLd data={{ "@context": "https://schema.org", "@type": "TechArticle", headline: pageTitle, description: pageDescription, url: absoluteUrl(pagePath), mainEntityOfPage: absoluteUrl(pagePath), datePublished: PAGE_PUBLISHED, dateModified: PAGE_UPDATED, author: { "@id": "https://www.f1composite.com/#organization" }, publisher: { "@id": "https://www.f1composite.com/#organization" }, about: { "@type": "Thing", name: "GFRP rebar applications" } }} />
       <PageHeader
         tag="Application guide"
         updated={PAGE_UPDATED}
@@ -278,6 +292,7 @@ export default function GfrpRebarApplicationsPage() {
         <FAQList items={faqs} />
       </PageSection>
 
+      <ArticleCitationBlock variant="standalone" {...citation} />
       <RelatedLinks
         background="white"
         groups={[
