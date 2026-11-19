@@ -21,3 +21,16 @@ This repository follows these durable rules across Codex, Claude, Kimi, and ever
 - After a successful production deployment, verify the canonical domain and record or report the commit SHA and Vercel deployment ID.
 
 When the user says “deploy” for this site, that means completing the scoped Git-to-production workflow above, not only running a local or untracked Vercel deployment.
+
+# Pages with search traffic: tune, do not rebuild (owner rule, 2026-11-19)
+
+This rule overrides any audit, benchmark, SEO plan or redesign, from any agent or tool.
+
+A page that has Search Console impressions or clicks in the last three months may only be adjusted in small steps. Check that before editing a page.
+
+- Allowed: rewording the title and meta description, adding one or two secondary keywords, adding paragraphs, FAQs, tables, images and internal links, correcting facts.
+- Not allowed without the owner's explicit approval, asked for that page: changing the slug or URL (including 301 moves and merging pages), changing the primary keyword, rewriting the page or moving it to a different template structure, deleting sections that carry traffic.
+- "Better for SEO overall" is not a reason to go past these limits. When a factual error needs a larger rewrite, ask first.
+- New pages and pages with no impressions yet are outside this rule. The URL intent map in `WEBSITE.md` still applies to them.
+
+The same rule applies to pultrx.com.
