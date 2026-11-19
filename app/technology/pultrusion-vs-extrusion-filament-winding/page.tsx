@@ -18,7 +18,7 @@ const pageDescription =
   "Pultrusion vs extrusion vs filament winding: process, fiber orientation, achievable shapes, and mechanical properties compared for FRP and plastic profiles.";
 const pagePath = "/technology/pultrusion-vs-extrusion-filament-winding";
 const publishedAt = "2026-07-03";
-const updatedAt = "2026-10-26";
+const updatedAt = "2026-11-19";
 const authorName = "Haifeng Gong, Ph.D.";
 const reviewedBy = "Yifan Liu, Application Engineer";
 const referencedStandards = ["ASTM D3917", "ASTM D638", "ASTM D2996"];
@@ -131,7 +131,11 @@ export default function PultrusionVsExtrusionFilamentWindingPage() {
       { "@type": "Thing", name: "Plastic extrusion" },
       { "@type": "Thing", name: "Filament winding" },
     ],
-    citation: referencedStandards,
+    citation: [
+      ...referencedStandards,
+      "https://www.addcomposites.com/learn/course/filament-winding",
+      "https://www.addcomposites.com/learn/course/afp",
+    ],
   };
 
   return (
@@ -223,6 +227,27 @@ export default function PultrusionVsExtrusionFilamentWindingPage() {
             custom pultrusion capability
           </Link>{" "}
           for open and closed constant-cross-section geometries.
+        </p>
+        <p className="mt-[12px] text-f16 leading-golden text-t2">
+          When a part instead requires helical or hoop-dominant winding on a mandrel, or variable-angle fiber steering across curved surfaces, see Addcomposites&rsquo; open engineering modules on{" "}
+          <a
+            href="https://www.addcomposites.com/learn/course/filament-winding"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-teal-text hover:underline"
+          >
+            Filament Winding
+          </a>{" "}
+          and{" "}
+          <a
+            href="https://www.addcomposites.com/learn/course/afp"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-teal-text hover:underline"
+          >
+            Automated Fiber Placement (AFP)
+          </a>{" "}
+          for winding-angle kinematics, mandrel extraction, and tow-steering path planning.
         </p>
       </PageSection>
 
