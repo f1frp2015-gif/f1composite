@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import GratingLoadDataRequirements from "@/components/sections/GratingLoadDataRequirements";
 import Image from "next/image";
 import Link from "next/link";
+import { gratingManual } from "@/content/data/downloads";
 import PageSection from "@/components/layout/PageSection";
 import ProductRfq from "@/components/products/ProductRfq";
 import GratingBuyingGuide from "@/components/sections/GratingBuyingGuide";
@@ -299,7 +300,7 @@ export default function PultrudedGratingsPage() {
             </details>
           ))}
         </div>
-        <p className="mt-[12px] max-w-[960px] text-f14 leading-golden text-t3">Cross-bar center is listed as 152.40 mm throughout the overview table. Accessibility, maximum panel size, stock status, resin, surface and load capacity require separate order confirmation.</p>
+        <p className="mt-[12px] max-w-[960px] text-f14 leading-golden text-t3">Cross-bar center is listed as 152.40 mm throughout the overview table. Accessibility, maximum panel size, stock status, resin, surface and load capacity require separate order confirmation. The same table, with resin systems, surfaces, stair treads and clips, is in the <a href={gratingManual.file} className="font-semibold text-teal-text underline underline-offset-4">FRP grating product manual (PDF)</a>.</p>
       </PageSection>
 
       <PageSection id="checks" title="Four checks before releasing a pultruded grating layout" tone="muted">

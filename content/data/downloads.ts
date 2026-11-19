@@ -4,6 +4,8 @@
  * The site search indexes the same list (lib/documents.ts).
  */
 
+import { GRATING_MANUAL } from "./gratingManual";
+
 export interface DownloadItem {
   title: string;
   format: string;
@@ -36,9 +38,18 @@ export const basaltRebarManual = {
   file: "/downloads/f1composite-basalt-frp-rebar-manual-2026-11.pdf",
 } satisfies DownloadItem;
 
+export const gratingManual = {
+  title: `FRP Grating Product Manual — ${GRATING_MANUAL.code} Rev. ${GRATING_MANUAL.revision}`,
+  format: "PDF",
+  size: `3.7 MB · ${GRATING_MANUAL.pages} pages`,
+  description: "Product manual for F1-GRID molded and pultruded fiberglass grating, generated from the same data as the grating pages: molded versus pultruded construction, four catalog resin systems, six walking surfaces, 49 molded configurations in 17 meshes, 36 pultruded bearing-bar series, stair treads and covers, 316 stainless steel clips, typical applications and the quotation checklist. Nominal selection data; load and span tables are issued for the selected configuration on request.",
+  file: GRATING_MANUAL.file,
+} satisfies DownloadItem;
+
 export const fallbackDownloads: DownloadItem[] = [
   finishedWindowCatalogDownload,
   cableTrayLadderCatalog,
+  gratingManual,
   basaltRebarManual,
   {
     title: "Pultruded FRP Pipe — Mining & Oilfield Catalog (Edition 2026.06)",

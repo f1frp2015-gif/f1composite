@@ -4,6 +4,8 @@ export interface MoldedGratingSpecRow {
   panelSizes: string;
   weight: string;
   openArea: string;
+  /** Span direction of the load bars, for rectangular meshes. */
+  span?: string;
 }
 
 export interface MoldedGratingSpecGroup {

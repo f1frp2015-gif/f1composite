@@ -1,6 +1,7 @@
 import GratingApplicationCards from "@/components/sections/GratingApplicationCards";
 import type { Metadata } from "next";
 import Link from "next/link";
+import { gratingManual } from "@/content/data/downloads";
 import PageSection from "@/components/layout/PageSection";
 import ProductRfq from "@/components/products/ProductRfq";
 import GratingHero from "@/components/sections/GratingHero";
@@ -137,6 +138,7 @@ export default function GratingPage() {
         ))}
       </ul>
       <p className="mt-[20px] flex flex-wrap gap-x-[24px] gap-y-[8px] text-f14">
+        <a className={link} href={gratingManual.file}>FRP grating product manual (PDF)</a>
         <Link className={link} href="/case-studies/coastal-marina-walkway">Coastal walkway reference</Link>
         <Link className={link} href="/products/frp-handrail-systems">Handrail systems</Link>
         <Link className={link} href="/products/frp-deck-panels">Structural deck profiles</Link>
