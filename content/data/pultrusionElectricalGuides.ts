@@ -18,6 +18,7 @@ const railSources: PultrusionGuide["sources"] = [
   { id: "roechling-rail", title: "Röchling: rail technology and vehicles", url: "https://www.roechling.com/industrial/vehicle-construction/rail-technology-and-vehicles", kind: "industry", note: "Identifies profile-based third-rail covers separately from compression-molded conductor-rail supports. Supplier approvals and service history are not F1 evidence." },
   { id: "roechling-profiles", title: "Röchling: composite and pultruded profiles", url: "https://www.roechling.com/industrial/products/composites/gfrp-cfrp/composite-profiles", kind: "industry", note: "Manufacturing-route reference for pultruded profiles; no competitor material rating is adopted here." },
   { id: "foster-coverboards", title: "L.B. Foster: coverboards and brackets", url: "https://lbfoster.com/rail/rail-products/transit-products/third-rail-accessories/coverboards-and-brackets", kind: "industry", note: "Confirms that coverboard assemblies are adapted to transit-agency criteria and local wind, snow and ice exposure." },
+  { id: "foster-catalog", title: "L.B. Foster: Transit Products catalog (PDF)", url: "https://lbfoster.com/assets/brochures/transit-products-catalog.pdf", kind: "industry", note: "Describes coverboards as predominantly fiberglass composite with low-smoke, flame-resistant materials, fiberglass and steel brackets for over-, under- and side-running rails, and end approaches, expansion joints and anchors as separate appurtenances. A system supplier's description; not F1 evidence." },
   { id: "en-fixed-rail", title: "BSI: current BS EN 50122-1 release", url: "https://landingpage.bsigroup.com/LandingPage/Undated?UPI=000000000030171497", kind: "authority", note: "Lists BS EN 50122-1:2022+A1:2025 for fixed-installation electrical safety, earthing and the return circuit." },
   { id: "nfpa-transit", title: "NFPA 130: fixed guideway transit and passenger rail systems", url: "https://www.nfpa.org/product/nfpa-130-standard/p0130code?l=126", kind: "authority", note: "Official 2026 edition and system scope. The authority having jurisdiction and contract determine the applicable edition and requirements." },
   { id: "en-rail-vehicle-fire", title: "BSI: current BS EN 45545-2 release", url: "https://landingpage.bsigroup.com/LandingPage/Undated?UPI=000000000030334174", kind: "authority", note: "Lists 2020+A1:2023 and identifies the railway-vehicle fire scope. It is not automatically the acceptance standard for a fixed third-rail cover." },
@@ -349,13 +350,13 @@ export const electricalGuides: PultrusionGuide[] = [
     kind: "product",
     slug: "frp-third-rail-coverboards",
     name: "Pultruded third-rail coverboards",
-    title: "FRP Third-Rail Coverboards | Component Specification",
-    description: "Specify FRP third-rail coverboards with section geometry, bracket interfaces, material requirements, fabrication tolerances and batch acceptance evidence.",
-    heading: "Pultruded FRP third-rail coverboards",
-    summary: "Specify a coverboard as a drawing-controlled component with agreed material, interface and acceptance requirements. Establish the operator's qualification route before releasing a profile for railway service.",
+    title: "FRP Third Rail Coverboards | Custom Pultruded Covers",
+    description: "Custom pultruded FRP third rail coverboards: flame-retardant fiberglass covers cut and drilled to your contact-rail drawing, with batch test records.",
+    heading: "Custom pultruded FRP third-rail coverboards",
+    summary: "A coverboard is pultruded to the contact-rail supplier's section drawing, in a flame-retardant glass-reinforced laminate, then cut and drilled to the bracket pitch. The operator's qualification route is agreed before a profile is released for railway service.",
     scope: "Component feasibility and qualification inquiry only. An approved railway product, standard available section, certified material package or installed system is not established by this page.",
-    material: "Application-qualified glass-reinforced thermoset profile; resin, reinforcement and surface package agreed during review",
-    profiles: ["Custom open coverboard sections", "Profiles with returned edges and defined mounting zones", "Cut and machined cover lengths to approved drawings"],
+    material: "Glass-reinforced flame-retardant thermoset profile; resin, reinforcement, surface veil and color agreed during review and fixed by the first article",
+    profiles: ["Custom hood and channel coverboard sections", "Joint sleeves that lap two cover lengths", "Cut, drilled and identified cover lengths to approved drawings"],
     ...profileImage,
     sections: [
       {
@@ -422,6 +423,7 @@ export const electricalGuides: PultrusionGuide[] = [
     related: [
       { href: "/applications/frp-third-rail-protection", label: "Third-rail system design and qualification" },
       { href: "/products/custom-pultruded-profiles", label: "Custom pultruded profiles" },
+      { href: "/products/fire-retardant-rail-profiles", label: "Fire-retardant rail profiles" },
     ],
   },
   {

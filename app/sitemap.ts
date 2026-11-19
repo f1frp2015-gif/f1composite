@@ -63,6 +63,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${BASE}/products/pultruded-cfrp-strengthening-strips`, lastModified: "2026-10-31", changeFrequency: "monthly", priority: 0.78 },
     { url: `${BASE}/products/carbon-fiber-robotic-beams`, lastModified: "2026-11-01", changeFrequency: "monthly", priority: 0.78 },
     { url: `${BASE}/products/carbon-fiber-roller-tubes`, lastModified: "2026-11-01", changeFrequency: "monthly", priority: 0.78 },
+    { url: `${BASE}/products/frp-third-rail-coverboards`, lastModified: "2026-11-18", changeFrequency: "monthly", priority: 0.78 },
     { url: `${BASE}/sourcing/equipment`, lastModified: "2026-10-02", changeFrequency: "monthly", priority: 0.7 },
     { url: `${BASE}/sourcing/materials`, lastModified: "2026-10-02", changeFrequency: "monthly", priority: 0.7 },
     { url: `${BASE}/sourcing/pultrusion-machines`, lastModified: "2026-10-02", changeFrequency: "monthly", priority: 0.7 },
