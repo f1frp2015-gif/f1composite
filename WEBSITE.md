@@ -256,6 +256,8 @@ f1composite.com
 
 ## SEO/GEO 优化 & AI 建设
 
+> **铁律（业主 2026-11-19）**：Search Console 近三个月有展示或点击的页面，URL、主关键词和页面结构只能小幅微调，不能彻底重构；超出微调须业主针对该页批准。全文见 `AGENTS.md`。
+
 详细方案见 Obsidian: `网站内容/SEO-GEO优化与AI建设方案.md`
 
 ### 命名规则速查
