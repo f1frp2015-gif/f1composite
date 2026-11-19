@@ -34,3 +34,11 @@ A page that has Search Console impressions or clicks in the last three months ma
 - New pages and pages with no impressions yet are outside this rule. The URL intent map in `WEBSITE.md` still applies to them.
 
 The same rule applies to pultrx.com.
+
+# Keyword split with the owner's systems site (owner rule, 2026-11-19)
+
+f1composite.com leads with FRP profiles and profile-system solutions. Pultrusion production lines, pultrusion machines and equipment, dies sold as equipment, and pultrusion know-how / technology-transfer services belong to the owner's systems site; GFRP rebar head terms are assigned there too, pending the owner's confirmation. Informational topics (what is, versus, process, standards, span tables) stay open to both.
+
+- Do not create new pages, or new primary keywords, for those clusters here. Existing pages with impressions stay as they are under the traffic rule above; pages without impressions in those clusters are noindexed (2026-11-19: `/sourcing/equipment`, `/sourcing/pultrusion-machines`, `/sourcing/slitting-cutting-equipment`).
+- Never link to or name the systems site in public copy, structured data or AI-facing files.
+- Details: `WEBSITE.md`, "Keyword split (2026-11-19)".
