@@ -19,9 +19,20 @@ const excluded = new Set([
   "/terms",
   // Search results repeat the pages they list.
   "/search",
+  // Equipment sourcing routes noindexed under the 2026-11-19 keyword split (WEBSITE.md).
+  "/sourcing/equipment",
+  "/sourcing/pultrusion-machines",
+  "/sourcing/slitting-cutting-equipment",
 ]);
 
-const noindexRoutes = ["/privacy", "/terms", "/search"];
+const noindexRoutes = [
+  "/privacy",
+  "/terms",
+  "/search",
+  "/sourcing/equipment",
+  "/sourcing/pultrusion-machines",
+  "/sourcing/slitting-cutting-equipment",
+];
 
 function collectPages(dir) {
   const pages = [];
