@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import GratingLoadDataRequirements from "@/components/sections/GratingLoadDataRequirements";
 import Image from "next/image";
 import Link from "next/link";
+import { gratingManual } from "@/content/data/downloads";
 import PageSection from "@/components/layout/PageSection";
 import ProductRfq from "@/components/products/ProductRfq";
 import GratingBuyingGuide from "@/components/sections/GratingBuyingGuide";
@@ -239,7 +240,7 @@ export default function MoldedFrpGratingPage() {
 
         <div className="mt-[24px] rounded-card border border-border-default bg-white p-[20px] sm:p-[24px]">
           <h3 className="text-f18 font-bold text-t1">Additional catalog mesh families</h3>
-          <p className="mt-[6px] text-f14 leading-golden text-t2">Further mesh and depth options are listed below. Request the exact configuration and project load table before specifying. To filter molded and pultruded rows together by depth, open area, top opening and weight, use the <Link href="/tools/frp-grating-selector" className="font-semibold text-teal-text underline underline-offset-4">FRP grating selector</Link>.</p>
+          <p className="mt-[6px] text-f14 leading-golden text-t2">Further mesh and depth options are listed below. Every row of these families, with bar thickness, panel sizes, weight and open area, is in the <a href={gratingManual.file} className="font-semibold text-teal-text underline underline-offset-4">FRP grating product manual (PDF)</a>. Request the exact configuration and project load table before specifying. To filter molded and pultruded rows together by depth, open area, top opening and weight, use the <Link href="/tools/frp-grating-selector" className="font-semibold text-teal-text underline underline-offset-4">FRP grating selector</Link>.</p>
           <ul className="mt-[14px] grid grid-cols-1 gap-[8px] sm:grid-cols-2 lg:grid-cols-3">
             {moldedAdditionalMeshFamilies.map((item) => (
               <li key={item.mesh} className="rounded-control border border-border-default bg-bg2 px-[14px] py-[10px]">
