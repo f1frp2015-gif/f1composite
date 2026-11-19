@@ -734,8 +734,8 @@ export const specialistProductIndex = [
   {
     "slug": "frp-third-rail-coverboards",
     "name": "Pultruded third-rail coverboards",
-    "title": "FRP Third-Rail Coverboards | Component Specification",
-    "description": "Specify FRP third-rail coverboards with section geometry, bracket interfaces, material requirements, fabrication tolerances and batch acceptance evidence.",
+    "title": "FRP Third Rail Coverboards | Custom Pultruded Covers",
+    "description": "Custom pultruded FRP third rail coverboards: flame-retardant fiberglass covers cut and drilled to your contact-rail drawing, with batch test records.",
     "image": "/images/applications/guides/frp-third-rail-protection.svg",
     "imageAlt": "Side-contact conductor rail on an insulating support beneath an FRP cover, with a separate cover bracket and collector shoe envelope."
   },
