@@ -10,6 +10,7 @@ import RelatedLinks from "@/components/sections/RelatedLinks";
 import JsonLd from "@/components/seo/JsonLd";
 import { FAQList } from "@/components/ui/FAQ";
 import Figure from "@/components/ui/Figure";
+import { pvCertificates } from "@/content/data/pvCertificates";
 import { pvFrameReports } from "@/content/data/pvFrameEvidence";
 import { formatLongDate } from "@/lib/dates";
 import { buildRfqHref } from "@/lib/rfq";
@@ -191,6 +192,7 @@ export default function SolarMountingSystemsPage() {
           { id: "catalog", label: "Catalog" },
           { id: "materials", label: "Materials" },
           { id: "material-test-reports", label: "Test reports" },
+          { id: "certificates", label: "Certificates" },
           { id: "project-fit", label: "Project fit" },
           { id: "faq", label: "FAQ" },
           { id: "quote", label: "Quote" },
@@ -335,6 +337,40 @@ export default function SolarMountingSystemsPage() {
         </ul>
         <p className="mt-[16px] max-w-[960px] text-f14 leading-golden text-t3">
           English notes are supplied by F1 Composite and are not laboratory-certified translations. The complete reports retain their original conditions of use. TÜV Rheinland reports require prior written approval for advertising reproduction and do not authorize use of a test mark. Reported sample strengths are not structural design allowables; confirm the material, coating and production specification for your order.
+        </p>
+      </PageSection>
+
+      <PageSection
+        id="certificates"
+        title="Certificates and test report covers"
+        count={`${pvCertificates.length} documents`}
+        intro="The module-frame certificate, its data form and the covers of the CPVT reports, followed by the manufacturer's management-system certificates. Select an image to open it at full size. CPIC, FengDu's parent company, commissioned the 2024 CPVT module-load and laminate-durability tests on frames from the group's frame programme; they support the material and frame concept rather than certify the GFF models by name."
+      >
+        {(["frame", "factory"] as const).map((group) => (
+          <div key={group} className={group === "factory" ? "mt-[28px]" : undefined}>
+            <h3 className="text-f16 font-bold text-t1">
+              {group === "frame" ? "PV module frames" : "Manufacturer: Chongqing Fengdu New Material Co., Ltd. (CCSC, CNAS-accredited)"}
+            </h3>
+            <ul className="mt-[12px] grid grid-cols-2 gap-[16px] sm:grid-cols-3 lg:grid-cols-5">
+              {pvCertificates.filter((item) => item.group === group).map((item) => (
+                <li key={item.src}>
+                  <figure>
+                    <a href={item.src} target="_blank" rel="noopener" className="block overflow-hidden rounded-card border border-border-default bg-white hover:border-teal">
+                      <Image src={item.src} alt={item.alt} width={720} height={1018} sizes="(max-width: 639px) 46vw, (max-width: 1023px) 30vw, 18vw" className="h-auto w-full" />
+                    </a>
+                    <figcaption className="mt-[8px]">
+                      <span className="block font-mono text-f12 uppercase tracking-[0.06em] text-t3">{item.kind}</span>
+                      <span className="block text-f14 font-semibold text-t1">{item.reference}</span>
+                      <span className="mt-[2px] block text-f14 leading-golden text-t2">{item.caption}</span>
+                    </figcaption>
+                  </figure>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+        <p className="mt-[20px] max-w-[960px] text-f14 leading-golden text-t3">
+          Each CPVT report can be verified with the QR code on its cover. The ISO certificates can be looked up on the CNCA website (cnca.gov.cn) and stay valid subject to periodic surveillance audits. The TÜV Rheinland certificate covers the tested frame specimens and does not permit use of a TÜV mark on products. Complete copies of the CPIC reports are sent on request.
         </p>
       </PageSection>
 
