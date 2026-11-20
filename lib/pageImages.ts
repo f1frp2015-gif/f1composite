@@ -2,6 +2,7 @@ import { blogPosts } from "@/content/data/blogPosts";
 import { caseStudyContentImages, caseStudyImages } from "@/content/data/caseStudyImages";
 import { OWNED_PHOTO_DIR, ownedPhotoPath, ownedPhotos } from "@/content/data/ownedPhotos";
 import { finishedWindowSystems } from "@/content/data/finishedWindowSystems";
+import { pvCertificates } from "@/content/data/pvCertificates";
 import {
   applicationCovers,
   caseStudyCovers,
@@ -117,6 +118,7 @@ export function routeImages(): Map<string, string[]> {
   for (const [slug, figures] of Object.entries(caseStudyContentImages)) add(`/case-studies/${slug}`, figures.map((figure) => figure.src));
   add("/case-studies/beam-bridge", beamBridgeDrawings);
   add("/products/fiberglass-windows-doors", [...finishedWindowSystems.map((system) => system.image), "/images/products/finished-windows/pu-profile-section.webp"]);
+  add("/products/frp-solar-mounting-systems", pvCertificates.map((item) => item.src));
   for (const [path, sources] of Object.entries(ownedPhotoPlacements)) add(path, sources);
   for (const [path, src] of datasheetDrawings()) add(path, [src]);
   // The photo library renders every owned photo from the same registry.
