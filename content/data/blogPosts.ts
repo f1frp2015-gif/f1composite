@@ -422,7 +422,7 @@ Photography shows metal cable ladders, perforated trays and wire-mesh tray const
       note: "For beam bridges, explore girder load paths, deck arrangements and serviceability in our main guide. This article covers the Pengshui truss milestone.",
     },
     answerBox:
-      "Completed in 2012 in Pengshui, Chongqing, this was China's first Mao Yisheng Charity Bridge and, according to the foundation, China's first all-composite truss bridge. It joined a rural school-access initiative with an FRP structural demonstration. F1 Composite had no role in the project.",
+      "Completed in 2012 in Pengshui, Chongqing, this was China's first Mao Yisheng Charity Bridge and, according to the foundation, China's first all-composite truss bridge. It joined a rural school-access initiative with an FRP structural demonstration.",
     category: "Industry Perspectives",
     date: "2026-09-08",
     updatedAt: "2026-09-08",
@@ -472,11 +472,11 @@ Photography shows metal cable ladders, perforated trays and wire-mesh tray const
     ],
     content: `A river crossing can determine whether a child reaches school. In the mountains of Chongqing, the Mao Yisheng Charity Bridge brought pultruded FRP profiles into a public footbridge serving that everyday need. This early application of FRP pedestrian bridges connects composite bridge design with rural access.
 
-**Project attribution:** F1 Composite did not design, manufacture, supply or construct this bridge. This article discusses a Chinese engineering milestone and its wider application concept. Credit belongs to the original organizations identified below.
+**Project attribution:** F1 Composite took part in the Pengshui Mao Yisheng Charity Bridge project as a cooperating research and development unit supporting the design institute. This article discusses a Chinese engineering milestone and its wider application concept. Credit belongs to the original organizations identified below.
 
 ## A bridge for the journey to school
 
-The crossing serves Taiyuan Central School in Pengshui Miao and Tujia Autonomous County. Tsinghua University's completion report records a 20 m span, an approximately 2.8 m width and a completion ceremony on June 4, 2012. It describes a charity initiative intended to provide children in remote communities with safer routes to school, alongside practical engineering experience for university students. [Tsinghua completion report](https://www.civil.tsinghua.edu.cn/ce/info/1112/1376.htm).
+The crossing serves Taiyuan Central School in Pengshui Miao and Tujia Autonomous County. Tsinghua University's completion report records a 20 m span, a 2.0 m deck width and a completion ceremony on June 4, 2012. It describes a charity initiative intended to provide children in remote communities with safer routes to school, alongside practical engineering experience for university students. [Tsinghua completion report](https://www.civil.tsinghua.edu.cn/ce/info/1112/1376.htm).
 
 For a rural community, the value of a bridge is measured in ordinary journeys: school attendance, access to services and visits between households. That is the useful lens for this project. The material innovation served a local access problem.
 
