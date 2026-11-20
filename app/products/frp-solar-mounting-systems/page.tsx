@@ -39,15 +39,20 @@ const roles = [
   ["Rooftop rails and hardware", "Low-line-mass roof rails for BAPV, BIPV and distributed generation, with matched mid clamps, end clamps, splice plates, sliding nuts and roof interfaces."],
 ] as const;
 
+// Spec sheet GTP-FCZJ-A02 (FengDu, 09/2025). Mass of the eight structural sections is
+// calculated from the section area at 2.1 g/cm³ (nominal); the two slotted profiles carry
+// the linear density stated on the spec sheet.
 const profiles = [
-  { model: "GTP-FCFG-3030-3", size: "30 × 30 mm", wall: "3.0 mm", area: "324 mm²", use: "Light bracing / secondary support" },
-  { model: "GTP-FCFG-3060-3", size: "30 × 60 mm", wall: "3.0 mm", area: "504 mm²", use: "Module bearer / light rail" },
-  { model: "GTP-FCFG-6060-3", size: "60 × 60 mm", wall: "3.0 mm", area: "684 mm²", use: "Posts and support framing" },
-  { model: "GTP-FCFG-9090-5", size: "90 × 90 mm", wall: "5.0 mm", area: "1,713 mm²", use: "Primary posts / heavy support" },
-  { model: "GTP-FCHB-8255-5", size: "55 × 82 mm", wall: "5.0 mm", area: "1,080 mm²", use: "H-section mounting rail" },
-  { model: "GTP-FCCB-7550-4", size: "50 × 75 mm", wall: "4.0 mm", area: "782 mm²", use: "C-section purlin / rail" },
-  { model: "GTP-FCCB-1005-4", size: "50 × 100 mm", wall: "4.0 mm", area: "896 mm²", use: "Deep C-section purlin" },
-  { model: "GTP-FCHB-8080-5", size: "80 × 80 mm", wall: "5.0 mm", area: "1,374 mm²", use: "H-section primary rail" },
+  { model: "GTP-FCFG-3060-3", size: "30 × 60 mm", wall: "3.0 mm", area: "504 mm²", mass: "≈ 1.06 kg/m", use: "Module bearer / light rail" },
+  { model: "GTP-FCFG-5050-5", size: "50 × 50 mm", wall: "5.0 mm", area: "880.9 mm²", mass: "≈ 1.85 kg/m", use: "Brace / light post" },
+  { model: "GTP-FCFG-6060-3", size: "60 × 60 mm", wall: "3.0 mm", area: "684 mm²", mass: "≈ 1.44 kg/m", use: "Posts and support framing" },
+  { model: "GTP-FCFG-7070-3.3", size: "70 × 70 mm", wall: "3.3 mm", area: "880.44 mm²", mass: "≈ 1.85 kg/m", use: "Posts / rafters" },
+  { model: "GTP-FCCB-7550-4", size: "50 × 75 mm", wall: "4.0 mm", area: "782.27 mm²", mass: "≈ 1.64 kg/m", use: "C-section purlin / rail" },
+  { model: "GTP-FCCB-1005-4", size: "50 × 100 mm", wall: "4.0 mm", area: "896 mm²", mass: "≈ 1.88 kg/m", use: "Deep C-section purlin" },
+  { model: "GTP-FCHB-8255-5", size: "55 × 82 mm", wall: "5.0 mm", area: "1,080 mm²", mass: "≈ 2.27 kg/m", use: "H-section mounting rail / rafter" },
+  { model: "GTP-FCHB-8080-5", size: "80 × 80 mm", wall: "5.0 mm", area: "1,374.01 mm²", mass: "≈ 2.89 kg/m", use: "H-section primary rail / beam" },
+  { model: "GTP-FCHR-7240", size: "72 × 40 mm", wall: "—", area: "—", mass: "1,660 g/m", use: "Slotted easy-install bracket: fixed-tilt ground mount, little site drilling" },
+  { model: "GTP-FCHR-4027", size: "40 × 27.5 mm", wall: "2.2 mm", area: "—", mass: "654 g/m", use: "Rooftop PV rail (BAPV), mid and end clamps, T-bolts" },
 ];
 
 // Characteristic laminate ranges from the solar-profile program, PU against UP.
@@ -55,7 +60,10 @@ const materials = [
   ["Density", "2.0–2.2 g/cm³", "2.0–2.2 g/cm³"],
   ["Axial tensile strength", "1,000–1,200 MPa", "580–750 MPa"],
   ["Axial tensile modulus", "40–60 GPa", "30–40 GPa"],
+  ["Flexural strength", "1,000–1,200 MPa", "580–750 MPa"],
+  ["Flexural modulus", "40–60 GPa", "30–40 GPa"],
   ["Thermal conductivity", "0.1–0.3 W/m·K", "0.2–0.4 W/m·K"],
+  ["Thermal expansion", "6 × 10⁻⁶/°C", "7 × 10⁻⁶/°C"],
 ] as const;
 
 const projectFit = [
@@ -80,7 +88,7 @@ const faqItems = [
   {
     question: "Can FRP solar mounting rails be used on existing industrial roofs?",
     answer:
-      "Yes. Rooftop retrofit is a strong fit where the original roof has limited dead-load reserve. From section area at about 2.1 g/cm³, the catalog rails weigh roughly 1.1 kg/m (30 × 60 mm light rail) to about 2.9 kg/m (80 × 80 mm H-section); compare that with the line mass of the steel or aluminum rail being replaced. Final suitability still requires a project-specific roof survey and structural check for wind uplift, snow, seismic load and connection pull-out.",
+      "Yes. Rooftop retrofit is a strong fit where the original roof has limited dead-load reserve. The dedicated rooftop rail GTP-FCHR-4027 weighs 654 g/m; from section area at about 2.1 g/cm³, the structural sections weigh roughly 1.1 kg/m (30 × 60 mm tube) to about 2.9 kg/m (80 × 80 mm H-section). Compare that with the line mass of the steel or aluminum rail being replaced. Final suitability still requires a project-specific roof survey and structural check for wind uplift, snow, seismic load and connection pull-out.",
   },
   {
     question: "How are panels and rails connected?",
@@ -122,8 +130,8 @@ export default function SolarMountingSystemsPage() {
           material: ["Pultruded GFRP", "Polyurethane composite", "UV-stabilized polyester", "Vinyl ester composite"],
           additionalProperty: [
             { name: "Product families", value: "Module frame profiles; structural PV supports; rooftop mounting rails" },
-            { name: "Catalog section range", value: "30×30×3 mm to 100×50×4 mm" },
-            { name: "Temperature range", value: "−40°C to +80°C" },
+            { name: "Catalog section range", value: "30×60×3 mm to 80×80×5 mm and 50×100×4 mm; slotted 72×40 mm bracket and 40×27.5 mm roof rail" },
+            { name: "Module-frame operating temperature", value: "−40°C to +85°C (TÜV Rheinland CDF)" },
             { name: "Applications", value: "Rooftop, ground-mount, floating, coastal, fishery-PV and agrivoltaics" },
           ],
         })}
@@ -135,8 +143,8 @@ export default function SolarMountingSystemsPage() {
         description="Choose module-frame sections, support profiles and rooftop rails from the catalog below. F1 supplies specified pultruded components; connection hardware, fabrication and any assembly scope are confirmed on the quotation."
         facts={[
           { label: "Catalog sections", value: String(profiles.length) },
-          { label: "Walls", value: "3–5 mm" },
-          { label: "Service temperature", value: "−40 to +80 °C" },
+          { label: "Walls", value: "2.2–5 mm" },
+          { label: "Frame service temp.", value: "−40 to +85 °C" },
           { label: "Test reports", value: `${pvFrameReports.length} published` },
         ]}
         actions={{
@@ -221,11 +229,11 @@ export default function SolarMountingSystemsPage() {
         intro="These starting sections cover light rooftop rails through primary ground-mount support. Final section selection is governed by span, module layout, wind uplift, snow, seismic load, connection capacity and the project deflection limit."
       >
         <div className="relative overflow-x-auto rounded-card border border-border-default bg-white">
-          <table className="w-full min-w-[720px] border-collapse text-left text-f14 tabular-nums">
+          <table className="w-full min-w-[820px] border-collapse text-left text-f14 tabular-nums">
             <caption className="sr-only">Standard FRP solar support and rail profiles</caption>
             <thead>
               <tr className="border-b border-border-default bg-bg2">
-                {["Model", "Overall size", "Wall", "Section area", "Typical role"].map((heading) => (
+                {["Model", "Overall size", "Wall", "Section area", "Mass", "Typical role"].map((heading) => (
                   <th key={heading} scope="col" className="px-[14px] py-[8px] font-semibold text-t1">{heading}</th>
                 ))}
               </tr>
@@ -237,6 +245,7 @@ export default function SolarMountingSystemsPage() {
                   <td className="whitespace-nowrap px-[14px] py-[10px] text-t2">{profile.size}</td>
                   <td className="whitespace-nowrap px-[14px] py-[10px] text-t2">{profile.wall}</td>
                   <td className="whitespace-nowrap px-[14px] py-[10px] text-t2">{profile.area}</td>
+                  <td className="whitespace-nowrap px-[14px] py-[10px] text-t2">{profile.mass}</td>
                   <td className="px-[14px] py-[10px] text-t2">{profile.use}</td>
                 </tr>
               ))}
@@ -244,7 +253,7 @@ export default function SolarMountingSystemsPage() {
           </table>
         </div>
         <p className="mt-[16px] max-w-[900px] text-f14 leading-golden text-t2">
-          Model geometry and availability are confirmed at quotation. Custom solar-module frame and roof-interface profiles are produced from customer drawings or developed as a paid first-article program; see{" "}
+          Sizes, walls and areas follow the manufacturer&apos;s specification sheet GTP-FCZJ-A02 (09/2025); cut-length tolerance is ±2 mm. Mass marked ≈ is calculated from the section area at 2.1 g/cm³ and is nominal. Model geometry and availability are confirmed at quotation. Custom solar-module frame and roof-interface profiles are produced from customer drawings or developed as a paid first-article program; see{" "}
           <Link href="/products/custom-pultruded-profiles" className="font-semibold text-teal-text underline underline-offset-4 hover:text-teal">custom pultruded profiles</Link>.
         </p>
       </PageSection>
