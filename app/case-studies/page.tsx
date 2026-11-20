@@ -107,7 +107,7 @@ const caseStudies = [
     location: "Chongqing, China",
     year: "2024",
     excerpt:
-      "Supplied pultruded GFRP H-section rail and Jiaochi-clamp accessory kit for a rooftop PV retrofit on existing industrial factory buildings. The composite rail at ~1.0–1.5 kg/m removes roughly 75 % of rail dead load against galvanized steel, keeping the retrofit inside the original roof's as-designed live-load reserve with project-specific connection and inspection requirements.",
+      "Supplied pultruded GFRP H-section rail and Jiaochi-clamp accessory kit for a rooftop PV retrofit on existing industrial factory buildings. The GTP-FCHR-4027 composite rail at 654 g/m removes 84–89 % of rail dead load against galvanized steel, keeping the retrofit inside the original roof's as-designed live-load reserve with project-specific connection and inspection requirements.",
   },
   {
     slug: "water-treatment-cable-tray",

@@ -395,9 +395,10 @@ export function buildPublicKnowledge(catalog?: PublishedCatalog) {
         location: "Chongqing, China",
         year: "2024",
         keyFacts: {
-          railMassKgPerM: { min: 1.0, max: 1.5 },
+          railModel: "GTP-FCHR-4027",
+          railMassKgPerM: 0.654,
           galvanisedSteelBaselineKgPerM: { min: 4, max: 6 },
-          railDeadLoadReductionPct: 75,
+          railDeadLoadReductionPct: { min: 84, max: 89 },
           roofClampType: "Jiaochi non-penetrating",
         },
       },
