@@ -725,6 +725,30 @@ export const seoQueryTargets = [
       "/products/grating",
     ],
   },
+  {
+    targetUrl: "/products/frp-access-platforms-stairs",
+    primaryQuery: "FRP access platforms and stairs",
+    intent: "commercial",
+    title: "FRP Access Platforms, Stairs & Crossovers | Fiberglass",
+    description:
+      "Bolted fiberglass work platforms, crossovers, stair towers and walkways from pultruded profiles, grating, treads and handrails, with OSHA and ISO stair rules.",
+    supportingUrls: [
+      "/applications/frp-chemical-plant-platforms",
+      "/products/frp-stair-treads",
+    ],
+  },
+  {
+    targetUrl: "/products/ada-frp-grating",
+    primaryQuery: "ADA fiberglass grating",
+    intent: "commercial",
+    title: "ADA Fiberglass Grating: Small-Opening FRP Panels",
+    description:
+      "ADA fiberglass grating for accessible routes: the ½ in (13 mm) opening rule, molded 13 mm mini mesh and pultruded T-1210/T-1215 rows, and how to verify a panel.",
+    supportingUrls: [
+      "/products/molded-frp-grating",
+      "/products/frp-gratings",
+    ],
+  },
 ] as const satisfies readonly SeoQueryTarget[];
 
 const targetsByUrl = new Map<string, SeoQueryTarget>();

@@ -183,6 +183,8 @@ f1composite.com
 | `/products/fenestration-systems` | "FRP window frames" / "pultruded fiberglass window frames" / "passive house window frame" | PHI 认证 / U 值 | 主窗框 hub |
 | `/products/gratings` | "FRP grating" / "pultruded fiberglass grating" | molded vs pultruded | 格栅/deck 主页 |
 | `/products/frp-grating-clips` | "fiberglass grating clips" | "grating clips" / "saddle clips for grating" / "how many grating clips" | 卡扣专页+每块板卡扣数量估算器（2026-11-24）；紧固件页只链过来，不再抢卡扣词 |
+| `/products/ada-frp-grating` | "ADA fiberglass grating" | "heel proof grating" / "ada grating requirements" | 小开孔格栅专页（2026-11-24）：ADA §302.3 ½ in 规则+目录里最小开孔行；不声称合规，开孔按块核实 |
+| `/products/frp-access-platforms-stairs` | "FRP access platforms and stairs" | "FRP crossover" / "fiberglass stair tower" / "FRP work platform" | 成套通道结构系统页（2026-11-24），用目录构件组装；不抢 `/applications/frp-chemical-plant-platforms`（行业场景词） |
 
 ### Application (按用途/结构找方案)
 | URL | 主意图 | 次要意图 | 一句话锁定 |

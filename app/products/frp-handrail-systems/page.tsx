@@ -366,7 +366,7 @@ export default function HandrailSystemsPage() {
           <Link href="/resources/blog/frp-handrail-guardrail-requirements-osha-ibc-iso-14122" className={link}>FRP handrail and guardrail requirements under OSHA, IBC and ISO 14122</Link>.
           Platforms and walkways with these rails usually combine{" "}
           <Link href="/products/frp-gratings" className={link}>pultruded grating</Link>, <Link href="/products/frp-grating-clips" className={link}>grating clips</Link> and{" "}
-          <Link href="/products/fiberglass-structural-shapes/frp-wide-flange-beam" className={link}>wide flange columns</Link>.
+          <Link href="/products/fiberglass-structural-shapes/frp-wide-flange-beam" className={link}>wide flange columns</Link>; complete structures are on <Link href="/products/frp-access-platforms-stairs" className={link}>FRP access platforms and stairs</Link>.
         </p>
       </PageSection>
 

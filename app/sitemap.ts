@@ -137,6 +137,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${BASE}/products/frp-deck-panels`, changeFrequency: "monthly", priority: 0.82 },
     { url: `${BASE}/products/molded-frp-grating`, lastModified: "2026-09-20", changeFrequency: "monthly", priority: 0.82 },
     { url: `${BASE}/products/frp-grating-clips`, lastModified: "2026-11-24", changeFrequency: "monthly", priority: 0.8 },
+    { url: `${BASE}/products/ada-frp-grating`, lastModified: "2026-11-24", changeFrequency: "monthly", priority: 0.75 },
+    { url: `${BASE}/products/frp-access-platforms-stairs`, lastModified: "2026-11-24", changeFrequency: "monthly", priority: 0.8 },
     { url: `${BASE}/products/frp-stair-treads`, changeFrequency: "monthly", priority: 0.8 },
     { url: `${BASE}/products/frp-ladders`, changeFrequency: "monthly", priority: 0.82 },
     { url: `${BASE}/products/frp-handrail-systems`, lastModified: "2026-11-24", changeFrequency: "monthly", priority: 0.8 },
