@@ -342,7 +342,7 @@ Tailwind 遇到主题里不存在的类名不会报错，只是不生成样式�
 - **供应商图片（2026-10-02 业主确认）**：FRPZS/河南众晟是 F1 供应商之一，获业主明确要求在必要位置使用其产品图。按业主最新要求，公开页面只使用 `Supplier image` 通用标识，caption/alt 不出现 FRPZS 名称，保持 Know-How 配套归属，不冒充 F1 工厂/项目照片；源页面、原图 URL、SHA-256 和原始尺寸保存在 `docs/frpzs-image-sources.json`；优先选择供应商已公开的无署名原图，不修去水印。
 
 - **关键词分工（2026-11-19 业主指令）**：本站主打 FRP 型材与型材系统解决方案；拉挤生产线、拉挤机/设备、作为设备出售的模具、拉挤 know-how/技术转移服务归业主的系统站；GFRP 筋材核心商业词（gfrp rebar / frp rebar / rebar production line）业主指定归系统站，待业主确认后执行。信息类词（what is / vs / 工艺 / 标准 / 跨度表）两站都可以做。本站不再为上述簇新建页面或换主词；有展示的页面按流量铁律不动（含 `/technology/knowhow-services`、`/sourcing/pultrusion-dies`、`/products/frp-rebar` 及筋材博客）；零展示的 `/sourcing/equipment`、`/sourcing/pultrusion-machines`、`/sourcing/slitting-cutting-equipment` 设 noindex 并移出 sitemap，页面保留。公开页面、结构化数据、llms 文件不链接、不点名系统站。
-- **pultrusion 头部词归本站（2026-11-24 业主指令）**：信息词 "pultrusion"（及 what is pultrusion / pultruded）由本站 `/technology/pultrusion-process` 主打；系统站的拉挤工艺指南不以这个头部词为主词。
+- **pultrusion 头部词两站自由竞争（2026-11-24 业主指令）**：信息词 "pultrusion"（及 what is pultrusion / pultruded）本站用 `/technology/pultrusion-process` 承接，系统站也可以做，互不避让，按实际排名再定。
 - **Know-How 交付支持**：现有 `/sourcing/*` 页面通过 `content/data/knowhowSupport.ts` 补充配置、预成型/工装与验收章节；不另建主要业务入口。`lib/knowhowInquiry.ts` 和 `KnowHowProjectBrief` 将目标、模块和工厂背景带入现有 Contact 表单。配套页可用 `?module=preforming#project-brief` 等有效模块参数预选；模板位于 `public/downloads/knowhow-*.txt`。FAT/SAT 与最终产品资格验证分开说明，周期、IP 和支持责任按项目确认。
 
 
