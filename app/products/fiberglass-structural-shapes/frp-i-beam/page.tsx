@@ -25,12 +25,12 @@ import { buildPageMetadata, buildProductFamilyPageSchema } from "@/lib/seo";
 // build-safe fallback; refreshed hourly.
 export const revalidate = 3600;
 
-const pageTitle = "Fiberglass I-Beam — Pultruded FRP Wide Flange Beams & Sizes";
+const pageTitle = "Fiberglass I-Beam — Pultruded FRP I-Beam Sizes & Weights";
 const pageDescription =
   "Compare fiberglass I-beam sizes, catalog weights and nominal section properties. Define spans, loads, connections and material requirements for a project quote.";
 const pagePath = "/products/fiberglass-structural-shapes/frp-i-beam";
 
-const LAST_UPDATED = "2026-10-11";
+const LAST_UPDATED = "2026-11-24";
 const REVIEWER = { name: "Yifan Liu", title: "Application Engineer", href: "/about/authors/yifan-liu" };
 
 export const metadata: Metadata = buildPageMetadata({
@@ -167,7 +167,7 @@ export default async function IBeamPage() {
         updated={LAST_UPDATED}
         reviewer={REVIEWER}
         title="Fiberglass I-beam (FRP) profiles"
-        description="Wide-flange pultruded fiberglass I-beams for project-specific member selection. Compare catalog dimensions, weights and nominal section properties, then define the loads, span, restraints, connections and material requirements."
+        description="Pultruded fiberglass I-beams for project-specific member selection. Compare catalog dimensions, weights and nominal section properties, then define the loads, span, restraints, connections and material requirements."
         facts={[
           ...profileFamilyFacts({ count: sizes.length, rangeLabel: "Depth", values: sizes.map((size) => size.d), weights: sizes.map((size) => size.mass ?? NaN) }),
           { label: "Section", value: "I / wide flange" },
@@ -288,6 +288,13 @@ export default async function IBeamPage() {
           <Link href="/products/custom-pultruded-profiles" className="underline underline-offset-4 hover:text-teal">
             A size not listed: custom pultrusion
           </Link>
+        </p>
+        <p className="mt-[14px] max-w-[900px] rounded-control border border-teal-border bg-teal-bg px-[14px] py-[10px] text-f14 leading-golden text-t2">
+          The I 305×305×12.7 row is a wide flange section: its flange width equals its depth, which raises weak-axis stiffness for columns and unbraced beams. Compare it with the narrow-flange rows on the{" "}
+          <Link href="/products/fiberglass-structural-shapes/frp-wide-flange-beam" className="font-semibold text-teal-text underline underline-offset-4 hover:text-teal">
+            fiberglass wide flange (WF) beam
+          </Link>{" "}
+          page.
         </p>
       </ProductSection>
 

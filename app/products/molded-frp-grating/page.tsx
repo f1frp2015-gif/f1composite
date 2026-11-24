@@ -253,6 +253,10 @@ export default function MoldedFrpGratingPage() {
 
         <div className="mt-[16px] max-w-[640px]">
           <CoverLink href="/products/frp-gratings" cover={productCovers["/products/frp-gratings"]} title="Need longer one-way spans or I-bar / T-bar panels?" text="View pultruded FRP grating: bearing-bar series, one-way spans and M/J/T fixing options." />
+          <p className="mt-[12px] text-f14 leading-golden text-t2">
+            Construction, spans, open area, weight and clips side by side:{" "}
+            <Link href="/technology/molded-vs-pultruded-frp-grating" className="font-semibold text-teal-text underline underline-offset-4 hover:text-teal">molded vs pultruded FRP grating</Link>.
+          </p>
         </div>
       </PageSection>
 

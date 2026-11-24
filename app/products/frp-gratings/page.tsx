@@ -129,7 +129,7 @@ const faqItems = [
   {
     question: "How is pultruded grating different from molded grating?",
     answer:
-      "Pultruded grating is selected for longer one-way spans and higher directional stiffness. Molded grating is cured as a bidirectional mesh panel and is generally more forgiving when a layout needs many irregular cutouts. Molded mesh sizes, nominal panel weights and M/C/J clips are now documented on the separate molded FRP grating page.",
+      "Pultruded grating is selected for longer one-way spans and higher directional stiffness. Molded grating is cured as a bidirectional mesh panel and is generally more forgiving when a layout needs many irregular cutouts. Molded mesh sizes, nominal panel weights and M/C/J clips are documented on the separate molded FRP grating page, and the molded vs pultruded grating guide compares both families side by side.",
   },
   {
     question: "How is pultruded grating different from a structural FRP deck panel?",
@@ -210,6 +210,9 @@ export default function PultrudedGratingsPage() {
             <MaterialTerminologyNote title="Specifying pultruded GRP grating?">
         These glass-reinforced FRP panels are also known as pultruded GRP grating. Continuous bearing bars carry load in one direction; specify bar depth, clear span, load and resin. For a bidirectional mesh panel, see the separate molded grating range.
       </MaterialTerminologyNote>
+            <p className="text-f14 leading-golden text-t2">
+              Still choosing between the two? <Link href="/technology/molded-vs-pultruded-frp-grating" className="font-semibold text-teal-text underline underline-offset-4 hover:text-teal">Molded vs pultruded FRP grating</Link> compares construction, spans, open area, weight and clips side by side.
+            </p>
           </div>
           <Figure number={2} title="Rooftop walking surface" note="Catalog photo" caption="Open pultruded grating as a rooftop walkway. The photograph does not establish a specific series, resin or slip rating." bleed>
             <div className="relative aspect-[16/9]">

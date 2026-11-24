@@ -122,6 +122,7 @@ export default function GratingPage() {
           </tbody>
         </table>
       </div>
+      <p className="mt-[12px] text-f14 leading-golden text-t2">Full side-by-side data and a when-to-choose table: <Link className={link} href="/technology/molded-vs-pultruded-frp-grating">molded vs pultruded FRP grating</Link>. Hold-downs for both families: <Link className={link} href="/products/frp-grating-clips">fiberglass grating clips</Link>.</p>
     </PageSection>
 
     <GratingProjectPlanner tone="white" />

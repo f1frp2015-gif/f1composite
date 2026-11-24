@@ -17,13 +17,14 @@ import {
 } from "@/content/data/frpHandrailSpecs";
 import { getSeoQueryTarget } from "@/content/data/seoQueryTargets";
 import { authorsBySlug, reviewerCredit } from "@/lib/authors";
+import { GUARD_LOAD_CASES } from "@/lib/guardrailLoads";
 import { buildRfqHref } from "@/lib/rfq";
 import { buildPageMetadata, buildProductFamilyPageSchema } from "@/lib/seo";
 
 const pagePath = "/products/frp-handrail-systems";
 const seoTarget = getSeoQueryTarget(pagePath);
 const publishedAt = "2026-04-04";
-const updatedAt = "2026-10-11";
+const updatedAt = "2026-11-24";
 const author = authorsBySlug["yifan-liu"];
 const reviewer = authorsBySlug["haifeng-gong"];
 
@@ -61,7 +62,21 @@ const specificationInputs = [
   },
 ] as const;
 
+// Code rows with published preset values in the handrail load calculator (lib/guardrailLoads.ts).
+const codeRows = GUARD_LOAD_CASES.filter((item) => !item.userEntry && ["US", "EU", "UK", "CA"].includes(item.region));
+const kn = (value: number | null) => (value == null || value === 0 ? "—" : `${value} kN`);
+
 const faqItems = [
+  {
+    question: "What is an industrial handrail system?",
+    answer:
+      "An industrial handrail system is the complete set of posts, top and middle rails, toe boards, fittings, splices and bases that protects platform edges, walkways and stairs in plants. In fiberglass, the system is pultruded FRP tube with molded or fabricated connections, selected and checked as one assembly against the governing code.",
+  },
+  {
+    question: "What height is required for an industrial handrail or guardrail?",
+    answer:
+      "It depends on the rule. OSHA 1910.29 sets the guardrail top rail at 42 in ± 3 in (991–1143 mm), the IBC uses a 42 in (1067 mm) minimum for guards, and EN ISO 14122-3 uses 1100 mm for machinery access. The table on this page lists the values with their clauses; the adopted local code governs.",
+  },
   {
     question: "What is the difference between an FRP handrail and an FRP guardrail?",
     answer:
@@ -218,6 +233,7 @@ export default function HandrailSystemsPage() {
           { id: "specifications", label: "Specifications" },
           { id: "components", label: "Components" },
           { id: "inputs", label: "Inputs" },
+          { id: "code-requirements", label: "Code values" },
           { id: "handoff", label: "Order documents" },
           { id: "faq", label: "FAQ" },
           { id: "related", label: "Related" },
@@ -312,6 +328,45 @@ export default function HandrailSystemsPage() {
           applies criteria to completed guardrail systems, while{" "}
           <a href="https://www.iso.org/standard/61282.html" target="_blank" rel="noopener noreferrer" className={link}>ISO 14122-3:2016</a>{" "}
           covers stairs, stepladders and guardrails within its machinery-access scope. Neither standard can be claimed from catalog tube sizes or post spacing alone.
+        </p>
+      </PageSection>
+
+      <PageSection
+        id="code-requirements"
+        title="Industrial handrail system loads and heights by code"
+        intro="Values the handrail load calculator uses for each rule. They show what the completed system is checked against; they are not a rating of any catalog component."
+      >
+        <div className="overflow-x-auto rounded-card border border-border-default bg-white">
+          <table className="w-full min-w-[760px] border-collapse text-left text-f14 leading-golden">
+            <caption className="sr-only">Guardrail and handrail load and height requirements by code</caption>
+            <thead>
+              <tr className="border-b border-border-default bg-bg2">
+                {["Rule", "Clause", "Line load", "Point load", "Top rail height", "Post spacing"].map((heading) => (
+                  <th key={heading} scope="col" className="whitespace-nowrap px-[12px] py-[10px] font-semibold text-t1">{heading}</th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {codeRows.map((row) => (
+                <tr key={row.id} className="border-b border-border-default align-top last:border-b-0">
+                  <th scope="row" className="px-[12px] py-[10px] font-semibold text-t1">{row.label}</th>
+                  <td className="px-[12px] py-[10px] text-t2">{row.clause}</td>
+                  <td className="whitespace-nowrap px-[12px] py-[10px] text-t2">{row.lineKnPerM ? `${row.lineKnPerM} kN/m` : "—"}</td>
+                  <td className="whitespace-nowrap px-[12px] py-[10px] text-t2">{row.pointPerSpacingKnPerM ? `${row.pointPerSpacingKnPerM} kN per m of post spacing` : kn(row.pointKn)}</td>
+                  <td className="whitespace-nowrap px-[12px] py-[10px] text-t2">{row.heightMinMm ? (row.heightMaxMm ? `${row.heightMinMm}–${row.heightMaxMm} mm` : `≥ ${row.heightMinMm} mm`) : "See clause"}</td>
+                  <td className="whitespace-nowrap px-[12px] py-[10px] text-t2">{row.maxPostSpacingMm ? `≤ ${row.maxPostSpacingMm} mm` : "By design"}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <p className="mt-[14px] max-w-[900px] text-f14 leading-golden text-t2">
+          Check posts, rails and anchor reactions for a chosen rule with the{" "}
+          <Link href="/tools/handrail-load-calculator" className={link}>FRP handrail load calculator</Link>, and read the clause-by-clause notes in{" "}
+          <Link href="/resources/blog/frp-handrail-guardrail-requirements-osha-ibc-iso-14122" className={link}>FRP handrail and guardrail requirements under OSHA, IBC and ISO 14122</Link>.
+          Platforms and walkways with these rails usually combine{" "}
+          <Link href="/products/frp-gratings" className={link}>pultruded grating</Link>, <Link href="/products/frp-grating-clips" className={link}>grating clips</Link> and{" "}
+          <Link href="/products/fiberglass-structural-shapes/frp-wide-flange-beam" className={link}>wide flange columns</Link>.
         </p>
       </PageSection>
 

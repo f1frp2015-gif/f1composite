@@ -165,11 +165,12 @@ f1composite.com
 | `/` | 品牌词 "F1 Composite" + "pultruded FRP profiles manufacturer" | 全产品族首屏 | F1 Composite 是谁 + 卖什么 + 为什么选 F1 |
 | `/what-is-frp` | "what is FRP" / "fiberglass reinforced polymer" | "advanced composites" | 完整教育长文，定义+材料+工艺；不卖货 |
 | `/technology` | "pultrusion technology" | 技术中心入口 | 索引页：把人路由到 process / vs-materials / quality |
-| `/technology/pultrusion-process` | "pultrusion process" | "how is FRP made" | 工艺流程 deep dive |
+| `/technology/pultrusion-process` | "pultrusion"（2026-11-24 起，原 "pultrusion process" 降为次要） | "what is pultrusion" / "pultruded" / "pultrusion process" / "advantages and disadvantages" | 定义+六步工艺+可拉挤截面+优缺点；不写设备销售（设备归系统站） |
 | `/technology/frp-vs-traditional-materials` | "FRP vs steel/aluminum/timber/concrete" | 材料选型 | 顶层对比 hub，分流到具体对比页 |
 | `/technology/frp-vs-aluminum-windows` | "FRP vs aluminum window frames" | passive house aluminum 替代 | 窗框竞品对比 |
 | `/technology/frp-vs-pvc-windows` | "FRP vs PVC window frames" | 替换 PVC 选 FRP | 窗框竞品对比 |
 | `/technology/frp-vs-steel-gratings` | "FRP vs steel grating" | 化工厂格栅替代 | 格栅竞品对比 |
+| `/technology/molded-vs-pultruded-frp-grating` | "molded vs pultruded grating" | "difference between molded and pultruded grating" | 两类格栅对比+何时选哪种；数据全部由两张规格表计算（2026-11-24） |
 
 ### Product family (按几何/品类找型材)
 | URL | 主意图 | 次要意图 | 一句话锁定 |
@@ -177,9 +178,11 @@ f1composite.com
 | `/pultruded-frp-profiles` | "pultruded FRP profiles" / "fiberglass structural shapes manufacturer" | 全产品族 hub | 产品总入口；分流到 4 个子族 |
 | `/products/standard-profiles` | "FRP I-beam / channel / angle / tube" 库存 | 工程师已知几何，找规格 | Stock catalog 性质 |
 | `/products/standard-profiles/{i-beam,channel,angle,square-tube,tube,flat-bar,rod}` | 单几何长尾："FRP I-beam supplier" | 该几何的规格表 / 价格 | 7 条单几何长尾页 |
+| `/products/fiberglass-structural-shapes/frp-wide-flange-beam` | "fiberglass wide flange beam" | "FRP WF beam" / "wf beams" / "wf beam vs i beam" | 宽翼缘专页（2026-11-24）；I 梁页标题已去掉 Wide Flange，二者不抢词；不进主菜单（标准型材固定 7 族） |
 | `/products/custom-pultrusions` | "custom FRP pultrusion" / "custom fiberglass profile manufacturer" | 模具/MOQ/工艺 | 卖工程能力，不卖现货 |
 | `/products/fenestration-systems` | "FRP window frames" / "pultruded fiberglass window frames" / "passive house window frame" | PHI 认证 / U 值 | 主窗框 hub |
 | `/products/gratings` | "FRP grating" / "pultruded fiberglass grating" | molded vs pultruded | 格栅/deck 主页 |
+| `/products/frp-grating-clips` | "fiberglass grating clips" | "grating clips" / "saddle clips for grating" / "how many grating clips" | 卡扣专页+每块板卡扣数量估算器（2026-11-24）；紧固件页只链过来，不再抢卡扣词 |
 
 ### Application (按用途/结构找方案)
 | URL | 主意图 | 次要意图 | 一句话锁定 |

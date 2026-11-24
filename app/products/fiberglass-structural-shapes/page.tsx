@@ -45,6 +45,26 @@ export const metadata: Metadata = buildPageMetadata({
 
 const faqItems = [
   {
+    question: "What are FRP structural shapes?",
+    answer:
+      "FRP structural shapes are fiberglass-reinforced polymer members with a constant cross-section, such as I-beams, wide flange beams, channels, angles, square and round tubes, flat bars and rods. They are made by pultrusion, which gives continuous glass fibers along the length, and are used where corrosion, weight or electrical requirements make steel, aluminum or timber less suitable.",
+  },
+  {
+    question: "Which FRP structural shape suits columns or beams without bracing?",
+    answer:
+      "Columns and beams without continuous lateral bracing are usually governed by weak-axis buckling. A wide flange (WF) section, with flanges as wide as the section is deep, has much higher weak-axis stiffness than a narrow-flange I-beam of the same depth; square tubes are the closed-section alternative. Check both axes for the actual unbraced length.",
+  },
+  {
+    question: "What blade should I use to cut FRP structural shapes?",
+    answer:
+      "Use carbide-tipped or diamond blades with dust extraction, moderate feed pressure and no forcing of the cut; fiberglass is machined rather than melted. Seal exposed cut ends with a compatible resin where the service environment requires it. The machining guide covers drilling, tolerances and inspection.",
+  },
+  {
+    question: "Are FRP structural shapes fire-rated?",
+    answer:
+      "Fire performance depends on the resin system, additives and the tested configuration, not on the shape. Projects usually ask for ASTM E84 in North America or EN 13501-1 in Europe. State the required test and class in the inquiry so evidence for the offered formulation can be identified.",
+  },
+  {
     question: "Which FRP profile do I need for my application?",
     answer:
       "Start with the member's task: beams and channels for spanning supports; square or rectangular tubes for posts and frames; round tubes for circular grips and masts; angles for brackets and bracing; flat bars for strips and splice details. Compare the actual section, laminate, load direction, supports and connections before choosing a size. Smooth structural rods are separate from qualified concrete rebar. Send the span, loads and assembly drawing if the family is not yet clear.",
@@ -78,7 +98,7 @@ const faqItems = [
 
 // The seven families in menu order, each with its catalog size range.
 const profileTypes = [
-  { slug: "frp-i-beam", name: "I-beams", sizes: "76×38 to 305×305 mm", brief: "Wide-flange spanning members for walkways, bridges and platforms." },
+  { slug: "frp-i-beam", name: "I-beams", sizes: "76×38 to 305×305 mm", brief: "I-beam and wide flange spanning members for walkways, bridges and platforms." },
   { slug: "frp-channel", name: "Channels", sizes: "38×13 to 360×108 mm", brief: "Open-section framing for cable supports and modular assemblies." },
   { slug: "frp-angle", name: "Angles", sizes: "25×25 to 152×152 mm", brief: "Equal-leg catalog angles for bracing and ledgers; unequal legs reviewed as custom sections." },
   { slug: "frp-square-tube", name: "Square and rectangular tubes", sizes: "25×25 to 240×240 mm", brief: "Closed sections with flat mounting faces for columns, trusses and frames." },
@@ -119,6 +139,7 @@ const quoteHref = buildRfqHref({
 
 const memberTasks = [
   { task: "Span between supports", family: "I-beams", href: "/products/fiberglass-structural-shapes/frp-i-beam", alternative: { family: "Channels", href: "/products/fiberglass-structural-shapes/frp-channel" }, check: "Span, load direction, lateral restraint, deflection and bearing at supports." },
+  { task: "Carry a column or an unbraced beam", family: "Wide flange beams", href: "/products/fiberglass-structural-shapes/frp-wide-flange-beam", alternative: { family: "Square tubes", href: "/products/fiberglass-structural-shapes/frp-square-tube" }, check: "Unbraced length about both axes, flange local buckling, base and splice connections." },
   { task: "Form a post or frame", family: "Square or rectangular tubes", href: "/products/fiberglass-structural-shapes/frp-square-tube", check: "Installed orientation, unsupported length, bracing and access for connections." },
   { task: "Provide a circular grip or mast", family: "Round tubes", href: "/products/fiberglass-structural-shapes/frp-tube", check: "Outside diameter, bore fit, wall, fittings and complete assembly loads." },
   { task: "Connect, brace or support an edge", family: "Angles", href: "/products/fiberglass-structural-shapes/frp-angle", alternative: { family: "Channels", href: "/products/fiberglass-structural-shapes/frp-channel" }, check: "Leg or flange dimensions, eccentric loads, fastener layout and bearing." },

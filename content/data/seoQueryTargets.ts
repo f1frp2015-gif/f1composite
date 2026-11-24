@@ -153,7 +153,7 @@ export const seoQueryTargets = [
     targetUrl: "/products/fiberglass-structural-shapes",
     primaryQuery: "fiberglass structural shapes",
     intent: "commercial",
-    title: "Fiberglass Structural Shapes — FRP Sizes & Weights",
+    title: "FRP & Fiberglass Structural Shapes — Sizes & Weights",
     description:
       "Compare 114 fiberglass structural shapes, also called GRP sections: beams, channels, angles, tubes, flat bars and rods, with sizes and weights.",
     supportingUrls: [
@@ -195,7 +195,7 @@ export const seoQueryTargets = [
     targetUrl: "/products/fiberglass-structural-shapes/frp-i-beam",
     primaryQuery: "fiberglass I beam",
     intent: "commercial",
-    title: "Fiberglass I-Beam — Pultruded FRP Wide Flange Beams & Sizes",
+    title: "Fiberglass I-Beam — Pultruded FRP I-Beam Sizes & Weights",
     description: "Compare fiberglass I-beam sizes, catalog weights and nominal section properties. Define spans, loads, connections and material requirements for a project quote.",
     supportingUrls: [
       "/products/fiberglass-structural-shapes"
@@ -445,11 +445,11 @@ export const seoQueryTargets = [
   },
   {
     targetUrl: "/technology/pultrusion-process",
-    primaryQuery: "pultrusion process",
+    primaryQuery: "pultrusion",
     intent: "technical",
-    title: "Fiberglass Pultrusion Process — How FRP Profiles Are Made",
+    title: "What Is Pultrusion? The Fiberglass Pultrusion Process",
     description:
-      "See each pultrusion process stage: fiber creel, resin impregnation, heated-die curing, pull control, cutoff, quality checks and production variables.",
+      "Pultrusion explained: how pultruded fiberglass profiles are made, which shapes can be pultruded, tolerances, advantages and disadvantages, and design rules.",
     supportingUrls: [
       "/what-is-frp",
       "/products/custom-pultruded-profiles",
@@ -552,7 +552,7 @@ export const seoQueryTargets = [
     targetUrl: "/products/frp-handrail-systems",
     primaryQuery: "fiberglass handrail systems",
     intent: "commercial",
-    title: "Fiberglass Handrail Systems | Industrial FRP Railing",
+    title: "Fiberglass Handrail Systems | Industrial Handrail in FRP",
     description:
       "Specify fiberglass handrail systems, also called GRP handrails, with posts, rails, toe boards and fittings. Confirm layout, loads and anchors for each project.",
     supportingUrls: [
@@ -567,7 +567,7 @@ export const seoQueryTargets = [
     targetUrl: "/products/frp-gratings",
     primaryQuery: "pultruded FRP grating manufacturer",
     intent: "commercial",
-    title: "Pultruded FRP & GRP Grating | T-Bar & I-Bar",
+    title: "FRP Pultruded Grating & GRP Grating | T-Bar & I-Bar",
     description:
       "Compare pultruded fiberglass grating, also called GRP grating, in T-bar and I-bar series with panel data, load-table support and matched 316SS clips.",
     supportingUrls: [
@@ -684,6 +684,45 @@ export const seoQueryTargets = [
     supportingUrls: [
       "/pultruded-frp-profiles",
       "/resources/how-to-choose-frp-pultrusion-supplier",
+    ],
+  },
+  {
+    targetUrl: "/products/fiberglass-structural-shapes/frp-wide-flange-beam",
+    primaryQuery: "fiberglass wide flange beam",
+    intent: "commercial",
+    title: "Fiberglass Wide Flange Beam (FRP WF Beam) Sizes",
+    description:
+      "Fiberglass WF beams: catalog 305 × 305 mm wide flange, nominal 4 × 4 to 12 × 12 in sizes with Ix, Iy and b/2t, WF vs I-beam selection and design checks.",
+    supportingUrls: [
+      "/products/fiberglass-structural-shapes/frp-i-beam",
+      "/products/fiberglass-structural-shapes",
+      "/tools/frp-column-calculator",
+    ],
+  },
+  {
+    targetUrl: "/products/frp-grating-clips",
+    primaryQuery: "fiberglass grating clips",
+    intent: "commercial",
+    title: "Fiberglass Grating Clips: M, C, J & T Hold-Down Clips",
+    description:
+      "Fiberglass grating clips in 316 stainless steel: saddle (M), C, J and T hold-downs, molded and pultruded fit, clips-per-panel estimator and free DXF details.",
+    supportingUrls: [
+      "/products/molded-frp-grating",
+      "/products/frp-gratings",
+      "/products/frp-fasteners-fittings",
+    ],
+  },
+  {
+    targetUrl: "/technology/molded-vs-pultruded-frp-grating",
+    primaryQuery: "molded vs pultruded grating",
+    intent: "comparison",
+    title: "Molded vs Pultruded FRP Grating: Differences & Uses",
+    description:
+      "Molded vs pultruded FRP grating compared from catalog data: construction, spans, depth, open area, weight, field cutting and clips, with a when-to-choose table.",
+    supportingUrls: [
+      "/products/molded-frp-grating",
+      "/products/frp-gratings",
+      "/products/grating",
     ],
   },
 ] as const satisfies readonly SeoQueryTarget[];

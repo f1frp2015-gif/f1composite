@@ -159,6 +159,7 @@ export default function FastenersFittingsPage() {
           <div className="flex flex-wrap gap-[10px]">
             <Button href="/products/molded-frp-grating#grating-clips" variant="secondary">Molded grating · M / C / J clips</Button>
             <Button href="/products/frp-gratings#grating-clips" variant="secondary">Pultruded grating · M / J / T clips</Button>
+            <Button href="/products/frp-grating-clips" variant="secondary">All grating clips · quantity estimator</Button>
           </div>
         </div>
       </PageSection>
