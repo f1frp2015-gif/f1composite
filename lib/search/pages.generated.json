@@ -262,6 +262,14 @@
     ]
   },
   {
+    "path": "/products/ada-frp-grating",
+    "title": "ADA Fiberglass Grating: Small-Opening FRP Panels",
+    "description": "Grating for accessible routes, pedestrian areas and heel traffic: the ½ in (13 mm) opening rule, the molded mini mesh and pultruded T-bar rows with the smallest openings, and how to check a panel before it goes on the drawing.",
+    "aliases": [
+      "ADA fiberglass grating: small-opening FRP panels"
+    ]
+  },
+  {
     "path": "/products/basalt-frp-rebar",
     "title": "Basalt FRP Rebar (BFRP) Supplier",
     "description": "Basalt FRP (BFRP) rebar Ø3–25 mm: 1,100 MPa and 50 GPa classes, 1.9 g/cm³. Published values, sizes, standards, export packing and a downloadable product manual.",
@@ -446,6 +454,15 @@
     "description": "Specify finished fiberglass windows and doors by opening schedule, glazing, hardware and project requirements. Review assembly scope, reports and packing.",
     "aliases": [
       "Finished Fiberglass Windows & Doors | F1 Composite"
+    ]
+  },
+  {
+    "path": "/products/frp-access-platforms-stairs",
+    "title": "FRP Access Platforms, Stairs & Crossovers",
+    "description": "Bolted fiberglass work platforms, crossovers, stair towers and walkways, built from pultruded profiles, grating, treads, handrails and ladders. Check the stair and walkway rules, then send a layout for a cut-and-drilled kit.",
+    "aliases": [
+      "FRP access platforms, stairs and crossovers",
+      "FRP Access Platforms, Stairs & Crossovers | Fiberglass"
     ]
   },
   {

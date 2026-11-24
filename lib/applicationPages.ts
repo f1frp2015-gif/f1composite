@@ -661,6 +661,7 @@ export const applicationPages: ApplicationPage[] = [
       "Component BOM, connection / anchor responsibility, required acceptance documents and destination",
     ],
     related: [
+      { href: "/products/frp-access-platforms-stairs", label: "FRP access platforms, stairs and crossovers" },
       { href: "/products/molded-frp-grating", label: "Molded FRP grating" },
       { href: "/products/frp-gratings", label: "Pultruded FRP grating" },
       { href: "/products/frp-handrail-systems", label: "Fiberglass handrail systems" },
