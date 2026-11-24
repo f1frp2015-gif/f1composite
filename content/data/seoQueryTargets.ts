@@ -692,7 +692,7 @@ export const seoQueryTargets = [
     intent: "commercial",
     title: "Fiberglass Wide Flange Beam (FRP WF Beam) Sizes",
     description:
-      "Fiberglass WF beams: catalog 305 × 305 mm wide flange, nominal 4 × 4 to 12 × 12 in sizes with Ix, Iy and b/2t, WF vs I-beam selection and design checks.",
+      "Fiberglass WF beams: 305 × 305 mm catalog wide flange and standard 4 × 4 to 12 × 12 in sizes with kg/m, Ix, Iy and b/2t, WF vs I-beam selection.",
     supportingUrls: [
       "/products/fiberglass-structural-shapes/frp-i-beam",
       "/products/fiberglass-structural-shapes",

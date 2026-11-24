@@ -33,6 +33,9 @@ export const revalidate = 3600;
 const pagePath = "/products/fiberglass-structural-shapes/frp-wide-flange-beam";
 const seoTarget = getSeoQueryTarget(pagePath);
 const LAST_UPDATED = "2026-11-24";
+/** Density used for calculated mass, g/cm³: the E23 reference laminate density, which reproduces the catalog mass of the 305 × 305 WF. */
+const DENSITY = 1.9;
+const KG_PER_M_TO_LB_PER_FT = 0.671969;
 const REVIEWER = { name: "Yifan Liu", title: "Application Engineer", href: "/about/authors/yifan-liu" };
 
 export const metadata: Metadata = buildPageMetadata({
@@ -115,7 +118,7 @@ const faqItems = [
   },
   {
     question: "Which fiberglass wide flange sizes does F1 Composite list?",
-    answer: `The standard catalog lists ${wideFlangeCatalogModel} (about 12 × 12 × ½ in) with a published mass and DXF drawing. Other WF sizes in the nominal table are quoted on request: an existing-die variant takes ${weeks(supplyTerms.existingDieVariantLeadTimeWeeks)} and a new die ${weeks(supplyTerms.newDieLeadTimeWeeks)}, subject to confirmation for the section.`,
+    answer: `The catalog lists ${wideFlangeCatalogModel} (about 12 × 12 × ½ in) at 21.5 kg/m with a DXF drawing. The standard imperial sizes 4 × 4 × ¼, 6 × 6 × ¼, 6 × 6 × ⅜, 8 × 8 × ⅜, 8 × 8 × ½ and 10 × 10 × ½ in are made to order; plan ${weeks(supplyTerms.existingDieVariantLeadTimeWeeks)} for an existing-die variant or ${weeks(supplyTerms.newDieLeadTimeWeeks)} with a new die, confirmed in the quotation.`,
   },
   {
     question: "Which standards apply to a pultruded FRP wide flange beam?",
@@ -150,7 +153,7 @@ export default async function WideFlangeBeamPage() {
       ? [{ label: "Weak-axis stiffness", value: `The catalog WF ${fmt(wf.d)} × ${fmt(wf.b ?? 0)} mm has a calculated weak-axis Iy of ${fmt(wf.Iy)} cm⁴, about ${fmt(ratio)} times that of the ${narrow.model} I-beam (${fmt(narrow.Iy)} cm⁴).` }]
       : []),
     { label: "Catalog size", value: `${wideFlangeCatalogModel} mm (about 12 × 12 × ½ in), ${wf?.mass == null ? "mass on request" : `${fmt(wf.mass, 1)} kg/m published catalog mass`}, ${supplyTerms.standardLengthM} m standard length or cut to size.` },
-    { label: "Other WF sizes", value: `Nominal 4 × 4 × ¼ in to 12 × 12 × ½ in sections are quoted on request; a new die takes ${weeks(supplyTerms.newDieLeadTimeWeeks)} and a first custom run starts at ${supplyTerms.customMoqMeters.firstRun} m.` },
+    { label: "Imperial WF sizes", value: `Standard 4 × 4 × ¼ in to 12 × 12 × ½ in WF sizes are made to order, from about ${fmt((nominalRows[0]?.row.A ?? 0) / 100 * DENSITY / 10, 1)} to ${fmt((nominalRows.at(-1)?.row.A ?? 0) / 100 * DENSITY / 10, 1)} kg/m calculated; a first custom run starts at ${supplyTerms.customMoqMeters.firstRun} m.` },
     { label: "Typical uses", value: "Platform and stair columns, pipe-rack legs, equipment frames, cooling-tower structures and beams without continuous lateral bracing." },
     { label: "Design basis", value: "Members are checked under the project's standard, for example ASCE/SEI 74-23 or CEN/TS 19101, including local flange buckling, global stability and deflection with shear." },
   ];
@@ -177,7 +180,7 @@ export default async function WideFlangeBeamPage() {
         updated={LAST_UPDATED}
         reviewer={REVIEWER}
         title="Fiberglass wide flange beams (FRP WF beams)"
-        description="Pultruded fiberglass WF beams with flange width equal to depth. Compare the catalog wide flange with narrow-flange I-beams, check nominal 4 × 4 to 12 × 12 in sizes, and define the columns, frames or unbraced beams you need quoted."
+        description="Pultruded fiberglass WF beams with flange width equal to depth. Compare the catalog wide flange with narrow-flange I-beams, check the standard 4 × 4 to 12 × 12 in sizes with mass and section properties, and define the columns, frames or unbraced beams you need quoted."
         facts={[
           { label: "Catalog WF", value: wideFlangeCatalogModel.replace("I ", "") + " mm" },
           { label: "Nominal range", value: "4 × 4 to 12 × 12 in" },
@@ -276,16 +279,16 @@ export default async function WideFlangeBeamPage() {
           ]}
         />
 
-        <h3 className="mt-[36px] text-f18 font-bold text-t1">Nominal WF designations, 4 × 4 × ¼ in to 12 × 12 × ½ in</h3>
+        <h3 className="mt-[36px] text-f18 font-bold text-t1">Standard imperial WF sizes, 4 × 4 × ¼ in to 12 × 12 × ½ in</h3>
         <p className="mt-[8px] max-w-[900px] text-f14 leading-golden text-t2">
-          These equal-flange sizes are the depth × width × thickness series often written into North American FRP specifications. The values are geometry only, for checking a specification or a preliminary selection. They are not catalog rows: mass depends on the laminate, and tooling is confirmed in the quotation.
+          The equal-flange depth × width × thickness series commonly listed for fiberglass WF beams in North America. Section properties are calculated from the nominal section; mass is calculated at {DENSITY} g/cm³, the E23 reference laminate density, which gives the published 21.5 kg/m of the catalog 305 × 305 mm WF. Confirm finished mass, tolerances and tooling in the quotation.
         </p>
         <div className="mt-[14px] overflow-x-auto rounded-card border border-border-default bg-white">
-          <table className="w-full min-w-[860px] border-collapse text-left text-f14 leading-golden">
-            <caption className="sr-only">Nominal fiberglass wide flange beam designations with calculated section properties</caption>
+          <table className="w-full min-w-[1000px] border-collapse text-left text-f14 leading-golden">
+            <caption className="sr-only">Standard imperial fiberglass wide flange beam designations with calculated section properties</caption>
             <thead>
               <tr className="border-b border-border-default bg-bg2">
-                {["Designation (in)", "H × B × t (mm)", "Area (cm²)", "Ix (cm⁴)", "Iy (cm⁴)", "Wx (cm³)", "rx / ry (mm)", "b/2t", "Supply route"].map((heading) => (
+                {["Designation (in)", "H × B × t (mm)", "Mass (kg/m)", "Mass (lb/ft)", "Area (cm²)", "Ix (cm⁴)", "Iy (cm⁴)", "Wx (cm³)", "rx / ry (mm)", "b/2t", "Supply route"].map((heading) => (
                   <th key={heading} scope="col" className={`${cell} whitespace-nowrap font-semibold text-t1`}>{heading}</th>
                 ))}
               </tr>
@@ -295,13 +298,15 @@ export default async function WideFlangeBeamPage() {
                 <tr key={designation} className="border-b border-border-default last:border-b-0">
                   <th scope="row" className={`${cell} whitespace-nowrap font-semibold text-t1`}>WF {designation}</th>
                   <td className={`${cell} whitespace-nowrap text-t2`}>{fmt(H, 1)} × {fmt(B, 1)} × {fmt(t, 2)}</td>
+                  <td className={`${cell} text-t2`}>{fmt((row.A / 100) * DENSITY / 10, 1)}</td>
+                  <td className={`${cell} text-t2`}>{fmt((row.A / 100) * DENSITY / 10 * KG_PER_M_TO_LB_PER_FT, 2)}</td>
                   <td className={`${cell} text-t2`}>{fmt(row.A / 100, 1)}</td>
                   <td className={`${cell} text-t2`}>{fmt(row.Ix)}</td>
                   <td className={`${cell} text-t2`}>{fmt(row.Iy)}</td>
                   <td className={`${cell} text-t2`}>{fmt(row.Wx)}</td>
                   <td className={`${cell} whitespace-nowrap text-t2`}>{fmt(row.rx)} / {fmt(row.ry)}</td>
                   <td className={`${cell} text-t2`}>{fmt(flangeOutstandRatio(B, t), 1)}</td>
-                  <td className={`${cell} text-t2`}>{depthIn === 12 ? `Closest to catalog ${wideFlangeCatalogModel.replace("I ", "")} mm` : "Quoted on request"}</td>
+                  <td className={`${cell} text-t2`}>{depthIn === 12 ? `Catalog ${wideFlangeCatalogModel.replace("I ", "")} mm` : "Made to order"}</td>
                 </tr>
               ))}
             </tbody>

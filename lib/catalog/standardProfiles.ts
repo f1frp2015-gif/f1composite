@@ -39,7 +39,7 @@ const PRODUCTS: StandardProfileProduct[] = [];
 for (const [h, b, t, weight] of [
   [76, 38, 6.4, 1.2], [100, 50, 6, 1.6], [120, 60, 6, 2.0], [152, 76, 6.4, 2.9],
   [160, 80, 8, 3.6], [200, 100, 10, 5.8], [240, 120, 12, 8.4], [300, 150, 15, 13.5],
-  [305, 305, 12.7, 16.0],
+  [305, 305, 12.7, 21.5],
 ] as const) {
   PRODUCTS.push({ model: `I ${h}×${b}×${t}`, cat: "i-beam", geometry: geo("i_beam", { H: h, B: b, tf: t, tw: t }), weight });
 }

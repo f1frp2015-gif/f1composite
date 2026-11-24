@@ -3995,7 +3995,7 @@ Before the RFQ, the [fiberglass pultruded profile price estimator](/fiberglass-p
       "2026 pultruded FRP benchmarks: FOB China reference prices for standard sections, with catalog sections made in 2–4 weeks and a new die in 4–8 weeks, plus roughly 25–40 days of sea freight to most EU and US ports. Custom MOQ 500 m first run, repeat from 200 m; a new die costs USD 5,000–8,000 (small, single-cavity) to USD 15,000–40,000 (large or multi-cavity), once.",
     category: "Procurement Reference",
     date: "2026-05-05",
-    updatedAt: "2026-10-26",
+    updatedAt: "2026-11-24",
     readTime: "9 min",
     excerpt:
       "2026 reference benchmarks for pultruded FRP profile pricing, MOQ, custom tooling lead times, container freight rates, and Incoterms cost deltas: calibrated against direct-from-factory China sourcing.",
@@ -4040,7 +4040,7 @@ The profile prices below come from the engine behind the [price estimator](/fibe
 | FRP I-beam | 100×50×6 | 1.6 | 5.9–8.0 |
 | FRP I-beam | 152×76×6.4 | 2.9 | 8.8–12.0 |
 | FRP I-beam | 200×100×10 | 5.8 | 15.4–20.8 |
-| FRP I-beam | 305×305×12.7 | 16.0 | 38.5–52.1 |
+| FRP I-beam | 305×305×12.7 | 21.5 | 50.9–68.9 |
 | FRP channel | 100×50×6 | 1.8 | 5.8–7.8 |
 | FRP channel | 200×60×8 | 3.8 | 10.3–14.0 |
 | FRP angle | 50×50×6 | 0.9 | 3.1–4.2 |

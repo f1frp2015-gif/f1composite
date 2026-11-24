@@ -7,7 +7,7 @@ i-beam,I 160×80×8,160,80,8,8,3.6,939.1,117.38,15.91,shear,10.61,shear,7.35,def
 i-beam,I 200×100×10,200,100,10,10,5.8,2292.7,229.27,24.86,shear,16.57,shear,12.43,shear,9.19,deflection,5.51,deflection,2.41,deflection,1.26,deflection,0.73,deflection
 i-beam,I 240×120×12,240,120,12,12,8.4,4754.1,396.17,35.80,shear,23.87,shear,17.90,shear,14.32,shear,11.02,deflection,4.89,deflection,2.57,deflection,1.51,deflection
 i-beam,I 300×150×15,300,150,15,15,13.5,11606.6,773.77,55.94,shear,37.29,shear,27.97,shear,22.38,shear,18.65,shear,11.51,deflection,6.12,deflection,3.62,deflection
-i-beam,I 305×305×12.7,305,305,12.7,12.7,16,18871.2,1237.45,49.05,shear,32.70,shear,24.52,shear,19.62,shear,16.35,shear,12.26,shear,9.41,deflection,5.65,deflection
+i-beam,I 305×305×12.7,305,305,12.7,12.7,21.5,18871.2,1237.45,49.05,shear,32.70,shear,24.52,shear,19.62,shear,16.35,shear,12.26,shear,9.41,deflection,5.65,deflection
 channel,U 38×13×4.8,38,13,4.8,4.8,0.4,4.4,2.30,0.30,deflection,0.09,deflection,0.04,deflection,0.02,deflection,0.01,deflection,0.00,deflection,0.00,deflection,0.00,deflection
 channel,U 50×25×5,50,25,5,5,0.7,15.4,6.15,1.04,deflection,0.32,deflection,0.13,deflection,0.07,deflection,0.04,deflection,0.02,deflection,0.01,deflection,0.01,deflection
 channel,U 76×25×6.4,76,25,6.4,6.4,1,52.3,13.77,3.42,deflection,1.06,deflection,0.45,deflection,0.23,deflection,0.14,deflection,0.06,deflection,0.03,deflection,0.02,deflection
