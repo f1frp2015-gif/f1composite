@@ -185,6 +185,15 @@ f1composite.com
 | `/products/frp-grating-clips` | "fiberglass grating clips" | "grating clips" / "saddle clips for grating" / "how many grating clips" | 卡扣专页+每块板卡扣数量估算器（2026-11-24）；紧固件页只链过来，不再抢卡扣词 |
 | `/products/ada-frp-grating` | "ADA fiberglass grating" | "heel proof grating" / "ada grating requirements" | 小开孔格栅专页（2026-11-24）：ADA §302.3 ½ in 规则+目录里最小开孔行；不声称合规，开孔按块核实 |
 | `/products/frp-access-platforms-stairs` | "FRP access platforms and stairs" | "FRP crossover" / "fiberglass stair tower" / "FRP work platform" | 成套通道结构系统页（2026-11-24），用目录构件组装；不抢 `/applications/frp-chemical-plant-platforms`（行业场景词） |
+| `/products/rtrc-fiberglass-conduit` | "reinforced thermosetting resin conduit" | "RTRC conduit" / "fiberglass conduit" | 产品页（2026-11-24，业主确认可供货）；UL 2515/2420 认证按单确认，页面不声称已获 UL 认证 |
+| `/products/fiberglass-siding-panels` | "fiberglass siding panels" | "corrugated FRP wall panels" | 产品页（2026-11-24，业主确认可供货）；工业/农业墙板意图，房车外板一句分流 |
+| `/products/fiberglass-baffles` | "fiberglass baffles" | "FRP baffle wall" / "density current baffle" | 水处理挡板产品页（板材+型材）；首屏说明与吸音吊顶板不同 |
+| `/resources/blog/golden-hand-bridge-vietnam-fiberglass-hands` | "golden hand bridge" | "golden hand bridge vietnam" | 地标解读文章，F1 与项目无关，只做编辑引用 |
+| `/resources/blog/tower-bridge-sacramento-frp-sidewalk` | "tower bridge sacramento" | "first FRP cantilever sidewalk" | 地标解读文章，导向 FRP 桥面板 |
+| `/resources/blog/switchback-ramp-ada-design` | "switchback ramp" | "ADA switchback ramp requirements" | ADA 405 指南+算例，导向通道平台页和 ADA 格栅页 |
+| `/resources/blog/ipe-alternatives-decking-comparison` | "ipe alternatives" | "fiberglass decking vs ipe" | 材料对比，导向 FRP 桥面板/格栅 |
+| `/resources/blog/fiberglass-roof-deck-guide` | "fiberglass roof deck" | "walkable fiberglass roof" | 知识页，不声称供货屋面系统 |
+| `/resources/blog/fiberglass-utility-poles-guide` | "fiberglass utility poles" | "FRP composite utility pole standard" | 知识页，不声称供货电杆，导向横担页 |
 
 ### Application (按用途/结构找方案)
 | URL | 主意图 | 次要意图 | 一句话锁定 |
@@ -200,7 +209,7 @@ f1composite.com
 | URL | 主意图 | 次要意图 | 一句话锁定 |
 |---|---|---|---|
 | `/industries` | "FRP industries" 行业索引 | — | 6 行业卡 |
-| `/industries/construction` | "FRP for construction / facade" | 建筑客户找 fenestration | **不抢** "FRP window frames"（那是 product 的） |
+| `/industries/construction` | "FRP for construction / facade"（2026-11-24 搜索标题加 "FRP Construction"，H1 不变） | 建筑客户找 fenestration | **不抢** "FRP window frames"（那是 product 的） |
 | `/industries/infrastructure` | "FRP for bridges/walkways" | 公共工程客户 | **不抢** "FRP bridge deck"（那是 application 的） |
 | `/industries/energy` | "FRP for substation/solar" | 电力客户 | **不抢** "FRP solar mounting" / "FRP cable tray" |
 | `/industries/marine` | "FRP for marine/saltwater" | 海工客户 | 锁定客户画像，不锁结构词 |

@@ -210,8 +210,11 @@
   },
   {
     "path": "/industries/construction",
-    "title": "FRP Products for Buildings & Construction",
-    "description": "Explore FRP windows, facade fins, structural profiles, grating, stairs, rebar and rooftop supports. Find products and design guidance by building application."
+    "title": "FRP Construction: Fiberglass Products for Buildings",
+    "description": "Explore FRP windows, facade fins, structural profiles, grating, stairs, rebar and rooftop supports. Find products and design guidance by building application.",
+    "aliases": [
+      "FRP Products for Buildings & Construction"
+    ]
   },
   {
     "path": "/industries/energy",
@@ -297,6 +300,15 @@
     ]
   },
   {
+    "path": "/products/fiberglass-baffles",
+    "title": "Fiberglass Baffles for Clarifiers & Contact Tanks",
+    "description": "FRP density current baffles, scum baffles, inlet baffles and baffle walls for water and wastewater treatment. Cut from vinyl ester sheet or built from pultruded sections, fixed with 316 stainless or FRP hardware.",
+    "aliases": [
+      "Fiberglass baffles for clarifiers and contact tanks",
+      "Fiberglass Baffles for Clarifiers & Contact Tanks | FRP"
+    ]
+  },
+  {
     "path": "/products/fiberglass-dog-bone",
     "title": "Fiberglass Dog Bone Profiles",
     "description": "Fiberglass dog bone profiles for transformer winding and electrical insulation supports. Review custom geometry, material, test requirements and quote inputs.",
@@ -329,6 +341,15 @@
     "description": "Fiberglass sheets manufacturer supplying solid pultruded FRP sheet cut to size for liners, covers, baffles and fabricated parts, with global delivery.",
     "aliases": [
       "Fiberglass sheets manufacturer — solid FRP sheet cut to size"
+    ]
+  },
+  {
+    "path": "/products/fiberglass-siding-panels",
+    "title": "Fiberglass Siding Panels",
+    "description": "Corrugated, ribbed and flat FRP wall panels for chemical plants, wastewater works, salt and fertilizer stores and farm buildings. Specify profile, weight, resin, color and fire class, and get a quote matched to your girt layout.",
+    "aliases": [
+      "Fiberglass siding panels for industrial buildings",
+      "Fiberglass Siding Panels | FRP Wall Panels for Industry"
     ]
   },
   {
@@ -683,6 +704,15 @@
     "description": "Explore carbon fiber pultrusion for plates, strips, tubes and rods. Compare profiles, applications and custom specifications with F1 Composite.",
     "aliases": [
       "Pultrusion carbon fiber: plates, tubes and rods, and which one your load case needs"
+    ]
+  },
+  {
+    "path": "/products/rtrc-fiberglass-conduit",
+    "title": "Reinforced Thermosetting Resin Conduit (RTRC)",
+    "description": "Fiberglass electrical conduit, elbows and fittings for corrosive plants, wastewater works, bridges, tunnels and duct banks. Specify wall type, size series and listing to NEC Article 355 and NEMA TC 14, and get a quote.",
+    "aliases": [
+      "Reinforced thermosetting resin conduit (RTRC)",
+      "Reinforced Thermosetting Resin Conduit (RTRC) | Fiberglass"
     ]
   },
   {

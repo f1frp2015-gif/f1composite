@@ -10,6 +10,7 @@ import Figure from "@/components/ui/Figure";
 import LinkArrow from "@/components/ui/LinkArrow";
 import FAQDisclosure from "@/components/ui/FAQDisclosure";
 import CollectionSchema from "@/components/seo/CollectionSchema";
+import KeyFacts from "@/components/sections/KeyFacts";
 import { buildPageMetadata } from "@/lib/seo";
 import { productCovers } from "@/lib/covers";
 import { buildRfqHref } from "@/lib/rfq";
@@ -20,6 +21,8 @@ import {
 } from "@/content/data/construction";
 
 const pageTitle = "FRP Products for Buildings & Construction";
+/** Search title adds the "FRP construction" phrase; the visible H1 stays unchanged (traffic page). */
+const searchTitle = "FRP Construction: Fiberglass Products for Buildings";
 const pageDescription =
   "Explore FRP windows, facade fins, structural profiles, grating, stairs, rebar and rooftop supports. Find products and design guidance by building application.";
 const pagePath = "/industries/construction";
@@ -38,7 +41,7 @@ const productLinks = Array.from(
 );
 
 export const metadata: Metadata = buildPageMetadata({
-  title: pageTitle,
+  title: searchTitle,
   description: pageDescription,
   path: pagePath,
   image: conceptImage,
@@ -108,6 +111,18 @@ export default function ConstructionPage() {
           { id: "resources", label: "Resources" },
           { id: "faq", label: "FAQ" },
           { id: "quote", label: "Quote" },
+        ]}
+      />
+
+      <KeyFacts
+        title="What is FRP in construction?"
+        tone="muted"
+        summary="In construction, FRP means fiber-reinforced polymer: glass or carbon fibers bound in a thermoset resin and formed into building components. Most structural FRP is made by pultrusion, which produces straight members of constant cross-section such as beams, tubes, window profiles, grating bars and reinforcing bars."
+        facts={[
+          { label: "FRP meaning", value: "FRP stands for fiber-reinforced polymer (or plastic). In buildings it is usually glass FRP, also called GRP or fiberglass." },
+          { label: "Where it is used", value: "Window and door frames, facade fins and sunshades, secondary support frames, grating, stairs and handrails, concrete reinforcement and rooftop solar supports." },
+          { label: "Why it is chosen", value: "FRP does not rust, has low thermal conductivity and is light to handle; it is chosen where corrosion, thermal bridging or weight drive the design." },
+          { label: "What to check", value: "FRP is far less stiff than steel, so deflection, connections, fire classification and UV exposure are checked for each component under the project's code." },
         ]}
       />
 

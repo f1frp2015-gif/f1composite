@@ -449,6 +449,36 @@ export const blogKeywordTargets: BlogKeywordTarget[] = [
     primaryQuery: "FRP grating specification", secondaryQueries: ["fiberglass grating specification", "FRP grating guide specification 06 74 13"], intent: "technical",
     nextStep: { label: "Download the FRP grating guide specification", href: "/downloads/f1-frp-grating-guide-specification.txt" },
   },
+  {
+    slug: "golden-hand-bridge-vietnam-fiberglass-hands", topic: "infrastructure-and-energy",
+    primaryQuery: "golden hand bridge", secondaryQueries: ["golden hand bridge vietnam", "golden bridge da nang hands material"], intent: "guide",
+    nextStep: { label: "Explore FRP pedestrian bridges", href: "/applications/frp-pedestrian-bridge-superstructures" },
+  },
+  {
+    slug: "tower-bridge-sacramento-frp-sidewalk", topic: "infrastructure-and-energy",
+    primaryQuery: "tower bridge sacramento", secondaryQueries: ["first FRP cantilever sidewalk", "tower bridge sacramento lift span"], intent: "guide",
+    nextStep: { label: "See structural FRP deck panels", href: "/products/frp-deck-panels" },
+  },
+  {
+    slug: "fiberglass-utility-poles-guide", topic: "infrastructure-and-energy",
+    primaryQuery: "fiberglass utility poles", secondaryQueries: ["FRP composite utility pole standard", "fiberglass pole vs wood pole"], intent: "guide",
+    nextStep: { label: "Specify FRP utility crossarms", href: "/applications/frp-utility-crossarms" },
+  },
+  {
+    slug: "switchback-ramp-ada-design", topic: "grating-and-access",
+    primaryQuery: "switchback ramp", secondaryQueries: ["ADA switchback ramp requirements", "switchback ramp dimensions"], intent: "technical",
+    nextStep: { label: "Build it from FRP access components", href: "/products/frp-access-platforms-stairs" },
+  },
+  {
+    slug: "ipe-alternatives-decking-comparison", topic: "materials-and-process",
+    primaryQuery: "ipe alternatives", secondaryQueries: ["ipe decking alternatives", "fiberglass decking vs ipe"], intent: "comparison",
+    nextStep: { label: "See structural FRP deck panels", href: "/products/frp-deck-panels" },
+  },
+  {
+    slug: "fiberglass-roof-deck-guide", topic: "materials-and-process",
+    primaryQuery: "fiberglass roof deck", secondaryQueries: ["walkable fiberglass roof", "FRP roof deck panels"], intent: "guide",
+    nextStep: { label: "See FRP deck panels for roof walkways", href: "/products/frp-deck-panels" },
+  },
 ];
 
 const topicsBySlug = new Map(blogTopics.map((topic) => [topic.slug as string, topic]));
