@@ -161,6 +161,7 @@ export default function ColumnCalculatorPage() {
           ] },
           { title: "Sections", links: [
             { href: "/products/fiberglass-structural-shapes/frp-i-beam", label: "FRP I-beams" },
+            { href: "/products/fiberglass-structural-shapes/frp-wide-flange-beam", label: "FRP wide flange (WF) columns" },
             { href: "/products/fiberglass-structural-shapes/frp-square-tube", label: "FRP square tubes" },
             { href: "/products/fiberglass-structural-shapes/frp-tube", label: "FRP round tubes" },
           ] },
