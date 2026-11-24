@@ -74,8 +74,8 @@ test("llms.txt names the maintained page for each owned query and states the cit
   for (const date of Object.values(pageDates)) assert.ok(date <= revision, `brief revision ${revision} is older than a dated page (${date})`);
 });
 
-test("the structural-shape and grating hubs open with a quotable key-facts block", () => {
-  for (const route of ["/products/fiberglass-structural-shapes", "/products/grating"]) {
+test("the hub and custom-profile pages open with a quotable key-facts block", () => {
+  for (const route of ["/products/fiberglass-structural-shapes", "/products/grating", "/products/frp-window-frames", "/products/custom-pultruded-profiles"]) {
     const source = read(`app${route}/page.tsx`);
     assert.match(source, /<KeyFacts\b[^>]*\bsummary=/s, `${route} has no key-facts summary`);
     assert.match(source, /facts=\{keyFacts\}/, `${route} renders no key facts`);

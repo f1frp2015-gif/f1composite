@@ -37,6 +37,23 @@ export const company = {
     languages: ["English", "Chinese"],
   },
   sameAs: ["https://www.youtube.com/@F1Composites"],
+  /**
+   * Topics F1 publishes on and supplies, for schema.org knowsAbout. Each one
+   * has a maintained page on the site; do not list a topic the site does not cover.
+   */
+  knowsAbout: [
+    "Pultrusion",
+    "Pultruded FRP profiles",
+    "Fiberglass structural shapes",
+    "Custom pultruded profiles",
+    "FRP grating",
+    "FRP window and door profiles",
+    "GFRP rebar",
+    "FRP fasteners",
+    "FRP profile machining",
+    "EN 13706",
+    "ASTM D3917",
+  ],
 } as const;
 
 export const companyStatements = {

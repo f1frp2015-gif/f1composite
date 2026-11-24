@@ -66,6 +66,8 @@ export const organizationSchema = {
     areaServed: "Worldwide",
   },
   naics: "326199",
+  areaServed: "Worldwide",
+  knowsAbout: [...company.knowsAbout],
   sameAs: [...company.sameAs],
 };
 
