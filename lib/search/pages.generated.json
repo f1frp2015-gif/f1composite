@@ -351,7 +351,7 @@
   },
   {
     "path": "/products/fiberglass-structural-shapes",
-    "title": "Fiberglass Structural Shapes — FRP Sizes & Weights",
+    "title": "FRP & Fiberglass Structural Shapes — Sizes & Weights",
     "description": "Compare pultruded fiberglass I-beams, channels, angles, square and rectangular tubes, round tubes, flat bars and rods. Choose a family for the member's task, then compare dimensions, weights, drawings and material evidence. Catalog sections can be quoted as standard lengths or processed parts; a new cross-section starts from your drawing. Confirm the laminate, tolerances, quantity and production timing for the order.",
     "aliases": [
       "Fiberglass structural shapes & sizes"
@@ -383,7 +383,7 @@
   },
   {
     "path": "/products/fiberglass-structural-shapes/frp-i-beam",
-    "title": "Fiberglass I-Beam — Pultruded FRP Wide Flange Beams & Sizes",
+    "title": "Fiberglass I-Beam — Pultruded FRP I-Beam Sizes & Weights",
     "description": "Compare fiberglass I-beam sizes, catalog weights and nominal section properties. Define spans, loads, connections and material requirements for a project quote.",
     "aliases": [
       "Fiberglass I-beam (FRP) profiles"
@@ -422,6 +422,14 @@
     "aliases": [
       "Fiberglass round tubes and tubing (FRP)",
       "Fiberglass Round Tube | Pultruded FRP & GRP Tubing"
+    ]
+  },
+  {
+    "path": "/products/fiberglass-structural-shapes/frp-wide-flange-beam",
+    "title": "Fiberglass Wide Flange Beam (FRP WF Beam) Sizes",
+    "description": "Pultruded fiberglass WF beams with flange width equal to depth. Compare the catalog wide flange with narrow-flange I-beams, check nominal 4 × 4 to 12 × 12 in sizes, and define the columns, frames or unbraced beams you need quoted.",
+    "aliases": [
+      "Fiberglass wide flange beams (FRP WF beams)"
     ]
   },
   {
@@ -492,11 +500,19 @@
     ]
   },
   {
+    "path": "/products/frp-grating-clips",
+    "title": "Fiberglass Grating Clips: M, C, J & T Hold-Down Clips",
+    "description": "Choose hold-down clips and panel connectors for molded and pultruded FRP grating, estimate a starting quantity per panel and download the DXF details. F1 clip kits are 316 stainless steel.",
+    "aliases": [
+      "Fiberglass grating clips: M, C, J and T hold-downs"
+    ]
+  },
+  {
     "path": "/products/frp-gratings",
-    "title": "Pultruded FRP & GRP Grating",
+    "title": "FRP Pultruded Grating & GRP Grating",
     "description": "Compare pultruded fiberglass grating, also called GRP grating, in T-bar and I-bar series with panel data, load-table support and matched 316SS clips.",
     "aliases": [
-      "Pultruded FRP & GRP Grating | T-Bar & I-Bar"
+      "FRP Pultruded Grating & GRP Grating | T-Bar & I-Bar"
     ]
   },
   {
@@ -505,7 +521,7 @@
     "description": "Industrial FRP handrail systems in square- and round-tube configurations, with posts, top and middle rails, kick plates, splices, molded fittings and base options. Manual-verified nominal specifications are separated from the project load, connection and anchor design.",
     "aliases": [
       "Fiberglass handrail and guardrail systems",
-      "Fiberglass Handrail Systems | Industrial FRP Railing"
+      "Fiberglass Handrail Systems | Industrial Handrail in FRP"
     ]
   },
   {
@@ -1069,6 +1085,14 @@
     ]
   },
   {
+    "path": "/technology/molded-vs-pultruded-frp-grating",
+    "title": "Molded vs Pultruded FRP Grating: Differences & Uses",
+    "description": "The two fiberglass grating types are made differently and span differently. Compare construction, depth, open area, weight, cutting and clips from F1's published catalog data, then pick the panel by span, load direction and layout.",
+    "aliases": [
+      "Molded vs pultruded FRP grating"
+    ]
+  },
+  {
     "path": "/technology/polyurethane-pultrusion-windows",
     "title": "Polyurethane Pultrusion Windows: GFRP-PU Profiles & Units",
     "description": "Why polyurethane resin is displacing polyester in high-performance pultruded fiberglass window frames: higher cross-fiber strength, thinner walls, deep-cold toughness, and the certified passive-house results it delivers.",
@@ -1086,10 +1110,10 @@
   },
   {
     "path": "/technology/pultrusion-process",
-    "title": "Fiberglass Pultrusion Process — How FRP Profiles Are Made",
+    "title": "What Is Pultrusion? The Fiberglass Pultrusion Process",
     "description": "Pultrusion is a continuous process: glass or carbon fiber rovings and mats are pulled through a resin bath or injection chamber, then through a steel die heated to about 120–180 °C, where the resin cures into a profile of constant cross-section. A puller draws the cured profile at 0.3–1.5 m/min, and a flying saw cuts it to length without stopping the line. Glass fiber makes up 60–70% of the profile by weight (roughly half by volume), which gives pultruded sections high strength along their length.",
     "aliases": [
-      "The fiberglass pultrusion process, step by step"
+      "What is pultrusion? The fiberglass pultrusion process, step by step"
     ]
   },
   {

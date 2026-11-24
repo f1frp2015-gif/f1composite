@@ -1,3 +1,4 @@
+import Link from "next/link";
 import PageSection from "@/components/layout/PageSection";
 import {
   GRATING_CLIP_DXF_BY_FAMILY,
@@ -153,7 +154,7 @@ function TClipFigure({ alt }: { alt: string }) {
   );
 }
 
-function ClipFigure({ code, alt }: { code: GratingClipCode; alt: string }) {
+export function ClipFigure({ code, alt }: { code: GratingClipCode; alt: string }) {
   switch (code) {
     case "M":
       return <MClipFigure alt={alt} />;
@@ -284,6 +285,10 @@ export default function GratingClipGuide({ family, tone = "white" }: { family: G
 
       <p className="mt-[20px] max-w-[960px] text-f14 leading-golden text-t3">
         Final clip geometry, bolt and washer selection, quantity, spacing, edge clearances, and tightening requirements must be shown on the approved project drawing. The clip guide does not change the grating span, bearing, support, or connection design checks.
+      </p>
+      <p className="mt-[10px] text-f14 leading-golden text-t2">
+        All four clip types, a clips-per-panel estimator and the combined DXF:{" "}
+        <Link href="/products/frp-grating-clips" className="font-semibold text-teal-text underline underline-offset-4 hover:text-teal">fiberglass grating clips</Link>.
       </p>
     </PageSection>
   );

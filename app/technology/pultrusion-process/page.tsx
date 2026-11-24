@@ -14,6 +14,10 @@ import { getSeoQueryTarget } from "@/content/data/seoQueryTargets";
 import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
 import { citationMetaTags, type CitationInput } from "@/lib/citation";
 import ArticleCitationBlock from "@/components/sections/ArticleCitationBlock";
+import KeyFacts from "@/components/sections/KeyFacts";
+import Link from "next/link";
+import { supplyTerms, usdRange, weeks } from "@/content/data/company";
+import { E23_MIN } from "@/lib/catalog/en13706";
 
 /* ═══════════════════════════════════════════════════════
    Page metadata
@@ -24,11 +28,11 @@ const seoTarget = getSeoQueryTarget(pagePath);
 const pageTitle = seoTarget.title;
 const pageDescription = seoTarget.description;
 const publishedAt = "2024-03-15";
-const updatedAt = "2026-10-26";
+const updatedAt = "2026-11-24";
 const referencedStandards = ["EN 13706", "ASTM D3917", "ASTM D638", "ASTM D790"];
 
 const citation: CitationInput = {
-  title: "The fiberglass pultrusion process, step by step",
+  title: "What is pultrusion? The fiberglass pultrusion process, step by step",
   path: pagePath,
   authorName: "F1 Composite",
   publishedAt: publishedAt,
@@ -181,10 +185,52 @@ const equipmentSpecs = [
 ];
 
 /* ═══════════════════════════════════════════════════════
-   §4  FAQ — data
+   §4  What pultrusion can make, pros and cons — data
+   ═══════════════════════════════════════════════════════ */
+
+const keyFacts = [
+  { label: "Definition", value: "Pultrusion is a continuous process that pulls resin-impregnated glass or carbon fiber through a heated steel die, where the resin cures into a profile of constant cross-section." },
+  { label: "Pultruded", value: "A pultruded part is any profile made this way: FRP I-beams, wide flange beams, channels, angles, tubes, rods, grating bars, handrail tubes, ladder rails and window profiles." },
+  { label: "Fiber content", value: "Pultruded glass profiles typically carry 60–70% glass by weight, most of it as continuous roving along the length." },
+  { label: "Directional properties", value: `Properties are highest along the profile: the EN 13706 E23 grade sets ${E23_MIN.tensile_l_mpa} MPa tensile strength lengthwise against ${E23_MIN.tensile_t_mpa} MPa across, and ${E23_MIN.e_l_gpa} GPa against ${E23_MIN.e_t_gpa} GPa modulus.` },
+  { label: "Limits", value: "Standard pultrusion makes straight members of one constant section. Tapers, varying walls and three-dimensional parts need another composite process." },
+  { label: "Standards", value: "EN 13706 and ASTM D3917 cover pultruded profile grades and dimensional tolerances; ASCE/SEI 74-23 and CEN/TS 19101 cover structural design." },
+];
+
+const shapeCapability = [
+  { family: "Open sections", examples: "I-beams, wide flange beams, channels, angles, T-sections, flat bars", note: "Formed directly by the die cavity; wall thickness can differ between flange and web." },
+  { family: "Closed and hollow sections", examples: "Square and rectangular tubes, round tubes, multi-cell window and deck profiles", note: "A mandrel inside the die forms each hollow cell." },
+  { family: "Solid sections", examples: "Round rods, square bars, rebar-type bars, strips", note: "Mostly unidirectional roving for high lengthwise strength and stiffness." },
+  { family: "Assemblies of pultruded parts", examples: "Pultruded grating, handrail systems, ladders, platforms, window frames", note: "Pultruded members joined by cross-rods, fittings, bolts or bonding after cutting." },
+];
+
+const prosCons = [
+  { aspect: "Production", advantage: "Continuous and automated; any length can be cut from the same run.", disadvantage: `A new section needs its own steel die, typically ${usdRange(supplyTerms.dieCostUsd.singleCavity)} for a small single-cavity die and ${weeks(supplyTerms.dieManufactureWeeks)} to make.` },
+  { aspect: "Geometry", advantage: "Tight, repeatable cross-section with smooth die-formed surfaces.", disadvantage: "One constant section per die; no tapers, bends or local thickening along the length." },
+  { aspect: "Strength", advantage: "High strength and stiffness along the length from continuous fiber.", disadvantage: "Much lower transverse strength; bolt holes, bearing and cross-grain loads need checking." },
+  { aspect: "Stiffness", advantage: "Low weight per metre for the section size.", disadvantage: "Modulus is far below steel, so many members are sized by deflection rather than strength." },
+  { aspect: "Durability", advantage: "Does not rust; resin choice targets chemicals, salt water and outdoor exposure.", disadvantage: "UV, heat and fire performance depend on the resin, veil and additives, and need evidence for the offered formulation." },
+  { aspect: "Fabrication", advantage: "Cut and drilled with ordinary tools fitted with carbide or diamond blades.", disadvantage: "Thermoset profiles cannot be welded or re-formed; joints are bolted or bonded and cut ends may need sealing." },
+  { aspect: "Order size", advantage: "Catalog sections ship from existing dies.", disadvantage: `Custom sections have a minimum run, ${supplyTerms.customMoqMeters.firstRun} m for a first order.` },
+];
+
+/* ═══════════════════════════════════════════════════════
+   §5  FAQ — data
    ═══════════════════════════════════════════════════════ */
 
 const faqItems = [
+  {
+    question: "What does pultruded mean?",
+    answer: "Pultruded describes a composite part made by pultrusion: fiber pulled through resin and a heated die, so the part has one constant cross-section and continuous fiber along its length. A pultruded fiberglass profile is the FRP equivalent of an extruded metal section, but it is pulled rather than pushed.",
+  },
+  {
+    question: "What are the disadvantages of pultrusion?",
+    answer: "Pultrusion makes only straight, constant-section parts; each new section needs a die and a minimum run; transverse strength is much lower than lengthwise strength; and the low modulus of glass FRP makes many members deflection-governed. Thermoset profiles are bolted or bonded rather than welded.",
+  },
+  {
+    question: "What is the difference between pultrusion and extrusion?",
+    answer: "Extrusion pushes a softened material such as aluminum or PVC through a die. Pultrusion pulls continuous fibers through resin and a heated die where the thermoset cures, so the fiber, not the resin, carries most of the load. The pultrusion vs extrusion guide compares the two with filament winding.",
+  },
   {
     question: "What is pultrusion?",
     answer: "Pultrusion is a continuous manufacturing process for producing fiber-reinforced polymer (FRP) composite profiles with a constant cross-section. The term combines 'pull' and 'extrusion': reinforcing fibers are pulled through a resin bath and then through a heated steel die where the resin cures, forming a rigid structural profile.",
@@ -327,16 +373,16 @@ export default function PultrusionProcessPage() {
       <JsonLd data={howToSchema} />
       <PageHeader
         updated={updatedAt}
-        tag="Pultrusion Process"
-        title="The fiberglass pultrusion process, step by step"
+        tag="Pultrusion"
+        title="What is pultrusion? The fiberglass pultrusion process, step by step"
         description="Pultrusion is a continuous process: glass or carbon fiber rovings and mats are pulled through a resin bath or injection chamber, then through a steel die heated to about 120–180 °C, where the resin cures into a profile of constant cross-section. A puller draws the cured profile at 0.3–1.5 m/min, and a flying saw cuts it to length without stopping the line. Glass fiber makes up 60–70% of the profile by weight (roughly half by volume), which gives pultruded sections high strength along their length."
         breadcrumbs={[
           { label: "Home", href: "/" },
           { label: "Technology", href: "/technology" },
-          { label: "Pultrusion Process" },
+          { label: "Pultrusion" },
         ]}
         facts={[
-          { label: "Fiber volume", value: "60–70%" },
+          { label: "Glass by weight", value: "60–70%" },
           { label: "Line speed", value: "0.3–1.5 m/min" },
           { label: "Die temperature", value: "±2 °C" },
           { label: "Cut-off length", value: "±0.5 mm" },
@@ -356,7 +402,13 @@ export default function PultrusionProcessPage() {
           </Figure>
         }
       />
-      <PageNav items={[{ id: "process-flow", label: "Six stages" }, { id: "impregnation-methods", label: "Impregnation" }, { id: "equipment", label: "Line specifications" }, { id: "faq", label: "FAQ" }]} />
+      <PageNav items={[{ id: "key-facts", label: "What is pultrusion" }, { id: "process-flow", label: "Six stages" }, { id: "what-can-be-pultruded", label: "Shapes" }, { id: "advantages-disadvantages", label: "Pros and cons" }, { id: "impregnation-methods", label: "Impregnation" }, { id: "equipment", label: "Line specifications" }, { id: "faq", label: "FAQ" }]} />
+      <KeyFacts
+        title="What is pultrusion?"
+        tone="muted"
+        summary="Pultrusion is a continuous manufacturing process for fiber-reinforced polymer (FRP) profiles: reinforcing fibers are pulled through resin and a heated die, cure in the die, and leave it as a rigid profile of constant cross-section that is cut to length. The word joins pull and extrusion."
+        facts={keyFacts}
+      />
       {/* ══════════════════════════════════════════════════
          §1  Process Flow — visual diagram
          ══════════════════════════════════════════════════ */}
@@ -390,6 +442,56 @@ export default function PultrusionProcessPage() {
             </li>
           ))}
         </ol>
+      </PageSection>
+
+      <PageSection id="what-can-be-pultruded" title="What can be pultruded" tone="muted" intro="Any straight member whose cross-section stays the same along its length. The die cavity, and a mandrel for each hollow cell, define the section.">
+        <div className="overflow-x-auto rounded-card border border-border-default bg-white">
+          <table className="w-full min-w-[680px] border-collapse text-left text-f14 leading-golden">
+            <caption className="sr-only">Pultruded section families and examples</caption>
+            <thead>
+              <tr className="border-b border-border-default bg-bg2">
+                {["Section family", "Examples", "How the die forms it"].map((heading) => <th key={heading} scope="col" className="px-[14px] py-[10px] font-semibold text-t1">{heading}</th>)}
+              </tr>
+            </thead>
+            <tbody>
+              {shapeCapability.map((row) => (
+                <tr key={row.family} className="border-b border-border-default align-top last:border-b-0">
+                  <th scope="row" className="px-[14px] py-[10px] font-semibold text-t1">{row.family}</th>
+                  <td className="px-[14px] py-[10px] text-t2">{row.examples}</td>
+                  <td className="px-[14px] py-[10px] text-t2">{row.note}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <p className="mt-[16px] max-w-[900px] text-f16 leading-golden text-t2">
+          Pultruded products on this site: <Link href="/products/fiberglass-structural-shapes" className="font-semibold text-teal-text underline underline-offset-4 hover:text-teal">FRP structural shapes</Link>, <Link href="/products/fiberglass-structural-shapes/frp-wide-flange-beam" className="font-semibold text-teal-text underline underline-offset-4 hover:text-teal">wide flange beams</Link>, <Link href="/products/frp-gratings" className="font-semibold text-teal-text underline underline-offset-4 hover:text-teal">pultruded grating</Link>, <Link href="/products/frp-handrail-systems" className="font-semibold text-teal-text underline underline-offset-4 hover:text-teal">industrial handrail systems</Link> and <Link href="/products/frp-window-frames" className="font-semibold text-teal-text underline underline-offset-4 hover:text-teal">FRP window frames</Link>. A section that is not in a catalog can be developed as a <Link href="/products/custom-pultruded-profiles" className="font-semibold text-teal-text underline underline-offset-4 hover:text-teal">custom pultruded profile</Link>.
+        </p>
+      </PageSection>
+
+      <PageSection id="advantages-disadvantages" title="Advantages and disadvantages of pultrusion" intro="What the process gives a profile, and what it costs or rules out. Use both columns when comparing pultruded FRP with steel, aluminum or another composite process.">
+        <div className="overflow-x-auto rounded-card border border-border-default bg-white">
+          <table className="w-full min-w-[720px] border-collapse text-left text-f14 leading-golden">
+            <caption className="sr-only">Advantages and disadvantages of pultrusion</caption>
+            <thead>
+              <tr className="border-b border-border-default bg-bg2">
+                {["", "Advantage", "Disadvantage"].map((heading) => <th key={heading || "aspect"} scope="col" className="px-[14px] py-[10px] font-semibold text-t1">{heading}</th>)}
+              </tr>
+            </thead>
+            <tbody>
+              {prosCons.map((row) => (
+                <tr key={row.aspect} className="border-b border-border-default align-top last:border-b-0">
+                  <th scope="row" className="px-[14px] py-[10px] font-semibold text-t1">{row.aspect}</th>
+                  <td className="bg-teal-bg px-[14px] py-[10px] text-t2">{row.advantage}</td>
+                  <td className="px-[14px] py-[10px] text-t2">{row.disadvantage}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <p className="mt-[16px] max-w-[900px] text-f16 leading-golden text-t2">
+          For design, treat a pultruded profile as a directional material: check deflection with shear, local buckling of thin walls, bolt bearing across the fibers and long-term creep under the project&apos;s design standard. Profile grades and tolerances are covered on the <Link href="/technology/quality-testing" className="font-semibold text-teal-text underline underline-offset-4 hover:text-teal">quality and testing</Link> page; process alternatives on <Link href="/technology/pultrusion-vs-extrusion-filament-winding" className="font-semibold text-teal-text underline underline-offset-4 hover:text-teal">pultrusion vs extrusion and filament winding</Link>.
+        </p>
       </PageSection>
 
       {/* ══════════════════════════════════════════════════

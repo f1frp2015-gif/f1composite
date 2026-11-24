@@ -10,7 +10,7 @@
  * Change the date when the page content changes, never on a redeploy.
  */
 export const pageDates = {
-  "/products/fiberglass-structural-shapes": "2026-11-11",
+  "/products/fiberglass-structural-shapes": "2026-11-24",
   "/products/grating": "2026-11-11",
 
   "/tools": "2026-11-04",
