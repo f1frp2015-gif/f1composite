@@ -6,11 +6,12 @@ import PageNav from "@/components/layout/PageNav";
 import PageSection from "@/components/layout/PageSection";
 import DocumentCard, { libraryCard } from "@/components/downloads/DocumentCard";
 import ProductRfq from "@/components/products/ProductRfq";
+import KeyFacts from "@/components/sections/KeyFacts";
 import RelatedLinks from "@/components/sections/RelatedLinks";
 import WindowSystemExplorer from "@/components/sections/WindowSystemExplorer";
 import { WindowBuyerPaths, WindowComponentMap, WindowEvidenceCards, WindowPurchaseFlow, WindowScopeTable, WindowSupplyRoutes } from "@/components/sections/WindowBuyingGuide";
 import JsonLd from "@/components/seo/JsonLd";
-import WindowProjects from "@/components/sections/WindowProjects";
+import WindowProjects, { windowProjects } from "@/components/sections/WindowProjects";
 import { FAQList } from "@/components/ui/FAQ";
 import Figure from "@/components/ui/Figure";
 import { windowRequestItems } from "@/content/data/windowBuying";
@@ -20,7 +21,7 @@ import { buildPageMetadata, buildProductFamilyPageSchema } from "@/lib/seo";
 import { buildWindowRfqHref } from "@/lib/windowInquiry";
 
 // Last content review; shown in the page header and used as dateModified.
-const updatedAt = "2026-11-08";
+const updatedAt = "2026-11-24";
 
 const pagePath = "/products/frp-window-frames";
 const description = "Compare nine FRP window profile systems and 11 finished window and door families. Review configurations, catalogs and project supply scope.";
@@ -38,6 +39,19 @@ const faq = [
   { question: "What should I send if I do not have complete drawings?", answer: "Start with your role, destination, intended opening or application and expected quantity if known. Choose technical selection, budget pricing or sample evaluation. We can clarify the section list or window schedule before a formal quote." },
   { question: "What determines price, minimum quantity and delivery timing?", answer: "For profiles, review the section, lengths, material, finish, quantity, tooling and machining. For finished units, review each opening, glass and hardware configuration. Packing, transport, testing, sample fees, production quantity and lead time are confirmed for the order; a catalog listing is not a stock promise." },
   { question: "Who handles local installation and warranty?", answer: "Agree installation information, local labor, unloading, spare parts and after-sales responsibilities in the supply scope. Warranty terms depend on the contracted product and configuration. Shipping complete units does not by itself include on-site installation." },
+];
+
+// Quotable summary for search snippets and AI answers. Every line restates what
+// the sections below already show; do not add a claim the page body lacks.
+const keyFacts = [
+  { label: "Profile systems", value: "Nine systems: 50, 55, 60, 65, 70, 80 and 90 casement, a separate 90 sliding system, and the 140 compression-seal sliding door. Profile depths run from 50 to 140 mm." },
+  { label: "Supply routes", value: "System profiles (lineals with their beads, gaskets and connectors) for local fabrication, or finished windows and doors built to a window schedule. Each route is quoted separately." },
+  { label: "Finished units", value: "11 complete families, eight window systems and three door systems, with glass, hardware and accessories defined in the quotation." },
+  { label: "Material", value: "Pultruded glass fiber profiles. Several series are also supplied as GFRP-PU, glass fiber in a polyurethane resin matrix, used for the 65 to 90-series windows in the Baotou and Yantai projects." },
+  { label: "Thermal evidence", value: "Uf is the frame, Ug the glazing and Uw the whole window. The PHI certificate for the 90 series covers its stated configuration, not every size or series assembled from FRP profiles." },
+  { label: "Projects supplied", value: `${windowProjects.length} documented projects, including 90-series windows for Qinling Station in Antarctica (2024) and 65 and 90-series GFRP-PU windows with a whole-window U of 0.99 W/m²·K for the Wanhua Yantai zero-carbon community (2022).` },
+  { label: "Documents", value: "A window and door catalog, a profile bill-of-materials template and a window schedule template, downloadable from the evidence section." },
+  { label: "Price and lead time", value: "Confirmed per order from the sections, lengths, finish, quantity and machining for profiles, or from each opening, glass and hardware configuration for finished units. A catalog listing is not a stock promise." },
 ];
 
 const windowFiles = [finishedWindowCatalog, "/downloads/f1composite-frp-window-door-catalog.pdf", "/downloads/f1-window-profile-bom-template.csv", "/downloads/f1-window-schedule-template.csv"];
@@ -60,6 +74,13 @@ export default function FenestrationSystemsPage() {
       actions={{ primary: { label: "Request a profile quote", href: buildWindowRfqHref({ mode: "profiles", source: "window-hub-hero", productPath: pagePath }) }, secondary: { label: "Request a finished-unit quote", href: buildWindowRfqHref({ mode: "finished", source: "window-hub-hero", productPath: pagePath }), variant: "secondary" }, note: "Start with your name and email · Technical details can follow", stickyMobile: true }}
     />
     <PageNav items={[{ id: "supply", label: "Supply routes" }, { id: "series", label: "Systems" }, { id: "components", label: "Components" }, { id: "buyers", label: "Buying paths" }, { id: "procurement", label: "Procurement" }, { id: "evidence", label: "Evidence" }, { id: "projects", label: "Projects" }, { id: "faq", label: "FAQ" }, { id: "quote", label: "Quote" }]} />
+
+    <KeyFacts
+      title="FRP window frames: key facts"
+      tone="muted"
+      summary="FRP window frames are made from pultruded fiberglass profiles: glass fiber in a thermoset resin, pulled through a heated die into frame, sash and mullion sections. F1 Composite supplies nine window and door profile systems for local fabrication, and 11 families of finished fiberglass windows and doors for project supply."
+      facts={keyFacts}
+    />
 
     <PageSection id="supply" title="Two ways to buy: profiles or finished units" intro="Fabricators buy the profile set and build locally; project buyers specify complete units against a window schedule. Each route has its own guide and its own quotation.">
       <WindowSupplyRoutes />

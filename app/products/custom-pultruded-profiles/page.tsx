@@ -5,6 +5,7 @@ import PageHeader from "@/components/layout/PageHeader";
 import PageNav from "@/components/layout/PageNav";
 import PageSection from "@/components/layout/PageSection";
 import ProductRfq from "@/components/products/ProductRfq";
+import KeyFacts from "@/components/sections/KeyFacts";
 import RelatedLinks from "@/components/sections/RelatedLinks";
 import JsonLd from "@/components/seo/JsonLd";
 import CoverCard from "@/components/ui/CoverCard";
@@ -22,7 +23,7 @@ const seoTarget = getSeoQueryTarget(pagePath);
 const pageTitle = seoTarget.title;
 const pageDescription = seoTarget.description;
 const publishedAt = "2026-04-04";
-const updatedAt = "2026-10-26";
+const updatedAt = "2026-11-24";
 const author = authorsBySlug["haifeng-gong"];
 const reviewer = authorsBySlug["yifan-liu"];
 const { firstRun, repeat } = supplyTerms.customMoqMeters;
@@ -160,6 +161,19 @@ const faqItems = [
     question: "Can you guarantee the same tolerance on every feature?",
     answer: "Tolerances are confirmed against the drawing, material, section geometry and machining route. Separate the as-pultruded cross-section from cut lengths, holes and slots. Identify the critical fit dimensions and datums, then agree the measurement method and first-article requirements. A first-article result applies to that sample; any repeat-production capability claim needs relevant production evidence.",
   },
+];
+
+// Quotable summary for search snippets and AI answers. Every line restates what
+// the sections below already show; do not add a claim the page body lacks.
+const keyFacts = [
+  { label: "Size range", value: `Cross-sections up to 600 × 300 mm, with walls from 1.5 to 30 mm. Profiles are cut to ${supplyTerms.standardLengthM} m as standard, and up to 14 m by agreement.` },
+  { label: "Fiber and resin", value: "E-glass, carbon, basalt or carbon-glass hybrid fiber, in unsaturated polyester, vinyl ester, epoxy or polyurethane resin, with a surface veil, fabric or mat and an optional coating or film finish." },
+  { label: "Existing dies", value: `FengDu's production network holds ${company.production.dieSets.toLocaleString("en-US")}+ die sets. A variant on an existing die (another resin, color or length) takes ${weeks(supplyTerms.existingDieVariantLeadTimeWeeks)}.` },
+  { label: "New die lead time", value: `${weeks(supplyTerms.newDieLeadTimeWeeks)} from an approved drawing to first delivery, of which tooling manufacture takes ${weeks(supplyTerms.dieManufactureWeeks)}.` },
+  { label: "Tooling cost", value: `About ${usdRange(supplyTerms.dieCostUsd.singleCavity)} for a small single-cavity die and ${usdRange(supplyTerms.dieCostUsd.largeOrMultiCavity)} for a large or multi-cavity die. These are planning ranges, not an offer.` },
+  { label: "Minimum order", value: `${firstRun} linear meters for a first production run and ${repeat} linear meters for a repeat order, confirmed for the section and material.` },
+  { label: "Tolerances", value: "Agreed by feature against the drawing revision. A first article is reviewed against the approved drawing and inspection plan before series production is released." },
+  { label: "What to send", value: "A DWG, DXF, STEP or PDF drawing with revision, units, critical dimensions and datums, plus loads, service environment, lengths and quantities." },
 ];
 
 const requestItems = [
@@ -306,6 +320,12 @@ export default function CustomPultrusionsPage() {
           { id: "faq", label: "FAQ" },
           { id: "quote", label: "Quote" },
         ]}
+      />
+
+      <KeyFacts
+        title="Custom pultruded profiles: key facts"
+        summary="A custom pultruded profile is an FRP section developed from the buyer's drawing when no catalog shape fits: a die is made for the cross-section, then glass or carbon fiber is pulled through it with resin and cured. F1 Composite develops and produces these profiles in FengDu New Material's pultrusion network in China, up to 600 × 300 mm."
+        facts={keyFacts}
       />
 
       <PageSection

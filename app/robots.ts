@@ -19,7 +19,11 @@ const AI_CRAWLERS = [
   "Bytespider",
   "Amazonbot",
   "Meta-ExternalAgent",
+  "Meta-ExternalFetcher",
   "cohere-ai",
+  "DuckAssistBot",
+  "MistralAI-User",
+  "Google-CloudVertexBot",
 ];
 
 export default function robots(): MetadataRoute.Robots {
