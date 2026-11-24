@@ -213,7 +213,7 @@ export default function ProfilePricePage() {
           {[
             {
               title: "Section mass (kg per meter)",
-              body: <>The biggest driver. Glass and resin are bought by the kilogram, so a 305&times;305 I-beam at 16 kg/m contains about fifteen times the material of a 50&times;50 angle at 1.1 kg/m. That is why per-kg comparisons between quotes mean more than per-meter ones.</>,
+              body: <>The biggest driver. Glass and resin are bought by the kilogram, so a 305&times;305 I-beam at 21.5 kg/m contains about twenty times the material of a 50&times;50 angle at 1.1 kg/m. That is why per-kg comparisons between quotes mean more than per-meter ones.</>,
             },
             {
               title: "Resin system",

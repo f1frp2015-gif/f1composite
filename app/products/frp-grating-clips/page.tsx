@@ -60,7 +60,7 @@ const supportFixing: Record<string, string> = {
 
 const keyFacts = [
   { label: "What they do", value: "Grating clips hold FRP grating panels down to their supports, and C connectors keep adjacent molded panels aligned. They stop panels shifting, lifting or rattling; they do not carry the walkway load." },
-  { label: "Clip types", value: "F1 lists four 316 stainless steel clips: M hold-down (saddle clip), C panel connector, J support-hook clamp and T pultruded-grating clip." },
+  { label: "Clip types", value: "F1 lists four 316 stainless steel clips: M hold-down (saddle clip), C panel connector, J support-hook clamp and T pultruded-grating clip. All F1 clips are stainless steel; galvanized clips are not supplied." },
   { label: "Molded grating", value: "M or J clips hold molded panels to the supports; C connectors join panel edges between supports." },
   { label: "Pultruded grating", value: "M, J or T clips hold pultruded I-bar and T-bar panels; T clips fit the F1 pultruded bearing-bar series only." },
   { label: "Starting layout", value: "At least 2 hold-downs on each support line and 4 per panel, no more than 1200 mm / 4 ft apart along a support, with 38 mm / 1.5 in minimum bearing at supports." },
@@ -98,6 +98,10 @@ const faqItems = [
   {
     question: "Are fiberglass grating clips stainless steel?",
     answer: `F1 lists its M, C, J and T clips in ${GRATING_CLIP_MATERIAL}. Name the chemicals, chlorides and temperature at the site so the fixing material can be reviewed together with the grating resin.`,
+  },
+  {
+    question: "Do you supply galvanized grating clips?",
+    answer: `No. F1 supplies grating clips in ${GRATING_CLIP_MATERIAL} only. An FRP platform is usually chosen for corrosion resistance, and a stainless fixing keeps the hold-down from becoming the first part to corrode. If a specification names galvanized or carbon-steel clips, send it with the site exposure and we will review the fixing material against it.`,
   },
   {
     question: "Do molded and pultruded grating use the same clips?",
