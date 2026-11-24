@@ -1,3 +1,4 @@
+import { knowledgeBlogPosts } from "./blogPostsKnowledge";
 type ArticleLink = {
   label: string;
   href: string;
@@ -7062,6 +7063,7 @@ US retail and dealer listings observed in October 2026 ran from roughly $0.25 to
 
 In the United States the flatwork bar reaches the site through hardware chains, building-material yards and professional distributors stocking 10 ft and 20 ft bars with barcoded bundle labels. Elsewhere, dealers stock 6 m and 12 m bars and contractors order project cut lengths. For a dealer program F1 Composite quotes a repeating size mix of Ø10 to Ø16 mm bars in the lengths the market uses, with bundle counts and labels agreed and the qualification report for each size supplied with the first container; for a project it quotes the bar schedule with factory bends and mesh on separate lines. Both start from the [GFRP rebar page](/products/frp-rebar), and the [import guide](/resources/blog/importing-gfrp-rebar-container-loading-documents) gives metres per tonne and container planning for the sizes above.`,
   },
+  ...knowledgeBlogPosts,
 ];
 
 export const blogPostsBySlug = Object.fromEntries(

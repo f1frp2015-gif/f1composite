@@ -390,6 +390,7 @@ export const industryPages = {
       { label: "How to specify FRP cable tray", href: "/resources/blog/frp-cable-tray-specifications-advantages" },
       { label: "Grating lifecycle cost example", href: "/resources/blog/frp-grating-vs-steel-grating-cost-comparison" },
       { label: "Clarifier flights, weirs and baffles", href: "/applications/frp-wastewater-clarifier-components" },
+      { label: "Fiberglass baffles and baffle walls", href: "/products/fiberglass-baffles" },
       { label: "Material and resin selection", href: "/technology/pultrusion-resin-systems" },
       { label: "Technical references and report scope", href: "/resources/evidence" },
     ],

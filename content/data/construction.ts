@@ -70,6 +70,7 @@ export const constructionApplications = [
       { label: "Stair treads & covers", href: "/products/frp-stair-treads" },
       { label: "Handrail systems", href: "/products/frp-handrail-systems" },
       { label: "Fixed ladder systems", href: "/products/frp-ladders" },
+      { label: "Access platforms & stairs", href: "/products/frp-access-platforms-stairs" },
     ],
     heading: "Choose the walking surface before detailing the access route",
     paragraphs: [
@@ -123,6 +124,7 @@ export const constructionSupportingProducts = [
 ] as const;
 
 export const constructionFaqs = [
+  { question: "What does FRP mean in construction?", answer: "FRP stands for fiber-reinforced polymer (sometimes fiber-reinforced plastic): a composite of glass or carbon fibers in a thermoset resin. In construction it refers to components made from that material, such as pultruded profiles, window frames, grating, handrails and reinforcing bars, used where steel would corrode or conduct heat." },
   { question: "Which F1 products are relevant to a building project?", answer: "Begin with the six application groups above: windows and doors; facade fins and sunshades; structural supports; grating, decking and access; concrete reinforcement; and rooftop solar or building services. Solid sheets, flat bars, round tubes and sound barriers cover additional fabricated or site-specific requirements." },
   { question: "Can I buy profiles rather than a finished assembly?", answer: "Yes. Standard and custom pultrusions are profile supply routes, while the window range also has a dedicated finished-unit route. For rails, ladders, platforms and solar supports, agree whether the quotation includes cut lengths, drilled parts, fasteners, fabrication or assembled units. State that scope in the inquiry." },
   { question: "Does an FRP frame automatically meet a thermal target?", answer: "No. Frame geometry, glazing, edge spacers, seals, fixings and the wall connection determine assembly performance. Request the calculation or test for the offered window or facade configuration, including the size and glazing used. A material conductivity value is not a whole-window U-value." },

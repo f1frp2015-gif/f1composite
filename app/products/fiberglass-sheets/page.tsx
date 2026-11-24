@@ -248,6 +248,8 @@ export default function FiberglassSheetsPage() {
               { href: "/products/fiberglass-structural-shapes/frp-flat-bar", label: "Fiberglass flat bars (catalog sizes)" },
               { href: "/products/fiberglass-structural-shapes", label: "Fiberglass structural shapes catalog" },
               { href: "/products/frp-stair-treads", label: "Stair tread covers" },
+              { href: "/products/fiberglass-baffles", label: "Fiberglass baffles for clarifiers and contact tanks" },
+              { href: "/products/fiberglass-siding-panels", label: "Fiberglass siding panels" },
               { href: "/products/custom-pultruded-profiles", label: "Custom pultrusions" },
             ],
           },

@@ -749,6 +749,40 @@ export const seoQueryTargets = [
       "/products/frp-gratings",
     ],
   },
+  {
+    targetUrl: "/products/rtrc-fiberglass-conduit",
+    primaryQuery: "reinforced thermosetting resin conduit",
+    intent: "commercial",
+    title: "Reinforced Thermosetting Resin Conduit (RTRC) | Fiberglass",
+    description:
+      "RTRC fiberglass conduit and fittings: NEC Article 355 uses, NEMA TC 14 and UL 2515/2420 wall types, trade sizes ½–6 in and support spacing. Request a quote.",
+    supportingUrls: [
+      "/applications/frp-cable-tray-supports",
+    ],
+  },
+  {
+    targetUrl: "/products/fiberglass-siding-panels",
+    primaryQuery: "fiberglass siding panels",
+    intent: "commercial",
+    title: "Fiberglass Siding Panels | FRP Wall Panels for Industry",
+    description:
+      "Corrugated, ribbed and flat fiberglass siding panels for chemical plants, salt stores and farm buildings: ASTM D3841, weights, resins, fire class and fixing.",
+    supportingUrls: [
+      "/products/fiberglass-sheets",
+    ],
+  },
+  {
+    targetUrl: "/products/fiberglass-baffles",
+    primaryQuery: "fiberglass baffles",
+    intent: "commercial",
+    title: "Fiberglass Baffles for Clarifiers & Contact Tanks | FRP",
+    description:
+      "FRP density current, scum and inlet baffles and baffle walls for water treatment: EPA baffling factors, design head, 316SS fixings and NSF 61 for potable water.",
+    supportingUrls: [
+      "/industries/water-wastewater",
+      "/products/fiberglass-sheets",
+    ],
+  },
 ] as const satisfies readonly SeoQueryTarget[];
 
 const targetsByUrl = new Map<string, SeoQueryTarget>();

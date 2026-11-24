@@ -384,6 +384,7 @@ export const applicationPages: ApplicationPage[] = [
       "Bracket / base details, fixing substrate, quantity, delivery destination and required date",
     ],
     related: [
+      { href: "/products/rtrc-fiberglass-conduit", label: "RTRC fiberglass conduit" },
       { href: "/products/fiberglass-structural-shapes/frp-channel", label: "FRP channels" },
       { href: "/products/fiberglass-structural-shapes/frp-angle", label: "FRP angles" },
       { href: "/products/custom-pultruded-profiles", label: "Custom pultruded profiles" },
