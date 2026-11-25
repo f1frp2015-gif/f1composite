@@ -1,4 +1,5 @@
 import { knowledgeBlogPosts } from "./blogPostsKnowledge";
+import { waveBlogPosts } from "./blogPostsWave";
 type ArticleLink = {
   label: string;
   href: string;
@@ -4921,7 +4922,7 @@ To see what a deeper, lower-conductance break zone does to a whole frame, run th
       "Pultruded FRP density typically runs 1.7–2.1 g/cm³ (0.062–0.070 lb/in³ by ASTM D792). The number follows the rule of mixtures: E-glass fiber is 2.54 g/cm³ and cured unfilled polyester resin roughly 1.1–1.2, so a laminate at 65–70% glass by weight (F1 Composite's published EN 13706 grade E23 recipe) computes to 1.83–1.90 g/cm³. Roving-dominant profiles run denser than mat-heavy ones; mineral fillers such as ATH (2.41 g/cm³) push density up; voids pull it down.",
     category: "Material Science",
     date: "2026-07-16",
-    updatedAt: "2026-10-26",
+    updatedAt: "2026-11-25",
     readTime: "9 min",
     excerpt:
       "Steel has one density. A fiberglass profile has a recipe: glass fiber at 2.54 g/cm³, cured resin near 1.2, plus fillers and voids. Where a pultruded profile lands between those poles (and what that single number tells you about the laminate inside) is all arithmetic.",
@@ -4969,6 +4970,27 @@ To see what a deeper, lower-conductance break zone does to a whole frame, run th
       { label: "Springer — Calcium carbonate fillers (reference entry)", href: "https://link.springer.com/rwe/10.1007/978-3-319-28117-9_35" },
       { label: "Physical properties of GFRP filled with ATH and calcium carbonate (Polymers, 2022)", href: "https://pmc.ncbi.nlm.nih.gov/articles/PMC9230032/" },
     ],
+    faq: {
+      title: "Density of fiberglass: quick answers",
+      items: [
+        {
+          question: "What is the density of fiberglass?",
+          answer: "It depends on which fiberglass you mean. E-glass fiber on its own is 2.54 g/cm³ (about 159 lb/ft³). A pultruded fiberglass profile, glass plus resin, is usually 1.7 to 2.1 g/cm³; F1's E23 laminate is published at 1.9 g/cm³, about 119 lb/ft³ or 0.069 lb/in³.",
+        },
+        {
+          question: "What is the density of fiberglass in kg/m³?",
+          answer: "Multiply g/cm³ by 1,000. E-glass fiber is 2,540 kg/m³ and a pultruded profile at 1.9 g/cm³ is 1,900 kg/m³, against 7,850 kg/m³ for structural steel and 2,700 kg/m³ for aluminum.",
+        },
+        {
+          question: "Why is fiberglass insulation so much lighter than a fiberglass profile?",
+          answer: "Insulation batts are mostly trapped air between loose glass fibers, so their bulk density is a small fraction of the glass itself. A pultruded profile is a solid laminate with almost no voids, which is why it lands between the glass at 2.54 and the resin near 1.2 g/cm³.",
+        },
+        {
+          question: "How do I turn density into weight per meter?",
+          answer: "Weight per meter equals cross-section area times density. A section of 1,000 mm² at 1.9 g/cm³ weighs 1.9 kg/m. The FRP density calculator does this for catalog shapes and for your own glass content.",
+        },
+      ],
+    },
     content: `Structural steel has one density: 7.85 g/cm³, whatever mill it came from. Aluminum alloys sit at 2.70. Ask the same question about a pultruded FRP profile and the honest answer is a range, roughly 1.7 to 2.1 g/cm³, because FRP density is not a material constant. It is the output of a recipe. Every fiberglass profile is a blend of glass fiber at 2.54 g/cm³ and cured resin somewhere near 1.2, and where a given section lands between those poles is decided by how much glass the laminate carries and in what form: rovings, mats, fabrics, veils. That makes fiberglass profile density one of the most informative numbers on a datasheet, if you know how to read it.
 
 ## Why FRP density is a range, not a constant
@@ -7064,6 +7086,7 @@ US retail and dealer listings observed in October 2026 ran from roughly $0.25 to
 In the United States the flatwork bar reaches the site through hardware chains, building-material yards and professional distributors stocking 10 ft and 20 ft bars with barcoded bundle labels. Elsewhere, dealers stock 6 m and 12 m bars and contractors order project cut lengths. For a dealer program F1 Composite quotes a repeating size mix of Ø10 to Ø16 mm bars in the lengths the market uses, with bundle counts and labels agreed and the qualification report for each size supplied with the first container; for a project it quotes the bar schedule with factory bends and mesh on separate lines. Both start from the [GFRP rebar page](/products/frp-rebar), and the [import guide](/resources/blog/importing-gfrp-rebar-container-loading-documents) gives metres per tonne and container planning for the sizes above.`,
   },
   ...knowledgeBlogPosts,
+  ...waveBlogPosts,
 ];
 
 export const blogPostsBySlug = Object.fromEntries(

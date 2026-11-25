@@ -395,6 +395,10 @@ export const customProductPages: CustomProductPage[] = [
       [
         "Is every component nonmetallic?",
         "The agreed package may contain metal hinges, anchors or fasteners. Specify component materials and the full electrical requirements before a quotation is finalized."
+      ],
+      [
+        "Can I order 8 ft fiberglass fence posts?",
+        "Yes. Posts are cut from pultruded square tube such as SHS 50×50×5, 75×75×6 or 100×100×6, so 8 ft (2.44 m) is a cut length. An 8 ft post often carries a 6 ft fence with about 2 ft in the ground; the actual embedment comes from the foundation design and wind load. The minimum order is 1,000 m per section, about 410 posts at 8 ft."
       ]
     ],
     related: [

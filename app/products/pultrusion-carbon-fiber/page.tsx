@@ -156,7 +156,7 @@ export default function CarbonFiberPultrusionPage() {
             ].map((item) => <article key={item.title} className="rounded-card border border-border-default bg-bg2 p-[20px]"><h3 className="text-f16 font-bold text-t1">{item.title}</h3><p className="mt-[8px] text-f14 leading-relaxed text-t2">{item.text}</p></article>)}
           </div>
         </div>
-        <p className="mt-[24px] text-f16 leading-relaxed text-t2">Comparing carbon with glass fiber? Review <Link href="/pultruded-frp-profiles" className={linkStyle}>pultruded fiberglass profiles</Link> when cost or electrical insulation drives the design. Compare actual laminate data and the complete assembly against the same load case.</p>
+        <p className="mt-[24px] text-f16 leading-relaxed text-t2">Comparing carbon with glass fiber? Review <Link href="/pultruded-frp-profiles" className={linkStyle}>pultruded fiberglass profiles</Link> when cost or electrical insulation drives the design. Compare actual laminate data and the complete assembly against the same load case. The <Link href="/resources/blog/fiberglass-vs-carbon-fiber" className={linkStyle}>fiberglass vs carbon fiber comparison</Link> works one beam both ways.</p>
       </PageSection>
 
       <PageSection id="applications" title="Where pultruded carbon is specified" tone="muted" intro="Six kinds of part, each on one of the three forms. The photographs show the element, not an F1 part; some of the carbon in them was made by other processes, and the pultruded form is the straight-member answer to the same brief.">

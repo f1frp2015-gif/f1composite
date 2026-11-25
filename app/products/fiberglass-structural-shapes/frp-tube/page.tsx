@@ -61,6 +61,16 @@ const faqItems = [
       "For a nominal circular tube with a uniform wall, ID = OD − 2 × wall thickness. This is a geometry calculation, not a guaranteed fit. If the tube must accept a sleeve, insert or cable assembly, send the required clearance, mating-part drawing and tolerances for review, including any limits on ovality or straightness.",
   },
   {
+    question: "Which round tubes nest for a telescopic pole?",
+    answer:
+      "Compare the inside diameter of the outer tube with the outside diameter of the inner one. In the catalog, CHS 50×4 (ID 42 mm) takes CHS 38×3.2 with 2.0 mm radial clearance, and CHS 76×6.4 (ID 63.2 mm) takes CHS 60×5 with 1.6 mm. A bushing, collet or cam lock fills that gap. These are nominal figures; OD and wall tolerances decide the real fit, so send the lock design with the inquiry.",
+  },
+  {
+    question: "What is the largest diameter fiberglass tube in the catalog?",
+    answer:
+      "CHS 150×8: 150 mm outside diameter, 8 mm wall and 5.4 kg/m. Larger round sections need a new die and mandrel. Large-diameter fiberglass pipe for pressure or drainage service is made by filament winding or centrifugal casting, and those products follow pipe standards that structural tubing does not meet.",
+  },
+  {
     question: "FRP round tube vs FRP square tube — which should I use?",
     answer:
       "Round tubing suits circular grips and members such as handrails and masts. Square and rectangular tubing provides flat bearing faces for frames and bolted connections. Compare the actual section properties, laminate, span and load case; the shape name alone does not establish which section is stiffer or stronger. Structural tubing is not a pressure-pipe specification.",
@@ -180,6 +190,7 @@ export default async function TubePage() {
               { label: "Handrails and guardrails", href: "/industries/construction" },
               { label: "Electrical component qualification", href: "/applications/frp-switchgear-insulation-components" },
               { label: "Infrastructure handrails", href: "/industries/infrastructure" },
+              { label: "Telescopic poles: which tubes nest", href: "/resources/blog/telescopic-fiberglass-pole" },
             ]}
           />
         </div>

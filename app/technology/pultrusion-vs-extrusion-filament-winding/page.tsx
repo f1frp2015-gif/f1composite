@@ -265,6 +265,7 @@ export default function PultrusionVsExtrusionFilamentWindingPage() {
               { href: "/technology/frp-vs-traditional-materials", label: "FRP vs steel, aluminum, timber, concrete" },
               { href: "/resources/glossary#extrusion-plastics", label: "Glossary: Extrusion (plastics)" },
               { href: "/resources/glossary#filament-winding", label: "Glossary: Filament winding" },
+              { href: "/resources/blog/vacuum-infusion", label: "Vacuum infusion and where it meets pultrusion" },
             ],
           },
           {

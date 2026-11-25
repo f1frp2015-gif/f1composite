@@ -55,6 +55,11 @@ const faqItems = [
       "This page covers solid round profile lengths and blanks for further fabrication. Specify the diameter, cut length, fit, end details and service conditions for your part. Plant stakes, concrete reinforcement, rock bolts and electrical components have their own purchasing and qualification requirements; use the linked product routes for those inquiries.",
   },
   {
+    question: "How far can a fiberglass rod bend?",
+    answer:
+      "The bend radius scales with diameter. Surface stress in a bent rod is E × d / (2R), so with the E23 reference (modulus 23 GPa, flexural strength 240 MPa) a rod reaches its minimum flexural strength at a radius of about 48 times its diameter. A working radius has to be several times larger than that. The rod springs back when released; fiberglass does not hold a bent shape.",
+  },
+  {
     question: "Which material properties should I request for an FRP rod?",
     answer:
       "Request properties for the proposed rod, reinforcement and resin formulation, including the test direction and specimen conditions. The E23-ISO table on this page is a material reference, not measured performance for every catalog diameter. Agree the relevant strength, stiffness and acceptance evidence before using values for final design.",
@@ -188,6 +193,7 @@ export default async function RodPage() {
             items={[
               { label: "Fiberglass tree stakes and plant supports", href: "/products/fiberglass-stakes" },
               { label: "Fiberglass driveway markers and snow stakes", href: "/products/fiberglass-snow-markers" },
+              { label: "Bendable rods: bend radius by diameter", href: "/resources/blog/bendable-fiberglass-rods" },
               { label: "FRP rebar for concrete", href: "/products/frp-rebar" },
               { label: "FRP rock bolts and anchoring", href: "/products/frp-rock-bolts" },
               { label: "Live-line tool rods and tubes", href: "/products/fiberglass-live-line-tool-tubes-rods" },

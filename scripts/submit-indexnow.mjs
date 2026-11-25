@@ -185,17 +185,25 @@ export function collectChangedPaths(beforeRef, afterRef) {
     }
   }
 
-  const blogFile = "content/data/blogPosts.ts";
-  const beforeBlog = sourceAt(beforeRef, blogFile);
-  const afterBlog = sourceAt(afterRef, blogFile);
-  if (changedFiles.has(blogFile)) {
-    for (const slug of changedSlugs(beforeBlog, afterBlog)) {
-      addPath(paths, `/resources/blog/${slug}`);
+  const blogFiles = [
+    "content/data/blogPosts.ts",
+    "content/data/blogPostsKnowledge.ts",
+    "content/data/blogPostsWave.ts",
+  ];
+  for (const blogFile of blogFiles) {
+    if (changedFiles.has(blogFile)) {
+      const beforeBlog = sourceAt(beforeRef, blogFile);
+      const afterBlog = sourceAt(afterRef, blogFile);
+      for (const slug of changedSlugs(beforeBlog, afterBlog)) {
+        addPath(paths, `/resources/blog/${slug}`);
+      }
+      addPath(paths, "/resources/blog");
     }
-    addPath(paths, "/resources/blog");
   }
   if (changedFiles.has("app/resources/blog/[slug]/page.tsx")) {
-    addAllRecordRoutes(paths, afterBlog || beforeBlog, "/resources/blog");
+    for (const blogFile of blogFiles) {
+      addAllRecordRoutes(paths, sourceAt(afterRef, blogFile) || sourceAt(beforeRef, blogFile), "/resources/blog");
+    }
   }
 
   const applicationFile = "lib/applicationPages.ts";
