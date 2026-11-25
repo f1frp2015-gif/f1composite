@@ -122,7 +122,7 @@ export default function GratingPage() {
           </tbody>
         </table>
       </div>
-      <p className="mt-[12px] text-f14 leading-golden text-t2">Full side-by-side data and a when-to-choose table: <Link className={link} href="/technology/molded-vs-pultruded-frp-grating">molded vs pultruded FRP grating</Link>. Hold-downs for both families: <Link className={link} href="/products/frp-grating-clips">fiberglass grating clips</Link>. Accessible routes: <Link className={link} href="/products/ada-frp-grating">ADA fiberglass grating</Link>.</p>
+      <p className="mt-[12px] text-f14 leading-golden text-t2">Full side-by-side data and a when-to-choose table: <Link className={link} href="/technology/molded-vs-pultruded-frp-grating">molded vs pultruded FRP grating</Link>. Hold-downs for both families: <Link className={link} href="/products/frp-grating-clips">fiberglass grating clips</Link>. Maintenance walkways: <Link className={link} href="/products/fiberglass-catwalk-grating">fiberglass catwalk grating</Link>. Accessible routes: <Link className={link} href="/products/ada-frp-grating">ADA fiberglass grating</Link>.</p>
     </PageSection>
 
     <GratingProjectPlanner tone="white" />

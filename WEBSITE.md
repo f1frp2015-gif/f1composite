@@ -185,6 +185,10 @@ f1composite.com
 | `/products/frp-grating-clips` | "fiberglass grating clips" | "grating clips" / "saddle clips for grating" / "how many grating clips" | 卡扣专页+每块板卡扣数量估算器（2026-11-24）；紧固件页只链过来，不再抢卡扣词 |
 | `/products/ada-frp-grating` | "ADA fiberglass grating" | "heel proof grating" / "ada grating requirements" | 小开孔格栅专页（2026-11-24）：ADA §302.3 ½ in 规则+目录里最小开孔行；不声称合规，开孔按块核实 |
 | `/products/frp-access-platforms-stairs` | "FRP access platforms and stairs" | "FRP crossover" / "fiberglass stair tower" / "FRP work platform" | 成套通道结构系统页（2026-11-24），用目录构件组装；不抢 `/applications/frp-chemical-plant-platforms`（行业场景词） |
+| `/products/fiberglass-catwalk-grating` | "fiberglass catwalk grating" | "FRP catwalk grating" / "catwalk grating load" | 检修走道格栅专页（2026-11-25，A071）：荷载/宽度规则+目录里 38 mm 模压与 I 型拉挤行；不印荷载表，随报价给 |
+| `/resources/blog/composite-utility-pole-cost` | "composite utility pole cost" | "fiberglass utility pole price" | 知识文章（A071）：只引公开来源，F1 不供电杆、不报价 |
+| `/resources/blog/composite-retaining-wall` | "composite retaining wall" | "FRP sheet pile retaining wall" | 知识文章（A071）：板桩墙与枕木墙两类；商业词仍归 `/products/frp-sheet-piling` |
+| `/resources/blog/8-ft-fiberglass-tree-stakes` | "8 ft fiberglass tree stakes" | "8 foot fiberglass stakes" | 长尾指南（A071）；商业词 "fiberglass tree stakes" 仍归 `/products/fiberglass-stakes` |
 | `/products/rtrc-fiberglass-conduit` | "reinforced thermosetting resin conduit" | "RTRC conduit" / "fiberglass conduit" | 产品页（2026-11-24，业主确认可供货）；UL 2515/2420 认证按单确认，页面不声称已获 UL 认证 |
 | `/products/fiberglass-siding-panels` | "fiberglass siding panels" | "corrugated FRP wall panels" | 产品页（2026-11-24，业主确认可供货）；工业/农业墙板意图，房车外板一句分流 |
 | `/products/fiberglass-baffles` | "fiberglass baffles" | "FRP baffle wall" / "density current baffle" | 水处理挡板产品页（板材+型材）；首屏说明与吸音吊顶板不同 |

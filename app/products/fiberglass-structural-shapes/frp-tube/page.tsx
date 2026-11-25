@@ -33,10 +33,15 @@ const pageDescription =
 const pagePath = "/products/fiberglass-structural-shapes/frp-tube";
 const product = "Pultruded fiberglass round tubing";
 
-const LAST_UPDATED = "2026-10-11";
+const LAST_UPDATED = "2026-11-25";
 const quoteMessage = "Please review my fiberglass round tube requirements.\nOutside diameter / required inside diameter / wall thickness (with units):\nFinished length and piece count:\nFit, end cuts, holes or inserts (drawing reference):\nApplication, span and loads:\nResin or service environment and required evidence:\nDestination and target date:";
 
 const faqItems = [
+  {
+    question: "What fiberglass round tube sizes are available?",
+    answer:
+      "Catalog round tube runs from 25 mm to 150 mm outside diameter with walls from 3 to 8 mm. The rows closest to common inch sizes are 25 mm (about 1 in), 32 mm (1-1/4 in), 38 mm (1-1/2 in), 50 mm (2 in), 63.5 mm (2-1/2 in), 76 mm (3 in), 89 mm (3-1/2 in), 114 mm (4-1/2 in), 127 mm (5 in) and 150 mm (about 6 in). A diameter or wall between rows needs a new die and mandrel.",
+  },
   {
     question: "Can I order fiberglass tubing cut to length?",
     answer: "Include finished length per piece, piece count, end cuts or holes, and tolerances with your selected section. We review the cutting and machining scope, material and packing before confirming the quotation. Catalog dimensions are section options, not a live stock list.",

@@ -271,7 +271,7 @@ export default function AccessPlatformsPage() {
           </table>
         </div>
         <p className="mt-[14px] text-f14 leading-golden text-t2">
-          Choosing the deck: <Link href="/technology/molded-vs-pultruded-frp-grating" className={link}>molded vs pultruded grating</Link> and the <Link href="/tools/frp-grating-selector" className={link}>FRP grating selector</Link>. Sizing columns: <Link href="/tools/frp-column-calculator" className={link}>FRP column calculator</Link>.
+          Catwalk decks: <Link href="/products/fiberglass-catwalk-grating" className={link}>fiberglass catwalk grating</Link>. Choosing the deck: <Link href="/technology/molded-vs-pultruded-frp-grating" className={link}>molded vs pultruded grating</Link> and the <Link href="/tools/frp-grating-selector" className={link}>FRP grating selector</Link>. Sizing columns: <Link href="/tools/frp-column-calculator" className={link}>FRP column calculator</Link>.
         </p>
       </PageSection>
 

@@ -67,6 +67,10 @@ export const applicationPages: ApplicationPage[] = [
     ],
     related: [
       {
+        label: "Composite retaining wall types and heights",
+        href: "/resources/blog/composite-retaining-wall"
+      },
+      {
         label: "FRP sheet piling",
         href: "/products/frp-sheet-piling"
       },

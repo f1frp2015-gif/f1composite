@@ -31,7 +31,7 @@ const pageDescription =
   "Compare solid fiberglass rod sizes and catalog weights. Specify cut lengths, tolerances and machining, with separate routes for rebar and electrical parts.";
 const pagePath = "/products/fiberglass-structural-shapes/frp-rod";
 
-const LAST_UPDATED = "2026-10-25";
+const LAST_UPDATED = "2026-11-25";
 
 const faqItems = [
   {
@@ -43,6 +43,11 @@ const faqItems = [
     question: "Should I use a solid fiberglass rod or a hollow round tube?",
     answer:
       "Use a solid rod where the part is small in diameter, is machined, threaded or pinned through, or must resist crushing at clamps and fittings. Use a round tube where bending stiffness per kilogram matters, because moving material away from the center raises the moment of inertia for the same mass. Compare A, Ix and mass per meter for both in the profile finder, then confirm the finished part's loads and fittings.",
+  },
+  {
+    question: "Which solid fiberglass sections are available besides round rod?",
+    answer:
+      "Solid fiberglass stock is pultruded in four forms: round rod from 6 to 50 mm diameter on this page, square rod, flat bar and strips from 12 × 3 mm to 305 × 25 mm, and flat sheet from 2 to 25 mm thick. Each is a fully solid section with continuous glass fiber along its length. Hollow sections are listed separately as round tube and square tube.",
   },
   {
     question: "What are pultruded FRP round rods used for?",
@@ -150,6 +155,14 @@ export default async function RodPage() {
             . For threaded rod with matching nuts and washers, see{" "}
             <Link href="/products/frp-fasteners-fittings#thread-sizes" className="font-semibold text-teal-text underline underline-offset-4 hover:text-teal">
               FRP threaded rod sizes (UNC and metric)
+            </Link>
+            . Other solid fiberglass sections:{" "}
+            <Link href="/products/fiberglass-structural-shapes/frp-flat-bar" className="font-semibold text-teal-text underline underline-offset-4 hover:text-teal">
+              flat bar and strips
+            </Link>{" "}
+            and{" "}
+            <Link href="/products/fiberglass-sheets" className="font-semibold text-teal-text underline underline-offset-4 hover:text-teal">
+              solid flat sheet
             </Link>
             .
           </p>

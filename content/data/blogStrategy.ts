@@ -465,6 +465,21 @@ export const blogKeywordTargets: BlogKeywordTarget[] = [
     nextStep: { label: "Specify FRP utility crossarms", href: "/applications/frp-utility-crossarms" },
   },
   {
+    slug: "composite-utility-pole-cost", topic: "infrastructure-and-energy",
+    primaryQuery: "composite utility pole cost", secondaryQueries: ["fiberglass utility pole price", "composite pole vs wood pole cost"], intent: "guide",
+    nextStep: { label: "Specify FRP utility crossarms", href: "/applications/frp-utility-crossarms" },
+  },
+  {
+    slug: "composite-retaining-wall", topic: "infrastructure-and-energy",
+    primaryQuery: "composite retaining wall", secondaryQueries: ["FRP sheet pile retaining wall", "composite retaining wall height"], intent: "guide",
+    nextStep: { label: "See FRP sheet piling", href: "/products/frp-sheet-piling" },
+  },
+  {
+    slug: "8-ft-fiberglass-tree-stakes", topic: "structural-design-and-procurement",
+    primaryQuery: "8 ft fiberglass tree stakes", secondaryQueries: ["8 foot fiberglass stakes", "how deep to drive tree stakes"], intent: "guide",
+    nextStep: { label: "Specify fiberglass tree stakes", href: "/products/fiberglass-stakes" },
+  },
+  {
     slug: "switchback-ramp-ada-design", topic: "grating-and-access",
     primaryQuery: "switchback ramp", secondaryQueries: ["ADA switchback ramp requirements", "switchback ramp dimensions"], intent: "technical",
     nextStep: { label: "Build it from FRP access components", href: "/products/frp-access-platforms-stairs" },

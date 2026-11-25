@@ -1,4 +1,8 @@
 import type { BlogPost } from "./blogPosts";
+import { supplyTerms } from "./company";
+
+// 8 ft = 2.4384 m; stakes per minimum order of one rod diameter (A071).
+const STAKES_8FT_PER_MOQ = Math.floor(supplyTerms.moqMeters / 2.4384);
 
 /**
  * Knowledge articles added 2026-11-24 for single-keyword clusters (A069).
@@ -625,7 +629,7 @@ The equivalence holds for the load case it was derived from. NESC strength facto
 
 ## Limits to plan for
 
-- **First cost:** close to twice that of wood for distribution poles in the ORNL review.
+- **First cost:** close to twice that of wood for distribution poles in the ORNL review; published figures are collected in [composite utility pole cost](/resources/blog/composite-utility-pole-cost).
 - **Deflection:** FRP is more flexible than steel; poles are rarely used above 230 kV.
 - **UV:** coatings protect the fibers; scratched coatings need repair.
 - **Field data:** long-term inspection guidance is less mature than for wood.
@@ -643,5 +647,343 @@ Field guides for FRP poles commonly call for:
 ## Related FRP products
 
 F1 Composite does not manufacture utility poles. For overhead lines it supplies [FRP utility crossarms](/applications/frp-utility-crossarms) and pultruded profiles for [energy and substation](/industries/energy) structures; crossarms are tested to ASTM D8019 and selected for the pole's framing and loads.`,
+  },
+  // ── A071 (2026-11-25): three single-keyword articles ──────────────────────
+  {
+    slug: "composite-utility-pole-cost",
+    title: "Composite Utility Pole Cost: Price, Installed Cost and Life",
+    seoTitle: "Composite Utility Pole Cost: Price, Installed Cost, Life",
+    answerBox:
+      "A composite utility pole costs more to buy than a wood pole: nearly twice as much for distribution sizes in an Oak Ridge National Laboratory review, three to four times according to Manitoba Hydro, and 2 to 10 times for non-wood poles in a 2024 US Department of Energy report. A 40 ft wood pole is typically under $1,000. Published pole replacement costs run from about $7,500 to more than $10,000, so the pole is a small part of the installed cost.",
+    category: "Industry Perspectives",
+    date: "2026-11-25",
+    updatedAt: "2026-11-25",
+    readTime: "7 min",
+    excerpt:
+      "What published sources say a composite utility pole costs against wood, what a pole replacement costs installed, and how service life and weight change the comparison.",
+    authorName: "F1 Composite Editorial Team",
+    authorType: "Organization",
+    authorRole: "Power distribution materials",
+    reviewedBy: "Editorial source check",
+    standards: ["ANSI/ACMA/UCSC-FRP Composite Utility Poles-1-2018", "ANSI O5.1"],
+    coverImage: "/images/covers/blog/composite-utility-pole-cost-premium.webp",
+    coverAlt: "Chart of the published purchase-price premium of composite utility poles over wood: nearly 2 times (ORNL 2021), 2 times (CompositesWorld 2004), 3 to 4 times (Manitoba Hydro 2023), 2 to 10 times for non-wood poles (US DOE 2024)",
+    coverNote: "Chart",
+    coverImageFit: "contain",
+    supportingImage: "/images/applications/frp-utility-crossarm-schematic.svg",
+    supportingAlt: "End-on FRP crossarm with separate phase A, B and C conductors, individual insulators, a center pole mount and two braces.",
+    supportingImageFit: "contain",
+    supportingCaption: "An FRP crossarm on a distribution pole. Framing and conductor transfer are part of the installed cost whatever the pole is made of.",
+    highlights: [
+      "Purchase premium over wood: nearly 2× (ORNL), 3 to 4× (Manitoba Hydro), 2 to 10× for non-wood (US DOE).",
+      "A 40 ft wood distribution pole is typically under $1,000; replacement costs about $7,500 to $10,800 installed in published figures.",
+      "Published service life: 60 to 100 years for composite against 25 to 50 for wood.",
+    ],
+    ogDescription:
+      "Composite utility pole cost from published sources: price premium over wood, installed replacement cost, service life, weight and the main cost drivers.",
+    ogChips: ["2 to 4× wood", "Installed cost", "60 to 100 year life"],
+    relatedLinks: [
+      { label: "Fiberglass utility poles: standards and classes", href: "/resources/blog/fiberglass-utility-poles-guide" },
+      { label: "FRP utility crossarms", href: "/applications/frp-utility-crossarms" },
+    ],
+    sourceLinks: [
+      { label: "Oak Ridge National Laboratory: composite utility pole review (ORNL/TM-2021/2068)", href: "https://info.ornl.gov/sites/publications/Files/Pub160200.pdf" },
+      { label: "US Department of Energy: Utility Pole Maintenance and Upgrades, 2024", href: "https://www.energy.gov/sites/default/files/2024-11/111524_Utility_Pole_Maintenance_and_Upgrades.pdf" },
+      { label: "Manitoba Hydro: wood poles compared with steel, concrete and fibreglass, 2023", href: "https://www.hydro.mb.ca/articles/2023/07/wood_poles_old_fashioned_or_stands_the_test_of_time" },
+      { label: "CompositesWorld: Composites on the line, 2004", href: "https://www.compositesworld.com/articles/composites-on-the-line" },
+      { label: "Southern California Edison 2025 general rate case, pole programs (CPUC)", href: "https://docs.cpuc.ca.gov/PublishedDocs/SupDoc/A2305010/6059/508571727.pdf" },
+      { label: "MacLean Power Systems: Gridcore composite pole brochure (weights)", href: "https://www.macleanpower.com/wp-content/uploads/MPS_Gridcore-CompositeUtilityPoles_V6_20260429-2.pdf" },
+      { label: "T&D World: selecting pole material with wildfires in mind, 2023", href: "https://tdworld.com/wildfire/article/21262421/how-to-select-pole-material-with-wildfires-in-mind" },
+    ],
+    faq: {
+      title: "Composite utility pole cost questions",
+      items: [
+        { question: "How much does a composite utility pole cost?", answer: "Utilities rarely publish contract prices. Published comparisons put a composite distribution pole at nearly twice the price of wood (Oak Ridge National Laboratory, 2021) to three or four times (Manitoba Hydro, 2023), against a 40 ft wood pole that is typically under $1,000." },
+        { question: "Why do utilities pay more for composite poles?", answer: "For longer published service life, lower weight where access is hard, no rot or woodpecker damage, and wildfire hardening. San Diego Gas & Electric, for example, requires steel or fiberglass poles in its high fire threat districts." },
+        { question: "How much does it cost to replace a utility pole?", answer: "Published figures include about $7,500 for condemning and replacing a pole in a study cited by Oak Ridge National Laboratory, and $10,800 per pole for a Duke Energy Florida hardening program that includes reinforcement or replacement as needed. Location and program type move the number widely." },
+        { question: "How long do composite utility poles last?", answer: "Published estimates range from 60 to 80 years (ACMA) through 80 years (US Department of Energy) to 70 to 100 years (Oak Ridge National Laboratory). The earliest fiberglass poles in Hawaii were replaced after about 45 to 50 years because of ultraviolet damage." },
+        { question: "Does the premium shrink for larger poles?", answer: "Yes, according to two sources. Oak Ridge National Laboratory says the difference diminishes significantly at transmission sizes, and Manitoba Hydro says fibreglass poles of 75 ft and larger are closer in price to wood." },
+      ],
+    },
+    content: `Utilities do not publish what they pay for poles, so the cost of a composite utility pole has to be read from government reviews, utility statements and rate filings. This article collects the published figures, with the source and year for each, and separates the price of the pole from the cost of installing it.
+
+## Purchase price against wood
+
+| Source | Year | What it says |
+| --- | --- | --- |
+| Oak Ridge National Laboratory | 2021 | Composite poles are nearly twice the cost of wood for distribution; the difference diminishes significantly at transmission sizes |
+| US Department of Energy | 2024 | Non-wood poles can be 2 to 10 times more expensive than wood, with composite at the higher end |
+| Manitoba Hydro | 2023 | Fibreglass is 3 to 4 times the price of wood; poles of 75 ft and larger are closer in price |
+| CompositesWorld (pole maker quoted) | 2004 | A small composite distribution pole is still two times the unit cost of wood |
+
+The wood baseline in the first two sources is the same: a standard 40 ft wood distribution pole is typically under $1,000, and each step up in class adds roughly $100.
+
+The sources disagree, and they are not measuring the same thing. The Department of Energy range covers steel, concrete and composite together, and the Manitoba figure is one utility's experience in one market. Read them as a range of about two to four times wood for distribution poles, with higher multiples possible.
+
+## Installed cost
+
+The pole is a small part of what a utility spends to put it in the ground. Published program costs:
+
+| Program or study | Cost | Notes |
+| --- | --- | --- |
+| Study cited by Oak Ridge National Laboratory | About $7,500 per pole | Condemning and replacing a pole; the same study puts a wind failure at about $60,000 |
+| Duke Energy Florida, lateral hardening, 2023 to 2025 | $10,800 per pole | Includes treatment, reinforcement or replacement as needed |
+| Southern California Edison, 2025 rate case | Varies by up to $12,000 per pole | Depends on program type and location |
+| Duke and FPL, wood to steel transmission | $26,000 per structure | 2020 dollars |
+| Hawaiian Electric, critical pole hardening, 2022 | $93,700 per pole | Includes guying and intermediate poles |
+
+Dividing a wood pole of under $1,000 by a replacement cost of $7,500 to $10,800 puts the pole at roughly a tenth of the job. Crew, traffic control, equipment, framing and conductor transfer make up the rest and are similar for any pole material. That is why a pole that costs two or three times as much does not double the installed cost.
+
+## Service life
+
+| Source | Composite | Wood |
+| --- | --- | --- |
+| Oak Ridge National Laboratory, 2021 | 70 to 100 years in its comparison table; over 80 projected | 45 years treated; 25 to 50 depending on climate |
+| US Department of Energy, 2024 | 80 years | 30 to 50 years |
+| Manitoba Hydro, 2023 | Over 100 years with minimal maintenance | Not stated |
+| ACMA, 2018 | 60 to 80 years | 20 to 40 years |
+
+These are projections. The longest field record is the first fiberglass poles in Hawaii, which were replaced after about 45 to 50 years because ultraviolet light had degraded the surface. Current poles use UV-stable resins and coatings, and one comparison chart notes that the coating has to be maintained.
+
+Fewer inspections are part of the case. Southern California Edison told its regulator that fewer inspections will be required as wood poles are replaced with composite or steel. Oak Ridge cites a mean inspection cost of about $23 to $104 per pole in Australia.
+
+## Weight
+
+| Pole | Composite | Wood |
+| --- | --- | --- |
+| 40 ft, Class 4 (MacLean Gridcore brochure) | 707 lb | 1,160 lb, southern yellow pine |
+| 45 ft, Class 3 (MacLean Gridcore brochure) | 795 lb | 1,630 lb |
+| 45 ft (Oak Ridge National Laboratory table) | Not listed | 1,315 lb; steel 631 lb; concrete 3,793 lb |
+
+Lower weight cuts freight per pole and allows smaller trucks, hand carrying or smaller helicopters where access is difficult. On those sites the installation saving can outweigh the price premium.
+
+## What drives the price of a composite pole
+
+- **Height and class.** Longer and stronger poles use more glass and resin. For wood the step is about $100 per class.
+- **Process.** Modular poles are filament wound, a batch process; single-piece poles and crossarms are pultruded continuously.
+- **Resin and UV protection.** Polyurethane resins and UV-stable coatings are used on poles sold for long outdoor life.
+- **Fire protection.** Composite fire shields are added in wildfire areas. Oak Ridge lists poor fire resistance as a disadvantage of unprotected composite poles.
+- **Freight.** Light poles load in greater numbers on a truck or railcar.
+
+## Comparing poles over their life
+
+A life-cycle comparison needs five inputs for each material: the pole price, the installed cost, the expected life at the site, the inspection and treatment cost per cycle, and the cost and likelihood of a failure. The pole price alone favors wood. Long life, hard access, woodpeckers, decay and wildfire exposure move the result toward composite.
+
+## Related FRP products
+
+F1 Composite does not manufacture utility poles and does not quote them. For overhead lines it supplies [FRP utility crossarms](/applications/frp-utility-crossarms). For standards, classes and field rules, see the guide to [fiberglass utility poles](/resources/blog/fiberglass-utility-poles-guide).`,
+  },
+  {
+    slug: "composite-retaining-wall",
+    title: "Composite Retaining Wall: Types, Heights and Design Checks",
+    seoTitle: "Composite Retaining Wall: Types, Heights and Design Checks",
+    answerBox:
+      "A composite retaining wall holds back soil with a fiber-reinforced polymer or other composite facing in place of timber, steel or concrete. The term covers two products: interlocking FRP sheet piles driven for seawalls, bulkheads and canal banks, and composite sleepers or panels stacked between posts for landscape walls. One manufacturer builds FRP sheet pile walls from 3 ft to over 20 ft; landscape walls usually stay under the 4 ft or 1 m permit threshold.",
+    category: "Design Guide",
+    date: "2026-11-25",
+    updatedAt: "2026-11-25",
+    readTime: "7 min",
+    excerpt:
+      "The two kinds of composite retaining wall, the heights manufacturers publish, permit thresholds, and the checks an FRP sheet pile wall has to pass.",
+    authorName: "F1 Composite Editorial Team",
+    authorType: "Organization",
+    authorRole: "Waterfront and civil structures",
+    reviewedBy: "Editorial source check",
+    standards: ["ASTM D7290", "USACE EM 1110-2-2504", "IBC 105.2"],
+    coverImage: "/images/covers/blog/composite-retaining-wall-types.webp",
+    coverAlt: "Two sections: an anchored FRP sheet pile wall with cap, waler, tie rod, deadman anchor, exposed height and embedment; and a landscape wall of composite sleepers between posts with drainage gravel",
+    coverNote: "Schematic",
+    coverImageFit: "contain",
+    supportingImage: "/images/applications/frp-waterfront-retaining-walls.svg",
+    supportingAlt: "Anchored sheet-pile wall section showing a buried tie rod, anchor block, waler, water and bed levels, and embedment below the bed.",
+    supportingImageFit: "contain",
+    supportingCaption: "Anchored sheet pile wall: bed and water levels separate the exposed height from the embedment.",
+    highlights: [
+      "Two products share the name: driven FRP sheet pile walls and composite sleeper walls between posts.",
+      "Published FRP sheet pile wall heights: 3 ft to over 20 ft, most economical between 6 and 18 ft.",
+      "Permits: walls over 4 ft (IBC 105.2) or 1 m (Queensland) need approval, as do walls carrying a surcharge.",
+    ],
+    ogDescription:
+      "Composite retaining wall types explained: FRP sheet pile walls and composite sleeper walls, published heights, permit thresholds and design checks.",
+    ogChips: ["FRP sheet piles", "Sleeper walls", "Heights and permits"],
+    relatedLinks: [
+      { label: "FRP sheet piling", href: "/products/frp-sheet-piling" },
+      { label: "FRP waterfront retaining walls", href: "/applications/frp-waterfront-retaining-walls" },
+    ],
+    sourceLinks: [
+      { label: "Creative Composites Group: FRP sheet pile walls, heights and installation", href: "https://www.creativecompositesgroup.com/industries-products/waterfront-infrastructure/stormstrong-sheet-piles" },
+      { label: "Creative Composites Group: FRP sheet pile walls webinar Q&A", href: "https://www.creativecompositesgroup.com/blog/frp-sheet-pile-walls-webinar-qa" },
+      { label: "ACMA technical day slides: FRP sheet piling design values", href: "https://acmanet.org/wp-content/uploads/2024/02/B1-Troutman-2021-ACMA-CI-Tech-Day-Sheet-Piling-1.pdf" },
+      { label: "ASTM D7290: characteristic values for polymeric composites in civil structures", href: "https://store.astm.org/d7290-06r22.html" },
+      { label: "2015 IBC Section 105.2: work exempt from permit", href: "https://rigov.org/DocumentCenter/View/19564/2015-IBC-Work-Exempt-from-Permits" },
+      { label: "City of Moreton Bay, Queensland: retaining walls", href: "https://www.moretonbay.qld.gov.au/Services/Building-Development/Building/Building-And-Structure-Types/Retaining-Walls" },
+      { label: "Narangba Timbers: composite sleeper retaining walls", href: "https://narangbatimbers.com.au/?p=13135" },
+    ],
+    faq: {
+      title: "Composite retaining wall questions",
+      items: [
+        { question: "What is a composite retaining wall?", answer: "A retaining wall whose facing is fiber-reinforced polymer or another composite. In waterfront and civil work it means interlocking FRP sheet piles; in landscaping it means composite sleepers or panels held between posts." },
+        { question: "How high can a composite retaining wall be?", answer: "One FRP sheet pile manufacturer quotes walls from 3 ft to over 20 ft depending on soil, surcharge and tie-backs, and says composites are most economical between 6 and 18 ft. Composite sleeper walls are usually kept to about 4 ft or 1 m unless engineered." },
+        { question: "Do I need a permit for a composite retaining wall?", answer: "Often, above a set height. IBC 105.2 exempts walls not over 4 ft measured from the bottom of the footing to the top of the wall, unless they support a surcharge. In Queensland a wall more than one metre high needs building approval. Check the local rule." },
+        { question: "How deep are FRP sheet piles driven?", answer: "A manufacturer's rule of thumb is half the pile in the ground and half out, rising to two thirds in the ground in poor soils. The geotechnical design sets the actual embedment." },
+        { question: "How long does a composite retaining wall last?", answer: "Manufacturers of FRP sheet piling claim 75 years or more based on their own testing, and landscape wall suppliers claim 30 to 50 years. These are supplier claims; ask for the durability evidence behind the offered section." },
+      ],
+    },
+    content: `"Composite retaining wall" is used for two different products. Searching the term returns landscape walls built from composite sleepers next to driven FRP sheet pile walls for waterfronts. They share a material family and little else, so the first step is to know which one a project needs.
+
+## The two kinds of composite retaining wall
+
+| | FRP sheet pile wall | Composite sleeper wall |
+| --- | --- | --- |
+| Where | Seawalls, bulkheads, canal and pond banks, flood walls | Gardens, terraces, property boundaries |
+| How it works | Interlocking pultruded sections driven into the ground; taller walls are tied back | Boards or panels stacked between posts set in footings |
+| Typical height | 3 ft to over 20 ft (one manufacturer) | Up to about 4 ft or 1 m without engineering |
+| Designed by | Geotechnical and structural engineers | Installer up to the permit threshold, engineer above it |
+
+A third use of the word belongs to geotechnical engineering, where reinforced soil is described as a composite structure of backfill and reinforcement. That is a design method, not a facing material.
+
+## FRP sheet pile walls
+
+Pultruded glass-fiber sheet piles interlock along their edges to form a continuous wall. They are used where steel would corrode and timber would rot: salt water, brackish canals and chemically aggressive ground.
+
+**Height.** Creative Composites Group, a US manufacturer, describes walls from 3 ft to over 20 ft depending on soil conditions, surcharge loads and tie-back design, and says composites are most economical between 6 and 18 ft. Taller walls use tie-backs, deadman anchors or more than one waler.
+
+**Embedment.** The same manufacturer's rule of thumb is half the pile length in the ground and half out, and up to two thirds in the ground depending on the soil.
+
+**Design values.** Strength is published as moment capacity per foot of wall, with section modulus per foot. Industry guidance presented at an ACMA technical day says characteristic strengths should be published to ASTM D7290, which defines the characteristic value as the 80% lower confidence bound on the 5th percentile, and applies safety factors of 2.0 to 2.5 in flexure for allowable stress design. USACE EM 1110-2-2504 is the general design manual for sheet pile walls.
+
+**Stiffness and creep.** FRP is less stiff than steel, so deflection often governs. Earth and water pressure act for the whole life of the wall, and manufacturers handle creep with a time-effect factor on the properties. Ask for the long-term values of the offered section, not only short-term coupon results.
+
+**Installation.** Piles are driven with vibratory hammers, impact hammers or excavator-mounted drivers, with jetting in very dense soils. Thin-walled sections often need a mandrel or guide frame.
+
+**Service life.** Manufacturers claim 75 years or more from their own testing and analysis. Treat this as a supplier claim and review the evidence for the submerged zone and the exposed zone separately.
+
+## Composite sleeper and panel walls
+
+Landscape systems stack composite boards between posts. An Australian supplier allows any sleeper length up to 0.6 m high and recommends its shorter 1,950 mm sleeper between 0.8 m and 2 m. A US contractor describes standard walls up to about 4 ft, with engineered posts and tie-backs above that, and puts the installed cost at $20 to $45 per square foot of wall face.
+
+The appeal is low weight and no rot. One supplier quotes 4 to 6 kg per sleeper against 70 kg for concrete. The limits are height and load: for a tall, heavily loaded wall the same contractor says concrete is more economical.
+
+## Permit thresholds
+
+| Jurisdiction | Rule |
+| --- | --- |
+| International Building Code 105.2 (US model code) | No permit for retaining walls not over 4 ft (1,219 mm) measured from the bottom of the footing to the top of the wall, unless supporting a surcharge |
+| City of Moreton Bay, Queensland | Building approval for a wall more than one metre high, within 1.5 m of a building or another retaining wall, or carrying a surcharge |
+
+Local amendments vary. The measurement runs from the bottom of the footing, so a wall showing 3 ft above ground can still exceed 4 ft.
+
+## Checks before specifying an FRP sheet pile wall
+
+1. **Ground and water:** soil strata, groundwater and surface-water levels, surcharge and scour.
+2. **Wall:** long-term bending, shear, local stability and deflection for the offered section.
+3. **Interlocks and anchors:** interlock loads, seepage limits, walers and tie-rod connections.
+4. **Exposure:** water chemistry, UV, abrasion and impact in the zone between low water and the cap.
+5. **Installation:** delivery lengths, driving method and a trial in representative ground.
+
+## Related FRP products
+
+F1 Composite supplies pultruded [FRP sheet piling](/products/frp-sheet-piling) sections, caps and corner pieces to an agreed drawing; the wall design stays with the project engineer. The inquiry inputs are listed under [FRP waterfront retaining walls](/applications/frp-waterfront-retaining-walls). F1 does not sell landscape sleeper systems; those described above are other companies' products.`,
+  },
+  {
+    slug: "8-ft-fiberglass-tree-stakes",
+    title: "8 ft Fiberglass Tree Stakes: Diameter, Depth and Ties",
+    seoTitle: "8 ft Fiberglass Tree Stakes: Diameter, Depth and Ties",
+    answerBox:
+      "An 8 ft fiberglass tree stake is a solid pultruded rod 96 in (2.44 m) long, sold in diameters from 3/8 in to about 7/8 in. Driven 12 to 18 in into undisturbed soil, it leaves 6.5 to 7 ft above ground. University guidance places ties 18 to 24 in above the ground and removes stakes after one growing season.",
+    category: "Materials Guide",
+    date: "2026-11-25",
+    updatedAt: "2026-11-25",
+    readTime: "5 min",
+    excerpt:
+      "Which diameters come in 8 ft, how deep to drive the stake, where the ties go, what each stake weighs and how many make a factory order.",
+    authorName: "F1 Composite Editorial Team",
+    authorType: "Organization",
+    authorRole: "Pultruded rod products",
+    reviewedBy: "Editorial source check",
+    standards: [],
+    coverImage: "/images/covers/blog/8-ft-fiberglass-tree-stake-depth.webp",
+    coverAlt: "Young tree between two 8 ft fiberglass stakes, each driven 12 to 18 in into undisturbed soil outside the root ball, with loose ties 18 to 24 in above ground",
+    coverNote: "Schematic",
+    coverImageFit: "contain",
+    supportingImage: "/images/products/fiberglass-stakes/fiberglass-tree-stakes-loose-ties-concept.webp",
+    supportingAlt: "Young nursery tree supported by two dark green fiberglass tree stakes and wide soft ties",
+    supportingCaption: "Two stakes outside the root ball with wide, loose ties.",
+    highlights: [
+      "8 ft is 96 in (2.44 m); 12 to 18 in goes in the ground, leaving 6.5 to 7 ft above it.",
+      "Listed diameters at 8 ft run from 3/8 in to about 7/8 in; an 8 ft stake weighs 0.34 to 1.68 kg.",
+      "Ties sit 18 to 24 in above ground; stakes come out after one growing season.",
+    ],
+    ogDescription:
+      "8 ft fiberglass tree stakes: listed diameters, driving depth, tie height, weight per stake by diameter and how many stakes make a factory order.",
+    ogChips: ["96 in / 2.44 m", "3/8 to 7/8 in", "12 to 18 in deep"],
+    relatedLinks: [
+      { label: "Fiberglass tree stakes and plant supports", href: "/products/fiberglass-stakes" },
+      { label: "Solid fiberglass rod sizes", href: "/products/fiberglass-structural-shapes/frp-rod" },
+    ],
+    sourceLinks: [
+      { label: "Kansas State University MF1120: staking and guying landscape trees", href: "https://bookstore.ksre.ksu.edu/download/staking-and-guying-landscape-trees_MF1120" },
+      { label: "University of Minnesota Extension: staking and guying trees", href: "https://extension.umn.edu/planting-and-growing-guides/staking-and-guying-trees" },
+      { label: "Royal Horticultural Society: tree staking", href: "https://www.rhs.org.uk/plants/types/trees/staking" },
+      { label: "Colorado State University Extension: tree staking", href: "https://extension.colostate.edu/resource/tree-staking-and-underground-stabilization/" },
+      { label: "ISA Trees Are Good: planting a tree", href: "https://www.treesaregood.org/treeowner/plantingatree" },
+      { label: "UC Master Gardeners of Contra Costa: tree staking", href: "https://ucanr.edu/blog/hort-coco-uc-master-gardener-program-contra-costa/article/tree-staking" },
+      { label: "Ultrastake: nursery fiberglass stake sizes", href: "https://ultrastake.com/products" },
+    ],
+    faq: {
+      title: "8 ft fiberglass tree stake questions",
+      items: [
+        { question: "How deep should an 8 ft tree stake go?", answer: "Kansas State University advises driving a stake 12 to 18 in into undisturbed soil outside the planting pit, and the Royal Horticultural Society says at least 40 cm (16 in). That leaves 6.5 to 7 ft of an 8 ft stake above ground." },
+        { question: "What diameter should an 8 ft fiberglass tree stake be?", answer: "A US nursery supplier stocks 8 ft stakes in 3/8 in and 1/2 in, and retail listings go up to about 7/8 in. Thin stakes train a leader in nursery rows; thicker stakes resist more wind load on a landscape tree. No extension guide ties a diameter to a tree size." },
+        { question: "How much does an 8 ft fiberglass stake weigh?", answer: "From the F1 solid rod catalog: about 0.34 kg at 10 mm, 0.59 kg at 13 mm, 0.90 kg at 16 mm, 1.27 kg at 19 mm and 1.68 kg at 22 mm." },
+        { question: "How long should tree stakes stay in?", answer: "Kansas State, Colorado State, the University of Minnesota and the International Society of Arboriculture all say to remove stakes after one growing season or the first year. The Royal Horticultural Society allows eighteen months to three years." },
+        { question: "Can I order 8 ft fiberglass tree stakes from the factory?", answer: "Yes. F1 Composite cuts stakes from pultruded rod, so 8 ft is a cut length. Diameter, color, surface veil and a pointed end are confirmed on the quotation and the approved sample." },
+      ],
+    },
+    content: `An 8 ft stake is the length buyers choose when a 6 ft stake is too short to hold a taller leader or to stay above the lowest branches. This guide covers the diameters sold in 8 ft, how the stake is installed, and what an order looks like from a pultrusion factory.
+
+## What 8 ft gives you above ground
+
+| | Imperial | Metric |
+| --- | --- | --- |
+| Stake length | 8 ft (96 in) | 2.44 m |
+| In the ground | 12 to 18 in | 0.30 to 0.46 m |
+| Above ground | 6.5 to 7 ft | 1.98 to 2.13 m |
+
+The driving depth comes from Kansas State University, which advises 12 to 18 in into undisturbed soil outside the planting pit. The Royal Horticultural Society gives at least 40 cm (16 in).
+
+## Diameters sold in 8 ft
+
+| Nominal diameter | Nearest catalog rod | Weight per 8 ft stake |
+| --- | --- | --- |
+| 3/8 in | 10 mm | 0.34 kg |
+| 1/2 in | 13 mm | 0.59 kg |
+| 5/8 in | 16 mm | 0.90 kg |
+| 3/4 in | 19 mm | 1.27 kg |
+| 7/8 in | 22 mm | 1.68 kg |
+
+Weights are the F1 solid rod catalog weight per meter multiplied by 2.44 m. One US nursery supplier stocks 8 ft stakes in 3/8 in and 1/2 in, with 10 ft and 12 ft lengths starting at 1/2 in; retail listings in November 2026 showed 8 ft stakes up to about 7/8 in.
+
+No university guide links a stake diameter to a tree size. The published limits are for wooden stakes: Kansas State says a tree up to 1-1/2 to 1-3/4 in caliper, 10 to 12 ft tall, can be staked with a 2 × 2 in stake 5 ft long.
+
+## Two jobs for an 8 ft stake
+
+- **Training in the nursery.** A thin stake is tied along the trunk to grow a straight leader. This stake comes off at planting: the University of California Master Gardeners advise removing the nursery stake and its ties after the tree is in the ground.
+- **Support after planting.** One or two stakes outside the root ball hold a tree that cannot stand alone or sits in a windy spot. Many newly planted trees need no stakes.
+
+## Installing support stakes
+
+1. Drive each stake 12 to 18 in into undisturbed soil outside the planting pit. Colorado State University places posts at least 15 to 18 in out from the trunk.
+2. Tie low. Kansas State supports the tree 18 to 24 in above the ground; the University of Minnesota uses one third or two thirds of the distance from the ground to the first branches.
+3. Use broad, flexible ties and leave them loose enough for the trunk to move.
+4. Remove stakes and ties after one growing season. Kansas State allows a second season only if the tree still needs support.
+
+A fiberglass stake bends under wind and returns to upright, and does not rot or rust. Suppliers claim service lives of 20 years or more; these are supplier claims, and no independent test data on stake life was found.
+
+## Ordering from the factory
+
+Stakes are cut from continuous pultruded rod, so 8 ft is a cut length and any other length costs the same per meter. The minimum order is ${supplyTerms.moqMeters.toLocaleString("en-US")} m per diameter, which is ${STAKES_8FT_PER_MOQ} stakes at 8 ft. State the diameter, color, whether a surface veil is needed for handling comfort, and whether one end is pointed.
+
+Sizes, colors and the inquiry checklist are on the [fiberglass tree stakes](/products/fiberglass-stakes) page. Plain rod without stake finishing is listed under [fiberglass rods](/products/fiberglass-structural-shapes/frp-rod).`,
   },
 ];

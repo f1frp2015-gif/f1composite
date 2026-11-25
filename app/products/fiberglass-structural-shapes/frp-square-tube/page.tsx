@@ -34,7 +34,7 @@ const pageDescription =
 const pagePath = "/products/fiberglass-structural-shapes/frp-square-tube";
 const product = "Pultruded fiberglass square and rectangular tubing";
 
-const LAST_UPDATED = "2026-10-11";
+const LAST_UPDATED = "2026-11-25";
 const quoteMessage = "Please review my fiberglass square or rectangular tube requirements.\nSection H × B × wall thickness (with units):\nInstalled orientation, span and loads:\nFinished length and piece count:\nConnection / hole / insert drawing reference:\nResin or service environment and required evidence:\nDestination and target date:";
 
 export const metadata: Metadata = buildPageMetadata({
@@ -45,6 +45,11 @@ export const metadata: Metadata = buildPageMetadata({
 });
 
 const faqItems = [
+  {
+    question: "What fiberglass square tube sizes are in the catalog?",
+    answer:
+      "Square sections run from 25 × 25 × 3.2 mm to 240 × 240 × 12 mm. The rows closest to common inch sizes are 25 mm (about 1 in), 38 mm (1-1/2 in), 50 mm (2 in), 75 mm (3 in), 100 mm (4 in) and 152 mm (6 in). The tooling is metric, so an exact inch outside dimension or a wall between catalog rows is a custom section with its own die.",
+  },
   {
     question: "Can I order fiberglass tubing cut to length?",
     answer: "Include finished length per piece, piece count, end cuts or holes, and tolerances with your selected section. We review the cutting and machining scope, material and packing before confirming the quotation. Catalog dimensions are section options, not a live stock list.",

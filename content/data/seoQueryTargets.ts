@@ -226,7 +226,7 @@ export const seoQueryTargets = [
     primaryQuery: "fiberglass flat bar",
     intent: "commercial",
     title: "Fiberglass Flat Bar — Pultruded FRP Bar Stock Manufacturer",
-    description: "Fiberglass flat bar 12 to 305 mm wide (0.5 to 12 in) with catalog weights. Pultruded FRP bar stock in 6 m lengths or cut to size for spacers and stiffeners.",
+    description: "Fiberglass flat bar and strips 12 to 305 mm wide (0.5 to 12 in), with catalog weights. Pultruded FRP bar stock in 6 m lengths or cut to size for spacers.",
     supportingUrls: [
       "/products/fiberglass-structural-shapes"
     ]
@@ -747,6 +747,20 @@ export const seoQueryTargets = [
     supportingUrls: [
       "/products/molded-frp-grating",
       "/products/frp-gratings",
+    ],
+  },
+  {
+    targetUrl: "/products/fiberglass-catwalk-grating",
+    primaryQuery: "fiberglass catwalk grating",
+    intent: "commercial",
+    title: "Fiberglass Catwalk Grating: FRP Walkway Panels",
+    description:
+      "Fiberglass catwalk grating for maintenance walkways: molded 38 mm mesh and pultruded I-bar rows, catwalk loads and widths, supports, clips and edge protection.",
+    supportingUrls: [
+      "/products/grating",
+      "/products/molded-frp-grating",
+      "/products/frp-gratings",
+      "/products/frp-access-platforms-stairs",
     ],
   },
   {
