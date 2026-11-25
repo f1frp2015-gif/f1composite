@@ -28,12 +28,17 @@ export const revalidate = 3600;
 
 const pageTitle = "Fiberglass Flat Bar — Pultruded FRP Bar Stock Manufacturer";
 const pageDescription =
-  "Fiberglass flat bar 12 to 305 mm wide (0.5 to 12 in) with catalog weights. Pultruded FRP bar stock in 6 m lengths or cut to size for spacers and stiffeners.";
+  "Fiberglass flat bar and strips 12 to 305 mm wide (0.5 to 12 in), with catalog weights. Pultruded FRP bar stock in 6 m lengths or cut to size for spacers.";
 const pagePath = "/products/fiberglass-structural-shapes/frp-flat-bar";
 
-const LAST_UPDATED = "2026-10-11";
+const LAST_UPDATED = "2026-11-25";
 
 const faqItems = [
+  {
+    question: "Do you supply fiberglass strips?",
+    answer:
+      `Yes, as rigid pultruded strips; woven fiberglass cloth tape is a different product. Fiberglass strips are thin, narrow flat bar. The catalog rows usually ordered as strips are 12 × 3, 20 × 3, 25 × 3 and 30 × 4 mm, in ${supplyTerms.standardLengthM} m lengths or cut to length. A strip thinner than 3 mm, or one with rounded edges or a groove, needs its own die. For flat stock wider than 305 mm, see fiberglass sheets.`,
+  },
   {
     question: "What are pultruded FRP flat bars used for?",
     answer:
@@ -130,6 +135,9 @@ export default async function FlatBarPage() {
           <div className="space-y-[14px] text-f16 leading-relaxed text-t2">
             <p>
               Select flat bar stock by width, thickness and installed orientation. For a spacer or fitted part, identify the mating faces and required clearance. For a stiffener or splice, include the loads, holes and bearing details so the member and its connections can be assessed together.
+            </p>
+            <p>
+              Thin, narrow rows are the ones buyers call fiberglass strips: 12 × 3, 20 × 3, 25 × 3 and 30 × 4 mm. They are used as battens, shims, insulating spacers and stiffening strips, and are cut to length from the same stock.
             </p>
             <p>
               Agree dimensional tolerances and any machining on the part drawing. Concrete reinforcement belongs in the dedicated rebar inquiry route, with its own material, bond and acceptance requirements.

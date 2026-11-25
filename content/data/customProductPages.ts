@@ -242,6 +242,10 @@ export const customProductPages: CustomProductPage[] = [
         "/applications/frp-waterfront-retaining-walls"
       ],
       [
+        "Composite retaining wall types and heights",
+        "/resources/blog/composite-retaining-wall"
+      ],
+      [
         "Marine & offshore",
         "/industries/marine"
       ],

@@ -9,6 +9,10 @@
 //   covers/blog/ipe-alternatives-decking-comparison                Janka hardness bars (The Wood Database)
 //   covers/blog/fiberglass-roof-deck-layers                        GRP laminate roof vs FRP roof panel
 //   covers/blog/fiberglass-utility-pole-anatomy                    pole, crossarm, steps, no-drill zone, embedment
+// Added for A071 (2026-11-25):
+//   covers/blog/composite-utility-pole-cost-premium                published price premium over wood, by source
+//   covers/blog/composite-retaining-wall-types                     FRP sheet pile wall vs composite sleeper wall
+//   covers/blog/8-ft-fiberglass-tree-stake-depth                   8 ft stake, embedment and tie height
 // No figure is an as-built or manufacturer drawing; proportions are illustrative.
 import { mkdirSync } from "node:fs";
 import { dirname } from "node:path";
@@ -257,6 +261,81 @@ function pole() {
   return frame("FIBERGLASS UTILITY POLE", "What the specification and field guides cover", body, "Original schematic, not to scale. Field rules vary by manufacturer and utility; follow the pole maker's guide.");
 }
 
+// ── 10. Composite pole premium over wood, as published (A071) ──────────────
+function poleCost() {
+  const x0 = 380, unit = 70; // 1x = 70 px, axis 0–10x
+  const rows = [
+    { y: 220, label: "Oak Ridge National Laboratory, 2021", sub: "distribution poles", from: 1.9, to: 2, text: "nearly 2×" },
+    { y: 320, label: "CompositesWorld, 2004", sub: "small distribution pole", from: 1.9, to: 2, text: "2×" },
+    { y: 420, label: "Manitoba Hydro, 2023", sub: "fibreglass vs wood", from: 3, to: 4, text: "3 to 4×" },
+    { y: 520, label: "US Department of Energy, 2024", sub: "all non-wood; composite at the high end", from: 2, to: 10, text: "2 to 10×" },
+  ];
+  const axis = Array.from({ length: 11 }, (_, i) => `<line x1="${x0 + i * unit}" y1="170" x2="${x0 + i * unit}" y2="580" stroke="${LINE}"/>${t(x0 + i * unit, 606, `${i}×`, { size: 14, anchor: "middle", fill: MUTED })}`).join("");
+  const body = axis +
+    `<line x1="${x0 + unit}" y1="160" x2="${x0 + unit}" y2="580" stroke="${WOOD}" stroke-width="3"/>${t(x0 + unit + 8, 160, "wood pole = 1×", { size: 14, fill: MUTED })}` +
+    rows.map((r) => `${t(60, r.y - 2, r.label, { size: 16, weight: 600 })}${t(60, r.y + 20, r.sub, { size: 14, fill: MUTED })}
+      <rect x="${x0 + r.from * unit}" y="${r.y - 16}" width="${Math.max((r.to - r.from) * unit, 10)}" height="30" rx="4" fill="${TEAL}"/>
+      ${t(x0 + r.to * unit + 14, r.y + 5, r.text, { size: 16, weight: 600 })}`).join("") +
+    t(x0, 644, "Purchase price of a composite pole as a multiple of a wood pole", { size: 14, fill: MUTED });
+  return frame("COMPOSITE UTILITY POLE COST", "Published price premium over wood, by source", body, "Original chart from the cited sources. Purchase price only; installed cost and service life change the comparison.");
+}
+
+// ── 11. Two walls called "composite retaining wall" (A071) ─────────────────
+function retainingWall() {
+  const body = `
+    ${t(70, 140, "FRP sheet pile wall (waterfront)", { size: 17, weight: 600 })}
+    <rect x="70" y="330" width="250" height="330" fill="${GROUND}"/>
+    <rect x="330" y="380" width="230" height="170" fill="${WATER}"/>
+    <rect x="330" y="550" width="230" height="110" fill="${GROUND}"/>
+    <line x1="330" y1="380" x2="560" y2="380" stroke="${WATER_D}" stroke-width="2"/>
+    <rect x="318" y="300" width="14" height="340" fill="${TEAL}"/>
+    <rect x="306" y="290" width="38" height="14" fill="${INK}"/>
+    <rect x="332" y="356" width="12" height="20" fill="${STEEL}"/>
+    <line x1="120" y1="366" x2="332" y2="366" stroke="${INK}" stroke-width="3"/>
+    <rect x="96" y="346" width="26" height="60" fill="${CONC}" stroke="${STEEL}" stroke-width="2"/>
+    ${leader(420, 250, 326, 294)}${t(426, 254, "cap", { size: 14, weight: 600 })}
+    ${leader(430, 330, 344, 364)}${t(436, 334, "waler and tie rod", { size: 14, weight: 600 })}
+    ${leader(150, 300, 110, 346)}${t(110, 292, "deadman anchor", { size: 14, weight: 600 })}
+    ${dim(580, 304, 580, 550, "", 0, 0)}${t(424, 470, "exposed height", { size: 14 })}
+    ${dim(580, 550, 580, 640, "", 0, 0)}${t(424, 606, "embedment", { size: 14 })}
+    ${t(70, 190, "Interlocking pultruded sections driven into the bed;", { size: 14, fill: MUTED })}
+    ${t(70, 210, "taller walls add walers and tie-backs.", { size: 14, fill: MUTED })}
+    <line x1="630" y1="130" x2="630" y2="670" stroke="${LINE}"/>
+    ${t(670, 140, "Composite sleeper wall (landscape)", { size: 17, weight: 600 })}
+    <rect x="900" y="400" width="240" height="260" fill="${GROUND}"/>
+    <rect x="670" y="580" width="240" height="80" fill="${GROUND}"/>
+    ${[400, 445, 490, 535].map((y) => `<rect x="884" y="${y}" width="18" height="41" fill="${TEAL_L}" stroke="${TEAL}" stroke-width="2"/>`).join("")}
+    <rect x="866" y="380" width="18" height="270" fill="${STEEL}"/>
+    <path d="M902 400 h34 v180 h-34 Z" fill="#f3f4f6" stroke="${STEEL_L}" stroke-dasharray="5 4"/>
+    <circle cx="918" cy="566" r="9" fill="none" stroke="${INK}" stroke-width="2"/>
+    ${leader(760, 330, 892, 420)}${t(680, 322, "composite sleepers or panels", { size: 14, weight: 600 })}
+    ${leader(760, 470, 870, 500)}${t(680, 462, "post in a", { size: 14, weight: 600 })}${t(680, 480, "concrete footing", { size: 14, weight: 600 })}
+    ${leader(1010, 330, 922, 440)}${t(980, 322, "drainage gravel and pipe", { size: 14, weight: 600 })}
+    ${t(670, 190, "Boards stacked between posts; height is usually kept", { size: 14, fill: MUTED })}
+    ${t(670, 210, "under the local permit threshold (4 ft or 1 m).", { size: 14, fill: MUTED })}`;
+  return frame("COMPOSITE RETAINING WALL", "The two products the term describes", body, "Original schematic, not to scale. Wall height, embedment and anchors are set by the geotechnical design.");
+}
+
+// ── 12. An 8 ft fiberglass tree stake in the ground (A071) ─────────────────
+function stake8ft() {
+  const top = 150, ground = 560, bottom = 650; // 96 in total, about 16 in buried
+  const body = `
+    <rect x="0" y="${ground}" width="${W}" height="${690 - ground}" fill="${GROUND}"/>
+    <ellipse cx="600" cy="${ground + 40}" rx="120" ry="38" fill="#d9cfbd"/>
+    <path d="M592 ${ground + 20} C588 440 596 300 600 200" fill="none" stroke="${WOOD}" stroke-width="16" stroke-linecap="round"/>
+    <ellipse cx="600" cy="170" rx="120" ry="70" fill="${TEAL_L}" opacity="0.8"/>
+    <rect x="${760 - 4}" y="${top}" width="8" height="${bottom - top}" fill="${TEAL}"/>
+    <rect x="${440 - 4}" y="${top}" width="8" height="${bottom - top}" fill="${TEAL}"/>
+    <path d="M444 440 Q520 452 596 440 M604 440 Q680 452 756 440" fill="none" stroke="${AMBER}" stroke-width="6" stroke-linecap="round"/>
+    ${dim(860, top, 860, bottom, "", 0, 0)}${t(876, 380, "8 ft (96 in, 2.44 m)", { size: 15, weight: 600 })}
+    ${dim(820, ground, 820, bottom, "", 0, 0)}${t(876, ground + 52, "12 to 18 in in undisturbed soil", { size: 15, weight: 600 })}
+    ${dim(380, 440, 380, ground, "", 0, 0)}${t(90, 496, "ties 18 to 24 in above ground,", { size: 15, weight: 600 })}${t(90, 518, "broad and loose", { size: 15, weight: 600 })}
+    ${leader(330, 300, 436, 320)}${t(90, 296, "stake outside the root ball", { size: 15, weight: 600 })}
+    ${t(876, 250, "6.5 to 7 ft stays above ground", { size: 15 })}
+    ${t(876, 274, "for training a taller leader", { size: 15 })}`;
+  return frame("8 FT FIBERGLASS TREE STAKE", "How much goes in the ground and where the ties sit", body, "Original schematic, not to scale. Depth and tie height from Kansas State University MF1120; the site and tree decide the final layout.");
+}
+
 const figures = [
   ["public/images/products/siding-panels/fiberglass-siding-panel-profiles.webp", siding],
   ["public/images/products/baffles/fiberglass-baffle-types-clarifier-contact-tank.webp", baffles],
@@ -267,6 +346,9 @@ const figures = [
   ["public/images/covers/blog/ipe-alternatives-decking-comparison.webp", ipe],
   ["public/images/covers/blog/fiberglass-roof-deck-layers.webp", roofDeck],
   ["public/images/covers/blog/fiberglass-utility-pole-anatomy.webp", pole],
+  ["public/images/covers/blog/composite-utility-pole-cost-premium.webp", poleCost],
+  ["public/images/covers/blog/composite-retaining-wall-types.webp", retainingWall],
+  ["public/images/covers/blog/8-ft-fiberglass-tree-stake-depth.webp", stake8ft],
 ];
 
 for (const [out, draw] of figures) {
