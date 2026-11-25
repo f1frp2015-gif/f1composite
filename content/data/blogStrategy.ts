@@ -494,6 +494,36 @@ export const blogKeywordTargets: BlogKeywordTarget[] = [
     primaryQuery: "fiberglass roof deck", secondaryQueries: ["walkable fiberglass roof", "FRP roof deck panels"], intent: "guide",
     nextStep: { label: "See FRP deck panels for roof walkways", href: "/products/frp-deck-panels" },
   },
+  {
+    slug: "phenolic-resin", topic: "materials-and-process",
+    primaryQuery: "phenolic resin", secondaryQueries: ["phenolic resin FRP", "phenolic resin fire performance", "resole vs novolac"], intent: "technical",
+    nextStep: { label: "Compare pultrusion resin systems", href: "/technology/pultrusion-resin-systems" },
+  },
+  {
+    slug: "isophthalic-polyester-resin", topic: "materials-and-process",
+    primaryQuery: "isophthalic resin", secondaryQueries: ["isophthalic polyester resin", "isophthalic vs orthophthalic resin", "iso resin"], intent: "technical",
+    nextStep: { label: "Review published E23-ISO laminate data", href: "/resources/technical-data" },
+  },
+  {
+    slug: "vacuum-infusion", topic: "materials-and-process",
+    primaryQuery: "vacuum infusion", secondaryQueries: ["vacuum injection molding", "vacuum infusion vs pultrusion", "VARTM process"], intent: "technical",
+    nextStep: { label: "Compare composite manufacturing methods", href: "/technology/pultrusion-vs-extrusion-filament-winding" },
+  },
+  {
+    slug: "fiberglass-vs-carbon-fiber", topic: "materials-and-process",
+    primaryQuery: "fiberglass vs carbon fiber", secondaryQueries: ["FRP vs carbon fiber", "carbon fiber vs fiberglass strength", "carbon fiber vs fiberglass cost"], intent: "comparison",
+    nextStep: { label: "Explore carbon fiber pultrusion", href: "/products/pultrusion-carbon-fiber" },
+  },
+  {
+    slug: "telescopic-fiberglass-pole", topic: "structural-design-and-procurement",
+    primaryQuery: "telescopic fiberglass pole", secondaryQueries: ["telescoping mechanism", "telescoping fiberglass tubes", "ASTM F711 hot stick"], intent: "technical",
+    nextStep: { label: "Compare pultruded fiberglass round tubes", href: "/products/fiberglass-structural-shapes/frp-tube" },
+  },
+  {
+    slug: "bendable-fiberglass-rods", topic: "structural-design-and-procurement",
+    primaryQuery: "bendable fiberglass rods", secondaryQueries: ["flexible fiberglass rod", "flexible rod that holds shape", "fiberglass rod minimum bend radius"], intent: "technical",
+    nextStep: { label: "See solid fiberglass round rod sizes", href: "/products/fiberglass-structural-shapes/frp-rod" },
+  },
 ];
 
 const topicsBySlug = new Map(blogTopics.map((topic) => [topic.slug as string, topic]));

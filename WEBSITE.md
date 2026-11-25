@@ -189,6 +189,12 @@ f1composite.com
 | `/resources/blog/composite-utility-pole-cost` | "composite utility pole cost" | "fiberglass utility pole price" | 知识文章（A071）：只引公开来源，F1 不供电杆、不报价 |
 | `/resources/blog/composite-retaining-wall` | "composite retaining wall" | "FRP sheet pile retaining wall" | 知识文章（A071）：板桩墙与枕木墙两类；商业词仍归 `/products/frp-sheet-piling` |
 | `/resources/blog/8-ft-fiberglass-tree-stakes` | "8 ft fiberglass tree stakes" | "8 foot fiberglass stakes" | 长尾指南（A071）；商业词 "fiberglass tree stakes" 仍归 `/products/fiberglass-stakes` |
+| `/resources/blog/phenolic-resin` | "phenolic resin" | "phenolic resin FRP" / "resole vs novolac" | 知识文章（2026-11-25）：酚醛缩聚机理、拉挤孔隙难点与 EN 45545-2 / NFPA 130 防火烟毒标准；链回 `/technology/pultrusion-resin-systems` |
+| `/resources/blog/isophthalic-polyester-resin` | "isophthalic resin" | "isophthalic polyester resin" / "iso vs ortho resin" | 知识文章（2026-11-25）：间苯与邻苯结构差异、F1 E23-ISO 标准基体解析及乙烯基酯升级边界；链回 `/technology/pultrusion-resin-systems` |
+| `/resources/blog/vacuum-infusion` | "vacuum infusion" | "vacuum injection" / "VARTM" / "vacuum infusion vs pultrusion" | 知识文章（2026-11-25）：真空导入流程、Darcy 充模时间计算与拉挤对比；说明 F1 做拉挤不做导入，展示风电叶片拉挤主梁+导入壳体协同 |
+| `/resources/blog/fiberglass-vs-carbon-fiber` | "fiberglass vs carbon fiber" | "FRP vs carbon fiber" / "carbon fiber vs fiberglass cost" | 对比文章（2026-11-25）：原丝数据、F1 E23 vs 单向碳纤维比刚度/比强度及等挠度梁算例、铝件电偶腐蚀防护；链回 `/products/pultrusion-carbon-fiber` |
+| `/resources/blog/telescopic-fiberglass-pole` | "telescopic fiberglass pole" | "telescoping mechanism" / "telescoping fiberglass tubes" | 工程指南（2026-11-25）：5种伸缩锁紧机构、ASTM F711/OSHA 1910.269 电力绝缘杆标准与 F1 目录圆管套接间隙表；F1 供管不供成品伸缩杆 |
+| `/resources/blog/bendable-fiberglass-rods` | "bendable fiberglass rods" | "flexible rod that holds shape" / "fiberglass rod minimum bend radius" | 工程指南（2026-11-25）：如实说明玻璃钢圆棒回弹不定型，推导弯曲应变公式并给出 F1 全系列 Ø6–50 mm 圆棒最小弯曲半径表；链回 `/products/fiberglass-structural-shapes/frp-rod` |
 | `/products/rtrc-fiberglass-conduit` | "reinforced thermosetting resin conduit" | "RTRC conduit" / "fiberglass conduit" | 产品页（2026-11-24，业主确认可供货）；UL 2515/2420 认证按单确认，页面不声称已获 UL 认证 |
 | `/products/fiberglass-siding-panels` | "fiberglass siding panels" | "corrugated FRP wall panels" | 产品页（2026-11-24，业主确认可供货）；工业/农业墙板意图，房车外板一句分流 |
 | `/products/fiberglass-baffles` | "fiberglass baffles" | "FRP baffle wall" / "density current baffle" | 水处理挡板产品页（板材+型材）；首屏说明与吸音吊顶板不同 |
