@@ -211,7 +211,7 @@ const prosCons = [
   { aspect: "Stiffness", advantage: "Low weight per metre for the section size.", disadvantage: "Modulus is far below steel, so many members are sized by deflection rather than strength." },
   { aspect: "Durability", advantage: "Does not rust; resin choice targets chemicals, salt water and outdoor exposure.", disadvantage: "UV, heat and fire performance depend on the resin, veil and additives, and need evidence for the offered formulation." },
   { aspect: "Fabrication", advantage: "Cut and drilled with ordinary tools fitted with carbide or diamond blades.", disadvantage: "Thermoset profiles cannot be welded or re-formed; joints are bolted or bonded and cut ends may need sealing." },
-  { aspect: "Order size", advantage: "Catalog sections ship from existing dies.", disadvantage: `Custom sections have a minimum run, ${supplyTerms.customMoqMeters.firstRun} m for a first order.` },
+  { aspect: "Order size", advantage: "Catalog sections run on existing dies, with no tooling charge.", disadvantage: `Production orders start at ${supplyTerms.moqMeters.toLocaleString("en-US")} m per section.` },
 ];
 
 /* ═══════════════════════════════════════════════════════

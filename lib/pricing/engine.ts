@@ -194,7 +194,7 @@ export function estimatePrice(input: PriceInput): PriceResult {
   const qMul = quantityMultiplier(input.totalMeters, coeff.moqMeters);
   if (qMul > 1) {
     warnings.push(
-      `Order length ${Math.round(input.totalMeters)} m is below the ${coeff.moqMeters} m small-batch threshold the estimate uses for this family, so a small-batch premium is included. New custom sections have a ${supplyTerms.customMoqMeters.firstRun} m first-run minimum (${supplyTerms.customMoqMeters.repeat} m repeat).`,
+      `Order length ${Math.round(input.totalMeters)} m is below the ${coeff.moqMeters} m small-batch threshold the estimate uses for this family, so a small-batch premium is included. The production minimum is ${supplyTerms.moqMeters.toLocaleString("en-US")} m per section; shorter lengths are supplied as priced samples.`,
     );
   }
 

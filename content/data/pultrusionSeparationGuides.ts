@@ -231,7 +231,7 @@ export const separationGuides: PultrusionGuide[] = [
         title: "Separate the capture element from its supporting structure",
         paragraphs: [
           "A wet scrubber transfers contaminants from gas into a liquid or slurry. Its downstream mist eliminator removes entrained liquid droplets. These are connected operations with different acceptance measures: removing droplets does not, by itself, establish absorption of a gaseous pollutant. Röchling identifies lamella walls in flue-gas washers as a composite-profile application; the useful starting point is the component's function, not a copied proprietary shape.",
-          "In a vane pack, the gas changes direction while droplets contact the blades, combine and drain. A mesh pad uses a network of wires or fibers for collection and drainage. Packing provides a surface for gas–liquid contact; its support retains the bed while allowing the phases to pass. A support beam underneath any of these elements is a structural member, not an independently rated separator.",
+          "In a vane pack, the gas changes direction while droplets contact the blades, combine and drain. A mesh pad uses a network of wires or fibers for collection and drainage. Packing provides a surface for gas–liquid contact; its support retains the bed while allowing the phases to pass.",
         ],
         table: {
           columns: ["Item", "Primary design question", "Drawing information to supply"],
@@ -247,7 +247,7 @@ export const separationGuides: PultrusionGuide[] = [
         id: "manufacturing-fit",
         title: "Use pultrusion where the geometry remains constant",
         paragraphs: [
-          "Pultrusion can form a repeatable cross-section along the member's length. A curved or zigzag cross-section can therefore be a candidate if it remains unchanged along that length and the reinforcement, thickness and tooling are feasible. Three-dimensional transitions, changing drainage pockets and integral end fittings can call for molding, assembly or another process. Review each feature before labeling an entire demister module as pultruded.",
+          "Pultrusion can form a repeatable cross-section along the member's length. A curved or zigzag cross-section can therefore be a candidate if it remains unchanged along that length and the reinforcement, thickness and tooling are feasible. Three-dimensional transitions, changing drainage pockets and integral end fittings can call for molding, assembly or another process.",
           "For a replacement vane, establish which dimensions control the flow passage and which simply locate the part. Thickness variation, twist or accumulated pitch error can change a bank even when individual pieces appear similar. Agree on inspection datums and a representative assembled-module trial. For support rails, define the bearing face and the vessel attachment independently from the vane geometry.",
           "A sample records the existing installation but may also contain wear, permanent deformation or an undocumented repair. Pair it with the approved drawing and a measured survey. Any geometry change that alters open area, drainage or edge sealing goes back to the equipment designer for review before tooling release.",
         ],
@@ -259,7 +259,7 @@ export const separationGuides: PultrusionGuide[] = [
         paragraphs: [
           "List the gas constituents and condensate chemistry separately from the recirculating wash liquid. Include concentration ranges, oxidizers, suspended solids, cleaning agents and temperature at the internal component. A bulk sump reading may not describe a local inlet zone. Record whether the surface is continuously wet, intermittently sprayed or exposed to hot gas during loss of irrigation; ask the process designer to define credible duration and temperature excursions.",
           "Choose a resin grade, reinforcement and surface protection as a laminate system. A resin manufacturer's chemical table often assumes a defined corrosion barrier or veil; a thin pultrusion is not automatically equivalent to that construction. Check drilled holes, cut ends and abrasion-prone edges. If a proposed sealant or repair coat is part of the protection, include its chemistry, adhesion and reapplication procedure in the qualification.",
-          "Use exposure testing to resolve an identified evidence gap. State the reagent, concentration, temperature, duration, specimen construction and retained-property criteria beforehand. Unstressed liquid immersion under ASTM C581 can support resin selection, while an installed member may also need evidence for mechanical stress, gas exposure and thermal cycling. Neither a resin-family name nor an isolated immersion result establishes service life.",
+          "Use exposure testing to resolve an identified evidence gap. State the reagent, concentration, temperature, duration, specimen construction and retained-property criteria beforehand. Unstressed liquid immersion under ASTM C581 can support resin selection, while an installed member may also need evidence for mechanical stress, gas exposure and thermal cycling.",
         ],
         sourceIds: ["derakane-selection", "astm-c581", "astm-d543"],
       },
@@ -287,7 +287,7 @@ export const separationGuides: PultrusionGuide[] = [
         id: "washing-and-maintenance",
         title: "Make cleaning access and replacement part of the layout",
         paragraphs: [
-          "Ask the operator which deposits develop, where they accumulate and what removes them. Gypsum, salts or sticky solids can narrow passages and increase retained mass. Work with the OEM on nozzle coverage, upstream and downstream access, available wash-water quality and the required cleaning sequence. A wash line that cannot reach the rear of a module leaves a predictable maintenance problem.",
+          "Ask the operator which deposits develop, where they accumulate and what removes them. Gypsum, salts or sticky solids can narrow passages and increase retained mass. Work with the OEM on nozzle coverage, upstream and downstream access, available wash-water quality and the required cleaning sequence. Nozzles have to reach the rear face of each module as well as the front.",
           "Agree on compatible cleaning chemicals and the permitted mechanical cleaning method for the actual laminate. Specify any limits on jet pressure, stand-off, temperature and tools through a supplier-approved procedure or representative trial; this page provides no universal pressure-washing setting. Inspect for exposed reinforcement, chipped edges, loosened locators and obstructed drains after cleaning rather than judging success only by surface appearance.",
           "Survey manways, lifting routes and module dimensions before ordering. Plan how a damaged section can be removed without cutting neighboring members. Internal work requires the plant's isolation and entry arrangements, including control of fans, pumps, automatic wash cycles and connected process flows. Record module positions and material batches so replacement parts can be matched to the approved configuration.",
         ],

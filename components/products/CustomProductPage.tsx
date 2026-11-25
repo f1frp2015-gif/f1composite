@@ -8,6 +8,7 @@ import ProductRfq from "@/components/products/ProductRfq";
 import JsonLd from "@/components/seo/JsonLd";
 import { primaryImageObject } from "@/lib/imageSeo";
 import { customProductUpdated, type CustomProductPage as ProductPage } from "@/content/data/customProductPages";
+import { supplyTerms, weeks } from "@/content/data/company";
 import { buildRfqHref } from "@/lib/rfq";
 import { absoluteUrl } from "@/lib/seo";
 
@@ -20,14 +21,28 @@ export default function CustomProductPage({ page }: { page: ProductPage }) {
       <PageHeader tag="Custom product inquiry" title={page.name} description={page.intro}
         breadcrumbs={[{ label: "Home", href: "/" }, { label: "Products", href: "/products/product-lines" }, { label: page.name }]}
         updated={customProductUpdated}
-        facts={[{ label: "Supply route", value: "Project quotation" }, { label: "Configuration", value: "Drawing review" }, { label: "Production release", value: "After agreed qualification" }]}
+        facts={[{ label: "Made", value: "To your drawing" }, { label: "MOQ", value: `${supplyTerms.moqMeters.toLocaleString("en-US")} m per section` }, { label: "New die to delivery", value: weeks(supplyTerms.newDieLeadTimeWeeks) }]}
         actions={{ primary: { label: "Discuss your specification", href: quoteHref }, secondary: { label: "Selection details", href: "#configuration", variant: "secondary" }, stickyMobile: true }}
         figure={<Figure number={1} title={page.name} note="Concept diagram · not to scale" caption={page.imageCaption}><Image src={page.image} alt={page.imageAlt} width={900} height={600} className="h-auto w-full" preload /></Figure>}
       />
       <PageNav items={[{ id: "configuration", label: "Configuration" }, { id: "checks", label: "Selection checks" }, { id: "questions", label: "Questions" }, { id: "quote", label: "Quote" }]} />
       <PageSection id="configuration" title="Define the product for your assembly" intro={page.use}>
         <div className="grid gap-[16px] md:grid-cols-3">{page.options.map(([title, body]) => <article key={title} className="rounded-card border border-border-default bg-bg2 p-[24px]"><h3 className="text-f18 font-bold text-t1">{title}</h3><p className="mt-[10px] text-f16 leading-golden text-t2">{body}</p></article>)}</div>
-        <p className="mt-[20px] max-w-[820px] text-f14 leading-golden text-t2">Send the required configuration for review. The quotation confirms availability, production or sourcing scope, tooling, minimum order, documents and delivery. Performance values must come from the offered grade and assembly.</p>
+        <p className="mt-[20px] max-w-[820px] text-f14 leading-golden text-t2">{`A new section needs its own die: ${weeks(supplyTerms.dieManufactureWeeks)} to make it and ${weeks(supplyTerms.newDieLeadTimeWeeks)} from an approved drawing to first delivery. The minimum order is ${supplyTerms.moqMeters.toLocaleString("en-US")} m per section. ${supplyTerms.samplePolicy}`}</p>
+        {page.data ? (
+          <div className="mt-[28px]">
+            <h3 className="text-f20 font-bold text-t1">{page.data.title}</h3>
+            <p className="mt-[8px] max-w-[820px] text-f14 leading-golden text-t2">{page.data.intro}</p>
+            <div className="mt-[14px] overflow-x-auto rounded-card border border-border-default bg-white">
+              <table className="w-full min-w-[720px] border-collapse text-left text-f14 leading-golden">
+                <caption className="sr-only">{page.data.title}</caption>
+                <thead><tr className="border-b border-border-default bg-bg2">{page.data.columns.map((column) => <th key={column} scope="col" className="px-[12px] py-[10px] align-top font-semibold text-t1">{column}</th>)}</tr></thead>
+                <tbody>{page.data.rows.map((row) => <tr key={row[0]} className="border-b border-border-default last:border-b-0">{row.map((value, index) => index === 0 ? <th key={index} scope="row" className="px-[12px] py-[10px] align-top font-semibold text-t1">{value}</th> : <td key={index} className="px-[12px] py-[10px] align-top text-t2">{value}</td>)}</tr>)}</tbody>
+              </table>
+            </div>
+            <p className="mt-[10px] max-w-[820px] text-f14 leading-golden text-t2">{page.data.note}{page.data.source ? <> Source: <a href={page.data.source.href} className="font-semibold text-teal-text underline underline-offset-4" rel="noopener">{page.data.source.label}</a>.</> : null}</p>
+          </div>
+        ) : null}
       </PageSection>
       <PageSection id="checks" title="Resolve these checks before ordering" tone="muted">
         <ol className="grid gap-[16px] md:grid-cols-3">{page.checks.map(([title, body], index) => <li key={title} className="rounded-card border border-border-default bg-white p-[24px]"><p className="font-mono text-f12 text-teal-text">CHECK {index + 1}</p><h3 className="mt-[8px] text-f18 font-bold text-t1">{title}</h3><p className="mt-[10px] text-f16 leading-golden text-t2">{body}</p></li>)}</ol>

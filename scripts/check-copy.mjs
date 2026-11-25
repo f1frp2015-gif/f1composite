@@ -25,7 +25,7 @@ const FORBIDDEN = [
   [/\b(50|75|100)\+[- ]?years?\b/i, "Product service-life claims are project-specific."],
   [/\b(50|75|100)\+ years? (with|of) zero/i, "Product service-life claims are project-specific."],
   [/(quotes?|response|respond|reply)[^.]{0,30}within 48 (business )?hours|48-hour quote|quote within 24 hours/i, "The reply commitment is one business day (company.ts supplyTerms)."],
-  [/ships from inventory/i, "Standard sections are not stock; catalog sections ship in 2–4 weeks."],
+  [/ships from inventory/i, "Standard sections are not stock; catalog sections are produced in 4–8 weeks (company.ts supplyTerms)."],
   [/Review Board|Advisory Board|Review Group|Comparison Desk/, "Credit a real team or person, not an invented review body."],
 ];
 

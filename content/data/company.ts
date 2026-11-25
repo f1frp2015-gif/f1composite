@@ -71,16 +71,23 @@ export const companyStatements = {
 /** F1's own supply terms. Industry benchmarks elsewhere must not override these. */
 export const supplyTerms = {
   responseTime: "one business day",
-  catalogLeadTimeWeeks: [2, 4],
-  existingDieVariantLeadTimeWeeks: [4, 6],
+  /** Owner, 2026-11-24: standard production lead time 4–8 weeks. */
+  catalogLeadTimeWeeks: [4, 8],
+  existingDieVariantLeadTimeWeeks: [4, 8],
   newDieLeadTimeWeeks: [6, 10],
   dieManufactureWeeks: [4, 8],
   fenestrationLeadTimeWeeks: [6, 12],
-  customMoqMeters: { firstRun: 500, repeat: 200 },
+  /** Owner, 2026-11-24: minimum order 1,000 m per section, catalog or custom, first or repeat order. */
+  moqMeters: 1000,
+  customMoqMeters: { firstRun: 1000, repeat: 1000 },
+  /** Owner, 2026-11-24. */
+  samplePolicy: "Samples are priced to the request, and the buyer pays the freight.",
   /** One-time die cost in USD: a small single-cavity die, and a large or multi-cavity one. */
   dieCostUsd: { singleCavity: [5_000, 8_000], largeOrMultiCavity: [15_000, 40_000] },
   standardLengthM: 6,
 } as const;
+
+export const moqText = `${supplyTerms.moqMeters.toLocaleString("en-US")} m per section`;
 
 export const weeks = ([low, high]: readonly [number, number]) => `${low}–${high} weeks`;
 

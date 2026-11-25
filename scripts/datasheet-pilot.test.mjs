@@ -63,7 +63,7 @@ test("answers come from the size's own data and the supply terms", () => {
   const withCad = ds.datasheetFaq({ model: product.model, shape: "i_beam", weightKgPerM: product.weight, hasCad: true, row });
   assert.match(withCad[0].answer, /2\.9 kg per meter \(about 1\.95 lb\/ft\), so a standard 6 m length weighs about 17\.4 kg/);
   assert.ok(withCad.some((item) => /kN\/m over a simply supported 1 m span/.test(item.answer)));
-  assert.ok(withCad.some((item) => /2–4 weeks/.test(item.answer)));
+  assert.ok(withCad.some((item) => /4–8 weeks/.test(item.answer)));
   const withoutCad = ds.datasheetFaq({ model: product.model, shape: "i_beam", weightKgPerM: product.weight, hasCad: false, row });
   assert.ok(!withoutCad.some((item) => /CAD/.test(item.question)));
 });

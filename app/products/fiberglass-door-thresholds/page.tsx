@@ -10,6 +10,7 @@ import JsonLd from "@/components/seo/JsonLd";
 import { FAQList } from "@/components/ui/FAQ";
 import Figure from "@/components/ui/Figure";
 import { doorThresholds as page } from "@/content/data/doorThresholds";
+import { supplyTerms, weeks } from "@/content/data/company";
 import { buildPageMetadata, buildProductFamilyPageSchema } from "@/lib/seo";
 import { buildRfqHref } from "@/lib/rfq";
 
@@ -28,7 +29,7 @@ const quote = buildRfqHref({
 });
 
 const roles = [
-  ["Material role", "A composite base that can help reduce heat conduction through the sill."],
+  ["Material role", "A glass-fiber base at about 0.3 W/(m·K), against about 160 for aluminum, so the sill does not carry heat out of the room."],
   ["System role", "An interface between the door frame, seals, drainage and supported floor edge."],
   ["Supply role", "Profile lengths and agreed machining for your fabrication process."],
 ] as const;
@@ -48,6 +49,10 @@ const requestItems = [
   { title: "Loads and water", text: `${loads}; ${drainage.toLowerCase()}.` },
   { title: "Finish and supply", text: `${finish}; ${order.toLowerCase()}.` },
 ];
+
+// Supply terms come from company.ts; the data module stays import-free for the search index.
+const moqAnswer = `The four sections shown are developed to your frame, so each needs its own die: ${weeks(supplyTerms.dieManufactureWeeks)} for the die and ${weeks(supplyTerms.newDieLeadTimeWeeks)} to first delivery. The minimum order is ${supplyTerms.moqMeters.toLocaleString("en-US")} m per section, cut to your lengths; the standard bar is ${supplyTerms.standardLengthM} m. ${supplyTerms.samplePolicy}`;
+const faqItems = page.faq.map((item) => (item.answer === "MOQ_ANSWER" ? { ...item, answer: moqAnswer } : item));
 
 export default function DoorThresholdsPage() {
   return (
@@ -189,7 +194,7 @@ export default function DoorThresholdsPage() {
       </PageSection>
 
       <PageSection id="faq" title="Fiberglass door threshold questions" tone="muted">
-        <FAQList items={[...page.faq]} />
+        <FAQList items={faqItems} />
       </PageSection>
 
       <RelatedLinks

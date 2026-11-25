@@ -26,7 +26,7 @@ const publishedAt = "2026-04-04";
 const updatedAt = "2026-11-24";
 const author = authorsBySlug["haifeng-gong"];
 const reviewer = authorsBySlug["yifan-liu"];
-const { firstRun, repeat } = supplyTerms.customMoqMeters;
+const moq = supplyTerms.moqMeters.toLocaleString("en-US");
 
 export const metadata: Metadata = buildPageMetadata({
   title: pageTitle,
@@ -145,7 +145,7 @@ const faqItems = [
   {
     question: "What is the minimum order quantity for custom profiles?",
     answer:
-      `Planning quantities are typically ${firstRun} linear meters for a first production run and ${repeat} linear meters for a repeat order. Confirm the minimum for the proposed section, material and tooling. For development quantities, ask for a separately scoped trial; sample quantity, inspection and material tests must be agreed rather than assumed to be included.`,
+      `The minimum order is ${moq} linear meters per section, for a first production run or a repeat order. ${supplyTerms.samplePolicy} For development quantities, ask for a separately scoped trial; sample quantity, inspection and material tests must be agreed rather than assumed to be included.`,
   },
   {
     question: "Can you match an existing steel or aluminum cross-section?",
@@ -171,7 +171,7 @@ const keyFacts = [
   { label: "Existing dies", value: `FengDu's production network holds ${company.production.dieSets.toLocaleString("en-US")}+ die sets. A variant on an existing die (another resin, color or length) takes ${weeks(supplyTerms.existingDieVariantLeadTimeWeeks)}.` },
   { label: "New die lead time", value: `${weeks(supplyTerms.newDieLeadTimeWeeks)} from an approved drawing to first delivery, of which tooling manufacture takes ${weeks(supplyTerms.dieManufactureWeeks)}.` },
   { label: "Tooling cost", value: `About ${usdRange(supplyTerms.dieCostUsd.singleCavity)} for a small single-cavity die and ${usdRange(supplyTerms.dieCostUsd.largeOrMultiCavity)} for a large or multi-cavity die. These are planning ranges, not an offer.` },
-  { label: "Minimum order", value: `${firstRun} linear meters for a first production run and ${repeat} linear meters for a repeat order, confirmed for the section and material.` },
+  { label: "Minimum order", value: `${moq} linear meters per section, for a first run or a repeat order. ${supplyTerms.samplePolicy}` },
   { label: "Tolerances", value: "Agreed by feature against the drawing revision. A first article is reviewed against the approved drawing and inspection plan before series production is released." },
   { label: "What to send", value: "A DWG, DXF, STEP or PDF drawing with revision, units, critical dimensions and datums, plus loads, service environment, lengths and quantities." },
 ];
@@ -180,7 +180,7 @@ const requestItems = [
   { title: "Drawing and interfaces", text: "DWG, DXF, STEP or PDF with revision, units, critical dimensions, tolerances and datums. Identify mating parts and include any hole, slot or notch schedule." },
   { title: "Loads and service", text: "Spans and loads, the environment (chemicals, UV, temperature) and any fire or electrical requirement." },
   { title: "Material and finish", text: "Preferred fiber, resin, surface and color, or the performance you need so we can propose them." },
-  { title: "Quantities and release", text: `Cut lengths, first-run and annual quantities, destination and target date. Include first-article, sampling and inspection record requirements; ${firstRun} m is a first-run planning quantity.` },
+  { title: "Quantities and release", text: `Cut lengths, first-run and annual quantities, destination and target date. Include first-article, sampling and inspection record requirements; the minimum order is ${moq} m per section.` },
 ];
 
 export default function CustomPultrusionsPage() {
@@ -266,7 +266,7 @@ export default function CustomPultrusionsPage() {
           additionalProperty: [
             { name: "Maximum cross-section", value: "600 × 300 mm" },
             { name: "Minimum wall thickness", value: "1.5 mm" },
-            { name: "Minimum order quantity", value: `${firstRun} m first run / ${repeat} m repeat` },
+            { name: "Minimum order quantity", value: `${moq} m per section` },
             { name: "Typical tooling lead time", value: weeks(supplyTerms.dieManufactureWeeks) },
           ],
         })}
@@ -281,7 +281,7 @@ export default function CustomPultrusionsPage() {
         facts={[
           { label: "Max section", value: "600 × 300 mm" },
           { label: "Wall", value: "1.5–30 mm" },
-          { label: "First run", value: `${firstRun} m` },
+          { label: "MOQ", value: `${moq} m` },
           { label: "New die", value: weeks(supplyTerms.newDieLeadTimeWeeks) },
         ]}
         actions={{
@@ -474,7 +474,7 @@ export default function CustomPultrusionsPage() {
             <p className="font-mono text-f12 uppercase tracking-[0.06em] text-t3">Per meter</p>
             <h3 className="mt-[6px] text-f20 font-bold text-t1">Profile price</h3>
             <p className="mt-[14px] text-f14 leading-golden text-t2">
-              Driven by the same factors as any pultruded shape: cross-section area (glass and resin mass per meter), resin system, fiber architecture, surface veil and order volume. First production runs start at {firstRun} linear meters; repeat orders from {repeat} meters.
+              Driven by the same factors as any pultruded shape: cross-section area (glass and resin mass per meter), resin system, fiber architecture, surface veil and order volume. The minimum order is {moq} linear meters per section.
             </p>
             <p className="mt-[10px] text-f14 leading-golden text-t2">
               For a directional number before you commit to tooling, run the closest standard shape through the{" "}
