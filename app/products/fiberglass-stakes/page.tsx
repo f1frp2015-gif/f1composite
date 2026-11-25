@@ -24,7 +24,7 @@ import { buildPageMetadata, buildProductFamilyPageSchema } from "@/lib/seo";
 const pagePath = "/products/fiberglass-stakes";
 const seoTarget = getSeoQueryTarget(pagePath);
 const publishedAt = "2026-08-30";
-const updatedAt = "2026-10-26";
+const updatedAt = "2026-11-25";
 const author = authorsBySlug["yifan-liu"];
 const reviewer = authorsBySlug["haifeng-gong"];
 
@@ -143,7 +143,7 @@ const faqItems = [
   {
     question: "Can I request 8 ft, 10 ft or 12 ft fiberglass tree stakes?",
     answer:
-      "Include an 8 ft, 10 ft or 12 ft requested length in your inquiry, equivalent to about 2.44 m, 3.05 m or 3.66 m. These are inquiry lengths, not confirmed F1 stock sizes or load ratings. F1 must review manufacturability, diameter, exposed length, embedment, ties, wind and shipping before confirming an offer.",
+      "Yes. Stakes are cut from continuous pultruded rod, so 8 ft, 10 ft and 12 ft (about 2.44 m, 3.05 m and 3.66 m) are cut lengths made to order. They are not stock sizes and carry no load rating. State the diameter, exposed length, embedment, ties and wind exposure in the inquiry so the diameter can be checked against the length.",
   },
   {
     question: "What are fiberglass stakes made from?",
@@ -314,7 +314,7 @@ export default function FiberglassStakesPage() {
         <div className="mt-[20px] rounded-card border border-border-default bg-white p-[20px] sm:p-[24px]">
           <h3 className="text-f18 font-bold text-t1">Considering 8 ft, 10 ft or 12 ft tree stakes?</h3>
           <p className="mt-[8px] text-f14 leading-golden text-t2">
-            An inquiry for 8 ft (2.44 m), 10 ft (3.05 m) or 12 ft (3.66 m) fiberglass tree stakes starts a length review, not a stock selection. These requested lengths are not confirmed F1 sizes or structural ratings. Send tree height, proposed tie height, exposed length, soil, embedment and wind exposure so F1 can review the diameter, production feasibility and transport limits before quoting. A taller stake is not automatically the right support for a taller tree. Driving depth, tie height and weight per stake are in the guide to{" "}
+            Stakes are cut from continuous pultruded rod, so 8 ft (2.44 m), 10 ft (3.05 m) and 12 ft (3.66 m) are cut lengths made to order, not stock sizes or structural ratings. Send tree height, proposed tie height, exposed length, soil, embedment and wind exposure so F1 can check the diameter against the length before quoting. A taller stake is not automatically the right support for a taller tree. Driving depth, tie height and weight per stake are in the guide to{" "}
             <Link href="/resources/blog/8-ft-fiberglass-tree-stakes" className={link}>8 ft fiberglass tree stakes</Link>.
           </p>
         </div>
