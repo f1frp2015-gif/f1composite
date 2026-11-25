@@ -1,5 +1,26 @@
+import { E23_MIN } from "@/lib/catalog/en13706";
+
+/** A data table shown under the configuration cards: reference sizes or design figures with their basis. */
+export interface CustomProductData {
+  title: string; intro: string; columns: string[]; rows: string[][]; note: string;
+  source?: { label: string; href: string };
+}
+
+/** Section properties of an equal tee (flange B × depth H, constant wall t), for reference sizes made to order. */
+function teeRow(B: number, H: number, t: number): string[] {
+  const Af = B * t, As = t * (H - t), A = Af + As;
+  const y = (Af * t / 2 + As * (t + (H - t) / 2)) / A; // centroid from the flange top
+  const Ix = B * t ** 3 / 12 + Af * (y - t / 2) ** 2 + t * (H - t) ** 3 / 12 + As * (t + (H - t) / 2 - y) ** 2;
+  const Iy = t * B ** 3 / 12 + (H - t) * t ** 3 / 12;
+  const f = (n: number, d = 1) => n.toLocaleString("en-US", { minimumFractionDigits: d, maximumFractionDigits: d });
+  return [`${B} × ${H} × ${t}`, f(A, 0), f(A * 1.9e-3, 2), f(y), f(Ix / 1e4, 1), f(Ix / Math.max(y, H - y) / 1e3, 2), f(Iy / 1e4, 1)];
+}
+const teeSizes: [number, number, number][] = [[25, 25, 3], [38, 38, 5], [50, 50, 5], [50, 50, 6], [75, 75, 6], [75, 75, 8], [100, 100, 8], [100, 100, 10], [150, 150, 10]];
+const lbFtPerFt = (v: number) => `${v.toLocaleString("en-US")} lb·ft/ft (${(v * 4.448e-3).toFixed(1)} kN·m/m)`;
+
 export interface CustomProductPage {
   slug: string; name: string; title: string; description: string; intro: string; use: string; image: string; imageAlt: string;
+  data?: CustomProductData;
   /** Describes the drawing and what it does not establish. */
   imageCaption: string;
   status: string;
@@ -7,7 +28,7 @@ export interface CustomProductPage {
 }
 
 /** One review date for the five custom product pages, shown on each page and in the sitemap. */
-export const customProductUpdated = "2026-10-03";
+export const customProductUpdated = "2026-11-24";
 
 export const customProductPages: CustomProductPage[] = [
   {
@@ -113,7 +134,7 @@ export const customProductPages: CustomProductPage[] = [
       ],
       [
         "Joint detailing",
-        "Check bearing, pull-through, bond preparation and how the flange transfers force into the stem. A coupon strength is not a rated joint capacity."
+        "Check bearing at the bolt holes, pull-through, bond preparation and how the flange transfers force into the stem. Holes across the flange cut the lengthwise fibers, so keep them out of the stem root."
       ],
       [
         "Tooling and samples",
@@ -130,11 +151,11 @@ export const customProductPages: CustomProductPage[] = [
     faq: [
       [
         "Can a T profile replace a steel tee directly?",
-        "Replacement needs a new section and connection check using the proposed GFRP properties. Match deflection, stability and joint behavior as well as strength."
+        `Not at the same size. E23 fiberglass has a lengthwise modulus of ${E23_MIN.e_l_gpa} GPa against 210 GPa for steel, so a tee of the same dimensions deflects about nine times as much. Use the Ix column in the size table to pick a deeper section, then check the joint.`
       ],
       [
         "Can the flange and stem have different thicknesses?",
-        "Yes, this can be reviewed as a custom geometry. Tooling feasibility, reinforcement and corner transitions must be checked before a section is confirmed."
+        "Yes. The die can give the flange and stem different thicknesses with a radiused corner between them. The thicker leg takes longest to cure, so it sets the line speed."
       ]
     ],
     related: [
@@ -152,6 +173,13 @@ export const customProductPages: CustomProductPage[] = [
       ]
     ],
     image: "/images/products/custom-range/fiberglass-t-profiles.svg",
+    data: {
+      title: "Reference tee sizes and section properties",
+      intro: "Equal tees with a constant wall, calculated from the geometry at a laminate density of 1.9 g/cm³. Corner radii are ignored, so real sections differ by a few percent. Each size is made to order on a new die.",
+      columns: ["Size B × H × t, mm", "Area, mm²", "Mass, kg/m", "Centroid from flange top, mm", "Ix, cm⁴", "Wx (stem tip), cm³", "Iy, cm⁴"],
+      rows: teeSizes.map(([B, H, t]) => teeRow(B, H, t)),
+      note: `Material for checks: EN 13706 E23 minimums, ${E23_MIN.e_l_gpa} GPa lengthwise modulus and ${E23_MIN.tensile_l_mpa} MPa lengthwise tensile strength. Ix is about the horizontal axis through the centroid; the stem tip is the extreme fiber, so Wx = Ix / (H − centroid).`,
+    },
     imageCaption: "Flange and stem of a pultruded tee. Dimensions, wall thicknesses and radii are set by the approved section drawing.",
     imageAlt: "Schematic of fiberglass T profiles; conceptual geometry, not a production drawing",
     status: "Custom inquiry · specification review required"
@@ -166,29 +194,29 @@ export const customProductPages: CustomProductPage[] = [
     options: [
       [
         "Wall section",
-        "Profile depth, effective cover width, laminate and interlock geometry define the wall section. Request properties for the complete offered profile."
+        "Profile depth, effective cover width, laminate and interlock geometry define the wall section; its moment capacity is set by local buckling of the compression flange, so flange width-to-thickness matters as much as depth."
       ],
       [
         "Joints and accessories",
-        "Corner pieces, capping, walers, tie connections and sealing arrangements need a coordinated wall detail. Interlocking alone does not establish watertightness."
+        "Corner pieces, capping, walers, tie connections and sealing arrangements need a coordinated wall detail. Use oversized washers or plates at walers and tie rods to spread point loads into the sheet."
       ],
       [
         "Exposure",
-        "Freshwater or saltwater, soil chemistry, sunlight, abrasion and temperature inform the material and protective finish."
+        "Vinyl ester resin for saltwater and aggressive soils, and a UV-stabilized surface veil on the face exposed above the waterline. Heavy ice flow or severe abrasion rules FRP sheets out."
       ]
     ],
     checks: [
       [
         "Geotechnical design",
-        "Soil layers, water levels, surcharge, scour and required embedment must be assessed for the whole wall. An ordinary profile beam calculator cannot design a retaining wall."
+        "The wall is modelled in sheet-pile software such as SPW911 with soil layers, water levels, slopes, surcharge and scour. Its output moment, shear, wale force and deflection are then checked against the pile section."
       ],
       [
         "Structural verification",
-        "Review long-term bending, shear, local buckling and interlock behavior using section-specific evidence. Check anchors, walers and cap connections as part of the same load path."
+        "Design to characteristic values per ASTM D7290 with allowable-stress safety factors of about 2.5 in bending and 3.0 in shear. Take deflection with the lower of the lengthwise tensile and compressive modulus; deflection often decides the section."
       ],
       [
         "Installation trial",
-        "Confirm handling, driving equipment, protection of the pile head and interlock engagement. Trial installation should establish feasibility in the actual ground before bulk procurement."
+        "FRP sheets drive with a vibratory hammer in soils with SPT blow counts of about 20 or less. Stiffer ground needs pre-excavation, jetting or a steel driving mandrel; a trial pair of sheets on site shows which."
       ]
     ],
     rfq: [
@@ -205,7 +233,7 @@ export const customProductPages: CustomProductPage[] = [
       ],
       [
         "Is F1 quoting a complete installed seawall?",
-        "The initial inquiry is for custom sections and agreed accessories. Engineering, installation and performance responsibilities must be defined separately in the quotation."
+        "The quotation covers the pile sections, caps and connectors made to your drawing. Wall design, driving and the installed performance stay with the project engineer and the piling contractor."
       ]
     ],
     related: [
@@ -223,6 +251,21 @@ export const customProductPages: CustomProductPage[] = [
       ]
     ],
     image: "/images/products/custom-range/frp-sheet-piling.svg",
+    data: {
+      title: "Design figures for FRP sheet-pile walls",
+      intro: "Published figures from full-section testing and design practice for pultruded FRP sheet piles. They show why buckling, not material strength, sizes the sheet.",
+      columns: ["Item", "Figure", "What it means for the wall"],
+      rows: [
+        ["Tested moment capacity of one section", lbFtPerFt(16569), "Failure came at a flange compression stress of 15,201 psi (105 MPa), about 30% of the material's 50 ksi (345 MPa) compressive strength: local buckling governed."],
+        ["Predicted capacity, same section", `${lbFtPerFt(14472)} by mechanics of materials; ${lbFtPerFt(13128)} by FEA`, "Both methods were conservative against the test, by 13% and 21%."],
+        ["Allowable-stress safety factors", "2.0–2.5 bending · 2.0–3.0 shear · 2.5–3.0 connections", "Applied to characteristic values derived per ASTM D7290 (80% lower confidence bound on the 5th percentile)."],
+        ["Recommended for design", "2.5 in bending, 3.0 in shear", "Divide the characteristic moment by 2.5 to get the allowable wall moment."],
+        ["Modulus for deflection", "Lower of lengthwise tensile and compressive E", "Deflection often governs the section choice."],
+        ["Driving", "SPT blow count of about 20 or less", "Above that, pre-excavate or use a driving mandrel."],
+      ],
+      note: "Moments are per unit length of wall. Converted at 1 lb·ft/ft = 4.448 N·m/m.",
+      source: { label: "ACMA Composites Technology Day 2021: FRP sheet piling design and installation (PDF)", href: "https://acmanet.org/wp-content/uploads/2024/02/B1-Troutman-2021-ACMA-CI-Tech-Day-Sheet-Piling-1.pdf" },
+    },
     imageCaption: "Interlocking sheet-pile section with its repeating wall width. Section depth, interlock detail and embedment are not established by the drawing.",
     imageAlt: "Schematic of FRP sheet piling; conceptual geometry, not a production drawing",
     status: "Custom inquiry · specification review required"

@@ -16,7 +16,7 @@ import ProductRfq from "@/components/products/ProductRfq";
 import ProductSection from "@/components/products/ProductSection";
 import RelatedProfiles from "@/components/products/RelatedProfiles";
 import UseList from "@/components/products/UseList";
-import { supplyTerms } from "@/content/data/company";
+import { supplyTerms, weeks } from "@/content/data/company";
 import { commercialFacts } from "@/content/data/engineeringEvidence";
 import { loadFamilySizes } from "@/lib/catalog/familySizes";
 import { familyApplications } from "@/lib/familyApplications";
@@ -51,7 +51,7 @@ const faqItems = [
   },
   {
     question: "What is the minimum order quantity and lead time?",
-    answer: "Minimum quantity and timing are confirmed for the section, resin, tooling and processing required. Send your trial quantity, expected repeat demand, destination and target date. Ask for sample arrangements and production and shipping timing to be listed separately in the quotation.",
+    answer: `The minimum order is ${supplyTerms.moqMeters.toLocaleString("en-US")} m per section. Catalog sizes are produced in ${weeks(supplyTerms.catalogLeadTimeWeeks)}; a size that needs a new die takes ${weeks(supplyTerms.newDieLeadTimeWeeks)} to first delivery. ${supplyTerms.samplePolicy}`,
   },
   {
     question: "What is the advantage of FRP square tubes over open profiles?",

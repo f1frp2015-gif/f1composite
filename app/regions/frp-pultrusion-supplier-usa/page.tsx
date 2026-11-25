@@ -56,7 +56,7 @@ const faqs = [
   {
     question: "What is the MOQ for custom pultrusion in the US market?",
     answer:
-      `The minimum first run is ${supplyTerms.customMoqMeters.firstRun} linear meters, and repeat orders start at ${supplyTerms.customMoqMeters.repeat} meters. A new die takes ${weeks(supplyTerms.dieManufactureWeeks)} to make and costs from ${usdRange(supplyTerms.dieCostUsd.singleCavity)} for a small single-cavity die to ${usdRange(supplyTerms.dieCostUsd.largeOrMultiCavity)} for a large or multi-cavity one. It is a one-time cost, and we keep the die for repeat orders. For samples and validation orders under ${supplyTerms.customMoqMeters.repeat} meters, we ship an existing standard section or a close match from the existing dies. Send us your drawing: if it matches an existing die, a shorter validation run may be possible.`,
+      `The minimum order is ${supplyTerms.moqMeters.toLocaleString("en-US")} linear meters per section, for a first run or a repeat order. A new die takes ${weeks(supplyTerms.dieManufactureWeeks)} to make and costs from ${usdRange(supplyTerms.dieCostUsd.singleCavity)} for a small single-cavity die to ${usdRange(supplyTerms.dieCostUsd.largeOrMultiCavity)} for a large or multi-cavity one. It is a one-time cost, and we keep the die for repeat orders. For samples and validation orders under ${supplyTerms.customMoqMeters.repeat} meters, we ship an existing standard section or a close match from the existing dies. Send us your drawing: if it matches an existing die, a shorter validation run may be possible.`,
   },
   {
     question: "How does F1's FRP compare to Strongwell, Creative Pultrusions, and Bedford Reinforced?",

@@ -15,7 +15,7 @@ import { FAQList } from "@/components/ui/FAQ";
 import RelatedLinks from "@/components/sections/RelatedLinks";
 import { getSeoQueryTarget } from "@/content/data/seoQueryTargets";
 import { buildPageMetadata, absoluteUrl } from "@/lib/seo";
-import { supplyTerms, usdRange } from "@/content/data/company";
+import { supplyTerms, usdRange, weeks } from "@/content/data/company";
 import {
   estimatePrice,
   PRICE_BASIS_DATE,
@@ -93,7 +93,7 @@ export default function ProfilePricePage() {
     {
       question: "What is the minimum order quantity for pultruded profiles?",
       answer:
-        `Catalog sections have no fixed minimum; quantity and production timing are confirmed in the quotation. Below about 100 m (rounds, squares, angles) to 200 m (channels, I-beams) the estimator adds a small-batch premium, which reflects real setup economics rather than a penalty. Custom cross-sections carry a ${supplyTerms.customMoqMeters.firstRun} m first-run minimum; the custom pultrusions page gives tooling costs and lead times.`,
+        `The minimum order is ${supplyTerms.moqMeters.toLocaleString("en-US")} m per section, for catalog and custom sections, produced in ${weeks(supplyTerms.catalogLeadTimeWeeks)}. Shorter lengths are supplied as samples, priced to the request with freight paid by the buyer. The estimator still prices short trial lengths, adding a setup premium below about 100 m (rounds, squares, angles) to 200 m (channels, I-beams). The custom pultrusions page gives tooling costs and lead times.`,
     },
     {
       question: "How much more expensive is carbon fiber pultrusion?",
@@ -225,7 +225,7 @@ export default function ProfilePricePage() {
             },
             {
               title: "Order quantity",
-              body: <>Setup, die warm-up and first-article scrap are spread over the run. Expect roughly 5% off at 1,000+ m, 8% at 5,000 m and 12% at 20,000 m, and a premium below the family MOQ. The quantity columns in the table show the effect.</>,
+              body: <>Setup, die warm-up and first-article scrap are spread over the run. Expect roughly 5% off at 1,000+ m, 8% at 5,000 m and 12% at 20,000 m, and a premium for short trial lengths. The quantity columns in the table show the effect.</>,
             },
             {
               title: "Performance packages",

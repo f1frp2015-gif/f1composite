@@ -66,7 +66,7 @@ SHS 25×25 to SHS 240×240, RHS 40×20 to RHS 120×60
 - Resin systems: polyester, vinyl ester, polyurethane, epoxy
 - Fiber types: E-glass, ECR-glass, carbon, basalt, aramid
 - Tooling lead time: ${weeks(supplyTerms.dieManufactureWeeks)}
-- MOQ: typically ${supplyTerms.customMoqMeters.firstRun} linear meters (first run); repeat orders from ${supplyTerms.customMoqMeters.repeat} meters
+- MOQ: ${supplyTerms.moqMeters} linear meters per section (catalog or custom, first or repeat order). ${supplyTerms.samplePolicy}
 - Tolerance: to ASTM D3917 or EN 13706-2 by dimension and wall thickness, as confirmed on the approved drawing
 
 ### Fenestration Systems
@@ -117,7 +117,7 @@ ISO 9001, EN 13706 (E17/E23), ASTM D638 (tensile), ASTM D790 (flexural), ASTM D3
 - Custom variant on an existing die (resin, color, length): ${weeks(supplyTerms.existingDieVariantLeadTimeWeeks)}
 - New custom profile: ${weeks(supplyTerms.newDieLeadTimeWeeks)} from approved drawing to first delivery, including ${weeks(supplyTerms.dieManufactureWeeks)} for the die
 - Window and door system projects: ${weeks(supplyTerms.fenestrationLeadTimeWeeks)}
-- Custom profile minimum order: ${supplyTerms.customMoqMeters.firstRun} m first run, ${supplyTerms.customMoqMeters.repeat} m repeat orders
+- Minimum order: ${supplyTerms.moqMeters} m per section, catalog or custom
 - Inquiries are acknowledged within ${supplyTerms.responseTime}
 
 ## Resin Systems

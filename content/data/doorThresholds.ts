@@ -57,7 +57,7 @@ export const doorThresholds = {
     {
       title: "Low-profile entrances",
       tag: "Floor-level coordination",
-      body: "Coordinate the visible step with the interior floor, exterior paving and water-management detail. A low threshold needs the complete opening and installation to work together.",
+      body: "Coordinate the visible step with the interior floor, exterior paving and water-management detail. In the US the ADA allows a threshold up to 1/2 in (13 mm) high, beveled at 1:2 above 1/4 in; in England, Approved Document M sets 15 mm as the total height for an accessible threshold.",
       inputs: "Floor build-up · exposure · access requirements",
     },
   ],
@@ -81,7 +81,7 @@ export const doorThresholds = {
     {
       question: "Can the threshold be used with uPVC, timber or aluminum frames?",
       answer:
-        "A threshold can be developed for these frame materials, but the interfaces must be checked for the specific system. Supply the mating frame, seal and fixing drawings. Material choice alone does not establish compatibility with an existing frame series.",
+        "A threshold can be developed for these frame materials, but the interfaces must be checked for the specific system. Supply the mating frame, seal and fixing drawings so the jamb feet, seal compression and end blocks can be drawn into the section. Fiberglass expands 8–11 × 10⁻⁶/K lengthwise, close to steel (12) and about half of aluminum (23), so end gaps stay small on long sills.",
     },
     {
       question: "Do you supply profiles or complete threshold assemblies?",
@@ -91,17 +91,17 @@ export const doorThresholds = {
     {
       question: "Does a fiberglass sill make a door thermally broken or watertight?",
       answer:
-        "A composite section can help limit a conductive path through the sill, but whole-door performance also depends on the leaf, frame, glazing, metal components, seals and installation. Thermal and weather-performance claims require evidence for the complete proposed configuration.",
+        "It removes the sill as a thermal bridge: pultruded glass fiber conducts about 0.3 W/(m·K), aluminum about 160. The U-value and the air and water ratings belong to the complete door (EN 14351-1 in Europe, NAFS / AAMA 101 in North America), so the threshold is one input to that rating, not a rating of its own.",
     },
     {
       question: "What sizes and minimum order quantities are available?",
       answer:
-        "Send the section drawing, required lengths and demand. F1 will review tooling, manufacturing feasibility, sample requirements and order quantity before quoting. Published concept drawings are not a stocked-size catalog.",
+        "MOQ_ANSWER",
     },
     {
       question: "Can you develop a low threshold for accessible entrances?",
       answer:
-        "Low-profile geometry can be reviewed as a design requirement. Confirm the applicable project access requirements, allowable step, approach surfaces and weather exposure with the designer. A low section on its own does not establish compliance for the installed entrance.",
+        "Low-profile geometry can be reviewed as a design requirement. The usual targets are 1/2 in (13 mm) maximum under ADA 2010 §404.2.5, with any rise above 1/4 in beveled at 1:2 (§303), and 15 mm total in Approved Document M. Drainage then has to come from the fall of the paving and a drained sill chamber rather than a high upstand.",
     },
   ],
 } as const;

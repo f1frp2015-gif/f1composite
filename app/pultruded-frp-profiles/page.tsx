@@ -260,11 +260,11 @@ const faqItems = [
   },
   {
     question: "What is the lead time for pultruded FRP profiles?",
-    answer: `Catalog sections ship in ${weeks(supplyTerms.catalogLeadTimeWeeks)}. A variant on existing tooling takes ${weeks(supplyTerms.existingDieVariantLeadTimeWeeks)}; a new die ${weeks(supplyTerms.newDieLeadTimeWeeks)} including die manufacture. The standard length is ${supplyTerms.standardLengthM} m, with cut lengths on request. Production timing is confirmed in the quotation.`,
+    answer: `Catalog sections and variants on an existing die are produced in ${weeks(supplyTerms.catalogLeadTimeWeeks)}; a new die takes ${weeks(supplyTerms.newDieLeadTimeWeeks)} to first delivery, including die manufacture. The standard length is ${supplyTerms.standardLengthM} m, with cut lengths on request.`,
   },
   {
     question: "Is there a minimum order quantity?",
-    answer: `Catalog sections have no fixed minimum. Custom profiles start at ${supplyTerms.customMoqMeters.firstRun} linear meters for the first production run and ${supplyTerms.customMoqMeters.repeat} m for repeat orders; tooling is quoted separately.`,
+    answer: `The minimum order is ${supplyTerms.moqMeters.toLocaleString("en-US")} linear meters per section, for catalog sections and custom profiles alike; a custom die is quoted separately. ${supplyTerms.samplePolicy}`,
   },
   {
     question: "Do you supply pultruded fibreglass profiles to the UK?",
@@ -367,7 +367,7 @@ export default async function PultrudedFRPProfilesHubPage() {
           { label: "Catalog sizes", value: String(sizeCount) },
           { label: "Standards", value: "EN 13706 E23 · ASTM D3917" },
           { label: "Catalog lead time", value: weeks(supplyTerms.catalogLeadTimeWeeks) },
-          { label: "Custom MOQ", value: `${supplyTerms.customMoqMeters.firstRun} m first run` },
+          { label: "MOQ", value: `${supplyTerms.moqMeters.toLocaleString("en-US")} m per section` },
         ]}
         actions={{
           primary: { label: "Request a quote", href: quoteHref },

@@ -3931,15 +3931,15 @@ With these seven lines in the RFQ, an established factory can quote without a ro
 
 ## Step 3: Understand MOQ, lead time, and tooling economics
 
-Standard catalog profiles (I-beam, channel, angle, flat bar, square tube and round tube in common sizes) run on existing dies, so there is no tooling charge and small orders are possible. At F1 Composite they ship in 2–4 weeks, and the minimum quantity is confirmed for the section and resin. Pricing is unit-based, with mild volume breaks at 1,000 m / 5,000 m / 20,000 m.
+Standard catalog profiles (I-beam, channel, angle, flat bar, square tube and round tube in common sizes) run on existing dies, so there is no tooling charge and short sample lengths are possible. At F1 Composite they are produced in 4–8 weeks, with a minimum order of 1,000 m per section; shorter lengths are supplied as priced samples, freight paid by the buyer. Pricing is unit-based, with mild volume breaks at 1,000 m / 5,000 m / 20,000 m.
 
 Custom profiles (any cross-section that is not in the standard catalog) require dedicated tooling and have an MOQ for the first run:
 
 | Order type | Typical MOQ | Tooling lead time | Production lead time |
 | --- | --- | --- | --- |
-| Standard catalog profile | Confirmed per section | None | 2–4 weeks |
-| Custom profile, first run | 500 linear meters | 4–8 weeks | 6–10 weeks from drawing approval, die included |
-| Custom profile, repeat order | 200 linear meters | None (re-use existing die) | 2–4 weeks |
+| Standard catalog profile | 1,000 linear meters | None | 4–8 weeks |
+| Custom profile, first run | 1,000 linear meters | 4–8 weeks | 6–10 weeks from drawing approval, die included |
+| Custom profile, repeat order | 1,000 linear meters | None (re-use existing die) | 4–8 weeks |
 | Large project order (30+ tonnes) | None | None / project-specific | 4–8 weeks |
 
 Tooling for a new section is a one-time cost, quoted with the first run: typically USD 5,000–8,000 for a small single-cavity die and USD 15,000–40,000 for a large or multi-cavity one. The die then stays at the plant, so repeat orders carry no tooling charge.
@@ -3993,7 +3993,7 @@ Before the RFQ, the [fiberglass pultruded profile price estimator](/fiberglass-p
     title: "FRP Profile Cost Benchmarks, MOQ, and Lead Times — 2026 Reference",
     seoTitle: "FRP Profile Prices, MOQ and Lead Times — 2026 Data",
     answerBox:
-      "2026 pultruded FRP benchmarks: FOB China reference prices for standard sections, with catalog sections made in 2–4 weeks and a new die in 4–8 weeks, plus roughly 25–40 days of sea freight to most EU and US ports. Custom MOQ 500 m first run, repeat from 200 m; a new die costs USD 5,000–8,000 (small, single-cavity) to USD 15,000–40,000 (large or multi-cavity), once.",
+      "2026 pultruded FRP benchmarks: FOB China reference prices for standard sections, with catalog sections made in 4–8 weeks and a new die in 4–8 weeks, plus roughly 25–40 days of sea freight to most EU and US ports. MOQ 1,000 m per section; a new die costs USD 5,000–8,000 (small, single-cavity) to USD 15,000–40,000 (large or multi-cavity), once.",
     category: "Procurement Reference",
     date: "2026-05-05",
     updatedAt: "2026-11-24",
@@ -4051,7 +4051,7 @@ The profile prices below come from the engine behind the [price estimator](/fibe
 | FRP rectangular tube | 120×60×5 | 2.6 | 7.3–9.9 |
 | FRP round tube | OD 50, wall 4 | 0.9 | 3.0–4.0 |
 
-Quantity moves the price in steps. Against the 1,000 m figures above, an order under 1,000 m costs about 5% more, 5,000 m about 3% less and 20,000 m or more about 7% less. Below the family minimum (100 m for round and square tubes and angles, 150 m for rectangular tubes, 200 m for channels and I-beams) a small-batch premium applies.
+Quantity moves the price in steps. Against the 1,000 m figures above, an order under 1,000 m costs about 5% more, 5,000 m about 3% less and 20,000 m or more about 7% less. The production minimum is 1,000 m per section; shorter trial lengths are priced as samples, with a setup premium below about 100 m (round and square tubes, angles) to 200 m (channels, I-beams).
 
 A regional distributor prices from local stock with delivery included, so compare delivered cost (FOB China, sea freight, import duty and inland transport) with the distributor's quote line by line.
 
@@ -4095,9 +4095,9 @@ Tooling is a one-time cost on the first run of a new section. The die then stays
 
 | Order type | Tooling | Production | Sea freight | Total to EU/US |
 | --- | --- | --- | --- | --- |
-| Standard catalog profile | — | 2–4 weeks | 25–40 days | 6–10 weeks |
+| Standard catalog profile | — | 4–8 weeks | 25–40 days | 8–14 weeks |
 | Custom profile, first run | 4–8 weeks | about 2 weeks after the die | 25–40 days | 10–16 weeks |
-| Custom profile, repeat | — | 2–4 weeks | 25–40 days | 6–10 weeks |
+| Custom profile, repeat | — | 4–8 weeks | 25–40 days | 8–14 weeks |
 | Large stocking order (30+ tonnes) | — | 4–8 weeks | 25–40 days | 8–14 weeks |
 | PHI-certified 90 Series fenestration | — | 6–12 weeks | 25–40 days | 10–18 weeks |
 
